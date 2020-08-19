@@ -1,9 +1,14 @@
-# Node
+# macOS
+.DS_Store
+
+# VS Code
+.vscode
+
+# IntelliJ
+.idea
+
+# node
 node_modules
 
-# Expo
-.expo
-
-# IDE/Editor
-.idea
-.vscode
+# env
+.env

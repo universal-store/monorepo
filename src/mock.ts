@@ -1,5 +1,5 @@
 import { SchemaLink } from 'apollo-link-schema';
-import { addMockFunctionsToSchema, makeExecutableSchema } from 'graphql-tools';
+import { addMocksToSchema, makeExecutableSchema } from 'graphql-tools';
 
 const typeDefs = `
 type Query {
@@ -35,7 +35,7 @@ const mocks = {
 };
 
 const schema = makeExecutableSchema({ typeDefs });
-addMockFunctionsToSchema({ mocks, schema });
+addMocksToSchema({ mocks, schema });
 
 export const mockedLink = new SchemaLink({ schema });
 

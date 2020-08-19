@@ -11,347 +11,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f3f3fbb-2e1f-4ed0-93cc-4681274b1cfb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.expo/packager-info.json" beforeDir="false" afterPath="$PROJECT_DIR$/.expo/packager-info.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.yarn-integrity" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.yarn-integrity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@apollo/react-components/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@apollo/react-components/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@apollo/react-components/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@apollo/react-components/index.esm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@apollo/react-components/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@apollo/react-components/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@apollo/react-hooks/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@apollo/react-hooks/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@apollo/react-hooks/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@apollo/react-hooks/index.esm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@apollo/react-hooks/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@apollo/react-hooks/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/jest.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/cache.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/cache.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/cache.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/cache.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/diffAgainstStore.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/diffAgainstStore.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/diffAgainstStore.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/diffAgainstStore.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/fragmentMatcher.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/fragmentMatcher.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/fragmentMatcher.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/fragmentMatcher.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/mapCache.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/mapCache.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/mapCache.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/mapCache.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/objectCache.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/objectCache.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/objectCache.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/objectCache.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/readFromStore.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/readFromStore.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/readFromStore.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/readFromStore.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/recordingCache.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/recordingCache.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/recordingCache.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/recordingCache.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/roundtrip.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/roundtrip.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/roundtrip.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/roundtrip.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/writeToStore.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/writeToStore.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/writeToStore.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/__tests__/writeToStore.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/bundle.cjs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/bundle.cjs.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/bundle.cjs.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/bundle.esm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/bundle.esm.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/bundle.umd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/bundle.umd.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/depTrackingCache.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/depTrackingCache.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/depTrackingCache.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/depTrackingCache.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/fixPolyfills.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/fixPolyfills.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/fixPolyfills.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/fixPolyfills.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/fragmentMatcher.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/fragmentMatcher.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/fragmentMatcher.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/fragmentMatcher.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/fragmentMatcherIntrospectionQuery.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/fragmentMatcherIntrospectionQuery.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/fragmentMatcherIntrospectionQuery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/fragmentMatcherIntrospectionQuery.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/inMemoryCache.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/inMemoryCache.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/inMemoryCache.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/inMemoryCache.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/index.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/mapCache.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/mapCache.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/mapCache.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/mapCache.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/objectCache.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/objectCache.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/objectCache.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/objectCache.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/readFromStore.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/readFromStore.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/readFromStore.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/readFromStore.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/types.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/types.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/types.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/types.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/writeToStore.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/writeToStore.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/writeToStore.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/lib/writeToStore.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/node_modules/@wry/context/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/node_modules/@wry/context/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/node_modules/@wry/context/lib/context.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/node_modules/@wry/context/lib/context.esm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/node_modules/@wry/context/lib/context.esm.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/node_modules/@wry/context/lib/context.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/node_modules/@wry/context/lib/context.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/node_modules/@wry/context/lib/slot.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/node_modules/@wry/context/lib/slot.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/node_modules/@wry/context/lib/slot.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/node_modules/@wry/context/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/node_modules/@wry/context/rollup.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/node_modules/@wry/context/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/node_modules/@wry/context/tsconfig.rollup.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/node_modules/optimism/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/node_modules/optimism/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/node_modules/optimism/lib/bundle.cjs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/node_modules/optimism/lib/bundle.cjs.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/node_modules/optimism/lib/bundle.esm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/node_modules/optimism/lib/bundle.esm.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/node_modules/optimism/lib/cache.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/node_modules/optimism/lib/context.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/node_modules/optimism/lib/entry.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/node_modules/optimism/lib/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/node_modules/optimism/lib/key-trie.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/node_modules/optimism/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/node_modules/optimism/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache-inmemory/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/jest.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/bundle.cjs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/bundle.cjs.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/bundle.cjs.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/bundle.esm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/bundle.esm.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/bundle.umd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/bundle.umd.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/cache.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/cache.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/cache.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/cache.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/index.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/types/Cache.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/types/Cache.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/types/Cache.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/types/Cache.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/types/DataProxy.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/types/DataProxy.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/types/DataProxy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/types/DataProxy.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/types/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/types/index.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/types/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/types/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/utils.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/utils.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/utils.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/lib/utils.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/src/__tests__/__snapshots__/utils.ts.snap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/src/__tests__/cache.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/src/__tests__/utils.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/src/cache.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/src/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/src/types/Cache.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/src/types/DataProxy.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/src/types/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-cache/src/utils.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/ApolloClient.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/ApolloClient.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/ApolloClient.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/ApolloClient.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/bundle.cjs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/bundle.cjs.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/bundle.cjs.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/bundle.esm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/bundle.esm.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/bundle.umd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/bundle.umd.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/config/jest/setup.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/config/jest/setup.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/config/jest/setup.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/config/jest/setup.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/core/LocalState.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/core/LocalState.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/core/LocalState.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/core/LocalState.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/core/ObservableQuery.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/core/ObservableQuery.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/core/ObservableQuery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/core/ObservableQuery.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/core/QueryManager.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/core/QueryManager.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/core/QueryManager.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/core/QueryManager.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/core/networkStatus.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/core/networkStatus.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/core/networkStatus.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/core/networkStatus.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/core/types.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/core/types.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/core/types.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/core/types.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/core/watchQueryOptions.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/core/watchQueryOptions.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/core/watchQueryOptions.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/core/watchQueryOptions.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/data/mutations.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/data/mutations.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/data/mutations.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/data/mutations.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/data/queries.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/data/queries.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/data/queries.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/data/queries.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/data/store.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/data/store.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/data/store.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/data/store.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/errors/ApolloError.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/errors/ApolloError.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/errors/ApolloError.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/errors/ApolloError.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/index.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/util/Observable.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/util/Observable.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/util/Observable.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/util/Observable.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/util/arrays.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/util/arrays.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/util/arrays.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/util/arrays.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/util/capitalizeFirstLetter.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/util/capitalizeFirstLetter.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/util/capitalizeFirstLetter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/util/capitalizeFirstLetter.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/util/observableToPromise.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/util/observableToPromise.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/util/observableToPromise.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/util/observableToPromise.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/util/observables.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/util/observables.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/util/observables.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/util/observables.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/util/subscribeAndCount.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/util/subscribeAndCount.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/util/subscribeAndCount.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/util/subscribeAndCount.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/util/wrap.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/util/wrap.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/util/wrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/util/wrap.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/version.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/version.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/version.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-client/version.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-context/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-context/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-context/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-context/lib/bundle.cjs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-context/lib/bundle.cjs.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-context/lib/bundle.esm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-context/lib/bundle.esm.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-context/lib/bundle.umd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-context/lib/bundle.umd.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-context/lib/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-context/lib/index.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-context/lib/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-context/lib/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-context/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-error/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-error/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-error/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-error/lib/bundle.cjs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-error/lib/bundle.cjs.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-error/lib/bundle.esm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-error/lib/bundle.esm.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-error/lib/bundle.umd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-error/lib/bundle.umd.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-error/lib/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-error/lib/index.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-error/lib/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-error/lib/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-error/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http-common/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http-common/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http-common/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http-common/lib/bundle.cjs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http-common/lib/bundle.cjs.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http-common/lib/bundle.esm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http-common/lib/bundle.esm.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http-common/lib/bundle.umd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http-common/lib/bundle.umd.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http-common/lib/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http-common/lib/index.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http-common/lib/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http-common/lib/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http-common/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http/lib/bundle.cjs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http/lib/bundle.cjs.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http/lib/bundle.esm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http/lib/bundle.esm.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http/lib/bundle.umd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http/lib/bundle.umd.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http/lib/httpLink.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http/lib/httpLink.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http/lib/httpLink.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http/lib/httpLink.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http/lib/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http/lib/index.d.ts.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http/lib/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http/lib/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/apollo-link-http/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/hoist-non-react-statics/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/hoist-non-react-statics/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hoist-non-react-statics/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/hoist-non-react-statics/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hoist-non-react-statics/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/hoist-non-react-statics/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hoist-non-react-statics/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/metro-core/node_modules/fsevents/build/Release/fse.node" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/metro-core/node_modules/fsevents/build/Release/fse.node" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/metro/node_modules/fsevents/build/Release/fse.node" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/metro/node_modules/fsevents/build/Release/fse.node" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-gesture-handler/node_modules/hoist-non-react-statics/LICENSE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-gesture-handler/node_modules/hoist-non-react-statics/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-gesture-handler/node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-gesture-handler/node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-gesture-handler/node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-gesture-handler/node_modules/hoist-non-react-statics/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-gesture-handler/node_modules/hoist-non-react-statics/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-gesture-handler/node_modules/hoist-non-react-statics/src/index.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/websocket/build/Release/bufferutil.node" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/websocket/build/Release/bufferutil.node" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/websocket/build/Release/validation.node" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/websocket/build/Release/validation.node" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PostList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PostList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/AboutScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/AboutScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/HomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/HomeScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mock.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/mock.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -382,6 +64,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RunManager">
     <configuration name="Run iOS" type="js.build_tools.npm">
@@ -390,7 +73,8 @@
       <scripts>
         <script value="ios" />
       </scripts>
-      <node-interpreter value="$PROJECT_DIR$/../.nvm/versions/node/v12.18.1/bin/node" />
+      <node-interpreter value="project" />
+      <package-manager value="yarn" />
       <envs />
       <method v="2" />
     </configuration>
@@ -403,7 +87,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1597839393677</updated>
-      <workItem from="1597839394765" duration="2715000" />
+      <workItem from="1597839394765" duration="3013000" />
+      <workItem from="1597842559031" duration="97000" />
+      <workItem from="1597842740182" duration="767000" />
     </task>
     <servers />
   </component>
@@ -420,27 +106,28 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1975" y="-571" width="1219" height="848" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597840665071">
+    <state x="1975" y="-571" width="1219" height="935" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597842755837">
       <screen x="1440" y="-689" width="2560" height="1055" />
     </state>
-    <state x="1975" y="-571" width="1219" height="848" key="#com.intellij.execution.impl.EditConfigurationsDialog/51.25.1389.875/1440.-689.2560.1055@1440.-689.2560.1055" timestamp="1597840665071" />
-    <state width="2096" height="235" key="GridCell.Tab.0.bottom" timestamp="1597841550153">
+    <state x="1975" y="-571" width="1219" height="935" key="#com.intellij.execution.impl.EditConfigurationsDialog/51.25.1389.875/1440.-689.2560.1055@1440.-689.2560.1055" timestamp="1597842755837" />
+    <state width="2096" height="235" key="GridCell.Tab.0.bottom" timestamp="1597843334626">
       <screen x="1440" y="-689" width="2560" height="1055" />
     </state>
-    <state width="2096" height="235" key="GridCell.Tab.0.bottom/51.25.1389.875/1440.-689.2560.1055@1440.-689.2560.1055" timestamp="1597841550153" />
-    <state width="2096" height="235" key="GridCell.Tab.0.center" timestamp="1597841550152">
+    <state width="2096" height="235" key="GridCell.Tab.0.bottom/51.25.1389.875/1440.-689.2560.1055@1440.-689.2560.1055" timestamp="1597843334626" />
+    <state width="2096" height="235" key="GridCell.Tab.0.center" timestamp="1597843334624">
       <screen x="1440" y="-689" width="2560" height="1055" />
     </state>
-    <state width="2096" height="235" key="GridCell.Tab.0.center/51.25.1389.875/1440.-689.2560.1055@1440.-689.2560.1055" timestamp="1597841550152" />
-    <state width="2096" height="235" key="GridCell.Tab.0.left" timestamp="1597841550150">
+    <state width="2096" height="235" key="GridCell.Tab.0.center/51.25.1389.875/1440.-689.2560.1055@1440.-689.2560.1055" timestamp="1597843334624" />
+    <state width="2096" height="235" key="GridCell.Tab.0.left" timestamp="1597843334623">
       <screen x="1440" y="-689" width="2560" height="1055" />
     </state>
-    <state width="2096" height="235" key="GridCell.Tab.0.left/51.25.1389.875/1440.-689.2560.1055@1440.-689.2560.1055" timestamp="1597841550150" />
-    <state width="2096" height="235" key="GridCell.Tab.0.right" timestamp="1597841550153">
+    <state width="2096" height="235" key="GridCell.Tab.0.left/51.25.1389.875/1440.-689.2560.1055@1440.-689.2560.1055" timestamp="1597843334623" />
+    <state width="2096" height="235" key="GridCell.Tab.0.right" timestamp="1597843334625">
       <screen x="1440" y="-689" width="2560" height="1055" />
     </state>
-    <state width="2096" height="235" key="GridCell.Tab.0.right/51.25.1389.875/1440.-689.2560.1055@1440.-689.2560.1055" timestamp="1597841550153" />
+    <state width="2096" height="235" key="GridCell.Tab.0.right/51.25.1389.875/1440.-689.2560.1055@1440.-689.2560.1055" timestamp="1597843334625" />
   </component>
 </project>

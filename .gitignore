@@ -1,0 +1,9 @@
+# Node
+node_modules
+
+# Expo
+.expo
+
+# IDE/Editor
+.idea
+.vscode

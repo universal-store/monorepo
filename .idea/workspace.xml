@@ -12,7 +12,232 @@
   <component name="ChangeListManager">
     <list default="true" id="0f3f3fbb-2e1f-4ed0-93cc-4681274b1cfb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.yarn-integrity" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.yarn-integrity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@wry/equality/lib/equality.esm.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@wry/equality/lib/equality.esm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@wry/equality/lib/equality.esm.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@wry/equality/lib/equality.esm.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@wry/equality/lib/equality.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@wry/equality/lib/equality.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@wry/equality/lib/equality.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@wry/equality/lib/equality.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@wry/equality/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@wry/equality/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@wry/equality/wry-equality-0.1.11.tgz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/apollo-utilities/node_modules/@wry/equality/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/apollo-utilities/node_modules/@wry/equality/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/apollo-utilities/node_modules/@wry/equality/lib/equality.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/apollo-utilities/node_modules/@wry/equality/lib/equality.esm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/apollo-utilities/node_modules/@wry/equality/lib/equality.esm.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/apollo-utilities/node_modules/@wry/equality/lib/equality.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/apollo-utilities/node_modules/@wry/equality/lib/equality.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/apollo-utilities/node_modules/@wry/equality/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/apollo-utilities/node_modules/@wry/equality/rollup.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/apollo-utilities/node_modules/@wry/equality/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/apollo-utilities/node_modules/@wry/equality/tsconfig.rollup.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/android/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/android/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/EdgeInsets.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/InsetsChangeEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/Rect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaContextPackage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaProviderManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaViewEdges.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaViewLocalData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaViewManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaViewMode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaViewShadowNode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SerializationUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/ios/SafeAreaView.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/ios/SafeAreaView/RCTView+SafeAreaCompat.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/ios/SafeAreaView/RCTView+SafeAreaCompat.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/ios/SafeAreaView/RNCSafeAreaProvider.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/ios/SafeAreaView/RNCSafeAreaProvider.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/ios/SafeAreaView/RNCSafeAreaProviderManager.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/ios/SafeAreaView/RNCSafeAreaProviderManager.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/ios/SafeAreaView/RNCSafeAreaShadowView.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/ios/SafeAreaView/RNCSafeAreaShadowView.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/ios/SafeAreaView/RNCSafeAreaView.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/ios/SafeAreaView/RNCSafeAreaView.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/ios/SafeAreaView/RNCSafeAreaViewEdges.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/ios/SafeAreaView/RNCSafeAreaViewEdges.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/ios/SafeAreaView/RNCSafeAreaViewLocalData.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/ios/SafeAreaView/RNCSafeAreaViewLocalData.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/ios/SafeAreaView/RNCSafeAreaViewManager.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/ios/SafeAreaView/RNCSafeAreaViewManager.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/ios/SafeAreaView/RNCSafeAreaViewMode.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/ios/SafeAreaView/RNCSafeAreaViewMode.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/commonjs/InitialWindow.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/commonjs/InitialWindow.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/commonjs/InitialWindow.native.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/commonjs/InitialWindow.native.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/commonjs/NativeSafeAreaProvider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/commonjs/NativeSafeAreaProvider.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/commonjs/NativeSafeAreaProvider.native.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/commonjs/NativeSafeAreaProvider.native.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/commonjs/SafeArea.types.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/commonjs/SafeArea.types.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/commonjs/SafeAreaContext.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/commonjs/SafeAreaContext.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/commonjs/SafeAreaView.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/commonjs/SafeAreaView.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/commonjs/SafeAreaView.native.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/commonjs/SafeAreaView.native.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/commonjs/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/commonjs/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/module/InitialWindow.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/module/InitialWindow.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/module/InitialWindow.native.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/module/InitialWindow.native.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/module/NativeSafeAreaProvider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/module/NativeSafeAreaProvider.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/module/NativeSafeAreaProvider.native.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/module/NativeSafeAreaProvider.native.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/module/SafeArea.types.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/module/SafeArea.types.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/module/SafeAreaContext.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/module/SafeAreaContext.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/module/SafeAreaView.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/module/SafeAreaView.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/module/SafeAreaView.native.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/module/SafeAreaView.native.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/module/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/module/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/typescript/example/src/App.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/typescript/example/src/HooksExample.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/typescript/example/src/NativeStackExample.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/typescript/example/src/ReactNativeSafeAreaView.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/typescript/example/src/ReactNavigation4Example.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/typescript/example/src/ReactNavigation5Example.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/typescript/example/src/SafeAreaViewExample.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/typescript/example/src/components/DataView.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/typescript/example/src/components/ReactNavigationDetailScreen.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/typescript/example/src/components/ReactNavigationHomeScreen.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/typescript/example/src/components/ReactNavigationModalDetailScreen.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/typescript/example/src/components/ReactNavigationSettingsScreen.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/typescript/example/src/components/SafeAreaViewVisualizer.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/typescript/example/src/components/withProvider.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/typescript/example/src/types/Navigation.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/typescript/src/InitialWindow.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/typescript/src/InitialWindow.native.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/typescript/src/NativeSafeAreaProvider.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/typescript/src/NativeSafeAreaProvider.native.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/typescript/src/SafeArea.types.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/typescript/src/SafeAreaContext.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/typescript/src/SafeAreaView.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/typescript/src/SafeAreaView.native.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/lib/typescript/src/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/node_modules/.bin/react-native" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/react-native-safe-area-context.podspec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/src/InitialWindow.native.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/src/InitialWindow.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/src/NativeSafeAreaProvider.native.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/src/NativeSafeAreaProvider.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/src/SafeArea.types.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/src/SafeAreaContext.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/src/SafeAreaView.native.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/src/SafeAreaView.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/expo/node_modules/react-native-safe-area-context/src/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/metro-core/node_modules/fsevents/build/Release/fse.node" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/metro-core/node_modules/fsevents/build/Release/fse.node" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/metro/node_modules/fsevents/build/Release/fse.node" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/metro/node_modules/fsevents/build/Release/fse.node" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaViewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaViewManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/commonjs/CompatNativeSafeAreaProvider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/commonjs/CompatNativeSafeAreaProvider.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/commonjs/NativeSafeAreaProvider.macos.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/commonjs/NativeSafeAreaProvider.macos.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/commonjs/NativeSafeAreaProvider.windows.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/commonjs/NativeSafeAreaProvider.windows.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/commonjs/SafeAreaView.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/commonjs/SafeAreaView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/commonjs/SafeAreaView.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/commonjs/SafeAreaView.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/commonjs/SafeAreaView.macos.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/commonjs/SafeAreaView.macos.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/commonjs/SafeAreaView.windows.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/commonjs/SafeAreaView.windows.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/module/CompatNativeSafeAreaProvider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/module/CompatNativeSafeAreaProvider.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/module/NativeSafeAreaProvider.macos.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/module/NativeSafeAreaProvider.macos.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/module/NativeSafeAreaProvider.windows.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/module/NativeSafeAreaProvider.windows.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/module/SafeAreaView.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/module/SafeAreaView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/module/SafeAreaView.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/module/SafeAreaView.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/module/SafeAreaView.macos.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/module/SafeAreaView.macos.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/module/SafeAreaView.windows.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/module/SafeAreaView.windows.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/typescript/src/CompatNativeSafeAreaProvider.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/typescript/src/NativeSafeAreaProvider.macos.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/typescript/src/NativeSafeAreaProvider.windows.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/typescript/src/SafeArea.types.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/typescript/src/SafeArea.types.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/typescript/src/SafeAreaView.macos.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/lib/typescript/src/SafeAreaView.windows.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/react-native.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/src/CompatNativeSafeAreaProvider.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/src/NativeSafeAreaProvider.macos.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/src/NativeSafeAreaProvider.windows.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/src/SafeArea.types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/src/SafeArea.types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/src/SafeAreaView.macos.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/src/SafeAreaView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/src/SafeAreaView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-safe-area-context/src/SafeAreaView.windows.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/Screen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenDisappearEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackHeaderConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackHeaderConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenViewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenViewManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWillAppearEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWillDisappearEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/ios/RNSScreen.h" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/ios/RNSScreen.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/ios/RNSScreen.m" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/ios/RNSScreen.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/ios/RNSScreenStack.m" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/ios/RNSScreenStack.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/ios/RNSScreenStackHeaderConfig.h" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/ios/RNSScreenStackHeaderConfig.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/ios/RNSScreenStackHeaderConfig.m" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/ios/RNSScreenStackHeaderConfig.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/ios/RNScreens.xcodeproj/project.xcworkspace/xcuserdata/wojciechlewicki.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/ios/RNScreens.xcodeproj/xcuserdata/wojciechlewicki.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/ios/RNScreens.xcodeproj/xcuserdata/wojciechlewicki.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/lib/commonjs/createNativeStackNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/lib/commonjs/createNativeStackNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/lib/commonjs/createNativeStackNavigator.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/lib/commonjs/createNativeStackNavigator.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/lib/commonjs/index.native.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/lib/commonjs/index.native.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/lib/commonjs/native-stack/navigators/createNativeStackNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/lib/commonjs/native-stack/navigators/createNativeStackNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/lib/commonjs/native-stack/navigators/createNativeStackNavigator.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/lib/commonjs/native-stack/navigators/createNativeStackNavigator.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/lib/commonjs/native-stack/views/HeaderConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/lib/commonjs/native-stack/views/HeaderConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/lib/commonjs/native-stack/views/HeaderConfig.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/lib/commonjs/native-stack/views/HeaderConfig.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/lib/commonjs/native-stack/views/NativeStackView.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/lib/commonjs/native-stack/views/NativeStackView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/lib/commonjs/native-stack/views/NativeStackView.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/lib/commonjs/native-stack/views/NativeStackView.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/lib/module/createNativeStackNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/lib/module/createNativeStackNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/lib/module/createNativeStackNavigator.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/lib/module/createNativeStackNavigator.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/lib/module/index.native.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/lib/module/index.native.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/lib/module/index.native.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/lib/module/index.native.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/lib/module/native-stack/navigators/createNativeStackNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/lib/module/native-stack/navigators/createNativeStackNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/lib/module/native-stack/navigators/createNativeStackNavigator.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/lib/module/native-stack/navigators/createNativeStackNavigator.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/lib/module/native-stack/views/HeaderConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/lib/module/native-stack/views/HeaderConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/lib/module/native-stack/views/HeaderConfig.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/lib/module/native-stack/views/HeaderConfig.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/lib/module/native-stack/views/NativeStackView.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/lib/module/native-stack/views/NativeStackView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/lib/module/native-stack/views/NativeStackView.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/lib/module/native-stack/views/NativeStackView.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/lib/typescript/navigators/createNativeStackNavigator.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/lib/typescript/navigators/createNativeStackNavigator.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/lib/typescript/types.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/lib/typescript/types.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/lib/typescript/views/HeaderConfig.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/lib/typescript/views/HeaderConfig.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/lib/typescript/views/NativeStackView.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/lib/typescript/views/NativeStackView.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/native-stack/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/native-stack/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/src/createNativeStackNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/src/createNativeStackNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/src/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/src/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/src/index.native.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/src/index.native.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/src/native-stack/navigators/createNativeStackNavigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/src/native-stack/navigators/createNativeStackNavigator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/src/native-stack/types.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/src/native-stack/types.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/src/native-stack/views/HeaderConfig.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/src/native-stack/views/HeaderConfig.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-screens/src/native-stack/views/NativeStackView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-screens/src/native-stack/views/NativeStackView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/websocket/build/Release/bufferutil.node" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/websocket/build/Release/bufferutil.node" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/websocket/build/Release/validation.node" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/websocket/build/Release/validation.node" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,10 +257,29 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Run iOS" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="ios" />
+      </scripts>
+      <node-interpreter value="$PROJECT_DIR$/../.nvm/versions/node/v12.18.1/bin/node" />
+      <envs />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -45,7 +289,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1597839393677</updated>
-      <workItem from="1597839394765" duration="790000" />
+      <workItem from="1597839394765" duration="1770000" />
     </task>
     <servers />
   </component>
@@ -62,5 +306,27 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1975" y="-571" width="1219" height="848" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597840665071">
+      <screen x="1440" y="-689" width="2560" height="1055" />
+    </state>
+    <state x="1975" y="-571" width="1219" height="848" key="#com.intellij.execution.impl.EditConfigurationsDialog/51.25.1389.875/1440.-689.2560.1055@1440.-689.2560.1055" timestamp="1597840665071" />
+    <state width="2096" height="235" key="GridCell.Tab.0.bottom" timestamp="1597840984723">
+      <screen x="1440" y="-689" width="2560" height="1055" />
+    </state>
+    <state width="2096" height="235" key="GridCell.Tab.0.bottom/51.25.1389.875/1440.-689.2560.1055@1440.-689.2560.1055" timestamp="1597840984723" />
+    <state width="2096" height="235" key="GridCell.Tab.0.center" timestamp="1597840984722">
+      <screen x="1440" y="-689" width="2560" height="1055" />
+    </state>
+    <state width="2096" height="235" key="GridCell.Tab.0.center/51.25.1389.875/1440.-689.2560.1055@1440.-689.2560.1055" timestamp="1597840984722" />
+    <state width="2096" height="235" key="GridCell.Tab.0.left" timestamp="1597840984721">
+      <screen x="1440" y="-689" width="2560" height="1055" />
+    </state>
+    <state width="2096" height="235" key="GridCell.Tab.0.left/51.25.1389.875/1440.-689.2560.1055@1440.-689.2560.1055" timestamp="1597840984721" />
+    <state width="2096" height="235" key="GridCell.Tab.0.right" timestamp="1597840984723">
+      <screen x="1440" y="-689" width="2560" height="1055" />
+    </state>
+    <state width="2096" height="235" key="GridCell.Tab.0.right/51.25.1389.875/1440.-689.2560.1055@1440.-689.2560.1055" timestamp="1597840984723" />
   </component>
 </project>

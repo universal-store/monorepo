@@ -18,14 +18,19 @@
     "type": "git",
     "url": "https://github.com/universal-store/monorepo"
   },
-  "author": "Christopher Obando",
+  "author": "Team 0110",
   "license": "MIT",
   "dependencies": {
-    "@apollo/client": "^3.0.0-beta.16",
     "@react-native-community/masked-view": "^0.1.5",
     "@react-navigation/native": "^5.0.0-alpha.20",
     "@react-navigation/stack": "^5.0.0-alpha.45",
+    "apollo-client": "^2.6.10",
+    "apollo-link": "^1.2.14",
+    "apollo-link-context": "^1.0.20",
+    "apollo-link-error": "^1.1.13",
+    "apollo-link-http": "^1.5.17",
     "apollo-link-schema": "^1.2.4",
+    "apollo-upload-client": "^14.1.1",
     "expo": "~38.0.9",
     "expo-asset": "~8.1.7",
     "expo-font": "~8.2.2",
@@ -36,8 +41,8 @@
     "react-native": "^0.63.2",
     "react-native-gesture-handler": "^1.5.2",
     "react-native-reanimated": "^1.4.0",
-    "react-native-safe-area-context": "^3.1.4",
-    "react-native-screens": "2.10.1",
+    "react-native-safe-area-context": "~3.0.7",
+    "react-native-screens": "~2.9.0",
     "react-native-web": "~0.13.8"
   },
   "devDependencies": {
@@ -60,6 +65,14 @@
     "typescript": "~3.9.7"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   }
 }

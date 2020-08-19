@@ -4,6 +4,5 @@
 -   Apollo Client
 -   React Navigation
 -   Styled Components
--   Native Base
 -   Typescript
--   Prettier and Eslint preconfigured
+-   Prettier and Eslint

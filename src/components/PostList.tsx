@@ -12,7 +12,7 @@ query queryPosts {
 }
 `;
 
-type Data = {
+interface PostData {
   posts: {
     text: string;
     id: number;
@@ -20,10 +20,12 @@ type Data = {
 };
 
 const PostList = () => {
-  const { loading, error, data } = useQuery<Data>(QUERY_POSTS);
+  const { loading, error, data } = useQuery<PostData>(QUERY_POSTS);
+
   if (loading) return <Text>Loading...</Text>;
   if (error) return <Text>Error:{error}</Text>;
   if (!data) return <Text>No Data</Text>;
+
   return (
     <FlatList
       data={data.posts}

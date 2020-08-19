@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
 
 const AboutScreen = () => (
   <View style={styles.container}>
-    <Text>This is typescript-expo-apollo-boilerplate</Text>
+    <Text>This is Universal Store</Text>
   </View>
 );
 

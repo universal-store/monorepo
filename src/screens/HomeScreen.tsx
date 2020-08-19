@@ -13,11 +13,11 @@ const styles = StyleSheet.create({
   },
 });
 
-type Props = {
+interface HomeScreenProps {
   navigation: StackNavigationProp<StackParams>;
 };
 
-const HomeScreen: React.FC<Props> = ({ navigation }) => (
+const HomeScreen = ({ navigation }: HomeScreenProps) => (
   <View style={styles.container}>
     <Button onPress={() => navigation.navigate('About')} title="Show About" />
     <NewPost />

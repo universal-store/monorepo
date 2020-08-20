@@ -1,0 +1,9 @@
+# Ignore generated code
+src/generated
+
+# Generated Server Schema
+server/src/utils
+server/src/schema/schema.graphql
+
+# Generated Migrations
+database/prisma/migrations

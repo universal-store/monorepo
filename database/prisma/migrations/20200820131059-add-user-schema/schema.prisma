@@ -1,0 +1,37 @@
+// This is your Prisma schema file,
+
+datasource db {
+  provider = "postgresql"
+  url = "***"
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../node_modules/.prisma/client"
+}
+
+
+model UserProfilePhoto {
+  // Metadata
+  id        String   @default(cuid()) @id
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  // Associated user
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String   @unique
+  // URL for each size of the profile photo
+  size512   String
+  size256   String
+  size128   String
+  size64    String
+}
+
+model User {
+  id                String                         @default(cuid()) @id
+  sessionId         String                         @unique
+  phoneNumber       String                         @unique
+  firstName         String?
+  lastName          String?
+  // Linked resources
+  profilePhoto      UserProfilePhoto?
+}

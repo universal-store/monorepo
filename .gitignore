@@ -64,4 +64,11 @@ buck-out/
 
 # Env file
 env.json
-.env
+database/.env
+
+# Generated
+/src/generated/*
+
+# Introspection env and result
+/prisma/introspection/schema.prisma
+/.env.introspection

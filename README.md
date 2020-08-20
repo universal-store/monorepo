@@ -34,6 +34,19 @@
 
 > Open workspace in your IDE, then run `yarn` in terminal
 
+##### Local DB Setup (Only do this once):
+> [Download Docker](https://www.docker.com/products/docker-desktop)
+
+> In root directory, run `yarn start:database`
+> In /database directory, run `yarn generate:datamodel`, then `yarn migrate:save`
+
+##### Local Server Setup (Only do this once):
+
+> In root directory, run `yarn generate`
+
+##### Run Server (*Do this every time you work*):
+
+> In root directory, run `yarn start:server`, and leave that terminal tab open
 
 ## Helpful Resources:
 

@@ -64,7 +64,7 @@ buck-out/
 
 # Env file
 env.json
-database/.env
+database/prisma/.env
 
 # Generated
 /src/generated/*

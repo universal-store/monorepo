@@ -29,10 +29,6 @@
 
 > In root directory, run `yarn start:database`
 
-##### Run Server (*Do this every time you work*):
-
-> In root directory, run `yarn start:server`, and leave that terminal tab open
-
 #### Look at Database
 
 > Go to [Hasura Console](https://localhost:8080/)

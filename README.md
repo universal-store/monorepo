@@ -29,11 +29,6 @@
 > [Download Docker](https://www.docker.com/products/docker-desktop)
 
 > In root directory, run `yarn start:database`
-> In /database directory, run `yarn generate:datamodel`, then `yarn migrate:save`
-
-##### Local Server Setup (Only do this once):
-
-> In root directory, run `yarn generate`
 
 ##### Run Server (*Do this every time you work*):
 

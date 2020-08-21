@@ -1,7 +1,2 @@
-# Server
-/server/src/utils
-/server/src/generated
-/server/src/schema/nexus
-
 # Generated GraphQL
 /app/src/generated

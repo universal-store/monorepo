@@ -34,12 +34,9 @@
 
 > In root directory, run `yarn start:server`, and leave that terminal tab open
 
-#### Look at Database (*Only run when you want to look at/modify DB directly -> use Playground whenever possible though!*)
+#### Look at Database
 
-> In the /database directory, run `yarn studio`, and leave that terminal tab open
-> * Note: Prisma Studio is experimental and can sometimes have annoying crashes if you try to modify data directly through it
-
->> (Better alternative): Download [DataGrip](https://www.jetbrains.com/datagrip/download/)
+> Go to [Hasura Console](https://localhost:8080/)
 
 ## Helpful Resources:
 

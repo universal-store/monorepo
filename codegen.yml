@@ -1,21 +1,21 @@
 # @format
 
+schema: http://localhost:8080/v1/graphql
 overwrite: true
-schema: server/src/schema/schema.graphql
 generates:
   app/generated/graphql.tsx:
-    documents: 'app/src/graphql/**/*.gql'
+    documents: app/src/graphql/**/*.graphql
     plugins:
       - 'typescript'
       - 'typescript-operations'
       - 'typescript-react-apollo'
     config:
-      maybeValue: T | undefined
       withHooks: true
-      withHOC: false
       namingConvention:
         enumValues: keep
-  app/generated/graphql_definitions.d.ts:
+      withRefetchFn: true
+      maybeValue: T | undefined
+  app/generated/graphql.d.ts:
     plugins:
       - 'typescript-graphql-files-modules'
   app/generated/graphql.schema.json:
@@ -23,6 +23,6 @@ generates:
       - 'introspection'
   app/generated/fragmentTypes.json:
     plugins:
-      - fragment-matcher
+      - 'fragment-matcher'
     config:
       useExplicitTyping: true

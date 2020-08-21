@@ -14,8 +14,6 @@
 
 > [Download Yarn](https://classic.yarnpkg.com/en/docs/cli/install/)
 
-> Download graphqurl: run `npm install -g graphqurl`
-
 > [Set up Prettier with VSCode](https://www.codereadability.com/automated-code-formatting-with-prettier/)
 
 > VSCodeExtensions:

@@ -12,6 +12,7 @@
 		]
 	},
 	"scripts": {
+		"postinstall": "./scripts/postinstall.sh",
 		"lint:fix": "eslint . --ext .ts,.tsx --fix",
 		"lint:staged": "lint-staged",
 		"prettier": "prettier --write '*.{ts,tsx}'",

@@ -11,8 +11,7 @@
 		]
 	},
 	"scripts": {
-		"postinstall": "./scripts/postinstall.sh",
-		"lint:fix": "eslint . --ext .ts,.tsx --fix",
+		"postinstall": "source .env && ./scripts/postinstall.sh",
 		"lint:staged": "lint-staged",
 		"prettier": "prettier --write '*.{ts,tsx}'",
 		"start:database": "docker-compose up -d"
@@ -45,11 +44,10 @@
 	},
 	"lint-staged": {
 		"*.{ts,tsx}": [
-			"yarn lint:fix",
 			"prettier --write",
 			"git add"
 		],
-		"src/*.{ts,tsx}": [
+		"app/*.{ts,tsx}": [
 			"eslint --fix"
 		]
 	}

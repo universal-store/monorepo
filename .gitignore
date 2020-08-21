@@ -35,21 +35,12 @@ node_modules/
 npm-debug.log
 yarn-error.log
 
-# BUCK
-buck-out/
-\.buckd/
-*.keystore
-!debug.keystore
-
-# Bundle artifact
-*.jsbundle
-
 # CocoaPods
 /app/ios/Pods/
 
 # Env file
-env.json
-.env
+/.env
+/scripts/env.ts
 
 # Generated
 /app/src/generated/*

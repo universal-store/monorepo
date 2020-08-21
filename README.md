@@ -18,7 +18,6 @@
 
 > VSCodeExtensions:
 - https://marketplace.visualstudio.com/items?itemName=apollographql.vscode-apollo
-- https://marketplace.visualstudio.com/items?itemName=Prisma.prisma
 - https://marketplace.visualstudio.com/items?itemName=Prisma.vscode-graphql
 - https://marketplace.visualstudio.com/items?itemName=jpoissonnier.vscode-styled-components
 - https://marketplace.visualstudio.com/items?itemName=kelset.rn-full-pack

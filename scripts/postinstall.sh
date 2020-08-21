@@ -7,18 +7,13 @@ UNSET='\033[0m' # No Color
 
 STEP=0
 
-if [ -f .env ]; then
-    # Load Environment Variables
-    export $(cat .env | grep -v '#' | awk '/=/ {print $1}')
-fi
-
 e() {
   STEP=$((STEP + 1))
   echo "${FG_BLUE}$((STEP)). $1${UNSET}"
 }
 
 e "Get Schema from Hasura"
-cd "$dir"/database && gq $API_URL --introspect > schema.graphql
+cd "$dir"/database && gq http://localhost:8080/v1/graphql --introspect > schema.graphql
 
 e "Run graphql-codegen"
 cd "$dir" && graphql-codegen --config codegen.yml

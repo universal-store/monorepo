@@ -38,9 +38,5 @@ yarn-error.log
 # CocoaPods
 /app/ios/Pods/
 
-# Env file
-.env
-/scripts/env.ts
-
 # Generated
 /app/src/generated/*

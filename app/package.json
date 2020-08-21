@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "license": "UNLICENSED",
   "scripts": {
-    "install:ios": "pod-install app/ios",
+    "install:ios": "pod-install ios",
     "android": "react-native run-android --no-packager",
     "ios": "react-native run-ios --no-packager",
-    "ios:xcode": "xed app/ios",
+    "ios:xcode": "xed ios",
     "start": "react-native start",
     "start:reset-cache": "react-native start --reset-cache",
     "test": "jest",

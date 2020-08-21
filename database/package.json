@@ -1,17 +1,17 @@
 {
   "name": "@universal-store/database",
-  "version": "1.0.0",
-  "license": "MIT",
+  "version": "0.0.1",
+  "license": "UNLICENSED",
+  "scripts": {
+    "migrate:save": "source .env && prisma migrate save --experimental",
+    "migrate:up": "source .env && prisma migrate up --experimental",
+    "generate:datamodel": "prisma generate",
+    "studio": "source .env && prisma studio --experimental"
+  },
   "dependencies": {
     "@prisma/client": "^2.5.0"
   },
   "devDependencies": {
     "@prisma/cli": "^2.5.0"
-  },
-  "scripts": {
-    "migrate:save": "source ./prisma/.env && prisma migrate save --experimental",
-    "migrate:up": "source ./prisma/.env && prisma migrate up --experimental",
-    "generate:datamodel": "prisma generate",
-    "studio": "source ./prisma/.env && prisma studio --experimental"
   }
 }

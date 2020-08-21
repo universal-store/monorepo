@@ -4,7 +4,7 @@ overwrite: true
 schema: server/src/schema/schema.graphql
 generates:
   app/generated/graphql.tsx:
-    documents: 'src/graphql/**/*.gql'
+    documents: 'app/src/graphql/**/*.gql'
     plugins:
       - 'typescript'
       - 'typescript-operations'
@@ -15,13 +15,13 @@ generates:
       withHOC: false
       namingConvention:
         enumValues: keep
-  src/generated/graphql_definitions.d.ts:
+  app/generated/graphql_definitions.d.ts:
     plugins:
       - 'typescript-graphql-files-modules'
-  src/generated/graphql.schema.json:
+  app/generated/graphql.schema.json:
     plugins:
       - 'introspection'
-  src/generated/fragmentTypes.json:
+  app/generated/fragmentTypes.json:
     plugins:
       - fragment-matcher
     config:

@@ -3,7 +3,7 @@
 FROM node:12
 
 # Create and change to main directory.
-WORKDIR /usr/src
+WORKDIR /usr/src/app
 
 # Copy application dependency manifests to the container image.
 #   From yarn workspace:
@@ -23,7 +23,7 @@ COPY ./database/prisma/ ./database/prisma/
 
 #   From app:
 #     Copy operations (**.gql) for codegen
-COPY  ./src/graphql/ ./src/graphql/
+COPY  ./app/src/graphql/ ./app/src/graphql/
 
 # Pass URL for Postgres from build argument into container process.env
 ARG ARG_POSTGRES_URL
@@ -33,7 +33,7 @@ ENV POSTGRES_URL $ARG_POSTGRES_URL
 RUN yarn
 
 # Build `server graphql`
-WORKDIR /usr/src/server/
+WORKDIR /usr/src/app/server/
 RUN yarn generate
 RUN yarn build
 

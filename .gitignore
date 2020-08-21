@@ -1,10 +1,10 @@
 # OSX
-#
 .DS_Store
 
-# Xcode
-#
+# Generated
 build/
+
+# Xcode
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -22,19 +22,15 @@ DerivedData
 *.xcuserstate
 
 # Android/IntelliJ
-#
-build/
 .idea
 .gradle
 local.properties
 *.iml
 
 # Visual Studio Code
-#
 .vscode/
 
 # node.js
-#
 node_modules/
 npm-debug.log
 yarn-error.log
@@ -45,30 +41,18 @@ buck-out/
 *.keystore
 !debug.keystore
 
-# fastlane
-#
-# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
-# screenshots whenever they are needed.
-# For more information about the recommended setup visit:
-# https://docs.fastlane.tools/best-practices/source-control/
-
-*/fastlane/report.xml
-*/fastlane/Preview.html
-*/fastlane/screenshots
-
 # Bundle artifact
 *.jsbundle
 
 # CocoaPods
-/ios/Pods/
+/app/ios/Pods/
 
 # Env file
 env.json
-database/prisma/.env
+.env
 
 # Generated
-/src/generated/*
+/app/src/generated/*
 
 # Introspection env and result
-/prisma/introspection/schema.prisma
-/.env.introspection
+/prisma/schema.prisma

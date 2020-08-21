@@ -4,4 +4,4 @@
 /server/src/schema/nexus
 
 # Generated GraphQL
-/src/generated
+/app/src/generated

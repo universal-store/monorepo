@@ -39,7 +39,7 @@ yarn-error.log
 /app/ios/Pods/
 
 # Env file
-/.env
+.env
 /scripts/env.ts
 
 # Generated

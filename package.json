@@ -2,7 +2,7 @@
 	"name": "@universal-store/monorepo",
 	"description": "Universal Store - Built with React Native, TypeScript, Apollo & GraphQL",
 	"version": "0.0.1",
-	"license": "UNLICENSED",
+	"license": "MIT",
 	"private": true,
 	"workspaces": {
 		"packages": [

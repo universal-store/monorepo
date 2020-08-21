@@ -1,6 +1,6 @@
 # @format
 
-schema: http://localhost:8080/v1/graphql
+schema: server/schema.graphql
 overwrite: true
 generates:
   app/generated/graphql.tsx:
@@ -21,7 +21,7 @@ generates:
   app/generated/graphql.schema.json:
     plugins:
       - 'introspection'
-  app/generated/fragmentTypes.json:
+  app/generated/graphql.fragment-types.ts:
     plugins:
       - 'fragment-matcher'
     config:

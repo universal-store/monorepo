@@ -6,11 +6,11 @@ module.exports = {
     node: true,
   },
   extends: [
-    'prettier',
     'eslint:recommended',
     'plugin:react/recommended',
-    'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -19,7 +19,7 @@ module.exports = {
     },
     ecmaVersion: 11,
     sourceType: 'module',
-    project: './app/tsconfig.json',
+    project: 'tsconfig.json',
   },
   settings: {
     react: {
@@ -36,6 +36,7 @@ module.exports = {
     {
       files: ['*.tsx'],
       rules: {
+        // for .tsx files, no need to type out the component type explicitly
         '@typescript-eslint/explicit-module-boundary-types': 0,
       },
     },

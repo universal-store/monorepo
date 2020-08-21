@@ -5,10 +5,4 @@ fragment UserInfo on User {
     email
     firstName
     lastName
-    UserProfilePic {
-        size64
-        size128
-        size256
-        size512
-    }
 }

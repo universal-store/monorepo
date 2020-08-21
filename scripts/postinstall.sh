@@ -18,7 +18,7 @@ e() {
 }
 
 e "Get Schema from Hasura"
-cd "$dir"/server && gq $API_URL --introspect > schema.graphql
+cd "$dir"/database && gq $API_URL --introspect > schema.graphql
 
 e "Run graphql-codegen"
 cd "$dir" && graphql-codegen --config codegen.yml

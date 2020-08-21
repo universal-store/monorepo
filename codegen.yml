@@ -1,6 +1,6 @@
 # @format
 
-schema: server/schema.graphql
+schema: database/schema.graphql
 overwrite: true
 generates:
   app/generated/graphql.tsx:

@@ -11,13 +11,16 @@ services:
       POSTGRES_PASSWORD: universalstore
       POSTGRES_DB: universalstore
   graphql-engine:
-    image: hasura/graphql-engine:v1.3.1
+    volumes:
+      - ./database/migration_data/migrations:/hasura-migrations
+    image: hasura/graphql-engine:v1.3.1-beta.1.cli-migrations-v2
     ports:
       - "8080:8080"
     depends_on:
       - "postgres"
     restart: always
     environment:
+      HASURA_GRAPHQL_MIGRATIONS_DIR: /hasura-migrations
       HASURA_GRAPHQL_DATABASE_URL: postgres://universalstore:universalstore@postgres:5432/universalstore
       ## enable the console served by server
       HASURA_GRAPHQL_ENABLE_CONSOLE: "true" # set to "false" to disable console

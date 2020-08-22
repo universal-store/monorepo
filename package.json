@@ -11,7 +11,7 @@
 		]
 	},
 	"scripts": {
-		"postinstall": "source .env && ./scripts/postinstall.sh",
+		"postinstall": "./scripts/postinstall.sh",
 		"lint:staged": "lint-staged",
 		"prettier": "prettier --write '*.{ts,tsx}'",
 		"start:database": "docker-compose up -d"
@@ -30,7 +30,6 @@
 		"@typescript-eslint/parser": "^3.9.1",
 		"eslint": "^7.7.0",
 		"eslint-plugin-react": "^7.20.6",
-		"graphqurl": "^0.3.3",
 		"husky": "^4.2.5",
 		"lint-staged": "^10.2.11",
 		"prettier": "^2.0.5",

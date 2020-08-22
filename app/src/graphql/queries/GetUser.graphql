@@ -1,7 +1,7 @@
 # @format
 
 query GetUser {
-    User {
-       ...UserInfo
-    }
+  User {
+    ...UserInfo
+  }
 }

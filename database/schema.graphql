@@ -12,6 +12,15 @@ type mutation_root {
     where: User_bool_exp!
   ): User_mutation_response
 
+  # delete data from the table: "UserProfilePic"
+  delete_UserProfilePic(
+    # filter the rows which have to be deleted
+    where: UserProfilePic_bool_exp!
+  ): UserProfilePic_mutation_response
+
+  # delete single row from the table: "UserProfilePic"
+  delete_UserProfilePic_by_pk(id: uuid!): UserProfilePic
+
   # delete single row from the table: "User"
   delete_User_by_pk(id: uuid!): User
 
@@ -23,6 +32,24 @@ type mutation_root {
     # on conflict condition
     on_conflict: User_on_conflict
   ): User_mutation_response
+
+  # insert data into the table: "UserProfilePic"
+  insert_UserProfilePic(
+    # the rows to be inserted
+    objects: [UserProfilePic_insert_input!]!
+
+    # on conflict condition
+    on_conflict: UserProfilePic_on_conflict
+  ): UserProfilePic_mutation_response
+
+  # insert a single row into the table: "UserProfilePic"
+  insert_UserProfilePic_one(
+    # the row to be inserted
+    object: UserProfilePic_insert_input!
+
+    # on conflict condition
+    on_conflict: UserProfilePic_on_conflict
+  ): UserProfilePic
 
   # insert a single row into the table: "User"
   insert_User_one(
@@ -41,6 +68,22 @@ type mutation_root {
     # filter the rows which have to be updated
     where: User_bool_exp!
   ): User_mutation_response
+
+  # update data of the table: "UserProfilePic"
+  update_UserProfilePic(
+    # sets the columns of the filtered rows to the given values
+    _set: UserProfilePic_set_input
+
+    # filter the rows which have to be updated
+    where: UserProfilePic_bool_exp!
+  ): UserProfilePic_mutation_response
+
+  # update single row of the table: "UserProfilePic"
+  update_UserProfilePic_by_pk(
+    # sets the columns of the filtered rows to the given values
+    _set: UserProfilePic_set_input
+    pk_columns: UserProfilePic_pk_columns_input!
+  ): UserProfilePic
 
   # update single row of the table: "User"
   update_User_by_pk(
@@ -90,6 +133,45 @@ type query_root {
     # filter the rows returned
     where: User_bool_exp
   ): [User!]!
+
+  # fetch data from the table: "UserProfilePic"
+  UserProfilePic(
+    # distinct select on columns
+    distinct_on: [UserProfilePic_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserProfilePic_order_by!]
+
+    # filter the rows returned
+    where: UserProfilePic_bool_exp
+  ): [UserProfilePic!]!
+
+  # fetch aggregated fields from the table: "UserProfilePic"
+  UserProfilePic_aggregate(
+    # distinct select on columns
+    distinct_on: [UserProfilePic_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserProfilePic_order_by!]
+
+    # filter the rows returned
+    where: UserProfilePic_bool_exp
+  ): UserProfilePic_aggregate!
+
+  # fetch data from the table: "UserProfilePic" using primary key columns
+  UserProfilePic_by_pk(id: uuid!): UserProfilePic
 
   # fetch aggregated fields from the table: "User"
   User_aggregate(
@@ -152,6 +234,45 @@ type subscription_root {
     where: User_bool_exp
   ): [User!]!
 
+  # fetch data from the table: "UserProfilePic"
+  UserProfilePic(
+    # distinct select on columns
+    distinct_on: [UserProfilePic_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserProfilePic_order_by!]
+
+    # filter the rows returned
+    where: UserProfilePic_bool_exp
+  ): [UserProfilePic!]!
+
+  # fetch aggregated fields from the table: "UserProfilePic"
+  UserProfilePic_aggregate(
+    # distinct select on columns
+    distinct_on: [UserProfilePic_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserProfilePic_order_by!]
+
+    # filter the rows returned
+    where: UserProfilePic_bool_exp
+  ): UserProfilePic_aggregate!
+
+  # fetch data from the table: "UserProfilePic" using primary key columns
+  UserProfilePic_by_pk(id: uuid!): UserProfilePic
+
   # fetch aggregated fields from the table: "User"
   User_aggregate(
     # distinct select on columns
@@ -176,11 +297,14 @@ type subscription_root {
 
 # columns and relationships of "User"
 type User {
+  # An object relationship
+  UserProfilePic: UserProfilePic
   email: String!
   firstName: String!
   id: uuid!
   lastName: String
   password: String!
+  profilePicId: uuid
   sessionId: uuid!
 }
 
@@ -212,6 +336,7 @@ input User_arr_rel_insert_input {
 
 # Boolean expression to filter rows from the table "User". All fields are combined with a logical 'AND'.
 input User_bool_exp {
+  UserProfilePic: UserProfilePic_bool_exp
   _and: [User_bool_exp]
   _not: User_bool_exp
   _or: [User_bool_exp]
@@ -220,6 +345,7 @@ input User_bool_exp {
   id: uuid_comparison_exp
   lastName: String_comparison_exp
   password: String_comparison_exp
+  profilePicId: uuid_comparison_exp
   sessionId: uuid_comparison_exp
 }
 
@@ -237,11 +363,13 @@ enum User_constraint {
 
 # input type for inserting data into table "User"
 input User_insert_input {
+  UserProfilePic: UserProfilePic_obj_rel_insert_input
   email: String
   firstName: String
   id: uuid
   lastName: String
   password: String
+  profilePicId: uuid
   sessionId: uuid
 }
 
@@ -252,6 +380,7 @@ type User_max_fields {
   id: uuid
   lastName: String
   password: String
+  profilePicId: uuid
   sessionId: uuid
 }
 
@@ -262,6 +391,7 @@ input User_max_order_by {
   id: order_by
   lastName: order_by
   password: order_by
+  profilePicId: order_by
   sessionId: order_by
 }
 
@@ -272,6 +402,7 @@ type User_min_fields {
   id: uuid
   lastName: String
   password: String
+  profilePicId: uuid
   sessionId: uuid
 }
 
@@ -282,6 +413,7 @@ input User_min_order_by {
   id: order_by
   lastName: order_by
   password: order_by
+  profilePicId: order_by
   sessionId: order_by
 }
 
@@ -309,11 +441,13 @@ input User_on_conflict {
 
 # ordering options when selecting data from "User"
 input User_order_by {
+  UserProfilePic: UserProfilePic_order_by
   email: order_by
   firstName: order_by
   id: order_by
   lastName: order_by
   password: order_by
+  profilePicId: order_by
   sessionId: order_by
 }
 
@@ -340,6 +474,9 @@ enum User_select_column {
   password
 
   # column name
+  profilePicId
+
+  # column name
   sessionId
 }
 
@@ -350,6 +487,7 @@ input User_set_input {
   id: uuid
   lastName: String
   password: String
+  profilePicId: uuid
   sessionId: uuid
 }
 
@@ -371,7 +509,207 @@ enum User_update_column {
   password
 
   # column name
+  profilePicId
+
+  # column name
   sessionId
+}
+
+# columns and relationships of "UserProfilePic"
+type UserProfilePic {
+  id: uuid!
+  size128: String!
+  size256: String!
+  size512: String!
+  size64: String!
+  userId: uuid!
+}
+
+# aggregated selection of "UserProfilePic"
+type UserProfilePic_aggregate {
+  aggregate: UserProfilePic_aggregate_fields
+  nodes: [UserProfilePic!]!
+}
+
+# aggregate fields of "UserProfilePic"
+type UserProfilePic_aggregate_fields {
+  count(columns: [UserProfilePic_select_column!], distinct: Boolean): Int
+  max: UserProfilePic_max_fields
+  min: UserProfilePic_min_fields
+}
+
+# order by aggregate values of table "UserProfilePic"
+input UserProfilePic_aggregate_order_by {
+  count: order_by
+  max: UserProfilePic_max_order_by
+  min: UserProfilePic_min_order_by
+}
+
+# input type for inserting array relation for remote table "UserProfilePic"
+input UserProfilePic_arr_rel_insert_input {
+  data: [UserProfilePic_insert_input!]!
+  on_conflict: UserProfilePic_on_conflict
+}
+
+# Boolean expression to filter rows from the table "UserProfilePic". All fields are combined with a logical 'AND'.
+input UserProfilePic_bool_exp {
+  _and: [UserProfilePic_bool_exp]
+  _not: UserProfilePic_bool_exp
+  _or: [UserProfilePic_bool_exp]
+  id: uuid_comparison_exp
+  size128: String_comparison_exp
+  size256: String_comparison_exp
+  size512: String_comparison_exp
+  size64: String_comparison_exp
+  userId: uuid_comparison_exp
+}
+
+# unique or primary key constraints on table "UserProfilePic"
+enum UserProfilePic_constraint {
+  # unique or primary key constraint
+  UserProfilePic_pkey
+
+  # unique or primary key constraint
+  UserProfilePic_userId_key
+}
+
+# input type for inserting data into table "UserProfilePic"
+input UserProfilePic_insert_input {
+  id: uuid
+  size128: String
+  size256: String
+  size512: String
+  size64: String
+  userId: uuid
+}
+
+# aggregate max on columns
+type UserProfilePic_max_fields {
+  id: uuid
+  size128: String
+  size256: String
+  size512: String
+  size64: String
+  userId: uuid
+}
+
+# order by max() on columns of table "UserProfilePic"
+input UserProfilePic_max_order_by {
+  id: order_by
+  size128: order_by
+  size256: order_by
+  size512: order_by
+  size64: order_by
+  userId: order_by
+}
+
+# aggregate min on columns
+type UserProfilePic_min_fields {
+  id: uuid
+  size128: String
+  size256: String
+  size512: String
+  size64: String
+  userId: uuid
+}
+
+# order by min() on columns of table "UserProfilePic"
+input UserProfilePic_min_order_by {
+  id: order_by
+  size128: order_by
+  size256: order_by
+  size512: order_by
+  size64: order_by
+  userId: order_by
+}
+
+# response of any mutation on the table "UserProfilePic"
+type UserProfilePic_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [UserProfilePic!]!
+}
+
+# input type for inserting object relation for remote table "UserProfilePic"
+input UserProfilePic_obj_rel_insert_input {
+  data: UserProfilePic_insert_input!
+  on_conflict: UserProfilePic_on_conflict
+}
+
+# on conflict condition type for table "UserProfilePic"
+input UserProfilePic_on_conflict {
+  constraint: UserProfilePic_constraint!
+  update_columns: [UserProfilePic_update_column!]!
+  where: UserProfilePic_bool_exp
+}
+
+# ordering options when selecting data from "UserProfilePic"
+input UserProfilePic_order_by {
+  id: order_by
+  size128: order_by
+  size256: order_by
+  size512: order_by
+  size64: order_by
+  userId: order_by
+}
+
+# primary key columns input for table: "UserProfilePic"
+input UserProfilePic_pk_columns_input {
+  id: uuid!
+}
+
+# select columns of table "UserProfilePic"
+enum UserProfilePic_select_column {
+  # column name
+  id
+
+  # column name
+  size128
+
+  # column name
+  size256
+
+  # column name
+  size512
+
+  # column name
+  size64
+
+  # column name
+  userId
+}
+
+# input type for updating data in table "UserProfilePic"
+input UserProfilePic_set_input {
+  id: uuid
+  size128: String
+  size256: String
+  size512: String
+  size64: String
+  userId: uuid
+}
+
+# update columns of table "UserProfilePic"
+enum UserProfilePic_update_column {
+  # column name
+  id
+
+  # column name
+  size128
+
+  # column name
+  size256
+
+  # column name
+  size512
+
+  # column name
+  size64
+
+  # column name
+  userId
 }
 
 scalar uuid

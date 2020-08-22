@@ -1,0 +1,15 @@
+- table:
+    schema: public
+    name: User
+  object_relationships:
+  - name: UserProfilePic
+    using:
+      manual_configuration:
+        remote_table:
+          schema: public
+          name: UserProfilePic
+        column_mapping:
+          id: userId
+- table:
+    schema: public
+    name: UserProfilePic

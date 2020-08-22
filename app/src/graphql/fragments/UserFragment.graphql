@@ -1,8 +1,14 @@
 # @format
 
 fragment UserInfo on User {
-    id
-    email
-    firstName
-    lastName
+  id
+  email
+  firstName
+  lastName
+  UserProfilePic {
+    size64
+    size128
+    size256
+    size512
+  }
 }

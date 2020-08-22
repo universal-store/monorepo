@@ -16,28 +16,3 @@ export const FullScreenCenter = styled(FullScreen)`
   justify-content: center;
   align-items: center;
 `;
-
-export const FillView = styled.View`
-  flex: 1;
-  height: 100%;
-  width: 100%;
-`;
-
-export const FillViewCenter = styled(FillView)`
-  justify-content: center;
-  align-items: center;
-`;
-
-export const Row = styled.View`
-  flex-direction: row;
-`;
-
-export const RowCenter = styled(Row)`
-  align-items: center;
-  justify-content: center;
-`;
-
-export const Center = styled.View`
-  align-items: center;
-  justify-content: center;
-`;

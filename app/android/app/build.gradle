@@ -131,6 +131,7 @@ android {
     defaultConfig {
         applicationId "com.universalstore"
         minSdkVersion rootProject.ext.minSdkVersion
+        missingDimensionStrategy 'react-native-camera', 'mlkit'
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"

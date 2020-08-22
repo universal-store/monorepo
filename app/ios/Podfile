@@ -7,6 +7,10 @@ target 'UniversalStore' do
   config = use_native_modules!
   use_react_native!(:path => config[:reactNativePath]) # https://github.com/facebook/react-native/issues/29371
 
+  pod 'react-native-camera', path: '../../node_modules/react-native-camera', subspecs: [
+    'BarcodeDetectorMLKit'
+  ]
+
   target 'UniversalStoreTests' do
     inherit! :complete
     # Pods for testing

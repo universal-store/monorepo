@@ -1,3 +1,3 @@
 /** @format */
 
-export * from './Views';
+export * from './views';

@@ -1,9 +1,9 @@
 /** @format */
 
 import React from 'react';
-import { StatusBar } from 'react-native';
-
 import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/client';
+
+import { Root } from './navigation';
 
 // Create the client as outlined in the setup guide
 const client = new ApolloClient({
@@ -12,10 +12,11 @@ const client = new ApolloClient({
     uri: 'http://localhost:8080/v1/graphql',
   }),
 });
+
 const App = () => {
   return (
     <ApolloProvider client={client}>
-      <StatusBar barStyle="dark-content" />
+      <Root />
     </ApolloProvider>
   );
 };

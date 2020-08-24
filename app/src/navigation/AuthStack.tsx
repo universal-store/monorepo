@@ -17,13 +17,13 @@ const BottomTabNavigator = () => {
 };
 
 export type AuthStackParams = {
-  TabsNavigation: undefined;
+  TabNavigation: undefined;
 };
 
 const AuthStack = createStackNavigator<AuthStackParams>();
 
 export const AuthStackNavigator = () => (
   <AuthStack.Navigator>
-    <AuthStack.Screen name="TabsNavigation" component={BottomTabNavigator} />
+    <AuthStack.Screen name="TabNavigation" component={BottomTabNavigator} />
   </AuthStack.Navigator>
 );

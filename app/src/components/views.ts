@@ -1,6 +1,7 @@
 /** @format */
 
-import { Dimensions } from 'react-native';
+import React from 'react';
+import { Dimensions, View, Text } from 'react-native';
 import styled from 'styled-components/native';
 
 const screenHeight = `${Dimensions.get('window').height}px`;

@@ -1,0 +1,49 @@
+# @format
+
+name: build (app)
+
+on:
+  push:
+    # Push on any branch if the one of the following directories were modified
+    branches: ['**']
+    paths: ['app/**', '.github/workflows/main.yml']
+  pull_request:
+    # Pull request opened on master
+    branches: [master]
+
+jobs:
+  tsc:
+    runs-on: self-hosted
+    timeout-minutes: 5
+
+    defaults:
+      run:
+        working-directory: ./app
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        working-directory: ./
+        run: yarn
+
+      - name: Run tsc
+        run: yarn typecheck
+
+  eslint:
+    runs-on: self-hosted
+    timeout-minutes: 5
+
+    defaults:
+      run:
+        working-directory: ./app
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        working-directory: ./
+        run: yarn
+
+      - name: Run linter
+        run: yarn lint

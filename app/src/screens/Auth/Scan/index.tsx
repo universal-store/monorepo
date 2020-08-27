@@ -47,7 +47,7 @@ export const ScanPage = () => {
           if (!scanned) handleBarCodeScanned(barCodeEvent);
         }}
       >
-        <ScannerOverlay />
+        <ScannerOverlay scanned={scanned} />
       </CameraScreen>
       {scanned && <Button title={'Tap to Scan Again'} onPress={() => setScanned(false)} />}
     </FullScreen>

@@ -60,7 +60,20 @@ const BottomLayer = styled.View`
   background-color: ${({ theme }) => theme.colors.transparent};
 `;
 
-export const ScannerOverlay = () => (
+const ScannedText = styled.Text`
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 24px;
+  line-height: 24px;
+  text-align: center;
+  color: ${({ theme }) => theme.colors.white[1]};
+`;
+
+interface ScannerOverlayProps {
+  scanned: boolean;
+}
+
+export const ScannerOverlay = ({ scanned }: ScannerOverlayProps) => (
   <ScannerOverlayContainer>
     <TopLayer />
     <CenterLayer>
@@ -81,6 +94,6 @@ export const ScannerOverlay = () => (
       </Cutout>
       <SideLayer />
     </CenterLayer>
-    <BottomLayer />
+    <BottomLayer>{!scanned && <ScannedText>Scanning for Barcode...</ScannedText>}</BottomLayer>
   </ScannerOverlayContainer>
 );

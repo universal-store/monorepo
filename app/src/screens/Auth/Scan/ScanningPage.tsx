@@ -66,7 +66,7 @@ export const ScanningPage = () => {
 
       {scanned && (
         <Button
-          title={'Tap to Scan Again'}
+          title={'Tap to Reset'}
           onPress={() => {
             setScanned(false);
             if (cameraRef) cameraRef.resumePreview();

@@ -21,6 +21,8 @@
     "@react-navigation/bottom-tabs": "^5.8.0",
     "@react-navigation/native": "^5.7.3",
     "@react-navigation/stack": "^5.9.0",
+    "expo-barcode-scanner": "^8.2.1",
+    "expo-camera": "^8.3.1",
     "graphql": "^15.3.0",
     "graphql-tag": "^2.11.0",
     "metro-react-native-babel-preset": "^0.63.0",
@@ -30,6 +32,7 @@
     "react-native-reanimated": "^1.7.0",
     "react-native-safe-area-context": "^3.1.4",
     "react-native-screens": "^2.0.0-beta.1",
+    "react-native-unimodules": "^0.10.1",
     "styled-components": "^5.0.1"
   },
   "devDependencies": {

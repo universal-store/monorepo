@@ -23,7 +23,7 @@ export type AuthStackParams = {
 const AuthStack = createStackNavigator<AuthStackParams>();
 
 export const AuthStackNavigator = () => (
-  <AuthStack.Navigator>
+  <AuthStack.Navigator screenOptions={{ headerShown: false }}>
     <AuthStack.Screen name="TabNavigation" component={BottomTabNavigator} />
   </AuthStack.Navigator>
 );

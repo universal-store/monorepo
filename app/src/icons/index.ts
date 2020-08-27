@@ -1,4 +1,4 @@
 /** @format */
 
 // Scan Page
-export * from './BarcodeContainer';
+export * from './BarcodeIcon';

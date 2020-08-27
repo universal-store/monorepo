@@ -1,15 +1,11 @@
 /** @format */
 
 import React from 'react';
-
 import styled from 'styled-components/native';
-import {
-  BarcodeBottomLeftIcon,
-  BarcodeBottomRightIcon,
-  BarcodeTopLeftIcon,
-  BarcodeTopRightIcon,
-} from '../icons/BarcodeIcon';
 
+import { BarcodeBottomLeftIcon, BarcodeBottomRightIcon, BarcodeTopLeftIcon, BarcodeTopRightIcon } from '&icons';
+
+// Styles
 const ScannerOverlayContainer = styled.View`
   flex: 1;
 `;

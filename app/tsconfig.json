@@ -41,6 +41,7 @@
         "baseUrl": "./src",
       /* Base directory to resolve non-absolute module names. */
          "paths": {
+           "&theme": ["./theme"],
            "&screens": ["./screens"],
            "&graphql": ["../generated"],
            "&navigation": ["./navigation"],

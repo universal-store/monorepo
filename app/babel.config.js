@@ -10,8 +10,9 @@ module.exports = {
         extensions: ['.ios.js', '.android.js', '.js', '.ts', '.tsx', '.json'],
         alias: {
           tests: ['./__tests__/'],
-          '&screens': './src/screens',
+          '&theme': './theme',
           '&graphql': './generated',
+          '&screens': './src/screens',
           '&navigation': './src/navigation',
           '&components': './src/components',
         },

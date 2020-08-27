@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Alert, Button, Text } from 'react-native';
+import { useIsFocused } from '@react-navigation/native';
 
 // Dependencies
 import { Camera } from 'expo-camera';
@@ -11,7 +12,7 @@ import { BarCodeScanningResult } from 'expo-camera/build/Camera.types';
 // Components
 import { FullScreen, ScannerOverlay } from '&components';
 
-// Styling
+// Custom Components
 import styled from 'styled-components/native';
 
 const CameraScreen = styled(Camera)`
@@ -20,9 +21,10 @@ const CameraScreen = styled(Camera)`
 
 export const ScanningPage = () => {
   let cameraRef: Camera | null;
+  const isFocused = useIsFocused();
 
-  const [hasPermission, setHasPermission] = useState<boolean | null>(null);
   const [scanned, setScanned] = useState(false);
+  const [hasPermission, setHasPermission] = useState<boolean | null>(null);
 
   useEffect(() => {
     void (async () => {
@@ -44,21 +46,24 @@ export const ScanningPage = () => {
   }
   return (
     <FullScreen>
-      <CameraScreen
-        ref={ref => (cameraRef = ref)}
-        type={Camera.Constants.Type.back}
-        onBarCodeScanned={barCodeEvent => {
-          if (!scanned && cameraRef) {
-            handleBarCodeScanned(barCodeEvent);
-            cameraRef.pausePreview();
-          }
-        }}
-        barCodeScannerSettings={{
-          barCodeTypes: [BarCodeScanner.Constants.BarCodeType.ean13],
-        }}
-      >
-        <ScannerOverlay scanned={scanned} />
-      </CameraScreen>
+      {isFocused && (
+        <CameraScreen
+          ref={ref => (cameraRef = ref)}
+          type={Camera.Constants.Type.back}
+          onBarCodeScanned={barCodeEvent => {
+            if (!scanned && cameraRef) {
+              handleBarCodeScanned(barCodeEvent);
+              cameraRef.pausePreview();
+            }
+          }}
+          barCodeScannerSettings={{
+            barCodeTypes: [BarCodeScanner.Constants.BarCodeType.ean13],
+          }}
+        >
+          <ScannerOverlay scanned={scanned} />
+        </CameraScreen>
+      )}
+
       {scanned && (
         <Button
           title={'Tap to Scan Again'}

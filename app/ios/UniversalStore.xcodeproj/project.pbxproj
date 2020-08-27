@@ -20,6 +20,10 @@
 		7D5EAA37D0FC1DB00EB9B0C0 /* libPods-UniversalStore-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B04E68CAC494AD64180EAEC5 /* libPods-UniversalStore-tvOS.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		CC56E85A3B5D2B54D015C36A /* libPods-UniversalStore-UniversalStoreTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1835DF09A8EB3ABB2F46FCE /* libPods-UniversalStore-UniversalStoreTests.a */; };
+		83DB2609AF364C3DAC8F7288 /* Futura-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77A6462D44EB44369DB49F62 /* Futura-Bold.ttf */; };
+		F40828FCE9D941168F7BED6A /* Futura-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 855C6BB937BE43DDB8BEB6C8 /* Futura-Medium.ttf */; };
+		5CB7E0A9734548A4BDA5682B /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F9A002D7B2ED4424995575D7 /* OpenSans-Regular.ttf */; };
+		0D188AC026BA429D949DA8AB /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1C3C60FF0394D94AEEE88DD /* OpenSans-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +71,10 @@
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F934D0260D557D35C4B7879F /* libPods-UniversalStore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UniversalStore.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB541F3DF6F6E704462CD0B6 /* Pods-UniversalStore-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniversalStore-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-UniversalStore-tvOSTests/Pods-UniversalStore-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		77A6462D44EB44369DB49F62 /* Futura-Bold.ttf */ = {isa = PBXFileReference; name = "Futura-Bold.ttf"; path = "../assets/fonts/Futura-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		855C6BB937BE43DDB8BEB6C8 /* Futura-Medium.ttf */ = {isa = PBXFileReference; name = "Futura-Medium.ttf"; path = "../assets/fonts/Futura-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F9A002D7B2ED4424995575D7 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; name = "OpenSans-Regular.ttf"; path = "../assets/fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D1C3C60FF0394D94AEEE88DD /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; name = "OpenSans-SemiBold.ttf"; path = "../assets/fonts/OpenSans-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +189,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				42B400EFE00183A84FAFFB5A /* Pods */,
+				48CE51CF4E4B464E8FC03CF4 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -197,6 +206,18 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		48CE51CF4E4B464E8FC03CF4 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				77A6462D44EB44369DB49F62 /* Futura-Bold.ttf */,
+				855C6BB937BE43DDB8BEB6C8 /* Futura-Medium.ttf */,
+				F9A002D7B2ED4424995575D7 /* OpenSans-Regular.ttf */,
+				D1C3C60FF0394D94AEEE88DD /* OpenSans-SemiBold.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -342,6 +363,10 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				83DB2609AF364C3DAC8F7288 /* Futura-Bold.ttf in Resources */,
+				F40828FCE9D941168F7BED6A /* Futura-Medium.ttf in Resources */,
+				5CB7E0A9734548A4BDA5682B /* OpenSans-Regular.ttf in Resources */,
+				0D188AC026BA429D949DA8AB /* OpenSans-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

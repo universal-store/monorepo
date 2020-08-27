@@ -1,9 +1,13 @@
 /** @format */
 
 import React from 'react';
+
+import { theme } from '&theme';
+import { ThemeProvider } from 'styled-components/native';
+
 import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/client';
 
-import { Root } from './navigation';
+import { Root } from '&navigation';
 
 // Create the client as outlined in the setup guide
 const client = new ApolloClient({
@@ -15,9 +19,11 @@ const client = new ApolloClient({
 
 const App = () => {
   return (
-    <ApolloProvider client={client}>
-      <Root />
-    </ApolloProvider>
+    <ThemeProvider theme={theme}>
+      <ApolloProvider client={client}>
+        <Root />
+      </ApolloProvider>
+    </ThemeProvider>
   );
 };
 

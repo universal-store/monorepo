@@ -27,9 +27,9 @@ export const ScanPage = () => {
     })();
   }, []);
 
-  const handleBarCodeScanned = ({ data }: BarCodeEvent) => {
+  const handleBarCodeScanned = ({ type, data }: BarCodeEvent) => {
     setScanned(true);
-    Alert.alert(`Bar code with code ${data} has been scanned!`);
+    Alert.alert(`Bar code with type ${type} and code ${data} has been scanned!`);
   };
 
   if (hasPermission === null) {
@@ -42,6 +42,7 @@ export const ScanPage = () => {
     <FullScreen>
       <CameraScreen
         type={BarCodeScanner.Constants.Type.back}
+        barCodeTypes={[BarCodeScanner.Constants.BarCodeType.ean13]}
         onBarCodeScanned={barCodeEvent => {
           if (!scanned) handleBarCodeScanned(barCodeEvent);
         }}

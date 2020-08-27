@@ -4,6 +4,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 import { BarcodeBottomLeftIcon, BarcodeBottomRightIcon, BarcodeTopLeftIcon, BarcodeTopRightIcon } from '&icons';
+import { OpenSansSemiBoldSmall } from './text';
 
 // Styles
 const ScannerOverlayContainer = styled.View`
@@ -13,7 +14,7 @@ const ScannerOverlayContainer = styled.View`
 const TopLayer = styled.View`
   width: 100%;
   height: 100px;
-  background-color: ${({ theme }) => theme.colors.transparent};
+  background-color: ${({ theme }) => theme.colors.transparent.black};
 `;
 const CenterLayer = styled.View`
   flex-direction: row;
@@ -24,11 +25,16 @@ const CenterLayer = styled.View`
 const SideLayer = styled.View`
   width: 32px;
   height: 100%;
-  background-color: ${({ theme }) => theme.colors.transparent};
+  background-color: ${({ theme }) => theme.colors.transparent.black};
 `;
 
-const Cutout = styled.View`
+interface CutoutProps {
+  scanned: boolean;
+}
+
+const Cutout = styled.View<CutoutProps>`
   flex: 1;
+  background-color: ${({ theme, scanned }) => (scanned ? theme.colors.transparent.green : 'transparent')};
 `;
 
 const TopLeftBarcode = styled.View`
@@ -57,14 +63,11 @@ const BottomRightBarcode = styled.View`
 
 const BottomLayer = styled.View`
   flex: 1;
-  background-color: ${({ theme }) => theme.colors.transparent};
+  background-color: ${({ theme }) => theme.colors.transparent.black};
 `;
 
-const ScannedText = styled.Text`
-  font-size: 18px;
-  font-weight: 500;
+const ScannedText = styled(OpenSansSemiBoldSmall)`
   margin-top: 24px;
-  line-height: 24px;
   text-align: center;
   color: ${({ theme }) => theme.colors.white[1]};
 `;
@@ -78,7 +81,7 @@ export const ScannerOverlay = ({ scanned }: ScannerOverlayProps) => (
     <TopLayer />
     <CenterLayer>
       <SideLayer />
-      <Cutout>
+      <Cutout scanned={scanned}>
         <TopLeftBarcode>
           <BarcodeTopLeftIcon />
         </TopLeftBarcode>

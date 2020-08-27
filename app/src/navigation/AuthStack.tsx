@@ -4,14 +4,14 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { ScanPage } from '&screens';
+import { ScanningPage } from '&screens';
 
 const HomeTab = createBottomTabNavigator();
 
 const BottomTabNavigator = () => {
   return (
     <HomeTab.Navigator initialRouteName="Scan">
-      <HomeTab.Screen name="Scan" component={ScanPage} />
+      <HomeTab.Screen name="Scan" component={ScanningPage} />
     </HomeTab.Navigator>
   );
 };

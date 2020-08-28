@@ -3,16 +3,16 @@
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "install:ios": "pod-install ios",
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "ios:xcode": "xed ios",
-    "start": "react-native start",
-    "start:reset-cache": "react-native start --reset-cache",
-    "test": "jest",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --ext .ts,.tsx",
-    "rn:link": "react-native link"
+    "rn:link": "react-native link",
+    "android": "react-native run-android --no-packager",
+    "ios": "react-native run-ios --no-packager",
+    "ios:install": "yarn ios:pods && yarn ios",
+    "ios:pods": "pod-install ios",
+    "ios:xcode": "xed ios",
+    "start": "react-native start --reset-cache",
+    "test": "jest"
   },
   "dependencies": {
     "@apollo/client": "^3.0.0-beta.32",

@@ -188,7 +188,7 @@ dependencies {
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
-    addUnimodulesDependencies([modulesPaths: ['../....//node_modules']])
+    addUnimodulesDependencies([modulesPaths: ['../../../node_modules']])
 
     implementation 'com.android.support:multidex:1.0.3'
 

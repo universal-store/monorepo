@@ -57,7 +57,11 @@ export const ScanningPage = () => {
             }
           }}
           barCodeScannerSettings={{
-            barCodeTypes: [BarCodeScanner.Constants.BarCodeType.ean13],
+            barCodeTypes: [
+              BarCodeScanner.Constants.BarCodeType.ean8,
+              BarCodeScanner.Constants.BarCodeType.ean13,
+              BarCodeScanner.Constants.BarCodeType.upc_e,
+            ],
           }}
         >
           <ScannerOverlay scanned={scanned} />

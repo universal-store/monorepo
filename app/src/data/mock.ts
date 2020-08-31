@@ -46,4 +46,6 @@ let data: MockBarcode[] = [
 const randomData = data[Math.floor(Math.random() * data.length)];
 if (randomData.scanned) {
   console.log(randomData);
+} else {
+  console.log('scanned: false -- barcode scan not successful');
 }

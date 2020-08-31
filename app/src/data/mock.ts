@@ -9,6 +9,7 @@ export interface MockBarcode {
   size: string;
   price: number;
   description: string;
+  scanned: boolean;
 }
 
 let data: MockBarcode[] = [
@@ -19,6 +20,7 @@ let data: MockBarcode[] = [
     size: 'sizeExample',
     price: 10.0,
     description: 'descriptionExample',
+    scanned: false,
   },
   {
     id: '234289',
@@ -27,6 +29,7 @@ let data: MockBarcode[] = [
     size: '16 oz',
     price: 2.0,
     description: 'Super clear water',
+    scanned: false,
   },
   {
     id: '778653',
@@ -35,9 +38,12 @@ let data: MockBarcode[] = [
     size: '12 Slices',
     price: 2.0,
     description: 'Yummy bread',
+    scanned: false,
   },
 ];
 
-//if barcode scan is successful
+//if barcode scan is successful output to console. data.scanned all set to false
 const randomData = data[Math.floor(Math.random() * data.length)];
-console.log(randomData);
+if (randomData.scanned) {
+  console.log(randomData);
+}

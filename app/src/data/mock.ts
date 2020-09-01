@@ -1,6 +1,6 @@
 /** @format */
 
-import console = require('console');
+// import console = require('console');
 
 export interface MockBarcode {
   id: string;
@@ -43,9 +43,9 @@ let data: MockBarcode[] = [
 ];
 
 //if barcode scan is successful output to console. data.scanned all set to false
-const randomData = data[Math.floor(Math.random() * data.length)];
-if (randomData.scanned) {
-  console.log(randomData);
-} else {
-  console.log('scanned: false -- barcode scan not successful');
-}
+// const randomData = data[Math.floor(Math.random() * data.length)];
+// if (randomData.scanned) {
+//   console.log(randomData);
+// } else {
+//   console.log('scanned: false -- barcode scan not successful');
+// }

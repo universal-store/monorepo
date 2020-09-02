@@ -80,7 +80,16 @@ export const ItemPreviewContainer = styled.TouchableOpacity`
   left: 24px;
   height: 64px;
   bottom: 32px;
+  padding: 8px 16px;
   border-radius: 8px;
   width: ${screenWidth - 48}px;
   background-color: ${({ theme }) => theme.colors.white[1]};
+`;
+
+// TODO: Replace background color when we add images
+export const ItemPreviewImageContainer = styled.View`
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  background-color: red;
 `;

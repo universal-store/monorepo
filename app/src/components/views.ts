@@ -7,13 +7,13 @@ import styled from 'styled-components/native';
 import { Camera } from 'expo-camera';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-const screenWidth = `${Dimensions.get('window').width}px`;
-const screenHeight = `${Dimensions.get('window').height}px`;
+export const screenWidth = Dimensions.get('window').width;
+export const screenHeight = Dimensions.get('window').height;
 
 export const FullScreen = styled(SafeAreaView)`
   flex: 1;
-  width: ${screenWidth};
-  height: ${screenHeight};
+  width: ${screenWidth}px;
+  height: ${screenHeight}px;
 `;
 
 export const FullScreenCenter = styled(FullScreen)`

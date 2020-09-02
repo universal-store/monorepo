@@ -1,8 +1,11 @@
 /** @format */
 
 import React from 'react';
+
+// Iconography
 import { BarcodeBottomLeftIcon, BarcodeBottomRightIcon, BarcodeTopLeftIcon, BarcodeTopRightIcon } from '&icons';
 
+// Styled Components
 import {
   BottomLayer,
   BottomLeftBarcode,
@@ -17,7 +20,8 @@ import {
   TopRightBarcode,
 } from './Styled';
 
-// Styles
+// Components
+import { ItemPreview } from './ItemPreview';
 
 interface ScannerOverlayProps {
   scanned: boolean;
@@ -45,5 +49,7 @@ export const ScannerOverlay = ({ scanned }: ScannerOverlayProps) => (
       <SideLayer />
     </CenterLayer>
     <BottomLayer>{!scanned && <ScannedText>Scanning for Barcode...</ScannedText>}</BottomLayer>
+
+    {scanned && <ItemPreview />}
   </ScannerOverlayContainer>
 );

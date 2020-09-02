@@ -1,8 +1,10 @@
 /** @format */
 
 import React from 'react';
-import { View } from 'react-native';
+
+// Components
+import { ItemPreviewContainer } from './Styled';
 
 export const ItemPreview = () => {
-  return <View />;
+  return <ItemPreviewContainer />;
 };

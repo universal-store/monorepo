@@ -1,51 +1,44 @@
 /** @format */
 
-// import console = require('console');
-
-export interface MockBarcode {
+export interface MockItem {
   id: string;
-  shortName: string;
-  longName: string;
   size: string;
   price: number;
-  description: string;
   scanned: boolean;
+  longName: string;
+  shortName: string;
+  description: string;
 }
 
-let data: MockBarcode[] = [
+export const mockBarcodeData: MockItem[] = [
   {
     id: '123456',
-    shortName: 'shortNameExample',
-    longName: 'longNameExample',
-    size: 'sizeExample',
     price: 10.0,
-    description: 'descriptionExample',
     scanned: false,
+    size: 'sizeExample',
+    longName: 'longNameExample',
+    shortName: 'shortNameExample',
+    description: 'descriptionExample',
   },
   {
     id: '234289',
+    price: 2.0,
+    size: '16 oz',
+    scanned: false,
     shortName: 'Water',
     longName: 'Dasani Water Bottle',
-    size: '16 oz',
-    price: 2.0,
     description: 'Super clear water',
-    scanned: false,
   },
   {
     id: '778653',
-    shortName: 'Bread',
-    longName: 'Nature Valley Honey Whole Wheat Bread',
-    size: '12 Slices',
     price: 2.0,
-    description: 'Yummy bread',
     scanned: false,
+    size: '12 Slices',
+    shortName: 'Bread',
+    description: 'Yummy bread',
+    longName: 'Nature Valley Honey Whole Wheat Bread',
   },
 ];
 
 //if barcode scan is successful output to console. data.scanned all set to false
 // const randomData = data[Math.floor(Math.random() * data.length)];
-// if (randomData.scanned) {
-//   console.log(randomData);
-// } else {
-//   console.log('scanned: false -- barcode scan not successful');
-// }

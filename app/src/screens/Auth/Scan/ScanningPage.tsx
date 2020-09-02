@@ -10,14 +10,7 @@ import { BarCodeScanner } from 'expo-barcode-scanner';
 import { BarCodeScanningResult } from 'expo-camera/build/Camera.types';
 
 // Components
-import { FullScreen, ScannerOverlay } from '&components';
-
-// Custom Components
-import styled from 'styled-components/native';
-
-const CameraScreen = styled(Camera)`
-  flex: 1;
-`;
+import { CameraView, FullScreen, ItemPreview, ScannerOverlay } from '&components';
 
 export const ScanningPage = () => {
   let cameraRef: Camera | null;
@@ -47,7 +40,7 @@ export const ScanningPage = () => {
   return (
     <FullScreen>
       {isFocused && (
-        <CameraScreen
+        <CameraView
           ref={ref => (cameraRef = ref)}
           type={Camera.Constants.Type.back}
           onBarCodeScanned={barCodeEvent => {
@@ -65,7 +58,7 @@ export const ScanningPage = () => {
           }}
         >
           <ScannerOverlay scanned={scanned} />
-        </CameraScreen>
+        </CameraView>
       )}
 
       {scanned && (

@@ -3,7 +3,7 @@
 import styled from 'styled-components/native';
 
 // Typography
-import { OpenSansBoldCardPrice, OpenSansSemiBoldSmall, screenWidth } from '&components';
+import { OpenSansSemiBoldMedium, OpenSansSemiBoldSmall, screenWidth } from '&components';
 
 // Scanner Overlay ----------------------------------------------------------
 
@@ -67,7 +67,7 @@ export const BottomLayer = styled.View`
   background-color: ${({ theme }) => theme.colors.transparent.black};
 `;
 
-export const ScannedText = styled(OpenSansSemiBoldSmall)`
+export const ScannedText = styled(OpenSansSemiBoldMedium)`
   margin-top: 24px;
   text-align: center;
   color: ${({ theme }) => theme.colors.white[1]};
@@ -106,6 +106,6 @@ export const ItemPreviewTextContainer = styled.View`
   margin-left: 8px;
 `;
 
-export const ItemPreviewPriceText = styled(OpenSansBoldCardPrice)`
+export const ItemPreviewPriceText = styled(OpenSansSemiBoldSmall)`
   margin-top: 2px;
 `;

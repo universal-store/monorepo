@@ -517,8 +517,6 @@ enum User_update_column {
 
 # columns and relationships of "UserProfilePic"
 type UserProfilePic {
-  # An object relationship
-  User: User!
   id: uuid!
   size128: String!
   size256: String!
@@ -555,7 +553,6 @@ input UserProfilePic_arr_rel_insert_input {
 
 # Boolean expression to filter rows from the table "UserProfilePic". All fields are combined with a logical 'AND'.
 input UserProfilePic_bool_exp {
-  User: User_bool_exp
   _and: [UserProfilePic_bool_exp]
   _not: UserProfilePic_bool_exp
   _or: [UserProfilePic_bool_exp]
@@ -578,7 +575,6 @@ enum UserProfilePic_constraint {
 
 # input type for inserting data into table "UserProfilePic"
 input UserProfilePic_insert_input {
-  User: User_obj_rel_insert_input
   id: uuid
   size128: String
   size256: String
@@ -651,7 +647,6 @@ input UserProfilePic_on_conflict {
 
 # ordering options when selecting data from "UserProfilePic"
 input UserProfilePic_order_by {
-  User: User_order_by
   id: order_by
   size128: order_by
   size256: order_by

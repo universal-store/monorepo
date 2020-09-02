@@ -10,7 +10,7 @@ import { BarCodeScanner } from 'expo-barcode-scanner';
 import { BarCodeScanningResult } from 'expo-camera/build/Camera.types';
 
 // Components
-import { CameraView, FullScreen, ItemPreview, ScannerOverlay } from '&components';
+import { CameraView, FullScreen, ScannerOverlay } from '&components';
 
 export const ScanningPage = () => {
   let cameraRef: Camera | null;

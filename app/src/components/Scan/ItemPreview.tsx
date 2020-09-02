@@ -21,7 +21,7 @@ export const ItemPreview = () => {
     <ItemPreviewContainer>
       <ItemPreviewImageContainer />
       <ItemPreviewTextContainer>
-        <FuturaBoldCardTitle>Gatorade Orange 28oz</FuturaBoldCardTitle>
+        <FuturaBoldCardTitle numberOfLines={1}>Gatorade Orange 28oz</FuturaBoldCardTitle>
         <ItemPreviewPriceText>$3.19</ItemPreviewPriceText>
       </ItemPreviewTextContainer>
     </ItemPreviewContainer>

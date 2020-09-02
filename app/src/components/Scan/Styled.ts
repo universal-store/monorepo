@@ -101,6 +101,7 @@ export const ItemPreviewImageContainer = styled.View`
 `;
 
 export const ItemPreviewTextContainer = styled.View`
+  flex: 1;
   margin-top: 4px;
   margin-left: 8px;
 `;

@@ -3,9 +3,9 @@
 import styled from 'styled-components/native';
 
 // Typography
-import { OpenSansSemiBoldSmall, screenWidth } from '&components';
+import { OpenSansBoldCardPrice, OpenSansSemiBoldSmall, screenWidth } from '&components';
 
-// Scanner Overlay
+// Scanner Overlay ----------------------------------------------------------
 
 export const ScannerOverlayContainer = styled.View`
   flex: 1;
@@ -73,16 +73,22 @@ export const ScannedText = styled(OpenSansSemiBoldSmall)`
   color: ${({ theme }) => theme.colors.white[1]};
 `;
 
-// Item Preview
+// Item Preview ----------------------------------------------------------
 
 export const ItemPreviewContainer = styled.TouchableOpacity`
   position: absolute;
   left: 24px;
   height: 64px;
   bottom: 32px;
+  display: flex;
   padding: 8px 16px;
+  shadow-radius: 4px;
   border-radius: 8px;
+  flex-direction: row;
+  shadow-opacity: 0.25;
+  shadow-offset: 0px 4px;
   width: ${screenWidth - 48}px;
+  shadow-color: ${({ theme }) => theme.colors.gray[1]};
   background-color: ${({ theme }) => theme.colors.white[1]};
 `;
 
@@ -92,4 +98,13 @@ export const ItemPreviewImageContainer = styled.View`
   height: 48px;
   border-radius: 4px;
   background-color: red;
+`;
+
+export const ItemPreviewTextContainer = styled.View`
+  margin-top: 4px;
+  margin-left: 8px;
+`;
+
+export const ItemPreviewPriceText = styled(OpenSansBoldCardPrice)`
+  margin-top: 2px;
 `;

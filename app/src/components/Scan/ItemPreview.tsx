@@ -1,10 +1,16 @@
 /** @format */
 
 import React from 'react';
-import { Text } from 'react-native';
 
 // Components
-import { ItemPreviewContainer, ItemPreviewImageContainer } from './Styled';
+import {
+  ItemPreviewContainer,
+  ItemPreviewImageContainer,
+  ItemPreviewPriceText,
+  ItemPreviewTextContainer,
+} from './Styled';
+
+import { FuturaBoldCardTitle } from '../Text';
 
 // Mock Data
 // import { MockItem } from '&data';
@@ -14,8 +20,10 @@ export const ItemPreview = () => {
   return (
     <ItemPreviewContainer>
       <ItemPreviewImageContainer />
-      <Text>Gatorade Orange 28oz</Text>
-      <Text>$3.19</Text>
+      <ItemPreviewTextContainer>
+        <FuturaBoldCardTitle>Gatorade Orange 28oz</FuturaBoldCardTitle>
+        <ItemPreviewPriceText>$3.19</ItemPreviewPriceText>
+      </ItemPreviewTextContainer>
     </ItemPreviewContainer>
   );
 };

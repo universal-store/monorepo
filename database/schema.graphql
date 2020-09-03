@@ -4,8 +4,60 @@ schema {
   subscription: subscription_root
 }
 
+scalar bigint
+
+# expression to compare columns of type bigint. All fields are combined with logical 'AND'.
+input bigint_comparison_exp {
+  _eq: bigint
+  _gt: bigint
+  _gte: bigint
+  _in: [bigint!]
+  _is_null: Boolean
+  _lt: bigint
+  _lte: bigint
+  _neq: bigint
+  _nin: [bigint!]
+}
+
+# expression to compare columns of type Boolean. All fields are combined with logical 'AND'.
+input Boolean_comparison_exp {
+  _eq: Boolean
+  _gt: Boolean
+  _gte: Boolean
+  _in: [Boolean!]
+  _is_null: Boolean
+  _lt: Boolean
+  _lte: Boolean
+  _neq: Boolean
+  _nin: [Boolean!]
+}
+
+scalar money
+
+# expression to compare columns of type money. All fields are combined with logical 'AND'.
+input money_comparison_exp {
+  _eq: money
+  _gt: money
+  _gte: money
+  _in: [money!]
+  _is_null: Boolean
+  _lt: money
+  _lte: money
+  _neq: money
+  _nin: [money!]
+}
+
 # mutation root
 type mutation_root {
+  # delete data from the table: "StoreItem"
+  delete_StoreItem(
+    # filter the rows which have to be deleted
+    where: StoreItem_bool_exp!
+  ): StoreItem_mutation_response
+
+  # delete single row from the table: "StoreItem"
+  delete_StoreItem_by_pk(barcodeId: bigint!): StoreItem
+
   # delete data from the table: "User"
   delete_User(
     # filter the rows which have to be deleted
@@ -23,6 +75,24 @@ type mutation_root {
 
   # delete single row from the table: "User"
   delete_User_by_pk(id: uuid!): User
+
+  # insert data into the table: "StoreItem"
+  insert_StoreItem(
+    # the rows to be inserted
+    objects: [StoreItem_insert_input!]!
+
+    # on conflict condition
+    on_conflict: StoreItem_on_conflict
+  ): StoreItem_mutation_response
+
+  # insert a single row into the table: "StoreItem"
+  insert_StoreItem_one(
+    # the row to be inserted
+    object: StoreItem_insert_input!
+
+    # on conflict condition
+    on_conflict: StoreItem_on_conflict
+  ): StoreItem
 
   # insert data into the table: "User"
   insert_User(
@@ -59,6 +129,28 @@ type mutation_root {
     # on conflict condition
     on_conflict: User_on_conflict
   ): User
+
+  # update data of the table: "StoreItem"
+  update_StoreItem(
+    # increments the integer columns with given value of the filtered values
+    _inc: StoreItem_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: StoreItem_set_input
+
+    # filter the rows which have to be updated
+    where: StoreItem_bool_exp!
+  ): StoreItem_mutation_response
+
+  # update single row of the table: "StoreItem"
+  update_StoreItem_by_pk(
+    # increments the integer columns with given value of the filtered values
+    _inc: StoreItem_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: StoreItem_set_input
+    pk_columns: StoreItem_pk_columns_input!
+  ): StoreItem
 
   # update data of the table: "User"
   update_User(
@@ -116,6 +208,45 @@ enum order_by {
 
 # query root
 type query_root {
+  # fetch data from the table: "StoreItem"
+  StoreItem(
+    # distinct select on columns
+    distinct_on: [StoreItem_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [StoreItem_order_by!]
+
+    # filter the rows returned
+    where: StoreItem_bool_exp
+  ): [StoreItem!]!
+
+  # fetch aggregated fields from the table: "StoreItem"
+  StoreItem_aggregate(
+    # distinct select on columns
+    distinct_on: [StoreItem_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [StoreItem_order_by!]
+
+    # filter the rows returned
+    where: StoreItem_bool_exp
+  ): StoreItem_aggregate!
+
+  # fetch data from the table: "StoreItem" using primary key columns
+  StoreItem_by_pk(barcodeId: bigint!): StoreItem
+
   # fetch data from the table: "User"
   User(
     # distinct select on columns
@@ -195,6 +326,347 @@ type query_root {
   User_by_pk(id: uuid!): User
 }
 
+# columns and relationships of "StoreItem"
+type StoreItem {
+  barcodeId: bigint!
+  description: String
+  id: uuid!
+  longName: String!
+  price: money!
+  purchased: Boolean!
+  quantity: String!
+  shortName: String
+}
+
+# aggregated selection of "StoreItem"
+type StoreItem_aggregate {
+  aggregate: StoreItem_aggregate_fields
+  nodes: [StoreItem!]!
+}
+
+# aggregate fields of "StoreItem"
+type StoreItem_aggregate_fields {
+  avg: StoreItem_avg_fields
+  count(columns: [StoreItem_select_column!], distinct: Boolean): Int
+  max: StoreItem_max_fields
+  min: StoreItem_min_fields
+  stddev: StoreItem_stddev_fields
+  stddev_pop: StoreItem_stddev_pop_fields
+  stddev_samp: StoreItem_stddev_samp_fields
+  sum: StoreItem_sum_fields
+  var_pop: StoreItem_var_pop_fields
+  var_samp: StoreItem_var_samp_fields
+  variance: StoreItem_variance_fields
+}
+
+# order by aggregate values of table "StoreItem"
+input StoreItem_aggregate_order_by {
+  avg: StoreItem_avg_order_by
+  count: order_by
+  max: StoreItem_max_order_by
+  min: StoreItem_min_order_by
+  stddev: StoreItem_stddev_order_by
+  stddev_pop: StoreItem_stddev_pop_order_by
+  stddev_samp: StoreItem_stddev_samp_order_by
+  sum: StoreItem_sum_order_by
+  var_pop: StoreItem_var_pop_order_by
+  var_samp: StoreItem_var_samp_order_by
+  variance: StoreItem_variance_order_by
+}
+
+# input type for inserting array relation for remote table "StoreItem"
+input StoreItem_arr_rel_insert_input {
+  data: [StoreItem_insert_input!]!
+  on_conflict: StoreItem_on_conflict
+}
+
+# aggregate avg on columns
+type StoreItem_avg_fields {
+  barcodeId: Float
+  price: Float
+}
+
+# order by avg() on columns of table "StoreItem"
+input StoreItem_avg_order_by {
+  barcodeId: order_by
+  price: order_by
+}
+
+# Boolean expression to filter rows from the table "StoreItem". All fields are combined with a logical 'AND'.
+input StoreItem_bool_exp {
+  _and: [StoreItem_bool_exp]
+  _not: StoreItem_bool_exp
+  _or: [StoreItem_bool_exp]
+  barcodeId: bigint_comparison_exp
+  description: String_comparison_exp
+  id: uuid_comparison_exp
+  longName: String_comparison_exp
+  price: money_comparison_exp
+  purchased: Boolean_comparison_exp
+  quantity: String_comparison_exp
+  shortName: String_comparison_exp
+}
+
+# unique or primary key constraints on table "StoreItem"
+enum StoreItem_constraint {
+  # unique or primary key constraint
+  StoreItem_barcodeId_key
+
+  # unique or primary key constraint
+  StoreItem_pkey
+}
+
+# input type for incrementing integer column in table "StoreItem"
+input StoreItem_inc_input {
+  barcodeId: bigint
+  price: money
+}
+
+# input type for inserting data into table "StoreItem"
+input StoreItem_insert_input {
+  barcodeId: bigint
+  description: String
+  id: uuid
+  longName: String
+  price: money
+  purchased: Boolean
+  quantity: String
+  shortName: String
+}
+
+# aggregate max on columns
+type StoreItem_max_fields {
+  barcodeId: bigint
+  description: String
+  id: uuid
+  longName: String
+  price: money
+  quantity: String
+  shortName: String
+}
+
+# order by max() on columns of table "StoreItem"
+input StoreItem_max_order_by {
+  barcodeId: order_by
+  description: order_by
+  id: order_by
+  longName: order_by
+  price: order_by
+  quantity: order_by
+  shortName: order_by
+}
+
+# aggregate min on columns
+type StoreItem_min_fields {
+  barcodeId: bigint
+  description: String
+  id: uuid
+  longName: String
+  price: money
+  quantity: String
+  shortName: String
+}
+
+# order by min() on columns of table "StoreItem"
+input StoreItem_min_order_by {
+  barcodeId: order_by
+  description: order_by
+  id: order_by
+  longName: order_by
+  price: order_by
+  quantity: order_by
+  shortName: order_by
+}
+
+# response of any mutation on the table "StoreItem"
+type StoreItem_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [StoreItem!]!
+}
+
+# input type for inserting object relation for remote table "StoreItem"
+input StoreItem_obj_rel_insert_input {
+  data: StoreItem_insert_input!
+  on_conflict: StoreItem_on_conflict
+}
+
+# on conflict condition type for table "StoreItem"
+input StoreItem_on_conflict {
+  constraint: StoreItem_constraint!
+  update_columns: [StoreItem_update_column!]!
+  where: StoreItem_bool_exp
+}
+
+# ordering options when selecting data from "StoreItem"
+input StoreItem_order_by {
+  barcodeId: order_by
+  description: order_by
+  id: order_by
+  longName: order_by
+  price: order_by
+  purchased: order_by
+  quantity: order_by
+  shortName: order_by
+}
+
+# primary key columns input for table: "StoreItem"
+input StoreItem_pk_columns_input {
+  barcodeId: bigint!
+}
+
+# select columns of table "StoreItem"
+enum StoreItem_select_column {
+  # column name
+  barcodeId
+
+  # column name
+  description
+
+  # column name
+  id
+
+  # column name
+  longName
+
+  # column name
+  price
+
+  # column name
+  purchased
+
+  # column name
+  quantity
+
+  # column name
+  shortName
+}
+
+# input type for updating data in table "StoreItem"
+input StoreItem_set_input {
+  barcodeId: bigint
+  description: String
+  id: uuid
+  longName: String
+  price: money
+  purchased: Boolean
+  quantity: String
+  shortName: String
+}
+
+# aggregate stddev on columns
+type StoreItem_stddev_fields {
+  barcodeId: Float
+  price: Float
+}
+
+# order by stddev() on columns of table "StoreItem"
+input StoreItem_stddev_order_by {
+  barcodeId: order_by
+  price: order_by
+}
+
+# aggregate stddev_pop on columns
+type StoreItem_stddev_pop_fields {
+  barcodeId: Float
+  price: Float
+}
+
+# order by stddev_pop() on columns of table "StoreItem"
+input StoreItem_stddev_pop_order_by {
+  barcodeId: order_by
+  price: order_by
+}
+
+# aggregate stddev_samp on columns
+type StoreItem_stddev_samp_fields {
+  barcodeId: Float
+  price: Float
+}
+
+# order by stddev_samp() on columns of table "StoreItem"
+input StoreItem_stddev_samp_order_by {
+  barcodeId: order_by
+  price: order_by
+}
+
+# aggregate sum on columns
+type StoreItem_sum_fields {
+  barcodeId: bigint
+  price: money
+}
+
+# order by sum() on columns of table "StoreItem"
+input StoreItem_sum_order_by {
+  barcodeId: order_by
+  price: order_by
+}
+
+# update columns of table "StoreItem"
+enum StoreItem_update_column {
+  # column name
+  barcodeId
+
+  # column name
+  description
+
+  # column name
+  id
+
+  # column name
+  longName
+
+  # column name
+  price
+
+  # column name
+  purchased
+
+  # column name
+  quantity
+
+  # column name
+  shortName
+}
+
+# aggregate var_pop on columns
+type StoreItem_var_pop_fields {
+  barcodeId: Float
+  price: Float
+}
+
+# order by var_pop() on columns of table "StoreItem"
+input StoreItem_var_pop_order_by {
+  barcodeId: order_by
+  price: order_by
+}
+
+# aggregate var_samp on columns
+type StoreItem_var_samp_fields {
+  barcodeId: Float
+  price: Float
+}
+
+# order by var_samp() on columns of table "StoreItem"
+input StoreItem_var_samp_order_by {
+  barcodeId: order_by
+  price: order_by
+}
+
+# aggregate variance on columns
+type StoreItem_variance_fields {
+  barcodeId: Float
+  price: Float
+}
+
+# order by variance() on columns of table "StoreItem"
+input StoreItem_variance_order_by {
+  barcodeId: order_by
+  price: order_by
+}
+
 # expression to compare columns of type String. All fields are combined with logical 'AND'.
 input String_comparison_exp {
   _eq: String
@@ -216,6 +688,45 @@ input String_comparison_exp {
 
 # subscription root
 type subscription_root {
+  # fetch data from the table: "StoreItem"
+  StoreItem(
+    # distinct select on columns
+    distinct_on: [StoreItem_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [StoreItem_order_by!]
+
+    # filter the rows returned
+    where: StoreItem_bool_exp
+  ): [StoreItem!]!
+
+  # fetch aggregated fields from the table: "StoreItem"
+  StoreItem_aggregate(
+    # distinct select on columns
+    distinct_on: [StoreItem_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [StoreItem_order_by!]
+
+    # filter the rows returned
+    where: StoreItem_bool_exp
+  ): StoreItem_aggregate!
+
+  # fetch data from the table: "StoreItem" using primary key columns
+  StoreItem_by_pk(barcodeId: bigint!): StoreItem
+
   # fetch data from the table: "User"
   User(
     # distinct select on columns
@@ -517,6 +1028,8 @@ enum User_update_column {
 
 # columns and relationships of "UserProfilePic"
 type UserProfilePic {
+  # An object relationship
+  User: User!
   id: uuid!
   size128: String!
   size256: String!
@@ -553,6 +1066,7 @@ input UserProfilePic_arr_rel_insert_input {
 
 # Boolean expression to filter rows from the table "UserProfilePic". All fields are combined with a logical 'AND'.
 input UserProfilePic_bool_exp {
+  User: User_bool_exp
   _and: [UserProfilePic_bool_exp]
   _not: UserProfilePic_bool_exp
   _or: [UserProfilePic_bool_exp]
@@ -575,6 +1089,7 @@ enum UserProfilePic_constraint {
 
 # input type for inserting data into table "UserProfilePic"
 input UserProfilePic_insert_input {
+  User: User_obj_rel_insert_input
   id: uuid
   size128: String
   size256: String
@@ -647,6 +1162,7 @@ input UserProfilePic_on_conflict {
 
 # ordering options when selecting data from "UserProfilePic"
 input UserProfilePic_order_by {
+  User: User_order_by
   id: order_by
   size128: order_by
   size256: order_by

@@ -9,10 +9,8 @@ import { AddCartButton, AddCartButtonText } from '&components';
 // Icons
 // import { HeartIcon } from '&icons';
 
-// Components
-import { FullScreen } from '&components';
-
-const ItemDetailContainer = styled(FullScreen)`
+const ItemDetailContainer = styled.View`
+  flex: 1;
   background-color: ${({ theme }) => theme.colors.purple[3]};
 `;
 
@@ -27,7 +25,7 @@ export const ItemDetail = () => {
 
   return (
     <ItemDetailContainer>
-      <AddCartButton onPress={() => setAddedToCart(!addedToCart)} added={addedToCart}>
+      <AddCartButton added={addedToCart} onPress={() => setAddedToCart(!addedToCart)}>
         <AddCartButtonText added={addedToCart}>{addedToCart ? 'Added!' : 'Add to Cart'}</AddCartButtonText>
       </AddCartButton>
     </ItemDetailContainer>

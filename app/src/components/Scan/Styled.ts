@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 import { Animated } from 'react-native';
 
 // Typography
-import { OpenSansSemiBoldMedium, OpenSansSemiBoldSmall, screenWidth } from '&components';
+import { FuturaBoldLarge, OpenSansSemiBoldMedium, OpenSansSemiBoldSmall, RowView, screenWidth } from '&components';
 
 // Scanner Overlay ----------------------------------------------------------
 
@@ -18,6 +18,16 @@ export const TopLayer = styled.View`
   background-color: ${({ theme }) => theme.colors.transparent.black};
 `;
 
+export const ScannerHeaderRow = styled(RowView)`
+  width: 100%;
+  margin-top: auto;
+  align-items: center;
+  padding: 0 32px 28px;
+  justify-content: space-between;
+`;
+export const ScannerHeaderText = styled(FuturaBoldLarge)`
+  color: ${({ theme }) => theme.colors.white[1]};
+`;
 export const CenterLayer = styled.View`
   flex-direction: row;
   width: 100%;

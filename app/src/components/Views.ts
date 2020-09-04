@@ -24,3 +24,8 @@ export const FullScreenCenter = styled(FullScreen)`
 export const CameraView = styled(Camera)`
   flex: 1;
 `;
+
+export const RowView = styled.View`
+  display: flex;
+  flex-direction: row;
+`;

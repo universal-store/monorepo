@@ -9,7 +9,15 @@ export interface MockItem {
   shortName: string;
   description: string;
 }
-
+export const nullItem: MockItem = {
+  id: 'err',
+  price: 0,
+  scanned: false,
+  size: 'err',
+  longName: 'err',
+  shortName: 'err',
+  description: 'err',
+};
 export const mockBarcodeData: MockItem[] = [
   {
     id: '123456',
@@ -39,6 +47,3 @@ export const mockBarcodeData: MockItem[] = [
     longName: 'Nature Valley Honey Whole Wheat Bread',
   },
 ];
-
-//if barcode scan is successful output to console. data.scanned all set to false
-// const randomData = data[Math.floor(Math.random() * data.length)];

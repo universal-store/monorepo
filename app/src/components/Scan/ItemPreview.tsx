@@ -18,10 +18,11 @@ import { MockItem } from '&data';
 
 interface ItemPreviewProps {
   shown: boolean;
+  shortName: string;
+  price: number;
 }
 
-// export const ItemPreview = ({ shortName, price }: MockItem) => {
-export const ItemPreview = ({ shown }: ItemPreviewProps) => {
+export const ItemPreview = ({ shown, shortName, price }: ItemPreviewProps) => {
   const animatedValue = useState(new Animated.Value(0))[0];
 
   useEffect(() => {
@@ -43,8 +44,8 @@ export const ItemPreview = ({ shown }: ItemPreviewProps) => {
     >
       <ItemPreviewImageContainer />
       <ItemPreviewTextContainer>
-        <FuturaBoldCardTitle numberOfLines={1}>Gatorade Orange 28oz</FuturaBoldCardTitle>
-        <ItemPreviewPriceText>$3.19</ItemPreviewPriceText>
+        <FuturaBoldCardTitle numberOfLines={1}>{shortName}</FuturaBoldCardTitle>
+        <ItemPreviewPriceText>${price}</ItemPreviewPriceText>
       </ItemPreviewTextContainer>
     </AnimatedItemPreviewContainer>
   );

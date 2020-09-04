@@ -12,6 +12,10 @@ import { BarCodeScanningResult } from 'expo-camera/build/Camera.types';
 // Components
 import { CameraView, FullScreen, ScannerOverlay } from '&components';
 
+// Mock Data
+// TODO: Replace with database data
+import { mockBarcodeData, MockItem, nullItem } from '&data';
+
 const BARCODE_DATA_API_URL =
   'http://www.searchupc.com/handlers/upcsearch.ashx?request_type=3&access_token=09C70CF1-E284-44E3-A0B9-A6129573115C&upc=';
 
@@ -21,6 +25,7 @@ export const ScanningPage = () => {
 
   const [scanned, setScanned] = useState(false);
   const [hasPermission, setHasPermission] = useState<boolean | null>(null);
+  const [scannedItem, setScannedItem] = useState<MockItem>(nullItem);
 
   useEffect(() => {
     void (async () => {
@@ -38,6 +43,8 @@ export const ScanningPage = () => {
         if (data) console.log(`${data['0'].productname} with price $${data['0'].price} has been scanned!`);
       })
       .catch(error => console.log(error));
+
+    setScannedItem(mockBarcodeData[Math.floor(Math.random() * mockBarcodeData.length)]);
   };
 
   if (hasPermission === null) {
@@ -66,7 +73,7 @@ export const ScanningPage = () => {
             ],
           }}
         >
-          <ScannerOverlay scanned={scanned} />
+          <ScannerOverlay scanned={scanned} scannedItem={scannedItem} />
         </CameraView>
       )}
 

@@ -23,11 +23,15 @@ import {
 // Components
 import { ItemPreview } from './ItemPreview';
 
+//MockData
+import { MockItem } from '&data';
+
 interface ScannerOverlayProps {
   scanned: boolean;
+  scannedItem: MockItem;
 }
 
-export const ScannerOverlay = ({ scanned }: ScannerOverlayProps) => (
+export const ScannerOverlay = ({ scanned, scannedItem }: ScannerOverlayProps) => (
   <ScannerOverlayContainer>
     <TopLayer />
     <CenterLayer>
@@ -50,6 +54,6 @@ export const ScannerOverlay = ({ scanned }: ScannerOverlayProps) => (
     </CenterLayer>
     <BottomLayer>{!scanned && <ScannedText>Scanning for Barcode...</ScannedText>}</BottomLayer>
 
-    <ItemPreview shown={scanned} />
+    <ItemPreview shown={scanned} shortName={scannedItem.shortName} price={scannedItem.price} />
   </ScannerOverlayContainer>
 );

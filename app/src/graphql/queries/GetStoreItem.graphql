@@ -1,0 +1,5 @@
+query GetStoreItem($barcodeId: bigint!) {
+    StoreItem_by_pk(barcodeId: $barcodeId) {
+        ...StoreItem
+    }
+}

@@ -1,0 +1,13 @@
+fragment StoreItem on StoreItem {
+    price
+    quantity
+    longName
+    shortName
+    description
+    StoreItemPic {
+        size64
+        size128
+        size256
+        size512
+    }
+}

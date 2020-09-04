@@ -5,6 +5,7 @@ import { Animated } from 'react-native';
 
 // Typography
 import {
+  FuturaBoldButtonText,
   FuturaBoldLarge,
   isiPhoneX,
   OpenSansRegularLarge,
@@ -132,4 +133,17 @@ export const ItemPreviewTextContainer = styled.View`
 
 export const ItemPreviewPriceText = styled(OpenSansRegularLarge)`
   margin-top: auto;
+`;
+
+export const TestButton = styled.TouchableOpacity`
+  display: flex;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: ${isiPhoneX ? 30 : 0}px;
+  background-color: ${({ theme }) => theme.colors.purple[1]};
+`;
+
+export const TestButtonText = styled(FuturaBoldButtonText)`
+  color: ${({ theme }) => theme.colors.white[1]};
 `;

@@ -1,6 +1,9 @@
 /** @format */
 
-import React, { useState } from 'react';
+import React from 'react';
+
+// Libraries
+import BottomSheet from 'reanimated-bottom-sheet';
 
 import { AuthStackParams } from '&navigation';
 import { StackScreenProps } from '@react-navigation/stack';
@@ -8,12 +11,9 @@ import { StackScreenProps } from '@react-navigation/stack';
 // Components
 import {
   AddCartButton,
-  AddCartButtonContainer,
-  AddCartButtonText,
   FuturaBoldLarge as ItemNameText,
   ItemDetailContainer,
   ItemDetailModalContainer,
-  ItemDetailModalSheet,
   ItemPriceText,
   ItemSizeText,
   ItemSubDetailRow,
@@ -24,10 +24,8 @@ import {
 
 type ItemDetailProps = StackScreenProps<AuthStackParams, 'ItemDetail'>;
 
-export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
+export const ItemDetail = ({ route }: ItemDetailProps) => {
   const { itemData } = route.params;
-
-  const [addedToCart, setAddedToCart] = useState<boolean>(false);
 
   const renderContent = () => (
     <ItemDetailModalContainer>
@@ -44,13 +42,8 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
 
   return (
     <ItemDetailContainer>
-      <ItemDetailModalSheet initialSnap={1} renderContent={renderContent} snapPoints={[screenHeight - 144, 390, 190]} />
-
-      <AddCartButtonContainer>
-        <AddCartButton added={addedToCart} onPress={() => setAddedToCart(!addedToCart)}>
-          <AddCartButtonText added={addedToCart}>{addedToCart ? 'Added!' : 'Add to Cart'}</AddCartButtonText>
-        </AddCartButton>
-      </AddCartButtonContainer>
+      <BottomSheet initialSnap={1} renderContent={renderContent} snapPoints={[screenHeight - 144, 390, 190]} />
+      <AddCartButton />
     </ItemDetailContainer>
   );
 };

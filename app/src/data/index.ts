@@ -3,14 +3,14 @@
 import { StoreItem } from '&graphql';
 
 export const nullItem: StoreItem = {
-  id: 'err',
-  price: 0.0,
+  id: '-1',
+  price: 42.0,
   purchased: false,
   barcodeId: '123456',
-  quantity: 'err',
-  longName: 'err',
-  shortName: 'err',
-  description: 'err',
+  quantity: '1 item',
+  longName: 'This is a Null Item',
+  shortName: 'Null Item',
+  description: 'These are the Product Details for this Null Item',
 };
 
 export const mockBarcodeData: StoreItem[] = [

@@ -13,10 +13,9 @@ import {
 import { FuturaBoldCardTitle } from '../Text';
 
 // Mock Data
-// import { MockItem } from '&data';
+import { MockItem } from '&data';
 
-// export const ItemPreview = ({ shortName, price }: MockItem) => {
-export const ItemPreview = () => {
+export const ItemPreview = ({ shortName, price }: MockItem) => {
   return (
     <ItemPreviewContainer>
       <ItemPreviewImageContainer />

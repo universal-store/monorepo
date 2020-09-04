@@ -2,6 +2,9 @@
 
 import styled from 'styled-components/native';
 
+// Libraries
+import BottomSheet from 'reanimated-bottom-sheet';
+
 // Typography
 import {
   FuturaBoldButtonText,
@@ -9,8 +12,9 @@ import {
   FuturaBoldMedium,
   OpenSansRegularLarge,
   OpenSansRegularMedium,
-  OpenSansSemiBoldMedium,
   RowView,
+  screenHeight,
+  screenWidth,
 } from '&components';
 
 export const ItemDetailContainer = styled.View`
@@ -18,18 +22,21 @@ export const ItemDetailContainer = styled.View`
   background-color: ${({ theme }) => theme.colors.purple[3]};
 `;
 
-export const ItemDetailModalContainer = styled.View`
-  width: 100%;
-  height: 375px;
-  display: flex;
-  margin-top: auto;
+export const ItemDetailModalSheet = styled(BottomSheet)`
   shadow-radius: 2px;
   shadow-opacity: 0.25;
-  padding: 28px 32px 24px;
   shadow-offset: 0px -0.5px;
+  shadow-color: ${({ theme }) => theme.colors.gray[1]};
+`;
+
+export const ItemDetailModalContainer = styled.View`
+  width: 100%;
+  display: flex;
+  margin-top: auto;
+  padding: 28px 32px 24px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  shadow-color: ${({ theme }) => theme.colors.gray[1]};
+  height: ${screenHeight - 144}px;
   background-color: ${({ theme }) => theme.colors.white[1]};
 `;
 
@@ -54,18 +61,25 @@ export const ProductDetailsText = styled(OpenSansRegularMedium)`
   margin-top: 8px;
 `;
 
+export const AddCartButtonContainer = styled.View`
+  position: absolute;
+  bottom: 0;
+  z-index: 999;
+  padding: 32px 32px 24px;
+  background-color: ${({ theme, added }) => (added ? theme.colors.purple[1] : theme.colors.white[1])};
+`;
+
 interface AddCartButtonProps {
   added: boolean;
 }
 
 export const AddCartButton = styled.TouchableOpacity<AddCartButtonProps>`
-  width: 100%;
   height: 48px;
   display: flex;
-  margin-top: auto;
   border-radius: 8px;
   align-items: center;
   justify-content: center;
+  width: ${screenWidth - 64}px;
   border: 2px solid ${({ theme }) => theme.colors.purple[1]};
   background-color: ${({ theme, added }) => (added ? theme.colors.purple[1] : theme.colors.white[1])};
 `;

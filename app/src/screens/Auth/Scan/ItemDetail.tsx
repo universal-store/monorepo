@@ -11,9 +11,9 @@ import {
   ItemDetailModalContainer,
   ItemPriceText,
   ItemSizeText,
+  ItemSubDetailRow,
   ProductDetailsHeaderText,
   ProductDetailsText,
-  RowView,
 } from '&components';
 
 export const ItemDetail = () => {
@@ -23,10 +23,10 @@ export const ItemDetail = () => {
     <ItemDetailContainer>
       <ItemDetailModalContainer>
         <ItemNameText numberOfLines={2}>Gatorade Thirst Quencher Sports Drink, Orange</ItemNameText>
-        <RowView>
+        <ItemSubDetailRow>
           <ItemSizeText numberOfLines={1}>28 oz Bottle</ItemSizeText>
           <ItemPriceText>$3.19</ItemPriceText>
-        </RowView>
+        </ItemSubDetailRow>
 
         <ProductDetailsHeaderText>Product Details</ProductDetailsHeaderText>
         <ProductDetailsText numberOfLines={5}>

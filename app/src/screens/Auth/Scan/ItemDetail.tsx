@@ -40,12 +40,7 @@ export const ItemDetail = () => {
   return (
     <ItemDetailContainer>
       <ItemDetailModalSheet initialSnap={1} renderContent={renderContent} snapPoints={[screenHeight - 144, 390, 190]} />
-
-      <AddCartButtonContainer>
-        <AddCartButton added={addedToCart} onPress={() => setAddedToCart(!addedToCart)}>
-          <AddCartButtonText added={addedToCart}>{addedToCart ? 'Added!' : 'Add to Cart'}</AddCartButtonText>
-        </AddCartButton>
-      </AddCartButtonContainer>
+      <AddCartButton />
     </ItemDetailContainer>
   );
 };

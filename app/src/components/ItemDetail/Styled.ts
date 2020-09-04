@@ -73,7 +73,7 @@ interface AddCartButtonProps {
   added: boolean;
 }
 
-export const AddCartButton = styled.TouchableOpacity<AddCartButtonProps>`
+export const AddCartButtonStyle = styled.TouchableOpacity<AddCartButtonProps>`
   height: 48px;
   display: flex;
   border-radius: 8px;

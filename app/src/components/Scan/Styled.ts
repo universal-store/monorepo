@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 import { Animated } from 'react-native';
 
 // Typography
-import { OpenSansSemiBoldMedium, OpenSansSemiBoldSmall, screenWidth } from '&components';
+import { OpenSansRegularLarge, OpenSansSemiBoldMedium, screenWidth } from '&components';
 
 // Scanner Overlay ----------------------------------------------------------
 
@@ -19,9 +19,9 @@ export const TopLayer = styled.View`
 `;
 
 export const CenterLayer = styled.View`
-  flex-direction: row;
   width: 100%;
   height: 400px;
+  flex-direction: row;
 `;
 
 export const SideLayer = styled.View`
@@ -36,6 +36,7 @@ interface CutoutProps {
 
 export const Cutout = styled.View<CutoutProps>`
   flex: 1;
+  border-radius: 20px;
   background-color: ${({ theme, scanned }) => (scanned ? theme.colors.transparent.green : 'transparent')};
 `;
 
@@ -106,10 +107,10 @@ export const ItemPreviewImageContainer = styled.View`
 
 export const ItemPreviewTextContainer = styled.View`
   flex: 1;
-  margin-top: 4px;
+  margin-top: 2px;
   margin-left: 8px;
 `;
 
-export const ItemPreviewPriceText = styled(OpenSansSemiBoldSmall)`
-  margin-top: 2px;
+export const ItemPreviewPriceText = styled(OpenSansRegularLarge)`
+  margin-top: auto;
 `;

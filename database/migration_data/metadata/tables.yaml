@@ -1,22 +1,38 @@
 - table:
     schema: public
     name: StoreItem
+  object_relationships:
+  - name: StoreItemPic
+    using:
+      foreign_key_constraint_on: itemImageId
+- table:
+    schema: public
+    name: StoreItemPic
+  object_relationships:
+  - name: StoreItem
+    using:
+      manual_configuration:
+        remote_table:
+          schema: public
+          name: StoreItem
+        column_mapping:
+          id: itemImageId
 - table:
     schema: public
     name: User
   object_relationships:
   - name: UserProfilePic
     using:
-      manual_configuration:
-        remote_table:
-          schema: public
-          name: UserProfilePic
-        column_mapping:
-          id: userId
+      foreign_key_constraint_on: profilePicId
 - table:
     schema: public
     name: UserProfilePic
   object_relationships:
   - name: User
     using:
-      foreign_key_constraint_on: userId
+      manual_configuration:
+        remote_table:
+          schema: public
+          name: User
+        column_mapping:
+          id: profilePicId

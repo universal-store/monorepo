@@ -13,16 +13,19 @@ import {
 
 import { FuturaBoldCardTitle } from '../Text';
 
-// Mock Data
-// import { MockItem } from '&data';
+// Interfaces
+import { StoreItem } from '&graphql';
 
 interface ItemPreviewProps {
   shown: boolean;
+  itemData: StoreItem;
+  onPress: () => void;
 }
 
-// export const ItemPreview = ({ shortName, price }: MockItem) => {
-export const ItemPreview = ({ shown }: ItemPreviewProps) => {
+export const ItemPreview = ({ shown, itemData, onPress }: ItemPreviewProps) => {
   const animatedValue = useState(new Animated.Value(0))[0];
+
+  const { shortName, longName, price } = itemData;
 
   useEffect(() => {
     Animated.timing(animatedValue, {
@@ -34,6 +37,7 @@ export const ItemPreview = ({ shown }: ItemPreviewProps) => {
 
   return (
     <AnimatedItemPreviewContainer
+      onPress={onPress}
       style={{
         transform: [
           { translateY: animatedValue.interpolate({ inputRange: [0, 1], outputRange: [500, 0] }) },
@@ -43,8 +47,8 @@ export const ItemPreview = ({ shown }: ItemPreviewProps) => {
     >
       <ItemPreviewImageContainer />
       <ItemPreviewTextContainer>
-        <FuturaBoldCardTitle numberOfLines={1}>Gatorade Orange 28oz</FuturaBoldCardTitle>
-        <ItemPreviewPriceText>$3.19</ItemPreviewPriceText>
+        <FuturaBoldCardTitle numberOfLines={1}>{shortName ? shortName : longName}</FuturaBoldCardTitle>
+        <ItemPreviewPriceText>${price.toFixed(2)}</ItemPreviewPriceText>
       </ItemPreviewTextContainer>
     </AnimatedItemPreviewContainer>
   );

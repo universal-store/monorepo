@@ -1,0 +1,1558 @@
+schema {
+  query: query_root
+  mutation: mutation_root
+  subscription: subscription_root
+}
+
+scalar bigint
+
+# expression to compare columns of type bigint. All fields are combined with logical 'AND'.
+input bigint_comparison_exp {
+  _eq: bigint
+  _gt: bigint
+  _gte: bigint
+  _in: [bigint!]
+  _is_null: Boolean
+  _lt: bigint
+  _lte: bigint
+  _neq: bigint
+  _nin: [bigint!]
+}
+
+# expression to compare columns of type Boolean. All fields are combined with logical 'AND'.
+input Boolean_comparison_exp {
+  _eq: Boolean
+  _gt: Boolean
+  _gte: Boolean
+  _in: [Boolean!]
+  _is_null: Boolean
+  _lt: Boolean
+  _lte: Boolean
+  _neq: Boolean
+  _nin: [Boolean!]
+}
+
+scalar money
+
+# expression to compare columns of type money. All fields are combined with logical 'AND'.
+input money_comparison_exp {
+  _eq: money
+  _gt: money
+  _gte: money
+  _in: [money!]
+  _is_null: Boolean
+  _lt: money
+  _lte: money
+  _neq: money
+  _nin: [money!]
+}
+
+# mutation root
+type mutation_root {
+  # delete data from the table: "StoreItem"
+  delete_StoreItem(
+    # filter the rows which have to be deleted
+    where: StoreItem_bool_exp!
+  ): StoreItem_mutation_response
+
+  # delete data from the table: "StoreItemPic"
+  delete_StoreItemPic(
+    # filter the rows which have to be deleted
+    where: StoreItemPic_bool_exp!
+  ): StoreItemPic_mutation_response
+
+  # delete single row from the table: "StoreItemPic"
+  delete_StoreItemPic_by_pk(id: uuid!): StoreItemPic
+
+  # delete single row from the table: "StoreItem"
+  delete_StoreItem_by_pk(barcodeId: bigint!): StoreItem
+
+  # delete data from the table: "User"
+  delete_User(
+    # filter the rows which have to be deleted
+    where: User_bool_exp!
+  ): User_mutation_response
+
+  # delete data from the table: "UserProfilePic"
+  delete_UserProfilePic(
+    # filter the rows which have to be deleted
+    where: UserProfilePic_bool_exp!
+  ): UserProfilePic_mutation_response
+
+  # delete single row from the table: "UserProfilePic"
+  delete_UserProfilePic_by_pk(id: uuid!): UserProfilePic
+
+  # delete single row from the table: "User"
+  delete_User_by_pk(id: uuid!): User
+
+  # insert data into the table: "StoreItem"
+  insert_StoreItem(
+    # the rows to be inserted
+    objects: [StoreItem_insert_input!]!
+
+    # on conflict condition
+    on_conflict: StoreItem_on_conflict
+  ): StoreItem_mutation_response
+
+  # insert data into the table: "StoreItemPic"
+  insert_StoreItemPic(
+    # the rows to be inserted
+    objects: [StoreItemPic_insert_input!]!
+
+    # on conflict condition
+    on_conflict: StoreItemPic_on_conflict
+  ): StoreItemPic_mutation_response
+
+  # insert a single row into the table: "StoreItemPic"
+  insert_StoreItemPic_one(
+    # the row to be inserted
+    object: StoreItemPic_insert_input!
+
+    # on conflict condition
+    on_conflict: StoreItemPic_on_conflict
+  ): StoreItemPic
+
+  # insert a single row into the table: "StoreItem"
+  insert_StoreItem_one(
+    # the row to be inserted
+    object: StoreItem_insert_input!
+
+    # on conflict condition
+    on_conflict: StoreItem_on_conflict
+  ): StoreItem
+
+  # insert data into the table: "User"
+  insert_User(
+    # the rows to be inserted
+    objects: [User_insert_input!]!
+
+    # on conflict condition
+    on_conflict: User_on_conflict
+  ): User_mutation_response
+
+  # insert data into the table: "UserProfilePic"
+  insert_UserProfilePic(
+    # the rows to be inserted
+    objects: [UserProfilePic_insert_input!]!
+
+    # on conflict condition
+    on_conflict: UserProfilePic_on_conflict
+  ): UserProfilePic_mutation_response
+
+  # insert a single row into the table: "UserProfilePic"
+  insert_UserProfilePic_one(
+    # the row to be inserted
+    object: UserProfilePic_insert_input!
+
+    # on conflict condition
+    on_conflict: UserProfilePic_on_conflict
+  ): UserProfilePic
+
+  # insert a single row into the table: "User"
+  insert_User_one(
+    # the row to be inserted
+    object: User_insert_input!
+
+    # on conflict condition
+    on_conflict: User_on_conflict
+  ): User
+
+  # update data of the table: "StoreItem"
+  update_StoreItem(
+    # increments the integer columns with given value of the filtered values
+    _inc: StoreItem_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: StoreItem_set_input
+
+    # filter the rows which have to be updated
+    where: StoreItem_bool_exp!
+  ): StoreItem_mutation_response
+
+  # update data of the table: "StoreItemPic"
+  update_StoreItemPic(
+    # sets the columns of the filtered rows to the given values
+    _set: StoreItemPic_set_input
+
+    # filter the rows which have to be updated
+    where: StoreItemPic_bool_exp!
+  ): StoreItemPic_mutation_response
+
+  # update single row of the table: "StoreItemPic"
+  update_StoreItemPic_by_pk(
+    # sets the columns of the filtered rows to the given values
+    _set: StoreItemPic_set_input
+    pk_columns: StoreItemPic_pk_columns_input!
+  ): StoreItemPic
+
+  # update single row of the table: "StoreItem"
+  update_StoreItem_by_pk(
+    # increments the integer columns with given value of the filtered values
+    _inc: StoreItem_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: StoreItem_set_input
+    pk_columns: StoreItem_pk_columns_input!
+  ): StoreItem
+
+  # update data of the table: "User"
+  update_User(
+    # sets the columns of the filtered rows to the given values
+    _set: User_set_input
+
+    # filter the rows which have to be updated
+    where: User_bool_exp!
+  ): User_mutation_response
+
+  # update data of the table: "UserProfilePic"
+  update_UserProfilePic(
+    # sets the columns of the filtered rows to the given values
+    _set: UserProfilePic_set_input
+
+    # filter the rows which have to be updated
+    where: UserProfilePic_bool_exp!
+  ): UserProfilePic_mutation_response
+
+  # update single row of the table: "UserProfilePic"
+  update_UserProfilePic_by_pk(
+    # sets the columns of the filtered rows to the given values
+    _set: UserProfilePic_set_input
+    pk_columns: UserProfilePic_pk_columns_input!
+  ): UserProfilePic
+
+  # update single row of the table: "User"
+  update_User_by_pk(
+    # sets the columns of the filtered rows to the given values
+    _set: User_set_input
+    pk_columns: User_pk_columns_input!
+  ): User
+}
+
+# column ordering options
+enum order_by {
+  # in the ascending order, nulls last
+  asc
+
+  # in the ascending order, nulls first
+  asc_nulls_first
+
+  # in the ascending order, nulls last
+  asc_nulls_last
+
+  # in the descending order, nulls first
+  desc
+
+  # in the descending order, nulls first
+  desc_nulls_first
+
+  # in the descending order, nulls last
+  desc_nulls_last
+}
+
+# query root
+type query_root {
+  # fetch data from the table: "StoreItem"
+  StoreItem(
+    # distinct select on columns
+    distinct_on: [StoreItem_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [StoreItem_order_by!]
+
+    # filter the rows returned
+    where: StoreItem_bool_exp
+  ): [StoreItem!]!
+
+  # fetch data from the table: "StoreItemPic"
+  StoreItemPic(
+    # distinct select on columns
+    distinct_on: [StoreItemPic_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [StoreItemPic_order_by!]
+
+    # filter the rows returned
+    where: StoreItemPic_bool_exp
+  ): [StoreItemPic!]!
+
+  # fetch aggregated fields from the table: "StoreItemPic"
+  StoreItemPic_aggregate(
+    # distinct select on columns
+    distinct_on: [StoreItemPic_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [StoreItemPic_order_by!]
+
+    # filter the rows returned
+    where: StoreItemPic_bool_exp
+  ): StoreItemPic_aggregate!
+
+  # fetch data from the table: "StoreItemPic" using primary key columns
+  StoreItemPic_by_pk(id: uuid!): StoreItemPic
+
+  # fetch aggregated fields from the table: "StoreItem"
+  StoreItem_aggregate(
+    # distinct select on columns
+    distinct_on: [StoreItem_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [StoreItem_order_by!]
+
+    # filter the rows returned
+    where: StoreItem_bool_exp
+  ): StoreItem_aggregate!
+
+  # fetch data from the table: "StoreItem" using primary key columns
+  StoreItem_by_pk(barcodeId: bigint!): StoreItem
+
+  # fetch data from the table: "User"
+  User(
+    # distinct select on columns
+    distinct_on: [User_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [User_order_by!]
+
+    # filter the rows returned
+    where: User_bool_exp
+  ): [User!]!
+
+  # fetch data from the table: "UserProfilePic"
+  UserProfilePic(
+    # distinct select on columns
+    distinct_on: [UserProfilePic_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserProfilePic_order_by!]
+
+    # filter the rows returned
+    where: UserProfilePic_bool_exp
+  ): [UserProfilePic!]!
+
+  # fetch aggregated fields from the table: "UserProfilePic"
+  UserProfilePic_aggregate(
+    # distinct select on columns
+    distinct_on: [UserProfilePic_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserProfilePic_order_by!]
+
+    # filter the rows returned
+    where: UserProfilePic_bool_exp
+  ): UserProfilePic_aggregate!
+
+  # fetch data from the table: "UserProfilePic" using primary key columns
+  UserProfilePic_by_pk(id: uuid!): UserProfilePic
+
+  # fetch aggregated fields from the table: "User"
+  User_aggregate(
+    # distinct select on columns
+    distinct_on: [User_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [User_order_by!]
+
+    # filter the rows returned
+    where: User_bool_exp
+  ): User_aggregate!
+
+  # fetch data from the table: "User" using primary key columns
+  User_by_pk(id: uuid!): User
+}
+
+# columns and relationships of "StoreItem"
+type StoreItem {
+  # An object relationship
+  StoreItemPic: StoreItemPic
+  barcodeId: bigint!
+  description: String
+  id: uuid!
+  itemImageId: uuid
+  longName: String!
+  price: money!
+  purchased: Boolean!
+  quantity: String!
+  shortName: String
+}
+
+# aggregated selection of "StoreItem"
+type StoreItem_aggregate {
+  aggregate: StoreItem_aggregate_fields
+  nodes: [StoreItem!]!
+}
+
+# aggregate fields of "StoreItem"
+type StoreItem_aggregate_fields {
+  avg: StoreItem_avg_fields
+  count(columns: [StoreItem_select_column!], distinct: Boolean): Int
+  max: StoreItem_max_fields
+  min: StoreItem_min_fields
+  stddev: StoreItem_stddev_fields
+  stddev_pop: StoreItem_stddev_pop_fields
+  stddev_samp: StoreItem_stddev_samp_fields
+  sum: StoreItem_sum_fields
+  var_pop: StoreItem_var_pop_fields
+  var_samp: StoreItem_var_samp_fields
+  variance: StoreItem_variance_fields
+}
+
+# order by aggregate values of table "StoreItem"
+input StoreItem_aggregate_order_by {
+  avg: StoreItem_avg_order_by
+  count: order_by
+  max: StoreItem_max_order_by
+  min: StoreItem_min_order_by
+  stddev: StoreItem_stddev_order_by
+  stddev_pop: StoreItem_stddev_pop_order_by
+  stddev_samp: StoreItem_stddev_samp_order_by
+  sum: StoreItem_sum_order_by
+  var_pop: StoreItem_var_pop_order_by
+  var_samp: StoreItem_var_samp_order_by
+  variance: StoreItem_variance_order_by
+}
+
+# input type for inserting array relation for remote table "StoreItem"
+input StoreItem_arr_rel_insert_input {
+  data: [StoreItem_insert_input!]!
+  on_conflict: StoreItem_on_conflict
+}
+
+# aggregate avg on columns
+type StoreItem_avg_fields {
+  barcodeId: Float
+  price: Float
+}
+
+# order by avg() on columns of table "StoreItem"
+input StoreItem_avg_order_by {
+  barcodeId: order_by
+  price: order_by
+}
+
+# Boolean expression to filter rows from the table "StoreItem". All fields are combined with a logical 'AND'.
+input StoreItem_bool_exp {
+  StoreItemPic: StoreItemPic_bool_exp
+  _and: [StoreItem_bool_exp]
+  _not: StoreItem_bool_exp
+  _or: [StoreItem_bool_exp]
+  barcodeId: bigint_comparison_exp
+  description: String_comparison_exp
+  id: uuid_comparison_exp
+  itemImageId: uuid_comparison_exp
+  longName: String_comparison_exp
+  price: money_comparison_exp
+  purchased: Boolean_comparison_exp
+  quantity: String_comparison_exp
+  shortName: String_comparison_exp
+}
+
+# unique or primary key constraints on table "StoreItem"
+enum StoreItem_constraint {
+  # unique or primary key constraint
+  StoreItem_barcodeId_key
+
+  # unique or primary key constraint
+  StoreItem_itemImageId_key
+
+  # unique or primary key constraint
+  StoreItem_pkey
+}
+
+# input type for incrementing integer column in table "StoreItem"
+input StoreItem_inc_input {
+  barcodeId: bigint
+  price: money
+}
+
+# input type for inserting data into table "StoreItem"
+input StoreItem_insert_input {
+  StoreItemPic: StoreItemPic_obj_rel_insert_input
+  barcodeId: bigint
+  description: String
+  id: uuid
+  itemImageId: uuid
+  longName: String
+  price: money
+  purchased: Boolean
+  quantity: String
+  shortName: String
+}
+
+# aggregate max on columns
+type StoreItem_max_fields {
+  barcodeId: bigint
+  description: String
+  id: uuid
+  itemImageId: uuid
+  longName: String
+  price: money
+  quantity: String
+  shortName: String
+}
+
+# order by max() on columns of table "StoreItem"
+input StoreItem_max_order_by {
+  barcodeId: order_by
+  description: order_by
+  id: order_by
+  itemImageId: order_by
+  longName: order_by
+  price: order_by
+  quantity: order_by
+  shortName: order_by
+}
+
+# aggregate min on columns
+type StoreItem_min_fields {
+  barcodeId: bigint
+  description: String
+  id: uuid
+  itemImageId: uuid
+  longName: String
+  price: money
+  quantity: String
+  shortName: String
+}
+
+# order by min() on columns of table "StoreItem"
+input StoreItem_min_order_by {
+  barcodeId: order_by
+  description: order_by
+  id: order_by
+  itemImageId: order_by
+  longName: order_by
+  price: order_by
+  quantity: order_by
+  shortName: order_by
+}
+
+# response of any mutation on the table "StoreItem"
+type StoreItem_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [StoreItem!]!
+}
+
+# input type for inserting object relation for remote table "StoreItem"
+input StoreItem_obj_rel_insert_input {
+  data: StoreItem_insert_input!
+  on_conflict: StoreItem_on_conflict
+}
+
+# on conflict condition type for table "StoreItem"
+input StoreItem_on_conflict {
+  constraint: StoreItem_constraint!
+  update_columns: [StoreItem_update_column!]!
+  where: StoreItem_bool_exp
+}
+
+# ordering options when selecting data from "StoreItem"
+input StoreItem_order_by {
+  StoreItemPic: StoreItemPic_order_by
+  barcodeId: order_by
+  description: order_by
+  id: order_by
+  itemImageId: order_by
+  longName: order_by
+  price: order_by
+  purchased: order_by
+  quantity: order_by
+  shortName: order_by
+}
+
+# primary key columns input for table: "StoreItem"
+input StoreItem_pk_columns_input {
+  barcodeId: bigint!
+}
+
+# select columns of table "StoreItem"
+enum StoreItem_select_column {
+  # column name
+  barcodeId
+
+  # column name
+  description
+
+  # column name
+  id
+
+  # column name
+  itemImageId
+
+  # column name
+  longName
+
+  # column name
+  price
+
+  # column name
+  purchased
+
+  # column name
+  quantity
+
+  # column name
+  shortName
+}
+
+# input type for updating data in table "StoreItem"
+input StoreItem_set_input {
+  barcodeId: bigint
+  description: String
+  id: uuid
+  itemImageId: uuid
+  longName: String
+  price: money
+  purchased: Boolean
+  quantity: String
+  shortName: String
+}
+
+# aggregate stddev on columns
+type StoreItem_stddev_fields {
+  barcodeId: Float
+  price: Float
+}
+
+# order by stddev() on columns of table "StoreItem"
+input StoreItem_stddev_order_by {
+  barcodeId: order_by
+  price: order_by
+}
+
+# aggregate stddev_pop on columns
+type StoreItem_stddev_pop_fields {
+  barcodeId: Float
+  price: Float
+}
+
+# order by stddev_pop() on columns of table "StoreItem"
+input StoreItem_stddev_pop_order_by {
+  barcodeId: order_by
+  price: order_by
+}
+
+# aggregate stddev_samp on columns
+type StoreItem_stddev_samp_fields {
+  barcodeId: Float
+  price: Float
+}
+
+# order by stddev_samp() on columns of table "StoreItem"
+input StoreItem_stddev_samp_order_by {
+  barcodeId: order_by
+  price: order_by
+}
+
+# aggregate sum on columns
+type StoreItem_sum_fields {
+  barcodeId: bigint
+  price: money
+}
+
+# order by sum() on columns of table "StoreItem"
+input StoreItem_sum_order_by {
+  barcodeId: order_by
+  price: order_by
+}
+
+# update columns of table "StoreItem"
+enum StoreItem_update_column {
+  # column name
+  barcodeId
+
+  # column name
+  description
+
+  # column name
+  id
+
+  # column name
+  itemImageId
+
+  # column name
+  longName
+
+  # column name
+  price
+
+  # column name
+  purchased
+
+  # column name
+  quantity
+
+  # column name
+  shortName
+}
+
+# aggregate var_pop on columns
+type StoreItem_var_pop_fields {
+  barcodeId: Float
+  price: Float
+}
+
+# order by var_pop() on columns of table "StoreItem"
+input StoreItem_var_pop_order_by {
+  barcodeId: order_by
+  price: order_by
+}
+
+# aggregate var_samp on columns
+type StoreItem_var_samp_fields {
+  barcodeId: Float
+  price: Float
+}
+
+# order by var_samp() on columns of table "StoreItem"
+input StoreItem_var_samp_order_by {
+  barcodeId: order_by
+  price: order_by
+}
+
+# aggregate variance on columns
+type StoreItem_variance_fields {
+  barcodeId: Float
+  price: Float
+}
+
+# order by variance() on columns of table "StoreItem"
+input StoreItem_variance_order_by {
+  barcodeId: order_by
+  price: order_by
+}
+
+# columns and relationships of "StoreItemPic"
+type StoreItemPic {
+  # An object relationship
+  StoreItem: StoreItem
+  id: uuid!
+  size128: String!
+  size256: String!
+  size512: String!
+  size64: String!
+}
+
+# aggregated selection of "StoreItemPic"
+type StoreItemPic_aggregate {
+  aggregate: StoreItemPic_aggregate_fields
+  nodes: [StoreItemPic!]!
+}
+
+# aggregate fields of "StoreItemPic"
+type StoreItemPic_aggregate_fields {
+  count(columns: [StoreItemPic_select_column!], distinct: Boolean): Int
+  max: StoreItemPic_max_fields
+  min: StoreItemPic_min_fields
+}
+
+# order by aggregate values of table "StoreItemPic"
+input StoreItemPic_aggregate_order_by {
+  count: order_by
+  max: StoreItemPic_max_order_by
+  min: StoreItemPic_min_order_by
+}
+
+# input type for inserting array relation for remote table "StoreItemPic"
+input StoreItemPic_arr_rel_insert_input {
+  data: [StoreItemPic_insert_input!]!
+  on_conflict: StoreItemPic_on_conflict
+}
+
+# Boolean expression to filter rows from the table "StoreItemPic". All fields are combined with a logical 'AND'.
+input StoreItemPic_bool_exp {
+  StoreItem: StoreItem_bool_exp
+  _and: [StoreItemPic_bool_exp]
+  _not: StoreItemPic_bool_exp
+  _or: [StoreItemPic_bool_exp]
+  id: uuid_comparison_exp
+  size128: String_comparison_exp
+  size256: String_comparison_exp
+  size512: String_comparison_exp
+  size64: String_comparison_exp
+}
+
+# unique or primary key constraints on table "StoreItemPic"
+enum StoreItemPic_constraint {
+  # unique or primary key constraint
+  StoreItemPic_pkey
+}
+
+# input type for inserting data into table "StoreItemPic"
+input StoreItemPic_insert_input {
+  StoreItem: StoreItem_obj_rel_insert_input
+  id: uuid
+  size128: String
+  size256: String
+  size512: String
+  size64: String
+}
+
+# aggregate max on columns
+type StoreItemPic_max_fields {
+  id: uuid
+  size128: String
+  size256: String
+  size512: String
+  size64: String
+}
+
+# order by max() on columns of table "StoreItemPic"
+input StoreItemPic_max_order_by {
+  id: order_by
+  size128: order_by
+  size256: order_by
+  size512: order_by
+  size64: order_by
+}
+
+# aggregate min on columns
+type StoreItemPic_min_fields {
+  id: uuid
+  size128: String
+  size256: String
+  size512: String
+  size64: String
+}
+
+# order by min() on columns of table "StoreItemPic"
+input StoreItemPic_min_order_by {
+  id: order_by
+  size128: order_by
+  size256: order_by
+  size512: order_by
+  size64: order_by
+}
+
+# response of any mutation on the table "StoreItemPic"
+type StoreItemPic_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [StoreItemPic!]!
+}
+
+# input type for inserting object relation for remote table "StoreItemPic"
+input StoreItemPic_obj_rel_insert_input {
+  data: StoreItemPic_insert_input!
+  on_conflict: StoreItemPic_on_conflict
+}
+
+# on conflict condition type for table "StoreItemPic"
+input StoreItemPic_on_conflict {
+  constraint: StoreItemPic_constraint!
+  update_columns: [StoreItemPic_update_column!]!
+  where: StoreItemPic_bool_exp
+}
+
+# ordering options when selecting data from "StoreItemPic"
+input StoreItemPic_order_by {
+  StoreItem: StoreItem_order_by
+  id: order_by
+  size128: order_by
+  size256: order_by
+  size512: order_by
+  size64: order_by
+}
+
+# primary key columns input for table: "StoreItemPic"
+input StoreItemPic_pk_columns_input {
+  id: uuid!
+}
+
+# select columns of table "StoreItemPic"
+enum StoreItemPic_select_column {
+  # column name
+  id
+
+  # column name
+  size128
+
+  # column name
+  size256
+
+  # column name
+  size512
+
+  # column name
+  size64
+}
+
+# input type for updating data in table "StoreItemPic"
+input StoreItemPic_set_input {
+  id: uuid
+  size128: String
+  size256: String
+  size512: String
+  size64: String
+}
+
+# update columns of table "StoreItemPic"
+enum StoreItemPic_update_column {
+  # column name
+  id
+
+  # column name
+  size128
+
+  # column name
+  size256
+
+  # column name
+  size512
+
+  # column name
+  size64
+}
+
+# expression to compare columns of type String. All fields are combined with logical 'AND'.
+input String_comparison_exp {
+  _eq: String
+  _gt: String
+  _gte: String
+  _ilike: String
+  _in: [String!]
+  _is_null: Boolean
+  _like: String
+  _lt: String
+  _lte: String
+  _neq: String
+  _nilike: String
+  _nin: [String!]
+  _nlike: String
+  _nsimilar: String
+  _similar: String
+}
+
+# subscription root
+type subscription_root {
+  # fetch data from the table: "StoreItem"
+  StoreItem(
+    # distinct select on columns
+    distinct_on: [StoreItem_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [StoreItem_order_by!]
+
+    # filter the rows returned
+    where: StoreItem_bool_exp
+  ): [StoreItem!]!
+
+  # fetch data from the table: "StoreItemPic"
+  StoreItemPic(
+    # distinct select on columns
+    distinct_on: [StoreItemPic_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [StoreItemPic_order_by!]
+
+    # filter the rows returned
+    where: StoreItemPic_bool_exp
+  ): [StoreItemPic!]!
+
+  # fetch aggregated fields from the table: "StoreItemPic"
+  StoreItemPic_aggregate(
+    # distinct select on columns
+    distinct_on: [StoreItemPic_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [StoreItemPic_order_by!]
+
+    # filter the rows returned
+    where: StoreItemPic_bool_exp
+  ): StoreItemPic_aggregate!
+
+  # fetch data from the table: "StoreItemPic" using primary key columns
+  StoreItemPic_by_pk(id: uuid!): StoreItemPic
+
+  # fetch aggregated fields from the table: "StoreItem"
+  StoreItem_aggregate(
+    # distinct select on columns
+    distinct_on: [StoreItem_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [StoreItem_order_by!]
+
+    # filter the rows returned
+    where: StoreItem_bool_exp
+  ): StoreItem_aggregate!
+
+  # fetch data from the table: "StoreItem" using primary key columns
+  StoreItem_by_pk(barcodeId: bigint!): StoreItem
+
+  # fetch data from the table: "User"
+  User(
+    # distinct select on columns
+    distinct_on: [User_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [User_order_by!]
+
+    # filter the rows returned
+    where: User_bool_exp
+  ): [User!]!
+
+  # fetch data from the table: "UserProfilePic"
+  UserProfilePic(
+    # distinct select on columns
+    distinct_on: [UserProfilePic_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserProfilePic_order_by!]
+
+    # filter the rows returned
+    where: UserProfilePic_bool_exp
+  ): [UserProfilePic!]!
+
+  # fetch aggregated fields from the table: "UserProfilePic"
+  UserProfilePic_aggregate(
+    # distinct select on columns
+    distinct_on: [UserProfilePic_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserProfilePic_order_by!]
+
+    # filter the rows returned
+    where: UserProfilePic_bool_exp
+  ): UserProfilePic_aggregate!
+
+  # fetch data from the table: "UserProfilePic" using primary key columns
+  UserProfilePic_by_pk(id: uuid!): UserProfilePic
+
+  # fetch aggregated fields from the table: "User"
+  User_aggregate(
+    # distinct select on columns
+    distinct_on: [User_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [User_order_by!]
+
+    # filter the rows returned
+    where: User_bool_exp
+  ): User_aggregate!
+
+  # fetch data from the table: "User" using primary key columns
+  User_by_pk(id: uuid!): User
+}
+
+# columns and relationships of "User"
+type User {
+  # An object relationship
+  UserProfilePic: UserProfilePic
+  email: String!
+  firstName: String!
+  id: uuid!
+  lastName: String
+  password: String!
+  profilePicId: uuid
+  sessionId: uuid!
+}
+
+# aggregated selection of "User"
+type User_aggregate {
+  aggregate: User_aggregate_fields
+  nodes: [User!]!
+}
+
+# aggregate fields of "User"
+type User_aggregate_fields {
+  count(columns: [User_select_column!], distinct: Boolean): Int
+  max: User_max_fields
+  min: User_min_fields
+}
+
+# order by aggregate values of table "User"
+input User_aggregate_order_by {
+  count: order_by
+  max: User_max_order_by
+  min: User_min_order_by
+}
+
+# input type for inserting array relation for remote table "User"
+input User_arr_rel_insert_input {
+  data: [User_insert_input!]!
+  on_conflict: User_on_conflict
+}
+
+# Boolean expression to filter rows from the table "User". All fields are combined with a logical 'AND'.
+input User_bool_exp {
+  UserProfilePic: UserProfilePic_bool_exp
+  _and: [User_bool_exp]
+  _not: User_bool_exp
+  _or: [User_bool_exp]
+  email: String_comparison_exp
+  firstName: String_comparison_exp
+  id: uuid_comparison_exp
+  lastName: String_comparison_exp
+  password: String_comparison_exp
+  profilePicId: uuid_comparison_exp
+  sessionId: uuid_comparison_exp
+}
+
+# unique or primary key constraints on table "User"
+enum User_constraint {
+  # unique or primary key constraint
+  User_email_key
+
+  # unique or primary key constraint
+  User_pkey
+
+  # unique or primary key constraint
+  User_profilePicId_key
+
+  # unique or primary key constraint
+  User_sessionId_key
+}
+
+# input type for inserting data into table "User"
+input User_insert_input {
+  UserProfilePic: UserProfilePic_obj_rel_insert_input
+  email: String
+  firstName: String
+  id: uuid
+  lastName: String
+  password: String
+  profilePicId: uuid
+  sessionId: uuid
+}
+
+# aggregate max on columns
+type User_max_fields {
+  email: String
+  firstName: String
+  id: uuid
+  lastName: String
+  password: String
+  profilePicId: uuid
+  sessionId: uuid
+}
+
+# order by max() on columns of table "User"
+input User_max_order_by {
+  email: order_by
+  firstName: order_by
+  id: order_by
+  lastName: order_by
+  password: order_by
+  profilePicId: order_by
+  sessionId: order_by
+}
+
+# aggregate min on columns
+type User_min_fields {
+  email: String
+  firstName: String
+  id: uuid
+  lastName: String
+  password: String
+  profilePicId: uuid
+  sessionId: uuid
+}
+
+# order by min() on columns of table "User"
+input User_min_order_by {
+  email: order_by
+  firstName: order_by
+  id: order_by
+  lastName: order_by
+  password: order_by
+  profilePicId: order_by
+  sessionId: order_by
+}
+
+# response of any mutation on the table "User"
+type User_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [User!]!
+}
+
+# input type for inserting object relation for remote table "User"
+input User_obj_rel_insert_input {
+  data: User_insert_input!
+  on_conflict: User_on_conflict
+}
+
+# on conflict condition type for table "User"
+input User_on_conflict {
+  constraint: User_constraint!
+  update_columns: [User_update_column!]!
+  where: User_bool_exp
+}
+
+# ordering options when selecting data from "User"
+input User_order_by {
+  UserProfilePic: UserProfilePic_order_by
+  email: order_by
+  firstName: order_by
+  id: order_by
+  lastName: order_by
+  password: order_by
+  profilePicId: order_by
+  sessionId: order_by
+}
+
+# primary key columns input for table: "User"
+input User_pk_columns_input {
+  id: uuid!
+}
+
+# select columns of table "User"
+enum User_select_column {
+  # column name
+  email
+
+  # column name
+  firstName
+
+  # column name
+  id
+
+  # column name
+  lastName
+
+  # column name
+  password
+
+  # column name
+  profilePicId
+
+  # column name
+  sessionId
+}
+
+# input type for updating data in table "User"
+input User_set_input {
+  email: String
+  firstName: String
+  id: uuid
+  lastName: String
+  password: String
+  profilePicId: uuid
+  sessionId: uuid
+}
+
+# update columns of table "User"
+enum User_update_column {
+  # column name
+  email
+
+  # column name
+  firstName
+
+  # column name
+  id
+
+  # column name
+  lastName
+
+  # column name
+  password
+
+  # column name
+  profilePicId
+
+  # column name
+  sessionId
+}
+
+# columns and relationships of "UserProfilePic"
+type UserProfilePic {
+  # An object relationship
+  User: User
+  id: uuid!
+  size128: String!
+  size256: String!
+  size512: String!
+  size64: String!
+}
+
+# aggregated selection of "UserProfilePic"
+type UserProfilePic_aggregate {
+  aggregate: UserProfilePic_aggregate_fields
+  nodes: [UserProfilePic!]!
+}
+
+# aggregate fields of "UserProfilePic"
+type UserProfilePic_aggregate_fields {
+  count(columns: [UserProfilePic_select_column!], distinct: Boolean): Int
+  max: UserProfilePic_max_fields
+  min: UserProfilePic_min_fields
+}
+
+# order by aggregate values of table "UserProfilePic"
+input UserProfilePic_aggregate_order_by {
+  count: order_by
+  max: UserProfilePic_max_order_by
+  min: UserProfilePic_min_order_by
+}
+
+# input type for inserting array relation for remote table "UserProfilePic"
+input UserProfilePic_arr_rel_insert_input {
+  data: [UserProfilePic_insert_input!]!
+  on_conflict: UserProfilePic_on_conflict
+}
+
+# Boolean expression to filter rows from the table "UserProfilePic". All fields are combined with a logical 'AND'.
+input UserProfilePic_bool_exp {
+  User: User_bool_exp
+  _and: [UserProfilePic_bool_exp]
+  _not: UserProfilePic_bool_exp
+  _or: [UserProfilePic_bool_exp]
+  id: uuid_comparison_exp
+  size128: String_comparison_exp
+  size256: String_comparison_exp
+  size512: String_comparison_exp
+  size64: String_comparison_exp
+}
+
+# unique or primary key constraints on table "UserProfilePic"
+enum UserProfilePic_constraint {
+  # unique or primary key constraint
+  UserProfilePic_pkey
+}
+
+# input type for inserting data into table "UserProfilePic"
+input UserProfilePic_insert_input {
+  User: User_obj_rel_insert_input
+  id: uuid
+  size128: String
+  size256: String
+  size512: String
+  size64: String
+}
+
+# aggregate max on columns
+type UserProfilePic_max_fields {
+  id: uuid
+  size128: String
+  size256: String
+  size512: String
+  size64: String
+}
+
+# order by max() on columns of table "UserProfilePic"
+input UserProfilePic_max_order_by {
+  id: order_by
+  size128: order_by
+  size256: order_by
+  size512: order_by
+  size64: order_by
+}
+
+# aggregate min on columns
+type UserProfilePic_min_fields {
+  id: uuid
+  size128: String
+  size256: String
+  size512: String
+  size64: String
+}
+
+# order by min() on columns of table "UserProfilePic"
+input UserProfilePic_min_order_by {
+  id: order_by
+  size128: order_by
+  size256: order_by
+  size512: order_by
+  size64: order_by
+}
+
+# response of any mutation on the table "UserProfilePic"
+type UserProfilePic_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [UserProfilePic!]!
+}
+
+# input type for inserting object relation for remote table "UserProfilePic"
+input UserProfilePic_obj_rel_insert_input {
+  data: UserProfilePic_insert_input!
+  on_conflict: UserProfilePic_on_conflict
+}
+
+# on conflict condition type for table "UserProfilePic"
+input UserProfilePic_on_conflict {
+  constraint: UserProfilePic_constraint!
+  update_columns: [UserProfilePic_update_column!]!
+  where: UserProfilePic_bool_exp
+}
+
+# ordering options when selecting data from "UserProfilePic"
+input UserProfilePic_order_by {
+  User: User_order_by
+  id: order_by
+  size128: order_by
+  size256: order_by
+  size512: order_by
+  size64: order_by
+}
+
+# primary key columns input for table: "UserProfilePic"
+input UserProfilePic_pk_columns_input {
+  id: uuid!
+}
+
+# select columns of table "UserProfilePic"
+enum UserProfilePic_select_column {
+  # column name
+  id
+
+  # column name
+  size128
+
+  # column name
+  size256
+
+  # column name
+  size512
+
+  # column name
+  size64
+}
+
+# input type for updating data in table "UserProfilePic"
+input UserProfilePic_set_input {
+  id: uuid
+  size128: String
+  size256: String
+  size512: String
+  size64: String
+}
+
+# update columns of table "UserProfilePic"
+enum UserProfilePic_update_column {
+  # column name
+  id
+
+  # column name
+  size128
+
+  # column name
+  size256
+
+  # column name
+  size512
+
+  # column name
+  size64
+}
+
+scalar uuid
+
+# expression to compare columns of type uuid. All fields are combined with logical 'AND'.
+input uuid_comparison_exp {
+  _eq: uuid
+  _gt: uuid
+  _gte: uuid
+  _in: [uuid!]
+  _is_null: Boolean
+  _lt: uuid
+  _lte: uuid
+  _neq: uuid
+  _nin: [uuid!]
+}
+

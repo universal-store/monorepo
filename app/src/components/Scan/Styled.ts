@@ -4,7 +4,15 @@ import styled from 'styled-components/native';
 import { Animated } from 'react-native';
 
 // Typography
-import { OpenSansRegularLarge, OpenSansSemiBoldMedium, screenWidth } from '&components';
+import {
+  FuturaBoldButtonText,
+  FuturaBoldLarge,
+  isiPhoneX,
+  OpenSansRegularLarge,
+  OpenSansSemiBoldMedium,
+  RowView,
+  screenWidth,
+} from '&components';
 
 // Scanner Overlay ----------------------------------------------------------
 
@@ -14,8 +22,20 @@ export const ScannerOverlayContainer = styled.View`
 
 export const TopLayer = styled.View`
   width: 100%;
-  height: 100px;
+  height: ${isiPhoneX ? 130 : 100}px;
   background-color: ${({ theme }) => theme.colors.transparent.black};
+`;
+
+export const ScannerHeaderRow = styled(RowView)`
+  width: 100%;
+  margin-top: auto;
+  align-items: center;
+  padding: 0 32px 28px;
+  justify-content: space-between;
+`;
+
+export const ScannerHeaderText = styled(FuturaBoldLarge)`
+  color: ${({ theme }) => theme.colors.white[1]};
 `;
 
 export const CenterLayer = styled.View`
@@ -82,7 +102,6 @@ const ItemPreviewContainer = styled.TouchableOpacity`
   left: 24px;
   right: 24px;
   height: 64px;
-  bottom: 32px;
   display: flex;
   padding: 8px 16px;
   shadow-radius: 4px;
@@ -91,6 +110,7 @@ const ItemPreviewContainer = styled.TouchableOpacity`
   shadow-opacity: 0.25;
   shadow-offset: 0px 4px;
   width: ${screenWidth - 48}px;
+  bottom: ${isiPhoneX ? 62 : 32}px;
   shadow-color: ${({ theme }) => theme.colors.gray[1]};
   background-color: ${({ theme }) => theme.colors.white[1]};
 `;
@@ -113,4 +133,17 @@ export const ItemPreviewTextContainer = styled.View`
 
 export const ItemPreviewPriceText = styled(OpenSansRegularLarge)`
   margin-top: auto;
+`;
+
+export const TestButton = styled.TouchableOpacity`
+  display: flex;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: ${isiPhoneX ? 30 : 0}px;
+  background-color: ${({ theme }) => theme.colors.purple[1]};
+`;
+
+export const TestButtonText = styled(FuturaBoldButtonText)`
+  color: ${({ theme }) => theme.colors.white[1]};
 `;

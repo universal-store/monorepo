@@ -2,9 +2,6 @@
 
 import styled from 'styled-components/native';
 
-// Libraries
-import BottomSheet from 'reanimated-bottom-sheet';
-
 // Typography
 import {
   FuturaBoldButtonText,
@@ -22,21 +19,19 @@ export const ItemDetailContainer = styled.View`
   background-color: ${({ theme }) => theme.colors.purple[3]};
 `;
 
-export const ItemDetailModalSheet = styled(BottomSheet)`
-  shadow-radius: 2px;
-  shadow-opacity: 0.25;
-  shadow-offset: 0px -0.5px;
-  shadow-color: ${({ theme }) => theme.colors.gray[1]};
-`;
-
 export const ItemDetailModalContainer = styled.View`
   width: 100%;
+  elevation: 4;
   display: flex;
   margin-top: auto;
+  shadow-radius: 2px;
+  shadow-opacity: 0.25;
   padding: 28px 32px 24px;
+  shadow-offset: 0px -0.5px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   height: ${screenHeight - 144}px;
+  shadow-color: ${({ theme }) => theme.colors.gray[1]};
   background-color: ${({ theme }) => theme.colors.white[1]};
 `;
 
@@ -66,14 +61,14 @@ export const AddCartButtonContainer = styled.View`
   bottom: 0;
   z-index: 999;
   padding: 32px 32px 24px;
-  background-color: ${({ theme, added }) => (added ? theme.colors.purple[1] : theme.colors.white[1])};
+  background-color: ${({ theme }) => theme.colors.white[1]};
 `;
 
 interface AddCartButtonProps {
   added: boolean;
 }
 
-export const AddCartButton = styled.TouchableOpacity<AddCartButtonProps>`
+export const AddCartButtonStyle = styled.TouchableOpacity<AddCartButtonProps>`
   height: 48px;
   display: flex;
   border-radius: 8px;

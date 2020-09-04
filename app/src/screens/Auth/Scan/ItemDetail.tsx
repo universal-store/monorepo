@@ -2,6 +2,9 @@
 
 import React, { useState } from 'react';
 
+import { AuthStackParams } from '&navigation';
+import { StackScreenProps } from '@react-navigation/stack';
+
 // Components
 import {
   AddCartButton,
@@ -19,21 +22,23 @@ import {
   screenHeight,
 } from '&components';
 
-export const ItemDetail = () => {
+type ItemDetailProps = StackScreenProps<AuthStackParams, 'ItemDetail'>;
+
+export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
+  const { itemData } = route.params;
+
   const [addedToCart, setAddedToCart] = useState<boolean>(false);
 
   const renderContent = () => (
     <ItemDetailModalContainer>
-      <ItemNameText numberOfLines={2}>Gatorade Thirst Quencher Sports Drink, Orange</ItemNameText>
+      <ItemNameText numberOfLines={2}>{itemData.longName}</ItemNameText>
       <ItemSubDetailRow>
-        <ItemSizeText numberOfLines={1}>28 oz Bottle</ItemSizeText>
-        <ItemPriceText>$3.19</ItemPriceText>
+        <ItemSizeText numberOfLines={1}>{itemData.size}</ItemSizeText>
+        <ItemPriceText>${itemData.price}</ItemPriceText>
       </ItemSubDetailRow>
 
       <ProductDetailsHeaderText>Product Details</ProductDetailsHeaderText>
-      <ProductDetailsText numberOfLines={5}>
-        {`When you sweat, you lose more than water. You also lose critical electrolytes, like sodium and potassium, which help the brain communicate with muscles and regulate fluid level balance throughout the body. Significant losses in fluids and electrolytes can negatively impact performance, especially during long bouts of training. The one and only. With a legacy over 40 years in the making, it's the most scientifically researched and game-tested way to replace electrolytes lost in sweat.`}
-      </ProductDetailsText>
+      <ProductDetailsText numberOfLines={5}>{itemData.description}</ProductDetailsText>
     </ItemDetailModalContainer>
   );
 

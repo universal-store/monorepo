@@ -1197,6 +1197,9 @@ enum User_constraint {
   User_pkey
 
   # unique or primary key constraint
+  User_profilePicId_key
+
+  # unique or primary key constraint
   User_sessionId_key
 }
 
@@ -1357,13 +1360,12 @@ enum User_update_column {
 # columns and relationships of "UserProfilePic"
 type UserProfilePic {
   # An object relationship
-  User: User!
+  User: User
   id: uuid!
   size128: String!
   size256: String!
   size512: String!
   size64: String!
-  userId: uuid!
 }
 
 # aggregated selection of "UserProfilePic"
@@ -1403,16 +1405,12 @@ input UserProfilePic_bool_exp {
   size256: String_comparison_exp
   size512: String_comparison_exp
   size64: String_comparison_exp
-  userId: uuid_comparison_exp
 }
 
 # unique or primary key constraints on table "UserProfilePic"
 enum UserProfilePic_constraint {
   # unique or primary key constraint
   UserProfilePic_pkey
-
-  # unique or primary key constraint
-  UserProfilePic_userId_key
 }
 
 # input type for inserting data into table "UserProfilePic"
@@ -1423,7 +1421,6 @@ input UserProfilePic_insert_input {
   size256: String
   size512: String
   size64: String
-  userId: uuid
 }
 
 # aggregate max on columns
@@ -1433,7 +1430,6 @@ type UserProfilePic_max_fields {
   size256: String
   size512: String
   size64: String
-  userId: uuid
 }
 
 # order by max() on columns of table "UserProfilePic"
@@ -1443,7 +1439,6 @@ input UserProfilePic_max_order_by {
   size256: order_by
   size512: order_by
   size64: order_by
-  userId: order_by
 }
 
 # aggregate min on columns
@@ -1453,7 +1448,6 @@ type UserProfilePic_min_fields {
   size256: String
   size512: String
   size64: String
-  userId: uuid
 }
 
 # order by min() on columns of table "UserProfilePic"
@@ -1463,7 +1457,6 @@ input UserProfilePic_min_order_by {
   size256: order_by
   size512: order_by
   size64: order_by
-  userId: order_by
 }
 
 # response of any mutation on the table "UserProfilePic"
@@ -1496,7 +1489,6 @@ input UserProfilePic_order_by {
   size256: order_by
   size512: order_by
   size64: order_by
-  userId: order_by
 }
 
 # primary key columns input for table: "UserProfilePic"
@@ -1520,9 +1512,6 @@ enum UserProfilePic_select_column {
 
   # column name
   size64
-
-  # column name
-  userId
 }
 
 # input type for updating data in table "UserProfilePic"
@@ -1532,7 +1521,6 @@ input UserProfilePic_set_input {
   size256: String
   size512: String
   size64: String
-  userId: uuid
 }
 
 # update columns of table "UserProfilePic"
@@ -1551,9 +1539,6 @@ enum UserProfilePic_update_column {
 
   # column name
   size64
-
-  # column name
-  userId
 }
 
 scalar uuid

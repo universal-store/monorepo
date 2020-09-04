@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState } from 'react';
+import React from 'react';
 
 // Iconography
 import {
@@ -37,8 +37,6 @@ interface ScannerOverlayProps {
 }
 
 export const ScannerOverlay = ({ scanned }: ScannerOverlayProps) => {
-  const [flashToggle, setFlashToggle] = useState<boolean>(false);
-
   return (
     <ScannerOverlayContainer>
       <TopLayer>

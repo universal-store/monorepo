@@ -13,9 +13,6 @@ import {
 
 import { FuturaBoldCardTitle } from '../Text';
 
-// Mock Data
-// import { MockItem } from '&data';
-
 interface ItemPreviewProps {
   shown: boolean;
 }

@@ -4,7 +4,14 @@ import styled from 'styled-components/native';
 import { Animated } from 'react-native';
 
 // Typography
-import { FuturaBoldLarge, OpenSansSemiBoldMedium, OpenSansSemiBoldSmall, RowView, screenWidth } from '&components';
+import {
+  FuturaBoldLarge,
+  isiPhoneX,
+  OpenSansRegularLarge,
+  OpenSansSemiBoldMedium,
+  RowView,
+  screenWidth,
+} from '&components';
 
 // Scanner Overlay ----------------------------------------------------------
 
@@ -14,7 +21,7 @@ export const ScannerOverlayContainer = styled.View`
 
 export const TopLayer = styled.View`
   width: 100%;
-  height: 100px;
+  height: ${isiPhoneX ? 130 : 100}px;
   background-color: ${({ theme }) => theme.colors.transparent.black};
 `;
 
@@ -25,9 +32,11 @@ export const ScannerHeaderRow = styled(RowView)`
   padding: 0 32px 28px;
   justify-content: space-between;
 `;
+
 export const ScannerHeaderText = styled(FuturaBoldLarge)`
   color: ${({ theme }) => theme.colors.white[1]};
 `;
+
 export const CenterLayer = styled.View`
   width: 100%;
   height: 400px;

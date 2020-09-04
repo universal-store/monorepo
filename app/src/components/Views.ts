@@ -1,16 +1,16 @@
 /** @format */
 
-import { Dimensions } from 'react-native';
+import { Dimensions, Platform } from 'react-native';
 import styled from 'styled-components/native';
 
 // Components
 import { Camera } from 'expo-camera';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 export const screenWidth = Dimensions.get('window').width;
 export const screenHeight = Dimensions.get('window').height;
+export const isiPhoneX = Platform.OS === 'ios' && screenHeight > 812;
 
-export const FullScreen = styled(SafeAreaView)`
+export const FullScreen = styled.View`
   flex: 1;
   width: ${screenWidth}px;
   height: ${screenHeight}px;

@@ -8,3 +8,4 @@ export * from './views';
 
 // Auth Screens
 export * from './scan';
+export * from './itemDetailComponents';

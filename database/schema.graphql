@@ -55,6 +55,15 @@ type mutation_root {
     where: StoreItem_bool_exp!
   ): StoreItem_mutation_response
 
+  # delete data from the table: "StoreItemPic"
+  delete_StoreItemPic(
+    # filter the rows which have to be deleted
+    where: StoreItemPic_bool_exp!
+  ): StoreItemPic_mutation_response
+
+  # delete single row from the table: "StoreItemPic"
+  delete_StoreItemPic_by_pk(id: uuid!): StoreItemPic
+
   # delete single row from the table: "StoreItem"
   delete_StoreItem_by_pk(barcodeId: bigint!): StoreItem
 
@@ -84,6 +93,24 @@ type mutation_root {
     # on conflict condition
     on_conflict: StoreItem_on_conflict
   ): StoreItem_mutation_response
+
+  # insert data into the table: "StoreItemPic"
+  insert_StoreItemPic(
+    # the rows to be inserted
+    objects: [StoreItemPic_insert_input!]!
+
+    # on conflict condition
+    on_conflict: StoreItemPic_on_conflict
+  ): StoreItemPic_mutation_response
+
+  # insert a single row into the table: "StoreItemPic"
+  insert_StoreItemPic_one(
+    # the row to be inserted
+    object: StoreItemPic_insert_input!
+
+    # on conflict condition
+    on_conflict: StoreItemPic_on_conflict
+  ): StoreItemPic
 
   # insert a single row into the table: "StoreItem"
   insert_StoreItem_one(
@@ -141,6 +168,22 @@ type mutation_root {
     # filter the rows which have to be updated
     where: StoreItem_bool_exp!
   ): StoreItem_mutation_response
+
+  # update data of the table: "StoreItemPic"
+  update_StoreItemPic(
+    # sets the columns of the filtered rows to the given values
+    _set: StoreItemPic_set_input
+
+    # filter the rows which have to be updated
+    where: StoreItemPic_bool_exp!
+  ): StoreItemPic_mutation_response
+
+  # update single row of the table: "StoreItemPic"
+  update_StoreItemPic_by_pk(
+    # sets the columns of the filtered rows to the given values
+    _set: StoreItemPic_set_input
+    pk_columns: StoreItemPic_pk_columns_input!
+  ): StoreItemPic
 
   # update single row of the table: "StoreItem"
   update_StoreItem_by_pk(
@@ -225,6 +268,45 @@ type query_root {
     # filter the rows returned
     where: StoreItem_bool_exp
   ): [StoreItem!]!
+
+  # fetch data from the table: "StoreItemPic"
+  StoreItemPic(
+    # distinct select on columns
+    distinct_on: [StoreItemPic_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [StoreItemPic_order_by!]
+
+    # filter the rows returned
+    where: StoreItemPic_bool_exp
+  ): [StoreItemPic!]!
+
+  # fetch aggregated fields from the table: "StoreItemPic"
+  StoreItemPic_aggregate(
+    # distinct select on columns
+    distinct_on: [StoreItemPic_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [StoreItemPic_order_by!]
+
+    # filter the rows returned
+    where: StoreItemPic_bool_exp
+  ): StoreItemPic_aggregate!
+
+  # fetch data from the table: "StoreItemPic" using primary key columns
+  StoreItemPic_by_pk(id: uuid!): StoreItemPic
 
   # fetch aggregated fields from the table: "StoreItem"
   StoreItem_aggregate(
@@ -328,9 +410,12 @@ type query_root {
 
 # columns and relationships of "StoreItem"
 type StoreItem {
+  # An object relationship
+  StoreItemPic: StoreItemPic
   barcodeId: bigint!
   description: String
   id: uuid!
+  itemImageId: uuid
   longName: String!
   price: money!
   purchased: Boolean!
@@ -394,12 +479,14 @@ input StoreItem_avg_order_by {
 
 # Boolean expression to filter rows from the table "StoreItem". All fields are combined with a logical 'AND'.
 input StoreItem_bool_exp {
+  StoreItemPic: StoreItemPic_bool_exp
   _and: [StoreItem_bool_exp]
   _not: StoreItem_bool_exp
   _or: [StoreItem_bool_exp]
   barcodeId: bigint_comparison_exp
   description: String_comparison_exp
   id: uuid_comparison_exp
+  itemImageId: uuid_comparison_exp
   longName: String_comparison_exp
   price: money_comparison_exp
   purchased: Boolean_comparison_exp
@@ -413,6 +500,9 @@ enum StoreItem_constraint {
   StoreItem_barcodeId_key
 
   # unique or primary key constraint
+  StoreItem_itemImageId_key
+
+  # unique or primary key constraint
   StoreItem_pkey
 }
 
@@ -424,9 +514,11 @@ input StoreItem_inc_input {
 
 # input type for inserting data into table "StoreItem"
 input StoreItem_insert_input {
+  StoreItemPic: StoreItemPic_obj_rel_insert_input
   barcodeId: bigint
   description: String
   id: uuid
+  itemImageId: uuid
   longName: String
   price: money
   purchased: Boolean
@@ -439,6 +531,7 @@ type StoreItem_max_fields {
   barcodeId: bigint
   description: String
   id: uuid
+  itemImageId: uuid
   longName: String
   price: money
   quantity: String
@@ -450,6 +543,7 @@ input StoreItem_max_order_by {
   barcodeId: order_by
   description: order_by
   id: order_by
+  itemImageId: order_by
   longName: order_by
   price: order_by
   quantity: order_by
@@ -461,6 +555,7 @@ type StoreItem_min_fields {
   barcodeId: bigint
   description: String
   id: uuid
+  itemImageId: uuid
   longName: String
   price: money
   quantity: String
@@ -472,6 +567,7 @@ input StoreItem_min_order_by {
   barcodeId: order_by
   description: order_by
   id: order_by
+  itemImageId: order_by
   longName: order_by
   price: order_by
   quantity: order_by
@@ -502,9 +598,11 @@ input StoreItem_on_conflict {
 
 # ordering options when selecting data from "StoreItem"
 input StoreItem_order_by {
+  StoreItemPic: StoreItemPic_order_by
   barcodeId: order_by
   description: order_by
   id: order_by
+  itemImageId: order_by
   longName: order_by
   price: order_by
   purchased: order_by
@@ -529,6 +627,9 @@ enum StoreItem_select_column {
   id
 
   # column name
+  itemImageId
+
+  # column name
   longName
 
   # column name
@@ -549,6 +650,7 @@ input StoreItem_set_input {
   barcodeId: bigint
   description: String
   id: uuid
+  itemImageId: uuid
   longName: String
   price: money
   purchased: Boolean
@@ -616,6 +718,9 @@ enum StoreItem_update_column {
   id
 
   # column name
+  itemImageId
+
+  # column name
   longName
 
   # column name
@@ -667,6 +772,190 @@ input StoreItem_variance_order_by {
   price: order_by
 }
 
+# columns and relationships of "StoreItemPic"
+type StoreItemPic {
+  # An object relationship
+  StoreItem: StoreItem
+  id: uuid!
+  size128: String!
+  size256: String!
+  size512: String!
+  size64: String!
+}
+
+# aggregated selection of "StoreItemPic"
+type StoreItemPic_aggregate {
+  aggregate: StoreItemPic_aggregate_fields
+  nodes: [StoreItemPic!]!
+}
+
+# aggregate fields of "StoreItemPic"
+type StoreItemPic_aggregate_fields {
+  count(columns: [StoreItemPic_select_column!], distinct: Boolean): Int
+  max: StoreItemPic_max_fields
+  min: StoreItemPic_min_fields
+}
+
+# order by aggregate values of table "StoreItemPic"
+input StoreItemPic_aggregate_order_by {
+  count: order_by
+  max: StoreItemPic_max_order_by
+  min: StoreItemPic_min_order_by
+}
+
+# input type for inserting array relation for remote table "StoreItemPic"
+input StoreItemPic_arr_rel_insert_input {
+  data: [StoreItemPic_insert_input!]!
+  on_conflict: StoreItemPic_on_conflict
+}
+
+# Boolean expression to filter rows from the table "StoreItemPic". All fields are combined with a logical 'AND'.
+input StoreItemPic_bool_exp {
+  StoreItem: StoreItem_bool_exp
+  _and: [StoreItemPic_bool_exp]
+  _not: StoreItemPic_bool_exp
+  _or: [StoreItemPic_bool_exp]
+  id: uuid_comparison_exp
+  size128: String_comparison_exp
+  size256: String_comparison_exp
+  size512: String_comparison_exp
+  size64: String_comparison_exp
+}
+
+# unique or primary key constraints on table "StoreItemPic"
+enum StoreItemPic_constraint {
+  # unique or primary key constraint
+  StoreItemPic_pkey
+}
+
+# input type for inserting data into table "StoreItemPic"
+input StoreItemPic_insert_input {
+  StoreItem: StoreItem_obj_rel_insert_input
+  id: uuid
+  size128: String
+  size256: String
+  size512: String
+  size64: String
+}
+
+# aggregate max on columns
+type StoreItemPic_max_fields {
+  id: uuid
+  size128: String
+  size256: String
+  size512: String
+  size64: String
+}
+
+# order by max() on columns of table "StoreItemPic"
+input StoreItemPic_max_order_by {
+  id: order_by
+  size128: order_by
+  size256: order_by
+  size512: order_by
+  size64: order_by
+}
+
+# aggregate min on columns
+type StoreItemPic_min_fields {
+  id: uuid
+  size128: String
+  size256: String
+  size512: String
+  size64: String
+}
+
+# order by min() on columns of table "StoreItemPic"
+input StoreItemPic_min_order_by {
+  id: order_by
+  size128: order_by
+  size256: order_by
+  size512: order_by
+  size64: order_by
+}
+
+# response of any mutation on the table "StoreItemPic"
+type StoreItemPic_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [StoreItemPic!]!
+}
+
+# input type for inserting object relation for remote table "StoreItemPic"
+input StoreItemPic_obj_rel_insert_input {
+  data: StoreItemPic_insert_input!
+  on_conflict: StoreItemPic_on_conflict
+}
+
+# on conflict condition type for table "StoreItemPic"
+input StoreItemPic_on_conflict {
+  constraint: StoreItemPic_constraint!
+  update_columns: [StoreItemPic_update_column!]!
+  where: StoreItemPic_bool_exp
+}
+
+# ordering options when selecting data from "StoreItemPic"
+input StoreItemPic_order_by {
+  StoreItem: StoreItem_order_by
+  id: order_by
+  size128: order_by
+  size256: order_by
+  size512: order_by
+  size64: order_by
+}
+
+# primary key columns input for table: "StoreItemPic"
+input StoreItemPic_pk_columns_input {
+  id: uuid!
+}
+
+# select columns of table "StoreItemPic"
+enum StoreItemPic_select_column {
+  # column name
+  id
+
+  # column name
+  size128
+
+  # column name
+  size256
+
+  # column name
+  size512
+
+  # column name
+  size64
+}
+
+# input type for updating data in table "StoreItemPic"
+input StoreItemPic_set_input {
+  id: uuid
+  size128: String
+  size256: String
+  size512: String
+  size64: String
+}
+
+# update columns of table "StoreItemPic"
+enum StoreItemPic_update_column {
+  # column name
+  id
+
+  # column name
+  size128
+
+  # column name
+  size256
+
+  # column name
+  size512
+
+  # column name
+  size64
+}
+
 # expression to compare columns of type String. All fields are combined with logical 'AND'.
 input String_comparison_exp {
   _eq: String
@@ -705,6 +994,45 @@ type subscription_root {
     # filter the rows returned
     where: StoreItem_bool_exp
   ): [StoreItem!]!
+
+  # fetch data from the table: "StoreItemPic"
+  StoreItemPic(
+    # distinct select on columns
+    distinct_on: [StoreItemPic_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [StoreItemPic_order_by!]
+
+    # filter the rows returned
+    where: StoreItemPic_bool_exp
+  ): [StoreItemPic!]!
+
+  # fetch aggregated fields from the table: "StoreItemPic"
+  StoreItemPic_aggregate(
+    # distinct select on columns
+    distinct_on: [StoreItemPic_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [StoreItemPic_order_by!]
+
+    # filter the rows returned
+    where: StoreItemPic_bool_exp
+  ): StoreItemPic_aggregate!
+
+  # fetch data from the table: "StoreItemPic" using primary key columns
+  StoreItemPic_by_pk(id: uuid!): StoreItemPic
 
   # fetch aggregated fields from the table: "StoreItem"
   StoreItem_aggregate(
@@ -869,6 +1197,9 @@ enum User_constraint {
   User_pkey
 
   # unique or primary key constraint
+  User_profilePicId_key
+
+  # unique or primary key constraint
   User_sessionId_key
 }
 
@@ -1029,13 +1360,12 @@ enum User_update_column {
 # columns and relationships of "UserProfilePic"
 type UserProfilePic {
   # An object relationship
-  User: User!
+  User: User
   id: uuid!
   size128: String!
   size256: String!
   size512: String!
   size64: String!
-  userId: uuid!
 }
 
 # aggregated selection of "UserProfilePic"
@@ -1075,16 +1405,12 @@ input UserProfilePic_bool_exp {
   size256: String_comparison_exp
   size512: String_comparison_exp
   size64: String_comparison_exp
-  userId: uuid_comparison_exp
 }
 
 # unique or primary key constraints on table "UserProfilePic"
 enum UserProfilePic_constraint {
   # unique or primary key constraint
   UserProfilePic_pkey
-
-  # unique or primary key constraint
-  UserProfilePic_userId_key
 }
 
 # input type for inserting data into table "UserProfilePic"
@@ -1095,7 +1421,6 @@ input UserProfilePic_insert_input {
   size256: String
   size512: String
   size64: String
-  userId: uuid
 }
 
 # aggregate max on columns
@@ -1105,7 +1430,6 @@ type UserProfilePic_max_fields {
   size256: String
   size512: String
   size64: String
-  userId: uuid
 }
 
 # order by max() on columns of table "UserProfilePic"
@@ -1115,7 +1439,6 @@ input UserProfilePic_max_order_by {
   size256: order_by
   size512: order_by
   size64: order_by
-  userId: order_by
 }
 
 # aggregate min on columns
@@ -1125,7 +1448,6 @@ type UserProfilePic_min_fields {
   size256: String
   size512: String
   size64: String
-  userId: uuid
 }
 
 # order by min() on columns of table "UserProfilePic"
@@ -1135,7 +1457,6 @@ input UserProfilePic_min_order_by {
   size256: order_by
   size512: order_by
   size64: order_by
-  userId: order_by
 }
 
 # response of any mutation on the table "UserProfilePic"
@@ -1168,7 +1489,6 @@ input UserProfilePic_order_by {
   size256: order_by
   size512: order_by
   size64: order_by
-  userId: order_by
 }
 
 # primary key columns input for table: "UserProfilePic"
@@ -1192,9 +1512,6 @@ enum UserProfilePic_select_column {
 
   # column name
   size64
-
-  # column name
-  userId
 }
 
 # input type for updating data in table "UserProfilePic"
@@ -1204,7 +1521,6 @@ input UserProfilePic_set_input {
   size256: String
   size512: String
   size64: String
-  userId: uuid
 }
 
 # update columns of table "UserProfilePic"
@@ -1223,9 +1539,6 @@ enum UserProfilePic_update_column {
 
   # column name
   size64
-
-  # column name
-  userId
 }
 
 scalar uuid

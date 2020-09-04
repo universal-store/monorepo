@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useEffect, useState } from 'react';
-import { Button, Text } from 'react-native';
+import { Text } from 'react-native';
 import { useIsFocused } from '@react-navigation/native';
 
 // Dependencies
@@ -10,7 +10,7 @@ import { BarCodeScanner } from 'expo-barcode-scanner';
 import { BarCodeScanningResult } from 'expo-camera/build/Camera.types';
 
 // Components
-import { CameraView, FullScreen, ScannerOverlay } from '&components';
+import { CameraView, FullScreen, ScannerOverlay, TestButton, TestButtonText } from '&components';
 
 const BARCODE_DATA_API_URL =
   'http://www.searchupc.com/handlers/upcsearch.ashx?request_type=3&access_token=09C70CF1-E284-44E3-A0B9-A6129573115C&upc=';
@@ -70,14 +70,15 @@ export const ScanningPage = () => {
         </CameraView>
       )}
 
-      {scanned && (
-        <Button
-          title={'Tap to Reset'}
+      {!scanned && (
+        <TestButton
           onPress={() => {
             setScanned(false);
             if (cameraRef) cameraRef.resumePreview();
           }}
-        />
+        >
+          <TestButtonText>Tap to Go To ItemDetail (Testing Only)</TestButtonText>
+        </TestButton>
       )}
     </FullScreen>
   );

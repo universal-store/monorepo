@@ -32,11 +32,15 @@ import {
 // Components
 import { ItemPreview } from './ItemPreview';
 
+// Interfaces
+import { StoreItem } from '&graphql';
+
 interface ScannerOverlayProps {
   scanned: boolean;
+  scannedItem: StoreItem;
 }
 
-export const ScannerOverlay = ({ scanned }: ScannerOverlayProps) => {
+export const ScannerOverlay = ({ scanned, scannedItem }: ScannerOverlayProps) => {
   return (
     <ScannerOverlayContainer>
       <TopLayer>
@@ -66,7 +70,7 @@ export const ScannerOverlay = ({ scanned }: ScannerOverlayProps) => {
       </CenterLayer>
       <BottomLayer>{!scanned && <ScannedText>Scanning for Barcode...</ScannedText>}</BottomLayer>
 
-      <ItemPreview shown={scanned} />
+      <ItemPreview shown={scanned} scannedItem={scannedItem} />
     </ScannerOverlayContainer>
   );
 };

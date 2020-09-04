@@ -13,13 +13,18 @@ import {
 
 import { FuturaBoldCardTitle } from '../Text';
 
+// Interfaces
+import { StoreItem } from '&graphql';
+
 interface ItemPreviewProps {
   shown: boolean;
+  scannedItem: StoreItem;
 }
 
-// export const ItemPreview = ({ shortName, price }: MockItem) => {
-export const ItemPreview = ({ shown }: ItemPreviewProps) => {
+export const ItemPreview = ({ shown, scannedItem }: ItemPreviewProps) => {
   const animatedValue = useState(new Animated.Value(0))[0];
+
+  const { shortName, longName, price } = scannedItem;
 
   useEffect(() => {
     Animated.timing(animatedValue, {
@@ -40,8 +45,8 @@ export const ItemPreview = ({ shown }: ItemPreviewProps) => {
     >
       <ItemPreviewImageContainer />
       <ItemPreviewTextContainer>
-        <FuturaBoldCardTitle numberOfLines={1}>Gatorade Orange 28oz</FuturaBoldCardTitle>
-        <ItemPreviewPriceText>$3.19</ItemPreviewPriceText>
+        <FuturaBoldCardTitle numberOfLines={1}>{shortName ? shortName : longName}</FuturaBoldCardTitle>
+        <ItemPreviewPriceText>${price.toFixed(2)}</ItemPreviewPriceText>
       </ItemPreviewTextContainer>
     </AnimatedItemPreviewContainer>
   );

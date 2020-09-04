@@ -1,16 +1,16 @@
 /** @format */
 
-import React, { useState } from 'react';
+import React from 'react';
+
+// Libraries
+import BottomSheet from 'reanimated-bottom-sheet';
 
 // Components
 import {
   AddCartButton,
-  AddCartButtonContainer,
-  AddCartButtonText,
   FuturaBoldLarge as ItemNameText,
   ItemDetailContainer,
   ItemDetailModalContainer,
-  ItemDetailModalSheet,
   ItemPriceText,
   ItemSizeText,
   ItemSubDetailRow,
@@ -20,8 +20,6 @@ import {
 } from '&components';
 
 export const ItemDetail = () => {
-  const [addedToCart, setAddedToCart] = useState<boolean>(false);
-
   const renderContent = () => (
     <ItemDetailModalContainer>
       <ItemNameText numberOfLines={2}>Gatorade Thirst Quencher Sports Drink, Orange</ItemNameText>
@@ -39,7 +37,7 @@ export const ItemDetail = () => {
 
   return (
     <ItemDetailContainer>
-      <ItemDetailModalSheet initialSnap={1} renderContent={renderContent} snapPoints={[screenHeight - 144, 390, 190]} />
+      <BottomSheet initialSnap={1} renderContent={renderContent} snapPoints={[screenHeight - 144, 390, 190]} />
       <AddCartButton />
     </ItemDetailContainer>
   );

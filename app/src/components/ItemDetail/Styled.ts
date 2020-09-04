@@ -2,9 +2,6 @@
 
 import styled from 'styled-components/native';
 
-// Libraries
-import BottomSheet from 'reanimated-bottom-sheet';
-
 // Typography
 import {
   FuturaBoldButtonText,
@@ -20,13 +17,6 @@ import {
 export const ItemDetailContainer = styled.View`
   flex: 1;
   background-color: ${({ theme }) => theme.colors.purple[3]};
-`;
-
-export const ItemDetailModalSheet = styled(BottomSheet)`
-  shadow-radius: 2px;
-  shadow-opacity: 0.25;
-  shadow-offset: 0px -0.5px;
-  shadow-color: ${({ theme }) => theme.colors.gray[1]};
 `;
 
 export const ItemDetailModalContainer = styled.View`
@@ -66,7 +56,7 @@ export const AddCartButtonContainer = styled.View`
   bottom: 0;
   z-index: 999;
   padding: 32px 32px 24px;
-  background-color: ${({ theme, added }) => (added ? theme.colors.purple[1] : theme.colors.white[1])};
+  background-color: ${({ theme }) => theme.colors.white[1]};
 `;
 
 interface AddCartButtonProps {

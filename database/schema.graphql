@@ -808,6 +808,8 @@ type subscription_root {
 
 # columns and relationships of "User"
 type User {
+  # An object relationship
+  UserProfilePic: UserProfilePic
   email: String!
   firstName: String!
   id: uuid!
@@ -845,6 +847,7 @@ input User_arr_rel_insert_input {
 
 # Boolean expression to filter rows from the table "User". All fields are combined with a logical 'AND'.
 input User_bool_exp {
+  UserProfilePic: UserProfilePic_bool_exp
   _and: [User_bool_exp]
   _not: User_bool_exp
   _or: [User_bool_exp]
@@ -871,6 +874,7 @@ enum User_constraint {
 
 # input type for inserting data into table "User"
 input User_insert_input {
+  UserProfilePic: UserProfilePic_obj_rel_insert_input
   email: String
   firstName: String
   id: uuid
@@ -948,6 +952,7 @@ input User_on_conflict {
 
 # ordering options when selecting data from "User"
 input User_order_by {
+  UserProfilePic: UserProfilePic_order_by
   email: order_by
   firstName: order_by
   id: order_by
@@ -1023,6 +1028,8 @@ enum User_update_column {
 
 # columns and relationships of "UserProfilePic"
 type UserProfilePic {
+  # An object relationship
+  User: User!
   id: uuid!
   size128: String!
   size256: String!
@@ -1059,6 +1066,7 @@ input UserProfilePic_arr_rel_insert_input {
 
 # Boolean expression to filter rows from the table "UserProfilePic". All fields are combined with a logical 'AND'.
 input UserProfilePic_bool_exp {
+  User: User_bool_exp
   _and: [UserProfilePic_bool_exp]
   _not: UserProfilePic_bool_exp
   _or: [UserProfilePic_bool_exp]
@@ -1081,6 +1089,7 @@ enum UserProfilePic_constraint {
 
 # input type for inserting data into table "UserProfilePic"
 input UserProfilePic_insert_input {
+  User: User_obj_rel_insert_input
   id: uuid
   size128: String
   size256: String
@@ -1153,6 +1162,7 @@ input UserProfilePic_on_conflict {
 
 # ordering options when selecting data from "UserProfilePic"
 input UserProfilePic_order_by {
+  User: User_order_by
   id: order_by
   size128: order_by
   size256: order_by

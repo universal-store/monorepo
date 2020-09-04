@@ -1,6 +1,7 @@
 /** @format */
 
 import styled from 'styled-components/native';
+import { Animated } from 'react-native';
 
 // Typography
 import { OpenSansSemiBoldMedium, OpenSansSemiBoldSmall, screenWidth } from '&components';
@@ -75,9 +76,10 @@ export const ScannedText = styled(OpenSansSemiBoldMedium)`
 
 // Item Preview ----------------------------------------------------------
 
-export const ItemPreviewContainer = styled.TouchableOpacity`
+const ItemPreviewContainer = styled.TouchableOpacity`
   position: absolute;
   left: 24px;
+  right: 24px;
   height: 64px;
   bottom: 32px;
   display: flex;
@@ -91,6 +93,8 @@ export const ItemPreviewContainer = styled.TouchableOpacity`
   shadow-color: ${({ theme }) => theme.colors.gray[1]};
   background-color: ${({ theme }) => theme.colors.white[1]};
 `;
+
+export const AnimatedItemPreviewContainer = Animated.createAnimatedComponent(ItemPreviewContainer);
 
 // TODO: Replace background color when we add images
 export const ItemPreviewImageContainer = styled.View`

@@ -50,6 +50,6 @@ export const ScannerOverlay = ({ scanned }: ScannerOverlayProps) => (
     </CenterLayer>
     <BottomLayer>{!scanned && <ScannedText>Scanning for Barcode...</ScannedText>}</BottomLayer>
 
-    {scanned && <ItemPreview />}
+    <ItemPreview shown={scanned} />
   </ScannerOverlayContainer>
 );

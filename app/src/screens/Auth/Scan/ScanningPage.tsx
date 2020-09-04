@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useEffect, useState } from 'react';
-import { Alert, Button, Text } from 'react-native';
+import { Button, Text } from 'react-native';
 import { useIsFocused } from '@react-navigation/native';
 
 // Dependencies
@@ -10,14 +10,10 @@ import { BarCodeScanner } from 'expo-barcode-scanner';
 import { BarCodeScanningResult } from 'expo-camera/build/Camera.types';
 
 // Components
-import { FullScreen, ScannerOverlay } from '&components';
+import { CameraView, FullScreen, ScannerOverlay } from '&components';
 
-// Custom Components
-import styled from 'styled-components/native';
-
-const CameraScreen = styled(Camera)`
-  flex: 1;
-`;
+const BARCODE_DATA_API_URL =
+  'http://www.searchupc.com/handlers/upcsearch.ashx?request_type=3&access_token=09C70CF1-E284-44E3-A0B9-A6129573115C&upc=';
 
 export const ScanningPage = () => {
   let cameraRef: Camera | null;
@@ -33,9 +29,15 @@ export const ScanningPage = () => {
     })();
   }, []);
 
-  const handleBarCodeScanned = ({ type, data }: BarCodeScanningResult) => {
+  const handleBarCodeScanned = ({ data }: BarCodeScanningResult) => {
     setScanned(true);
-    Alert.alert(`Bar code with type ${type} and code ${data} has been scanned!`);
+
+    fetch(BARCODE_DATA_API_URL + data)
+      .then(response => response.json())
+      .then(data => {
+        if (data) console.log(`${data['0'].productname} with price $${data['0'].price} has been scanned!`);
+      })
+      .catch(error => console.log(error));
   };
 
   if (hasPermission === null) {
@@ -47,7 +49,7 @@ export const ScanningPage = () => {
   return (
     <FullScreen>
       {isFocused && (
-        <CameraScreen
+        <CameraView
           ref={ref => (cameraRef = ref)}
           type={Camera.Constants.Type.back}
           onBarCodeScanned={barCodeEvent => {
@@ -65,7 +67,7 @@ export const ScanningPage = () => {
           }}
         >
           <ScannerOverlay scanned={scanned} />
-        </CameraScreen>
+        </CameraView>
       )}
 
       {scanned && (

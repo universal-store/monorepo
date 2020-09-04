@@ -1,9 +1,18 @@
 /** @format */
 
 import styled from 'styled-components/native';
+import { Animated } from 'react-native';
 
 // Typography
-import { OpenSansSemiBoldMedium, OpenSansSemiBoldSmall, screenWidth } from '&components';
+import {
+  FuturaBoldButtonText,
+  FuturaBoldLarge,
+  isiPhoneX,
+  OpenSansRegularLarge,
+  OpenSansSemiBoldMedium,
+  RowView,
+  screenWidth,
+} from '&components';
 
 // Scanner Overlay ----------------------------------------------------------
 
@@ -13,14 +22,26 @@ export const ScannerOverlayContainer = styled.View`
 
 export const TopLayer = styled.View`
   width: 100%;
-  height: 100px;
+  height: ${isiPhoneX ? 130 : 100}px;
   background-color: ${({ theme }) => theme.colors.transparent.black};
 `;
 
+export const ScannerHeaderRow = styled(RowView)`
+  width: 100%;
+  margin-top: auto;
+  align-items: center;
+  padding: 0 32px 28px;
+  justify-content: space-between;
+`;
+
+export const ScannerHeaderText = styled(FuturaBoldLarge)`
+  color: ${({ theme }) => theme.colors.white[1]};
+`;
+
 export const CenterLayer = styled.View`
-  flex-direction: row;
   width: 100%;
   height: 400px;
+  flex-direction: row;
 `;
 
 export const SideLayer = styled.View`
@@ -35,6 +56,7 @@ interface CutoutProps {
 
 export const Cutout = styled.View<CutoutProps>`
   flex: 1;
+  border-radius: 20px;
   background-color: ${({ theme, scanned }) => (scanned ? theme.colors.transparent.green : 'transparent')};
 `;
 
@@ -75,11 +97,11 @@ export const ScannedText = styled(OpenSansSemiBoldMedium)`
 
 // Item Preview ----------------------------------------------------------
 
-export const ItemPreviewContainer = styled.TouchableOpacity`
+const ItemPreviewContainer = styled.TouchableOpacity`
   position: absolute;
   left: 24px;
+  right: 24px;
   height: 64px;
-  bottom: 32px;
   display: flex;
   padding: 8px 16px;
   shadow-radius: 4px;
@@ -88,9 +110,12 @@ export const ItemPreviewContainer = styled.TouchableOpacity`
   shadow-opacity: 0.25;
   shadow-offset: 0px 4px;
   width: ${screenWidth - 48}px;
+  bottom: ${isiPhoneX ? 62 : 32}px;
   shadow-color: ${({ theme }) => theme.colors.gray[1]};
   background-color: ${({ theme }) => theme.colors.white[1]};
 `;
+
+export const AnimatedItemPreviewContainer = Animated.createAnimatedComponent(ItemPreviewContainer);
 
 // TODO: Replace background color when we add images
 export const ItemPreviewImageContainer = styled.View`
@@ -102,10 +127,23 @@ export const ItemPreviewImageContainer = styled.View`
 
 export const ItemPreviewTextContainer = styled.View`
   flex: 1;
-  margin-top: 4px;
+  margin-top: 2px;
   margin-left: 8px;
 `;
 
-export const ItemPreviewPriceText = styled(OpenSansSemiBoldSmall)`
-  margin-top: 2px;
+export const ItemPreviewPriceText = styled(OpenSansRegularLarge)`
+  margin-top: auto;
+`;
+
+export const TestButton = styled.TouchableOpacity`
+  display: flex;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: ${isiPhoneX ? 30 : 0}px;
+  background-color: ${({ theme }) => theme.colors.purple[1]};
+`;
+
+export const TestButtonText = styled(FuturaBoldButtonText)`
+  color: ${({ theme }) => theme.colors.white[1]};
 `;

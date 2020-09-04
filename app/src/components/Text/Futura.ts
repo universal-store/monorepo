@@ -9,26 +9,21 @@ const FuturaBold = styled.Text`
 `;
 
 export const FuturaBoldLarge = styled(FuturaBold)`
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 21px;
 `;
 
 export const FuturaBoldMedium = styled(FuturaBold)`
-  font-size: 14px;
-  line-height: 19px;
+  font-size: 17px;
 `;
 
 export const FuturaBoldSmall = styled(FuturaBold)`
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 15px;
 `;
 
 export const FuturaBoldCardTitle = styled(FuturaBold)`
-  font-size: 15px;
-  line-height: 20px;
+  font-size: 17px;
 `;
 
 export const FuturaBoldButtonText = styled(FuturaBold)`
-  font-size: 16px;
-  line-height: 21px;
+  font-size: 15px;
 `;

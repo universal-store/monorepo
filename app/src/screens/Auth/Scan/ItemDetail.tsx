@@ -2,25 +2,52 @@
 
 import React from 'react';
 
-// Custom Components
-import styled from 'styled-components/native';
+// Libraries
+import BottomSheet from 'reanimated-bottom-sheet';
 
-// Icons
-// import { HeartIcon } from '&icons';
+import { AuthStackParams } from '&navigation';
+import { StackScreenProps } from '@react-navigation/stack';
 
 // Components
-import { FullScreen } from '&components';
+import {
+  AddCartButton,
+  FuturaBoldLarge as ItemNameText,
+  ItemDetailContainer,
+  ItemDetailModalContainer,
+  ItemPriceText,
+  ItemSizeText,
+  ItemSubDetailRow,
+  ProductDetailsHeaderText,
+  ProductDetailsText,
+  screenHeight,
+} from '&components';
+import { View } from 'react-native';
 
-const ItemDetailContainer = styled(FullScreen)`
-  background-color: ${({ theme }) => theme.colors.purple[3]};
-`;
+type ItemDetailProps = StackScreenProps<AuthStackParams, 'ItemDetail'>;
 
-// const HeartIconContainer = styled.View`
-//   display: flex;
-//   width: 24px;
-//   height: 24px;
-// `;
+export const ItemDetail = ({ route }: ItemDetailProps) => {
+  const { itemData } = route.params;
 
-export const ItemDetail = () => {
-  return <ItemDetailContainer />;
+  const renderContent = () => (
+    <View style={{ elevation: 4 }}>
+      <ItemDetailModalContainer>
+        <ItemNameText numberOfLines={2}>{itemData.longName}</ItemNameText>
+        <ItemSubDetailRow>
+          <ItemSizeText numberOfLines={1}>{itemData.quantity}</ItemSizeText>
+          <ItemPriceText>${itemData.price}</ItemPriceText>
+        </ItemSubDetailRow>
+
+        <ProductDetailsHeaderText>Product Details</ProductDetailsHeaderText>
+        <ProductDetailsText numberOfLines={5}>{itemData.description}</ProductDetailsText>
+      </ItemDetailModalContainer>
+    </View>
+  );
+
+  return (
+    <ItemDetailContainer>
+      <BottomSheet initialSnap={1} renderContent={renderContent} snapPoints={[screenHeight - 144, 390, 390]} />
+
+      <AddCartButton />
+    </ItemDetailContainer>
+  );
 };

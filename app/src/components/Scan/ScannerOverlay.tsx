@@ -3,7 +3,14 @@
 import React from 'react';
 
 // Iconography
-import { BarcodeBottomLeftIcon, BarcodeBottomRightIcon, BarcodeTopLeftIcon, BarcodeTopRightIcon } from '&icons';
+import {
+  BackArrowIcon,
+  BarcodeBottomLeftIcon,
+  BarcodeBottomRightIcon,
+  BarcodeTopLeftIcon,
+  BarcodeTopRightIcon,
+  FlashIcon,
+} from '&icons';
 
 // Styled Components
 import {
@@ -13,6 +20,8 @@ import {
   CenterLayer,
   Cutout,
   ScannedText,
+  ScannerHeaderText,
+  ScannerHeaderRow,
   ScannerOverlayContainer,
   SideLayer,
   TopLayer,
@@ -23,33 +32,46 @@ import {
 // Components
 import { ItemPreview } from './ItemPreview';
 
+// Interfaces
+import { StoreItem } from '&graphql';
+
 interface ScannerOverlayProps {
   scanned: boolean;
+  itemData: StoreItem;
+  onPress: () => void;
 }
 
-export const ScannerOverlay = ({ scanned }: ScannerOverlayProps) => (
-  <ScannerOverlayContainer>
-    <TopLayer />
-    <CenterLayer>
-      <SideLayer />
-      <Cutout scanned={scanned}>
-        <TopLeftBarcode>
-          <BarcodeTopLeftIcon />
-        </TopLeftBarcode>
-        <TopRightBarcode>
-          <BarcodeTopRightIcon />
-        </TopRightBarcode>
-        <BottomLeftBarcode>
-          <BarcodeBottomLeftIcon />
-        </BottomLeftBarcode>
-        <BottomRightBarcode>
-          <BarcodeBottomRightIcon />
-        </BottomRightBarcode>
-      </Cutout>
-      <SideLayer />
-    </CenterLayer>
-    <BottomLayer>{!scanned && <ScannedText>Scanning for Barcode...</ScannedText>}</BottomLayer>
+export const ScannerOverlay = ({ scanned, itemData, onPress }: ScannerOverlayProps) => {
+  return (
+    <ScannerOverlayContainer>
+      <TopLayer>
+        <ScannerHeaderRow>
+          <BackArrowIcon />
+          <ScannerHeaderText>Scan Barcode</ScannerHeaderText>
+          <FlashIcon />
+        </ScannerHeaderRow>
+      </TopLayer>
+      <CenterLayer>
+        <SideLayer />
+        <Cutout scanned={scanned}>
+          <TopLeftBarcode>
+            <BarcodeTopLeftIcon />
+          </TopLeftBarcode>
+          <TopRightBarcode>
+            <BarcodeTopRightIcon />
+          </TopRightBarcode>
+          <BottomLeftBarcode>
+            <BarcodeBottomLeftIcon />
+          </BottomLeftBarcode>
+          <BottomRightBarcode>
+            <BarcodeBottomRightIcon />
+          </BottomRightBarcode>
+        </Cutout>
+        <SideLayer />
+      </CenterLayer>
+      <BottomLayer>{!scanned && <ScannedText>Scanning for Barcode...</ScannedText>}</BottomLayer>
 
-    {scanned && <ItemPreview />}
-  </ScannerOverlayContainer>
-);
+      <ItemPreview shown={scanned} itemData={itemData} onPress={onPress} />
+    </ScannerOverlayContainer>
+  );
+};

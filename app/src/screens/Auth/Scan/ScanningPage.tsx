@@ -1,22 +1,36 @@
 /** @format */
 
 import React, { useEffect, useState } from 'react';
-import { Alert, Button, Text } from 'react-native';
-import { useIsFocused } from '@react-navigation/native';
+import { Text } from 'react-native';
 
-// Dependencies
+// Navigation
+import { AuthStackParams } from '&navigation';
+import { useIsFocused } from '@react-navigation/native';
+import { StackScreenProps } from '@react-navigation/stack';
+
+// Libraries
 import { Camera } from 'expo-camera';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { BarCodeScanningResult } from 'expo-camera/build/Camera.types';
 
 // Components
-import { CameraView, FullScreen, ScannerOverlay } from '&components';
+import { CameraView, FullScreen, ScannerOverlay, TestButton, TestButtonText } from '&components';
 
-export const ScanningPage = () => {
+// Interfaces
+import { StoreItem } from '&graphql';
+
+// Mock Data
+// TODO: Replace with database data
+import { mockBarcodeData, nullItem } from '&data';
+
+type ScanningPageProps = StackScreenProps<AuthStackParams, 'ScanPage'>;
+
+export const ScanningPage = ({ navigation }: ScanningPageProps) => {
   let cameraRef: Camera | null;
   const isFocused = useIsFocused();
 
   const [scanned, setScanned] = useState(false);
+  const [itemData, setItemData] = useState<StoreItem>(nullItem);
   const [hasPermission, setHasPermission] = useState<boolean | null>(null);
 
   useEffect(() => {
@@ -26,9 +40,12 @@ export const ScanningPage = () => {
     })();
   }, []);
 
-  const handleBarCodeScanned = ({ type, data }: BarCodeScanningResult) => {
+  const handleBarCodeScanned = ({ data }: BarCodeScanningResult) => {
     setScanned(true);
-    Alert.alert(`Bar code with type ${type} and code ${data} has been scanned!`);
+    console.log('Scanned Barcode:', data);
+
+    // TODO: Add backend query
+    setItemData(mockBarcodeData[Math.floor(Math.random() * mockBarcodeData.length)]);
   };
 
   if (hasPermission === null) {
@@ -45,8 +62,8 @@ export const ScanningPage = () => {
           type={Camera.Constants.Type.back}
           onBarCodeScanned={barCodeEvent => {
             if (!scanned && cameraRef) {
-              handleBarCodeScanned(barCodeEvent);
               cameraRef.pausePreview();
+              handleBarCodeScanned(barCodeEvent);
             }
           }}
           barCodeScannerSettings={{
@@ -57,18 +74,18 @@ export const ScanningPage = () => {
             ],
           }}
         >
-          <ScannerOverlay scanned={scanned} />
+          <ScannerOverlay
+            scanned={scanned}
+            itemData={itemData}
+            onPress={() => navigation.navigate('ItemDetail', { itemData })}
+          />
         </CameraView>
       )}
 
-      {scanned && (
-        <Button
-          title={'Tap to Reset'}
-          onPress={() => {
-            setScanned(false);
-            if (cameraRef) cameraRef.resumePreview();
-          }}
-        />
+      {!scanned && (
+        <TestButton onPress={() => navigation.navigate('ItemDetail', { itemData })}>
+          <TestButtonText>Go To ItemDetail (Testing Only)</TestButtonText>
+        </TestButton>
       )}
     </FullScreen>
   );

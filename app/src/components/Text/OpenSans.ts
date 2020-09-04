@@ -7,15 +7,12 @@ const OpenSansSemiBold = styled.Text`
   color: ${({ theme }) => theme.colors.gray[1]};
 `;
 
-export const OpenSansSemiBoldMedium = styled(OpenSansSemiBold)`
-  font-size: 18px;
-  line-height: 25px;
+export const OpenSansSemiBoldLarge = styled(OpenSansSemiBold)`
+  font-size: 20px;
 `;
 
-export const OpenSansSemiBoldSmall = styled(OpenSansSemiBold)`
-  font-size: 14px;
-  line-height: 19px;
-  color: ${({ theme }) => theme.colors.gray[2]};
+export const OpenSansSemiBoldMedium = styled(OpenSansSemiBold)`
+  font-size: 18px;
 `;
 
 const OpenSansRegular = styled.Text`
@@ -23,7 +20,11 @@ const OpenSansRegular = styled.Text`
   color: ${({ theme }) => theme.colors.gray[1]};
 `;
 
+export const OpenSansRegularLarge = styled(OpenSansRegular)`
+  font-size: 17px;
+`;
+
 export const OpenSansRegularMedium = styled(OpenSansRegular)`
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 15px;
+  line-height: 22px;
 `;

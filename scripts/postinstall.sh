@@ -17,4 +17,3 @@ cd "$dir"/database && gq http://localhost:8080/v1/graphql --introspect > schema.
 
 e "Run graphql-codegen"
 cd "$dir" && graphql-codegen --config codegen.yml
-

@@ -13,17 +13,18 @@ import {
 
 import { FuturaBoldCardTitle } from '../Text';
 
-// Mock Data
-import { MockItem } from '&data';
+// Interfaces
+import { StoreItem } from '&graphql';
 
 interface ItemPreviewProps {
   shown: boolean;
-  shortName: string;
-  price: number;
+  scannedItem: StoreItem;
 }
 
-export const ItemPreview = ({ shown, shortName, price }: ItemPreviewProps) => {
+export const ItemPreview = ({ shown, scannedItem }: ItemPreviewProps) => {
   const animatedValue = useState(new Animated.Value(0))[0];
+
+  const { shortName, longName, price } = scannedItem;
 
   useEffect(() => {
     Animated.timing(animatedValue, {
@@ -44,8 +45,8 @@ export const ItemPreview = ({ shown, shortName, price }: ItemPreviewProps) => {
     >
       <ItemPreviewImageContainer />
       <ItemPreviewTextContainer>
-        <FuturaBoldCardTitle numberOfLines={1}>{shortName}</FuturaBoldCardTitle>
-        <ItemPreviewPriceText>${price}</ItemPreviewPriceText>
+        <FuturaBoldCardTitle numberOfLines={1}>{shortName ? shortName : longName}</FuturaBoldCardTitle>
+        <ItemPreviewPriceText>${price.toFixed(2)}</ItemPreviewPriceText>
       </ItemPreviewTextContainer>
     </AnimatedItemPreviewContainer>
   );

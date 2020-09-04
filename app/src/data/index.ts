@@ -1,18 +1,8 @@
 /** @format */
-//import StoreItem from graphql
-import { StoreItem } from '../../generated/graphql';
 
-export interface MockItem {
-  id: string;
-  price: number;
-  purchased: boolean;
-  barcodeId: string;
-  quantity: string;
-  longName: string;
-  shortName: string;
-  description: string;
-}
-export const nullItem: MockItem = {
+import { StoreItem } from '&graphql';
+
+export const nullItem: StoreItem = {
   id: 'err',
   price: 0.0,
   purchased: false,

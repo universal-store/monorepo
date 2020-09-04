@@ -2,29 +2,22 @@
 
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { ItemDetail, ScanningPage } from '&screens';
 
-const HomeTab = createBottomTabNavigator();
-
-const BottomTabNavigator = () => {
-  return (
-    <HomeTab.Navigator initialRouteName="Scan">
-      <HomeTab.Screen name="Scan" component={ScanningPage} />
-      <HomeTab.Screen name="ItemDetail" component={ItemDetail} />
-    </HomeTab.Navigator>
-  );
-};
+// Interfaces
+import { MockItem } from '&data';
 
 export type AuthStackParams = {
-  TabNavigation: undefined;
+  Scan: undefined;
+  ItemDetail: { itemData: MockItem };
 };
 
 const AuthStack = createStackNavigator<AuthStackParams>();
 
 export const AuthStackNavigator = () => (
   <AuthStack.Navigator screenOptions={{ headerShown: false }}>
-    <AuthStack.Screen name="TabNavigation" component={BottomTabNavigator} />
+    <AuthStack.Screen name="Scan" component={ScanningPage} />
+    <AuthStack.Screen name="ItemDetail" component={ItemDetail} />
   </AuthStack.Navigator>
 );

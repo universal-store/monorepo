@@ -110,7 +110,7 @@ const ItemPreviewContainer = styled.TouchableOpacity`
   shadow-opacity: 0.25;
   shadow-offset: 0px 4px;
   width: ${screenWidth - 48}px;
-  bottom: ${isiPhoneX ? 62 : 32}px;
+  bottom: ${isiPhoneX ? 94 : 64}px;
   shadow-color: ${({ theme }) => theme.colors.gray[1]};
   background-color: ${({ theme }) => theme.colors.white[1]};
 `;

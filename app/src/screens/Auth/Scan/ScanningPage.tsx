@@ -14,7 +14,7 @@ import { BarCodeScanner } from 'expo-barcode-scanner';
 import { BarCodeScanningResult } from 'expo-camera/build/Camera.types';
 
 // Components
-import { CameraView, FullScreen, ScannerOverlay, TestButton, TestButtonText } from '&components';
+import { CameraView, FullScreen, ItemPreview, ScannerOverlay, TestButton, TestButtonText } from '&components';
 
 // Interfaces
 import { StoreItem } from '&graphql';
@@ -74,15 +74,28 @@ export const ScanningPage = ({ navigation }: ScanningPageProps) => {
             ],
           }}
         >
-          <ScannerOverlay
-            scanned={scanned}
-            itemData={itemData}
-            onPress={() => navigation.navigate('ItemDetail', { itemData })}
-          />
+          <ScannerOverlay scanned={scanned} />
         </CameraView>
       )}
 
-      {!scanned && (
+      <ItemPreview
+        shown={scanned}
+        itemData={itemData}
+        onPress={() => navigation.navigate('ItemDetail', { itemData })}
+      />
+
+      {scanned ? (
+        <TestButton
+          onPress={() => {
+            if (cameraRef) {
+              setScanned(false);
+              cameraRef.resumePreview();
+            }
+          }}
+        >
+          <TestButtonText>Reset (Testing Only)</TestButtonText>
+        </TestButton>
+      ) : (
         <TestButton onPress={() => navigation.navigate('ItemDetail', { itemData })}>
           <TestButtonText>Go To ItemDetail (Testing Only)</TestButtonText>
         </TestButton>

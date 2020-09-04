@@ -46,7 +46,6 @@ export const ItemDetail = ({ route }: ItemDetailProps) => {
   return (
     <ItemDetailContainer>
       <BottomSheet initialSnap={1} renderContent={renderContent} snapPoints={[screenHeight - 144, 390, 390]} />
-
       <AddCartButton />
     </ItemDetailContainer>
   );

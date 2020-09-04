@@ -7,6 +7,7 @@ import {
   FuturaBoldButtonText,
   FuturaBoldLarge,
   FuturaBoldMedium,
+  isiPhoneX,
   OpenSansRegularLarge,
   OpenSansRegularMedium,
   RowView,
@@ -60,7 +61,8 @@ export const AddCartButtonContainer = styled.View`
   position: absolute;
   bottom: 0;
   z-index: 999;
-  padding: 32px 32px 24px;
+  border-radius: 20px;
+  padding: 16px 32px ${isiPhoneX ? 54 : 24}px;
   background-color: ${({ theme }) => theme.colors.white[1]};
 `;
 

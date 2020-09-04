@@ -1,10 +1,11 @@
 /** @format */
 
 // Typography
-export * from './text';
+export * from './Text';
 
 // General
-export * from './views';
+export * from './Views';
 
 // Auth Screens
-export * from './scan';
+export * from './Scan';
+export * from './ItemDetail';

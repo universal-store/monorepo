@@ -1,5 +1,8 @@
 - table:
     schema: public
+    name: StoreItem
+- table:
+    schema: public
     name: User
   object_relationships:
   - name: UserProfilePic
@@ -13,3 +16,7 @@
 - table:
     schema: public
     name: UserProfilePic
+  object_relationships:
+  - name: User
+    using:
+      foreign_key_constraint_on: userId

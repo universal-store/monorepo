@@ -18,13 +18,14 @@ import { StoreItem } from '&graphql';
 
 interface ItemPreviewProps {
   shown: boolean;
-  scannedItem: StoreItem;
+  itemData: StoreItem;
+  onPress: () => void;
 }
 
-export const ItemPreview = ({ shown, scannedItem }: ItemPreviewProps) => {
+export const ItemPreview = ({ shown, itemData, onPress }: ItemPreviewProps) => {
   const animatedValue = useState(new Animated.Value(0))[0];
 
-  const { shortName, longName, price } = scannedItem;
+  const { shortName, longName, price } = itemData;
 
   useEffect(() => {
     Animated.timing(animatedValue, {
@@ -36,6 +37,7 @@ export const ItemPreview = ({ shown, scannedItem }: ItemPreviewProps) => {
 
   return (
     <AnimatedItemPreviewContainer
+      onPress={onPress}
       style={{
         transform: [
           { translateY: animatedValue.interpolate({ inputRange: [0, 1], outputRange: [500, 0] }) },

@@ -21,12 +21,17 @@ export const ItemDetailContainer = styled.View`
 
 export const ItemDetailModalContainer = styled.View`
   width: 100%;
+  elevation: 4;
   display: flex;
   margin-top: auto;
+  shadow-radius: 2px;
+  shadow-opacity: 0.25;
   padding: 28px 32px 24px;
+  shadow-offset: 0px -0.5px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   height: ${screenHeight - 144}px;
+  shadow-color: ${({ theme }) => theme.colors.gray[1]};
   background-color: ${({ theme }) => theme.colors.white[1]};
 `;
 

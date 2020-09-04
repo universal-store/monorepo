@@ -21,6 +21,7 @@ import {
   ProductDetailsText,
   screenHeight,
 } from '&components';
+import { View } from 'react-native';
 
 type ItemDetailProps = StackScreenProps<AuthStackParams, 'ItemDetail'>;
 
@@ -28,21 +29,24 @@ export const ItemDetail = ({ route }: ItemDetailProps) => {
   const { itemData } = route.params;
 
   const renderContent = () => (
-    <ItemDetailModalContainer>
-      <ItemNameText numberOfLines={2}>{itemData.longName}</ItemNameText>
-      <ItemSubDetailRow>
-        <ItemSizeText numberOfLines={1}>{itemData.size}</ItemSizeText>
-        <ItemPriceText>${itemData.price}</ItemPriceText>
-      </ItemSubDetailRow>
+    <View style={{ elevation: 4 }}>
+      <ItemDetailModalContainer>
+        <ItemNameText numberOfLines={2}>{itemData.longName}</ItemNameText>
+        <ItemSubDetailRow>
+          <ItemSizeText numberOfLines={1}>{itemData.quantity}</ItemSizeText>
+          <ItemPriceText>${itemData.price}</ItemPriceText>
+        </ItemSubDetailRow>
 
-      <ProductDetailsHeaderText>Product Details</ProductDetailsHeaderText>
-      <ProductDetailsText numberOfLines={5}>{itemData.description}</ProductDetailsText>
-    </ItemDetailModalContainer>
+        <ProductDetailsHeaderText>Product Details</ProductDetailsHeaderText>
+        <ProductDetailsText numberOfLines={5}>{itemData.description}</ProductDetailsText>
+      </ItemDetailModalContainer>
+    </View>
   );
 
   return (
     <ItemDetailContainer>
-      <BottomSheet initialSnap={1} renderContent={renderContent} snapPoints={[screenHeight - 144, 390, 190]} />
+      <BottomSheet initialSnap={1} renderContent={renderContent} snapPoints={[screenHeight - 144, 390, 390]} />
+
       <AddCartButton />
     </ItemDetailContainer>
   );

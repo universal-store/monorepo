@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useEffect, useState } from 'react';
-import { Button, Text } from 'react-native';
+import { Text } from 'react-native';
 import { useIsFocused } from '@react-navigation/native';
 
 // Dependencies
@@ -10,7 +10,14 @@ import { BarCodeScanner } from 'expo-barcode-scanner';
 import { BarCodeScanningResult } from 'expo-camera/build/Camera.types';
 
 // Components
-import { CameraView, FullScreen, ScannerOverlay } from '&components';
+import { CameraView, FullScreen, ScannerOverlay, TestButton, TestButtonText } from '&components';
+
+// Mock Data
+// TODO: Replace with database data
+import { mockBarcodeData, nullItem } from '&data';
+
+// Interfaces
+import { StoreItem } from '&graphql';
 
 const BARCODE_DATA_API_URL =
   'http://www.searchupc.com/handlers/upcsearch.ashx?request_type=3&access_token=09C70CF1-E284-44E3-A0B9-A6129573115C&upc=';
@@ -20,6 +27,7 @@ export const ScanningPage = () => {
   const isFocused = useIsFocused();
 
   const [scanned, setScanned] = useState(false);
+  const [scannedItem, setScannedItem] = useState<StoreItem>(nullItem);
   const [hasPermission, setHasPermission] = useState<boolean | null>(null);
 
   useEffect(() => {
@@ -38,6 +46,8 @@ export const ScanningPage = () => {
         if (data) console.log(`${data['0'].productname} with price $${data['0'].price} has been scanned!`);
       })
       .catch(error => console.log(error));
+
+    setScannedItem(mockBarcodeData[Math.floor(Math.random() * mockBarcodeData.length)]);
   };
 
   if (hasPermission === null) {
@@ -66,18 +76,19 @@ export const ScanningPage = () => {
             ],
           }}
         >
-          <ScannerOverlay scanned={scanned} />
+          <ScannerOverlay scanned={scanned} scannedItem={scannedItem} />
         </CameraView>
       )}
 
-      {scanned && (
-        <Button
-          title={'Tap to Reset'}
+      {!scanned && (
+        <TestButton
           onPress={() => {
             setScanned(false);
             if (cameraRef) cameraRef.resumePreview();
           }}
-        />
+        >
+          <TestButtonText>Go To ItemDetail (Testing Only)</TestButtonText>
+        </TestButton>
       )}
     </FullScreen>
   );

@@ -12,9 +12,6 @@ import { BarCodeScanningResult } from 'expo-camera/build/Camera.types';
 // Components
 import { CameraView, FullScreen, ScannerOverlay } from '&components';
 
-// Icons
-import { BackArrowIcon } from '&icons';
-
 const BARCODE_DATA_API_URL =
   'http://www.searchupc.com/handlers/upcsearch.ashx?request_type=3&access_token=09C70CF1-E284-44E3-A0B9-A6129573115C&upc=';
 

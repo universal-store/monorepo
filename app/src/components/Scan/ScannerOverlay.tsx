@@ -1,9 +1,16 @@
 /** @format */
 
-import React from 'react';
+import React, { useState } from 'react';
 
 // Iconography
-import { BarcodeBottomLeftIcon, BarcodeBottomRightIcon, BarcodeTopLeftIcon, BarcodeTopRightIcon } from '&icons';
+import {
+  BackArrowIcon,
+  BarcodeBottomLeftIcon,
+  BarcodeBottomRightIcon,
+  BarcodeTopLeftIcon,
+  BarcodeTopRightIcon,
+  FlashIcon,
+} from '&icons';
 
 // Styled Components
 import {
@@ -13,6 +20,8 @@ import {
   CenterLayer,
   Cutout,
   ScannedText,
+  ScannerHeaderText,
+  ScannerHeaderRow,
   ScannerOverlayContainer,
   SideLayer,
   TopLayer,
@@ -27,29 +36,39 @@ interface ScannerOverlayProps {
   scanned: boolean;
 }
 
-export const ScannerOverlay = ({ scanned }: ScannerOverlayProps) => (
-  <ScannerOverlayContainer>
-    <TopLayer />
-    <CenterLayer>
-      <SideLayer />
-      <Cutout scanned={scanned}>
-        <TopLeftBarcode>
-          <BarcodeTopLeftIcon />
-        </TopLeftBarcode>
-        <TopRightBarcode>
-          <BarcodeTopRightIcon />
-        </TopRightBarcode>
-        <BottomLeftBarcode>
-          <BarcodeBottomLeftIcon />
-        </BottomLeftBarcode>
-        <BottomRightBarcode>
-          <BarcodeBottomRightIcon />
-        </BottomRightBarcode>
-      </Cutout>
-      <SideLayer />
-    </CenterLayer>
-    <BottomLayer>{!scanned && <ScannedText>Scanning for Barcode...</ScannedText>}</BottomLayer>
+export const ScannerOverlay = ({ scanned }: ScannerOverlayProps) => {
+  const [flashToggle, setFlashToggle] = useState<boolean>(false);
 
-    <ItemPreview shown={scanned} />
-  </ScannerOverlayContainer>
-);
+  return (
+    <ScannerOverlayContainer>
+      <TopLayer>
+        <ScannerHeaderRow>
+          <BackArrowIcon />
+          <ScannerHeaderText>Scan Barcode</ScannerHeaderText>
+          <FlashIcon />
+        </ScannerHeaderRow>
+      </TopLayer>
+      <CenterLayer>
+        <SideLayer />
+        <Cutout scanned={scanned}>
+          <TopLeftBarcode>
+            <BarcodeTopLeftIcon />
+          </TopLeftBarcode>
+          <TopRightBarcode>
+            <BarcodeTopRightIcon />
+          </TopRightBarcode>
+          <BottomLeftBarcode>
+            <BarcodeBottomLeftIcon />
+          </BottomLeftBarcode>
+          <BottomRightBarcode>
+            <BarcodeBottomRightIcon />
+          </BottomRightBarcode>
+        </Cutout>
+        <SideLayer />
+      </CenterLayer>
+      <BottomLayer>{!scanned && <ScannedText>Scanning for Barcode...</ScannedText>}</BottomLayer>
+
+      <ItemPreview shown={scanned} />
+    </ScannerOverlayContainer>
+  );
+};

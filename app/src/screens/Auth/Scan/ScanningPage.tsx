@@ -15,6 +15,9 @@ import { FullScreen, ScannerOverlay } from '&components';
 // Custom Components
 import styled from 'styled-components/native';
 
+// Icons
+import { BackArrowIcon } from '&icons';
+
 const CameraScreen = styled(Camera)`
   flex: 1;
 `;

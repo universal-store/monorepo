@@ -31,7 +31,7 @@ import { CartIcon, CloseIcon } from '&icons';
 
 type ItemDetailProps = StackScreenProps<AuthStackParams, 'ItemDetail'>;
 
-export const ItemDetail = ({ route }: ItemDetailProps) => {
+export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
   const { itemData } = route.params;
 
   const renderContent = () => (
@@ -52,7 +52,7 @@ export const ItemDetail = ({ route }: ItemDetailProps) => {
   return (
     <ItemDetailContainer>
       <ItemDetailHeaderRow>
-        <ItemDetailHeaderButton>
+        <ItemDetailHeaderButton onPress={() => navigation.goBack()}>
           <CloseIcon />
         </ItemDetailHeaderButton>
         <ItemDetailHeaderButton>

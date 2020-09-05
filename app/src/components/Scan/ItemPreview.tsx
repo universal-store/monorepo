@@ -13,25 +13,26 @@ import {
 
 import { FuturaBoldCardTitle } from '../Text';
 
-// Interfaces
-import { StoreItem } from '&graphql';
+// Queries
+import { useGetStoreItemQuery } from '&graphql';
 
 interface ItemPreviewProps {
   shown: boolean;
-  itemData: StoreItem;
+  barcodeId: string;
   onPress: () => void;
 }
 
-export const ItemPreview = ({ shown, itemData, onPress }: ItemPreviewProps) => {
+export const ItemPreview = ({ shown, barcodeId, onPress }: ItemPreviewProps) => {
   const animatedValue = useState(new Animated.Value(0))[0];
 
-  const { shortName, longName, price } = itemData;
+  const { data } = useGetStoreItemQuery({ variables: { barcodeId } });
+  const itemData = data?.StoreItem_by_pk;
 
   useEffect(() => {
     Animated.timing(animatedValue, {
-      toValue: shown ? 1 : 0,
       duration: 500,
       useNativeDriver: true,
+      toValue: shown ? 1 : 0,
     }).start();
   }, [shown]);
 
@@ -46,10 +47,14 @@ export const ItemPreview = ({ shown, itemData, onPress }: ItemPreviewProps) => {
       }}
     >
       <ItemPreviewImageContainer />
-      <ItemPreviewTextContainer>
-        <FuturaBoldCardTitle numberOfLines={1}>{shortName ? shortName : longName}</FuturaBoldCardTitle>
-        <ItemPreviewPriceText>${price.toFixed(2)}</ItemPreviewPriceText>
-      </ItemPreviewTextContainer>
+      {itemData && (
+        <ItemPreviewTextContainer>
+          <FuturaBoldCardTitle numberOfLines={1}>
+            {itemData.shortName ? itemData.shortName : itemData.longName}
+          </FuturaBoldCardTitle>
+          <ItemPreviewPriceText>${Number(itemData.price).toFixed(2)}</ItemPreviewPriceText>
+        </ItemPreviewTextContainer>
+      )}
     </AnimatedItemPreviewContainer>
   );
 };

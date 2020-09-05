@@ -14,23 +14,16 @@ import { BarCodeScanner } from 'expo-barcode-scanner';
 import { BarCodeScanningResult } from 'expo-camera/build/Camera.types';
 
 // Components
-import { CameraView, FullScreen, ItemPreview, ScannerOverlay, TestButton, TestButtonText } from '&components';
-
-// Interfaces
-import { StoreItem } from '&graphql';
-
-// Mock Data
-// TODO: Replace with database data
-import { mockBarcodeData, nullItem } from '&data';
+import { BlackFullscreen, CameraView, ItemPreview, ScannerOverlay, TestButton, TestButtonText } from '&components';
 
 type ScanningPageProps = StackScreenProps<AuthStackParams, 'ScanPage'>;
 
 export const ScanningPage = ({ navigation }: ScanningPageProps) => {
-  let cameraRef: Camera | null;
+  let cameraRef: Camera | null = null;
   const isFocused = useIsFocused();
 
   const [scanned, setScanned] = useState(false);
-  const [itemData, setItemData] = useState<StoreItem>(nullItem);
+  const [barcodeId, setBarcodeId] = useState<string>('-1');
   const [hasPermission, setHasPermission] = useState<boolean | null>(null);
 
   useEffect(() => {
@@ -41,11 +34,8 @@ export const ScanningPage = ({ navigation }: ScanningPageProps) => {
   }, []);
 
   const handleBarCodeScanned = ({ data }: BarCodeScanningResult) => {
+    setBarcodeId(data);
     setScanned(true);
-    console.log('Scanned Barcode:', data);
-
-    // TODO: Add backend query
-    setItemData(mockBarcodeData[Math.floor(Math.random() * mockBarcodeData.length)]);
   };
 
   if (hasPermission === null) {
@@ -55,7 +45,7 @@ export const ScanningPage = ({ navigation }: ScanningPageProps) => {
     return <Text>No access to camera</Text>;
   }
   return (
-    <FullScreen>
+    <BlackFullscreen>
       {isFocused && (
         <CameraView
           ref={ref => (cameraRef = ref)}
@@ -80,8 +70,8 @@ export const ScanningPage = ({ navigation }: ScanningPageProps) => {
 
       <ItemPreview
         shown={scanned}
-        itemData={itemData}
-        onPress={() => navigation.navigate('ItemDetail', { itemData })}
+        barcodeId={barcodeId}
+        onPress={() => navigation.navigate('ItemDetail', { barcodeId })}
       />
 
       {scanned ? (
@@ -96,10 +86,10 @@ export const ScanningPage = ({ navigation }: ScanningPageProps) => {
           <TestButtonText>Reset (Testing Only)</TestButtonText>
         </TestButton>
       ) : (
-        <TestButton onPress={() => navigation.navigate('ItemDetail', { itemData })}>
+        <TestButton onPress={() => navigation.navigate('ItemDetail', { barcodeId })}>
           <TestButtonText>Go To ItemDetail (Testing Only)</TestButtonText>
         </TestButton>
       )}
-    </FullScreen>
+    </BlackFullscreen>
   );
 };

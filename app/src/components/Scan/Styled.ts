@@ -5,6 +5,7 @@ import { Animated } from 'react-native';
 
 // Typography
 import {
+  FullScreen,
   FuturaBoldButtonText,
   FuturaBoldLarge,
   isiPhoneX,
@@ -13,6 +14,12 @@ import {
   RowView,
   screenWidth,
 } from '&components';
+
+// Scanning Page
+
+export const BlackFullscreen = styled(FullScreen)`
+  background-color: ${({ theme }) => theme.colors.gray[1]};
+`;
 
 // Scanner Overlay ----------------------------------------------------------
 

@@ -1,4 +1,6 @@
-query GetStoreItem($barcodeId: bigint!) {
+# @format
+
+query GetStoreItem($barcodeId: String!) {
     StoreItem_by_pk(barcodeId: $barcodeId) {
         ...StoreItem
     }

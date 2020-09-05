@@ -30,8 +30,8 @@ export const ItemDetailHeaderRow = styled(RowView)`
 `;
 
 export const ItemDetailHeaderButton = styled.TouchableOpacity`
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   display: flex;
   border-radius: 50px;
   align-items: center;

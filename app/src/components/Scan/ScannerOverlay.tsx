@@ -27,6 +27,7 @@ import {
   TopLayer,
   TopLeftBarcode,
   TopRightBarcode,
+  ScannerHeaderButton,
 } from './Styled';
 
 // Components
@@ -44,13 +45,7 @@ interface ScannerOverlayProps {
 export const ScannerOverlay = ({ scanned, itemData, onPress }: ScannerOverlayProps) => {
   return (
     <ScannerOverlayContainer>
-      <TopLayer>
-        <ScannerHeaderRow>
-          <BackArrowIcon />
-          <ScannerHeaderText>Scan Barcode</ScannerHeaderText>
-          <FlashIcon />
-        </ScannerHeaderRow>
-      </TopLayer>
+      <TopLayer />
       <CenterLayer>
         <SideLayer />
         <Cutout scanned={scanned}>

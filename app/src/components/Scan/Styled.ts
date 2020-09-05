@@ -6,6 +6,7 @@ import { Animated } from 'react-native';
 // Typography
 import {
   FullScreen,
+  FullScreenCenter,
   FuturaBoldButtonText,
   FuturaBoldLarge,
   isiPhoneX,
@@ -19,6 +20,30 @@ import {
 
 export const BlackFullscreen = styled(FullScreen)`
   background-color: ${({ theme }) => theme.colors.gray[1]};
+`;
+
+export const NoCameraScreen = styled(FullScreenCenter)`
+  background-color: ${({ theme }) => theme.colors.gray[1]};
+`;
+
+export const NoCameraText = styled(FuturaBoldLarge)`
+  text-align: center;
+  color: ${({ theme }) => theme.colors.white[1]};
+`;
+
+export const CameraSettingsButton = styled.TouchableOpacity`
+  height: 48px;
+  display: flex;
+  margin-top: 24px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  background-color: ${({ theme }) => theme.colors.purple[1]};
+`;
+
+export const CameraSettingsText = styled(FuturaBoldButtonText)`
+  color: ${({ theme }) => theme.colors.white[1]};
 `;
 
 // Scanner Overlay ----------------------------------------------------------

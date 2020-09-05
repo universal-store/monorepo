@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useEffect, useState } from 'react';
-import { Text } from 'react-native';
+import { Linking } from 'react-native';
 
 // Navigation
 import { AuthStackParams } from '&navigation';
@@ -13,11 +13,18 @@ import { Camera } from 'expo-camera';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { BarCodeScanningResult } from 'expo-camera/build/Camera.types';
 
+// TODO: Remove (testing only)
+import DeviceInfo from 'react-native-device-info';
+
 // Components
 import {
   BlackFullscreen,
+  CameraSettingsButton,
+  CameraSettingsText,
   CameraView,
   ItemPreview,
+  NoCameraScreen,
+  NoCameraText,
   ScannerHeaderButton,
   ScannerHeaderRow,
   ScannerHeaderText,
@@ -37,6 +44,7 @@ export const ScanningPage = ({ navigation }: ScanningPageProps) => {
   let cameraRef: Camera | null = null;
   const isFocused = useIsFocused();
 
+  const [isSim, setIsSim] = useState<boolean>(false);
   const [flash, setFlash] = useState<boolean>(false);
   const [scanned, setScanned] = useState<boolean>(false);
   const [barcodeId, setBarcodeId] = useState<string>(nullItem.id);
@@ -46,35 +54,58 @@ export const ScanningPage = ({ navigation }: ScanningPageProps) => {
     void (async () => {
       const { status } = await Camera.requestPermissionsAsync();
       setHasPermission(status === 'granted');
+
+      // TODO: Remove from production
+      void DeviceInfo.isEmulator().then(res => setIsSim(res));
     })();
   }, []);
 
+  const resetScanner = () => {
+    if (scanned && cameraRef) {
+      setScanned(false);
+      cameraRef.resumePreview();
+    }
+  };
+
   const handleBarCodeScanned = ({ data }: BarCodeScanningResult) => {
-    setFlash(false);
-    setScanned(true);
-    setBarcodeId(data);
-    if (cameraRef) cameraRef.pausePreview();
+    if (!scanned && cameraRef) {
+      setFlash(false);
+      setScanned(true);
+
+      setBarcodeId(data);
+
+      cameraRef.pausePreview();
+    }
   };
 
   if (hasPermission === null) {
-    return <Text>Requesting for camera permission</Text>;
+    return <BlackFullscreen />;
   }
+
   if (!hasPermission) {
-    return <Text>No access to camera</Text>;
+    return (
+      <NoCameraScreen>
+        <ScannerHeaderRow>
+          <ScannerHeaderButton>
+            <BackArrowIcon />
+          </ScannerHeaderButton>
+        </ScannerHeaderRow>
+
+        <NoCameraText>Make sure to grant Universal Store permissions to use your camera!</NoCameraText>
+
+        <CameraSettingsButton onPress={() => Linking.openSettings()}>
+          <CameraSettingsText>Go to Settings</CameraSettingsText>
+        </CameraSettingsButton>
+      </NoCameraScreen>
+    );
   }
+
   return (
     <BlackFullscreen>
       {isFocused && (
         <>
           <ScannerHeaderRow>
-            <ScannerHeaderButton
-              onPress={() => {
-                if (scanned && cameraRef) {
-                  setScanned(false);
-                  cameraRef.resumePreview();
-                }
-              }}
-            >
+            <ScannerHeaderButton onPress={resetScanner}>
               <BackArrowIcon />
             </ScannerHeaderButton>
 
@@ -93,11 +124,7 @@ export const ScanningPage = ({ navigation }: ScanningPageProps) => {
             ref={ref => (cameraRef = ref)}
             type={Camera.Constants.Type.back}
             flashMode={flash ? 'torch' : 'off'}
-            onBarCodeScanned={barCodeEvent => {
-              if (!scanned && cameraRef) {
-                handleBarCodeScanned(barCodeEvent);
-              }
-            }}
+            onBarCodeScanned={handleBarCodeScanned}
             barCodeScannerSettings={{
               barCodeTypes: [
                 BarCodeScanner.Constants.BarCodeType.ean8,
@@ -115,28 +142,16 @@ export const ScanningPage = ({ navigation }: ScanningPageProps) => {
         shown={scanned}
         barcodeId={barcodeId}
         onPress={() => {
-          setScanned(false);
-          if (cameraRef) cameraRef.resumePreview();
+          resetScanner();
           navigation.navigate('ItemDetail', { barcodeId });
         }}
       />
+
+      {isSim && !scanned && (
+        <TestButton onPress={() => navigation.navigate('ItemDetail', { barcodeId })}>
+          <TestButtonText>Go To ItemDetail (Emulator Only)</TestButtonText>
+        </TestButton>
+      )}
     </BlackFullscreen>
   );
 };
-
-// {scanned ? (
-//   <TestButton
-//     onPress={() => {
-//       if (cameraRef) {
-//         setScanned(false);
-//         cameraRef.resumePreview();
-//       }
-//     }}
-//   >
-//     <TestButtonText>Reset (Testing Only)</TestButtonText>
-//   </TestButton>
-// ) : (
-//   <TestButton onPress={() => navigation.navigate('ItemDetail', { barcodeId })}>
-//     <TestButtonText>Go To ItemDetail (Testing Only)</TestButtonText>
-//   </TestButton>
-// )}

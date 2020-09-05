@@ -34,11 +34,22 @@ export const TopLayer = styled.View`
 `;
 
 export const ScannerHeaderRow = styled(RowView)`
+  position: absolute;
+  z-index: 1;
   width: 100%;
   margin-top: auto;
   align-items: center;
   padding: 0 32px 28px;
+  top: ${isiPhoneX ? 70 : 40}px;
   justify-content: space-between;
+`;
+
+export const ScannerHeaderButton = styled.TouchableOpacity`
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const ScannerHeaderText = styled(FuturaBoldLarge)`

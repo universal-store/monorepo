@@ -15,6 +15,6 @@ const AuthStack = createStackNavigator<AuthStackParams>();
 export const AuthStackNavigator = () => (
   <AuthStack.Navigator screenOptions={{ headerShown: false }}>
     <AuthStack.Screen name="ScanPage" component={ScanningPage} />
-    <AuthStack.Screen name="ItemDetail" component={ItemDetail} />
+    <AuthStack.Screen name="ItemDetail" component={ItemDetail} options={{ gestureEnabled: false }} />
   </AuthStack.Navigator>
 );

@@ -14,7 +14,22 @@ import { BarCodeScanner } from 'expo-barcode-scanner';
 import { BarCodeScanningResult } from 'expo-camera/build/Camera.types';
 
 // Components
-import { BlackFullscreen, CameraView, ItemPreview, ScannerOverlay, TestButton, TestButtonText } from '&components';
+import {
+  BlackFullscreen,
+  CameraView,
+  ItemPreview,
+  ScannerHeaderButton,
+  ScannerHeaderRow,
+  ScannerHeaderText,
+  ScannerOverlay,
+  TestButton,
+  TestButtonText,
+} from '&components';
+
+// Mock Data
+// TODO: Replace with database data
+import { nullItem } from '&data';
+import { BackArrowIcon, FlashIconOff, FlashIconOn } from '&icons';
 
 type ScanningPageProps = StackScreenProps<AuthStackParams, 'ScanPage'>;
 
@@ -22,8 +37,9 @@ export const ScanningPage = ({ navigation }: ScanningPageProps) => {
   let cameraRef: Camera | null = null;
   const isFocused = useIsFocused();
 
-  const [scanned, setScanned] = useState(false);
-  const [barcodeId, setBarcodeId] = useState<string>('-1');
+  const [flash, setFlash] = useState<boolean>(false);
+  const [scanned, setScanned] = useState<boolean>(false);
+  const [barcodeId, setBarcodeId] = useState<string>(nullItem.id);
   const [hasPermission, setHasPermission] = useState<boolean | null>(null);
 
   useEffect(() => {
@@ -34,8 +50,9 @@ export const ScanningPage = ({ navigation }: ScanningPageProps) => {
   }, []);
 
   const handleBarCodeScanned = ({ data }: BarCodeScanningResult) => {
-    setBarcodeId(data);
+    setFlash(false);
     setScanned(true);
+    setBarcodeId(data);
   };
 
   if (hasPermission === null) {
@@ -47,25 +64,50 @@ export const ScanningPage = ({ navigation }: ScanningPageProps) => {
   return (
     <BlackFullscreen>
       {isFocused && (
-        <CameraView
-          ref={ref => (cameraRef = ref)}
-          type={Camera.Constants.Type.back}
-          onBarCodeScanned={barCodeEvent => {
-            if (!scanned && cameraRef) {
-              cameraRef.pausePreview();
-              handleBarCodeScanned(barCodeEvent);
-            }
-          }}
-          barCodeScannerSettings={{
-            barCodeTypes: [
-              BarCodeScanner.Constants.BarCodeType.ean8,
-              BarCodeScanner.Constants.BarCodeType.ean13,
-              BarCodeScanner.Constants.BarCodeType.upc_e,
-            ],
-          }}
-        >
-          <ScannerOverlay scanned={scanned} />
-        </CameraView>
+        <>
+          <ScannerHeaderRow>
+            <ScannerHeaderButton
+              onPress={() => {
+                if (scanned && cameraRef) {
+                  setScanned(false);
+                  cameraRef.resumePreview();
+                }
+              }}
+            >
+              <BackArrowIcon />
+            </ScannerHeaderButton>
+
+            <ScannerHeaderText>Scan Barcode</ScannerHeaderText>
+
+            <ScannerHeaderButton
+              onPress={() => {
+                if (!scanned) setFlash(!flash);
+              }}
+            >
+              {flash ? <FlashIconOn /> : <FlashIconOff />}
+            </ScannerHeaderButton>
+          </ScannerHeaderRow>
+
+          <CameraView
+            ref={ref => (cameraRef = ref)}
+            type={Camera.Constants.Type.back}
+            flashMode={flash ? 'torch' : 'off'}
+            onBarCodeScanned={barCodeEvent => {
+              if (!scanned && cameraRef) {
+                handleBarCodeScanned(barCodeEvent);
+              }
+            }}
+            barCodeScannerSettings={{
+              barCodeTypes: [
+                BarCodeScanner.Constants.BarCodeType.ean8,
+                BarCodeScanner.Constants.BarCodeType.ean13,
+                BarCodeScanner.Constants.BarCodeType.upc_e,
+              ],
+            }}
+          >
+            <ScannerOverlay scanned={scanned} />
+          </CameraView>
+        </>
       )}
 
       <ItemPreview

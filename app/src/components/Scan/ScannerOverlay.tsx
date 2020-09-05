@@ -3,14 +3,7 @@
 import React from 'react';
 
 // Iconography
-import {
-  BackArrowIcon,
-  BarcodeBottomLeftIcon,
-  BarcodeBottomRightIcon,
-  BarcodeTopLeftIcon,
-  BarcodeTopRightIcon,
-  FlashIcon,
-} from '&icons';
+import { BarcodeBottomLeftIcon, BarcodeBottomRightIcon, BarcodeTopLeftIcon, BarcodeTopRightIcon } from '&icons';
 
 // Styled Components
 import {
@@ -20,8 +13,6 @@ import {
   CenterLayer,
   Cutout,
   ScannedText,
-  ScannerHeaderText,
-  ScannerHeaderRow,
   ScannerOverlayContainer,
   SideLayer,
   TopLayer,
@@ -36,13 +27,7 @@ interface ScannerOverlayProps {
 export const ScannerOverlay = ({ scanned }: ScannerOverlayProps) => {
   return (
     <ScannerOverlayContainer>
-      <TopLayer>
-        <ScannerHeaderRow>
-          <BackArrowIcon />
-          <ScannerHeaderText>Scan Barcode</ScannerHeaderText>
-          <FlashIcon />
-        </ScannerHeaderRow>
-      </TopLayer>
+      <TopLayer />
       <CenterLayer>
         <SideLayer />
         <Cutout scanned={scanned}>

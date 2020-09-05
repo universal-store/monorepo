@@ -19,6 +19,14 @@ export const ItemDetailContainer = styled.View`
   background-color: ${({ theme }) => theme.colors.purple[3]};
 `;
 
+export const ItemDetailHeaderRow = styled(RowView)`
+  width: 100%;
+  margin-top: auto;
+  align-items: center;
+  padding: 0 32px 28px;
+  justify-content: space-between;
+`;
+
 export const ItemDetailModalContainer = styled.View`
   width: 100%;
   elevation: 4;

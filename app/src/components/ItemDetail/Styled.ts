@@ -23,8 +23,8 @@ export const ItemDetailContainer = styled.View`
 export const ItemDetailHeaderRow = styled(RowView)`
   width: 100%;
   height: 40px;
+  padding: 0 32px;
   align-items: center;
-  padding: 0 32px 28px;
   justify-content: space-between;
   margin-top: ${isiPhoneX ? 66 : 36}px;
 `;
@@ -33,7 +33,7 @@ export const ItemDetailHeaderButton = styled.TouchableOpacity`
   width: 40px;
   height: 40px;
   display: flex;
-  border-radius: 8px;
+  border-radius: 50px;
   align-items: center;
   justify-content: center;
   background: ${({ theme }) => theme.colors.white[80]};

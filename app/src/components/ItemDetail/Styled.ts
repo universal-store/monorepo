@@ -7,6 +7,7 @@ import {
   FuturaBoldButtonText,
   FuturaBoldLarge,
   FuturaBoldMedium,
+  isiPhoneX,
   OpenSansRegularLarge,
   OpenSansRegularMedium,
   RowView,
@@ -17,6 +18,25 @@ import {
 export const ItemDetailContainer = styled.View`
   flex: 1;
   background-color: ${({ theme }) => theme.colors.purple[3]};
+`;
+
+export const ItemDetailHeaderRow = styled(RowView)`
+  width: 100%;
+  height: 40px;
+  padding: 0 32px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: ${isiPhoneX ? 66 : 36}px;
+`;
+
+export const ItemDetailHeaderButton = styled.TouchableOpacity`
+  width: 40px;
+  height: 40px;
+  display: flex;
+  border-radius: 50px;
+  align-items: center;
+  justify-content: center;
+  background: ${({ theme }) => theme.colors.white[80]};
 `;
 
 export const ItemDetailModalContainer = styled.View`

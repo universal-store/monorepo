@@ -1,10 +1,12 @@
 /** @format */
 
 import React from 'react';
+import { View } from 'react-native';
 
 // Libraries
 import BottomSheet from 'reanimated-bottom-sheet';
 
+// Navigation
 import { AuthStackParams } from '&navigation';
 import { StackScreenProps } from '@react-navigation/stack';
 
@@ -13,6 +15,8 @@ import {
   AddCartButton,
   FuturaBoldLarge as ItemNameText,
   ItemDetailContainer,
+  ItemDetailHeaderButton,
+  ItemDetailHeaderRow,
   ItemDetailModalContainer,
   ItemPriceText,
   ItemSizeText,
@@ -21,11 +25,13 @@ import {
   ProductDetailsText,
   screenHeight,
 } from '&components';
-import { View } from 'react-native';
+
+// Iconography
+import { CartIcon, CloseIcon } from '&icons';
 
 type ItemDetailProps = StackScreenProps<AuthStackParams, 'ItemDetail'>;
 
-export const ItemDetail = ({ route }: ItemDetailProps) => {
+export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
   const { itemData } = route.params;
 
   const renderContent = () => (
@@ -45,6 +51,15 @@ export const ItemDetail = ({ route }: ItemDetailProps) => {
 
   return (
     <ItemDetailContainer>
+      <ItemDetailHeaderRow>
+        <ItemDetailHeaderButton onPress={() => navigation.goBack()}>
+          <CloseIcon />
+        </ItemDetailHeaderButton>
+        <ItemDetailHeaderButton>
+          <CartIcon />
+        </ItemDetailHeaderButton>
+      </ItemDetailHeaderRow>
+
       <BottomSheet initialSnap={1} renderContent={renderContent} snapPoints={[screenHeight - 144, 390, 390]} />
 
       <AddCartButton />

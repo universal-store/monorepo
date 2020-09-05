@@ -53,6 +53,7 @@ export const ScanningPage = ({ navigation }: ScanningPageProps) => {
     setFlash(false);
     setScanned(true);
     setBarcodeId(data);
+    if (cameraRef) cameraRef.pausePreview();
   };
 
   if (hasPermission === null) {
@@ -113,25 +114,29 @@ export const ScanningPage = ({ navigation }: ScanningPageProps) => {
       <ItemPreview
         shown={scanned}
         barcodeId={barcodeId}
-        onPress={() => navigation.navigate('ItemDetail', { barcodeId })}
+        onPress={() => {
+          setScanned(false);
+          if (cameraRef) cameraRef.resumePreview();
+          navigation.navigate('ItemDetail', { barcodeId });
+        }}
       />
-
-      {scanned ? (
-        <TestButton
-          onPress={() => {
-            if (cameraRef) {
-              setScanned(false);
-              cameraRef.resumePreview();
-            }
-          }}
-        >
-          <TestButtonText>Reset (Testing Only)</TestButtonText>
-        </TestButton>
-      ) : (
-        <TestButton onPress={() => navigation.navigate('ItemDetail', { barcodeId })}>
-          <TestButtonText>Go To ItemDetail (Testing Only)</TestButtonText>
-        </TestButton>
-      )}
     </BlackFullscreen>
   );
 };
+
+// {scanned ? (
+//   <TestButton
+//     onPress={() => {
+//       if (cameraRef) {
+//         setScanned(false);
+//         cameraRef.resumePreview();
+//       }
+//     }}
+//   >
+//     <TestButtonText>Reset (Testing Only)</TestButtonText>
+//   </TestButton>
+// ) : (
+//   <TestButton onPress={() => navigation.navigate('ItemDetail', { barcodeId })}>
+//     <TestButtonText>Go To ItemDetail (Testing Only)</TestButtonText>
+//   </TestButton>
+// )}

@@ -3,7 +3,8 @@
 import React, { useState } from 'react';
 
 import {
-  AddCartButton,
+  AddCartButtonContainer,
+  AddCartButtonText,
   FuturaBoldLarge as ItemText,
   ItemAdditionalInfoScroll,
   ItemDetailContainer,
@@ -23,8 +24,8 @@ import {
 // Iconography
 import { CartIcon, CloseIcon, HeartIconOff, HeartIconOn } from '&icons';
 
-// Queries
-import { useGetStoreItemQuery } from '&graphql';
+// GraphQL
+import { GetStoreItemDocument, useGetStoreItemQuery, useUpdateStoreItemPurchaseMutation } from '&graphql';
 
 // Navigation
 import { AuthStackParams } from '&navigation';
@@ -39,6 +40,10 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
 
   const { data } = useGetStoreItemQuery({ variables: { barcodeId } });
   const itemData = data?.StoreItem_by_pk;
+
+  const [updatePurchaseMutation] = useUpdateStoreItemPurchaseMutation({
+    refetchQueries: () => [{ query: GetStoreItemDocument, variables: { barcodeId } }],
+  });
 
   return (
     <ItemDetailContainer>
@@ -82,7 +87,14 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
             <ProductDetailsText>{itemData.description}</ProductDetailsText>
           </ItemAdditionalInfoScroll>
 
-          <AddCartButton barcodeId={barcodeId} />
+          <AddCartButtonContainer
+            added={itemData.purchased}
+            onPress={() => void updatePurchaseMutation({ variables: { barcodeId, purchased: !itemData.purchased } })}
+          >
+            <AddCartButtonText added={itemData.purchased}>
+              {itemData.purchased ? 'Added!' : 'Add to Cart'}
+            </AddCartButtonText>
+          </AddCartButtonContainer>
         </ItemDetailModalContainer>
       )}
     </ItemDetailContainer>

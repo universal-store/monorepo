@@ -4,6 +4,7 @@ fragment StoreItem on StoreItem {
     price
     quantity
     longName
+    purchased
     shortName
     description
     StoreItemPic {

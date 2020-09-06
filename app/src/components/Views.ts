@@ -8,6 +8,8 @@ import { Camera } from 'expo-camera';
 
 export const screenWidth = Dimensions.get('window').width;
 export const screenHeight = Dimensions.get('window').height;
+
+export const isLargeScreen = screenHeight > 731;
 export const isiPhoneX = Platform.OS === 'ios' && screenHeight > 812;
 
 export const FullScreen = styled.View`

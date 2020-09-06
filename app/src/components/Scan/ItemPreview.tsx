@@ -6,6 +6,7 @@ import { Animated } from 'react-native';
 // Components
 import {
   AnimatedItemPreviewContainer,
+  ItemPreviewImage,
   ItemPreviewImageContainer,
   ItemPreviewPriceText,
   ItemPreviewTextContainer,
@@ -46,13 +47,22 @@ export const ItemPreview = ({ shown, barcodeId, onPress }: ItemPreviewProps) => 
         ],
       }}
     >
-      <ItemPreviewImageContainer />
+      <ItemPreviewImageContainer>
+        {itemData && itemData.StoreItemPic && (
+          <ItemPreviewImage
+            source={{
+              uri: itemData.StoreItemPic.size64,
+            }}
+          />
+        )}
+      </ItemPreviewImageContainer>
+
       {itemData && (
         <ItemPreviewTextContainer>
           <FuturaBoldCardTitle numberOfLines={1}>
             {itemData.shortName ? itemData.shortName : itemData.longName}
           </FuturaBoldCardTitle>
-          <ItemPreviewPriceText>${Number(itemData.price).toFixed(2)}</ItemPreviewPriceText>
+          <ItemPreviewPriceText>{itemData.price}</ItemPreviewPriceText>
         </ItemPreviewTextContainer>
       )}
     </AnimatedItemPreviewContainer>

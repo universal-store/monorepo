@@ -165,7 +165,11 @@ export const ItemPreviewImageContainer = styled.View`
   width: 48px;
   height: 48px;
   border-radius: 4px;
-  background-color: red;
+`;
+
+export const ItemPreviewImage = styled.Image`
+  width: 48px;
+  height: 48px;
 `;
 
 export const ItemPreviewTextContainer = styled.View`

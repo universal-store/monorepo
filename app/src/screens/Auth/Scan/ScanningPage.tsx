@@ -71,10 +71,9 @@ export const ScanningPage = ({ navigation }: ScanningPageProps) => {
     if (!scanned && cameraRef) {
       setFlash(false);
       setScanned(true);
+      cameraRef.pausePreview();
 
       setBarcodeId(data);
-
-      cameraRef.pausePreview();
     }
   };
 

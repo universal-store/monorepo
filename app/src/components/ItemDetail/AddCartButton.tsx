@@ -1,18 +1,16 @@
 /** @format */
 
-// Components
-import { AddCartButtonStyle, AddCartButtonContainer, AddCartButtonText } from '&components';
-
 import React, { useState } from 'react';
+
+// Components
+import { AddCartButtonContainer, AddCartButtonText } from '&components';
 
 export const AddCartButton = () => {
   const [addedToCart, setAddedToCart] = useState<boolean>(false);
 
   return (
-    <AddCartButtonContainer>
-      <AddCartButtonStyle added={addedToCart} onPress={() => setAddedToCart(!addedToCart)}>
-        <AddCartButtonText added={addedToCart}>{addedToCart ? 'Added!' : 'Add to Cart'}</AddCartButtonText>
-      </AddCartButtonStyle>
+    <AddCartButtonContainer added={addedToCart} onPress={() => setAddedToCart(!addedToCart)}>
+      <AddCartButtonText added={addedToCart}>{addedToCart ? 'Added!' : 'Add to Cart'}</AddCartButtonText>
     </AddCartButtonContainer>
   );
 };

@@ -13,7 +13,7 @@ import { Root } from '&navigation';
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({
-    uri: 'http://localhost:8080/v1/graphql',
+    uri: 'http://10.2.39.47:8080/v1/graphql',
   }),
 });
 

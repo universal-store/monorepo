@@ -72,17 +72,17 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
             </ItemDetailFavoriteButton>
           </ItemSubDetailRow>
 
-          <ItemSubDetailRow>
-            <ItemSizeText numberOfLines={1}>{itemData.quantity}</ItemSizeText>
-            <ItemText>{itemData.price}</ItemText>
-          </ItemSubDetailRow>
+          <ItemAdditionalInfoScroll bounces={false} showsVerticalScrollIndicator={false}>
+            <ItemSubDetailRow>
+              <ItemSizeText numberOfLines={1}>{itemData.quantity}</ItemSizeText>
+              <ItemText>{itemData.price}</ItemText>
+            </ItemSubDetailRow>
 
-          <ItemAdditionalInfoScroll bounces={false} contentContainerStyle={{ paddingBottom: 24 }}>
             <ProductDetailsHeaderText>Product Details</ProductDetailsHeaderText>
             <ProductDetailsText>{itemData.description}</ProductDetailsText>
           </ItemAdditionalInfoScroll>
 
-          <AddCartButton />
+          <AddCartButton barcodeId={barcodeId} />
         </ItemDetailModalContainer>
       )}
     </ItemDetailContainer>

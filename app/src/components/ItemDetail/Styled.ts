@@ -92,6 +92,7 @@ export const ItemSizeText = styled(OpenSansRegularLarge)`
 
 export const ItemAdditionalInfoScroll = styled.ScrollView`
   flex: 1;
+  margin-bottom: 24px;
 `;
 
 export const ProductDetailsHeaderText = styled(FuturaBoldMedium)`

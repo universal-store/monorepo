@@ -33,10 +33,11 @@ import {
   TestButtonText,
 } from '&components';
 
+import { BackArrowIcon, FlashIconOff, FlashIconOn } from '&icons';
+
 // Mock Data
 // TODO: Replace with database data
 import { nullItem } from '&data';
-import { BackArrowIcon, FlashIconOff, FlashIconOn } from '&icons';
 
 type ScanningPageProps = StackScreenProps<AuthStackParams, 'ScanPage'>;
 

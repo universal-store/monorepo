@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 
-// Components
-import { AddCartButtonContainer, AddCartButtonText } from '&components';
+// Styled Components
+import { AddCartButtonContainer, AddCartButtonText } from './Styled';
 
 export const AddCartButton = () => {
   const [addedToCart, setAddedToCart] = useState<boolean>(false);

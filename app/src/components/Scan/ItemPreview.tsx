@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { Animated } from 'react-native';
 
-// Components
+// Styled Components
 import {
   AnimatedItemPreviewContainer,
   ItemPreviewImage,

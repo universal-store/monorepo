@@ -9,11 +9,11 @@ import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/c
 
 import { Root } from '&navigation';
 
-// Create the client as outlined in the setup guide
+// Create the client
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({
-    uri: 'http://localhost:8080/v1/graphql',
+    uri: 'http://10.2.39.47:8080/v1/graphql',
   }),
 });
 

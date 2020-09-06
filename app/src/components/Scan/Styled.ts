@@ -5,6 +5,8 @@ import { Animated } from 'react-native';
 
 // Typography
 import {
+  FullScreen,
+  FullScreenCenter,
   FuturaBoldButtonText,
   FuturaBoldLarge,
   isiPhoneX,
@@ -13,6 +15,36 @@ import {
   RowView,
   screenWidth,
 } from '&components';
+
+// Scanning Page
+
+export const BlackFullscreen = styled(FullScreen)`
+  background-color: ${({ theme }) => theme.colors.gray[1]};
+`;
+
+export const NoCameraScreen = styled(FullScreenCenter)`
+  background-color: ${({ theme }) => theme.colors.gray[1]};
+`;
+
+export const NoCameraText = styled(FuturaBoldLarge)`
+  text-align: center;
+  color: ${({ theme }) => theme.colors.white[1]};
+`;
+
+export const CameraSettingsButton = styled.TouchableOpacity`
+  height: 48px;
+  display: flex;
+  margin-top: 24px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  background-color: ${({ theme }) => theme.colors.purple[1]};
+`;
+
+export const CameraSettingsText = styled(FuturaBoldButtonText)`
+  color: ${({ theme }) => theme.colors.white[1]};
+`;
 
 // Scanner Overlay ----------------------------------------------------------
 
@@ -121,7 +153,7 @@ const ItemPreviewContainer = styled.TouchableOpacity`
   shadow-opacity: 0.25;
   shadow-offset: 0px 4px;
   width: ${screenWidth - 48}px;
-  bottom: ${isiPhoneX ? 62 : 32}px;
+  bottom: ${isiPhoneX ? 94 : 64}px;
   shadow-color: ${({ theme }) => theme.colors.gray[1]};
   background-color: ${({ theme }) => theme.colors.white[1]};
 `;
@@ -133,7 +165,11 @@ export const ItemPreviewImageContainer = styled.View`
   width: 48px;
   height: 48px;
   border-radius: 4px;
-  background-color: red;
+`;
+
+export const ItemPreviewImage = styled.Image`
+  width: 48px;
+  height: 48px;
 `;
 
 export const ItemPreviewTextContainer = styled.View`

@@ -3,14 +3,7 @@
 import React from 'react';
 
 // Iconography
-import {
-  BackArrowIcon,
-  BarcodeBottomLeftIcon,
-  BarcodeBottomRightIcon,
-  BarcodeTopLeftIcon,
-  BarcodeTopRightIcon,
-  FlashIcon,
-} from '&icons';
+import { BarcodeBottomLeftIcon, BarcodeBottomRightIcon, BarcodeTopLeftIcon, BarcodeTopRightIcon } from '&icons';
 
 // Styled Components
 import {
@@ -20,29 +13,18 @@ import {
   CenterLayer,
   Cutout,
   ScannedText,
-  ScannerHeaderText,
-  ScannerHeaderRow,
   ScannerOverlayContainer,
   SideLayer,
   TopLayer,
   TopLeftBarcode,
   TopRightBarcode,
-  ScannerHeaderButton,
 } from './Styled';
-
-// Components
-import { ItemPreview } from './ItemPreview';
-
-// Interfaces
-import { StoreItem } from '&graphql';
 
 interface ScannerOverlayProps {
   scanned: boolean;
-  itemData: StoreItem;
-  onPress: () => void;
 }
 
-export const ScannerOverlay = ({ scanned, itemData, onPress }: ScannerOverlayProps) => {
+export const ScannerOverlay = ({ scanned }: ScannerOverlayProps) => {
   return (
     <ScannerOverlayContainer>
       <TopLayer />
@@ -65,8 +47,6 @@ export const ScannerOverlay = ({ scanned, itemData, onPress }: ScannerOverlayPro
         <SideLayer />
       </CenterLayer>
       <BottomLayer>{!scanned && <ScannedText>Scanning for Barcode...</ScannedText>}</BottomLayer>
-
-      <ItemPreview shown={scanned} itemData={itemData} onPress={onPress} />
     </ScannerOverlayContainer>
   );
 };

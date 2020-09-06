@@ -1,50 +1,44 @@
 /** @format */
 
-import React from 'react';
+import React, { useState } from 'react';
 
-// Libraries
-import BottomSheet from 'reanimated-bottom-sheet';
-
-// Components
 import {
   AddCartButton,
-  FuturaBoldLarge as ItemNameText,
+  FuturaBoldLarge as ItemText,
   ItemDetailContainer,
+  ItemDetailFavoriteButton,
   ItemDetailHeaderButton,
   ItemDetailHeaderRow,
+  ItemDetailImage,
+  ItemDetailImageContainer,
   ItemDetailModalContainer,
-  ItemPriceText,
+  ItemNameText,
   ItemSizeText,
   ItemSubDetailRow,
   ProductDetailsHeaderText,
   ProductDetailsText,
-  screenHeight,
 } from '&components';
 
 // Iconography
-import { CartIcon, CloseIcon } from '&icons';
+import { CartIcon, CloseIcon, HeartIconOff, HeartIconOn } from '&icons';
+
+// Queries
+import { useGetStoreItemQuery } from '&graphql';
 
 // Navigation
 import { AuthStackParams } from '&navigation';
 import { StackScreenProps } from '@react-navigation/stack';
+import { ScrollView } from 'react-native';
 
 type ItemDetailProps = StackScreenProps<AuthStackParams, 'ItemDetail'>;
 
 export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
-  const { itemData } = route.params;
+  const { barcodeId } = route.params;
 
-  const renderContent = () => (
-    <ItemDetailModalContainer>
-      <ItemNameText numberOfLines={2}>{itemData.longName}</ItemNameText>
-      <ItemSubDetailRow>
-        <ItemSizeText numberOfLines={1}>{itemData.quantity}</ItemSizeText>
-        <ItemPriceText>${itemData.price}</ItemPriceText>
-      </ItemSubDetailRow>
+  const [favorite, setFavorite] = useState<boolean>(false);
 
-      <ProductDetailsHeaderText>Product Details</ProductDetailsHeaderText>
-      <ProductDetailsText numberOfLines={5}>{itemData.description}</ProductDetailsText>
-    </ItemDetailModalContainer>
-  );
+  const { data } = useGetStoreItemQuery({ variables: { barcodeId } });
+  const itemData = data?.StoreItem_by_pk;
 
   return (
     <ItemDetailContainer>
@@ -52,14 +46,45 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
         <ItemDetailHeaderButton onPress={() => navigation.goBack()}>
           <CloseIcon />
         </ItemDetailHeaderButton>
+
         <ItemDetailHeaderButton>
           <CartIcon />
         </ItemDetailHeaderButton>
       </ItemDetailHeaderRow>
 
-      <BottomSheet initialSnap={1} renderContent={renderContent} snapPoints={[screenHeight - 144, 390, 390]} />
+      <ItemDetailImageContainer>
+        {itemData && itemData.StoreItemPic && (
+          <ItemDetailImage
+            source={{
+              uri: itemData.StoreItemPic.size256,
+            }}
+          />
+        )}
+      </ItemDetailImageContainer>
 
-      <AddCartButton />
+      {itemData && (
+        <ItemDetailModalContainer>
+          <ItemSubDetailRow>
+            <ItemNameText numberOfLines={2}>{itemData.longName}</ItemNameText>
+
+            <ItemDetailFavoriteButton onPress={() => setFavorite(!favorite)}>
+              {favorite ? <HeartIconOn /> : <HeartIconOff />}
+            </ItemDetailFavoriteButton>
+          </ItemSubDetailRow>
+
+          <ItemSubDetailRow>
+            <ItemSizeText numberOfLines={1}>{itemData.quantity}</ItemSizeText>
+            <ItemText>{itemData.price}</ItemText>
+          </ItemSubDetailRow>
+
+          <ScrollView bounces={false}>
+            <ProductDetailsHeaderText>Product Details</ProductDetailsHeaderText>
+            <ProductDetailsText>{itemData.description}</ProductDetailsText>
+          </ScrollView>
+
+          <AddCartButton />
+        </ItemDetailModalContainer>
+      )}
     </ItemDetailContainer>
   );
 };

@@ -3,9 +3,10 @@
 import React, { useEffect, useState } from 'react';
 import { Animated } from 'react-native';
 
-// Components
+// Styled Components
 import {
   AnimatedItemPreviewContainer,
+  ItemPreviewImage,
   ItemPreviewImageContainer,
   ItemPreviewPriceText,
   ItemPreviewTextContainer,
@@ -13,25 +14,26 @@ import {
 
 import { FuturaBoldCardTitle } from '../Text';
 
-// Interfaces
-import { StoreItem } from '&graphql';
+// Queries
+import { useGetStoreItemQuery } from '&graphql';
 
 interface ItemPreviewProps {
   shown: boolean;
-  itemData: StoreItem;
+  barcodeId: string;
   onPress: () => void;
 }
 
-export const ItemPreview = ({ shown, itemData, onPress }: ItemPreviewProps) => {
+export const ItemPreview = ({ shown, barcodeId, onPress }: ItemPreviewProps) => {
   const animatedValue = useState(new Animated.Value(0))[0];
 
-  const { shortName, longName, price } = itemData;
+  const { data } = useGetStoreItemQuery({ variables: { barcodeId } });
+  const itemData = data?.StoreItem_by_pk;
 
   useEffect(() => {
     Animated.timing(animatedValue, {
-      toValue: shown ? 1 : 0,
       duration: 500,
       useNativeDriver: true,
+      toValue: shown ? 1 : 0,
     }).start();
   }, [shown]);
 
@@ -45,11 +47,24 @@ export const ItemPreview = ({ shown, itemData, onPress }: ItemPreviewProps) => {
         ],
       }}
     >
-      <ItemPreviewImageContainer />
-      <ItemPreviewTextContainer>
-        <FuturaBoldCardTitle numberOfLines={1}>{shortName ? shortName : longName}</FuturaBoldCardTitle>
-        <ItemPreviewPriceText>${price.toFixed(2)}</ItemPreviewPriceText>
-      </ItemPreviewTextContainer>
+      <ItemPreviewImageContainer>
+        {itemData && itemData.StoreItemPic && (
+          <ItemPreviewImage
+            source={{
+              uri: itemData.StoreItemPic.size64,
+            }}
+          />
+        )}
+      </ItemPreviewImageContainer>
+
+      {itemData && (
+        <ItemPreviewTextContainer>
+          <FuturaBoldCardTitle numberOfLines={1}>
+            {itemData.shortName ? itemData.shortName : itemData.longName}
+          </FuturaBoldCardTitle>
+          <ItemPreviewPriceText>{itemData.price}</ItemPreviewPriceText>
+        </ItemPreviewTextContainer>
+      )}
     </AnimatedItemPreviewContainer>
   );
 };

@@ -105,7 +105,12 @@ export const ItemSizeText = styled(OpenSansRegularLarge)`
 `;
 
 export const ProductDetailsHeaderText = styled(FuturaBoldMedium)`
-  margin-top: 24px;
+  margin-top: 16px;
+`;
+
+export const ProductDetailsScroll = styled.ScrollView`
+  flex: 1;
+  height: auto;
 `;
 
 export const ProductDetailsText = styled(OpenSansRegularMedium)`

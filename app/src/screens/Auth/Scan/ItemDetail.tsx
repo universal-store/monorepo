@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 
 // Libraries
-import Animated from 'react-native-reanimated';
 import BottomSheet from 'reanimated-bottom-sheet';
 
 // Components
@@ -26,6 +25,7 @@ import {
   ItemSizeText,
   ItemSubDetailRow,
   ProductDetailsHeaderText,
+  ProductDetailsScroll,
   ProductDetailsText,
   screenHeight,
 } from '&components';
@@ -39,17 +39,20 @@ import { GetStoreItemDocument, useGetStoreItemQuery, useUpdateStoreItemPurchaseM
 // Navigation
 import { AuthStackParams } from '&navigation';
 import { StackScreenProps } from '@react-navigation/stack';
+import { ScrollView } from 'react-native';
 
 // Constants
 const largeModalHeight = screenHeight - (isiPhoneX ? 122 : 92);
 const smallModalHeight = screenHeight - (isiPhoneX ? 402 : 372);
 
-const { eq, Value } = Animated;
+const smallDescriptionLines = isiPhoneX ? 8 : 1;
 
 type ItemDetailProps = StackScreenProps<AuthStackParams, 'ItemDetail'>;
 
 export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
   const { barcodeId } = route.params;
+
+  const [modalExpand, setModalExpand] = useState<boolean>(false);
 
   // TODO: Replace with User Favorites Mutation
   const [favorite, setFavorite] = useState<boolean>(false);
@@ -58,8 +61,6 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
   const itemData = data?.StoreItem_by_pk;
 
   const [updatePurchaseMutation] = useUpdateStoreItemPurchaseMutation();
-
-  const modalHeight = new Value(1);
 
   const renderHeader = () => (
     <ItemDetailModalHeader>
@@ -85,9 +86,11 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
           </ItemSubDetailRow>
 
           <ProductDetailsHeaderText>Product Details</ProductDetailsHeaderText>
-          <ProductDetailsText numberOfLines={eq(modalHeight, new Value(1)) ? 5 : 10}>
-            {itemData.description}
-          </ProductDetailsText>
+          <ProductDetailsScroll bounces={false} showsVerticalScrollIndicator={false}>
+            <ProductDetailsText numberOfLines={modalExpand ? 50 : smallDescriptionLines}>
+              {itemData.description}
+            </ProductDetailsText>
+          </ProductDetailsScroll>
         </ItemDetailModalContainer>
       )}
     </>
@@ -117,11 +120,12 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
 
       <BottomSheet
         initialSnap={1}
-        callbackNode={modalHeight}
         renderHeader={renderHeader}
         renderContent={renderContent}
         enabledBottomInitialAnimation
         enabledContentGestureInteraction={false}
+        onOpenStart={() => setModalExpand(true)}
+        onCloseStart={() => setModalExpand(false)}
         snapPoints={[largeModalHeight, smallModalHeight]}
       />
 

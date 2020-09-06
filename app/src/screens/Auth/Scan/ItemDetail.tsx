@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 import {
   AddCartButton,
   FuturaBoldLarge as ItemText,
-  isLargeScreen,
   ItemDetailContainer,
   ItemDetailFavoriteButton,
   ItemDetailHeaderButton,
@@ -13,6 +12,7 @@ import {
   ItemDetailImage,
   ItemDetailImageContainer,
   ItemDetailModalContainer,
+  ItemNameText,
   ItemSizeText,
   ItemSubDetailRow,
   ProductDetailsHeaderText,
@@ -65,11 +65,13 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
       {itemData && (
         <ItemDetailModalContainer>
           <ItemSubDetailRow>
-            <ItemText numberOfLines={2}>{itemData.longName}</ItemText>
+            <ItemNameText numberOfLines={2}>{itemData.longName}</ItemNameText>
+
             <ItemDetailFavoriteButton onPress={() => setFavorite(!favorite)}>
               {favorite ? <HeartIconOn /> : <HeartIconOff />}
             </ItemDetailFavoriteButton>
           </ItemSubDetailRow>
+
           <ItemSubDetailRow>
             <ItemSizeText numberOfLines={1}>{itemData.quantity}</ItemSizeText>
             <ItemText>{itemData.price}</ItemText>
@@ -77,7 +79,7 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
 
           <ScrollView bounces={false}>
             <ProductDetailsHeaderText>Product Details</ProductDetailsHeaderText>
-            <ProductDetailsText numberOfLines={isLargeScreen ? 10 : 3}>{itemData.description}</ProductDetailsText>
+            <ProductDetailsText>{itemData.description}</ProductDetailsText>
           </ScrollView>
 
           <AddCartButton />

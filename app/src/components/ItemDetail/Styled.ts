@@ -2,13 +2,12 @@
 
 import styled from 'styled-components/native';
 
-// Typography
+// Components
 import {
   FuturaBoldButtonText,
   FuturaBoldLarge,
   FuturaBoldMedium,
   isiPhoneX,
-  isLargeScreen,
   OpenSansRegularLarge,
   OpenSansRegularMedium,
   RowView,
@@ -68,13 +67,20 @@ export const ItemDetailModalContainer = styled.View`
 
 export const ItemSubDetailRow = styled(RowView)`
   margin-top: 8px;
+  align-items: center;
   justify-content: space-between;
+`;
+
+// Note: 32 horizontal padding each side + 48 (24 button and 24 margin)
+export const ItemNameText = styled(FuturaBoldLarge)`
+  width: ${screenWidth - 112}px;
 `;
 
 export const ItemDetailFavoriteButton = styled.TouchableOpacity`
   width: 24px;
   height: 24px;
   display: flex;
+  margin-left: 24px;
   align-items: center;
   justify-content: center;
 `;

@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import {
   AddCartButton,
   FuturaBoldLarge as ItemText,
+  ItemAdditionalInfoScroll,
   ItemDetailContainer,
   ItemDetailFavoriteButton,
   ItemDetailHeaderButton,
@@ -28,7 +29,6 @@ import { useGetStoreItemQuery } from '&graphql';
 // Navigation
 import { AuthStackParams } from '&navigation';
 import { StackScreenProps } from '@react-navigation/stack';
-import { ScrollView } from 'react-native';
 
 type ItemDetailProps = StackScreenProps<AuthStackParams, 'ItemDetail'>;
 
@@ -77,10 +77,10 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
             <ItemText>{itemData.price}</ItemText>
           </ItemSubDetailRow>
 
-          <ScrollView bounces={false}>
+          <ItemAdditionalInfoScroll bounces={false} contentContainerStyle={{ paddingBottom: 24 }}>
             <ProductDetailsHeaderText>Product Details</ProductDetailsHeaderText>
             <ProductDetailsText>{itemData.description}</ProductDetailsText>
-          </ScrollView>
+          </ItemAdditionalInfoScroll>
 
           <AddCartButton />
         </ItemDetailModalContainer>

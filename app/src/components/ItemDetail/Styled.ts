@@ -90,6 +90,10 @@ export const ItemSizeText = styled(OpenSansRegularLarge)`
   color: ${({ theme }) => theme.colors.gray[2]};
 `;
 
+export const ItemAdditionalInfoScroll = styled.ScrollView`
+  flex: 1;
+`;
+
 export const ProductDetailsHeaderText = styled(FuturaBoldMedium)`
   margin-top: 24px;
 `;

@@ -41,9 +41,7 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
   const { data } = useGetStoreItemQuery({ variables: { barcodeId } });
   const itemData = data?.StoreItem_by_pk;
 
-  const [updatePurchaseMutation] = useUpdateStoreItemPurchaseMutation({
-    refetchQueries: () => [{ query: GetStoreItemDocument, variables: { barcodeId } }],
-  });
+  const [updatePurchaseMutation] = useUpdateStoreItemPurchaseMutation();
 
   return (
     <ItemDetailContainer>
@@ -89,7 +87,20 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
 
           <AddCartButtonContainer
             added={itemData.purchased}
-            onPress={() => void updatePurchaseMutation({ variables: { barcodeId, purchased: !itemData.purchased } })}
+            onPress={() =>
+              void updatePurchaseMutation({
+                variables: { barcodeId, purchased: !itemData.purchased },
+                refetchQueries: () => [{ query: GetStoreItemDocument, variables: { barcodeId } }],
+                optimisticResponse: {
+                  __typename: 'mutation_root',
+                  update_StoreItem_by_pk: {
+                    __typename: 'StoreItem',
+                    shortName: itemData.shortName,
+                    purchased: !itemData.purchased,
+                  },
+                },
+              })
+            }
           >
             <AddCartButtonText added={itemData.purchased}>
               {itemData.purchased ? 'Added!' : 'Add to Cart'}

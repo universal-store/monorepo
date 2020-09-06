@@ -4,6 +4,7 @@ import styled from 'styled-components/native';
 
 // Components
 import {
+  FullScreen,
   FuturaBoldButtonText,
   FuturaBoldLarge,
   FuturaBoldMedium,
@@ -14,8 +15,7 @@ import {
   screenWidth,
 } from '&components';
 
-export const ItemDetailContainer = styled.View`
-  flex: 1;
+export const ItemDetailContainer = styled(FullScreen)`
   background-color: ${({ theme }) => theme.colors.purple[3]};
 `;
 
@@ -29,8 +29,8 @@ export const ItemDetailHeaderRow = styled(RowView)`
 `;
 
 export const ItemDetailHeaderButton = styled.TouchableOpacity`
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   display: flex;
   border-radius: 50px;
   align-items: center;
@@ -49,19 +49,33 @@ export const ItemDetailImage = styled.Image`
   height: 256px;
 `;
 
-export const ItemDetailModalContainer = styled.View`
-  flex: 1;
-  width: 100%;
+export const ItemDetailModalHeader = styled.View`
+  height: 36px;
   elevation: 4;
   display: flex;
-  margin-top: 40px;
   shadow-radius: 2px;
-  shadow-opacity: 0.25;
-  shadow-offset: 0px -0.5px;
+  align-items: center;
+  shadow-opacity: 0.15;
+  justify-content: center;
+  shadow-offset: 0px -3.5px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  padding: 24px 32px ${isiPhoneX ? 54 : 24}px;
   shadow-color: ${({ theme }) => theme.colors.gray[1]};
+  background-color: ${({ theme }) => theme.colors.white[1]};
+`;
+
+export const ItemDetailModalHeaderTab = styled.View`
+  width: 48px;
+  height: 6px;
+  border-radius: 8px;
+  background-color: ${({ theme }) => theme.colors.gray[3]};
+`;
+
+export const ItemDetailModalContainer = styled.View`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 0 32px ${isiPhoneX ? 54 : 24}px;
   background-color: ${({ theme }) => theme.colors.white[1]};
 `;
 
@@ -90,24 +104,33 @@ export const ItemSizeText = styled(OpenSansRegularLarge)`
   color: ${({ theme }) => theme.colors.gray[2]};
 `;
 
-export const ItemAdditionalInfoScroll = styled.ScrollView`
-  flex: 1;
-  margin-bottom: 24px;
+export const ProductDetailsHeaderText = styled(FuturaBoldMedium)`
+  margin-top: 16px;
 `;
 
-export const ProductDetailsHeaderText = styled(FuturaBoldMedium)`
-  margin-top: 24px;
+export const ProductDetailsScroll = styled.ScrollView`
+  flex: 1;
+  height: auto;
 `;
 
 export const ProductDetailsText = styled(OpenSansRegularMedium)`
   margin-top: 8px;
 `;
 
+export const AddCartButtonContainer = styled.View`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 16px 32px ${isiPhoneX ? 54 : 24}px;
+  background-color: ${({ theme }) => theme.colors.white[1]};
+`;
+
 interface AddCartButtonProps {
   added: boolean;
 }
 
-export const AddCartButtonContainer = styled.TouchableOpacity<AddCartButtonProps>`
+export const AddCartButton = styled.TouchableOpacity<AddCartButtonProps>`
   height: 48px;
   display: flex;
   margin-top: auto;

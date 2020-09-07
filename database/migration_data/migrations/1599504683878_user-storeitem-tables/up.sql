@@ -1,5 +1,4 @@
 CREATE TABLE public."StoreItem" (
-    id uuid DEFAULT public.gen_random_uuid() NOT NULL,
     "barcodeId" bigint NOT NULL,
     quantity text NOT NULL,
     price money NOT NULL,
@@ -18,20 +17,22 @@ CREATE TABLE public."StoreItemPic" (
 );
 CREATE TABLE public."User" (
     id uuid DEFAULT public.gen_random_uuid() NOT NULL,
-    "firstName" text NOT NULL,
-    "lastName" text,
+    "firstName" name NOT NULL,
+    "lastName" name,
     "sessionId" uuid DEFAULT public.gen_random_uuid() NOT NULL,
     email text NOT NULL,
     password text NOT NULL,
-    "profilePicId" uuid
+    "profilePicId" uuid,
+    "favoriteItems" uuid,
+    "favoriteStores" uuid,
+    "shoppingCart" uuid
 );
 CREATE TABLE public."UserProfilePic" (
     id uuid NOT NULL,
     size64 text NOT NULL,
     size128 text NOT NULL,
     size256 text NOT NULL,
-    size512 text NOT NULL,
-    "userId" uuid NOT NULL
+    size512 text NOT NULL
 );
 ALTER TABLE ONLY public."StoreItemPic"
     ADD CONSTRAINT "StoreItemPic_pkey" PRIMARY KEY (id);
@@ -43,15 +44,15 @@ ALTER TABLE ONLY public."StoreItem"
     ADD CONSTRAINT "StoreItem_pkey" PRIMARY KEY ("barcodeId");
 ALTER TABLE ONLY public."UserProfilePic"
     ADD CONSTRAINT "UserProfilePic_pkey" PRIMARY KEY (id);
-ALTER TABLE ONLY public."UserProfilePic"
-    ADD CONSTRAINT "UserProfilePic_userId_key" UNIQUE ("userId");
 ALTER TABLE ONLY public."User"
     ADD CONSTRAINT "User_email_key" UNIQUE (email);
 ALTER TABLE ONLY public."User"
     ADD CONSTRAINT "User_pkey" PRIMARY KEY (id);
 ALTER TABLE ONLY public."User"
+    ADD CONSTRAINT "User_profilePicId_key" UNIQUE ("profilePicId");
+ALTER TABLE ONLY public."User"
     ADD CONSTRAINT "User_sessionId_key" UNIQUE ("sessionId");
 ALTER TABLE ONLY public."StoreItem"
     ADD CONSTRAINT "StoreItem_itemImageId_fkey" FOREIGN KEY ("itemImageId") REFERENCES public."StoreItemPic"(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
-ALTER TABLE ONLY public."UserProfilePic"
-    ADD CONSTRAINT "UserProfilePic_userId_fkey" FOREIGN KEY ("userId") REFERENCES public."User"(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
+ALTER TABLE ONLY public."User"
+    ADD CONSTRAINT "User_profilePicId_fkey" FOREIGN KEY ("profilePicId") REFERENCES public."UserProfilePic"(id) ON UPDATE RESTRICT ON DELETE RESTRICT;

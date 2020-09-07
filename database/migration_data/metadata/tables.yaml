@@ -5,6 +5,66 @@
   - name: StoreItemPic
     using:
       foreign_key_constraint_on: itemImageId
+  insert_permissions:
+  - role: StoreAdmin
+    permission:
+      check: {}
+      columns:
+      - barcodeId
+      - description
+      - itemImageId
+      - longName
+      - price
+      - purchased
+      - quantity
+      - shortName
+      backend_only: false
+  select_permissions:
+  - role: Shopper
+    permission:
+      columns:
+      - description
+      - longName
+      - price
+      - purchased
+      - quantity
+      - shortName
+      filter: {}
+  - role: StoreAdmin
+    permission:
+      columns:
+      - purchased
+      - barcodeId
+      - price
+      - description
+      - longName
+      - quantity
+      - shortName
+      - itemImageId
+      filter: {}
+  update_permissions:
+  - role: Shopper
+    permission:
+      columns:
+      - purchased
+      filter: {}
+      check: null
+  - role: StoreAdmin
+    permission:
+      columns:
+      - barcodeId
+      - description
+      - longName
+      - price
+      - purchased
+      - quantity
+      - shortName
+      filter: {}
+      check: null
+  delete_permissions:
+  - role: StoreAdmin
+    permission:
+      filter: {}
 - table:
     schema: public
     name: StoreItemPic
@@ -17,6 +77,15 @@
           name: StoreItem
         column_mapping:
           id: itemImageId
+  select_permissions:
+  - role: Shopper
+    permission:
+      columns:
+      - size128
+      - size256
+      - size512
+      - size64
+      filter: {}
 - table:
     schema: public
     name: User
@@ -24,6 +93,52 @@
   - name: UserProfilePic
     using:
       foreign_key_constraint_on: profilePicId
+  array_relationships:
+  - name: FavoriteItems
+    using:
+      manual_configuration:
+        remote_table:
+          schema: public
+          name: StoreItem
+        column_mapping:
+          favoriteItems: barcodeId
+  - name: ShoppingCart
+    using:
+      manual_configuration:
+        remote_table:
+          schema: public
+          name: StoreItem
+        column_mapping:
+          shoppingCart: barcodeId
+  select_permissions:
+  - role: Shopper
+    permission:
+      columns:
+      - email
+      - favoriteItems
+      - favoriteStores
+      - firstName
+      - lastName
+      - sessionId
+      - shoppingCart
+      filter:
+        id:
+          _eq: X-Hasura-User-Id
+  update_permissions:
+  - role: Shopper
+    permission:
+      columns:
+      - email
+      - favoriteItems
+      - favoriteStores
+      - firstName
+      - lastName
+      - password
+      - shoppingCart
+      filter:
+        id:
+          _eq: X-Hasura-User-Id
+      check: null
 - table:
     schema: public
     name: UserProfilePic
@@ -36,3 +151,28 @@
           name: User
         column_mapping:
           id: profilePicId
+  select_permissions:
+  - role: Shopper
+    permission:
+      columns:
+      - size128
+      - size256
+      - size512
+      - size64
+      filter:
+        User:
+          id:
+            _eq: X-Hasura-User-Id
+  update_permissions:
+  - role: Shopper
+    permission:
+      columns:
+      - size128
+      - size256
+      - size512
+      - size64
+      filter:
+        User:
+          id:
+            _eq: X-Hasura-User-Id
+      check: null

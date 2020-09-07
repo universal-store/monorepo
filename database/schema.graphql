@@ -4,6 +4,21 @@ schema {
   subscription: subscription_root
 }
 
+scalar bigint
+
+# expression to compare columns of type bigint. All fields are combined with logical 'AND'.
+input bigint_comparison_exp {
+  _eq: bigint
+  _gt: bigint
+  _gte: bigint
+  _in: [bigint!]
+  _is_null: Boolean
+  _lt: bigint
+  _lte: bigint
+  _neq: bigint
+  _nin: [bigint!]
+}
+
 # expression to compare columns of type Boolean. All fields are combined with logical 'AND'.
 input Boolean_comparison_exp {
   _eq: Boolean
@@ -50,7 +65,7 @@ type mutation_root {
   delete_StoreItemPic_by_pk(id: uuid!): StoreItemPic
 
   # delete single row from the table: "StoreItem"
-  delete_StoreItem_by_pk(barcodeId: String!): StoreItem
+  delete_StoreItem_by_pk(barcodeId: bigint!): StoreItem
 
   # delete data from the table: "User"
   delete_User(
@@ -213,6 +228,21 @@ type mutation_root {
   ): User
 }
 
+scalar name
+
+# expression to compare columns of type name. All fields are combined with logical 'AND'.
+input name_comparison_exp {
+  _eq: name
+  _gt: name
+  _gte: name
+  _in: [name!]
+  _is_null: Boolean
+  _lt: name
+  _lte: name
+  _neq: name
+  _nin: [name!]
+}
+
 # column ordering options
 enum order_by {
   # in the ascending order, nulls last
@@ -312,7 +342,7 @@ type query_root {
   ): StoreItem_aggregate!
 
   # fetch data from the table: "StoreItem" using primary key columns
-  StoreItem_by_pk(barcodeId: String!): StoreItem
+  StoreItem_by_pk(barcodeId: bigint!): StoreItem
 
   # fetch data from the table: "User"
   User(
@@ -397,9 +427,8 @@ type query_root {
 type StoreItem {
   # An object relationship
   StoreItemPic: StoreItemPic
-  barcodeId: String!
+  barcodeId: bigint!
   description: String
-  id: uuid!
   itemImageId: uuid
   longName: String!
   price: money!
@@ -452,11 +481,13 @@ input StoreItem_arr_rel_insert_input {
 
 # aggregate avg on columns
 type StoreItem_avg_fields {
+  barcodeId: Float
   price: Float
 }
 
 # order by avg() on columns of table "StoreItem"
 input StoreItem_avg_order_by {
+  barcodeId: order_by
   price: order_by
 }
 
@@ -466,9 +497,8 @@ input StoreItem_bool_exp {
   _and: [StoreItem_bool_exp]
   _not: StoreItem_bool_exp
   _or: [StoreItem_bool_exp]
-  barcodeId: String_comparison_exp
+  barcodeId: bigint_comparison_exp
   description: String_comparison_exp
-  id: uuid_comparison_exp
   itemImageId: uuid_comparison_exp
   longName: String_comparison_exp
   price: money_comparison_exp
@@ -491,15 +521,15 @@ enum StoreItem_constraint {
 
 # input type for incrementing integer column in table "StoreItem"
 input StoreItem_inc_input {
+  barcodeId: bigint
   price: money
 }
 
 # input type for inserting data into table "StoreItem"
 input StoreItem_insert_input {
   StoreItemPic: StoreItemPic_obj_rel_insert_input
-  barcodeId: String
+  barcodeId: bigint
   description: String
-  id: uuid
   itemImageId: uuid
   longName: String
   price: money
@@ -510,9 +540,8 @@ input StoreItem_insert_input {
 
 # aggregate max on columns
 type StoreItem_max_fields {
-  barcodeId: String
+  barcodeId: bigint
   description: String
-  id: uuid
   itemImageId: uuid
   longName: String
   price: money
@@ -524,7 +553,6 @@ type StoreItem_max_fields {
 input StoreItem_max_order_by {
   barcodeId: order_by
   description: order_by
-  id: order_by
   itemImageId: order_by
   longName: order_by
   price: order_by
@@ -534,9 +562,8 @@ input StoreItem_max_order_by {
 
 # aggregate min on columns
 type StoreItem_min_fields {
-  barcodeId: String
+  barcodeId: bigint
   description: String
-  id: uuid
   itemImageId: uuid
   longName: String
   price: money
@@ -548,7 +575,6 @@ type StoreItem_min_fields {
 input StoreItem_min_order_by {
   barcodeId: order_by
   description: order_by
-  id: order_by
   itemImageId: order_by
   longName: order_by
   price: order_by
@@ -583,7 +609,6 @@ input StoreItem_order_by {
   StoreItemPic: StoreItemPic_order_by
   barcodeId: order_by
   description: order_by
-  id: order_by
   itemImageId: order_by
   longName: order_by
   price: order_by
@@ -594,7 +619,7 @@ input StoreItem_order_by {
 
 # primary key columns input for table: "StoreItem"
 input StoreItem_pk_columns_input {
-  barcodeId: String!
+  barcodeId: bigint!
 }
 
 # select columns of table "StoreItem"
@@ -604,9 +629,6 @@ enum StoreItem_select_column {
 
   # column name
   description
-
-  # column name
-  id
 
   # column name
   itemImageId
@@ -629,9 +651,8 @@ enum StoreItem_select_column {
 
 # input type for updating data in table "StoreItem"
 input StoreItem_set_input {
-  barcodeId: String
+  barcodeId: bigint
   description: String
-  id: uuid
   itemImageId: uuid
   longName: String
   price: money
@@ -642,41 +663,49 @@ input StoreItem_set_input {
 
 # aggregate stddev on columns
 type StoreItem_stddev_fields {
+  barcodeId: Float
   price: Float
 }
 
 # order by stddev() on columns of table "StoreItem"
 input StoreItem_stddev_order_by {
+  barcodeId: order_by
   price: order_by
 }
 
 # aggregate stddev_pop on columns
 type StoreItem_stddev_pop_fields {
+  barcodeId: Float
   price: Float
 }
 
 # order by stddev_pop() on columns of table "StoreItem"
 input StoreItem_stddev_pop_order_by {
+  barcodeId: order_by
   price: order_by
 }
 
 # aggregate stddev_samp on columns
 type StoreItem_stddev_samp_fields {
+  barcodeId: Float
   price: Float
 }
 
 # order by stddev_samp() on columns of table "StoreItem"
 input StoreItem_stddev_samp_order_by {
+  barcodeId: order_by
   price: order_by
 }
 
 # aggregate sum on columns
 type StoreItem_sum_fields {
+  barcodeId: bigint
   price: money
 }
 
 # order by sum() on columns of table "StoreItem"
 input StoreItem_sum_order_by {
+  barcodeId: order_by
   price: order_by
 }
 
@@ -687,9 +716,6 @@ enum StoreItem_update_column {
 
   # column name
   description
-
-  # column name
-  id
 
   # column name
   itemImageId
@@ -712,31 +738,37 @@ enum StoreItem_update_column {
 
 # aggregate var_pop on columns
 type StoreItem_var_pop_fields {
+  barcodeId: Float
   price: Float
 }
 
 # order by var_pop() on columns of table "StoreItem"
 input StoreItem_var_pop_order_by {
+  barcodeId: order_by
   price: order_by
 }
 
 # aggregate var_samp on columns
 type StoreItem_var_samp_fields {
+  barcodeId: Float
   price: Float
 }
 
 # order by var_samp() on columns of table "StoreItem"
 input StoreItem_var_samp_order_by {
+  barcodeId: order_by
   price: order_by
 }
 
 # aggregate variance on columns
 type StoreItem_variance_fields {
+  barcodeId: Float
   price: Float
 }
 
 # order by variance() on columns of table "StoreItem"
 input StoreItem_variance_order_by {
+  barcodeId: order_by
   price: order_by
 }
 
@@ -1021,7 +1053,7 @@ type subscription_root {
   ): StoreItem_aggregate!
 
   # fetch data from the table: "StoreItem" using primary key columns
-  StoreItem_by_pk(barcodeId: String!): StoreItem
+  StoreItem_by_pk(barcodeId: bigint!): StoreItem
 
   # fetch data from the table: "User"
   User(
@@ -1104,15 +1136,90 @@ type subscription_root {
 
 # columns and relationships of "User"
 type User {
+  # An array relationship
+  FavoriteItems(
+    # distinct select on columns
+    distinct_on: [StoreItem_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [StoreItem_order_by!]
+
+    # filter the rows returned
+    where: StoreItem_bool_exp
+  ): [StoreItem!]!
+
+  # An aggregated array relationship
+  FavoriteItems_aggregate(
+    # distinct select on columns
+    distinct_on: [StoreItem_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [StoreItem_order_by!]
+
+    # filter the rows returned
+    where: StoreItem_bool_exp
+  ): StoreItem_aggregate!
+
+  # An array relationship
+  ShoppingCart(
+    # distinct select on columns
+    distinct_on: [StoreItem_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [StoreItem_order_by!]
+
+    # filter the rows returned
+    where: StoreItem_bool_exp
+  ): [StoreItem!]!
+
+  # An aggregated array relationship
+  ShoppingCart_aggregate(
+    # distinct select on columns
+    distinct_on: [StoreItem_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [StoreItem_order_by!]
+
+    # filter the rows returned
+    where: StoreItem_bool_exp
+  ): StoreItem_aggregate!
+
   # An object relationship
   UserProfilePic: UserProfilePic
   email: String!
-  firstName: String!
+  favoriteItems: uuid
+  favoriteStores: uuid
+  firstName: name!
   id: uuid!
-  lastName: String
+  lastName: name
   password: String!
   profilePicId: uuid
   sessionId: uuid!
+  shoppingCart: uuid
 }
 
 # aggregated selection of "User"
@@ -1143,17 +1250,22 @@ input User_arr_rel_insert_input {
 
 # Boolean expression to filter rows from the table "User". All fields are combined with a logical 'AND'.
 input User_bool_exp {
+  FavoriteItems: StoreItem_bool_exp
+  ShoppingCart: StoreItem_bool_exp
   UserProfilePic: UserProfilePic_bool_exp
   _and: [User_bool_exp]
   _not: User_bool_exp
   _or: [User_bool_exp]
   email: String_comparison_exp
-  firstName: String_comparison_exp
+  favoriteItems: uuid_comparison_exp
+  favoriteStores: uuid_comparison_exp
+  firstName: name_comparison_exp
   id: uuid_comparison_exp
-  lastName: String_comparison_exp
+  lastName: name_comparison_exp
   password: String_comparison_exp
   profilePicId: uuid_comparison_exp
   sessionId: uuid_comparison_exp
+  shoppingCart: uuid_comparison_exp
 }
 
 # unique or primary key constraints on table "User"
@@ -1165,63 +1277,75 @@ enum User_constraint {
   User_pkey
 
   # unique or primary key constraint
+  User_profilePicId_key
+
+  # unique or primary key constraint
   User_sessionId_key
 }
 
 # input type for inserting data into table "User"
 input User_insert_input {
+  FavoriteItems: StoreItem_arr_rel_insert_input
+  ShoppingCart: StoreItem_arr_rel_insert_input
   UserProfilePic: UserProfilePic_obj_rel_insert_input
   email: String
-  firstName: String
+  favoriteItems: uuid
+  favoriteStores: uuid
+  firstName: name
   id: uuid
-  lastName: String
+  lastName: name
   password: String
   profilePicId: uuid
   sessionId: uuid
+  shoppingCart: uuid
 }
 
 # aggregate max on columns
 type User_max_fields {
   email: String
-  firstName: String
+  favoriteItems: uuid
+  favoriteStores: uuid
   id: uuid
-  lastName: String
   password: String
   profilePicId: uuid
   sessionId: uuid
+  shoppingCart: uuid
 }
 
 # order by max() on columns of table "User"
 input User_max_order_by {
   email: order_by
-  firstName: order_by
+  favoriteItems: order_by
+  favoriteStores: order_by
   id: order_by
-  lastName: order_by
   password: order_by
   profilePicId: order_by
   sessionId: order_by
+  shoppingCart: order_by
 }
 
 # aggregate min on columns
 type User_min_fields {
   email: String
-  firstName: String
+  favoriteItems: uuid
+  favoriteStores: uuid
   id: uuid
-  lastName: String
   password: String
   profilePicId: uuid
   sessionId: uuid
+  shoppingCart: uuid
 }
 
 # order by min() on columns of table "User"
 input User_min_order_by {
   email: order_by
-  firstName: order_by
+  favoriteItems: order_by
+  favoriteStores: order_by
   id: order_by
-  lastName: order_by
   password: order_by
   profilePicId: order_by
   sessionId: order_by
+  shoppingCart: order_by
 }
 
 # response of any mutation on the table "User"
@@ -1248,14 +1372,19 @@ input User_on_conflict {
 
 # ordering options when selecting data from "User"
 input User_order_by {
+  FavoriteItems_aggregate: StoreItem_aggregate_order_by
+  ShoppingCart_aggregate: StoreItem_aggregate_order_by
   UserProfilePic: UserProfilePic_order_by
   email: order_by
+  favoriteItems: order_by
+  favoriteStores: order_by
   firstName: order_by
   id: order_by
   lastName: order_by
   password: order_by
   profilePicId: order_by
   sessionId: order_by
+  shoppingCart: order_by
 }
 
 # primary key columns input for table: "User"
@@ -1269,6 +1398,12 @@ enum User_select_column {
   email
 
   # column name
+  favoriteItems
+
+  # column name
+  favoriteStores
+
+  # column name
   firstName
 
   # column name
@@ -1285,17 +1420,23 @@ enum User_select_column {
 
   # column name
   sessionId
+
+  # column name
+  shoppingCart
 }
 
 # input type for updating data in table "User"
 input User_set_input {
   email: String
-  firstName: String
+  favoriteItems: uuid
+  favoriteStores: uuid
+  firstName: name
   id: uuid
-  lastName: String
+  lastName: name
   password: String
   profilePicId: uuid
   sessionId: uuid
+  shoppingCart: uuid
 }
 
 # update columns of table "User"
@@ -1304,6 +1445,12 @@ enum User_update_column {
   email
 
   # column name
+  favoriteItems
+
+  # column name
+  favoriteStores
+
+  # column name
   firstName
 
   # column name
@@ -1320,45 +1467,15 @@ enum User_update_column {
 
   # column name
   sessionId
+
+  # column name
+  shoppingCart
 }
 
 # columns and relationships of "UserProfilePic"
 type UserProfilePic {
-  # An array relationship
-  User(
-    # distinct select on columns
-    distinct_on: [User_select_column!]
-
-    # limit the number of rows returned
-    limit: Int
-
-    # skip the first n rows. Use only with order_by
-    offset: Int
-
-    # sort the rows by one or more columns
-    order_by: [User_order_by!]
-
-    # filter the rows returned
-    where: User_bool_exp
-  ): [User!]!
-
-  # An aggregated array relationship
-  User_aggregate(
-    # distinct select on columns
-    distinct_on: [User_select_column!]
-
-    # limit the number of rows returned
-    limit: Int
-
-    # skip the first n rows. Use only with order_by
-    offset: Int
-
-    # sort the rows by one or more columns
-    order_by: [User_order_by!]
-
-    # filter the rows returned
-    where: User_bool_exp
-  ): User_aggregate!
+  # An object relationship
+  User: User
   id: uuid!
   size128: String!
   size256: String!
@@ -1413,7 +1530,7 @@ enum UserProfilePic_constraint {
 
 # input type for inserting data into table "UserProfilePic"
 input UserProfilePic_insert_input {
-  User: User_arr_rel_insert_input
+  User: User_obj_rel_insert_input
   id: uuid
   size128: String
   size256: String
@@ -1481,7 +1598,7 @@ input UserProfilePic_on_conflict {
 
 # ordering options when selecting data from "UserProfilePic"
 input UserProfilePic_order_by {
-  User_aggregate: User_aggregate_order_by
+  User: User_order_by
   id: order_by
   size128: order_by
   size256: order_by

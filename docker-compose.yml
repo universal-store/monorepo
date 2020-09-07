@@ -1,3 +1,4 @@
+# @format
 
 version: '3.7'
 services:
@@ -5,7 +6,7 @@ services:
     image: postgres:12
     restart: always
     ports:
-      - "5432:5432"
+      - '5432:5432'
     environment:
       POSTGRES_USER: universalstore
       POSTGRES_PASSWORD: universalstore
@@ -13,19 +14,20 @@ services:
   graphql-engine:
     volumes:
       - ./database/migration_data/migrations:/hasura-migrations
-    image: hasura/graphql-engine:v1.3.1-beta.1.cli-migrations-v2
+    image: hasura/graphql-engine:v1.3.2.cli-migrations-v2
     ports:
-      - "8080:8080"
+      - '8080:8080'
     depends_on:
-      - "postgres"
+      - 'postgres'
     restart: always
     environment:
       HASURA_GRAPHQL_MIGRATIONS_DIR: /hasura-migrations
       HASURA_GRAPHQL_DATABASE_URL: postgres://universalstore:universalstore@postgres:5432/universalstore
+      HASURA_GRAPHQL_ADMIN_SECRET: universalstoresecretkey
       ## enable the console served by server
-      HASURA_GRAPHQL_ENABLE_CONSOLE: "true" # set to "false" to disable console
+      HASURA_GRAPHQL_ENABLE_CONSOLE: 'true' # set to "false" to disable console
       ## enable debugging mode. It is recommended to disable this in production
-      HASURA_GRAPHQL_DEV_MODE: "true"
+      HASURA_GRAPHQL_DEV_MODE: 'true'
       HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
 volumes:
   db_data:

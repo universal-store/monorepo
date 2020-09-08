@@ -29,8 +29,6 @@ export const ItemPreview = ({ shown, barcodeId, onPress }: ItemPreviewProps) => 
   const { data } = useGetStoreItemQuery({ variables: { barcodeId } });
   const itemData = data?.StoreItem_by_pk;
 
-  console.log(data);
-
   useEffect(() => {
     Animated.timing(animatedValue, {
       duration: 500,

@@ -5,11 +5,11 @@ import React from 'react';
 import { theme } from '&theme';
 import { ThemeProvider } from 'styled-components/native';
 
-import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/client';
-
 import { Root } from '&navigation';
 
 import { HASURA_GRAPHQL_ADMIN_SECRET, LOCALHOST_IP } from '&env';
+
+import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/client';
 
 // Create the client
 const client = new ApolloClient({

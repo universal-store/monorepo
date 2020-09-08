@@ -35,10 +35,6 @@ import {
 
 import { BackArrowIcon, FlashIconOff, FlashIconOn } from '&icons';
 
-// Mock Data
-// TODO: Replace with database data
-import { nullItem } from '&data';
-
 type ScanningPageProps = StackScreenProps<AuthStackParams, 'ScanPage'>;
 
 export const ScanningPage = ({ navigation }: ScanningPageProps) => {
@@ -53,7 +49,7 @@ export const ScanningPage = ({ navigation }: ScanningPageProps) => {
   const [scanned, setScanned] = useState<boolean>(false);
   const [hasPermission, setHasPermission] = useState<boolean | null>(null);
 
-  const [barcodeId, setBarcodeId] = useState<string>(nullItem.id);
+  const [barcodeId, setBarcodeId] = useState<string>('-1');
 
   useEffect(() => {
     void (async () => {
@@ -77,7 +73,6 @@ export const ScanningPage = ({ navigation }: ScanningPageProps) => {
       setFlash(false);
       setScanned(true);
       cameraRef.pausePreview();
-      console.log(data);
 
       setBarcodeId(data);
     }

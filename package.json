@@ -11,10 +11,10 @@
 		]
 	},
 	"scripts": {
-		"postinstall": "./scripts/postinstall.sh",
+		"postinstall": "source .env && ./scripts/postinstall.sh",
 		"lint:staged": "lint-staged",
 		"prettier": "prettier --write '*.{ts,tsx}'",
-		"start:database": "docker-compose up -d"
+		"start:database": "source .env && docker-compose up -d"
 	},
 	"devDependencies": {
 		"@graphql-codegen/cli": "^1.17.8",

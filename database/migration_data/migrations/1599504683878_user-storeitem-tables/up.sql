@@ -1,5 +1,5 @@
 CREATE TABLE public."StoreItem" (
-    "barcodeId" bigint NOT NULL,
+    "barcodeId" text NOT NULL,
     quantity text NOT NULL,
     price money NOT NULL,
     "shortName" text,

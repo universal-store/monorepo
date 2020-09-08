@@ -45,11 +45,15 @@ export const ScanningPage = ({ navigation }: ScanningPageProps) => {
   let cameraRef: Camera | null = null;
   const isFocused = useIsFocused();
 
+  // TODO: remove in production
   const [isSim, setIsSim] = useState<boolean>(false);
+
+  // Camera State
   const [flash, setFlash] = useState<boolean>(false);
   const [scanned, setScanned] = useState<boolean>(false);
-  const [barcodeId, setBarcodeId] = useState<string>(nullItem.id);
   const [hasPermission, setHasPermission] = useState<boolean | null>(null);
+
+  const [barcodeId, setBarcodeId] = useState<string>(nullItem.id);
 
   useEffect(() => {
     void (async () => {
@@ -73,6 +77,7 @@ export const ScanningPage = ({ navigation }: ScanningPageProps) => {
       setFlash(false);
       setScanned(true);
       cameraRef.pausePreview();
+      console.log(data);
 
       setBarcodeId(data);
     }

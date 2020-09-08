@@ -3,17 +3,15 @@
 import styled from 'styled-components/native';
 
 // Components
+import { FullScreen, isiPhoneX, RowView, screenWidth } from '../Views';
+
 import {
-  FullScreen,
   FuturaBoldButtonText,
   FuturaBoldLarge,
   FuturaBoldMedium,
-  isiPhoneX,
   OpenSansRegularLarge,
   OpenSansRegularMedium,
-  RowView,
-  screenWidth,
-} from '&components';
+} from '../Text';
 
 export const ItemDetailContainer = styled(FullScreen)`
   background-color: ${({ theme }) => theme.colors.purple[3]};

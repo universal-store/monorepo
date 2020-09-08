@@ -1,7 +1,7 @@
 # @format
 
-schema: database/schema.graphql
 overwrite: true
+schema: database/schema.graphql
 generates:
   app/generated/graphql.tsx:
     documents: app/src/graphql/**/*.graphql

@@ -4,21 +4,6 @@ schema {
   subscription: subscription_root
 }
 
-scalar bigint
-
-# expression to compare columns of type bigint. All fields are combined with logical 'AND'.
-input bigint_comparison_exp {
-  _eq: bigint
-  _gt: bigint
-  _gte: bigint
-  _in: [bigint!]
-  _is_null: Boolean
-  _lt: bigint
-  _lte: bigint
-  _neq: bigint
-  _nin: [bigint!]
-}
-
 # expression to compare columns of type Boolean. All fields are combined with logical 'AND'.
 input Boolean_comparison_exp {
   _eq: Boolean
@@ -65,7 +50,7 @@ type mutation_root {
   delete_StoreItemPic_by_pk(id: uuid!): StoreItemPic
 
   # delete single row from the table: "StoreItem"
-  delete_StoreItem_by_pk(barcodeId: bigint!): StoreItem
+  delete_StoreItem_by_pk(barcodeId: String!): StoreItem
 
   # delete data from the table: "User"
   delete_User(
@@ -342,7 +327,7 @@ type query_root {
   ): StoreItem_aggregate!
 
   # fetch data from the table: "StoreItem" using primary key columns
-  StoreItem_by_pk(barcodeId: bigint!): StoreItem
+  StoreItem_by_pk(barcodeId: String!): StoreItem
 
   # fetch data from the table: "User"
   User(
@@ -427,7 +412,7 @@ type query_root {
 type StoreItem {
   # An object relationship
   StoreItemPic: StoreItemPic
-  barcodeId: bigint!
+  barcodeId: String!
   description: String
   itemImageId: uuid
   longName: String!
@@ -481,13 +466,11 @@ input StoreItem_arr_rel_insert_input {
 
 # aggregate avg on columns
 type StoreItem_avg_fields {
-  barcodeId: Float
   price: Float
 }
 
 # order by avg() on columns of table "StoreItem"
 input StoreItem_avg_order_by {
-  barcodeId: order_by
   price: order_by
 }
 
@@ -497,7 +480,7 @@ input StoreItem_bool_exp {
   _and: [StoreItem_bool_exp]
   _not: StoreItem_bool_exp
   _or: [StoreItem_bool_exp]
-  barcodeId: bigint_comparison_exp
+  barcodeId: String_comparison_exp
   description: String_comparison_exp
   itemImageId: uuid_comparison_exp
   longName: String_comparison_exp
@@ -521,14 +504,13 @@ enum StoreItem_constraint {
 
 # input type for incrementing integer column in table "StoreItem"
 input StoreItem_inc_input {
-  barcodeId: bigint
   price: money
 }
 
 # input type for inserting data into table "StoreItem"
 input StoreItem_insert_input {
   StoreItemPic: StoreItemPic_obj_rel_insert_input
-  barcodeId: bigint
+  barcodeId: String
   description: String
   itemImageId: uuid
   longName: String
@@ -540,7 +522,7 @@ input StoreItem_insert_input {
 
 # aggregate max on columns
 type StoreItem_max_fields {
-  barcodeId: bigint
+  barcodeId: String
   description: String
   itemImageId: uuid
   longName: String
@@ -562,7 +544,7 @@ input StoreItem_max_order_by {
 
 # aggregate min on columns
 type StoreItem_min_fields {
-  barcodeId: bigint
+  barcodeId: String
   description: String
   itemImageId: uuid
   longName: String
@@ -619,7 +601,7 @@ input StoreItem_order_by {
 
 # primary key columns input for table: "StoreItem"
 input StoreItem_pk_columns_input {
-  barcodeId: bigint!
+  barcodeId: String!
 }
 
 # select columns of table "StoreItem"
@@ -651,7 +633,7 @@ enum StoreItem_select_column {
 
 # input type for updating data in table "StoreItem"
 input StoreItem_set_input {
-  barcodeId: bigint
+  barcodeId: String
   description: String
   itemImageId: uuid
   longName: String
@@ -663,49 +645,41 @@ input StoreItem_set_input {
 
 # aggregate stddev on columns
 type StoreItem_stddev_fields {
-  barcodeId: Float
   price: Float
 }
 
 # order by stddev() on columns of table "StoreItem"
 input StoreItem_stddev_order_by {
-  barcodeId: order_by
   price: order_by
 }
 
 # aggregate stddev_pop on columns
 type StoreItem_stddev_pop_fields {
-  barcodeId: Float
   price: Float
 }
 
 # order by stddev_pop() on columns of table "StoreItem"
 input StoreItem_stddev_pop_order_by {
-  barcodeId: order_by
   price: order_by
 }
 
 # aggregate stddev_samp on columns
 type StoreItem_stddev_samp_fields {
-  barcodeId: Float
   price: Float
 }
 
 # order by stddev_samp() on columns of table "StoreItem"
 input StoreItem_stddev_samp_order_by {
-  barcodeId: order_by
   price: order_by
 }
 
 # aggregate sum on columns
 type StoreItem_sum_fields {
-  barcodeId: bigint
   price: money
 }
 
 # order by sum() on columns of table "StoreItem"
 input StoreItem_sum_order_by {
-  barcodeId: order_by
   price: order_by
 }
 
@@ -738,37 +712,31 @@ enum StoreItem_update_column {
 
 # aggregate var_pop on columns
 type StoreItem_var_pop_fields {
-  barcodeId: Float
   price: Float
 }
 
 # order by var_pop() on columns of table "StoreItem"
 input StoreItem_var_pop_order_by {
-  barcodeId: order_by
   price: order_by
 }
 
 # aggregate var_samp on columns
 type StoreItem_var_samp_fields {
-  barcodeId: Float
   price: Float
 }
 
 # order by var_samp() on columns of table "StoreItem"
 input StoreItem_var_samp_order_by {
-  barcodeId: order_by
   price: order_by
 }
 
 # aggregate variance on columns
 type StoreItem_variance_fields {
-  barcodeId: Float
   price: Float
 }
 
 # order by variance() on columns of table "StoreItem"
 input StoreItem_variance_order_by {
-  barcodeId: order_by
   price: order_by
 }
 
@@ -1053,7 +1021,7 @@ type subscription_root {
   ): StoreItem_aggregate!
 
   # fetch data from the table: "StoreItem" using primary key columns
-  StoreItem_by_pk(barcodeId: bigint!): StoreItem
+  StoreItem_by_pk(barcodeId: String!): StoreItem
 
   # fetch data from the table: "User"
   User(

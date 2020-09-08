@@ -6,11 +6,11 @@ import styled from 'styled-components/native';
 import { FullScreen, isiPhoneX, RowView, screenWidth } from '../Views';
 
 import {
-  FuturaBoldButtonText,
   FuturaBoldLarge,
   FuturaBoldMedium,
+  FuturaBoldSmall,
   OpenSansRegularLarge,
-  OpenSansRegularMedium,
+  OpenSansRegularSmall,
 } from '../Text';
 
 export const ItemDetailContainer = styled(FullScreen)`
@@ -111,7 +111,7 @@ export const ProductDetailsScroll = styled.ScrollView`
   height: auto;
 `;
 
-export const ProductDetailsText = styled(OpenSansRegularMedium)`
+export const ProductDetailsText = styled(OpenSansRegularSmall)`
   margin-top: 8px;
 `;
 
@@ -140,6 +140,6 @@ export const AddCartButton = styled.TouchableOpacity<AddCartButtonProps>`
   background-color: ${({ theme, added }) => (added ? theme.colors.purple[1] : theme.colors.white[1])};
 `;
 
-export const AddCartButtonText = styled(FuturaBoldButtonText)<AddCartButtonProps>`
+export const AddCartButtonText = styled(FuturaBoldSmall)<AddCartButtonProps>`
   color: ${({ theme, added }) => (added ? theme.colors.white[1] : theme.colors.purple[1])};
 `;

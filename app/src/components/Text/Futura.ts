@@ -19,11 +19,3 @@ export const FuturaBoldMedium = styled(FuturaBold)`
 export const FuturaBoldSmall = styled(FuturaBold)`
   font-size: 15px;
 `;
-
-export const FuturaBoldCardTitle = styled(FuturaBold)`
-  font-size: 17px;
-`;
-
-export const FuturaBoldButtonText = styled(FuturaBold)`
-  font-size: 15px;
-`;

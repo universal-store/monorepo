@@ -19,7 +19,7 @@ const client = new ApolloClient({
     headers: {
       'x-hasura-role': 'Shopper',
       'x-hasura-admin-secret': HASURA_GRAPHQL_ADMIN_SECRET,
-      'x-hasura-id': '8cc205d3-1ff5-42dd-8d64-4228a408c7c2',
+      'x-hasura-id': '3501f01c-801f-4a38-98fb-532eaa7cb0b8',
     },
   }),
 });

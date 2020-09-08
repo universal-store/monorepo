@@ -28,3 +28,11 @@ export const OpenSansRegularMedium = styled(OpenSansRegular)`
   font-size: 15px;
   line-height: 22px;
 `;
+
+export const OpenSansRegularSmall = styled(OpenSansRegular)`
+  font-size: 13px;
+`;
+
+export const OpenSansRegularExtraSmall = styled(OpenSansRegular)`
+  font-size: 11px;
+`;

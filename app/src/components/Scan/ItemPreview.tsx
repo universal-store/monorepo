@@ -12,7 +12,7 @@ import {
   ItemPreviewTextContainer,
 } from './Styled';
 
-import { FuturaBoldCardTitle } from '../Text';
+import { FuturaBoldMedium } from '../Text';
 
 // Queries
 import { useGetStoreItemQuery } from '&graphql';
@@ -59,9 +59,9 @@ export const ItemPreview = ({ shown, barcodeId, onPress }: ItemPreviewProps) => 
 
       {itemData && (
         <ItemPreviewTextContainer>
-          <FuturaBoldCardTitle numberOfLines={1}>
+          <FuturaBoldMedium numberOfLines={1}>
             {itemData.shortName ? itemData.shortName : itemData.longName}
-          </FuturaBoldCardTitle>
+          </FuturaBoldMedium>
           <ItemPreviewPriceText>{itemData.price}</ItemPreviewPriceText>
         </ItemPreviewTextContainer>
       )}

@@ -5,8 +5,7 @@ import { Animated } from 'react-native';
 
 // Components
 import { FullScreen, FullScreenCenter, isiPhoneX, RowView, screenWidth } from '../Views';
-
-import { FuturaBoldButtonText, FuturaBoldLarge, OpenSansRegularLarge, OpenSansSemiBoldMedium } from '../Text';
+import { FuturaBoldLarge, FuturaBoldSmall, OpenSansRegularLarge, OpenSansSemiBoldMedium } from '../Text';
 
 // Scanning Page
 
@@ -34,7 +33,7 @@ export const CameraSettingsButton = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.colors.purple[1]};
 `;
 
-export const CameraSettingsText = styled(FuturaBoldButtonText)`
+export const CameraSettingsText = styled(FuturaBoldSmall)`
   color: ${({ theme }) => theme.colors.white[1]};
 `;
 
@@ -183,6 +182,6 @@ export const TestButton = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.colors.purple[1]};
 `;
 
-export const TestButtonText = styled(FuturaBoldButtonText)`
+export const TestButtonText = styled(FuturaBoldSmall)`
   color: ${({ theme }) => theme.colors.white[1]};
 `;

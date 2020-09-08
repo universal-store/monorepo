@@ -3,18 +3,10 @@
 import styled from 'styled-components/native';
 import { Animated } from 'react-native';
 
-// Typography
-import {
-  FullScreen,
-  FullScreenCenter,
-  FuturaBoldButtonText,
-  FuturaBoldLarge,
-  isiPhoneX,
-  OpenSansRegularLarge,
-  OpenSansSemiBoldMedium,
-  RowView,
-  screenWidth,
-} from '&components';
+// Components
+import { FullScreen, FullScreenCenter, isiPhoneX, RowView, screenWidth } from '../Views';
+
+import { FuturaBoldButtonText, FuturaBoldLarge, OpenSansRegularLarge, OpenSansSemiBoldMedium } from '../Text';
 
 // Scanning Page
 

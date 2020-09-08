@@ -35,21 +35,21 @@ import {
 
 import { BackArrowIcon, FlashIconOff, FlashIconOn } from '&icons';
 
-// Mock Data
-// TODO: Replace with database data
-import { nullItem } from '&data';
-
 type ScanningPageProps = StackScreenProps<AuthStackParams, 'ScanPage'>;
 
 export const ScanningPage = ({ navigation }: ScanningPageProps) => {
   let cameraRef: Camera | null = null;
   const isFocused = useIsFocused();
 
+  // TODO: remove in production
   const [isSim, setIsSim] = useState<boolean>(false);
+
+  // Camera State
   const [flash, setFlash] = useState<boolean>(false);
   const [scanned, setScanned] = useState<boolean>(false);
-  const [barcodeId, setBarcodeId] = useState<string>(nullItem.id);
   const [hasPermission, setHasPermission] = useState<boolean | null>(null);
+
+  const [barcodeId, setBarcodeId] = useState<string>('-1');
 
   useEffect(() => {
     void (async () => {

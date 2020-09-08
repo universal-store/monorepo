@@ -9,6 +9,5 @@ fragment UserInfo on User {
     size64
     size128
     size256
-    size512
   }
 }

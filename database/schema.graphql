@@ -34,6 +34,12 @@ input money_comparison_exp {
 
 # mutation root
 type mutation_root {
+  # delete data from the table: "Store"
+  delete_Store(
+    # filter the rows which have to be deleted
+    where: Store_bool_exp!
+  ): Store_mutation_response
+
   # delete data from the table: "StoreItem"
   delete_StoreItem(
     # filter the rows which have to be deleted
@@ -52,11 +58,50 @@ type mutation_root {
   # delete single row from the table: "StoreItem"
   delete_StoreItem_by_pk(barcodeId: String!): StoreItem
 
+  # delete data from the table: "StorePic"
+  delete_StorePic(
+    # filter the rows which have to be deleted
+    where: StorePic_bool_exp!
+  ): StorePic_mutation_response
+
+  # delete single row from the table: "StorePic"
+  delete_StorePic_by_pk(id: uuid!): StorePic
+
+  # delete single row from the table: "Store"
+  delete_Store_by_pk(id: uuid!): Store
+
   # delete data from the table: "User"
   delete_User(
     # filter the rows which have to be deleted
     where: User_bool_exp!
   ): User_mutation_response
+
+  # delete data from the table: "UserCartItem"
+  delete_UserCartItem(
+    # filter the rows which have to be deleted
+    where: UserCartItem_bool_exp!
+  ): UserCartItem_mutation_response
+
+  # delete single row from the table: "UserCartItem"
+  delete_UserCartItem_by_pk(id: uuid!): UserCartItem
+
+  # delete data from the table: "UserFavoriteItem"
+  delete_UserFavoriteItem(
+    # filter the rows which have to be deleted
+    where: UserFavoriteItem_bool_exp!
+  ): UserFavoriteItem_mutation_response
+
+  # delete single row from the table: "UserFavoriteItem"
+  delete_UserFavoriteItem_by_pk(id: uuid!): UserFavoriteItem
+
+  # delete data from the table: "UserFavoriteStore"
+  delete_UserFavoriteStore(
+    # filter the rows which have to be deleted
+    where: UserFavoriteStore_bool_exp!
+  ): UserFavoriteStore_mutation_response
+
+  # delete single row from the table: "UserFavoriteStore"
+  delete_UserFavoriteStore_by_pk(id: uuid!): UserFavoriteStore
 
   # delete data from the table: "UserProfilePic"
   delete_UserProfilePic(
@@ -69,6 +114,15 @@ type mutation_root {
 
   # delete single row from the table: "User"
   delete_User_by_pk(id: uuid!): User
+
+  # insert data into the table: "Store"
+  insert_Store(
+    # the rows to be inserted
+    objects: [Store_insert_input!]!
+
+    # on conflict condition
+    on_conflict: Store_on_conflict
+  ): Store_mutation_response
 
   # insert data into the table: "StoreItem"
   insert_StoreItem(
@@ -106,6 +160,33 @@ type mutation_root {
     on_conflict: StoreItem_on_conflict
   ): StoreItem
 
+  # insert data into the table: "StorePic"
+  insert_StorePic(
+    # the rows to be inserted
+    objects: [StorePic_insert_input!]!
+
+    # on conflict condition
+    on_conflict: StorePic_on_conflict
+  ): StorePic_mutation_response
+
+  # insert a single row into the table: "StorePic"
+  insert_StorePic_one(
+    # the row to be inserted
+    object: StorePic_insert_input!
+
+    # on conflict condition
+    on_conflict: StorePic_on_conflict
+  ): StorePic
+
+  # insert a single row into the table: "Store"
+  insert_Store_one(
+    # the row to be inserted
+    object: Store_insert_input!
+
+    # on conflict condition
+    on_conflict: Store_on_conflict
+  ): Store
+
   # insert data into the table: "User"
   insert_User(
     # the rows to be inserted
@@ -114,6 +195,60 @@ type mutation_root {
     # on conflict condition
     on_conflict: User_on_conflict
   ): User_mutation_response
+
+  # insert data into the table: "UserCartItem"
+  insert_UserCartItem(
+    # the rows to be inserted
+    objects: [UserCartItem_insert_input!]!
+
+    # on conflict condition
+    on_conflict: UserCartItem_on_conflict
+  ): UserCartItem_mutation_response
+
+  # insert a single row into the table: "UserCartItem"
+  insert_UserCartItem_one(
+    # the row to be inserted
+    object: UserCartItem_insert_input!
+
+    # on conflict condition
+    on_conflict: UserCartItem_on_conflict
+  ): UserCartItem
+
+  # insert data into the table: "UserFavoriteItem"
+  insert_UserFavoriteItem(
+    # the rows to be inserted
+    objects: [UserFavoriteItem_insert_input!]!
+
+    # on conflict condition
+    on_conflict: UserFavoriteItem_on_conflict
+  ): UserFavoriteItem_mutation_response
+
+  # insert a single row into the table: "UserFavoriteItem"
+  insert_UserFavoriteItem_one(
+    # the row to be inserted
+    object: UserFavoriteItem_insert_input!
+
+    # on conflict condition
+    on_conflict: UserFavoriteItem_on_conflict
+  ): UserFavoriteItem
+
+  # insert data into the table: "UserFavoriteStore"
+  insert_UserFavoriteStore(
+    # the rows to be inserted
+    objects: [UserFavoriteStore_insert_input!]!
+
+    # on conflict condition
+    on_conflict: UserFavoriteStore_on_conflict
+  ): UserFavoriteStore_mutation_response
+
+  # insert a single row into the table: "UserFavoriteStore"
+  insert_UserFavoriteStore_one(
+    # the row to be inserted
+    object: UserFavoriteStore_insert_input!
+
+    # on conflict condition
+    on_conflict: UserFavoriteStore_on_conflict
+  ): UserFavoriteStore
 
   # insert data into the table: "UserProfilePic"
   insert_UserProfilePic(
@@ -141,6 +276,15 @@ type mutation_root {
     # on conflict condition
     on_conflict: User_on_conflict
   ): User
+
+  # update data of the table: "Store"
+  update_Store(
+    # sets the columns of the filtered rows to the given values
+    _set: Store_set_input
+
+    # filter the rows which have to be updated
+    where: Store_bool_exp!
+  ): Store_mutation_response
 
   # update data of the table: "StoreItem"
   update_StoreItem(
@@ -180,6 +324,29 @@ type mutation_root {
     pk_columns: StoreItem_pk_columns_input!
   ): StoreItem
 
+  # update data of the table: "StorePic"
+  update_StorePic(
+    # sets the columns of the filtered rows to the given values
+    _set: StorePic_set_input
+
+    # filter the rows which have to be updated
+    where: StorePic_bool_exp!
+  ): StorePic_mutation_response
+
+  # update single row of the table: "StorePic"
+  update_StorePic_by_pk(
+    # sets the columns of the filtered rows to the given values
+    _set: StorePic_set_input
+    pk_columns: StorePic_pk_columns_input!
+  ): StorePic
+
+  # update single row of the table: "Store"
+  update_Store_by_pk(
+    # sets the columns of the filtered rows to the given values
+    _set: Store_set_input
+    pk_columns: Store_pk_columns_input!
+  ): Store
+
   # update data of the table: "User"
   update_User(
     # sets the columns of the filtered rows to the given values
@@ -188,6 +355,54 @@ type mutation_root {
     # filter the rows which have to be updated
     where: User_bool_exp!
   ): User_mutation_response
+
+  # update data of the table: "UserCartItem"
+  update_UserCartItem(
+    # sets the columns of the filtered rows to the given values
+    _set: UserCartItem_set_input
+
+    # filter the rows which have to be updated
+    where: UserCartItem_bool_exp!
+  ): UserCartItem_mutation_response
+
+  # update single row of the table: "UserCartItem"
+  update_UserCartItem_by_pk(
+    # sets the columns of the filtered rows to the given values
+    _set: UserCartItem_set_input
+    pk_columns: UserCartItem_pk_columns_input!
+  ): UserCartItem
+
+  # update data of the table: "UserFavoriteItem"
+  update_UserFavoriteItem(
+    # sets the columns of the filtered rows to the given values
+    _set: UserFavoriteItem_set_input
+
+    # filter the rows which have to be updated
+    where: UserFavoriteItem_bool_exp!
+  ): UserFavoriteItem_mutation_response
+
+  # update single row of the table: "UserFavoriteItem"
+  update_UserFavoriteItem_by_pk(
+    # sets the columns of the filtered rows to the given values
+    _set: UserFavoriteItem_set_input
+    pk_columns: UserFavoriteItem_pk_columns_input!
+  ): UserFavoriteItem
+
+  # update data of the table: "UserFavoriteStore"
+  update_UserFavoriteStore(
+    # sets the columns of the filtered rows to the given values
+    _set: UserFavoriteStore_set_input
+
+    # filter the rows which have to be updated
+    where: UserFavoriteStore_bool_exp!
+  ): UserFavoriteStore_mutation_response
+
+  # update single row of the table: "UserFavoriteStore"
+  update_UserFavoriteStore_by_pk(
+    # sets the columns of the filtered rows to the given values
+    _set: UserFavoriteStore_set_input
+    pk_columns: UserFavoriteStore_pk_columns_input!
+  ): UserFavoriteStore
 
   # update data of the table: "UserProfilePic"
   update_UserProfilePic(
@@ -251,6 +466,24 @@ enum order_by {
 
 # query root
 type query_root {
+  # fetch data from the table: "Store"
+  Store(
+    # distinct select on columns
+    distinct_on: [Store_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [Store_order_by!]
+
+    # filter the rows returned
+    where: Store_bool_exp
+  ): [Store!]!
+
   # fetch data from the table: "StoreItem"
   StoreItem(
     # distinct select on columns
@@ -329,6 +562,66 @@ type query_root {
   # fetch data from the table: "StoreItem" using primary key columns
   StoreItem_by_pk(barcodeId: String!): StoreItem
 
+  # fetch data from the table: "StorePic"
+  StorePic(
+    # distinct select on columns
+    distinct_on: [StorePic_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [StorePic_order_by!]
+
+    # filter the rows returned
+    where: StorePic_bool_exp
+  ): [StorePic!]!
+
+  # fetch aggregated fields from the table: "StorePic"
+  StorePic_aggregate(
+    # distinct select on columns
+    distinct_on: [StorePic_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [StorePic_order_by!]
+
+    # filter the rows returned
+    where: StorePic_bool_exp
+  ): StorePic_aggregate!
+
+  # fetch data from the table: "StorePic" using primary key columns
+  StorePic_by_pk(id: uuid!): StorePic
+
+  # fetch aggregated fields from the table: "Store"
+  Store_aggregate(
+    # distinct select on columns
+    distinct_on: [Store_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [Store_order_by!]
+
+    # filter the rows returned
+    where: Store_bool_exp
+  ): Store_aggregate!
+
+  # fetch data from the table: "Store" using primary key columns
+  Store_by_pk(id: uuid!): Store
+
   # fetch data from the table: "User"
   User(
     # distinct select on columns
@@ -346,6 +639,123 @@ type query_root {
     # filter the rows returned
     where: User_bool_exp
   ): [User!]!
+
+  # fetch data from the table: "UserCartItem"
+  UserCartItem(
+    # distinct select on columns
+    distinct_on: [UserCartItem_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserCartItem_order_by!]
+
+    # filter the rows returned
+    where: UserCartItem_bool_exp
+  ): [UserCartItem!]!
+
+  # fetch aggregated fields from the table: "UserCartItem"
+  UserCartItem_aggregate(
+    # distinct select on columns
+    distinct_on: [UserCartItem_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserCartItem_order_by!]
+
+    # filter the rows returned
+    where: UserCartItem_bool_exp
+  ): UserCartItem_aggregate!
+
+  # fetch data from the table: "UserCartItem" using primary key columns
+  UserCartItem_by_pk(id: uuid!): UserCartItem
+
+  # fetch data from the table: "UserFavoriteItem"
+  UserFavoriteItem(
+    # distinct select on columns
+    distinct_on: [UserFavoriteItem_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserFavoriteItem_order_by!]
+
+    # filter the rows returned
+    where: UserFavoriteItem_bool_exp
+  ): [UserFavoriteItem!]!
+
+  # fetch aggregated fields from the table: "UserFavoriteItem"
+  UserFavoriteItem_aggregate(
+    # distinct select on columns
+    distinct_on: [UserFavoriteItem_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserFavoriteItem_order_by!]
+
+    # filter the rows returned
+    where: UserFavoriteItem_bool_exp
+  ): UserFavoriteItem_aggregate!
+
+  # fetch data from the table: "UserFavoriteItem" using primary key columns
+  UserFavoriteItem_by_pk(id: uuid!): UserFavoriteItem
+
+  # fetch data from the table: "UserFavoriteStore"
+  UserFavoriteStore(
+    # distinct select on columns
+    distinct_on: [UserFavoriteStore_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserFavoriteStore_order_by!]
+
+    # filter the rows returned
+    where: UserFavoriteStore_bool_exp
+  ): [UserFavoriteStore!]!
+
+  # fetch aggregated fields from the table: "UserFavoriteStore"
+  UserFavoriteStore_aggregate(
+    # distinct select on columns
+    distinct_on: [UserFavoriteStore_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserFavoriteStore_order_by!]
+
+    # filter the rows returned
+    where: UserFavoriteStore_bool_exp
+  ): UserFavoriteStore_aggregate!
+
+  # fetch data from the table: "UserFavoriteStore" using primary key columns
+  UserFavoriteStore_by_pk(id: uuid!): UserFavoriteStore
 
   # fetch data from the table: "UserProfilePic"
   UserProfilePic(
@@ -408,8 +818,252 @@ type query_root {
   User_by_pk(id: uuid!): User
 }
 
+# columns and relationships of "Store"
+type Store {
+  # An array relationship
+  StoreItems(
+    # distinct select on columns
+    distinct_on: [StoreItem_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [StoreItem_order_by!]
+
+    # filter the rows returned
+    where: StoreItem_bool_exp
+  ): [StoreItem!]!
+
+  # An aggregated array relationship
+  StoreItems_aggregate(
+    # distinct select on columns
+    distinct_on: [StoreItem_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [StoreItem_order_by!]
+
+    # filter the rows returned
+    where: StoreItem_bool_exp
+  ): StoreItem_aggregate!
+
+  # An object relationship
+  StorePic: StorePic
+  address: String!
+  category: String
+  googlePlacesId: String!
+  id: uuid!
+  name: String!
+  storePicId: uuid
+}
+
+# aggregated selection of "Store"
+type Store_aggregate {
+  aggregate: Store_aggregate_fields
+  nodes: [Store!]!
+}
+
+# aggregate fields of "Store"
+type Store_aggregate_fields {
+  count(columns: [Store_select_column!], distinct: Boolean): Int
+  max: Store_max_fields
+  min: Store_min_fields
+}
+
+# order by aggregate values of table "Store"
+input Store_aggregate_order_by {
+  count: order_by
+  max: Store_max_order_by
+  min: Store_min_order_by
+}
+
+# input type for inserting array relation for remote table "Store"
+input Store_arr_rel_insert_input {
+  data: [Store_insert_input!]!
+  on_conflict: Store_on_conflict
+}
+
+# Boolean expression to filter rows from the table "Store". All fields are combined with a logical 'AND'.
+input Store_bool_exp {
+  StoreItems: StoreItem_bool_exp
+  StorePic: StorePic_bool_exp
+  _and: [Store_bool_exp]
+  _not: Store_bool_exp
+  _or: [Store_bool_exp]
+  address: String_comparison_exp
+  category: String_comparison_exp
+  googlePlacesId: String_comparison_exp
+  id: uuid_comparison_exp
+  name: String_comparison_exp
+  storePicId: uuid_comparison_exp
+}
+
+# unique or primary key constraints on table "Store"
+enum Store_constraint {
+  # unique or primary key constraint
+  Store_pkey
+
+  # unique or primary key constraint
+  Store_storePicId_key
+}
+
+# input type for inserting data into table "Store"
+input Store_insert_input {
+  StoreItems: StoreItem_arr_rel_insert_input
+  StorePic: StorePic_obj_rel_insert_input
+  address: String
+  category: String
+  googlePlacesId: String
+  id: uuid
+  name: String
+  storePicId: uuid
+}
+
+# aggregate max on columns
+type Store_max_fields {
+  address: String
+  category: String
+  googlePlacesId: String
+  id: uuid
+  name: String
+  storePicId: uuid
+}
+
+# order by max() on columns of table "Store"
+input Store_max_order_by {
+  address: order_by
+  category: order_by
+  googlePlacesId: order_by
+  id: order_by
+  name: order_by
+  storePicId: order_by
+}
+
+# aggregate min on columns
+type Store_min_fields {
+  address: String
+  category: String
+  googlePlacesId: String
+  id: uuid
+  name: String
+  storePicId: uuid
+}
+
+# order by min() on columns of table "Store"
+input Store_min_order_by {
+  address: order_by
+  category: order_by
+  googlePlacesId: order_by
+  id: order_by
+  name: order_by
+  storePicId: order_by
+}
+
+# response of any mutation on the table "Store"
+type Store_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [Store!]!
+}
+
+# input type for inserting object relation for remote table "Store"
+input Store_obj_rel_insert_input {
+  data: Store_insert_input!
+  on_conflict: Store_on_conflict
+}
+
+# on conflict condition type for table "Store"
+input Store_on_conflict {
+  constraint: Store_constraint!
+  update_columns: [Store_update_column!]!
+  where: Store_bool_exp
+}
+
+# ordering options when selecting data from "Store"
+input Store_order_by {
+  StoreItems_aggregate: StoreItem_aggregate_order_by
+  StorePic: StorePic_order_by
+  address: order_by
+  category: order_by
+  googlePlacesId: order_by
+  id: order_by
+  name: order_by
+  storePicId: order_by
+}
+
+# primary key columns input for table: "Store"
+input Store_pk_columns_input {
+  id: uuid!
+}
+
+# select columns of table "Store"
+enum Store_select_column {
+  # column name
+  address
+
+  # column name
+  category
+
+  # column name
+  googlePlacesId
+
+  # column name
+  id
+
+  # column name
+  name
+
+  # column name
+  storePicId
+}
+
+# input type for updating data in table "Store"
+input Store_set_input {
+  address: String
+  category: String
+  googlePlacesId: String
+  id: uuid
+  name: String
+  storePicId: uuid
+}
+
+# update columns of table "Store"
+enum Store_update_column {
+  # column name
+  address
+
+  # column name
+  category
+
+  # column name
+  googlePlacesId
+
+  # column name
+  id
+
+  # column name
+  name
+
+  # column name
+  storePicId
+}
+
 # columns and relationships of "StoreItem"
 type StoreItem {
+  # An object relationship
+  Store: Store!
+
   # An object relationship
   StoreItemPic: StoreItemPic
   barcodeId: String!
@@ -420,6 +1074,7 @@ type StoreItem {
   purchased: Boolean!
   quantity: String!
   shortName: String
+  storeId: uuid!
 }
 
 # aggregated selection of "StoreItem"
@@ -476,6 +1131,7 @@ input StoreItem_avg_order_by {
 
 # Boolean expression to filter rows from the table "StoreItem". All fields are combined with a logical 'AND'.
 input StoreItem_bool_exp {
+  Store: Store_bool_exp
   StoreItemPic: StoreItemPic_bool_exp
   _and: [StoreItem_bool_exp]
   _not: StoreItem_bool_exp
@@ -488,6 +1144,7 @@ input StoreItem_bool_exp {
   purchased: Boolean_comparison_exp
   quantity: String_comparison_exp
   shortName: String_comparison_exp
+  storeId: uuid_comparison_exp
 }
 
 # unique or primary key constraints on table "StoreItem"
@@ -509,6 +1166,7 @@ input StoreItem_inc_input {
 
 # input type for inserting data into table "StoreItem"
 input StoreItem_insert_input {
+  Store: Store_obj_rel_insert_input
   StoreItemPic: StoreItemPic_obj_rel_insert_input
   barcodeId: String
   description: String
@@ -518,6 +1176,7 @@ input StoreItem_insert_input {
   purchased: Boolean
   quantity: String
   shortName: String
+  storeId: uuid
 }
 
 # aggregate max on columns
@@ -529,6 +1188,7 @@ type StoreItem_max_fields {
   price: money
   quantity: String
   shortName: String
+  storeId: uuid
 }
 
 # order by max() on columns of table "StoreItem"
@@ -540,6 +1200,7 @@ input StoreItem_max_order_by {
   price: order_by
   quantity: order_by
   shortName: order_by
+  storeId: order_by
 }
 
 # aggregate min on columns
@@ -551,6 +1212,7 @@ type StoreItem_min_fields {
   price: money
   quantity: String
   shortName: String
+  storeId: uuid
 }
 
 # order by min() on columns of table "StoreItem"
@@ -562,6 +1224,7 @@ input StoreItem_min_order_by {
   price: order_by
   quantity: order_by
   shortName: order_by
+  storeId: order_by
 }
 
 # response of any mutation on the table "StoreItem"
@@ -588,6 +1251,7 @@ input StoreItem_on_conflict {
 
 # ordering options when selecting data from "StoreItem"
 input StoreItem_order_by {
+  Store: Store_order_by
   StoreItemPic: StoreItemPic_order_by
   barcodeId: order_by
   description: order_by
@@ -597,6 +1261,7 @@ input StoreItem_order_by {
   purchased: order_by
   quantity: order_by
   shortName: order_by
+  storeId: order_by
 }
 
 # primary key columns input for table: "StoreItem"
@@ -629,6 +1294,9 @@ enum StoreItem_select_column {
 
   # column name
   shortName
+
+  # column name
+  storeId
 }
 
 # input type for updating data in table "StoreItem"
@@ -641,6 +1309,7 @@ input StoreItem_set_input {
   purchased: Boolean
   quantity: String
   shortName: String
+  storeId: uuid
 }
 
 # aggregate stddev on columns
@@ -708,6 +1377,9 @@ enum StoreItem_update_column {
 
   # column name
   shortName
+
+  # column name
+  storeId
 }
 
 # aggregate var_pop on columns
@@ -747,7 +1419,6 @@ type StoreItemPic {
   id: uuid!
   size128: String!
   size256: String!
-  size512: String!
   size64: String!
 }
 
@@ -786,7 +1457,6 @@ input StoreItemPic_bool_exp {
   id: uuid_comparison_exp
   size128: String_comparison_exp
   size256: String_comparison_exp
-  size512: String_comparison_exp
   size64: String_comparison_exp
 }
 
@@ -802,7 +1472,6 @@ input StoreItemPic_insert_input {
   id: uuid
   size128: String
   size256: String
-  size512: String
   size64: String
 }
 
@@ -811,7 +1480,6 @@ type StoreItemPic_max_fields {
   id: uuid
   size128: String
   size256: String
-  size512: String
   size64: String
 }
 
@@ -820,7 +1488,6 @@ input StoreItemPic_max_order_by {
   id: order_by
   size128: order_by
   size256: order_by
-  size512: order_by
   size64: order_by
 }
 
@@ -829,7 +1496,6 @@ type StoreItemPic_min_fields {
   id: uuid
   size128: String
   size256: String
-  size512: String
   size64: String
 }
 
@@ -838,7 +1504,6 @@ input StoreItemPic_min_order_by {
   id: order_by
   size128: order_by
   size256: order_by
-  size512: order_by
   size64: order_by
 }
 
@@ -870,7 +1535,6 @@ input StoreItemPic_order_by {
   id: order_by
   size128: order_by
   size256: order_by
-  size512: order_by
   size64: order_by
 }
 
@@ -891,9 +1555,6 @@ enum StoreItemPic_select_column {
   size256
 
   # column name
-  size512
-
-  # column name
   size64
 }
 
@@ -902,7 +1563,6 @@ input StoreItemPic_set_input {
   id: uuid
   size128: String
   size256: String
-  size512: String
   size64: String
 }
 
@@ -918,7 +1578,173 @@ enum StoreItemPic_update_column {
   size256
 
   # column name
-  size512
+  size64
+}
+
+# columns and relationships of "StorePic"
+type StorePic {
+  # An object relationship
+  Store: Store
+  id: uuid!
+  size128: String!
+  size256: String!
+  size64: String!
+}
+
+# aggregated selection of "StorePic"
+type StorePic_aggregate {
+  aggregate: StorePic_aggregate_fields
+  nodes: [StorePic!]!
+}
+
+# aggregate fields of "StorePic"
+type StorePic_aggregate_fields {
+  count(columns: [StorePic_select_column!], distinct: Boolean): Int
+  max: StorePic_max_fields
+  min: StorePic_min_fields
+}
+
+# order by aggregate values of table "StorePic"
+input StorePic_aggregate_order_by {
+  count: order_by
+  max: StorePic_max_order_by
+  min: StorePic_min_order_by
+}
+
+# input type for inserting array relation for remote table "StorePic"
+input StorePic_arr_rel_insert_input {
+  data: [StorePic_insert_input!]!
+  on_conflict: StorePic_on_conflict
+}
+
+# Boolean expression to filter rows from the table "StorePic". All fields are combined with a logical 'AND'.
+input StorePic_bool_exp {
+  Store: Store_bool_exp
+  _and: [StorePic_bool_exp]
+  _not: StorePic_bool_exp
+  _or: [StorePic_bool_exp]
+  id: uuid_comparison_exp
+  size128: String_comparison_exp
+  size256: String_comparison_exp
+  size64: String_comparison_exp
+}
+
+# unique or primary key constraints on table "StorePic"
+enum StorePic_constraint {
+  # unique or primary key constraint
+  StorePic_pkey
+}
+
+# input type for inserting data into table "StorePic"
+input StorePic_insert_input {
+  Store: Store_obj_rel_insert_input
+  id: uuid
+  size128: String
+  size256: String
+  size64: String
+}
+
+# aggregate max on columns
+type StorePic_max_fields {
+  id: uuid
+  size128: String
+  size256: String
+  size64: String
+}
+
+# order by max() on columns of table "StorePic"
+input StorePic_max_order_by {
+  id: order_by
+  size128: order_by
+  size256: order_by
+  size64: order_by
+}
+
+# aggregate min on columns
+type StorePic_min_fields {
+  id: uuid
+  size128: String
+  size256: String
+  size64: String
+}
+
+# order by min() on columns of table "StorePic"
+input StorePic_min_order_by {
+  id: order_by
+  size128: order_by
+  size256: order_by
+  size64: order_by
+}
+
+# response of any mutation on the table "StorePic"
+type StorePic_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [StorePic!]!
+}
+
+# input type for inserting object relation for remote table "StorePic"
+input StorePic_obj_rel_insert_input {
+  data: StorePic_insert_input!
+  on_conflict: StorePic_on_conflict
+}
+
+# on conflict condition type for table "StorePic"
+input StorePic_on_conflict {
+  constraint: StorePic_constraint!
+  update_columns: [StorePic_update_column!]!
+  where: StorePic_bool_exp
+}
+
+# ordering options when selecting data from "StorePic"
+input StorePic_order_by {
+  Store: Store_order_by
+  id: order_by
+  size128: order_by
+  size256: order_by
+  size64: order_by
+}
+
+# primary key columns input for table: "StorePic"
+input StorePic_pk_columns_input {
+  id: uuid!
+}
+
+# select columns of table "StorePic"
+enum StorePic_select_column {
+  # column name
+  id
+
+  # column name
+  size128
+
+  # column name
+  size256
+
+  # column name
+  size64
+}
+
+# input type for updating data in table "StorePic"
+input StorePic_set_input {
+  id: uuid
+  size128: String
+  size256: String
+  size64: String
+}
+
+# update columns of table "StorePic"
+enum StorePic_update_column {
+  # column name
+  id
+
+  # column name
+  size128
+
+  # column name
+  size256
 
   # column name
   size64
@@ -945,6 +1771,24 @@ input String_comparison_exp {
 
 # subscription root
 type subscription_root {
+  # fetch data from the table: "Store"
+  Store(
+    # distinct select on columns
+    distinct_on: [Store_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [Store_order_by!]
+
+    # filter the rows returned
+    where: Store_bool_exp
+  ): [Store!]!
+
   # fetch data from the table: "StoreItem"
   StoreItem(
     # distinct select on columns
@@ -1023,6 +1867,66 @@ type subscription_root {
   # fetch data from the table: "StoreItem" using primary key columns
   StoreItem_by_pk(barcodeId: String!): StoreItem
 
+  # fetch data from the table: "StorePic"
+  StorePic(
+    # distinct select on columns
+    distinct_on: [StorePic_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [StorePic_order_by!]
+
+    # filter the rows returned
+    where: StorePic_bool_exp
+  ): [StorePic!]!
+
+  # fetch aggregated fields from the table: "StorePic"
+  StorePic_aggregate(
+    # distinct select on columns
+    distinct_on: [StorePic_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [StorePic_order_by!]
+
+    # filter the rows returned
+    where: StorePic_bool_exp
+  ): StorePic_aggregate!
+
+  # fetch data from the table: "StorePic" using primary key columns
+  StorePic_by_pk(id: uuid!): StorePic
+
+  # fetch aggregated fields from the table: "Store"
+  Store_aggregate(
+    # distinct select on columns
+    distinct_on: [Store_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [Store_order_by!]
+
+    # filter the rows returned
+    where: Store_bool_exp
+  ): Store_aggregate!
+
+  # fetch data from the table: "Store" using primary key columns
+  Store_by_pk(id: uuid!): Store
+
   # fetch data from the table: "User"
   User(
     # distinct select on columns
@@ -1040,6 +1944,123 @@ type subscription_root {
     # filter the rows returned
     where: User_bool_exp
   ): [User!]!
+
+  # fetch data from the table: "UserCartItem"
+  UserCartItem(
+    # distinct select on columns
+    distinct_on: [UserCartItem_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserCartItem_order_by!]
+
+    # filter the rows returned
+    where: UserCartItem_bool_exp
+  ): [UserCartItem!]!
+
+  # fetch aggregated fields from the table: "UserCartItem"
+  UserCartItem_aggregate(
+    # distinct select on columns
+    distinct_on: [UserCartItem_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserCartItem_order_by!]
+
+    # filter the rows returned
+    where: UserCartItem_bool_exp
+  ): UserCartItem_aggregate!
+
+  # fetch data from the table: "UserCartItem" using primary key columns
+  UserCartItem_by_pk(id: uuid!): UserCartItem
+
+  # fetch data from the table: "UserFavoriteItem"
+  UserFavoriteItem(
+    # distinct select on columns
+    distinct_on: [UserFavoriteItem_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserFavoriteItem_order_by!]
+
+    # filter the rows returned
+    where: UserFavoriteItem_bool_exp
+  ): [UserFavoriteItem!]!
+
+  # fetch aggregated fields from the table: "UserFavoriteItem"
+  UserFavoriteItem_aggregate(
+    # distinct select on columns
+    distinct_on: [UserFavoriteItem_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserFavoriteItem_order_by!]
+
+    # filter the rows returned
+    where: UserFavoriteItem_bool_exp
+  ): UserFavoriteItem_aggregate!
+
+  # fetch data from the table: "UserFavoriteItem" using primary key columns
+  UserFavoriteItem_by_pk(id: uuid!): UserFavoriteItem
+
+  # fetch data from the table: "UserFavoriteStore"
+  UserFavoriteStore(
+    # distinct select on columns
+    distinct_on: [UserFavoriteStore_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserFavoriteStore_order_by!]
+
+    # filter the rows returned
+    where: UserFavoriteStore_bool_exp
+  ): [UserFavoriteStore!]!
+
+  # fetch aggregated fields from the table: "UserFavoriteStore"
+  UserFavoriteStore_aggregate(
+    # distinct select on columns
+    distinct_on: [UserFavoriteStore_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserFavoriteStore_order_by!]
+
+    # filter the rows returned
+    where: UserFavoriteStore_bool_exp
+  ): UserFavoriteStore_aggregate!
+
+  # fetch data from the table: "UserFavoriteStore" using primary key columns
+  UserFavoriteStore_by_pk(id: uuid!): UserFavoriteStore
 
   # fetch data from the table: "UserProfilePic"
   UserProfilePic(
@@ -1105,9 +2126,9 @@ type subscription_root {
 # columns and relationships of "User"
 type User {
   # An array relationship
-  FavoriteItems(
+  UserCartItems(
     # distinct select on columns
-    distinct_on: [StoreItem_select_column!]
+    distinct_on: [UserCartItem_select_column!]
 
     # limit the number of rows returned
     limit: Int
@@ -1116,16 +2137,16 @@ type User {
     offset: Int
 
     # sort the rows by one or more columns
-    order_by: [StoreItem_order_by!]
+    order_by: [UserCartItem_order_by!]
 
     # filter the rows returned
-    where: StoreItem_bool_exp
-  ): [StoreItem!]!
+    where: UserCartItem_bool_exp
+  ): [UserCartItem!]!
 
   # An aggregated array relationship
-  FavoriteItems_aggregate(
+  UserCartItems_aggregate(
     # distinct select on columns
-    distinct_on: [StoreItem_select_column!]
+    distinct_on: [UserCartItem_select_column!]
 
     # limit the number of rows returned
     limit: Int
@@ -1134,16 +2155,16 @@ type User {
     offset: Int
 
     # sort the rows by one or more columns
-    order_by: [StoreItem_order_by!]
+    order_by: [UserCartItem_order_by!]
 
     # filter the rows returned
-    where: StoreItem_bool_exp
-  ): StoreItem_aggregate!
+    where: UserCartItem_bool_exp
+  ): UserCartItem_aggregate!
 
   # An array relationship
-  ShoppingCart(
+  UserFavoriteItems(
     # distinct select on columns
-    distinct_on: [StoreItem_select_column!]
+    distinct_on: [UserFavoriteItem_select_column!]
 
     # limit the number of rows returned
     limit: Int
@@ -1152,16 +2173,16 @@ type User {
     offset: Int
 
     # sort the rows by one or more columns
-    order_by: [StoreItem_order_by!]
+    order_by: [UserFavoriteItem_order_by!]
 
     # filter the rows returned
-    where: StoreItem_bool_exp
-  ): [StoreItem!]!
+    where: UserFavoriteItem_bool_exp
+  ): [UserFavoriteItem!]!
 
   # An aggregated array relationship
-  ShoppingCart_aggregate(
+  UserFavoriteItems_aggregate(
     # distinct select on columns
-    distinct_on: [StoreItem_select_column!]
+    distinct_on: [UserFavoriteItem_select_column!]
 
     # limit the number of rows returned
     limit: Int
@@ -1170,24 +2191,57 @@ type User {
     offset: Int
 
     # sort the rows by one or more columns
-    order_by: [StoreItem_order_by!]
+    order_by: [UserFavoriteItem_order_by!]
 
     # filter the rows returned
-    where: StoreItem_bool_exp
-  ): StoreItem_aggregate!
+    where: UserFavoriteItem_bool_exp
+  ): UserFavoriteItem_aggregate!
+
+  # An array relationship
+  UserFavoriteStores(
+    # distinct select on columns
+    distinct_on: [UserFavoriteStore_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserFavoriteStore_order_by!]
+
+    # filter the rows returned
+    where: UserFavoriteStore_bool_exp
+  ): [UserFavoriteStore!]!
+
+  # An aggregated array relationship
+  UserFavoriteStores_aggregate(
+    # distinct select on columns
+    distinct_on: [UserFavoriteStore_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserFavoriteStore_order_by!]
+
+    # filter the rows returned
+    where: UserFavoriteStore_bool_exp
+  ): UserFavoriteStore_aggregate!
 
   # An object relationship
   UserProfilePic: UserProfilePic
   email: String!
-  favoriteItems: uuid
-  favoriteStores: uuid
   firstName: name!
   id: uuid!
   lastName: name
   password: String!
   profilePicId: uuid
   sessionId: uuid!
-  shoppingCart: uuid
 }
 
 # aggregated selection of "User"
@@ -1218,22 +2272,20 @@ input User_arr_rel_insert_input {
 
 # Boolean expression to filter rows from the table "User". All fields are combined with a logical 'AND'.
 input User_bool_exp {
-  FavoriteItems: StoreItem_bool_exp
-  ShoppingCart: StoreItem_bool_exp
+  UserCartItems: UserCartItem_bool_exp
+  UserFavoriteItems: UserFavoriteItem_bool_exp
+  UserFavoriteStores: UserFavoriteStore_bool_exp
   UserProfilePic: UserProfilePic_bool_exp
   _and: [User_bool_exp]
   _not: User_bool_exp
   _or: [User_bool_exp]
   email: String_comparison_exp
-  favoriteItems: uuid_comparison_exp
-  favoriteStores: uuid_comparison_exp
   firstName: name_comparison_exp
   id: uuid_comparison_exp
   lastName: name_comparison_exp
   password: String_comparison_exp
   profilePicId: uuid_comparison_exp
   sessionId: uuid_comparison_exp
-  shoppingCart: uuid_comparison_exp
 }
 
 # unique or primary key constraints on table "User"
@@ -1253,67 +2305,53 @@ enum User_constraint {
 
 # input type for inserting data into table "User"
 input User_insert_input {
-  FavoriteItems: StoreItem_arr_rel_insert_input
-  ShoppingCart: StoreItem_arr_rel_insert_input
+  UserCartItems: UserCartItem_arr_rel_insert_input
+  UserFavoriteItems: UserFavoriteItem_arr_rel_insert_input
+  UserFavoriteStores: UserFavoriteStore_arr_rel_insert_input
   UserProfilePic: UserProfilePic_obj_rel_insert_input
   email: String
-  favoriteItems: uuid
-  favoriteStores: uuid
   firstName: name
   id: uuid
   lastName: name
   password: String
   profilePicId: uuid
   sessionId: uuid
-  shoppingCart: uuid
 }
 
 # aggregate max on columns
 type User_max_fields {
   email: String
-  favoriteItems: uuid
-  favoriteStores: uuid
   id: uuid
   password: String
   profilePicId: uuid
   sessionId: uuid
-  shoppingCart: uuid
 }
 
 # order by max() on columns of table "User"
 input User_max_order_by {
   email: order_by
-  favoriteItems: order_by
-  favoriteStores: order_by
   id: order_by
   password: order_by
   profilePicId: order_by
   sessionId: order_by
-  shoppingCart: order_by
 }
 
 # aggregate min on columns
 type User_min_fields {
   email: String
-  favoriteItems: uuid
-  favoriteStores: uuid
   id: uuid
   password: String
   profilePicId: uuid
   sessionId: uuid
-  shoppingCart: uuid
 }
 
 # order by min() on columns of table "User"
 input User_min_order_by {
   email: order_by
-  favoriteItems: order_by
-  favoriteStores: order_by
   id: order_by
   password: order_by
   profilePicId: order_by
   sessionId: order_by
-  shoppingCart: order_by
 }
 
 # response of any mutation on the table "User"
@@ -1340,19 +2378,17 @@ input User_on_conflict {
 
 # ordering options when selecting data from "User"
 input User_order_by {
-  FavoriteItems_aggregate: StoreItem_aggregate_order_by
-  ShoppingCart_aggregate: StoreItem_aggregate_order_by
+  UserCartItems_aggregate: UserCartItem_aggregate_order_by
+  UserFavoriteItems_aggregate: UserFavoriteItem_aggregate_order_by
+  UserFavoriteStores_aggregate: UserFavoriteStore_aggregate_order_by
   UserProfilePic: UserProfilePic_order_by
   email: order_by
-  favoriteItems: order_by
-  favoriteStores: order_by
   firstName: order_by
   id: order_by
   lastName: order_by
   password: order_by
   profilePicId: order_by
   sessionId: order_by
-  shoppingCart: order_by
 }
 
 # primary key columns input for table: "User"
@@ -1366,12 +2402,6 @@ enum User_select_column {
   email
 
   # column name
-  favoriteItems
-
-  # column name
-  favoriteStores
-
-  # column name
   firstName
 
   # column name
@@ -1388,23 +2418,17 @@ enum User_select_column {
 
   # column name
   sessionId
-
-  # column name
-  shoppingCart
 }
 
 # input type for updating data in table "User"
 input User_set_input {
   email: String
-  favoriteItems: uuid
-  favoriteStores: uuid
   firstName: name
   id: uuid
   lastName: name
   password: String
   profilePicId: uuid
   sessionId: uuid
-  shoppingCart: uuid
 }
 
 # update columns of table "User"
@@ -1413,12 +2437,6 @@ enum User_update_column {
   email
 
   # column name
-  favoriteItems
-
-  # column name
-  favoriteStores
-
-  # column name
   firstName
 
   # column name
@@ -1435,9 +2453,507 @@ enum User_update_column {
 
   # column name
   sessionId
+}
+
+# columns and relationships of "UserCartItem"
+type UserCartItem {
+  # An object relationship
+  StoreItem: StoreItem!
+
+  # An object relationship
+  User: User!
+  id: uuid!
+  itemBarcodeId: String!
+  userId: uuid!
+}
+
+# aggregated selection of "UserCartItem"
+type UserCartItem_aggregate {
+  aggregate: UserCartItem_aggregate_fields
+  nodes: [UserCartItem!]!
+}
+
+# aggregate fields of "UserCartItem"
+type UserCartItem_aggregate_fields {
+  count(columns: [UserCartItem_select_column!], distinct: Boolean): Int
+  max: UserCartItem_max_fields
+  min: UserCartItem_min_fields
+}
+
+# order by aggregate values of table "UserCartItem"
+input UserCartItem_aggregate_order_by {
+  count: order_by
+  max: UserCartItem_max_order_by
+  min: UserCartItem_min_order_by
+}
+
+# input type for inserting array relation for remote table "UserCartItem"
+input UserCartItem_arr_rel_insert_input {
+  data: [UserCartItem_insert_input!]!
+  on_conflict: UserCartItem_on_conflict
+}
+
+# Boolean expression to filter rows from the table "UserCartItem". All fields are combined with a logical 'AND'.
+input UserCartItem_bool_exp {
+  StoreItem: StoreItem_bool_exp
+  User: User_bool_exp
+  _and: [UserCartItem_bool_exp]
+  _not: UserCartItem_bool_exp
+  _or: [UserCartItem_bool_exp]
+  id: uuid_comparison_exp
+  itemBarcodeId: String_comparison_exp
+  userId: uuid_comparison_exp
+}
+
+# unique or primary key constraints on table "UserCartItem"
+enum UserCartItem_constraint {
+  # unique or primary key constraint
+  UserCartItem_pkey
+}
+
+# input type for inserting data into table "UserCartItem"
+input UserCartItem_insert_input {
+  StoreItem: StoreItem_obj_rel_insert_input
+  User: User_obj_rel_insert_input
+  id: uuid
+  itemBarcodeId: String
+  userId: uuid
+}
+
+# aggregate max on columns
+type UserCartItem_max_fields {
+  id: uuid
+  itemBarcodeId: String
+  userId: uuid
+}
+
+# order by max() on columns of table "UserCartItem"
+input UserCartItem_max_order_by {
+  id: order_by
+  itemBarcodeId: order_by
+  userId: order_by
+}
+
+# aggregate min on columns
+type UserCartItem_min_fields {
+  id: uuid
+  itemBarcodeId: String
+  userId: uuid
+}
+
+# order by min() on columns of table "UserCartItem"
+input UserCartItem_min_order_by {
+  id: order_by
+  itemBarcodeId: order_by
+  userId: order_by
+}
+
+# response of any mutation on the table "UserCartItem"
+type UserCartItem_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [UserCartItem!]!
+}
+
+# input type for inserting object relation for remote table "UserCartItem"
+input UserCartItem_obj_rel_insert_input {
+  data: UserCartItem_insert_input!
+  on_conflict: UserCartItem_on_conflict
+}
+
+# on conflict condition type for table "UserCartItem"
+input UserCartItem_on_conflict {
+  constraint: UserCartItem_constraint!
+  update_columns: [UserCartItem_update_column!]!
+  where: UserCartItem_bool_exp
+}
+
+# ordering options when selecting data from "UserCartItem"
+input UserCartItem_order_by {
+  StoreItem: StoreItem_order_by
+  User: User_order_by
+  id: order_by
+  itemBarcodeId: order_by
+  userId: order_by
+}
+
+# primary key columns input for table: "UserCartItem"
+input UserCartItem_pk_columns_input {
+  id: uuid!
+}
+
+# select columns of table "UserCartItem"
+enum UserCartItem_select_column {
+  # column name
+  id
 
   # column name
-  shoppingCart
+  itemBarcodeId
+
+  # column name
+  userId
+}
+
+# input type for updating data in table "UserCartItem"
+input UserCartItem_set_input {
+  id: uuid
+  itemBarcodeId: String
+  userId: uuid
+}
+
+# update columns of table "UserCartItem"
+enum UserCartItem_update_column {
+  # column name
+  id
+
+  # column name
+  itemBarcodeId
+
+  # column name
+  userId
+}
+
+# columns and relationships of "UserFavoriteItem"
+type UserFavoriteItem {
+  # An object relationship
+  Store: Store!
+
+  # An object relationship
+  StoreItem: StoreItem!
+
+  # An object relationship
+  User: User!
+  id: uuid!
+  itemBarcodeId: String!
+  itemStoreId: uuid!
+  userId: uuid!
+}
+
+# aggregated selection of "UserFavoriteItem"
+type UserFavoriteItem_aggregate {
+  aggregate: UserFavoriteItem_aggregate_fields
+  nodes: [UserFavoriteItem!]!
+}
+
+# aggregate fields of "UserFavoriteItem"
+type UserFavoriteItem_aggregate_fields {
+  count(columns: [UserFavoriteItem_select_column!], distinct: Boolean): Int
+  max: UserFavoriteItem_max_fields
+  min: UserFavoriteItem_min_fields
+}
+
+# order by aggregate values of table "UserFavoriteItem"
+input UserFavoriteItem_aggregate_order_by {
+  count: order_by
+  max: UserFavoriteItem_max_order_by
+  min: UserFavoriteItem_min_order_by
+}
+
+# input type for inserting array relation for remote table "UserFavoriteItem"
+input UserFavoriteItem_arr_rel_insert_input {
+  data: [UserFavoriteItem_insert_input!]!
+  on_conflict: UserFavoriteItem_on_conflict
+}
+
+# Boolean expression to filter rows from the table "UserFavoriteItem". All fields are combined with a logical 'AND'.
+input UserFavoriteItem_bool_exp {
+  Store: Store_bool_exp
+  StoreItem: StoreItem_bool_exp
+  User: User_bool_exp
+  _and: [UserFavoriteItem_bool_exp]
+  _not: UserFavoriteItem_bool_exp
+  _or: [UserFavoriteItem_bool_exp]
+  id: uuid_comparison_exp
+  itemBarcodeId: String_comparison_exp
+  itemStoreId: uuid_comparison_exp
+  userId: uuid_comparison_exp
+}
+
+# unique or primary key constraints on table "UserFavoriteItem"
+enum UserFavoriteItem_constraint {
+  # unique or primary key constraint
+  UserFavoriteItem_pkey
+}
+
+# input type for inserting data into table "UserFavoriteItem"
+input UserFavoriteItem_insert_input {
+  Store: Store_obj_rel_insert_input
+  StoreItem: StoreItem_obj_rel_insert_input
+  User: User_obj_rel_insert_input
+  id: uuid
+  itemBarcodeId: String
+  itemStoreId: uuid
+  userId: uuid
+}
+
+# aggregate max on columns
+type UserFavoriteItem_max_fields {
+  id: uuid
+  itemBarcodeId: String
+  itemStoreId: uuid
+  userId: uuid
+}
+
+# order by max() on columns of table "UserFavoriteItem"
+input UserFavoriteItem_max_order_by {
+  id: order_by
+  itemBarcodeId: order_by
+  itemStoreId: order_by
+  userId: order_by
+}
+
+# aggregate min on columns
+type UserFavoriteItem_min_fields {
+  id: uuid
+  itemBarcodeId: String
+  itemStoreId: uuid
+  userId: uuid
+}
+
+# order by min() on columns of table "UserFavoriteItem"
+input UserFavoriteItem_min_order_by {
+  id: order_by
+  itemBarcodeId: order_by
+  itemStoreId: order_by
+  userId: order_by
+}
+
+# response of any mutation on the table "UserFavoriteItem"
+type UserFavoriteItem_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [UserFavoriteItem!]!
+}
+
+# input type for inserting object relation for remote table "UserFavoriteItem"
+input UserFavoriteItem_obj_rel_insert_input {
+  data: UserFavoriteItem_insert_input!
+  on_conflict: UserFavoriteItem_on_conflict
+}
+
+# on conflict condition type for table "UserFavoriteItem"
+input UserFavoriteItem_on_conflict {
+  constraint: UserFavoriteItem_constraint!
+  update_columns: [UserFavoriteItem_update_column!]!
+  where: UserFavoriteItem_bool_exp
+}
+
+# ordering options when selecting data from "UserFavoriteItem"
+input UserFavoriteItem_order_by {
+  Store: Store_order_by
+  StoreItem: StoreItem_order_by
+  User: User_order_by
+  id: order_by
+  itemBarcodeId: order_by
+  itemStoreId: order_by
+  userId: order_by
+}
+
+# primary key columns input for table: "UserFavoriteItem"
+input UserFavoriteItem_pk_columns_input {
+  id: uuid!
+}
+
+# select columns of table "UserFavoriteItem"
+enum UserFavoriteItem_select_column {
+  # column name
+  id
+
+  # column name
+  itemBarcodeId
+
+  # column name
+  itemStoreId
+
+  # column name
+  userId
+}
+
+# input type for updating data in table "UserFavoriteItem"
+input UserFavoriteItem_set_input {
+  id: uuid
+  itemBarcodeId: String
+  itemStoreId: uuid
+  userId: uuid
+}
+
+# update columns of table "UserFavoriteItem"
+enum UserFavoriteItem_update_column {
+  # column name
+  id
+
+  # column name
+  itemBarcodeId
+
+  # column name
+  itemStoreId
+
+  # column name
+  userId
+}
+
+# columns and relationships of "UserFavoriteStore"
+type UserFavoriteStore {
+  # An object relationship
+  Store: Store!
+
+  # An object relationship
+  User: User!
+  id: uuid!
+  storeId: uuid!
+  userId: uuid!
+}
+
+# aggregated selection of "UserFavoriteStore"
+type UserFavoriteStore_aggregate {
+  aggregate: UserFavoriteStore_aggregate_fields
+  nodes: [UserFavoriteStore!]!
+}
+
+# aggregate fields of "UserFavoriteStore"
+type UserFavoriteStore_aggregate_fields {
+  count(columns: [UserFavoriteStore_select_column!], distinct: Boolean): Int
+  max: UserFavoriteStore_max_fields
+  min: UserFavoriteStore_min_fields
+}
+
+# order by aggregate values of table "UserFavoriteStore"
+input UserFavoriteStore_aggregate_order_by {
+  count: order_by
+  max: UserFavoriteStore_max_order_by
+  min: UserFavoriteStore_min_order_by
+}
+
+# input type for inserting array relation for remote table "UserFavoriteStore"
+input UserFavoriteStore_arr_rel_insert_input {
+  data: [UserFavoriteStore_insert_input!]!
+  on_conflict: UserFavoriteStore_on_conflict
+}
+
+# Boolean expression to filter rows from the table "UserFavoriteStore". All fields are combined with a logical 'AND'.
+input UserFavoriteStore_bool_exp {
+  Store: Store_bool_exp
+  User: User_bool_exp
+  _and: [UserFavoriteStore_bool_exp]
+  _not: UserFavoriteStore_bool_exp
+  _or: [UserFavoriteStore_bool_exp]
+  id: uuid_comparison_exp
+  storeId: uuid_comparison_exp
+  userId: uuid_comparison_exp
+}
+
+# unique or primary key constraints on table "UserFavoriteStore"
+enum UserFavoriteStore_constraint {
+  # unique or primary key constraint
+  UserFavoriteStore_pkey
+}
+
+# input type for inserting data into table "UserFavoriteStore"
+input UserFavoriteStore_insert_input {
+  Store: Store_obj_rel_insert_input
+  User: User_obj_rel_insert_input
+  id: uuid
+  storeId: uuid
+  userId: uuid
+}
+
+# aggregate max on columns
+type UserFavoriteStore_max_fields {
+  id: uuid
+  storeId: uuid
+  userId: uuid
+}
+
+# order by max() on columns of table "UserFavoriteStore"
+input UserFavoriteStore_max_order_by {
+  id: order_by
+  storeId: order_by
+  userId: order_by
+}
+
+# aggregate min on columns
+type UserFavoriteStore_min_fields {
+  id: uuid
+  storeId: uuid
+  userId: uuid
+}
+
+# order by min() on columns of table "UserFavoriteStore"
+input UserFavoriteStore_min_order_by {
+  id: order_by
+  storeId: order_by
+  userId: order_by
+}
+
+# response of any mutation on the table "UserFavoriteStore"
+type UserFavoriteStore_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [UserFavoriteStore!]!
+}
+
+# input type for inserting object relation for remote table "UserFavoriteStore"
+input UserFavoriteStore_obj_rel_insert_input {
+  data: UserFavoriteStore_insert_input!
+  on_conflict: UserFavoriteStore_on_conflict
+}
+
+# on conflict condition type for table "UserFavoriteStore"
+input UserFavoriteStore_on_conflict {
+  constraint: UserFavoriteStore_constraint!
+  update_columns: [UserFavoriteStore_update_column!]!
+  where: UserFavoriteStore_bool_exp
+}
+
+# ordering options when selecting data from "UserFavoriteStore"
+input UserFavoriteStore_order_by {
+  Store: Store_order_by
+  User: User_order_by
+  id: order_by
+  storeId: order_by
+  userId: order_by
+}
+
+# primary key columns input for table: "UserFavoriteStore"
+input UserFavoriteStore_pk_columns_input {
+  id: uuid!
+}
+
+# select columns of table "UserFavoriteStore"
+enum UserFavoriteStore_select_column {
+  # column name
+  id
+
+  # column name
+  storeId
+
+  # column name
+  userId
+}
+
+# input type for updating data in table "UserFavoriteStore"
+input UserFavoriteStore_set_input {
+  id: uuid
+  storeId: uuid
+  userId: uuid
+}
+
+# update columns of table "UserFavoriteStore"
+enum UserFavoriteStore_update_column {
+  # column name
+  id
+
+  # column name
+  storeId
+
+  # column name
+  userId
 }
 
 # columns and relationships of "UserProfilePic"
@@ -1445,10 +2961,9 @@ type UserProfilePic {
   # An object relationship
   User: User
   id: uuid!
-  size128: String!
-  size256: String!
-  size512: String!
-  size64: String!
+  size128: String
+  size256: String
+  size64: String
 }
 
 # aggregated selection of "UserProfilePic"
@@ -1486,7 +3001,6 @@ input UserProfilePic_bool_exp {
   id: uuid_comparison_exp
   size128: String_comparison_exp
   size256: String_comparison_exp
-  size512: String_comparison_exp
   size64: String_comparison_exp
 }
 
@@ -1502,7 +3016,6 @@ input UserProfilePic_insert_input {
   id: uuid
   size128: String
   size256: String
-  size512: String
   size64: String
 }
 
@@ -1511,7 +3024,6 @@ type UserProfilePic_max_fields {
   id: uuid
   size128: String
   size256: String
-  size512: String
   size64: String
 }
 
@@ -1520,7 +3032,6 @@ input UserProfilePic_max_order_by {
   id: order_by
   size128: order_by
   size256: order_by
-  size512: order_by
   size64: order_by
 }
 
@@ -1529,7 +3040,6 @@ type UserProfilePic_min_fields {
   id: uuid
   size128: String
   size256: String
-  size512: String
   size64: String
 }
 
@@ -1538,7 +3048,6 @@ input UserProfilePic_min_order_by {
   id: order_by
   size128: order_by
   size256: order_by
-  size512: order_by
   size64: order_by
 }
 
@@ -1570,7 +3079,6 @@ input UserProfilePic_order_by {
   id: order_by
   size128: order_by
   size256: order_by
-  size512: order_by
   size64: order_by
 }
 
@@ -1591,9 +3099,6 @@ enum UserProfilePic_select_column {
   size256
 
   # column name
-  size512
-
-  # column name
   size64
 }
 
@@ -1602,7 +3107,6 @@ input UserProfilePic_set_input {
   id: uuid
   size128: String
   size256: String
-  size512: String
   size64: String
 }
 
@@ -1616,9 +3120,6 @@ enum UserProfilePic_update_column {
 
   # column name
   size256
-
-  # column name
-  size512
 
   # column name
   size64

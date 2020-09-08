@@ -11,6 +11,5 @@ fragment StoreItem on StoreItem {
         size64
         size128
         size256
-        size512
     }
 }

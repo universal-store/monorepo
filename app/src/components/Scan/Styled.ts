@@ -4,14 +4,10 @@ import styled from 'styled-components/native';
 import { Animated } from 'react-native';
 
 // Components
-import { FullScreen, FullScreenCenter, isiPhoneX, RowView, screenWidth } from '../Views';
+import { FullScreenCenter, isiPhoneX, RowView, screenWidth } from '../Views';
 import { FuturaBoldLarge, FuturaBoldSmall, OpenSansRegularLarge, OpenSansSemiBoldMedium } from '../Text';
 
 // Scanning Page
-
-export const BlackFullscreen = styled(FullScreen)`
-  background-color: ${({ theme }) => theme.colors.gray[1]};
-`;
 
 export const NoCameraScreen = styled(FullScreenCenter)`
   background-color: ${({ theme }) => theme.colors.gray[1]};
@@ -171,17 +167,4 @@ export const ItemPreviewTextContainer = styled.View`
 
 export const ItemPreviewPriceText = styled(OpenSansRegularLarge)`
   margin-top: auto;
-`;
-
-export const TestButton = styled.TouchableOpacity`
-  display: flex;
-  height: 48px;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: ${isiPhoneX ? 30 : 0}px;
-  background-color: ${({ theme }) => theme.colors.purple[1]};
-`;
-
-export const TestButtonText = styled(FuturaBoldSmall)`
-  color: ${({ theme }) => theme.colors.white[1]};
 `;

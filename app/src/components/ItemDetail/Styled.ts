@@ -3,7 +3,7 @@
 import styled from 'styled-components/native';
 
 // Components
-import { FullScreen, isiPhoneX, RowView, screenWidth } from '../Views';
+import { isiPhoneX, RowView, screenWidth } from '../Views';
 
 import {
   FuturaBoldLarge,
@@ -12,10 +12,6 @@ import {
   OpenSansRegularLarge,
   OpenSansRegularSmall,
 } from '../Text';
-
-export const ItemDetailContainer = styled(FullScreen)`
-  background-color: ${({ theme }) => theme.colors.purple[3]};
-`;
 
 export const ItemDetailHeaderRow = styled(RowView)`
   width: 100%;
@@ -56,15 +52,15 @@ export const ItemDetailModalHeader = styled.View`
   shadow-opacity: 0.15;
   justify-content: center;
   shadow-offset: 0px -3.5px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
   shadow-color: ${({ theme }) => theme.colors.gray[1]};
   background-color: ${({ theme }) => theme.colors.white[1]};
 `;
 
 export const ItemDetailModalHeaderTab = styled.View`
-  width: 48px;
-  height: 6px;
+  width: 42px;
+  height: 4px;
   border-radius: 8px;
   background-color: ${({ theme }) => theme.colors.gray[3]};
 `;

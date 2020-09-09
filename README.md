@@ -1,5 +1,7 @@
 # Universal Store
 
+Universal Store is a mobile app that eliminates wait times and long lines when shopping for items. As a team, we felt that waiting in long lines just to purchase a few items is inefficient, and we wanted to work with Sneh Parmar to develop this app and to solve this issue. Besides inefficiency, there are a couple important reasons why it is important to reduce shopping wait times and long lines: Customer satisfaction and safety.
+
 ## Technologies Used:
 -   React Native
 -   Apollo Client

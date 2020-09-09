@@ -10,9 +10,9 @@ import {
   AddCartButton,
   AddCartButtonContainer,
   AddCartButtonText,
+  FullScreenLightPurple,
   FuturaBoldLarge as ItemText,
   isiPhoneX,
-  ItemDetailContainer,
   ItemDetailFavoriteButton,
   ItemDetailHeaderButton,
   ItemDetailHeaderRow,
@@ -39,7 +39,6 @@ import { GetStoreItemDocument, useGetStoreItemQuery, useUpdateStoreItemPurchaseM
 // Navigation
 import { AuthStackParams } from '&navigation';
 import { StackScreenProps } from '@react-navigation/stack';
-import { ScrollView } from 'react-native';
 
 // Constants
 const largeModalHeight = screenHeight - (isiPhoneX ? 122 : 92);
@@ -97,7 +96,7 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
   );
 
   return (
-    <ItemDetailContainer>
+    <FullScreenLightPurple>
       <ItemDetailHeaderRow>
         <ItemDetailHeaderButton onPress={() => navigation.goBack()}>
           <CloseIcon />
@@ -154,6 +153,6 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
           </AddCartButton>
         </AddCartButtonContainer>
       )}
-    </ItemDetailContainer>
+    </FullScreenLightPurple>
   );
 };

@@ -3,11 +3,6 @@
 import React, { useEffect, useState } from 'react';
 import { Linking } from 'react-native';
 
-// Navigation
-import { AuthStackParams } from '&navigation';
-import { useIsFocused } from '@react-navigation/native';
-import { StackScreenProps } from '@react-navigation/stack';
-
 // Libraries
 import { Camera } from 'expo-camera';
 import { BarCodeScanner } from 'expo-barcode-scanner';
@@ -18,10 +13,10 @@ import DeviceInfo from 'react-native-device-info';
 
 // Components
 import {
-  BlackFullscreen,
   CameraSettingsButton,
   CameraSettingsText,
   CameraView,
+  FullscreenBlack,
   ItemPreview,
   NoCameraScreen,
   NoCameraText,
@@ -30,14 +25,21 @@ import {
   ScannerHeaderText,
   ScannerOverlay,
   TestButton,
+  TestButtons,
   TestButtonText,
 } from '&components';
 
+// Iconography
 import { BackArrowIcon, FlashIconOff, FlashIconOn } from '&icons';
 
-type ScanningPageProps = StackScreenProps<AuthStackParams, 'ScanPage'>;
+// Navigation
+import { AuthStackParams } from '&navigation';
+import { useIsFocused } from '@react-navigation/native';
+import { StackScreenProps } from '@react-navigation/stack';
 
-export const ScanningPage = ({ navigation }: ScanningPageProps) => {
+type ScanningScreenProps = StackScreenProps<AuthStackParams, 'ScanningScreen'>;
+
+export const ScanningScreen = ({ navigation }: ScanningScreenProps) => {
   let cameraRef: Camera | null = null;
   const isFocused = useIsFocused();
 
@@ -79,7 +81,7 @@ export const ScanningPage = ({ navigation }: ScanningPageProps) => {
   };
 
   if (hasPermission === null) {
-    return <BlackFullscreen />;
+    return <FullscreenBlack />;
   }
 
   if (!hasPermission) {
@@ -101,7 +103,7 @@ export const ScanningPage = ({ navigation }: ScanningPageProps) => {
   }
 
   return (
-    <BlackFullscreen>
+    <FullscreenBlack>
       {isFocused && (
         <>
           <ScannerHeaderRow>
@@ -148,10 +150,12 @@ export const ScanningPage = ({ navigation }: ScanningPageProps) => {
       />
 
       {isSim && !scanned && (
-        <TestButton onPress={() => navigation.navigate('ItemDetail', { barcodeId })}>
-          <TestButtonText>Go To ItemDetail (Emulator Only)</TestButtonText>
-        </TestButton>
+        <TestButtons>
+          <TestButton onPress={() => navigation.navigate('ItemDetail', { barcodeId })}>
+            <TestButtonText>Go To ItemDetail (Emulator Only)</TestButtonText>
+          </TestButton>
+        </TestButtons>
       )}
-    </BlackFullscreen>
+    </FullscreenBlack>
   );
 };

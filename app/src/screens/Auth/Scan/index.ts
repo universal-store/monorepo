@@ -1,4 +1,4 @@
 /** @format */
 
 export * from './ItemDetail';
-export * from './ScanningPage';
+export * from './ScanningScreen';

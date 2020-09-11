@@ -23,6 +23,9 @@ import {
   SignIn_PasswordText,
   SignIn_ForgotPasswordText,
   SignIn_SignUpText,
+  SignIn_LogInButtonContainer,
+  SignIn_LogInButton,
+  SignIn_LogInButtonText,
 } from '&components';
 
 // Navigation
@@ -51,6 +54,11 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
         <SignIn_ForgotPasswordText>Forget Password?</SignIn_ForgotPasswordText>
       </SignIn_FormContainer>
       <SignIn_SignUpText>Need an account? Sign Up</SignIn_SignUpText>
+      <SignIn_LogInButtonContainer>
+        <SignIn_LogInButton>
+          <SignIn_LogInButtonText>Log In</SignIn_LogInButtonText>
+        </SignIn_LogInButton>
+      </SignIn_LogInButtonContainer>
       <TestButtons>
         <TestButton onPress={() => navigation.navigate('LandingScreen')}>
           <TestButtonText>Go To Landing</TestButtonText>

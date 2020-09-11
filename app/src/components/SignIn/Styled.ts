@@ -89,3 +89,25 @@ export const SignIn_SignUpText = styled(OpenSansRegularExtraSmall)`
   margin-right: auto;
   color: ${({ theme }) => theme.colors.gray[3]};
 `;
+
+export const SignIn_LogInButtonContainer = styled.View`
+  position: absolute;
+  /* This is a temporary position */
+  bottom: 100;
+  width: 100%;
+  padding: 16px 32px;
+`;
+
+export const SignIn_LogInButton = styled.TouchableOpacity`
+  height: 40px;
+  display: flex;
+  border-radius: 40px;
+  align-items: center;
+  justify-content: center;
+  width: ${screenWidth - 64}px;
+  background-color: ${({ theme }) => theme.colors.purple[1]};
+`;
+
+export const SignIn_LogInButtonText = styled(FuturaBoldSmall)`
+  color: ${({ theme }) => theme.colors.white[1]};
+`;

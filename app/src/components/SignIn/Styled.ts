@@ -2,7 +2,7 @@
 
 import styled from 'styled-components/native';
 
-import { isiPhoneX, ColumnView, screenWidth } from '../Views';
+import { screenWidth } from '../Views';
 
 import { FuturaBoldLarge, FuturaBoldSmall, OpenSansRegularSmall, OpenSansRegularExtraSmall } from '../Text';
 

@@ -9,6 +9,8 @@ import {
   TestButton,
   TestButtons,
   TestButtonText,
+  SignIn_UniversalStoreContainer,
+  SignIn_Logo,
   SignIn_UniversalStoreTextContainer,
   SignIn_UniversalStoreText,
   SignIn_SloganText,
@@ -32,10 +34,13 @@ type SignInScreenProps = StackScreenProps<OnboardingStackParams, 'SignInScreen'>
 export const SignInScreen = ({ navigation }: SignInScreenProps) => {
   return (
     <FullScreenWhite>
-      <SignIn_UniversalStoreTextContainer>
-        <SignIn_UniversalStoreText>Universal Store</SignIn_UniversalStoreText>
-        <SignIn_SloganText>Redefining express checkout.</SignIn_SloganText>
-      </SignIn_UniversalStoreTextContainer>
+      <SignIn_UniversalStoreContainer>
+        <SignIn_Logo></SignIn_Logo>
+        <SignIn_UniversalStoreTextContainer>
+          <SignIn_UniversalStoreText>Universal Store</SignIn_UniversalStoreText>
+          <SignIn_SloganText>Redefining express checkout.</SignIn_SloganText>
+        </SignIn_UniversalStoreTextContainer>
+      </SignIn_UniversalStoreContainer>
       <SignIn_SignInText>Sign In</SignIn_SignInText>
       <SignIn_WelcomeBackText>Welcome back!</SignIn_WelcomeBackText>
       <SignIn_FormContainer>

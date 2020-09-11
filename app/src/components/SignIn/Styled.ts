@@ -2,27 +2,38 @@
 
 import styled from 'styled-components/native';
 
-import { isiPhoneX, RowView, screenWidth } from '../Views';
+import { isiPhoneX, ColumnView, screenWidth } from '../Views';
 
-import {
-  FuturaBoldLarge,
-  FuturaBoldMedium,
-  FuturaBoldSmall,
-  OpenSansRegularLarge,
-  OpenSansRegularSmall,
-} from '../Text';
+import { FuturaBoldLarge, FuturaBoldSmall, OpenSansRegularSmall, OpenSansRegularExtraSmall } from '../Text';
 
-export const SignIn_UniversalStoreTextContainer = styled.View`
+export const SignIn_UniversalStoreContainer = styled.View`
   display: flex;
+  flex-direction: row;
   width: 301px;
   height: 33px;
   margin: 48px 32px;
 `;
 
-export const SignIn_UniversalStoreText = styled(FuturaBoldLarge)``;
+export const SignIn_Logo = styled.View`
+  width: 50px;
+  height: 50px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: ${({ theme }) => theme.colors.purple[1]};
+`;
 
-export const SignIn_SloganText = styled(FuturaBoldMedium)`
-  margin-top: 9px;
+export const SignIn_UniversalStoreTextContainer = styled.View`
+  display: flex;
+`;
+
+export const SignIn_UniversalStoreText = styled(FuturaBoldLarge)`
+  margin-left: 16px;
+`;
+
+export const SignIn_SloganText = styled(FuturaBoldSmall)`
+  margin-left: 16px;
   color: ${({ theme }) => theme.colors.gray[3]};
 `;
 
@@ -32,7 +43,7 @@ export const SignIn_SignInText = styled(FuturaBoldLarge)`
   margin-left: 32px;
 `;
 
-export const SignIn_WelcomeBackText = styled(FuturaBoldMedium)`
+export const SignIn_WelcomeBackText = styled(FuturaBoldSmall)`
   width: 124px;
   height: 20px;
   margin-left: 32px;
@@ -68,12 +79,12 @@ export const SignIn_PasswordTextInput = styled.TextInput`
   margin-bottom: 29px;
 `;
 
-export const SignIn_ForgotPasswordText = styled(OpenSansRegularSmall)`
+export const SignIn_ForgotPasswordText = styled(OpenSansRegularExtraSmall)`
   margin-left: 209px;
   color: ${({ theme }) => theme.colors.gray[3]};
 `;
 
-export const SignIn_SignUpText = styled(OpenSansRegularSmall)`
+export const SignIn_SignUpText = styled(OpenSansRegularExtraSmall)`
   margin-left: auto;
   margin-right: auto;
   color: ${({ theme }) => theme.colors.gray[3]};

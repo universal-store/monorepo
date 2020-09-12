@@ -62,10 +62,25 @@ export const SignInSmallText = styled(OpenSansRegularExtraSmall)`
   color: ${({ theme }) => theme.colors.gray[3]};
 `;
 
-export const SignInSignUpText = styled(SignInSmallText)`
+export const SignInSignUpRow = styled(RowView)`
   margin-top: 24px;
+  justify-content: center;
+`;
+
+export const SignInSignUpText = styled(SignInSmallText)`
   text-align: center;
   color: ${({ theme }) => theme.colors.gray[1]};
+`;
+
+export const SignInSignUpTextButton = styled.TouchableOpacity`
+  display: flex;
+  margin-left: 2px;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const SignInSignUpBoldText = styled(SignInSignUpText)`
+  font-family: OpenSans-SemiBold;
 `;
 
 export const SignInButton = styled.TouchableOpacity`

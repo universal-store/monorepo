@@ -14,7 +14,10 @@ import {
   SignInHeaderContainer,
   SignInHeaderTextContainer,
   SignInMainContainer,
+  SignInSignUpBoldText,
+  SignInSignUpRow,
   SignInSignUpText,
+  SignInSignUpTextButton,
   SignInSmallText,
   SignInSubHeaderText,
   SignInTextInput,
@@ -51,14 +54,19 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
         <SignInFormText>Password</SignInFormText>
         <SignInTextInput />
 
-        <SignInForgotPasswordButton>
+        <SignInForgotPasswordButton onPress={() => console.log('Forgot Password Pressed')}>
           <SignInSmallText>Forget Password?</SignInSmallText>
         </SignInForgotPasswordButton>
       </SignInFormContainer>
 
-      <SignInSignUpText>Need an account? Sign Up</SignInSignUpText>
+      <SignInSignUpRow>
+        <SignInSignUpText>Need an account?</SignInSignUpText>
+        <SignInSignUpTextButton onPress={() => console.log('Sign Up Pressed')}>
+          <SignInSignUpBoldText>Sign Up</SignInSignUpBoldText>
+        </SignInSignUpTextButton>
+      </SignInSignUpRow>
 
-      <SignInButton>
+      <SignInButton onPress={() => console.log('Log In Pressed')}>
         <SignInButtonText>Log In</SignInButtonText>
       </SignInButton>
 

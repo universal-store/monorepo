@@ -47,7 +47,6 @@ export const RowView = styled.View`
 
 // TODO: Remove in production
 export const TestButtons = styled.View`
-  margin-top: auto;
   margin-bottom: ${isiPhoneX ? 30 : 0}px;
 `;
 
@@ -55,6 +54,7 @@ export const TestButton = styled.TouchableOpacity`
   display: flex;
   height: 48px;
   margin-top: 8px;
+  border-radius: 4px;
   align-items: center;
   justify-content: center;
   background-color: ${({ theme }) => theme.colors.purple[1]};

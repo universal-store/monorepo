@@ -1,31 +1,27 @@
 /** @format */
 
 import React from 'react';
-import { Button } from 'react-native';
 
 // Components
 import {
-  FullScreenWhite,
+  FuturaBoldLarge as SignInHeaderTitleText,
+  LogoContainer,
+  SignInButton,
+  SignInButtonText,
+  SignInForgotPasswordButton,
+  SignInFormContainer,
+  SignInFormText,
+  SignInHeaderContainer,
+  SignInHeaderTextContainer,
+  SignInMainContainer,
+  SignInSignUpText,
+  SignInSmallText,
+  SignInSubHeaderText,
+  SignInTextInput,
+  SignInTextInputEmail,
   TestButton,
   TestButtons,
   TestButtonText,
-  SignIn_UniversalStoreContainer,
-  SignIn_Logo,
-  SignIn_UniversalStoreTextContainer,
-  SignIn_UniversalStoreText,
-  SignIn_SloganText,
-  SignIn_SignInText,
-  SignIn_WelcomeBackText,
-  SignIn_FormContainer,
-  SignIn_UsernameTextInput,
-  SignIn_EmailText,
-  SignIn_PasswordTextInput,
-  SignIn_PasswordText,
-  SignIn_ForgotPasswordText,
-  SignIn_SignUpText,
-  SignIn_LogInButtonContainer,
-  SignIn_LogInButton,
-  SignIn_LogInButtonText,
 } from '&components';
 
 // Navigation
@@ -36,29 +32,36 @@ type SignInScreenProps = StackScreenProps<OnboardingStackParams, 'SignInScreen'>
 
 export const SignInScreen = ({ navigation }: SignInScreenProps) => {
   return (
-    <FullScreenWhite>
-      <SignIn_UniversalStoreContainer>
-        <SignIn_Logo></SignIn_Logo>
-        <SignIn_UniversalStoreTextContainer>
-          <SignIn_UniversalStoreText>Universal Store</SignIn_UniversalStoreText>
-          <SignIn_SloganText>Redefining express checkout.</SignIn_SloganText>
-        </SignIn_UniversalStoreTextContainer>
-      </SignIn_UniversalStoreContainer>
-      <SignIn_SignInText>Sign In</SignIn_SignInText>
-      <SignIn_WelcomeBackText>Welcome back!</SignIn_WelcomeBackText>
-      <SignIn_FormContainer>
-        <SignIn_EmailText>Email</SignIn_EmailText>
-        <SignIn_UsernameTextInput></SignIn_UsernameTextInput>
-        <SignIn_PasswordText>Password</SignIn_PasswordText>
-        <SignIn_PasswordTextInput></SignIn_PasswordTextInput>
-        <SignIn_ForgotPasswordText>Forget Password?</SignIn_ForgotPasswordText>
-      </SignIn_FormContainer>
-      <SignIn_SignUpText>Need an account? Sign Up</SignIn_SignUpText>
-      <SignIn_LogInButtonContainer>
-        <SignIn_LogInButton>
-          <SignIn_LogInButtonText>Log In</SignIn_LogInButtonText>
-        </SignIn_LogInButton>
-      </SignIn_LogInButtonContainer>
+    <SignInMainContainer>
+      <SignInHeaderContainer>
+        <LogoContainer />
+        <SignInHeaderTextContainer>
+          <SignInHeaderTitleText>Universal Store</SignInHeaderTitleText>
+          <SignInSubHeaderText>Redefining express checkout.</SignInSubHeaderText>
+        </SignInHeaderTextContainer>
+      </SignInHeaderContainer>
+
+      <SignInHeaderTitleText>Sign In</SignInHeaderTitleText>
+      <SignInSubHeaderText>Welcome back!</SignInSubHeaderText>
+
+      <SignInFormContainer>
+        <SignInFormText>Email</SignInFormText>
+        <SignInTextInputEmail />
+
+        <SignInFormText>Password</SignInFormText>
+        <SignInTextInput />
+
+        <SignInForgotPasswordButton>
+          <SignInSmallText>Forget Password?</SignInSmallText>
+        </SignInForgotPasswordButton>
+      </SignInFormContainer>
+
+      <SignInSignUpText>Need an account? Sign Up</SignInSignUpText>
+
+      <SignInButton>
+        <SignInButtonText>Log In</SignInButtonText>
+      </SignInButton>
+
       <TestButtons>
         <TestButton onPress={() => navigation.navigate('LandingScreen')}>
           <TestButtonText>Go To Landing</TestButtonText>
@@ -68,6 +71,6 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
           <TestButtonText>Go To Sign Up</TestButtonText>
         </TestButton>
       </TestButtons>
-    </FullScreenWhite>
+    </SignInMainContainer>
   );
 };

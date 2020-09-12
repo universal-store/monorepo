@@ -61,7 +61,7 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
 
       <SignInSignUpRow>
         <SignInSignUpText>Need an account?</SignInSignUpText>
-        <SignInSignUpTextButton onPress={() => console.log('Sign Up Pressed')}>
+        <SignInSignUpTextButton onPress={() => navigation.navigate('SignUpScreen')}>
           <SignInSignUpBoldText>Sign Up</SignInSignUpBoldText>
         </SignInSignUpTextButton>
       </SignInSignUpRow>

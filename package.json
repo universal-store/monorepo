@@ -11,8 +11,8 @@
 		]
 	},
 	"scripts": {
-		"postinstall": "source .env && ./scripts/postinstall.sh",
 		"lint:staged": "lint-staged",
+		"postinstall": "./scripts/postinstall.sh",
 		"prettier": "prettier --write '*.{ts,tsx}'",
 		"start:database": "source .env && docker-compose up -d"
 	},

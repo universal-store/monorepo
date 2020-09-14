@@ -1,0 +1,9 @@
+query LoginUser($email: String!, $password: String!) {
+  User(where: {email: {_eq: $email}, password: {_eq: $password}}) {
+  	id
+  	email
+  	firstName 
+  	lastName
+  }	
+}
+

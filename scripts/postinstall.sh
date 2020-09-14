@@ -13,7 +13,7 @@ e() {
 }
 
 e "Get Schema from Hasura"
-cd "$dir"/database && gq http://localhost:8080/v1/graphql --introspect > schema.graphql -H "x-hasura-admin-secret: ${HASURA_GRAPHQL_ADMIN_SECRET}"
+cd "$dir"/database && gq ${GRAPHQL_API} --introspect > schema.graphql -H "x-hasura-admin-secret: ${HASURA_GRAPHQL_ADMIN_SECRET}"
 
 e "Run graphql-codegen"
 cd "$dir" && graphql-codegen --config codegen.yml

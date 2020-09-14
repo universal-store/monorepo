@@ -7,6 +7,11 @@ export * from './BackArrowIcon';
 // General Icons
 export * from './CartIcon';
 
+// Onboarding Icons
+export * from './EmailIcon';
+export * from './PersonIcon';
+export * from './PasswordIcons';
+
 // Scan Page
 export * from './FlashIcon';
 export * from './BarcodeIcon';

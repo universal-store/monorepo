@@ -7,7 +7,7 @@ import { ThemeProvider } from 'styled-components/native';
 
 import { Root } from '&navigation';
 
-import { HASURA_GRAPHQL_ADMIN_SECRET, LOCALHOST_IP } from '&env';
+import { HASURA_GRAPHQL_ADMIN_SECRET, GRAPHQL_API } from '&env';
 
 import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/client';
 
@@ -15,7 +15,7 @@ import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/c
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({
-    uri: `http://${LOCALHOST_IP}:8080/v1/graphql`,
+    uri: `${GRAPHQL_API}`,
     headers: {
       'x-hasura-role': 'Shopper',
       'x-hasura-admin-secret': HASURA_GRAPHQL_ADMIN_SECRET,

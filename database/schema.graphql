@@ -858,6 +858,78 @@ type Store {
 
   # An object relationship
   StorePic: StorePic
+
+  # An array relationship
+  UserFavoriteItems(
+    # distinct select on columns
+    distinct_on: [UserFavoriteItem_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserFavoriteItem_order_by!]
+
+    # filter the rows returned
+    where: UserFavoriteItem_bool_exp
+  ): [UserFavoriteItem!]!
+
+  # An aggregated array relationship
+  UserFavoriteItems_aggregate(
+    # distinct select on columns
+    distinct_on: [UserFavoriteItem_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserFavoriteItem_order_by!]
+
+    # filter the rows returned
+    where: UserFavoriteItem_bool_exp
+  ): UserFavoriteItem_aggregate!
+
+  # An array relationship
+  UserFavoriteStores(
+    # distinct select on columns
+    distinct_on: [UserFavoriteStore_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserFavoriteStore_order_by!]
+
+    # filter the rows returned
+    where: UserFavoriteStore_bool_exp
+  ): [UserFavoriteStore!]!
+
+  # An aggregated array relationship
+  UserFavoriteStores_aggregate(
+    # distinct select on columns
+    distinct_on: [UserFavoriteStore_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserFavoriteStore_order_by!]
+
+    # filter the rows returned
+    where: UserFavoriteStore_bool_exp
+  ): UserFavoriteStore_aggregate!
   address: String!
   category: String
   googlePlacesId: String!
@@ -896,6 +968,8 @@ input Store_arr_rel_insert_input {
 input Store_bool_exp {
   StoreItems: StoreItem_bool_exp
   StorePic: StorePic_bool_exp
+  UserFavoriteItems: UserFavoriteItem_bool_exp
+  UserFavoriteStores: UserFavoriteStore_bool_exp
   _and: [Store_bool_exp]
   _not: Store_bool_exp
   _or: [Store_bool_exp]
@@ -920,6 +994,8 @@ enum Store_constraint {
 input Store_insert_input {
   StoreItems: StoreItem_arr_rel_insert_input
   StorePic: StorePic_obj_rel_insert_input
+  UserFavoriteItems: UserFavoriteItem_arr_rel_insert_input
+  UserFavoriteStores: UserFavoriteStore_arr_rel_insert_input
   address: String
   category: String
   googlePlacesId: String
@@ -994,6 +1070,8 @@ input Store_on_conflict {
 input Store_order_by {
   StoreItems_aggregate: StoreItem_aggregate_order_by
   StorePic: StorePic_order_by
+  UserFavoriteItems_aggregate: UserFavoriteItem_aggregate_order_by
+  UserFavoriteStores_aggregate: UserFavoriteStore_aggregate_order_by
   address: order_by
   category: order_by
   googlePlacesId: order_by
@@ -1066,6 +1144,78 @@ type StoreItem {
 
   # An object relationship
   StoreItemPic: StoreItemPic
+
+  # An array relationship
+  UserCartItems(
+    # distinct select on columns
+    distinct_on: [UserCartItem_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserCartItem_order_by!]
+
+    # filter the rows returned
+    where: UserCartItem_bool_exp
+  ): [UserCartItem!]!
+
+  # An aggregated array relationship
+  UserCartItems_aggregate(
+    # distinct select on columns
+    distinct_on: [UserCartItem_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserCartItem_order_by!]
+
+    # filter the rows returned
+    where: UserCartItem_bool_exp
+  ): UserCartItem_aggregate!
+
+  # An array relationship
+  UserFavoriteItems(
+    # distinct select on columns
+    distinct_on: [UserFavoriteItem_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserFavoriteItem_order_by!]
+
+    # filter the rows returned
+    where: UserFavoriteItem_bool_exp
+  ): [UserFavoriteItem!]!
+
+  # An aggregated array relationship
+  UserFavoriteItems_aggregate(
+    # distinct select on columns
+    distinct_on: [UserFavoriteItem_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserFavoriteItem_order_by!]
+
+    # filter the rows returned
+    where: UserFavoriteItem_bool_exp
+  ): UserFavoriteItem_aggregate!
   barcodeId: String!
   description: String
   itemImageId: uuid
@@ -1133,6 +1283,8 @@ input StoreItem_avg_order_by {
 input StoreItem_bool_exp {
   Store: Store_bool_exp
   StoreItemPic: StoreItemPic_bool_exp
+  UserCartItems: UserCartItem_bool_exp
+  UserFavoriteItems: UserFavoriteItem_bool_exp
   _and: [StoreItem_bool_exp]
   _not: StoreItem_bool_exp
   _or: [StoreItem_bool_exp]
@@ -1168,6 +1320,8 @@ input StoreItem_inc_input {
 input StoreItem_insert_input {
   Store: Store_obj_rel_insert_input
   StoreItemPic: StoreItemPic_obj_rel_insert_input
+  UserCartItems: UserCartItem_arr_rel_insert_input
+  UserFavoriteItems: UserFavoriteItem_arr_rel_insert_input
   barcodeId: String
   description: String
   itemImageId: uuid
@@ -1253,6 +1407,8 @@ input StoreItem_on_conflict {
 input StoreItem_order_by {
   Store: Store_order_by
   StoreItemPic: StoreItemPic_order_by
+  UserCartItems_aggregate: UserCartItem_aggregate_order_by
+  UserFavoriteItems_aggregate: UserFavoriteItem_aggregate_order_by
   barcodeId: order_by
   description: order_by
   itemImageId: order_by

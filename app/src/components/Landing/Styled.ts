@@ -9,20 +9,16 @@ export const SplashLogoBox = styled.View`
   height: 200px;
   background-color: ${({ theme }) => theme.colors.purple[1]};
   margin: 112px auto 0;
-  border-radius: 30px;
+  border-radius: 20px;
 `;
 
 export const SplashTitleText = styled(FuturaBoldMedium)`
-  margin-top: 29px;
-  font-size: 21px;
-  line-height: 28px;
+  margin-top: 32px;
   text-align: center;
 `;
 
 export const SplashSubtitleText = styled(FuturaBoldMedium)`
-  margin-top: 5px;
-  font-size: 15px;
+  margin-top: 4px;
   color: ${({ theme }) => theme.colors.gray[3]};
-  line-height: 20px;
   text-align: center;
 `;

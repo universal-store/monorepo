@@ -3,7 +3,27 @@
 import React from 'react';
 
 // Components
-import { FullScreenWhite, TestButton, TestButtons, TestButtonText } from '&components';
+import {
+  FuturaBoldLarge as SignInHeaderTitleText,
+  LogoContainer,
+  SignInButton,
+  SignInButtonText,
+  SignInFormContainer,
+  SignInFormText,
+  SignInHeaderContainer,
+  SignInHeaderTextContainer,
+  SignInMainContainer,
+  SignInSignUpBoldText,
+  SignInSignUpRow,
+  SignInSignUpText,
+  SignInSignUpTextButton,
+  SignInSubHeaderText,
+  SignInTextInput,
+  SignInTextInputEmail,
+  TestButton,
+  TestButtons,
+  TestButtonText,
+} from '&components';
 
 // Navigation
 import { OnboardingStackParams } from '&navigation';
@@ -13,16 +33,42 @@ type SignUpScreenProps = StackScreenProps<OnboardingStackParams, 'SignUpScreen'>
 
 export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
   return (
-    <FullScreenWhite>
+    <SignInMainContainer>
+      <SignInHeaderContainer>
+        <LogoContainer />
+        <SignInHeaderTextContainer>
+          <SignInHeaderTitleText>Universal Store</SignInHeaderTitleText>
+          <SignInSubHeaderText>Redefining express checkout.</SignInSubHeaderText>
+        </SignInHeaderTextContainer>
+      </SignInHeaderContainer>
+
+      <SignInHeaderTitleText>Getting Started</SignInHeaderTitleText>
+      <SignInSubHeaderText>Create an account to continue</SignInSubHeaderText>
+
+      <SignInFormContainer>
+        <SignInFormText>Email Address*</SignInFormText>
+        <SignInTextInputEmail />
+
+        <SignInFormText>Password</SignInFormText>
+        <SignInTextInput />
+      </SignInFormContainer>
+
+      <SignInSignUpRow>
+        <SignInSignUpText>Already have an account?</SignInSignUpText>
+        <SignInSignUpTextButton onPress={() => navigation.navigate('SignInScreen')}>
+          <SignInSignUpBoldText>Log In</SignInSignUpBoldText>
+        </SignInSignUpTextButton>
+      </SignInSignUpRow>
+
+      <SignInButton onPress={() => console.log('Sign Up Pressed')}>
+        <SignInButtonText>Sign Up</SignInButtonText>
+      </SignInButton>
+
       <TestButtons>
         <TestButton onPress={() => navigation.navigate('LandingScreen')}>
           <TestButtonText>Go To Landing</TestButtonText>
         </TestButton>
-
-        <TestButton onPress={() => navigation.navigate('SignInScreen')}>
-          <TestButtonText>Go To Sign In</TestButtonText>
-        </TestButton>
       </TestButtons>
-    </FullScreenWhite>
+    </SignInMainContainer>
   );
 };

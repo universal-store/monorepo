@@ -55,6 +55,7 @@ export const TestButton = styled.TouchableOpacity`
   display: flex;
   height: 48px;
   margin-top: 8px;
+  border-radius: 4px;
   align-items: center;
   justify-content: center;
   background-color: ${({ theme }) => theme.colors.purple[1]};

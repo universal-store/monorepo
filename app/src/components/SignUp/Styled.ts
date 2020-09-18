@@ -2,7 +2,7 @@
 
 import styled from 'styled-components/native';
 
-import { FullScreenWhite, RowView, screenWidth } from '../Views';
+import { FullScreenWhite, RowView } from '../Views';
 
 import { FuturaBoldSmall, OpenSansRegularSmall, OpenSansRegularExtraSmall } from '../Text';
 
@@ -14,7 +14,7 @@ export const SignInMainContainer = styled(FullScreenWhite)`
 
 export const SignInHeaderContainer = styled(RowView)`
   width: 100%;
-  margin: 48px 0 24px;
+  margin: 24px 0 24px;
 `;
 
 export const LogoContainer = styled.View`
@@ -39,7 +39,7 @@ export const SignInFormContainer = styled.View`
 `;
 
 export const SignInFormText = styled(OpenSansRegularSmall)`
-  margin-bottom: 19px;
+  margin-bottom: 9px;
   color: ${({ theme }) => theme.colors.gray[3]};
 `;
 
@@ -53,13 +53,9 @@ export const SignInSmallText = styled(OpenSansRegularExtraSmall)`
   color: ${({ theme }) => theme.colors.gray[3]};
 `;
 
-export const SignInTextInputEmail = styled(SignInTextInput)`
-  margin-bottom: 24px;
-`;
-
 export const SignInSignUpRow = styled(RowView)`
-  margin-top: 24px;
-  margin-bottom: 24px;
+  margin-top: 12px;
+  margin-bottom: 12px;
   justify-content: center;
 `;
 
@@ -86,7 +82,7 @@ export const SignInButton = styled.TouchableOpacity`
   padding: 10px;
   border-radius: 40px;
   align-items: center;
-  margin: 24px 0 80px;
+  margin: 24px 0 8px;
   justify-content: center;
   background-color: ${({ theme }) => theme.colors.purple[1]};
 `;

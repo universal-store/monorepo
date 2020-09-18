@@ -19,10 +19,6 @@ import {
   SignInSignUpTextButton,
   SignInSubHeaderText,
   SignInTextInput,
-  SignInTextInputEmail,
-  TestButton,
-  TestButtons,
-  TestButtonText,
 } from '&components';
 
 // Navigation
@@ -47,8 +43,9 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
 
       <SignInFormContainer>
         <SignInFormText>Email Address*</SignInFormText>
-        <SignInTextInputEmail />
-
+        <SignInTextInput />
+        <SignInFormText>First Name* Last Name*</SignInFormText>
+        <SignInTextInput />
         <SignInFormText>Password</SignInFormText>
         <SignInTextInput />
       </SignInFormContainer>
@@ -64,11 +61,12 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
         <SignInButtonText>Sign Up</SignInButtonText>
       </SignInButton>
 
-      <TestButtons>
-        <TestButton onPress={() => navigation.navigate('LandingScreen')}>
-          <TestButtonText>Go To Landing</TestButtonText>
-        </TestButton>
-      </TestButtons>
+      <SignInSignUpText>By continuing you agree to our</SignInSignUpText>
+      <SignInSignUpText>
+        <SignInSignUpBoldText>Terms of Service </SignInSignUpBoldText>
+        and
+        <SignInSignUpBoldText> Privacy Policy</SignInSignUpBoldText>
+      </SignInSignUpText>
     </SignInMainContainer>
   );
 };

@@ -12,7 +12,7 @@
 	},
 	"scripts": {
 		"lint:staged": "lint-staged",
-		"postinstall": "set GRAPHQL_API=https://bright-heron-91.hasura.app/v1/graphql && set HASURA_GRAPHQL_ADMIN_SECRET=universalstoresecretkey && ./scripts/postinstall.sh",
+		"postinstall": "source .env && ./scripts/postinstall.sh",
 		"prettier": "prettier --write '*.{ts,tsx}'",
 		"start:database": "source .env && docker-compose up -d"
 	},

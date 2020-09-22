@@ -4,7 +4,15 @@ import React from 'react';
 import { Button } from 'react-native';
 
 // Components
-import { FullScreenWhite, TestButton, TestButtons, TestButtonText } from '&components';
+import {
+  FullScreenWhite,
+  TestButton,
+  TestButtons,
+  TestButtonText,
+  SplashLogoBox,
+  SplashTitleText,
+  SplashSubtitleText,
+} from '&components';
 
 // Navigation
 import { OnboardingStackParams } from '&navigation';
@@ -15,6 +23,9 @@ type LandingScreenProps = StackScreenProps<OnboardingStackParams, 'LandingScreen
 export const LandingScreen = ({ navigation }: LandingScreenProps) => {
   return (
     <FullScreenWhite>
+      <SplashLogoBox />
+      <SplashTitleText> Universal Store</SplashTitleText>
+      <SplashSubtitleText>Redefining express checkout.</SplashSubtitleText>
       <TestButtons>
         <TestButton onPress={() => navigation.navigate('SignUpScreen')}>
           <TestButtonText>Go To Sign Up</TestButtonText>

@@ -2,9 +2,9 @@
 
 import styled from 'styled-components/native';
 
-import { FullScreenWhite, isiPhoneX, RowView } from '../Views';
-
-import { HeaderSmallText, TextSmall, TextSmall2 } from '../Text';
+// Components
+import { FullScreenWhite, isiPhoneX, RowView } from './Views';
+import { HeaderSmallText, TextSmall, TextSmall2 } from './Text';
 
 export const OnboardingMainContainer = styled(FullScreenWhite)`
   width: 100%;
@@ -42,7 +42,11 @@ export const OnboardingFormText = styled(TextSmall)`
   color: ${({ theme }) => theme.colors.gray[3]};
 `;
 
-export const OnboardingTextInput = styled.TextInput`
+export const OnboardingTextInput = styled.TextInput.attrs(({ theme }) => ({
+  selectionColor: theme.colors.gray[3],
+  placeholderTextColor: theme.colors.gray[4],
+}))`
+  padding: 8px;
   margin-bottom: 8px;
   border-bottom-width: 1px;
   font-family: NunitoSans-Regular;

@@ -14,7 +14,7 @@ export const screenHeight = Dimensions.get('window').height;
 export const isLargeScreen = screenHeight > 731;
 export const isiPhoneX = Platform.OS === 'ios' && screenHeight > 812;
 
-export const FullScreen = styled.TouchableWithoutFeedback`
+export const FullScreen = styled.View`
   flex: 1;
   width: ${screenWidth}px;
   height: ${screenHeight}px;
@@ -44,6 +44,10 @@ export const CameraView = styled(Camera)`
 export const RowView = styled.View`
   display: flex;
   flex-direction: row;
+`;
+
+export const KeyboardDismiss = styled.TouchableWithoutFeedback`
+  flex: 1;
 `;
 
 // TODO: Remove in production

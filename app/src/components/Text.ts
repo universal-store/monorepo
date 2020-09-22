@@ -25,11 +25,11 @@ export const NunitoSansBold = styled.Text`
 `;
 
 export const TextLarge = styled(NunitoSansBold)`
-  font-size: 20px;
+  font-size: 24px;
 `;
 
 export const TextMedium = styled(NunitoSansBold)`
-  font-size: 18px;
+  font-size: 20px;
 `;
 
 export const NunitoSansRegular = styled.Text`
@@ -38,17 +38,17 @@ export const NunitoSansRegular = styled.Text`
 `;
 
 export const TextLarge2 = styled(NunitoSansRegular)`
-  font-size: 20px;
+  font-size: 22px;
 `;
 
 export const TextMedium2 = styled(NunitoSansRegular)`
-  font-size: 15px;
+  font-size: 18px;
 `;
 
 export const TextSmall = styled(NunitoSansRegular)`
-  font-size: 13px;
+  font-size: 16px;
 `;
 
 export const TextSmall2 = styled(NunitoSansRegular)`
-  font-size: 12px;
+  font-size: 15px;
 `;

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* UniversalStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* UniversalStoreTests.m */; };
-		0D188AC026BA429D949DA8AB /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1C3C60FF0394D94AEEE88DD /* OpenSans-SemiBold.ttf */; };
 		104453B81F297A57E95B32BF /* libPods-UniversalStore-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05081094F09D794244E83D43 /* libPods-UniversalStore-tvOSTests.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -18,15 +17,12 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* UniversalStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* UniversalStoreTests.m */; };
-		5CB7E0A9734548A4BDA5682B /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F9A002D7B2ED4424995575D7 /* OpenSans-Regular.ttf */; };
+		715F0DE18F954C739E84ACFC /* NunitoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBE09EECC4C24188B8A83409 /* NunitoSans-Regular.ttf */; };
 		7D5EAA37D0FC1DB00EB9B0C0 /* libPods-UniversalStore-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B04E68CAC494AD64180EAEC5 /* libPods-UniversalStore-tvOS.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		83DB2609AF364C3DAC8F7288 /* Futura-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77A6462D44EB44369DB49F62 /* Futura-Bold.ttf */; };
-		CC56E85A3B5D2B54D015C36A /* libPods-UniversalStore-UniversalStoreTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1835DF09A8EB3ABB2F46FCE /* libPods-UniversalStore-UniversalStoreTests.a */; };
-		F40828FCE9D941168F7BED6A /* Futura-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 855C6BB937BE43DDB8BEB6C8 /* Futura-Medium.ttf */; };
 		AFC6030B4ECD43E9A4256DBB /* NunitoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C74549D418F47FFB51424AB /* NunitoSans-Bold.ttf */; };
+		CC56E85A3B5D2B54D015C36A /* libPods-UniversalStore-UniversalStoreTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1835DF09A8EB3ABB2F46FCE /* libPods-UniversalStore-UniversalStoreTests.a */; };
 		FD3B44D3FB6A46E5A2199A71 /* NunitoSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0EF9B07AFBCB4CFB8D0AE3A5 /* NunitoSans-ExtraBold.ttf */; };
-		715F0DE18F954C739E84ACFC /* NunitoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBE09EECC4C24188B8A83409 /* NunitoSans-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +48,7 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* UniversalStoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UniversalStoreTests.m; sourceTree = "<group>"; };
 		05081094F09D794244E83D43 /* libPods-UniversalStore-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UniversalStore-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EF9B07AFBCB4CFB8D0AE3A5 /* NunitoSans-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NunitoSans-ExtraBold.ttf"; path = "../assets/fonts/NunitoSans-ExtraBold.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* UniversalStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniversalStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = UniversalStore/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = UniversalStore/AppDelegate.m; sourceTree = "<group>"; };
@@ -62,6 +59,7 @@
 		2D02E47B1E0B4A5D006451C7 /* UniversalStore-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UniversalStore-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* UniversalStore-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UniversalStore-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30F658DFFEAC425AC1DC0C2A /* Pods-UniversalStore-UniversalStoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniversalStore-UniversalStoreTests.debug.xcconfig"; path = "Target Support Files/Pods-UniversalStore-UniversalStoreTests/Pods-UniversalStore-UniversalStoreTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5C74549D418F47FFB51424AB /* NunitoSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NunitoSans-Bold.ttf"; path = "../assets/fonts/NunitoSans-Bold.ttf"; sourceTree = "<group>"; };
 		5EB9BF0162C85FDA7BDF7FE8 /* Pods-UniversalStore-UniversalStoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniversalStore-UniversalStoreTests.release.xcconfig"; path = "Target Support Files/Pods-UniversalStore-UniversalStoreTests/Pods-UniversalStore-UniversalStoreTests.release.xcconfig"; sourceTree = "<group>"; };
 		5FB6D3EB0CB436659873F206 /* Pods-UniversalStore-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniversalStore-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-UniversalStore-tvOSTests/Pods-UniversalStore-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		77A6462D44EB44369DB49F62 /* Futura-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Futura-Bold.ttf"; path = "../assets/fonts/Futura-Bold.ttf"; sourceTree = "<group>"; };
@@ -72,15 +70,13 @@
 		A1835DF09A8EB3ABB2F46FCE /* libPods-UniversalStore-UniversalStoreTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UniversalStore-UniversalStoreTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B04E68CAC494AD64180EAEC5 /* libPods-UniversalStore-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UniversalStore-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1C3C60FF0394D94AEEE88DD /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-SemiBold.ttf"; path = "../assets/fonts/OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		DBE09EECC4C24188B8A83409 /* NunitoSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NunitoSans-Regular.ttf"; path = "../assets/fonts/NunitoSans-Regular.ttf"; sourceTree = "<group>"; };
 		E4CA851ECFFC0A1D9842A2AC /* Pods-UniversalStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniversalStore.debug.xcconfig"; path = "Target Support Files/Pods-UniversalStore/Pods-UniversalStore.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F934D0260D557D35C4B7879F /* libPods-UniversalStore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UniversalStore.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9A002D7B2ED4424995575D7 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Regular.ttf"; path = "../assets/fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		FB541F3DF6F6E704462CD0B6 /* Pods-UniversalStore-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniversalStore-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-UniversalStore-tvOSTests/Pods-UniversalStore-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		5C74549D418F47FFB51424AB /* NunitoSans-Bold.ttf */ = {isa = PBXFileReference; name = "NunitoSans-Bold.ttf"; path = "../assets/fonts/NunitoSans-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		0EF9B07AFBCB4CFB8D0AE3A5 /* NunitoSans-ExtraBold.ttf */ = {isa = PBXFileReference; name = "NunitoSans-ExtraBold.ttf"; path = "../assets/fonts/NunitoSans-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		DBE09EECC4C24188B8A83409 /* NunitoSans-Regular.ttf */ = {isa = PBXFileReference; name = "NunitoSans-Regular.ttf"; path = "../assets/fonts/NunitoSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,7 +318,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = TD9XT5R5B4;
+						DevelopmentTeam = GYF2GH2UTC;
 						LastSwiftMigration = 1120;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -371,10 +367,6 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				83DB2609AF364C3DAC8F7288 /* Futura-Bold.ttf in Resources */,
-				F40828FCE9D941168F7BED6A /* Futura-Medium.ttf in Resources */,
-				5CB7E0A9734548A4BDA5682B /* OpenSans-Regular.ttf in Resources */,
-				0D188AC026BA429D949DA8AB /* OpenSans-SemiBold.ttf in Resources */,
 				AFC6030B4ECD43E9A4256DBB /* NunitoSans-Bold.ttf in Resources */,
 				FD3B44D3FB6A46E5A2199A71 /* NunitoSans-ExtraBold.ttf in Resources */,
 				715F0DE18F954C739E84ACFC /* NunitoSans-Regular.ttf in Resources */,
@@ -692,7 +684,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TD9XT5R5B4;
+				DEVELOPMENT_TEAM = GYF2GH2UTC;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = UniversalStore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -701,7 +693,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.UniversalStore1;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.UniversalStore;
 				PRODUCT_NAME = UniversalStore;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -716,7 +708,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TD9XT5R5B4;
+				DEVELOPMENT_TEAM = GYF2GH2UTC;
 				INFOPLIST_FILE = UniversalStore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -724,7 +716,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.UniversalStore1;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.UniversalStore;
 				PRODUCT_NAME = UniversalStore;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

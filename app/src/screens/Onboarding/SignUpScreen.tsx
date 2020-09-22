@@ -3,7 +3,23 @@
 import React from 'react';
 
 // Components
-import { FullScreenWhite, TestButton, TestButtons, TestButtonText } from '&components';
+import {
+  FuturaBoldLarge as SignInHeaderTitleText,
+  LogoContainer,
+  SignInButton,
+  SignInButtonText,
+  SignInFormContainer,
+  SignInFormText,
+  SignInHeaderContainer,
+  SignInHeaderTextContainer,
+  SignInMainContainer,
+  SignInSignUpBoldText,
+  SignInSignUpRow,
+  SignInSignUpText,
+  SignInSignUpTextButton,
+  SignInSubHeaderText,
+  SignInTextInput,
+} from '&components';
 
 // Navigation
 import { OnboardingStackParams } from '&navigation';
@@ -13,16 +29,44 @@ type SignUpScreenProps = StackScreenProps<OnboardingStackParams, 'SignUpScreen'>
 
 export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
   return (
-    <FullScreenWhite>
-      <TestButtons>
-        <TestButton onPress={() => navigation.navigate('LandingScreen')}>
-          <TestButtonText>Go To Landing</TestButtonText>
-        </TestButton>
+    <SignInMainContainer>
+      <SignInHeaderContainer>
+        <LogoContainer />
+        <SignInHeaderTextContainer>
+          <SignInHeaderTitleText>Universal Store</SignInHeaderTitleText>
+          <SignInSubHeaderText>Redefining express checkout.</SignInSubHeaderText>
+        </SignInHeaderTextContainer>
+      </SignInHeaderContainer>
 
-        <TestButton onPress={() => navigation.navigate('SignInScreen')}>
-          <TestButtonText>Go To Sign In</TestButtonText>
-        </TestButton>
-      </TestButtons>
-    </FullScreenWhite>
+      <SignInHeaderTitleText>Getting Started</SignInHeaderTitleText>
+      <SignInSubHeaderText>Create an account to continue</SignInSubHeaderText>
+
+      <SignInFormContainer>
+        <SignInFormText>Email Address*</SignInFormText>
+        <SignInTextInput />
+        <SignInFormText>First Name* Last Name*</SignInFormText>
+        <SignInTextInput />
+        <SignInFormText>Password</SignInFormText>
+        <SignInTextInput />
+      </SignInFormContainer>
+
+      <SignInSignUpRow>
+        <SignInSignUpText>Already have an account?</SignInSignUpText>
+        <SignInSignUpTextButton onPress={() => navigation.navigate('SignInScreen')}>
+          <SignInSignUpBoldText>Log In</SignInSignUpBoldText>
+        </SignInSignUpTextButton>
+      </SignInSignUpRow>
+
+      <SignInButton onPress={() => console.log('Sign Up Pressed')}>
+        <SignInButtonText>Sign Up</SignInButtonText>
+      </SignInButton>
+
+      <SignInSignUpText>By continuing you agree to our</SignInSignUpText>
+      <SignInSignUpText>
+        <SignInSignUpBoldText>Terms of Service </SignInSignUpBoldText>
+        and
+        <SignInSignUpBoldText> Privacy Policy</SignInSignUpBoldText>
+      </SignInSignUpText>
+    </SignInMainContainer>
   );
 };

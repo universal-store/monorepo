@@ -1,24 +1,26 @@
 /** @format */
 
 import React from 'react';
+import { Keyboard } from 'react-native';
 
 // Components
 import {
-  FuturaBoldLarge as SignInHeaderTitleText,
+  HeaderLargeText as OnboardingHeaderTitleText,
+  KeyboardDismiss,
   LogoContainer,
-  SignInButton,
-  SignInButtonText,
-  SignInFormContainer,
-  SignInFormText,
-  SignInHeaderContainer,
-  SignInHeaderTextContainer,
-  SignInMainContainer,
-  SignInSignUpBoldText,
-  SignInSignUpRow,
-  SignInSignUpText,
-  SignInSignUpTextButton,
-  SignInSubHeaderText,
-  SignInTextInput,
+  OnboardingButton,
+  OnboardingButtonText,
+  OnboardingFormContainer,
+  OnboardingFormText,
+  OnboardingHeaderContainer,
+  OnboardingHeaderTextContainer,
+  OnboardingMainContainer,
+  OnboardingRow,
+  OnboardingSmallerBoldText,
+  OnboardingSmallerText,
+  OnboardingSubHeaderText,
+  OnboardingTextButton,
+  OnboardingTextInput,
 } from '&components';
 
 // Navigation
@@ -29,44 +31,48 @@ type SignUpScreenProps = StackScreenProps<OnboardingStackParams, 'SignUpScreen'>
 
 export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
   return (
-    <SignInMainContainer>
-      <SignInHeaderContainer>
-        <LogoContainer />
-        <SignInHeaderTextContainer>
-          <SignInHeaderTitleText>Universal Store</SignInHeaderTitleText>
-          <SignInSubHeaderText>Redefining express checkout.</SignInSubHeaderText>
-        </SignInHeaderTextContainer>
-      </SignInHeaderContainer>
+    <KeyboardDismiss onPress={Keyboard.dismiss}>
+      <OnboardingMainContainer>
+        <OnboardingHeaderContainer>
+          <LogoContainer />
+          <OnboardingHeaderTextContainer>
+            <OnboardingHeaderTitleText>Universal Store</OnboardingHeaderTitleText>
+            <OnboardingSubHeaderText>Redefining express checkout.</OnboardingSubHeaderText>
+          </OnboardingHeaderTextContainer>
+        </OnboardingHeaderContainer>
 
-      <SignInHeaderTitleText>Getting Started</SignInHeaderTitleText>
-      <SignInSubHeaderText>Create an account to continue</SignInSubHeaderText>
+        <OnboardingHeaderTitleText>Getting Started</OnboardingHeaderTitleText>
+        <OnboardingSubHeaderText>Create an account to continue</OnboardingSubHeaderText>
 
-      <SignInFormContainer>
-        <SignInFormText>Email Address*</SignInFormText>
-        <SignInTextInput />
-        <SignInFormText>First Name* Last Name*</SignInFormText>
-        <SignInTextInput />
-        <SignInFormText>Password</SignInFormText>
-        <SignInTextInput />
-      </SignInFormContainer>
+        <OnboardingFormContainer>
+          <OnboardingFormText>Email Address*</OnboardingFormText>
+          <OnboardingTextInput autoCompleteType="email" placeholder="Enter your email address..." />
 
-      <SignInSignUpRow>
-        <SignInSignUpText>Already have an account?</SignInSignUpText>
-        <SignInSignUpTextButton onPress={() => navigation.navigate('SignInScreen')}>
-          <SignInSignUpBoldText>Log In</SignInSignUpBoldText>
-        </SignInSignUpTextButton>
-      </SignInSignUpRow>
+          <OnboardingFormText>First Name* Last Name*</OnboardingFormText>
+          <OnboardingTextInput autoCompleteType="name" placeholder="Enter your name..." />
 
-      <SignInButton onPress={() => console.log('Sign Up Pressed')}>
-        <SignInButtonText>Sign Up</SignInButtonText>
-      </SignInButton>
+          <OnboardingFormText>Password</OnboardingFormText>
+          <OnboardingTextInput autoCompleteType="password" placeholder="Enter your password..." />
+        </OnboardingFormContainer>
 
-      <SignInSignUpText>By continuing you agree to our</SignInSignUpText>
-      <SignInSignUpText>
-        <SignInSignUpBoldText>Terms of Service </SignInSignUpBoldText>
-        and
-        <SignInSignUpBoldText> Privacy Policy</SignInSignUpBoldText>
-      </SignInSignUpText>
-    </SignInMainContainer>
+        <OnboardingRow>
+          <OnboardingSmallerText>Already have an account? </OnboardingSmallerText>
+          <OnboardingTextButton onPress={() => navigation.navigate('SignInScreen')}>
+            <OnboardingSmallerBoldText>Log In</OnboardingSmallerBoldText>
+          </OnboardingTextButton>
+        </OnboardingRow>
+
+        <OnboardingButton onPress={() => console.log('Sign Up Pressed')}>
+          <OnboardingButtonText>Sign Up</OnboardingButtonText>
+        </OnboardingButton>
+
+        <OnboardingSmallerText>
+          By continuing you agree to our
+          <OnboardingSmallerBoldText> Terms of Service </OnboardingSmallerBoldText>
+          and
+          <OnboardingSmallerBoldText> Privacy Policy</OnboardingSmallerBoldText>
+        </OnboardingSmallerText>
+      </OnboardingMainContainer>
+    </KeyboardDismiss>
   );
 };

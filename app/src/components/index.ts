@@ -7,9 +7,8 @@ export * from './Text';
 export * from './Views';
 
 // Onboarding Screens
-export * from './SignIn';
-export * from './SignUp';
 export * from './Landing';
+export * from './Onboarding';
 
 // Auth Screens
 export * from './Scan';

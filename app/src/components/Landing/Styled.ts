@@ -1,7 +1,8 @@
 /** @format */
 
 import styled from 'styled-components/native';
-import { FuturaBoldMedium } from '../Text';
+
+import { HeaderLargeText, HeaderSmallText } from '../Text';
 
 export const SplashLogoBox = styled.View`
   display: flex;
@@ -12,12 +13,12 @@ export const SplashLogoBox = styled.View`
   border-radius: 20px;
 `;
 
-export const SplashTitleText = styled(FuturaBoldMedium)`
+export const SplashTitleText = styled(HeaderLargeText)`
   margin-top: 32px;
   text-align: center;
 `;
 
-export const SplashSubtitleText = styled(FuturaBoldMedium)`
+export const SplashSubtitleText = styled(HeaderSmallText)`
   margin-top: 4px;
   color: ${({ theme }) => theme.colors.gray[3]};
   text-align: center;

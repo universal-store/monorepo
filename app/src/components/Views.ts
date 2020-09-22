@@ -14,7 +14,7 @@ export const screenHeight = Dimensions.get('window').height;
 export const isLargeScreen = screenHeight > 731;
 export const isiPhoneX = Platform.OS === 'ios' && screenHeight > 812;
 
-export const FullScreen = styled.View`
+export const FullScreen = styled.TouchableWithoutFeedback`
   flex: 1;
   width: ${screenWidth}px;
   height: ${screenHeight}px;
@@ -48,6 +48,7 @@ export const RowView = styled.View`
 
 // TODO: Remove in production
 export const TestButtons = styled.View`
+  margin-top: auto;
   margin-bottom: ${isiPhoneX ? 30 : 0}px;
 `;
 

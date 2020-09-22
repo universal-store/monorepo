@@ -50,5 +50,5 @@ export const TextSmall = styled(NunitoSansRegular)`
 `;
 
 export const TextSmall2 = styled(NunitoSansRegular)`
-  font-size: 11px;
+  font-size: 12px;
 `;

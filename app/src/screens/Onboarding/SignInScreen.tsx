@@ -1,30 +1,27 @@
 /** @format */
 
 import React from 'react';
+import { Keyboard } from 'react-native';
 
 // Components
 import {
-  FuturaBoldLarge as SignInHeaderTitleText,
+  HeaderLargeText as OnboardingHeaderTitleText,
   LogoContainer,
-  SignInButton,
-  SignInButtonText,
-  SignInForgotPasswordButton,
-  SignInFormContainer,
-  SignInFormText,
-  SignInHeaderContainer,
-  SignInHeaderTextContainer,
-  SignInMainContainer,
-  SignInSignUpBoldText,
-  SignInSignUpRow,
-  SignInSignUpText,
-  SignInSignUpTextButton,
-  SignInSmallText,
-  SignInSubHeaderText,
-  SignInTextInput,
-  SignInTextInputEmail,
-  TestButton,
-  TestButtons,
-  TestButtonText,
+  OnboardingButton,
+  OnboardingButtonText,
+  OnboardingForgotPasswordButton,
+  OnboardingFormContainer,
+  OnboardingFormText,
+  OnboardingHeaderContainer,
+  OnboardingHeaderTextContainer,
+  OnboardingMainContainer,
+  OnboardingRow,
+  OnboardingSmallerBoldText,
+  OnboardingSmallerText,
+  OnboardingSmallText,
+  OnboardingSubHeaderText,
+  OnboardingTextButton,
+  OnboardingTextInput,
 } from '&components';
 
 // Navigation
@@ -35,50 +32,40 @@ type SignInScreenProps = StackScreenProps<OnboardingStackParams, 'SignInScreen'>
 
 export const SignInScreen = ({ navigation }: SignInScreenProps) => {
   return (
-    <SignInMainContainer>
-      <SignInHeaderContainer>
+    <OnboardingMainContainer onPress={() => Keyboard.dismiss()}>
+      <OnboardingHeaderContainer>
         <LogoContainer />
-        <SignInHeaderTextContainer>
-          <SignInHeaderTitleText>Universal Store</SignInHeaderTitleText>
-          <SignInSubHeaderText>Redefining express checkout.</SignInSubHeaderText>
-        </SignInHeaderTextContainer>
-      </SignInHeaderContainer>
+        <OnboardingHeaderTextContainer>
+          <OnboardingHeaderTitleText>Universal Store</OnboardingHeaderTitleText>
+          <OnboardingSubHeaderText>Redefining express checkout.</OnboardingSubHeaderText>
+        </OnboardingHeaderTextContainer>
+      </OnboardingHeaderContainer>
 
-      <SignInHeaderTitleText>Sign In</SignInHeaderTitleText>
-      <SignInSubHeaderText>Welcome back!</SignInSubHeaderText>
+      <OnboardingHeaderTitleText>Sign In</OnboardingHeaderTitleText>
+      <OnboardingSubHeaderText>Welcome back!</OnboardingSubHeaderText>
 
-      <SignInFormContainer>
-        <SignInFormText>Email</SignInFormText>
-        <SignInTextInputEmail />
+      <OnboardingFormContainer>
+        <OnboardingFormText>Email</OnboardingFormText>
+        <OnboardingTextInput />
 
-        <SignInFormText>Password</SignInFormText>
-        <SignInTextInput />
+        <OnboardingFormText>Password</OnboardingFormText>
+        <OnboardingTextInput />
 
-        <SignInForgotPasswordButton onPress={() => console.log('Forgot Password Pressed')}>
-          <SignInSmallText>Forget Password?</SignInSmallText>
-        </SignInForgotPasswordButton>
-      </SignInFormContainer>
+        <OnboardingForgotPasswordButton onPress={() => console.log('Forgot Password Pressed')}>
+          <OnboardingSmallText>Forget Password?</OnboardingSmallText>
+        </OnboardingForgotPasswordButton>
+      </OnboardingFormContainer>
 
-      <SignInSignUpRow>
-        <SignInSignUpText>Need an account?</SignInSignUpText>
-        <SignInSignUpTextButton onPress={() => navigation.navigate('SignUpScreen')}>
-          <SignInSignUpBoldText>Sign Up</SignInSignUpBoldText>
-        </SignInSignUpTextButton>
-      </SignInSignUpRow>
+      <OnboardingRow>
+        <OnboardingSmallerText>Need an account? </OnboardingSmallerText>
+        <OnboardingTextButton onPress={() => navigation.navigate('SignUpScreen')}>
+          <OnboardingSmallerBoldText>Sign Up</OnboardingSmallerBoldText>
+        </OnboardingTextButton>
+      </OnboardingRow>
 
-      <SignInButton onPress={() => console.log('Log In Pressed')}>
-        <SignInButtonText>Log In</SignInButtonText>
-      </SignInButton>
-
-      <TestButtons>
-        <TestButton onPress={() => navigation.navigate('LandingScreen')}>
-          <TestButtonText>Go To Landing</TestButtonText>
-        </TestButton>
-
-        <TestButton onPress={() => navigation.navigate('SignUpScreen')}>
-          <TestButtonText>Go To Sign Up</TestButtonText>
-        </TestButton>
-      </TestButtons>
-    </SignInMainContainer>
+      <OnboardingButton onPress={() => console.log('Log In Pressed')}>
+        <OnboardingButtonText>Log In</OnboardingButtonText>
+      </OnboardingButton>
+    </OnboardingMainContainer>
   );
 };

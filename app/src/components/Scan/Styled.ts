@@ -5,7 +5,7 @@ import { Animated } from 'react-native';
 
 // Components
 import { FullScreenCenter, isiPhoneX, RowView, screenWidth } from '../Views';
-import { FuturaBoldLarge, FuturaBoldSmall, OpenSansRegularLarge, OpenSansSemiBoldMedium } from '../Text';
+import { HeaderLargeText, HeaderSmallText, TextMedium, TextMedium2 } from '../Text';
 
 // Scanning Page
 
@@ -13,7 +13,7 @@ export const NoCameraScreen = styled(FullScreenCenter)`
   background-color: ${({ theme }) => theme.colors.gray[1]};
 `;
 
-export const NoCameraText = styled(FuturaBoldLarge)`
+export const NoCameraText = styled(HeaderLargeText)`
   text-align: center;
   color: ${({ theme }) => theme.colors.white[1]};
 `;
@@ -29,7 +29,7 @@ export const CameraSettingsButton = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.colors.purple[1]};
 `;
 
-export const CameraSettingsText = styled(FuturaBoldSmall)`
+export const CameraSettingsText = styled(HeaderSmallText)`
   color: ${({ theme }) => theme.colors.white[1]};
 `;
 
@@ -64,7 +64,7 @@ export const ScannerHeaderButton = styled.TouchableOpacity`
   justify-content: center;
 `;
 
-export const ScannerHeaderText = styled(FuturaBoldLarge)`
+export const ScannerHeaderText = styled(HeaderLargeText)`
   color: ${({ theme }) => theme.colors.white[1]};
 `;
 
@@ -119,7 +119,7 @@ export const BottomLayer = styled.View`
   background-color: ${({ theme }) => theme.colors.transparent.black};
 `;
 
-export const ScannedText = styled(OpenSansSemiBoldMedium)`
+export const ScannedText = styled(TextMedium)`
   margin-top: 24px;
   text-align: center;
   color: ${({ theme }) => theme.colors.white[1]};
@@ -165,6 +165,7 @@ export const ItemPreviewTextContainer = styled.View`
   margin-left: 8px;
 `;
 
-export const ItemPreviewPriceText = styled(OpenSansRegularLarge)`
+export const ItemPreviewPriceText = styled(TextMedium2)`
   margin-top: auto;
+  color: ${({ theme }) => theme.colors.gray[3]};
 `;

@@ -5,7 +5,8 @@ import styled from 'styled-components/native';
 
 // Components
 import { Camera } from 'expo-camera';
-import { FuturaBoldSmall } from './Text';
+
+import { HeaderSmallText } from './Text';
 
 export const screenWidth = Dimensions.get('window').width;
 export const screenHeight = Dimensions.get('window').height;
@@ -60,6 +61,6 @@ export const TestButton = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.colors.purple[1]};
 `;
 
-export const TestButtonText = styled(FuturaBoldSmall)`
+export const TestButtonText = styled(HeaderSmallText)`
   color: ${({ theme }) => theme.colors.white[1]};
 `;

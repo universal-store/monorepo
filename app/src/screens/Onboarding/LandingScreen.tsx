@@ -1,7 +1,6 @@
 /** @format */
 
 import React from 'react';
-import { Button } from 'react-native';
 
 // Components
 import { FullScreenWhite, TestButton, TestButtons, TestButtonText } from '&components';

@@ -5,13 +5,7 @@ import styled from 'styled-components/native';
 // Components
 import { isiPhoneX, RowView, screenWidth } from '../Views';
 
-import {
-  FuturaBoldLarge,
-  FuturaBoldMedium,
-  FuturaBoldSmall,
-  OpenSansRegularLarge,
-  OpenSansRegularSmall,
-} from '../Text';
+import { HeaderMediumText, HeaderSmallText, TextMedium2, TextSmall } from '../Text';
 
 export const ItemDetailHeaderRow = styled(RowView)`
   width: 100%;
@@ -80,7 +74,7 @@ export const ItemSubDetailRow = styled(RowView)`
 `;
 
 // Note: 32 horizontal padding each side + 48 (24 button and 24 margin)
-export const ItemNameText = styled(FuturaBoldLarge)`
+export const ItemNameText = styled(HeaderMediumText)`
   width: ${screenWidth - 112}px;
 `;
 
@@ -93,12 +87,16 @@ export const ItemDetailFavoriteButton = styled.TouchableOpacity`
   justify-content: center;
 `;
 
-export const ItemSizeText = styled(OpenSansRegularLarge)`
+export const ItemPriceText = styled(HeaderMediumText)`
+  color: ${({ theme }) => theme.colors.purple[2]};
+`;
+
+export const ItemSizeText = styled(TextMedium2)`
   margin-top: auto;
   color: ${({ theme }) => theme.colors.gray[2]};
 `;
 
-export const ProductDetailsHeaderText = styled(FuturaBoldMedium)`
+export const ProductDetailsHeaderText = styled(HeaderSmallText)`
   margin-top: 16px;
 `;
 
@@ -107,7 +105,7 @@ export const ProductDetailsScroll = styled.ScrollView`
   height: auto;
 `;
 
-export const ProductDetailsText = styled(OpenSansRegularSmall)`
+export const ProductDetailsText = styled(TextSmall)`
   margin-top: 8px;
 `;
 
@@ -136,6 +134,6 @@ export const AddCartButton = styled.TouchableOpacity<AddCartButtonProps>`
   background-color: ${({ theme, added }) => (added ? theme.colors.purple[1] : theme.colors.white[1])};
 `;
 
-export const AddCartButtonText = styled(FuturaBoldSmall)<AddCartButtonProps>`
+export const AddCartButtonText = styled(HeaderMediumText)<AddCartButtonProps>`
   color: ${({ theme, added }) => (added ? theme.colors.white[1] : theme.colors.purple[1])};
 `;

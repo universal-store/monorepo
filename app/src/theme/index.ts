@@ -5,7 +5,7 @@ export const theme = {
     gray: {
       1: '#333333',
       2: '#4F4F4F',
-      3: '#828282',
+      3: '#757575',
       4: '#BDBDBD',
       5: '#E0E0E0',
       6: '#F2F2F2',
@@ -18,9 +18,9 @@ export const theme = {
       20: 'rgba(255, 255, 255, 0.2)',
     },
     purple: {
-      1: '#8A49F7',
-      2: '#A95EFA',
-      3: '#DDBFFD',
+      1: '#8560FF',
+      2: '#906CFF',
+      3: '#F4F1FF',
     },
     transparent: {
       black: 'rgba(51, 51, 51, 0.6)',

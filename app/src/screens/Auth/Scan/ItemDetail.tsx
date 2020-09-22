@@ -11,7 +11,6 @@ import {
   AddCartButtonContainer,
   AddCartButtonText,
   FullScreenLightPurple,
-  FuturaBoldLarge as ItemText,
   isiPhoneX,
   ItemDetailFavoriteButton,
   ItemDetailHeaderButton,
@@ -22,6 +21,7 @@ import {
   ItemDetailModalHeader,
   ItemDetailModalHeaderTab,
   ItemNameText,
+  ItemPriceText,
   ItemSizeText,
   ItemSubDetailRow,
   ProductDetailsHeaderText,
@@ -81,7 +81,7 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
 
           <ItemSubDetailRow>
             <ItemSizeText numberOfLines={1}>{itemData.quantity}</ItemSizeText>
-            <ItemText>{itemData.price}</ItemText>
+            <ItemPriceText>{itemData.price}</ItemPriceText>
           </ItemSubDetailRow>
 
           <ProductDetailsHeaderText>Product Details</ProductDetailsHeaderText>

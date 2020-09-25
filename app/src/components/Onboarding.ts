@@ -42,6 +42,11 @@ export const OnboardingFormText = styled(TextSmall)`
   color: ${({ theme }) => theme.colors.gray[3]};
 `;
 
+export const OnboardingIconTextInputRow = styled(RowView)`
+  align-items: center;
+  width: 100%;
+`;
+
 export const OnboardingTextInput = styled.TextInput.attrs(({ theme }) => ({
   selectionColor: theme.colors.gray[3],
   placeholderTextColor: theme.colors.gray[4],
@@ -51,6 +56,11 @@ export const OnboardingTextInput = styled.TextInput.attrs(({ theme }) => ({
   border-bottom-width: 1px;
   font-family: NunitoSans-Regular;
   border-bottom-color: ${({ theme }) => theme.colors.gray[3]};
+`;
+
+export const PasswordVisibleIconButton = styled.TouchableOpacity`
+  margin-left: auto;
+  margin-right: 8px;
 `;
 
 export const OnboardingForgotPasswordButton = styled.TouchableOpacity`

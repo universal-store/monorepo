@@ -44,7 +44,6 @@ export const OnboardingFormText = styled(TextSmall)`
 
 export const OnboardingIconTextInputRow = styled(RowView)`
   align-items: center;
-  width: 100%;
 `;
 
 export const OnboardingTextInput = styled.TextInput.attrs(({ theme }) => ({
@@ -56,6 +55,7 @@ export const OnboardingTextInput = styled.TextInput.attrs(({ theme }) => ({
   border-bottom-width: 1px;
   font-family: NunitoSans-Regular;
   border-bottom-color: ${({ theme }) => theme.colors.gray[3]};
+  width: 90%;
 `;
 
 export const PasswordVisibleIconButton = styled.TouchableOpacity``;

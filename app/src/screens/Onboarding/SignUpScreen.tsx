@@ -33,14 +33,14 @@ import { EmailIcon, LockIcon, PersonIcon, VisibleIcon } from '&icons';
 type SignUpScreenProps = StackScreenProps<OnboardingStackParams, 'SignUpScreen'>;
 
 export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
-  const [passwordInputVisible, setPasswordInputVisible] = useState<boolean>(false);
+  const [secureTextEntry, setSecureTextEntry] = useState<boolean>(true);
 
   // Changes passwordInputVisible Value for when eye icon is passed
   const TogglePasswordVisibility = () => {
-    if (!passwordInputVisible) {
-      setPasswordInputVisible(true);
+    if (!secureTextEntry) {
+      setSecureTextEntry(true);
     } else {
-      setPasswordInputVisible(false);
+      setSecureTextEntry(false);
     }
   };
 
@@ -77,9 +77,9 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
             <OnboardingTextInput
               autoCompleteType="password"
               placeholder="Enter your password..."
-              secureTextEntry={true ? !passwordInputVisible : false}
+              secureTextEntry={secureTextEntry ? true : false}
             />
-            <PasswordVisibleIconButton onPress={() => TogglePasswordVisibility}>
+            <PasswordVisibleIconButton onPress={TogglePasswordVisibility}>
               <VisibleIcon></VisibleIcon>
             </PasswordVisibleIconButton>
           </OnboardingIconTextInputRow>

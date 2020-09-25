@@ -58,10 +58,7 @@ export const OnboardingTextInput = styled.TextInput.attrs(({ theme }) => ({
   border-bottom-color: ${({ theme }) => theme.colors.gray[3]};
 `;
 
-export const PasswordVisibleIconButton = styled.TouchableOpacity`
-  margin-left: auto;
-  margin-right: 8px;
-`;
+export const PasswordVisibleIconButton = styled.TouchableOpacity``;
 
 export const OnboardingForgotPasswordButton = styled.TouchableOpacity`
   margin-left: auto;

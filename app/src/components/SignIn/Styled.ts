@@ -52,6 +52,7 @@ export const SignInInputContainer = styled(RowView)`
 export const SignInTextInputIconContainer = styled.View`
   margin-right: 16px;
   margin-bottom: 8px;
+  justify-content: center;
 `;
 
 export const SignInTextInput = styled.TextInput``;
@@ -59,6 +60,7 @@ export const SignInTextInput = styled.TextInput``;
 export const SignInVisibleIconButton = styled.TouchableOpacity`
   margin-left: auto;
   margin-right: 8px;
+  justify-content: center;
 `;
 
 export const SignInForgotPasswordButton = styled.TouchableOpacity`

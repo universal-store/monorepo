@@ -40,14 +40,14 @@ type SignInScreenProps = StackScreenProps<OnboardingStackParams, 'SignInScreen'>
 
 export const SignInScreen = ({ navigation }: SignInScreenProps) => {
   // Determines if text in password input is visible or not
-  const [passwordInputVisible, setPasswordInputVisible] = useState<boolean>(false);
+  const [secureTextEntry, setSecureTextEntry] = useState<boolean>(true);
 
   // Changes passwordInputVisible Value for when eye icon is passed
   const TogglePasswordVisibility = () => {
-    if (!passwordInputVisible) {
-      setPasswordInputVisible(true);
+    if (!secureTextEntry) {
+      setSecureTextEntry(true);
     } else {
-      setPasswordInputVisible(false);
+      setSecureTextEntry(false);
     }
   };
 
@@ -80,8 +80,8 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
           <SignInTextInputIconContainer>
             <LockIcon></LockIcon>
           </SignInTextInputIconContainer>
-          <SignInTextInput secureTextEntry={true ? !passwordInputVisible : false}></SignInTextInput>
-          <SignInVisibleIconButton onPress={() => TogglePasswordVisibility}>
+          <SignInTextInput secureTextEntry={secureTextEntry ? true : false}></SignInTextInput>
+          <SignInVisibleIconButton onPress={TogglePasswordVisibility}>
             <VisibleIcon></VisibleIcon>
           </SignInVisibleIconButton>
         </SignInInputContainer>

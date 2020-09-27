@@ -35,30 +35,45 @@ export const OnboardingSubHeaderText = styled(HeaderSmallText)`
   color: ${({ theme }) => theme.colors.gray[3]};
 `;
 
-export const OnboardingFormContainer = styled.View``;
+export const OnboardingFormContainerHalf = styled.View`
+  width: 50%;
+`;
+
+export const OnboardingFormHalfRow = styled(RowView)`
+  align-items: center;
+`;
 
 export const OnboardingFormText = styled(TextSmall)`
   margin: 24px 0 20px;
   color: ${({ theme }) => theme.colors.gray[3]};
 `;
 
-export const OnboardingIconTextInputRow = styled(RowView)`
+export const OnboardingInputContainer = styled(RowView)`
+  margin-bottom: 8px;
   align-items: center;
+  border-bottom-width: 1px;
+  border-bottom-color: ${({ theme }) => theme.colors.gray[3]};
+`;
+
+export const OnboardingInputIconContainer = styled.View`
+  width: 16px;
+  height: 16px;
+`;
+
+export const OnboardingSecureInputIconContainer = styled.TouchableOpacity`
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
 `;
 
 export const OnboardingTextInput = styled.TextInput.attrs(({ theme }) => ({
   selectionColor: theme.colors.gray[3],
   placeholderTextColor: theme.colors.gray[4],
 }))`
-  padding: 8px;
-  margin-bottom: 8px;
-  border-bottom-width: 1px;
-  font-family: NunitoSans-Regular;
-  border-bottom-color: ${({ theme }) => theme.colors.gray[3]};
-  width: 90%;
+  flex: 1;
+  padding: 8px 16px;
+  font-family: NunitoSans-Bold;
 `;
-
-export const PasswordVisibleIconButton = styled.TouchableOpacity``;
 
 export const OnboardingForgotPasswordButton = styled.TouchableOpacity`
   margin-left: auto;

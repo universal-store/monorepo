@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useState } from 'react';
-import { Keyboard } from 'react-native';
+import { Keyboard, View as OnboardingFormContainer } from 'react-native';
 
 // Components
 import {
@@ -10,19 +10,22 @@ import {
   LogoContainer,
   OnboardingButton,
   OnboardingButtonText,
-  OnboardingFormContainer,
+  OnboardingFormContainerHalf,
+  OnboardingFormHalfRow,
   OnboardingFormText,
   OnboardingHeaderContainer,
   OnboardingHeaderTextContainer,
-  OnboardingIconTextInputRow,
+  OnboardingInputContainer,
+  OnboardingInputIconContainer,
   OnboardingMainContainer,
   OnboardingRow,
+  OnboardingSecureInputIconContainer,
   OnboardingSmallerBoldText,
   OnboardingSmallerText,
   OnboardingSubHeaderText,
   OnboardingTextButton,
   OnboardingTextInput,
-  PasswordVisibleIconButton,
+  RowView,
 } from '&components';
 
 // Navigation
@@ -33,16 +36,14 @@ import { EmailIcon, LockIcon, PersonIcon, VisibleIcon } from '&icons';
 type SignUpScreenProps = StackScreenProps<OnboardingStackParams, 'SignUpScreen'>;
 
 export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
-  const [secureTextEntry, setSecureTextEntry] = useState<boolean>(true);
+  // Form States
+  const [userEmail, setUserEmail] = useState<string>('');
+  const [userFirstName, setUserFirstName] = useState<string>('');
+  const [userLastName, setUserLastName] = useState<string>('');
+  const [userPassword, setUserPassword] = useState<string>('');
 
-  // Changes passwordInputVisible Value for when eye icon is passed
-  const TogglePasswordVisibility = () => {
-    if (!secureTextEntry) {
-      setSecureTextEntry(true);
-    } else {
-      setSecureTextEntry(false);
-    }
-  };
+  // Determines if text in password input is visible or not
+  const [secureTextEntry, setSecureTextEntry] = useState<boolean>(true);
 
   return (
     <KeyboardDismiss onPress={Keyboard.dismiss}>
@@ -60,29 +61,64 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
 
         <OnboardingFormContainer>
           <OnboardingFormText>Email Address*</OnboardingFormText>
-          <OnboardingIconTextInputRow>
-            <EmailIcon></EmailIcon>
-            <OnboardingTextInput autoCompleteType="email" placeholder="Enter your email address..." />
-          </OnboardingIconTextInputRow>
+          <OnboardingInputContainer>
+            <OnboardingInputIconContainer>
+              <EmailIcon />
+            </OnboardingInputIconContainer>
+            <OnboardingTextInput
+              value={userEmail}
+              autoCompleteType="email"
+              onChangeText={setUserEmail}
+              placeholder="Enter your email address..."
+            />
+          </OnboardingInputContainer>
 
-          <OnboardingFormText>First Name* Last Name*</OnboardingFormText>
-          <OnboardingIconTextInputRow>
-            <PersonIcon></PersonIcon>
-            <OnboardingTextInput autoCompleteType="name" placeholder="Enter your name..." />
-          </OnboardingIconTextInputRow>
+          <OnboardingInputContainer>
+            <OnboardingFormContainerHalf>
+              <OnboardingFormText>First Name*</OnboardingFormText>
+
+              <OnboardingFormHalfRow>
+                <OnboardingInputIconContainer>
+                  <PersonIcon />
+                </OnboardingInputIconContainer>
+
+                <OnboardingTextInput
+                  value={userFirstName}
+                  autoCompleteType="name"
+                  onChangeText={setUserFirstName}
+                  placeholder="First Name"
+                />
+              </OnboardingFormHalfRow>
+            </OnboardingFormContainerHalf>
+
+            <OnboardingFormContainerHalf>
+              <OnboardingFormText>Last Name</OnboardingFormText>
+
+              <OnboardingTextInput
+                value={userLastName}
+                autoCompleteType="name"
+                onChangeText={setUserLastName}
+                placeholder="Last Name"
+              />
+            </OnboardingFormContainerHalf>
+          </OnboardingInputContainer>
 
           <OnboardingFormText>Password</OnboardingFormText>
-          <OnboardingIconTextInputRow>
-            <LockIcon></LockIcon>
+          <OnboardingInputContainer>
+            <OnboardingInputIconContainer>
+              <LockIcon />
+            </OnboardingInputIconContainer>
             <OnboardingTextInput
+              value={userPassword}
               autoCompleteType="password"
-              placeholder="Enter your password..."
-              secureTextEntry={secureTextEntry ? true : false}
+              onChangeText={setUserPassword}
+              secureTextEntry={secureTextEntry}
+              placeholder="Enter a password..."
             />
-            <PasswordVisibleIconButton onPress={TogglePasswordVisibility}>
-              <VisibleIcon></VisibleIcon>
-            </PasswordVisibleIconButton>
-          </OnboardingIconTextInputRow>
+            <OnboardingSecureInputIconContainer onPress={() => setSecureTextEntry(!secureTextEntry)}>
+              <VisibleIcon />
+            </OnboardingSecureInputIconContainer>
+          </OnboardingInputContainer>
         </OnboardingFormContainer>
 
         <OnboardingRow>

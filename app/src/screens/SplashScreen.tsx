@@ -5,7 +5,7 @@ import React from 'react';
 // Components
 import { FullScreenWhite, SplashLogoBox, SplashTitleText, SplashSubtitleText } from '&components';
 
-export const LandingScreen = () => (
+export const SplashScreen = () => (
   <FullScreenWhite>
     <SplashLogoBox />
     <SplashTitleText> Universal Store</SplashTitleText>

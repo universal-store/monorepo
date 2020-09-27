@@ -14,6 +14,7 @@ module.exports = {
           '&icons': './src/icons',
           '&theme': './src/theme',
           '&utils': './src/utils',
+          '&stores': './src/stores',
           '&screens': './src/screens',
           '&navigation': './src/navigation',
           '&components': './src/components',

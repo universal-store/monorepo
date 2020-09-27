@@ -88,7 +88,7 @@ export const ScanningScreen = ({ navigation }: ScanningScreenProps) => {
     return (
       <NoCameraScreen>
         <ScannerHeaderRow>
-          <ScannerHeaderButton>
+          <ScannerHeaderButton onPress={() => navigation.navigate('LandingScreen', { email: '', password: '' })}>
             <BackArrowIcon />
           </ScannerHeaderButton>
         </ScannerHeaderRow>
@@ -107,7 +107,7 @@ export const ScanningScreen = ({ navigation }: ScanningScreenProps) => {
       {isFocused && (
         <>
           <ScannerHeaderRow>
-            <ScannerHeaderButton onPress={resetScanner}>
+            <ScannerHeaderButton onPress={() => navigation.navigate('LandingScreen', { email: '', password: '' })}>
               <BackArrowIcon />
             </ScannerHeaderButton>
 

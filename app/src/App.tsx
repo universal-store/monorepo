@@ -2,14 +2,21 @@
 
 import React from 'react';
 
+// Theme
 import { theme } from '&theme';
 import { ThemeProvider } from 'styled-components/native';
 
+// Navigation
 import { Root } from '&navigation';
 
-import { GRAPHQL_API, HASURA_GRAPHQL_ADMIN_SECRET, TEST_USER } from '&env';
-
+// Apollo
 import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/client';
+
+// Context Store
+import AuthProvider from '&stores';
+
+// Environment Variables
+import { GRAPHQL_API, HASURA_GRAPHQL_ADMIN_SECRET } from '&env';
 
 // Create the client
 const client = new ApolloClient({
@@ -17,8 +24,6 @@ const client = new ApolloClient({
   link: new HttpLink({
     uri: `${GRAPHQL_API}`,
     headers: {
-      'x-hasura-id': TEST_USER,
-      'x-hasura-role': 'Shopper',
       'x-hasura-admin-secret': HASURA_GRAPHQL_ADMIN_SECRET,
     },
   }),
@@ -28,7 +33,9 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <ApolloProvider client={client}>
-        <Root />
+        <AuthProvider>
+          <Root />
+        </AuthProvider>
       </ApolloProvider>
     </ThemeProvider>
   );

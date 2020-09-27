@@ -1,22 +1,29 @@
 /** @format */
 
 import React from 'react';
+
+// Screens
+import { SignInScreen, SignUpScreen } from '&screens';
+
+// Stack Navigators
+import { AuthStackNavigator } from './AuthStack';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { LandingScreen, SignInScreen, SignUpScreen } from '&screens';
-
 export type OnboardingStackParams = {
+  AuthStack: undefined;
   SignInScreen: undefined;
   SignUpScreen: undefined;
-  LandingScreen: undefined;
 };
 
 const OnboardingStack = createStackNavigator<OnboardingStackParams>();
 
 export const OnboardingStackNavigator = () => (
-  <OnboardingStack.Navigator initialRouteName="SignUpScreen" screenOptions={{ headerShown: false }}>
-    <OnboardingStack.Screen name="LandingScreen" component={LandingScreen} />
-    <OnboardingStack.Screen name="SignInScreen" component={SignInScreen} options={{ gestureEnabled: false }} />
-    <OnboardingStack.Screen name="SignUpScreen" component={SignUpScreen} options={{ gestureEnabled: false }} />
+  <OnboardingStack.Navigator
+    initialRouteName="SignInScreen"
+    screenOptions={{ headerShown: false, gestureEnabled: false }}
+  >
+    <OnboardingStack.Screen name="SignInScreen" component={SignInScreen} />
+    <OnboardingStack.Screen name="SignUpScreen" component={SignUpScreen} />
+    <OnboardingStack.Screen name="AuthStack" component={AuthStackNavigator} />
   </OnboardingStack.Navigator>
 );

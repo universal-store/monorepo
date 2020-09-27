@@ -70,7 +70,11 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
     }
 
     if (validInput) {
-      console.log('Pass!');
+      // @ts-ignore
+      navigation.navigate('AuthStack', {
+        screen: 'LandingScreen',
+        params: { email: userEmail.toLowerCase(), password: userPassword },
+      });
     }
   };
 

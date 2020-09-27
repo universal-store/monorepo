@@ -1,7 +1,7 @@
 /** @format */
 
-import React, { useState } from 'react';
-import { Keyboard, View as OnboardingFormContainer } from 'react-native';
+import React, { useContext, useState } from 'react';
+import { Alert, Keyboard, View as OnboardingFormContainer } from 'react-native';
 
 // Components
 import { EmailIcon, LockIcon, PersonIcon, VisibleIcon } from '&icons';
@@ -31,16 +31,24 @@ import {
   OnboardingTextInput,
 } from '&components';
 
+// Context
+import { AuthContext } from '&stores';
+
 // Navigation
 import { OnboardingStackParams } from '&navigation';
 import { StackScreenProps } from '@react-navigation/stack';
 
+// GraphQL
+import { useSignUpMutation } from '&graphql';
+
 // Utils
-import { emailRegex, validInput } from '&utils';
+import { emailRegex, toCamelCase, validInput } from '&utils';
 
 type SignUpScreenProps = StackScreenProps<OnboardingStackParams, 'SignUpScreen'>;
 
 export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
+  const authContext = useContext(AuthContext);
+
   // Form States
   const [userEmail, setUserEmail] = useState<string>('');
   const [userFirstName, setUserFirstName] = useState<string>('');
@@ -56,6 +64,9 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
 
   // Determines if text in password input is visible or not
   const [secureTextEntry, setSecureTextEntry] = useState<boolean>(true);
+
+  // Create User Mutation
+  const [signUpMutation] = useSignUpMutation();
 
   const validateSignUp = () => {
     let validInput = true;
@@ -88,8 +99,33 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
       setValidConfirmPassword('VALID');
     }
 
-    if (validInput) {
-      console.log('Pass!');
+    if (validInput && authContext) {
+      void signUpMutation({
+        variables: {
+          email: userEmail.toLowerCase(),
+          firstName: toCamelCase(userFirstName),
+          lastName: toCamelCase(userLastName),
+          password: userPassword,
+        },
+      })
+        .then(res => {
+          if (res.data) {
+            const newUser = res.data.insert_User_one;
+
+            if (newUser) {
+              void authContext.saveToken(newUser.sessionId);
+
+              // @ts-ignore
+              navigation.navigate('AuthStack', {
+                screen: 'LandingScreen',
+                params: { email: newUser.email, password: userPassword },
+              });
+            }
+          }
+        })
+        .catch(_ =>
+          Alert.alert('Account Found!', `An account associated with ${userEmail} already exists`, [{ text: 'Okay' }])
+        );
     }
   };
 

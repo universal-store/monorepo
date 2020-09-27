@@ -2397,7 +2397,7 @@ type User {
   lastName: name
   password: String!
   profilePicId: uuid
-  sessionId: uuid!
+  sessionId: String!
 }
 
 # aggregated selection of "User"
@@ -2441,7 +2441,7 @@ input User_bool_exp {
   lastName: name_comparison_exp
   password: String_comparison_exp
   profilePicId: uuid_comparison_exp
-  sessionId: uuid_comparison_exp
+  sessionId: String_comparison_exp
 }
 
 # unique or primary key constraints on table "User"
@@ -2471,7 +2471,7 @@ input User_insert_input {
   lastName: name
   password: String
   profilePicId: uuid
-  sessionId: uuid
+  sessionId: String
 }
 
 # aggregate max on columns
@@ -2480,7 +2480,7 @@ type User_max_fields {
   id: uuid
   password: String
   profilePicId: uuid
-  sessionId: uuid
+  sessionId: String
 }
 
 # order by max() on columns of table "User"
@@ -2498,7 +2498,7 @@ type User_min_fields {
   id: uuid
   password: String
   profilePicId: uuid
-  sessionId: uuid
+  sessionId: String
 }
 
 # order by min() on columns of table "User"
@@ -2584,7 +2584,7 @@ input User_set_input {
   lastName: name
   password: String
   profilePicId: uuid
-  sessionId: uuid
+  sessionId: String
 }
 
 # update columns of table "User"

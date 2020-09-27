@@ -22,6 +22,8 @@ export const theme = {
       2: '#906CFF',
       3: '#F4F1FF',
     },
+    red: '#FB3552',
+    green: '#A6E995',
     transparent: {
       black: 'rgba(51, 51, 51, 0.6)',
       green: 'rgba(166, 233, 149, 0.5)',

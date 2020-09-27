@@ -13,6 +13,7 @@ module.exports = {
           '&data': './src/data',
           '&icons': './src/icons',
           '&theme': './src/theme',
+          '&utils': './src/utils',
           '&screens': './src/screens',
           '&navigation': './src/navigation',
           '&components': './src/components',

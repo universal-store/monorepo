@@ -14,7 +14,7 @@ export type OnboardingStackParams = {
 const OnboardingStack = createStackNavigator<OnboardingStackParams>();
 
 export const OnboardingStackNavigator = () => (
-  <OnboardingStack.Navigator initialRouteName="LandingScreen" screenOptions={{ headerShown: true }}>
+  <OnboardingStack.Navigator initialRouteName="SignUpScreen" screenOptions={{ headerShown: false }}>
     <OnboardingStack.Screen name="LandingScreen" component={LandingScreen} />
     <OnboardingStack.Screen name="SignInScreen" component={SignInScreen} options={{ gestureEnabled: false }} />
     <OnboardingStack.Screen name="SignUpScreen" component={SignUpScreen} options={{ gestureEnabled: false }} />

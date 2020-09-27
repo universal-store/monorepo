@@ -1,36 +1,29 @@
 /** @format */
 
-import React, { useState } from 'react';
+import React, {useState} from 'react';
+import { Keyboard } from 'react-native';
 
 // Components
 import {
-  FuturaBoldLarge as SignInHeaderTitleText,
+  HeaderLargeText as OnboardingHeaderTitleText,
+  KeyboardDismiss,
   LogoContainer,
-  SignInButton,
-  SignInButtonText,
-  SignInForgotPasswordButton,
-  SignInFormContainer,
-  SignInFormText,
-  SignInHeaderContainer,
-  SignInHeaderTextContainer,
-  SignInMainContainer,
-  SignInSignUpBoldText,
-  SignInSignUpRow,
-  SignInSignUpText,
-  SignInSignUpTextButton,
-  SignInSmallText,
-  SignInSubHeaderText,
-  SignInInputContainer,
-  SignInTextInput,
-  SignInTextInputIconContainer,
-  SignInVisibleIconButton,
-  TestButton,
-  TestButtons,
-  TestButtonText,
+  OnboardingButton,
+  OnboardingButtonText,
+  OnboardingForgotPasswordButton,
+  OnboardingFormContainer,
+  OnboardingFormText,
+  OnboardingHeaderContainer,
+  OnboardingHeaderTextContainer,
+  OnboardingMainContainer,
+  OnboardingRow,
+  OnboardingSmallerBoldText,
+  OnboardingSmallerText,
+  OnboardingSmallText,
+  OnboardingSubHeaderText,
+  OnboardingTextButton,
+  OnboardingTextInput,
 } from '&components';
-
-// Icons
-import { LockIcon, VisibleIcon, EmailIcon } from '&icons';
 
 // Navigation
 import { OnboardingStackParams } from '&navigation';
@@ -42,75 +35,43 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
   // Determines if text in password input is visible or not
   const [secureTextEntry, setSecureTextEntry] = useState<boolean>(true);
 
-  // Changes passwordInputVisible Value for when eye icon is passed
-  const TogglePasswordVisibility = () => {
-    if (!secureTextEntry) {
-      setSecureTextEntry(true);
-    } else {
-      setSecureTextEntry(false);
-    }
-  };
-
   return (
-    <SignInMainContainer>
-      <SignInHeaderContainer>
-        <LogoContainer />
-        <SignInHeaderTextContainer>
-          <SignInHeaderTitleText>Universal Store</SignInHeaderTitleText>
-          <SignInSubHeaderText>Redefining express checkout.</SignInSubHeaderText>
-        </SignInHeaderTextContainer>
-      </SignInHeaderContainer>
+    <KeyboardDismiss onPress={Keyboard.dismiss}>
+      <OnboardingMainContainer>
+        <OnboardingHeaderContainer>
+          <LogoContainer />
+          <OnboardingHeaderTextContainer>
+            <OnboardingHeaderTitleText>Universal Store</OnboardingHeaderTitleText>
+            <OnboardingSubHeaderText>Redefining express checkout.</OnboardingSubHeaderText>
+          </OnboardingHeaderTextContainer>
+        </OnboardingHeaderContainer>
 
-      <SignInHeaderTitleText>Sign In</SignInHeaderTitleText>
-      <SignInSubHeaderText>Welcome back!</SignInSubHeaderText>
+        <OnboardingHeaderTitleText>Sign In</OnboardingHeaderTitleText>
+        <OnboardingSubHeaderText>Welcome back!</OnboardingSubHeaderText>
 
-      <SignInFormContainer>
-        <SignInFormText>Email</SignInFormText>
+        <OnboardingFormContainer>
+          <OnboardingFormText>Email</OnboardingFormText>
+          <OnboardingTextInput autoCompleteType="email" placeholder="Enter your email address..." />
 
-        <SignInInputContainer>
-          <SignInTextInputIconContainer>
-            <EmailIcon></EmailIcon>
-          </SignInTextInputIconContainer>
-          <SignInTextInput></SignInTextInput>
-        </SignInInputContainer>
+          <OnboardingFormText>Password</OnboardingFormText>
+          <OnboardingTextInput autoCompleteType="password" placeholder="Enter a password..." />
 
-        <SignInFormText>Password</SignInFormText>
+          <OnboardingForgotPasswordButton onPress={() => console.log('Forgot Password Pressed')}>
+            <OnboardingSmallText>Forget Password?</OnboardingSmallText>
+          </OnboardingForgotPasswordButton>
+        </OnboardingFormContainer>
 
-        <SignInInputContainer>
-          <SignInTextInputIconContainer>
-            <LockIcon></LockIcon>
-          </SignInTextInputIconContainer>
-          <SignInTextInput secureTextEntry={secureTextEntry ? true : false}></SignInTextInput>
-          <SignInVisibleIconButton onPress={TogglePasswordVisibility}>
-            <VisibleIcon></VisibleIcon>
-          </SignInVisibleIconButton>
-        </SignInInputContainer>
+        <OnboardingRow>
+          <OnboardingSmallerText>Need an account? </OnboardingSmallerText>
+          <OnboardingTextButton onPress={() => navigation.navigate('SignUpScreen')}>
+            <OnboardingSmallerBoldText>Sign Up</OnboardingSmallerBoldText>
+          </OnboardingTextButton>
+        </OnboardingRow>
 
-        <SignInForgotPasswordButton onPress={() => console.log('Forgot Password Pressed')}>
-          <SignInSmallText>Forget Password?</SignInSmallText>
-        </SignInForgotPasswordButton>
-      </SignInFormContainer>
-
-      <SignInSignUpRow>
-        <SignInSignUpText>Need an account?</SignInSignUpText>
-        <SignInSignUpTextButton onPress={() => navigation.navigate('SignUpScreen')}>
-          <SignInSignUpBoldText>Sign Up</SignInSignUpBoldText>
-        </SignInSignUpTextButton>
-      </SignInSignUpRow>
-
-      <SignInButton onPress={() => console.log('Log In Pressed')}>
-        <SignInButtonText>Log In</SignInButtonText>
-      </SignInButton>
-
-      <TestButtons>
-        <TestButton onPress={() => navigation.navigate('LandingScreen')}>
-          <TestButtonText>Go To Landing</TestButtonText>
-        </TestButton>
-
-        <TestButton onPress={() => navigation.navigate('SignUpScreen')}>
-          <TestButtonText>Go To Sign Up</TestButtonText>
-        </TestButton>
-      </TestButtons>
-    </SignInMainContainer>
+        <OnboardingButton onPress={() => console.log('Log In Pressed')}>
+          <OnboardingButtonText>Log In</OnboardingButtonText>
+        </OnboardingButton>
+      </OnboardingMainContainer>
+    </KeyboardDismiss>
   );
 };

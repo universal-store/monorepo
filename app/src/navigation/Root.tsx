@@ -6,7 +6,7 @@ import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 
 // Stack Navigators
-// import { AuthStackNavigator} from './AuthStack';
+// import { AuthStackNavigator } from './AuthStack';
 import { OnboardingStackNavigator } from './OnboardingStack';
 
 export const Root = () => {

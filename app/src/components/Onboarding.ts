@@ -6,10 +6,18 @@ import styled from 'styled-components/native';
 import { FullScreenWhite, isiPhoneX, RowView } from './Views';
 import { HeaderSmallText, TextSmall, TextSmall2 } from './Text';
 
+// Utils
+import { validInput } from '&utils';
+
 export const OnboardingMainContainer = styled(FullScreenWhite)`
+  flex: 1;
   width: 100%;
   display: flex;
   padding: 0 32px;
+`;
+
+export const OnboardingScroll = styled.ScrollView`
+  flex: 1;
 `;
 
 export const OnboardingHeaderContainer = styled(RowView)`
@@ -48,11 +56,19 @@ export const OnboardingFormText = styled(TextSmall)`
   color: ${({ theme }) => theme.colors.gray[3]};
 `;
 
-export const OnboardingInputContainer = styled(RowView)`
+interface InputValidationProp {
+  valid: validInput;
+}
+
+export const OnboardingInputContainer = styled(RowView)<InputValidationProp>`
   margin-bottom: 8px;
   align-items: center;
   border-bottom-width: 1px;
-  border-bottom-color: ${({ theme }) => theme.colors.gray[3]};
+  border-bottom-color: ${({ theme, valid }) => {
+    if (valid === 'NEEDS_CHECK') return theme.colors.gray[3];
+    else if (valid === 'VALID') return theme.colors.green;
+    else return theme.colors.red;
+  }};
 `;
 
 export const OnboardingInputIconContainer = styled.View`
@@ -83,6 +99,8 @@ export const OnboardingForgotPasswordButton = styled.TouchableOpacity`
 export const OnboardingSmallText = styled(TextSmall2)`
   color: ${({ theme }) => theme.colors.gray[3]};
 `;
+
+export const OnboardingRequiredText = styled(TextSmall2)``;
 
 export const OnboardingRow = styled(RowView)`
   margin-top: 24px;

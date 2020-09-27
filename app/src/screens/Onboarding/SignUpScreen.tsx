@@ -1,10 +1,9 @@
 /** @format */
 
 import React, { useContext, useState } from 'react';
-import { Alert, Keyboard, View as OnboardingFormContainer } from 'react-native';
 
 // Components
-import { EmailIcon, LockIcon, PersonIcon, VisibleIcon } from '&icons';
+import { Alert, Keyboard, View as OnboardingFormContainer } from 'react-native';
 
 import {
   HeaderLargeText as OnboardingHeaderTitleText,
@@ -30,6 +29,9 @@ import {
   OnboardingTextButton,
   OnboardingTextInput,
 } from '&components';
+
+// Iconography
+import { EmailIcon, LockIcon, PersonIcon, VisibleIcon } from '&icons';
 
 // Context
 import { AuthContext } from '&stores';

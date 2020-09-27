@@ -4,8 +4,6 @@ import React, { useState } from 'react';
 import { Keyboard, View as OnboardingFormContainer } from 'react-native';
 
 // Components
-import { EmailIcon, LockIcon, VisibleIcon } from '&icons';
-
 import {
   HeaderLargeText as OnboardingHeaderTitleText,
   KeyboardDismiss,
@@ -30,6 +28,9 @@ import {
   OnboardingTextButton,
   OnboardingTextInput,
 } from '&components';
+
+// Iconography
+import { EmailIcon, LockIcon, VisibleIcon } from '&icons';
 
 // Navigation
 import { OnboardingStackParams } from '&navigation';

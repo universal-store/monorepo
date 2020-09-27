@@ -1,0 +1,5 @@
+mutation RemoveUserFavoriteItem($itemBarcodeId: String!, $userId: uuid!) {
+    delete_UserFavoriteItem(where: {itemBarcodeId: {_eq: $itemBarcodeId}, User: {id: {_eq: $userId}}}) {
+        affected_rows
+    }
+}

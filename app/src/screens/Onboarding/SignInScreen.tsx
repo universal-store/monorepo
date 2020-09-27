@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useState } from 'react';
-import { Keyboard } from 'react-native';
+import { Keyboard, View as OnboardingFormContainer, ScrollView as OnboardingScroll } from 'react-native';
 
 // Components
 import {
@@ -11,7 +11,6 @@ import {
   OnboardingButton,
   OnboardingButtonText,
   OnboardingForgotPasswordButton,
-  OnboardingFormContainer,
   OnboardingFormText,
   OnboardingHeaderContainer,
   OnboardingHeaderTextContainer,
@@ -46,63 +45,65 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
   return (
     <KeyboardDismiss onPress={Keyboard.dismiss}>
       <OnboardingMainContainer>
-        <OnboardingHeaderContainer>
-          <LogoContainer />
-          <OnboardingHeaderTextContainer>
-            <OnboardingHeaderTitleText>Universal Store</OnboardingHeaderTitleText>
-            <OnboardingSubHeaderText>Redefining express checkout.</OnboardingSubHeaderText>
-          </OnboardingHeaderTextContainer>
-        </OnboardingHeaderContainer>
+        <OnboardingScroll bounces={false} showsVerticalScrollIndicator={false}>
+          <OnboardingHeaderContainer>
+            <LogoContainer />
+            <OnboardingHeaderTextContainer>
+              <OnboardingHeaderTitleText>Universal Store</OnboardingHeaderTitleText>
+              <OnboardingSubHeaderText>Redefining express checkout.</OnboardingSubHeaderText>
+            </OnboardingHeaderTextContainer>
+          </OnboardingHeaderContainer>
 
-        <OnboardingHeaderTitleText>Sign In</OnboardingHeaderTitleText>
-        <OnboardingSubHeaderText>Welcome back!</OnboardingSubHeaderText>
+          <OnboardingHeaderTitleText>Sign In</OnboardingHeaderTitleText>
+          <OnboardingSubHeaderText>Welcome back!</OnboardingSubHeaderText>
 
-        <OnboardingFormContainer>
-          <OnboardingFormText>Email</OnboardingFormText>
-          <OnboardingInputContainer>
-            <OnboardingInputIconContainer>
-              <EmailIcon />
-            </OnboardingInputIconContainer>
-            <OnboardingTextInput
-              value={userEmail}
-              autoCompleteType="email"
-              onChangeText={setUserEmail}
-              placeholder="Enter your email address..."
-            />
-          </OnboardingInputContainer>
+          <OnboardingFormContainer>
+            <OnboardingFormText>Email</OnboardingFormText>
+            <OnboardingInputContainer>
+              <OnboardingInputIconContainer>
+                <EmailIcon />
+              </OnboardingInputIconContainer>
+              <OnboardingTextInput
+                value={userEmail}
+                autoCompleteType="email"
+                onChangeText={setUserEmail}
+                placeholder="Enter your email address..."
+              />
+            </OnboardingInputContainer>
 
-          <OnboardingFormText>Password</OnboardingFormText>
-          <OnboardingInputContainer>
-            <OnboardingInputIconContainer>
-              <LockIcon />
-            </OnboardingInputIconContainer>
-            <OnboardingTextInput
-              value={userPassword}
-              autoCompleteType="password"
-              onChangeText={setUserPassword}
-              secureTextEntry={secureTextEntry}
-              placeholder="Enter a password..."
-            />
-            <OnboardingSecureInputIconContainer onPress={() => setSecureTextEntry(!secureTextEntry)}>
-              <VisibleIcon />
-            </OnboardingSecureInputIconContainer>
-          </OnboardingInputContainer>
+            <OnboardingFormText>Password</OnboardingFormText>
+            <OnboardingInputContainer>
+              <OnboardingInputIconContainer>
+                <LockIcon />
+              </OnboardingInputIconContainer>
+              <OnboardingTextInput
+                value={userPassword}
+                autoCompleteType="password"
+                onChangeText={setUserPassword}
+                secureTextEntry={secureTextEntry}
+                placeholder="Enter a password..."
+              />
+              <OnboardingSecureInputIconContainer onPress={() => setSecureTextEntry(!secureTextEntry)}>
+                <VisibleIcon />
+              </OnboardingSecureInputIconContainer>
+            </OnboardingInputContainer>
 
-          <OnboardingForgotPasswordButton onPress={() => console.log('Forgot Password Pressed')}>
-            <OnboardingSmallText>Forgot Password?</OnboardingSmallText>
-          </OnboardingForgotPasswordButton>
-        </OnboardingFormContainer>
+            <OnboardingForgotPasswordButton onPress={() => console.log('Forgot Password Pressed')}>
+              <OnboardingSmallText>Forgot Password?</OnboardingSmallText>
+            </OnboardingForgotPasswordButton>
+          </OnboardingFormContainer>
 
-        <OnboardingRow>
-          <OnboardingSmallerText>Need an account? </OnboardingSmallerText>
-          <OnboardingTextButton onPress={() => navigation.navigate('SignUpScreen')}>
-            <OnboardingSmallerBoldText>Sign Up</OnboardingSmallerBoldText>
-          </OnboardingTextButton>
-        </OnboardingRow>
+          <OnboardingRow>
+            <OnboardingSmallerText>Need an account? </OnboardingSmallerText>
+            <OnboardingTextButton onPress={() => navigation.navigate('SignUpScreen')}>
+              <OnboardingSmallerBoldText>Sign Up</OnboardingSmallerBoldText>
+            </OnboardingTextButton>
+          </OnboardingRow>
 
-        <OnboardingButton onPress={() => console.log('Log In Pressed')}>
-          <OnboardingButtonText>Log In</OnboardingButtonText>
-        </OnboardingButton>
+          <OnboardingButton onPress={() => console.log('Log In Pressed')}>
+            <OnboardingButtonText>Log In</OnboardingButtonText>
+          </OnboardingButton>
+        </OnboardingScroll>
       </OnboardingMainContainer>
     </KeyboardDismiss>
   );

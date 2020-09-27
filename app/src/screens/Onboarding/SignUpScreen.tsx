@@ -25,7 +25,6 @@ import {
   OnboardingSubHeaderText,
   OnboardingTextButton,
   OnboardingTextInput,
-  RowView,
 } from '&components';
 
 // Navigation
@@ -41,6 +40,7 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
   const [userFirstName, setUserFirstName] = useState<string>('');
   const [userLastName, setUserLastName] = useState<string>('');
   const [userPassword, setUserPassword] = useState<string>('');
+  const [userConfirmPassword, setUserConfirmPassword] = useState<string>('');
 
   // Determines if text in password input is visible or not
   const [secureTextEntry, setSecureTextEntry] = useState<boolean>(true);
@@ -114,6 +114,23 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
               onChangeText={setUserPassword}
               secureTextEntry={secureTextEntry}
               placeholder="Enter a password..."
+            />
+            <OnboardingSecureInputIconContainer onPress={() => setSecureTextEntry(!secureTextEntry)}>
+              <VisibleIcon />
+            </OnboardingSecureInputIconContainer>
+          </OnboardingInputContainer>
+
+          <OnboardingFormText>Confirm Password</OnboardingFormText>
+          <OnboardingInputContainer>
+            <OnboardingInputIconContainer>
+              <LockIcon />
+            </OnboardingInputIconContainer>
+            <OnboardingTextInput
+              value={userConfirmPassword}
+              autoCompleteType="password"
+              onChangeText={setUserConfirmPassword}
+              secureTextEntry={secureTextEntry}
+              placeholder="Confirm your password..."
             />
             <OnboardingSecureInputIconContainer onPress={() => setSecureTextEntry(!secureTextEntry)}>
               <VisibleIcon />

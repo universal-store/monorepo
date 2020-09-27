@@ -42,15 +42,31 @@ export const OnboardingFormText = styled(TextSmall)`
   color: ${({ theme }) => theme.colors.gray[3]};
 `;
 
+export const OnboardingInputContainer = styled(RowView)`
+  margin-bottom: 8px;
+  align-items: center;
+  border-bottom-width: 1px;
+  border-bottom-color: ${({ theme }) => theme.colors.gray[3]};
+`;
+
+export const OnboardingInputIconContainer = styled.View`
+  width: 16px;
+  height: 16px;
+`;
+
+export const OnboardingSecureInputIconContainer = styled.TouchableOpacity`
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+`;
+
 export const OnboardingTextInput = styled.TextInput.attrs(({ theme }) => ({
   selectionColor: theme.colors.gray[3],
   placeholderTextColor: theme.colors.gray[4],
 }))`
-  padding: 8px;
-  margin-bottom: 8px;
-  border-bottom-width: 1px;
-  font-family: NunitoSans-Regular;
-  border-bottom-color: ${({ theme }) => theme.colors.gray[3]};
+  flex: 1;
+  padding: 8px 16px;
+  font-family: NunitoSans-Bold;
 `;
 
 export const OnboardingForgotPasswordButton = styled.TouchableOpacity`

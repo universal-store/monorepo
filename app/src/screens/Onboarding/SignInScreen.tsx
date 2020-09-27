@@ -1,6 +1,6 @@
 /** @format */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Keyboard } from 'react-native';
 
 // Components
@@ -15,8 +15,11 @@ import {
   OnboardingFormText,
   OnboardingHeaderContainer,
   OnboardingHeaderTextContainer,
+  OnboardingInputContainer,
+  OnboardingInputIconContainer,
   OnboardingMainContainer,
   OnboardingRow,
+  OnboardingSecureInputIconContainer,
   OnboardingSmallerBoldText,
   OnboardingSmallerText,
   OnboardingSmallText,
@@ -28,10 +31,18 @@ import {
 // Navigation
 import { OnboardingStackParams } from '&navigation';
 import { StackScreenProps } from '@react-navigation/stack';
+import { EmailIcon, LockIcon, VisibleIcon } from '&icons';
 
 type SignInScreenProps = StackScreenProps<OnboardingStackParams, 'SignInScreen'>;
 
 export const SignInScreen = ({ navigation }: SignInScreenProps) => {
+  // Form States
+  const [userEmail, setUserEmail] = useState<string>('');
+  const [userPassword, setUserPassword] = useState<string>('');
+
+  // Determines if text in password input is visible or not
+  const [secureTextEntry, setSecureTextEntry] = useState<boolean>(true);
+
   return (
     <KeyboardDismiss onPress={Keyboard.dismiss}>
       <OnboardingMainContainer>
@@ -48,13 +59,37 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
 
         <OnboardingFormContainer>
           <OnboardingFormText>Email</OnboardingFormText>
-          <OnboardingTextInput autoCompleteType="email" placeholder="Enter your email address..." />
+          <OnboardingInputContainer>
+            <OnboardingInputIconContainer>
+              <EmailIcon />
+            </OnboardingInputIconContainer>
+            <OnboardingTextInput
+              value={userEmail}
+              autoCompleteType="email"
+              onChangeText={setUserEmail}
+              placeholder="Enter your email address..."
+            />
+          </OnboardingInputContainer>
 
           <OnboardingFormText>Password</OnboardingFormText>
-          <OnboardingTextInput autoCompleteType="password" placeholder="Enter a password..." />
+          <OnboardingInputContainer>
+            <OnboardingInputIconContainer>
+              <LockIcon />
+            </OnboardingInputIconContainer>
+            <OnboardingTextInput
+              value={userPassword}
+              autoCompleteType="password"
+              onChangeText={setUserPassword}
+              secureTextEntry={secureTextEntry}
+              placeholder="Enter a password..."
+            />
+            <OnboardingSecureInputIconContainer onPress={() => setSecureTextEntry(!secureTextEntry)}>
+              <VisibleIcon />
+            </OnboardingSecureInputIconContainer>
+          </OnboardingInputContainer>
 
           <OnboardingForgotPasswordButton onPress={() => console.log('Forgot Password Pressed')}>
-            <OnboardingSmallText>Forget Password?</OnboardingSmallText>
+            <OnboardingSmallText>Forgot Password?</OnboardingSmallText>
           </OnboardingForgotPasswordButton>
         </OnboardingFormContainer>
 

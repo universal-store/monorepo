@@ -1,6 +1,7 @@
 /** @format */
 
 import React, { useContext, useEffect, useState } from 'react';
+import { ActivityIndicator } from 'react-native';
 
 // Libraries
 import BottomSheet from 'reanimated-bottom-sheet';
@@ -69,7 +70,7 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
 
   const [modalExpand, setModalExpand] = useState<boolean>(false);
 
-  const { data } = useGetStoreItemQuery({ variables: { barcodeId } });
+  const { data, loading } = useGetStoreItemQuery({ variables: { barcodeId } });
   const itemData = data?.StoreItem_by_pk;
 
   const { data: userData } = useGetUserQuery({ variables: { sessionId } });
@@ -175,6 +176,8 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
       </ItemDetailHeaderRow>
 
       <ItemDetailImageContainer>
+        {loading && <ActivityIndicator />}
+
         {itemData && itemData.StoreItemPic && (
           <ItemDetailImage
             source={{

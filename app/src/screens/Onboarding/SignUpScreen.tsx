@@ -126,9 +126,10 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
             }
           }
         })
-        .catch(_ =>
-          Alert.alert('Account Found!', `An account associated with ${userEmail} already exists`, [{ text: 'Okay' }])
-        );
+        .catch(err => {
+          console.log(err);
+          Alert.alert('Account Found!', `An account associated with ${userEmail} already exists`, [{ text: 'Okay' }]);
+        });
     }
   };
 

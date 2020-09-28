@@ -65,7 +65,8 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
   const [validConfirmPassword, setValidConfirmPassword] = useState<validInput>('NEEDS_CHECK');
 
   // Determines if text in password input is visible or not
-  const [secureTextEntry, setSecureTextEntry] = useState<boolean>(true);
+  const [securePassEntry, setSecurePassEntry] = useState<boolean>(true);
+  const [secureConfirmPassEntry, setSecureConfirmPassEntry] = useState<boolean>(true);
 
   // Create User Mutation
   const [signUpMutation] = useSignUpMutation();
@@ -221,14 +222,14 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
                 value={userPassword}
                 textContentType="password"
                 autoCompleteType="password"
-                secureTextEntry={secureTextEntry}
+                secureTextEntry={securePassEntry}
                 placeholder="Enter a password..."
                 onChangeText={text => {
                   setUserPassword(text);
                   setValidPassword('NEEDS_CHECK');
                 }}
               />
-              <OnboardingSecureInputIconContainer onPress={() => setSecureTextEntry(!secureTextEntry)}>
+              <OnboardingSecureInputIconContainer onPress={() => setSecurePassEntry(!securePassEntry)}>
                 <VisibleIcon />
               </OnboardingSecureInputIconContainer>
             </OnboardingInputContainer>
@@ -243,14 +244,14 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
                 textContentType="password"
                 autoCompleteType="password"
                 value={userConfirmPassword}
-                secureTextEntry={secureTextEntry}
+                secureTextEntry={secureConfirmPassEntry}
                 onChangeText={text => {
                   setUserConfirmPassword(text);
                   setValidConfirmPassword('NEEDS_CHECK');
                 }}
                 placeholder="Confirm your password..."
               />
-              <OnboardingSecureInputIconContainer onPress={() => setSecureTextEntry(!secureTextEntry)}>
+              <OnboardingSecureInputIconContainer onPress={() => setSecureConfirmPassEntry(!secureConfirmPassEntry)}>
                 <VisibleIcon />
               </OnboardingSecureInputIconContainer>
             </OnboardingInputContainer>

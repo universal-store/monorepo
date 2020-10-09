@@ -1,5 +1,5 @@
 query FavoriteItem($userId: String!) {
-  UserFavoriteItem(where: {userId: {_eq: "$userId"}}) {
+  UserFavoriteItem(where: {userId: {_eq: $userId}}) {
     itemBarcodeId
     itemStoreId
   }

@@ -3,9 +3,6 @@
 import React, { useEffect, useState } from 'react';
 import { Linking } from 'react-native';
 
-// TODO: Remove (testing only)
-import DeviceInfo from 'react-native-device-info';
-
 // Components
 import { TestButtonText } from '&components';
 

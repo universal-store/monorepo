@@ -32,7 +32,9 @@ export const UserProfileScreen = ({ navigation }: UserProfileProps) => {
   return (
     <UserProfileMainContainer>
       <UserProfileHeaderRow>
-        <UserProfileProfilePictureContainer></UserProfileProfilePictureContainer>
+        <UserProfileProfilePictureContainer>
+          <PersonIcon></PersonIcon>
+        </UserProfileProfilePictureContainer>
         <UserProfileHeaderText>Hi, Daniel Keehn</UserProfileHeaderText>
       </UserProfileHeaderRow>
       <UserProfileSubHeaderText>Email Address</UserProfileSubHeaderText>

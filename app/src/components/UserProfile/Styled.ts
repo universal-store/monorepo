@@ -50,8 +50,8 @@ export const UserProfilePaymentInfoContainer = styled.View`
 `;
 
 export const UserProfileCheckMarkLogoContainer = styled.View`
-  width: 24px;
-  height: 24px;
+  width: 14px;
+  height: 11px;
   margin-left: auto;
   margin-right: 4px;
 `;

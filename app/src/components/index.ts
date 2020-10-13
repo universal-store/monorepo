@@ -15,3 +15,6 @@ export * from './Onboarding';
 export * from './Scan';
 export * from './Landing';
 export * from './ItemDetail';
+
+// Favorites Screen
+export * from './Favorites';

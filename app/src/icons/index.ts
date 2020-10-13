@@ -18,3 +18,6 @@ export * from './BarcodeIcon';
 
 // Item Details Page
 export * from './HeartIcon';
+
+// Favorites Page
+export * from './FindIcon';

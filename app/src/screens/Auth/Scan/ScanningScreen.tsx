@@ -151,7 +151,8 @@ export const ScanningScreen = ({ navigation }: ScanningScreenProps) => {
 
       {isSim && !scanned && (
         <TestButtons>
-          <TestButton onPress={() => navigation.navigate('ItemDetail', { barcodeId })}>
+          {/* <TestButton onPress={() => navigation.navigate('ItemDetail', { barcodeId })}> */}
+          <TestButton onPress={() => navigation.navigate('UserProfile')}>
             <TestButtonText>Go To ItemDetail (Emulator Only)</TestButtonText>
           </TestButton>
         </TestButtons>

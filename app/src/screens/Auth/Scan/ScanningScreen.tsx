@@ -33,11 +33,11 @@ import {
 import { BackArrowIcon, FlashIconOff, FlashIconOn } from '&icons';
 
 // Navigation
-import { AuthStackParams } from '&navigation';
+import { ScanningStackParams } from '&navigation';
 import { useIsFocused } from '@react-navigation/native';
 import { StackScreenProps } from '@react-navigation/stack';
 
-type ScanningScreenProps = StackScreenProps<AuthStackParams, 'ScanningScreen'>;
+type ScanningScreenProps = StackScreenProps<ScanningStackParams, 'ScanningScreen'>;
 
 export const ScanningScreen = ({ navigation }: ScanningScreenProps) => {
   let cameraRef: Camera | null = null;
@@ -88,7 +88,7 @@ export const ScanningScreen = ({ navigation }: ScanningScreenProps) => {
     return (
       <NoCameraScreen>
         <ScannerHeaderRow>
-          <ScannerHeaderButton onPress={() => navigation.navigate('LandingScreen', { email: '', password: '' })}>
+          <ScannerHeaderButton onPress={() => console.log('go back')}>
             <BackArrowIcon />
           </ScannerHeaderButton>
         </ScannerHeaderRow>
@@ -107,7 +107,7 @@ export const ScanningScreen = ({ navigation }: ScanningScreenProps) => {
       {isFocused && (
         <>
           <ScannerHeaderRow>
-            <ScannerHeaderButton onPress={() => navigation.navigate('LandingScreen', { email: '', password: '' })}>
+            <ScannerHeaderButton onPress={() => console.log('go back')}>
               <BackArrowIcon />
             </ScannerHeaderButton>
 

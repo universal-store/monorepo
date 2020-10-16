@@ -23,6 +23,7 @@ export const FavoritesFindFilterContainer = styled(RowView)`
   border-bottom-width: 1px;
   display: flex;
   justify-content: space-between;
+  padding: 10px;
   width: 100%;
 `;
 
@@ -31,9 +32,14 @@ export const FavoritesFindFilterContainerHalf = styled.View`
   width: 50%;
 `;
 
+export const FavoritesFindFilterContainerHalfRight = styled(RowView)`
+  align-items: center;
+  flex-direction: row-reverse;
+`;
+
 export const FavoritesFindFilterContainerHalfRow = styled(RowView)`
   align-items: center;
-`; //try margins to get filter right-justified
+`;
 
 export const FavoritesFindIconContainer = styled.View`
   width: 16px;
@@ -44,10 +50,22 @@ export const FavoriteItemHeartContainer = styled(RowView)`
   align-items: center;
   border-bottom-color: ${({ theme }) => theme.colors.gray[4]};
   border-bottom-width: 1px;
-  display: flex;
   justify-content: space-between;
   padding: 10px;
   width: 100%;
+`;
+
+export const FavoriteItemHeartContainerHalf = styled.View`
+  width: 50%;
+`;
+
+export const FavoritesItemHeartContainerHalfRight = styled(RowView)`
+  align-items: center;
+  flex-direction: row-reverse;
+`;
+
+export const FavoritesItemHeartContainerHalfRow = styled(RowView)`
+  align-items: center;
 `;
 
 export const ItemImageContainer = styled.View`

@@ -7,9 +7,13 @@ import { Text } from 'react-native';
 import {
   FavoritesFindFilterContainer,
   FavoritesFindFilterContainerHalf,
+  FavoritesFindFilterContainerHalfRight,
   FavoritesFindFilterContainerHalfRow,
   FavoritesHeaderTextContainer,
   FavoriteItemHeartContainer,
+  FavoriteItemHeartContainerHalf,
+  FavoritesItemHeartContainerHalfRight,
+  FavoritesItemHeartContainerHalfRow,
   FavoritesMainContainer,
   HeaderLargeText,
   ItemImageContainer,
@@ -35,13 +39,22 @@ export const FavoriteScreen = () => (
         </FavoritesFindFilterContainerHalfRow>
       </FavoritesFindFilterContainerHalf>
 
-      <FavoritesFindFilterContainerHalf>
+      <FavoritesFindFilterContainerHalfRight>
         <TextMedium2>Filter</TextMedium2>
-      </FavoritesFindFilterContainerHalf>
+      </FavoritesFindFilterContainerHalfRight>
     </FavoritesFindFilterContainer>
+
     <FavoriteItemHeartContainer>
-      <ItemImageContainer />
-      <HeartIconOn />
+      <FavoriteItemHeartContainerHalf>
+        <FavoritesItemHeartContainerHalfRow>
+          <ItemImageContainer />
+          <TextMedium2> Hand Sanitizer</TextMedium2>
+        </FavoritesItemHeartContainerHalfRow>
+      </FavoriteItemHeartContainerHalf>
+
+      <FavoritesItemHeartContainerHalfRight>
+        <HeartIconOn />
+      </FavoritesItemHeartContainerHalfRight>
     </FavoriteItemHeartContainer>
   </FavoritesMainContainer>
 );

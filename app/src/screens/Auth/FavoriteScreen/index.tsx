@@ -9,17 +9,19 @@ import {
   FavoritesFindFilterContainerHalf,
   FavoritesFindFilterContainerHalfRow,
   FavoritesHeaderTextContainer,
-  FullScreenWhite,
+  FavoriteItemHeartContainer,
+  FavoritesMainContainer,
   HeaderLargeText,
+  ItemImageContainer,
   TextLarge2,
   TextMedium2,
 } from '&components';
 
 // Iconography
-import { FindIcon } from '&icons';
+import { FindIcon, HeartIconOn } from '&icons';
 
 export const FavoriteScreen = () => (
-  <FullScreenWhite>
+  <FavoritesMainContainer>
     <FavoritesHeaderTextContainer>
       <HeaderLargeText>Saved</HeaderLargeText>
       <TextLarge2> Items</TextLarge2>
@@ -37,5 +39,9 @@ export const FavoriteScreen = () => (
         <TextMedium2>Filter</TextMedium2>
       </FavoritesFindFilterContainerHalf>
     </FavoritesFindFilterContainer>
-  </FullScreenWhite>
+    <FavoriteItemHeartContainer>
+      <ItemImageContainer />
+      <HeartIconOn />
+    </FavoriteItemHeartContainer>
+  </FavoritesMainContainer>
 );

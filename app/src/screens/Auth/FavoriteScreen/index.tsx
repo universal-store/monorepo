@@ -14,8 +14,10 @@ import {
   FavoriteItemHeartContainerHalf,
   FavoritesItemHeartContainerHalfRight,
   FavoritesItemHeartContainerHalfRow,
+  FavoritesItemHeartContainerHalfRowText,
   FavoritesMainContainer,
   HeaderLargeText,
+  HeaderSmallText,
   ItemImageContainer,
   TextLarge2,
   TextMedium2,
@@ -48,7 +50,10 @@ export const FavoriteScreen = () => (
       <FavoriteItemHeartContainerHalf>
         <FavoritesItemHeartContainerHalfRow>
           <ItemImageContainer />
-          <TextMedium2> Hand Sanitizer</TextMedium2>
+          <FavoritesItemHeartContainerHalfRowText>
+            <TextMedium2> Hand Sanitizer</TextMedium2>
+            <HeaderSmallText> $2.99</HeaderSmallText>
+          </FavoritesItemHeartContainerHalfRowText>
         </FavoritesItemHeartContainerHalfRow>
       </FavoriteItemHeartContainerHalf>
 

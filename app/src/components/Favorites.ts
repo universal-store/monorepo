@@ -68,9 +68,17 @@ export const FavoritesItemHeartContainerHalfRow = styled(RowView)`
   align-items: center;
 `;
 
+export const FavoritesItemHeartContainerHalfRowText = styled(RowView)`
+  flex-direction: column;
+`;
+
 export const ItemImageContainer = styled.View`
   width: 50px;
   height: 50px;
   border-radius: 10px;
   background-color: ${({ theme }) => theme.colors.gray[5]};
 `;
+
+/**
+  align-items: center;
+ */

@@ -1,13 +1,34 @@
 /** @format */
 
 import React from 'react';
-import { Text } from 'react-native';
 
 // Components
-import { FullScreenWhite } from '&components';
+import {
+  FullScreenWhite,
+  CartPriceContainer,
+  CartSubtotalText,
+  CartSubtotalPrice,
+  CartHeaderTextRegular,
+  CartHeaderTextBold,
+  CartHeaderTextContainer,
+  CartItemCell,
+} from '&components';
 
 export const CartScreen = () => (
   <FullScreenWhite>
-    <Text>Cart Screen</Text>
+    <CartHeaderTextContainer>
+      <CartHeaderTextBold>
+        Shopping <CartHeaderTextRegular>Cart</CartHeaderTextRegular>
+      </CartHeaderTextBold>
+    </CartHeaderTextContainer>
+
+    <CartPriceContainer>
+      <CartSubtotalText>Subtotal: </CartSubtotalText>
+      <CartSubtotalPrice>$8.97</CartSubtotalPrice>
+    </CartPriceContainer>
+
+    <CartItemCell />
+    <CartItemCell />
+    <CartItemCell />
   </FullScreenWhite>
 );

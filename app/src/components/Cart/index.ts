@@ -2,4 +2,4 @@
 
 export * from './Styled';
 
-export * from './FavoriteItemCell';
+export * from './CartItemCell';

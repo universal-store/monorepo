@@ -8,11 +8,11 @@ import { HeaderLargeText, HeaderSmallText, TextLarge2, TextSmall } from '../Text
 
 export const FavoritesHeaderTextContainer = styled.View`
   display: flex;
+  margin-top: 16px;
   padding-bottom: 8px;
   align-items: center;
   justify-content: center;
   border-bottom-width: 1px;
-  margin-top: 16px;
   border-bottom-color: ${({ theme }) => theme.colors.gray[5]};
 `;
 
@@ -62,7 +62,7 @@ export const FavoritesItemCellContainerSmall = styled(RowView)`
   align-items: center;
 `;
 
-export const FavoritesItemCellText = styled.View`
+export const FavoritesItemCellTextContainer = styled.View`
   margin: 0 16px;
 `;
 

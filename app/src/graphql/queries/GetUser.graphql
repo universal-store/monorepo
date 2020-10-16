@@ -1,7 +1,7 @@
 # @format
 
 query GetUser($sessionId: String!) {
-  User(where: {sessionId: {_eq: $sessionId}})
+  User(where: { sessionId: { _eq: $sessionId } })
   {
     ...UserInfo
   }

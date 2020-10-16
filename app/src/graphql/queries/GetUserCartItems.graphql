@@ -1,9 +1,5 @@
-query GetUserCartItems($sessionId: String!, $barcodeId: String!) {
-    StoreItem_by_pk(barcodeId: $barcodeId) {
-        UserCartItems(where: {User: {sessionId: {_eq: $sessionId}}, StoreItem: {barcodeId: {_eq: $barcodeId}}}) {
-            StoreItem {
-                ...StoreItem
-            }
-        }
+query GetUserCartItems($sessionId: String!) {
+    UserCartItem(where: { User: { sessionId: {_eq: $sessionId}}}) {
+        ...StoreItemInfo
     }
 }

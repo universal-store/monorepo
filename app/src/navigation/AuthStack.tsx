@@ -56,7 +56,6 @@ const AuthStack = createStackNavigator<AuthStackParams>();
 export const AuthStackNavigator = () => (
   <AuthStack.Navigator initialRouteName="RootAuthTabs" screenOptions={{ headerShown: false, gestureEnabled: false }}>
     <AuthStack.Screen name="RootAuthTabs" component={RootAuthTabNavigator} />
-
     <AuthStack.Screen name="OnboardingStack" component={OnboardingStackNavigator} />
   </AuthStack.Navigator>
 );

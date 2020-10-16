@@ -11,6 +11,7 @@ import {
   CartHeaderTextRegular,
   CartHeaderTextBold,
   CartHeaderTextContainer,
+  CartItemCell,
 } from '&components';
 
 export const CartScreen = () => (
@@ -25,5 +26,9 @@ export const CartScreen = () => (
       <CartSubtotalText>Subtotal: </CartSubtotalText>
       <CartSubtotalPrice>$8.97</CartSubtotalPrice>
     </CartPriceContainer>
+
+    <CartItemCell />
+    <CartItemCell />
+    <CartItemCell />
   </FullScreenWhite>
 );

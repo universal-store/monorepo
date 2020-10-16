@@ -62,7 +62,7 @@ export const FavoritesItemCellContainerSmall = styled(RowView)`
   align-items: center;
 `;
 
-export const FavoritesItemCellText = styled.View`
+export const FavoritesItemCellTextContainer = styled.View`
   margin: 0 16px;
 `;
 

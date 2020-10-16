@@ -6,12 +6,12 @@ import React from 'react';
 import {
   FavoriteItemCellContainer,
   FavoritesItemCellContainerSmall,
-  FavoritesItemCellText,
+  FavoritesItemCellTextContainer,
   FavoritesItemHeartContainer,
   FavoritesItemNameText,
   FavoritesItemPriceText,
   FavoriteItemImageContainer,
-} from '&components';
+} from './Styled';
 
 // Iconography
 import { HeartIconOn } from '&icons';
@@ -21,10 +21,11 @@ export const FavoriteItemCell = () => {
     <FavoriteItemCellContainer>
       <FavoritesItemCellContainerSmall>
         <FavoriteItemImageContainer />
-        <FavoritesItemCellText>
+
+        <FavoritesItemCellTextContainer>
           <FavoritesItemNameText numberOfLines={1}>Hand Sanitizer</FavoritesItemNameText>
           <FavoritesItemPriceText>$2.99</FavoritesItemPriceText>
-        </FavoritesItemCellText>
+        </FavoritesItemCellTextContainer>
       </FavoritesItemCellContainerSmall>
 
       <FavoritesItemHeartContainer>

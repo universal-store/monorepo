@@ -2,6 +2,8 @@
 
 dir=$(pwd)
 
+cd "$dir" && . .env
+
 FG_BLUE='\033[1;34m'
 UNSET='\033[0m' # No Color
 

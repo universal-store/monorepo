@@ -26,10 +26,12 @@ export const FullScreenCenter = styled(FullScreen)`
 `;
 
 export const FullScreenWhite = styled(FullScreen)`
+  padding-top: ${isiPhoneX ? 30 : 0}px;
   background-color: ${({ theme }) => theme.colors.white[1]};
 `;
 
 export const FullScreenLightPurple = styled(FullScreen)`
+  padding-top: ${isiPhoneX ? 30 : 0}px;
   background-color: ${({ theme }) => theme.colors.purple[3]};
 `;
 
@@ -53,7 +55,6 @@ export const KeyboardDismiss = styled.TouchableWithoutFeedback`
 // TODO: Remove in production
 export const TestButtons = styled.View`
   margin-top: auto;
-  margin-bottom: ${isiPhoneX ? 30 : 0}px;
 `;
 
 export const TestButton = styled.TouchableOpacity`

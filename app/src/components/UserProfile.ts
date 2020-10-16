@@ -4,8 +4,8 @@ import styled from 'styled-components/native';
 import { Animated } from 'react-native';
 
 // Components
-import { FullScreenWhite, isiPhoneX, RowView } from '../Views';
-import { HeaderLargeText, HeaderSmallText, TextSmall, TextSmall2 } from '../Text';
+import { FullScreenWhite, isiPhoneX, RowView } from './Views';
+import { HeaderLargeText, HeaderSmallText, TextSmall, TextSmall2 } from './Text';
 
 export const UserProfileMainContainer = styled(FullScreenWhite)`
   flex: 1;

@@ -14,5 +14,6 @@ export * from './Onboarding';
 // Auth Screens
 export * from './Scan';
 export * from './Landing';
+export * from './Favorites';
 export * from './ItemDetail';
 export * from './UserProfile';

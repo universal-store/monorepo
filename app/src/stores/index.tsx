@@ -38,7 +38,7 @@ export default class AuthProvider extends Component {
     },
   };
 
-  componentWillMount() {
+  componentDidMount() {
     AsyncStorage.getItem('userToken')
       .then(token => {
         this.setState({ token });

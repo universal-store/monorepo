@@ -38,30 +38,30 @@ import { CartIcon, CloseIcon, HeartIconOff, HeartIconOn } from '&icons';
 import { AuthContext } from '&stores';
 
 // Navigation
-import { AuthStackParams } from '&navigation';
+import { ScanningStackParams } from '&navigation';
 import { StackScreenProps } from '@react-navigation/stack';
 
 // GraphQL
 import {
+  CheckItemInCartDocument,
+  CheckItemInFavoritesDocument,
   useGetUserQuery,
   useGetStoreItemQuery,
-  useGetUserCartItemsQuery,
-  useGetUserFavoriteItemsQuery,
+  useCheckItemInCartQuery,
+  useCheckItemInFavoritesQuery,
   useAddUserCartItemMutation,
   useRemoveUserCartItemMutation,
   useAddUserFavoriteItemMutation,
   useRemoveUserFavoriteItemMutation,
-  GetUserFavoriteItemsDocument,
-  GetUserCartItemsDocument,
 } from '&graphql';
 
 // Constants
-const largeModalHeight = screenHeight - (isiPhoneX ? 122 : 92);
-const smallModalHeight = screenHeight - (isiPhoneX ? 402 : 372);
+const largeModalHeight = screenHeight - 92;
+const smallModalHeight = screenHeight - 372;
 
 const smallDescriptionLines = isiPhoneX ? 8 : 1;
 
-type ItemDetailProps = StackScreenProps<AuthStackParams, 'ItemDetail'>;
+type ItemDetailProps = StackScreenProps<ScanningStackParams, 'ItemDetail'>;
 
 export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
   const { barcodeId } = route.params;
@@ -76,8 +76,8 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
   const { data: userData } = useGetUserQuery({ variables: { sessionId } });
   const userId = userData?.User[0].id;
 
-  const { data: userCart } = useGetUserCartItemsQuery({ variables: { barcodeId, sessionId } });
-  const { data: userFavorites } = useGetUserFavoriteItemsQuery({ variables: { barcodeId, sessionId } });
+  const { data: userCart } = useCheckItemInCartQuery({ variables: { barcodeId, sessionId } });
+  const { data: userFavorites } = useCheckItemInFavoritesQuery({ variables: { barcodeId, sessionId } });
 
   const [inCart, setInCart] = useState<boolean>(userCart?.StoreItem_by_pk?.UserCartItems.length !== 0);
   const [favorite, setFavorite] = useState<boolean>(userFavorites?.StoreItem_by_pk?.UserFavoriteItems.length !== 0);
@@ -139,12 +139,12 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
     if (favorite) {
       void removeFromFavoritesMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: () => [{ query: GetUserFavoriteItemsDocument, variables: { barcodeId, sessionId } }],
+        refetchQueries: () => [{ query: CheckItemInFavoritesDocument, variables: { barcodeId, sessionId } }],
       });
     } else {
       void addToFavoritesMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: () => [{ query: GetUserFavoriteItemsDocument, variables: { barcodeId, sessionId } }],
+        refetchQueries: () => [{ query: CheckItemInFavoritesDocument, variables: { barcodeId, sessionId } }],
       });
     }
   };
@@ -153,12 +153,12 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
     if (inCart) {
       void removeFromCartMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: () => [{ query: GetUserCartItemsDocument, variables: { barcodeId, sessionId } }],
+        refetchQueries: () => [{ query: CheckItemInCartDocument, variables: { barcodeId, sessionId } }],
       });
     } else {
       void addToCartMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: () => [{ query: GetUserCartItemsDocument, variables: { barcodeId, sessionId } }],
+        refetchQueries: () => [{ query: CheckItemInCartDocument, variables: { barcodeId, sessionId } }],
       });
     }
   };

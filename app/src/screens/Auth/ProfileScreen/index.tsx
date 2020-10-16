@@ -1,13 +1,52 @@
 /** @format */
 
 import React from 'react';
-import { Text } from 'react-native';
 
 // Components
-import { FullScreenWhite } from '&components';
+import {
+  UserProfileMainContainer,
+  UserProfileHeaderRow,
+  UserProfileProfilePictureContainer,
+  UserProfileHeaderText,
+  UserProfileSubHeaderText,
+  UserProfileEmailContainer,
+  UserProfileEmailText,
+  UserProfilePaymentInfoContainer,
+  UserProfilePaymentInfoText,
+  UserPaymentInfoNameRow,
+  UserProfileCheckMarkLogoContainer,
+  UserProfileHeaderNameText,
+} from '&components';
+
+// Iconography
+import { PersonIcon } from '&icons';
 
 export const ProfileScreen = () => (
-  <FullScreenWhite>
-    <Text>Profile Screen</Text>
-  </FullScreenWhite>
+  <UserProfileMainContainer>
+    <UserProfileHeaderRow>
+      <UserProfileProfilePictureContainer />
+      <UserProfileHeaderText numberOfLines={1}>
+        Hi, <UserProfileHeaderNameText>Daniel Keehn</UserProfileHeaderNameText>
+      </UserProfileHeaderText>
+    </UserProfileHeaderRow>
+
+    <UserProfileSubHeaderText>Email Address</UserProfileSubHeaderText>
+    <UserProfileEmailContainer>
+      <UserProfileEmailText>dkeehn6@gatech.edu</UserProfileEmailText>
+    </UserProfileEmailContainer>
+
+    <UserProfileSubHeaderText>Payment Method</UserProfileSubHeaderText>
+    <UserProfilePaymentInfoContainer>
+      <UserProfilePaymentInfoText>VISA Debit (1834)</UserProfilePaymentInfoText>
+      <UserPaymentInfoNameRow>
+        <UserProfilePaymentInfoText>Daniel Keehn</UserProfilePaymentInfoText>
+        <UserProfileCheckMarkLogoContainer>
+          <PersonIcon />
+        </UserProfileCheckMarkLogoContainer>
+      </UserPaymentInfoNameRow>
+      <UserProfilePaymentInfoText>Exp: 07/24</UserProfilePaymentInfoText>
+    </UserProfilePaymentInfoContainer>
+
+    <UserProfileSubHeaderText>My Orders</UserProfileSubHeaderText>
+  </UserProfileMainContainer>
 );

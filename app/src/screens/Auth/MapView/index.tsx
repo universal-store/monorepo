@@ -10,15 +10,15 @@ import { FullScreenWhite, HelloUser } from '&components';
 import { AuthContext } from '&stores';
 
 // Navigation
-import { AuthStackParams } from '&navigation';
+import { RootAuthParams } from '&navigation';
 import { StackScreenProps } from '@react-navigation/stack';
 
 // GraphQL
 import { useGetUserQuery, useSignInQuery } from '&graphql';
 
-type LandingScreenProps = StackScreenProps<AuthStackParams, 'LandingScreen'>;
+type MapViewScreenProps = StackScreenProps<RootAuthParams, 'MapView'>;
 
-export const LandingScreen = ({ navigation, route }: LandingScreenProps) => {
+export const MapViewScreen = ({ navigation, route }: MapViewScreenProps) => {
   const authContext = useContext(AuthContext);
 
   if (authContext?.token) {
@@ -46,7 +46,6 @@ export const LandingScreen = ({ navigation, route }: LandingScreenProps) => {
               // @ts-ignore
               navigation.navigate('OnboardingStack', { screen: 'SignInScreen' });
             }}
-            goToScan={() => navigation.navigate('ScanningScreen')}
           />
         )}
       </FullScreenWhite>
@@ -78,7 +77,6 @@ export const LandingScreen = ({ navigation, route }: LandingScreenProps) => {
             // @ts-ignore
             navigation.navigate('OnboardingStack', { screen: 'SignInScreen' });
           }}
-          goToScan={() => navigation.navigate('ScanningScreen')}
         />
       )}
     </FullScreenWhite>

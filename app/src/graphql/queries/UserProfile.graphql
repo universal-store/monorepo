@@ -1,8 +1,0 @@
-query UserProfile($id: String!) {
-  User(where: {id: {_eq: $id}}) {
-    email
-    firstName
-    lastName
-    profilePicId
-  }
-}

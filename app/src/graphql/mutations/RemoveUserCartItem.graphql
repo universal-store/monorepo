@@ -1,5 +1,5 @@
 mutation RemoveUserCartItem($itemBarcodeId: String!, $userId: uuid!) {
-    delete_UserCartItem(where: {itemBarcodeId: {_eq: $itemBarcodeId}, userId: {_eq: $userId}}) {
+    delete_UserCartItem(where: { itemBarcodeId: { _eq: $itemBarcodeId }, userId: { _eq: $userId }}) {
         affected_rows
     }
 }

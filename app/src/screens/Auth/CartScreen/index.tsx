@@ -5,22 +5,25 @@ import React from 'react';
 // Components
 import {
   FullScreenWhite,
-  Separator,
-  CartTitleText,
-  CartPriceRow,
+  CartPriceContainer,
   CartSubtotalText,
   CartSubtotalPrice,
+  CartHeaderTextRegular,
+  CartHeaderTextBold,
+  CartHeaderTextContainer,
 } from '&components';
 
-// TODO: The price will have to be made dynamic with the total
 export const CartScreen = () => (
   <FullScreenWhite>
-    <CartTitleText> Shopping Cart </CartTitleText>
-    <Separator />
-    <CartPriceRow>
-      <CartSubtotalText> Subtotal:</CartSubtotalText>
-      <CartSubtotalPrice> $8.97 </CartSubtotalPrice>
-    </CartPriceRow>
-    <Separator />
+    <CartHeaderTextContainer>
+      <CartHeaderTextBold>
+        Shopping <CartHeaderTextRegular>Cart</CartHeaderTextRegular>
+      </CartHeaderTextBold>
+    </CartHeaderTextContainer>
+
+    <CartPriceContainer>
+      <CartSubtotalText>Subtotal: </CartSubtotalText>
+      <CartSubtotalPrice>$8.97</CartSubtotalPrice>
+    </CartPriceContainer>
   </FullScreenWhite>
 );

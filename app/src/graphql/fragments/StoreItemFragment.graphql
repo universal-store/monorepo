@@ -1,6 +1,6 @@
 # @format
 
-fragment StoreItem on StoreItem {
+fragment StoreItemInfo on StoreItem {
     price
     quantity
     longName

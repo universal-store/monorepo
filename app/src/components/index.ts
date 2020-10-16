@@ -18,3 +18,5 @@ export * from './ItemDetail';
 
 // Favorites Screen
 export * from './Favorites';
+
+export * from './UserProfile';

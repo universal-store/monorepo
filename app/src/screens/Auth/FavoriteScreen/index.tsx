@@ -5,61 +5,42 @@ import { Text } from 'react-native';
 
 // Components
 import {
+  FavoritesFilterText,
   FavoritesFindFilterContainer,
-  FavoritesFindFilterContainerHalf,
-  FavoritesFindFilterContainerHalfRight,
   FavoritesFindFilterContainerHalfRow,
+  FavoritesFindIconContainer,
+  FavoritesFindText,
+  FavoritesHeaderTextBold,
   FavoritesHeaderTextContainer,
-  FavoriteItemHeartContainer,
-  FavoriteItemHeartContainerHalf,
-  FavoritesItemHeartContainerHalfRight,
-  FavoritesItemHeartContainerHalfRow,
-  FavoritesItemHeartContainerHalfRowText,
-  FavoritesMainContainer,
-  HeaderLargeText,
-  HeaderSmallText,
-  ItemImageContainer,
-  TextLarge2,
-  TextMedium2,
+  FavoritesHeaderTextRegular,
+  FavoriteItemCell,
+  FullScreenWhite,
 } from '&components';
 
 // Iconography
-import { FindIcon, HeartIconOn } from '&icons';
+import { FindIcon } from '&icons';
 
 export const FavoriteScreen = () => (
-  <FavoritesMainContainer>
+  <FullScreenWhite>
     <FavoritesHeaderTextContainer>
-      <HeaderLargeText>Saved</HeaderLargeText>
-      <TextLarge2> Items</TextLarge2>
+      <FavoritesHeaderTextBold>
+        Saved <FavoritesHeaderTextRegular>Items</FavoritesHeaderTextRegular>
+      </FavoritesHeaderTextBold>
     </FavoritesHeaderTextContainer>
 
     <FavoritesFindFilterContainer>
-      <FavoritesFindFilterContainerHalf>
-        <FavoritesFindFilterContainerHalfRow>
+      <FavoritesFindFilterContainerHalfRow>
+        <FavoritesFindIconContainer>
           <FindIcon />
-          <TextMedium2> Find</TextMedium2>
-        </FavoritesFindFilterContainerHalfRow>
-      </FavoritesFindFilterContainerHalf>
+        </FavoritesFindIconContainer>
+        <FavoritesFindText>Find</FavoritesFindText>
+      </FavoritesFindFilterContainerHalfRow>
 
-      <FavoritesFindFilterContainerHalfRight>
-        <TextMedium2>Filter</TextMedium2>
-      </FavoritesFindFilterContainerHalfRight>
+      <FavoritesFilterText>Filter</FavoritesFilterText>
     </FavoritesFindFilterContainer>
 
-    <FavoriteItemHeartContainer>
-      <FavoriteItemHeartContainerHalf>
-        <FavoritesItemHeartContainerHalfRow>
-          <ItemImageContainer />
-          <FavoritesItemHeartContainerHalfRowText>
-            <TextMedium2> Hand Sanitizer</TextMedium2>
-            <HeaderSmallText> $2.99</HeaderSmallText>
-          </FavoritesItemHeartContainerHalfRowText>
-        </FavoritesItemHeartContainerHalfRow>
-      </FavoriteItemHeartContainerHalf>
-
-      <FavoritesItemHeartContainerHalfRight>
-        <HeartIconOn />
-      </FavoritesItemHeartContainerHalfRight>
-    </FavoriteItemHeartContainer>
-  </FavoritesMainContainer>
+    <FavoriteItemCell />
+    <FavoriteItemCell />
+    <FavoriteItemCell />
+  </FullScreenWhite>
 );

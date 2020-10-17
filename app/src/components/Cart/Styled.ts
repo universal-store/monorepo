@@ -24,7 +24,7 @@ export const CartHeaderTextRegular = styled(CartHeaderTextBold)`
 
 export const CartPriceContainer = styled(RowView)`
   width: 100%;
-  display: flex;
+  height: 37px;
   padding: 8px 24px;
   align-items: center;
   justify-content: center;
@@ -69,9 +69,7 @@ export const CartItemCellTextContainer = styled.View`
   margin: 0 16px;
 `;
 
-export const CartItemCellTextRowContainer = styled(RowView)`
-  flex: 1;
-`;
+export const CartItemCellTextRowContainer = styled(RowView)``;
 
 export const CartItemNameText = styled(TextLarge2)`
   margin-right: 52px;

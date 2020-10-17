@@ -24,6 +24,7 @@ export const FavoritesHeaderTextRegular = styled(FavoritesHeaderTextBold)`
 
 export const FavoritesFindFilterContainer = styled(RowView)`
   width: 100%;
+  height: 37px;
   padding: 8px 24px;
   align-items: center;
   border-bottom-width: 1px;

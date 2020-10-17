@@ -5,6 +5,9 @@ import React from 'react';
 import { LandingScreenContainer, LandingScreenHeader } from './Styled';
 import { ButtonContainer, PrimaryButton, PrimaryButtonText, SecondaryButton, SecondaryButtonText } from '../Buttons';
 
+// Navigation
+import { useNavigation } from '@react-navigation/native';
+
 // GraphQL
 import { UserInfoFragment } from '&graphql';
 
@@ -16,18 +19,27 @@ interface HelloUserProps {
   userData: UserInfoFragment;
 }
 
-export const HelloUser = ({ logOut, userData }: HelloUserProps) => (
-  <LandingScreenContainer>
-    {userData && (
-      <>
-        <LandingScreenHeader>Hello, {renderName(userData.firstName, userData.lastName)}!</LandingScreenHeader>
+export const HelloUser = ({ logOut, userData }: HelloUserProps) => {
+  // Navigation
+  const navigation = useNavigation();
 
-        <ButtonContainer>
-          <SecondaryButton onPress={logOut}>
-            <SecondaryButtonText>Log Out</SecondaryButtonText>
-          </SecondaryButton>
-        </ButtonContainer>
-      </>
-    )}
-  </LandingScreenContainer>
-);
+  return (
+    <LandingScreenContainer>
+      {userData && (
+        <>
+          <LandingScreenHeader>Hello, {renderName(userData.firstName, userData.lastName)}!</LandingScreenHeader>
+
+          <ButtonContainer>
+            <PrimaryButton onPress={() => navigation.navigate('ScanningScreen')}>
+              <PrimaryButtonText>Go To Scanning</PrimaryButtonText>
+            </PrimaryButton>
+
+            <SecondaryButton onPress={logOut}>
+              <SecondaryButtonText>Log Out</SecondaryButtonText>
+            </SecondaryButton>
+          </ButtonContainer>
+        </>
+      )}
+    </LandingScreenContainer>
+  );
+};

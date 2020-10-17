@@ -1,6 +1,6 @@
 /** @format */
 
-import React from 'react';
+import React, { useCallback, useContext } from 'react';
 
 // Components
 import {
@@ -12,23 +12,67 @@ import {
   CartHeaderTextBold,
   CartHeaderTextContainer,
   CartItemCell,
+  CellItemSeparator,
+  FullScreenCenter,
 } from '&components';
 
-export const CartScreen = () => (
-  <FullScreenWhite>
-    <CartHeaderTextContainer>
-      <CartHeaderTextBold>
-        Shopping <CartHeaderTextRegular>Cart</CartHeaderTextRegular>
-      </CartHeaderTextBold>
-    </CartHeaderTextContainer>
+// React Navigation
+import { useFocusEffect } from '@react-navigation/native';
 
-    <CartPriceContainer>
-      <CartSubtotalText>Subtotal: </CartSubtotalText>
-      <CartSubtotalPrice>$8.97</CartSubtotalPrice>
-    </CartPriceContainer>
+// User Store
+import { AuthContext } from '&stores';
 
-    <CartItemCell />
-    <CartItemCell />
-    <CartItemCell />
-  </FullScreenWhite>
-);
+// GraphQL
+import { useGetUserCartItemsQuery } from '&graphql';
+import { ActivityIndicator, FlatList } from 'react-native';
+
+export const CartScreen = () => {
+  const authContext = useContext(AuthContext);
+  const sessionId = authContext?.token!;
+
+  const { data, refetch, loading } = useGetUserCartItemsQuery({ variables: { sessionId } });
+  const cartData = data?.UserCartItem;
+
+  let cartTotal = 0;
+  if (cartData) {
+    cartData.forEach(cartItem => (cartTotal += parseFloat(cartItem.StoreItem.price.substring(1))));
+  }
+
+  useFocusEffect(
+    useCallback(() => {
+      void refetch();
+    }, [])
+  );
+
+  return (
+    <FullScreenWhite>
+      <CartHeaderTextContainer>
+        <CartHeaderTextBold>
+          Shopping <CartHeaderTextRegular>Cart</CartHeaderTextRegular>
+        </CartHeaderTextBold>
+      </CartHeaderTextContainer>
+
+      <CartPriceContainer>
+        <CartSubtotalText>Subtotal: </CartSubtotalText>
+        <CartSubtotalPrice>${cartTotal.toFixed(2)}</CartSubtotalPrice>
+      </CartPriceContainer>
+
+      {loading && (
+        <FullScreenCenter>
+          <ActivityIndicator />
+        </FullScreenCenter>
+      )}
+
+      {cartData && (
+        <FlatList
+          data={cartData}
+          keyExtractor={item => item.id}
+          showsVerticalScrollIndicator={false}
+          ListFooterComponent={() => <CellItemSeparator />}
+          ItemSeparatorComponent={() => <CellItemSeparator />}
+          renderItem={({ item }) => <CartItemCell key={item.id} cartItem={item.StoreItem} sessionId={sessionId} />}
+        />
+      )}
+    </FullScreenWhite>
+  );
+};

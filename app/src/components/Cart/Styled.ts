@@ -38,13 +38,13 @@ export const CartSubtotalPrice = styled(HeaderSmallText)`
   color: ${({ theme }) => theme.colors.purple[2]};
 `;
 
-export const CartItemCellContainer = styled(RowView)`
+export const CartItemCellContainer = styled.TouchableOpacity`
   width: 100%;
   height: 80px;
+  display: flex;
   padding: 16px 24px;
   align-items: center;
-  border-bottom-width: 1px;
-  border-bottom-color: ${({ theme }) => theme.colors.gray[5]};
+  flex-direction: row;
 `;
 
 export const CartItemCellContainerSmall = styled(RowView)`
@@ -56,6 +56,12 @@ export const CartItemImageContainer = styled.View`
   height: 48px;
   border-radius: 4px;
   background-color: ${({ theme }) => theme.colors.gray[5]};
+`;
+
+export const CartItemImage = styled.Image`
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
 `;
 
 export const CartItemCellTextContainer = styled.View`
@@ -86,8 +92,11 @@ export const CartItemPriceText = styled(HeaderSmallText)`
   color: ${({ theme }) => theme.colors.purple[1]};
 `;
 
-export const CartItemAddFavorite = styled(TextSmall2)`
+export const CartItemAddFavoriteButton = styled.TouchableOpacity`
   margin-top: auto;
   margin-left: auto;
+`;
+
+export const CartItemAddFavorite = styled(TextSmall2)`
   color: ${({ theme }) => theme.colors.purple[1]};
 `;

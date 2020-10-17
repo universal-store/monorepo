@@ -4,9 +4,11 @@ import React, { useContext } from 'react';
 
 // Components
 import {
+  FullScreenCenter,
   UserProfileMainContainer,
   UserProfileHeaderRow,
-  UserProfileProfilePictureContainer,
+  UserProfilePicture,
+  UserProfilePictureContainer,
   UserProfileHeaderText,
   UserProfileSubHeaderText,
   UserProfileEmailContainer,
@@ -16,10 +18,11 @@ import {
   UserPaymentInfoNameRow,
   UserProfileCheckMarkLogoContainer,
   UserProfileHeaderNameText,
+  UserProfileInitialText,
 } from '&components';
 
 // Iconography
-import { PersonIcon } from '&icons';
+import { CheckIcon } from '&icons';
 
 // User Store
 import { AuthContext } from '&stores';
@@ -29,18 +32,40 @@ import { useGetUserQuery } from '&graphql';
 
 // Utils
 import { renderName } from '&utils';
+import { ActivityIndicator } from 'react-native';
 
 export const ProfileScreen = () => {
   const authContext = useContext(AuthContext);
-  const { data } = useGetUserQuery({ variables: { sessionId: authContext?.token! } });
+  const { data, loading } = useGetUserQuery({ variables: { sessionId: authContext?.token! } });
+
+  if (loading)
+    return (
+      <FullScreenCenter>
+        <ActivityIndicator />
+      </FullScreenCenter>
+    );
 
   // User Data
   const userData = data ? data.User[0] : undefined;
 
+  let userInitials = '';
+
+  if (userData)
+    userInitials = userData.lastName
+      ? userData.firstName.charAt(0) + userData.lastName.charAt(0)
+      : userData.firstName.charAt(0);
+
   return (
     <UserProfileMainContainer>
       <UserProfileHeaderRow>
-        <UserProfileProfilePictureContainer />
+        <UserProfilePictureContainer>
+          {userData && userData.UserProfilePic ? (
+            <UserProfilePicture source={{ uri: userData.UserProfilePic.size128 }} />
+          ) : (
+            <UserProfileInitialText>{userInitials}</UserProfileInitialText>
+          )}
+        </UserProfilePictureContainer>
+
         <UserProfileHeaderText numberOfLines={1}>
           Hi,{' '}
           {userData && (
@@ -55,14 +80,14 @@ export const ProfileScreen = () => {
       </UserProfileEmailContainer>
 
       <UserProfileSubHeaderText>Payment Method</UserProfileSubHeaderText>
-      <UserProfilePaymentInfoContainer>
+      <UserProfilePaymentInfoContainer onPress={() => console.log('Payment Method Selected')}>
         <UserProfilePaymentInfoText>VISA Debit (1834)</UserProfilePaymentInfoText>
         <UserPaymentInfoNameRow>
           {userData && (
             <UserProfilePaymentInfoText>{renderName(userData.firstName, userData.lastName)}</UserProfilePaymentInfoText>
           )}
           <UserProfileCheckMarkLogoContainer>
-            <PersonIcon />
+            <CheckIcon />
           </UserProfileCheckMarkLogoContainer>
         </UserPaymentInfoNameRow>
         <UserProfilePaymentInfoText>Exp: 07/24</UserProfilePaymentInfoText>

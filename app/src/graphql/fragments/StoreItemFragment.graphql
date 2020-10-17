@@ -1,6 +1,7 @@
 # @format
 
 fragment StoreItemInfo on StoreItem {
+    barcodeId
     price
     quantity
     longName

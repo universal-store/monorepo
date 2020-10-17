@@ -6,6 +6,10 @@ export * from './BackArrowIcon';
 
 // General Icons
 export * from './CartIcon';
+export * from './TabNavigationIcons';
+
+// Profile Screen
+export * from './CheckIcon';
 
 // Onboarding Icons
 export * from './EmailIcon';

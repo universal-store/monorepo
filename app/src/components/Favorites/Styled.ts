@@ -24,15 +24,10 @@ export const FavoritesHeaderTextRegular = styled(FavoritesHeaderTextBold)`
 
 export const FavoritesFindFilterContainer = styled(RowView)`
   width: 100%;
-  display: flex;
   padding: 8px 24px;
   align-items: center;
   border-bottom-width: 1px;
   border-bottom-color: ${({ theme }) => theme.colors.gray[5]};
-`;
-
-export const FavoritesFindFilterContainerHalfRow = styled(RowView)`
-  align-items: center;
 `;
 
 export const FavoritesFindIconContainer = styled.View`
@@ -40,22 +35,30 @@ export const FavoritesFindIconContainer = styled.View`
   height: 16px;
 `;
 
-export const FavoritesFindText = styled(TextSmall)`
+export const FavoritesFindInput = styled.TextInput`
+  flex: 1;
+  font-size: 16px;
   margin-left: 8px;
+  font-family: NunitoSans-Regular;
+  color: ${({ theme }) => theme.colors.gray[1]};
 `;
 
-export const FavoritesFilterText = styled(TextSmall)`
+export const FavoritesFilterButton = styled.TouchableOpacity`
   margin-left: auto;
 `;
 
-export const FavoriteItemCellContainer = styled(RowView)`
+export const FavoritesFilterText = styled(TextSmall)`
+  margin-left: 24px;
+`;
+
+export const FavoriteItemCellContainer = styled.TouchableOpacity`
   width: 100%;
   height: 80px;
+  display: flex;
   padding: 16px 24px;
+  flex-direction: row;
   align-items: center;
-  border-bottom-width: 1px;
   justify-content: space-between;
-  border-bottom-color: ${({ theme }) => theme.colors.gray[5]};
 `;
 
 export const FavoritesItemCellContainerSmall = styled(RowView)`
@@ -79,7 +82,13 @@ export const FavoriteItemImageContainer = styled.View`
   background-color: ${({ theme }) => theme.colors.gray[5]};
 `;
 
-export const FavoritesItemHeartContainer = styled.View`
+export const FavoriteItemImage = styled.Image`
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+`;
+
+export const FavoritesItemHeartContainer = styled.TouchableOpacity`
   width: 24px;
   height: 24px;
 `;

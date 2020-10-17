@@ -1,46 +1,68 @@
 /** @format */
 
-import React from 'react';
+import React, { useCallback, useContext } from 'react';
 import { Text } from 'react-native';
 
 // Components
 import {
   FavoritesFilterText,
   FavoritesFindFilterContainer,
-  FavoritesFindFilterContainerHalfRow,
   FavoritesFindIconContainer,
-  FavoritesFindText,
+  FavoritesFindInput,
   FavoritesHeaderTextBold,
   FavoritesHeaderTextContainer,
   FavoritesHeaderTextRegular,
   FavoriteItemCell,
   FullScreenWhite,
+  FavoritesFilterButton,
 } from '&components';
 
 // Iconography
 import { FindIcon } from '&icons';
 
-export const FavoriteScreen = () => (
-  <FullScreenWhite>
-    <FavoritesHeaderTextContainer>
-      <FavoritesHeaderTextBold>
-        Saved <FavoritesHeaderTextRegular>Items</FavoritesHeaderTextRegular>
-      </FavoritesHeaderTextBold>
-    </FavoritesHeaderTextContainer>
+// React Navigation
+import { useFocusEffect } from '@react-navigation/native';
 
-    <FavoritesFindFilterContainer>
-      <FavoritesFindFilterContainerHalfRow>
+// User Store
+import { AuthContext } from '&stores';
+
+// GraphQL
+import { useGetUserFavoriteItemsQuery } from '&graphql';
+
+export const FavoriteScreen = () => {
+  const authContext = useContext(AuthContext);
+  const sessionId = authContext?.token!;
+
+  const { data, refetch } = useGetUserFavoriteItemsQuery({ variables: { sessionId } });
+  const favData = data?.UserFavoriteItem;
+
+  useFocusEffect(
+    useCallback(() => {
+      void refetch();
+    }, [])
+  );
+
+  return (
+    <FullScreenWhite>
+      <FavoritesHeaderTextContainer>
+        <FavoritesHeaderTextBold>
+          Saved <FavoritesHeaderTextRegular>Items</FavoritesHeaderTextRegular>
+        </FavoritesHeaderTextBold>
+      </FavoritesHeaderTextContainer>
+
+      <FavoritesFindFilterContainer>
         <FavoritesFindIconContainer>
           <FindIcon />
         </FavoritesFindIconContainer>
-        <FavoritesFindText>Find</FavoritesFindText>
-      </FavoritesFindFilterContainerHalfRow>
+        <FavoritesFindInput placeholder="Find an item" />
 
-      <FavoritesFilterText>Filter</FavoritesFilterText>
-    </FavoritesFindFilterContainer>
+        <FavoritesFilterButton onPress={() => console.log('Filter Pressed')}>
+          <FavoritesFilterText>Filter</FavoritesFilterText>
+        </FavoritesFilterButton>
+      </FavoritesFindFilterContainer>
 
-    <FavoriteItemCell />
-    <FavoriteItemCell />
-    <FavoriteItemCell />
-  </FullScreenWhite>
-);
+      {favData &&
+        favData.map(favItem => <FavoriteItemCell key={favItem.id} favItem={favItem.StoreItem} sessionId={sessionId} />)}
+    </FullScreenWhite>
+  );
+};

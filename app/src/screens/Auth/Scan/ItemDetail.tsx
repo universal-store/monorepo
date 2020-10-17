@@ -139,12 +139,12 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
     if (favorite) {
       void removeFromFavoritesMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: () => [{ query: CheckItemInFavoritesDocument, variables: { barcodeId, sessionId } }],
+        refetchQueries: [{ query: CheckItemInFavoritesDocument, variables: { barcodeId, sessionId } }],
       });
     } else {
       void addToFavoritesMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: () => [{ query: CheckItemInFavoritesDocument, variables: { barcodeId, sessionId } }],
+        refetchQueries: [{ query: CheckItemInFavoritesDocument, variables: { barcodeId, sessionId } }],
       });
     }
   };
@@ -153,12 +153,12 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
     if (inCart) {
       void removeFromCartMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: () => [{ query: CheckItemInCartDocument, variables: { barcodeId, sessionId } }],
+        refetchQueries: [{ query: CheckItemInCartDocument, variables: { barcodeId, sessionId } }],
       });
     } else {
       void addToCartMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: () => [{ query: CheckItemInCartDocument, variables: { barcodeId, sessionId } }],
+        refetchQueries: [{ query: CheckItemInCartDocument, variables: { barcodeId, sessionId } }],
       });
     }
   };

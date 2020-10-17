@@ -1,9 +1,10 @@
 /** @format */
 
 import React from 'react';
+
 // Components
 import { LandingScreenContainer, LandingScreenHeader } from './Styled';
-import { ButtonContainer, PrimaryButton, PrimaryButtonText, SecondaryButton, SecondaryButtonText } from '../Buttons';
+import { ButtonContainer, PrimaryButton, PrimaryButtonText } from '../Buttons';
 
 // Navigation
 import { useNavigation } from '@react-navigation/native';
@@ -15,11 +16,10 @@ import { UserInfoFragment } from '&graphql';
 import { renderName } from '&utils';
 
 interface HelloUserProps {
-  logOut: () => void;
   userData: UserInfoFragment;
 }
 
-export const HelloUser = ({ logOut, userData }: HelloUserProps) => {
+export const HelloUser = ({ userData }: HelloUserProps) => {
   // Navigation
   const navigation = useNavigation();
 
@@ -33,10 +33,6 @@ export const HelloUser = ({ logOut, userData }: HelloUserProps) => {
             <PrimaryButton onPress={() => navigation.navigate('ScanningScreen')}>
               <PrimaryButtonText>Go To Scanning</PrimaryButtonText>
             </PrimaryButton>
-
-            <SecondaryButton onPress={logOut}>
-              <SecondaryButtonText>Log Out</SecondaryButtonText>
-            </SecondaryButton>
           </ButtonContainer>
         </>
       )}

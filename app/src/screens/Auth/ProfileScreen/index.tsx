@@ -1,6 +1,7 @@
 /** @format */
 
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import { ActivityIndicator } from 'react-native';
 
 // Components
 import {
@@ -19,6 +20,9 @@ import {
   UserProfileCheckMarkLogoContainer,
   UserProfileHeaderNameText,
   UserProfileInitialText,
+  SecondaryButton,
+  ButtonContainer,
+  SecondaryButtonText,
 } from '&components';
 
 // Iconography
@@ -26,19 +30,26 @@ import { CheckIcon } from '&icons';
 
 // User Store
 import { AuthContext } from '&stores';
+import { useApolloClient } from '@apollo/client';
+
+// Firebase Authentication
+import auth from '@react-native-firebase/auth';
 
 // Queries
 import { useGetUserQuery } from '&graphql';
 
 // Utils
 import { renderName } from '&utils';
-import { ActivityIndicator } from 'react-native';
 
 export const ProfileScreen = () => {
+  const client = useApolloClient();
   const authContext = useContext(AuthContext);
+
+  const [signOutLoad, setSignOutLoad] = useState<boolean>(false);
+
   const { data, loading } = useGetUserQuery({ variables: { sessionId: authContext?.token! } });
 
-  if (loading)
+  if (loading || signOutLoad)
     return (
       <FullScreenCenter>
         <ActivityIndicator />
@@ -94,6 +105,21 @@ export const ProfileScreen = () => {
       </UserProfilePaymentInfoContainer>
 
       <UserProfileSubHeaderText>My Orders</UserProfileSubHeaderText>
+
+      <ButtonContainer>
+        <SecondaryButton
+          onPress={() => {
+            setSignOutLoad(true);
+
+            void client
+              .clearStore()
+              // @ts-ignore
+              .then(() => client.resetStore().then(() => authContext?.removeToken().then(() => auth().signOut())));
+          }}
+        >
+          <SecondaryButtonText>Log Out</SecondaryButtonText>
+        </SecondaryButton>
+      </ButtonContainer>
     </UserProfileMainContainer>
   );
 };

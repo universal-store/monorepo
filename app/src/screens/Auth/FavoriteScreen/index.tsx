@@ -1,7 +1,7 @@
 /** @format */
 
-import React, { useCallback, useContext } from 'react';
-import { ActivityIndicator, FlatList, Text } from 'react-native';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { ActivityIndicator, FlatList } from 'react-native';
 
 // Components
 import {
@@ -29,7 +29,10 @@ import { useFocusEffect } from '@react-navigation/native';
 import { AuthContext } from '&stores';
 
 // GraphQL
-import { useGetUserFavoriteItemsQuery } from '&graphql';
+import { useGetUserFavoriteItemsQuery, UserFavoriteItemInfoFragment } from '&graphql';
+
+// Utils
+import { useDebounce } from '&utils';
 
 export const FavoriteScreen = () => {
   const authContext = useContext(AuthContext);
@@ -38,11 +41,35 @@ export const FavoriteScreen = () => {
   const { data, refetch, loading } = useGetUserFavoriteItemsQuery({ variables: { sessionId } });
   const favData = data?.UserFavoriteItem;
 
+  const [itemQuery, setItemQuery] = useState<string>('');
+  const [filteredItems, setFilteredItems] = useState<UserFavoriteItemInfoFragment[]>([]);
+
+  // Causes a delay before updating item filter
+  const debouncedItemQuery = useDebounce(itemQuery, 500);
+
   useFocusEffect(
     useCallback(() => {
       void refetch();
     }, [])
   );
+
+  useEffect(() => {
+    if (favData) {
+      setFilteredItems(favData);
+    }
+  }, [favData]);
+
+  useEffect(() => {
+    if (!favData) return;
+
+    if (debouncedItemQuery === '') {
+      setFilteredItems(favData);
+    } else {
+      setFilteredItems(
+        favData.filter(favItem => favItem.StoreItem.longName.toLowerCase().includes(debouncedItemQuery.toLowerCase()))
+      );
+    }
+  }, [debouncedItemQuery]);
 
   return (
     <FullScreenWhite>
@@ -56,7 +83,7 @@ export const FavoriteScreen = () => {
         <FavoritesFindIconContainer>
           <FindIcon />
         </FavoritesFindIconContainer>
-        <FavoritesFindInput placeholder="Find an item" />
+        <FavoritesFindInput value={itemQuery} placeholder="Find an item" onChangeText={setItemQuery} />
 
         <FavoritesFilterButton onPress={() => console.log('Filter Pressed')}>
           <FavoritesFilterText>Filter</FavoritesFilterText>
@@ -69,16 +96,14 @@ export const FavoriteScreen = () => {
         </FullScreenCenter>
       )}
 
-      {favData && (
-        <FlatList
-          data={favData}
-          keyExtractor={item => item.id}
-          showsVerticalScrollIndicator={false}
-          ListFooterComponent={() => <CellItemSeparator />}
-          ItemSeparatorComponent={() => <CellItemSeparator />}
-          renderItem={({ item }) => <FavoriteItemCell favItem={item.StoreItem} sessionId={sessionId} />}
-        />
-      )}
+      <FlatList
+        data={filteredItems}
+        keyExtractor={item => item.id}
+        showsVerticalScrollIndicator={false}
+        ListFooterComponent={() => <CellItemSeparator />}
+        ItemSeparatorComponent={() => <CellItemSeparator />}
+        renderItem={({ item }) => <FavoriteItemCell favItem={item.StoreItem} sessionId={sessionId} />}
+      />
     </FullScreenWhite>
   );
 };

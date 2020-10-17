@@ -1,8 +1,5 @@
 query GetUserFavoriteItems($sessionId: String!) {
   UserFavoriteItem(where: { User: { sessionId: { _eq: $sessionId } } }) {
-    id
-    StoreItem {
-      ...StoreItemInfo
-    }
+    ...UserFavoriteItemInfo
   }
 }

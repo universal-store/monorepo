@@ -1,0 +1,6 @@
+fragment UserFavoriteItemInfo on UserFavoriteItem {
+    id
+    StoreItem {
+        ...StoreItemInfo
+    }
+}

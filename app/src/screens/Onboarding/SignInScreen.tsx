@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useContext, useState } from 'react';
-import { Keyboard, View as OnboardingFormContainer } from 'react-native';
+import { Alert, Keyboard, View as OnboardingFormContainer } from 'react-native';
 
 // Components
 import {
@@ -36,12 +36,20 @@ import { EmailIcon, LockIcon, VisibleIcon } from '&icons';
 import { OnboardingStackParams } from '&navigation';
 import { StackScreenProps } from '@react-navigation/stack';
 
+// Firebase Authentication
+import auth from '@react-native-firebase/auth';
+
+// User Store
+import { AuthContext } from '&stores';
+
 // Utils
 import { emailRegex, validInput } from '&utils';
 
 type SignInScreenProps = StackScreenProps<OnboardingStackParams, 'SignInScreen'>;
 
 export const SignInScreen = ({ navigation }: SignInScreenProps) => {
+  const authContext = useContext(AuthContext);
+
   // Form States
   const [userEmail, setUserEmail] = useState<string>('');
   const [userPassword, setUserPassword] = useState<string>('');
@@ -70,8 +78,21 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
       setValidPassword('VALID');
     }
 
-    if (validInput) {
-      navigation.navigate('ValidateUserScreen', { email: userEmail.toLowerCase(), password: userPassword });
+    if (authContext && validInput) {
+      auth()
+        .signInWithEmailAndPassword(userEmail.toLowerCase(), userPassword)
+        .then(async userCredentials => await authContext.saveToken(userCredentials.user.uid))
+        .catch(error => {
+          if (error.code === 'auth/wrong-password') {
+            Alert.alert('Wrong Password!', `That password does not match the account associated with that email`, [
+              { text: 'Okay' },
+            ]);
+          } else if (error.code === 'auth/invalid-email') {
+            Alert.alert('Invalid Email!', `That email address is invalid`, [{ text: 'Okay' }]);
+          } else if (error.code === 'auth/user-not-found') {
+            Alert.alert('Invalid Credentials!', `That email is not associated with any accounts`, [{ text: 'Okay' }]);
+          }
+        });
     }
   };
 

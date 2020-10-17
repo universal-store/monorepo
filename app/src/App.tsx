@@ -29,16 +29,14 @@ const client = new ApolloClient({
   }),
 });
 
-const App = () => {
-  return (
-    <ThemeProvider theme={theme}>
-      <ApolloProvider client={client}>
-        <AuthProvider>
-          <Root />
-        </AuthProvider>
-      </ApolloProvider>
-    </ThemeProvider>
-  );
-};
+const App = () => (
+  <ThemeProvider theme={theme}>
+    <ApolloProvider client={client}>
+      <AuthProvider>
+        <Root />
+      </AuthProvider>
+    </ApolloProvider>
+  </ThemeProvider>
+);
 
 export default App;

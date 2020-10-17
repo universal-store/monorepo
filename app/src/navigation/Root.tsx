@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'react-native';
 
 // Screens
@@ -11,25 +11,29 @@ import { AuthStackNavigator } from './AuthStack';
 import { OnboardingStackNavigator } from './OnboardingStack';
 import { NavigationContainer } from '@react-navigation/native';
 
-// Context
-import { AuthContext } from '&stores';
+// Firebase Authentication
+import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
 
 export const Root = () => {
-  const authContext = useContext(AuthContext);
+  const [user, setUser] = useState<FirebaseAuthTypes.User | null>(null);
   const [loading, setLoading] = useState(true);
 
+  const onAuthStateChanged = (user: FirebaseAuthTypes.User | null) => {
+    setUser(user);
+    if (loading) setLoading(false);
+  };
+
   useEffect(() => {
-    if (authContext !== null) {
-      setLoading(false);
-    }
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber;
   }, []);
+
+  if (loading) return <SplashScreen />;
 
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <NavigationContainer>
-        {loading ? <SplashScreen /> : authContext?.token ? <AuthStackNavigator /> : <OnboardingStackNavigator />}
-      </NavigationContainer>
+      <NavigationContainer>{user ? <AuthStackNavigator /> : <OnboardingStackNavigator />}</NavigationContainer>
     </>
   );
 };

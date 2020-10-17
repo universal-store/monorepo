@@ -1,6 +1,7 @@
 /** @format */
 
 import React, { useCallback, useContext } from 'react';
+import { ActivityIndicator, FlatList } from 'react-native';
 
 // Components
 import {
@@ -24,7 +25,6 @@ import { AuthContext } from '&stores';
 
 // GraphQL
 import { useGetUserCartItemsQuery } from '&graphql';
-import { ActivityIndicator, FlatList } from 'react-native';
 
 export const CartScreen = () => {
   const authContext = useContext(AuthContext);
@@ -68,7 +68,10 @@ export const CartScreen = () => {
           data={cartData}
           keyExtractor={item => item.id}
           showsVerticalScrollIndicator={false}
-          ListFooterComponent={() => <CellItemSeparator />}
+          ListFooterComponent={() => {
+            if (!cartData.length) return <></>;
+            return <CellItemSeparator />;
+          }}
           ItemSeparatorComponent={() => <CellItemSeparator />}
           renderItem={({ item }) => <CartItemCell key={item.id} cartItem={item.StoreItem} sessionId={sessionId} />}
         />

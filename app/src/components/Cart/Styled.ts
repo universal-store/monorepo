@@ -3,7 +3,7 @@
 import styled from 'styled-components/native';
 
 // Components
-import { RowView, screenWidth } from '../Views';
+import { RowView } from '../Views';
 import { HeaderLargeText, HeaderSmallText, TextLarge2, TextSmall, TextSmall2 } from '../Text';
 
 export const CartHeaderTextContainer = styled.View`

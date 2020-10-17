@@ -30,7 +30,6 @@ import {
   useGetUserQuery,
   GetUserFavoriteItemsDocument,
 } from '&graphql';
-import { CartItemCellContainer } from '../Cart';
 
 // Props
 interface FavoriteItemCellProps {
@@ -48,8 +47,8 @@ export const FavoriteItemCell = ({ favItem, sessionId }: FavoriteItemCellProps) 
   const [removeFromFavoritesMutation] = useRemoveUserFavoriteItemMutation();
 
   // Get User Data
-  const { data: userData } = useGetUserQuery({ variables: { sessionId } });
-  const userId = userData?.User[0].id;
+  const { data } = useGetUserQuery({ variables: { sessionId } });
+  const userId = data?.User[0].id;
 
   // Check if in favorites
   const { data: userFavorites } = useCheckItemInFavoritesQuery({ variables: { barcodeId, sessionId } });

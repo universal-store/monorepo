@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "612367329435",
+    "firebase_url": "https://universal-store-bee55.firebaseio.com",
+    "project_id": "universal-store-bee55",
+    "storage_bucket": "universal-store-bee55.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:612367329435:android:24ded94e405235e0e1fe3e",
+        "android_client_info": {
+          "package_name": "com.universalstore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "612367329435-7l9f9hvht2emob4vcnfk6bnaptf1p3db.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7J37wB33M5wSEIy39_0DLR35ebGgQlsg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "612367329435-7l9f9hvht2emob4vcnfk6bnaptf1p3db.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

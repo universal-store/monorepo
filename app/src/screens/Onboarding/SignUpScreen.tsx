@@ -40,8 +40,11 @@ import { AuthContext } from '&stores';
 import { OnboardingStackParams } from '&navigation';
 import { StackScreenProps } from '@react-navigation/stack';
 
+// Firebase Authentication
+import auth from '@react-native-firebase/auth';
+
 // GraphQL
-import { useSignUpMutation } from '&graphql';
+import { useCreateUserMutation } from '&graphql';
 
 // Utils
 import { emailRegex, toCamelCase, validInput } from '&utils';
@@ -69,7 +72,7 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
   const [secureConfirmPassEntry, setSecureConfirmPassEntry] = useState<boolean>(true);
 
   // Create User Mutation
-  const [signUpMutation] = useSignUpMutation();
+  const [createUserMutation] = useCreateUserMutation();
 
   const validateSignUp = () => {
     let validInput = true;
@@ -103,28 +106,28 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
     }
 
     if (validInput && authContext) {
-      void signUpMutation({
-        variables: {
-          email: userEmail.toLowerCase(),
-          firstName: toCamelCase(userFirstName),
-          lastName: toCamelCase(userLastName),
-          password: userPassword,
-        },
-      })
-        .then(res => {
-          if (res.data) {
-            const newUser = res.data.insert_User_one;
+      auth()
+        .createUserWithEmailAndPassword(userEmail.toLowerCase(), userPassword)
+        .then(async userCredentials => {
+          await authContext.saveToken(userCredentials.user.uid);
 
-            if (newUser) {
-              void authContext
-                .saveToken(newUser.sessionId)
-                .then(() => navigation.navigate('AuthStack', { screen: 'RootAuthStack' }));
-            }
-          }
+          await createUserMutation({
+            variables: {
+              email: userEmail.toLowerCase(),
+              firstName: toCamelCase(userFirstName),
+              lastName: toCamelCase(userLastName),
+              sessionId: userCredentials.user.uid,
+            },
+          });
         })
-        .catch(err => {
-          console.log(err);
-          Alert.alert('Account Found!', `An account associated with ${userEmail} already exists`, [{ text: 'Okay' }]);
+        .catch(error => {
+          if (error.code === 'auth/email-already-in-use') {
+            Alert.alert('Account Found!', `That email address is already associated with an account`, [
+              { text: 'Okay' },
+            ]);
+          } else if (error.code === 'auth/invalid-email') {
+            Alert.alert('Invalid Email!', `That email address is invalid`, [{ text: 'Okay' }]);
+          }
         });
     }
   };

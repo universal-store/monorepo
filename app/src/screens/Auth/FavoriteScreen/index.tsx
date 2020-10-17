@@ -100,7 +100,10 @@ export const FavoriteScreen = () => {
         data={filteredItems}
         keyExtractor={item => item.id}
         showsVerticalScrollIndicator={false}
-        ListFooterComponent={() => <CellItemSeparator />}
+        ListFooterComponent={() => {
+          if (!filteredItems.length) return <></>;
+          return <CellItemSeparator />;
+        }}
         ItemSeparatorComponent={() => <CellItemSeparator />}
         renderItem={({ item }) => <FavoriteItemCell favItem={item.StoreItem} sessionId={sessionId} />}
       />

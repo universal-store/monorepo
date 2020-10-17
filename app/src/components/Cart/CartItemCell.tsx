@@ -46,8 +46,8 @@ export const CartItemCell = ({ cartItem, sessionId }: CartItemCellProps) => {
   const [addToFavoritesMutation] = useAddUserFavoriteItemMutation();
 
   // Get User Data
-  const { data: userData } = useGetUserQuery({ variables: { sessionId } });
-  const userId = userData?.User[0].id;
+  const { data } = useGetUserQuery({ variables: { sessionId } });
+  const userId = data?.User[0].id;
 
   // Check if in favorites
   const { data: userFavorites } = useCheckItemInFavoritesQuery({ variables: { barcodeId, sessionId } });

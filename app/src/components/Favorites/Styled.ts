@@ -35,7 +35,10 @@ export const FavoritesFindIconContainer = styled.View`
   height: 16px;
 `;
 
-export const FavoritesFindInput = styled.TextInput`
+export const FavoritesFindInput = styled.TextInput.attrs(({ theme }) => ({
+  selectionColor: theme.colors.gray[3],
+  placeholderTextColor: theme.colors.gray[4],
+}))`
   flex: 1;
   font-size: 16px;
   margin-left: 8px;

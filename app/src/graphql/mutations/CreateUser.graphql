@@ -1,0 +1,5 @@
+mutation CreateUser($email: String!, $firstName: name!, $lastName: name, $sessionId: String!) {
+  insert_User_one(object: { email: $email, firstName: $firstName, lastName: $lastName, sessionId: $sessionId }) {
+    ...UserInfo
+  }
+}

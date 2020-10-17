@@ -2356,7 +2356,6 @@ type User {
   firstName: name!
   id: uuid!
   lastName: name
-  password: String!
   profilePicId: uuid
   sessionId: String!
 }
@@ -2400,7 +2399,6 @@ input User_bool_exp {
   firstName: name_comparison_exp
   id: uuid_comparison_exp
   lastName: name_comparison_exp
-  password: String_comparison_exp
   profilePicId: uuid_comparison_exp
   sessionId: String_comparison_exp
 }
@@ -2430,7 +2428,6 @@ input User_insert_input {
   firstName: name
   id: uuid
   lastName: name
-  password: String
   profilePicId: uuid
   sessionId: String
 }
@@ -2439,7 +2436,6 @@ input User_insert_input {
 type User_max_fields {
   email: String
   id: uuid
-  password: String
   profilePicId: uuid
   sessionId: String
 }
@@ -2448,7 +2444,6 @@ type User_max_fields {
 input User_max_order_by {
   email: order_by
   id: order_by
-  password: order_by
   profilePicId: order_by
   sessionId: order_by
 }
@@ -2457,7 +2452,6 @@ input User_max_order_by {
 type User_min_fields {
   email: String
   id: uuid
-  password: String
   profilePicId: uuid
   sessionId: String
 }
@@ -2466,7 +2460,6 @@ type User_min_fields {
 input User_min_order_by {
   email: order_by
   id: order_by
-  password: order_by
   profilePicId: order_by
   sessionId: order_by
 }
@@ -2503,7 +2496,6 @@ input User_order_by {
   firstName: order_by
   id: order_by
   lastName: order_by
-  password: order_by
   profilePicId: order_by
   sessionId: order_by
 }
@@ -2528,9 +2520,6 @@ enum User_select_column {
   lastName
 
   # column name
-  password
-
-  # column name
   profilePicId
 
   # column name
@@ -2543,7 +2532,6 @@ input User_set_input {
   firstName: name
   id: uuid
   lastName: name
-  password: String
   profilePicId: uuid
   sessionId: String
 }
@@ -2561,9 +2549,6 @@ enum User_update_column {
 
   # column name
   lastName
-
-  # column name
-  password
 
   # column name
   profilePicId

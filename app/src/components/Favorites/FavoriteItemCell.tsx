@@ -17,6 +17,9 @@ import {
 // Iconography
 import { HeartIconOff, HeartIconOn } from '&icons';
 
+// Navigation
+import { useNavigation } from '@react-navigation/native';
+
 // GraphQL
 import {
   CheckItemInFavoritesDocument,
@@ -27,6 +30,7 @@ import {
   useGetUserQuery,
   GetUserFavoriteItemsDocument,
 } from '&graphql';
+import { CartItemCellContainer } from '../Cart';
 
 // Props
 interface FavoriteItemCellProps {
@@ -35,6 +39,9 @@ interface FavoriteItemCellProps {
 }
 export const FavoriteItemCell = ({ favItem, sessionId }: FavoriteItemCellProps) => {
   const { StoreItemPic, longName, price, barcodeId } = favItem;
+
+  // Navigation
+  const navigation = useNavigation();
 
   // Mutations
   const [addToFavoritesMutation] = useAddUserFavoriteItemMutation();
@@ -75,7 +82,7 @@ export const FavoriteItemCell = ({ favItem, sessionId }: FavoriteItemCellProps) 
   };
 
   return (
-    <FavoriteItemCellContainer>
+    <FavoriteItemCellContainer onPress={() => navigation.navigate('ItemDetail', { barcodeId })}>
       <FavoritesItemCellContainerSmall>
         <FavoriteItemImageContainer>
           {StoreItemPic && (

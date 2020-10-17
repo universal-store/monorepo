@@ -18,6 +18,9 @@ import {
   CartItemAddFavoriteButton,
 } from './Styled';
 
+// Navigation
+import { useNavigation } from '@react-navigation/native';
+
 // GraphQL
 import {
   CheckItemInFavoritesDocument,
@@ -35,6 +38,9 @@ interface CartItemCellProps {
 
 export const CartItemCell = ({ cartItem, sessionId }: CartItemCellProps) => {
   const { StoreItemPic, longName, price, quantity, barcodeId } = cartItem;
+
+  // Navigation
+  const navigation = useNavigation();
 
   // Mutations
   const [addToFavoritesMutation] = useAddUserFavoriteItemMutation();
@@ -54,7 +60,7 @@ export const CartItemCell = ({ cartItem, sessionId }: CartItemCellProps) => {
   }, [favorite, userFavorites]);
 
   return (
-    <CartItemCellContainer>
+    <CartItemCellContainer onPress={() => navigation.navigate('ItemDetail', { barcodeId })}>
       <CartItemCellContainerSmall>
         <CartItemImageContainer>
           {StoreItemPic && (

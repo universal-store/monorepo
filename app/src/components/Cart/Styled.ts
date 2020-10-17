@@ -38,13 +38,13 @@ export const CartSubtotalPrice = styled(HeaderSmallText)`
   color: ${({ theme }) => theme.colors.purple[2]};
 `;
 
-export const CartItemCellContainer = styled(RowView)`
+export const CartItemCellContainer = styled.TouchableOpacity`
   width: 100%;
   height: 80px;
+  display: flex;
   padding: 16px 24px;
   align-items: center;
-  border-bottom-width: 1px;
-  border-bottom-color: ${({ theme }) => theme.colors.gray[5]};
+  flex-direction: row;
 `;
 
 export const CartItemCellContainerSmall = styled(RowView)`

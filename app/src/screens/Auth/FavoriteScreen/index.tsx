@@ -1,10 +1,11 @@
 /** @format */
 
 import React, { useCallback, useContext } from 'react';
-import { Text } from 'react-native';
+import { ActivityIndicator, FlatList, Text } from 'react-native';
 
 // Components
 import {
+  CellItemSeparator,
   FavoritesFilterText,
   FavoritesFindFilterContainer,
   FavoritesFindIconContainer,
@@ -15,6 +16,7 @@ import {
   FavoriteItemCell,
   FullScreenWhite,
   FavoritesFilterButton,
+  FullScreenCenter,
 } from '&components';
 
 // Iconography
@@ -33,7 +35,7 @@ export const FavoriteScreen = () => {
   const authContext = useContext(AuthContext);
   const sessionId = authContext?.token!;
 
-  const { data, refetch } = useGetUserFavoriteItemsQuery({ variables: { sessionId } });
+  const { data, refetch, loading } = useGetUserFavoriteItemsQuery({ variables: { sessionId } });
   const favData = data?.UserFavoriteItem;
 
   useFocusEffect(
@@ -61,8 +63,22 @@ export const FavoriteScreen = () => {
         </FavoritesFilterButton>
       </FavoritesFindFilterContainer>
 
-      {favData &&
-        favData.map(favItem => <FavoriteItemCell key={favItem.id} favItem={favItem.StoreItem} sessionId={sessionId} />)}
+      {loading && (
+        <FullScreenCenter>
+          <ActivityIndicator />
+        </FullScreenCenter>
+      )}
+
+      {favData && (
+        <FlatList
+          data={favData}
+          keyExtractor={item => item.id}
+          showsVerticalScrollIndicator={false}
+          ListFooterComponent={() => <CellItemSeparator />}
+          ItemSeparatorComponent={() => <CellItemSeparator />}
+          renderItem={({ item }) => <FavoriteItemCell favItem={item.StoreItem} sessionId={sessionId} />}
+        />
+      )}
     </FullScreenWhite>
   );
 };

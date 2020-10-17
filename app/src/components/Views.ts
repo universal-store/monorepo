@@ -52,6 +52,12 @@ export const KeyboardDismiss = styled.TouchableWithoutFeedback`
   flex: 1;
 `;
 
+export const CellItemSeparator = styled.View`
+  width: 100%;
+  height: 1px;
+  background-color: ${({ theme }) => theme.colors.gray[5]};
+`;
+
 // TODO: Remove in production
 export const TestButtons = styled.View`
   margin-top: auto;

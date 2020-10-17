@@ -51,14 +51,14 @@ export const FavoritesFilterText = styled(TextSmall)`
   margin-left: 24px;
 `;
 
-export const FavoriteItemCellContainer = styled(RowView)`
+export const FavoriteItemCellContainer = styled.TouchableOpacity`
   width: 100%;
   height: 80px;
+  display: flex;
   padding: 16px 24px;
+  flex-direction: row;
   align-items: center;
-  border-bottom-width: 1px;
   justify-content: space-between;
-  border-bottom-color: ${({ theme }) => theme.colors.gray[5]};
 `;
 
 export const FavoritesItemCellContainerSmall = styled(RowView)`

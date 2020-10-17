@@ -38,7 +38,7 @@ import { CartIcon, CloseIcon, HeartIconOff, HeartIconOn } from '&icons';
 import { AuthContext } from '&stores';
 
 // Navigation
-import { ScanningStackParams } from '&navigation';
+import { RootAuthParams } from '&navigation';
 import { StackScreenProps } from '@react-navigation/stack';
 
 // GraphQL
@@ -56,15 +56,16 @@ import {
 } from '&graphql';
 
 // Constants
-const largeModalHeight = screenHeight - 92;
-const smallModalHeight = screenHeight - 372;
+const largeModalHeight = screenHeight - (isiPhoneX ? 92 : 62);
+const smallModalHeight = screenHeight - (isiPhoneX ? 402 : 372);
 
 const smallDescriptionLines = isiPhoneX ? 8 : 1;
 
-type ItemDetailProps = StackScreenProps<ScanningStackParams, 'ItemDetail'>;
+type ItemDetailProps = StackScreenProps<RootAuthParams, 'ItemDetail'>;
 
 export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
   const { barcodeId } = route.params;
+
   const authContext = useContext(AuthContext);
   const sessionId = authContext?.token!;
 
@@ -86,13 +87,13 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
     if (userCart) {
       setInCart(userCart.StoreItem_by_pk?.UserCartItems.length !== 0);
     }
-  }, [userCart]);
+  }, [inCart, userCart]);
 
   useEffect(() => {
     if (userFavorites) {
       setFavorite(userFavorites.StoreItem_by_pk?.UserFavoriteItems.length !== 0);
     }
-  }, [favorite]);
+  }, [favorite, userFavorites]);
 
   // Mutations
   const [addToCartMutation] = useAddUserCartItemMutation();
@@ -170,7 +171,7 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
           <CloseIcon />
         </ItemDetailHeaderButton>
 
-        <ItemDetailHeaderButton>
+        <ItemDetailHeaderButton onPress={() => navigation.navigate('TabNavigation', { screen: 'CartScreen' })}>
           <CartIcon />
         </ItemDetailHeaderButton>
       </ItemDetailHeaderRow>

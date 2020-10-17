@@ -10,13 +10,13 @@ import { FullScreenWhite, HelloUser } from '&components';
 import { AuthContext } from '&stores';
 
 // Navigation
-import { RootAuthParams } from '&navigation';
+import { RootAuthTabParams } from '&navigation';
 import { StackScreenProps } from '@react-navigation/stack';
 
 // GraphQL
 import { useGetUserQuery, useSignInQuery } from '&graphql';
 
-type MapViewScreenProps = StackScreenProps<RootAuthParams, 'MapView'>;
+type MapViewScreenProps = StackScreenProps<RootAuthTabParams, 'MapView'>;
 
 export const MapViewScreen = ({ navigation, route }: MapViewScreenProps) => {
   const authContext = useContext(AuthContext);

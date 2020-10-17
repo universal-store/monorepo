@@ -11,9 +11,9 @@ export const ItemDetailHeaderRow = styled(RowView)`
   width: 100%;
   height: 40px;
   padding: 0 32px;
+  margin-top: 36px;
   align-items: center;
   justify-content: space-between;
-  margin-top: ${isiPhoneX ? 66 : 36}px;
 `;
 
 export const ItemDetailHeaderButton = styled.TouchableOpacity`
@@ -63,7 +63,7 @@ export const ItemDetailModalContainer = styled.View`
   width: 100%;
   height: 100%;
   display: flex;
-  padding: 0 32px ${isiPhoneX ? 54 : 24}px;
+  padding: 0 32px 24px;
   background-color: ${({ theme }) => theme.colors.white[1]};
 `;
 

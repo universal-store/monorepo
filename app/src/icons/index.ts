@@ -7,6 +7,9 @@ export * from './BackArrowIcon';
 // General Icons
 export * from './CartIcon';
 
+// Profile Screen
+export * from './CheckIcon';
+
 // Onboarding Icons
 export * from './EmailIcon';
 export * from './PersonIcon';

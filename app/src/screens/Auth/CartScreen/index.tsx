@@ -12,6 +12,8 @@ import {
   CartHeaderTextBold,
   CartHeaderTextContainer,
   CartItemCell,
+  CellItemSeparator,
+  FullScreenCenter,
 } from '&components';
 
 // React Navigation
@@ -22,12 +24,13 @@ import { AuthContext } from '&stores';
 
 // GraphQL
 import { useGetUserCartItemsQuery } from '&graphql';
+import { ActivityIndicator, FlatList } from 'react-native';
 
 export const CartScreen = () => {
   const authContext = useContext(AuthContext);
   const sessionId = authContext?.token!;
 
-  const { data, refetch } = useGetUserCartItemsQuery({ variables: { sessionId } });
+  const { data, refetch, loading } = useGetUserCartItemsQuery({ variables: { sessionId } });
   const cartData = data?.UserCartItem;
 
   let cartTotal = 0;
@@ -54,10 +57,22 @@ export const CartScreen = () => {
         <CartSubtotalPrice>${cartTotal.toFixed(2)}</CartSubtotalPrice>
       </CartPriceContainer>
 
-      {cartData &&
-        cartData.map(cartItem => (
-          <CartItemCell key={cartItem.id} cartItem={cartItem.StoreItem} sessionId={sessionId} />
-        ))}
+      {loading && (
+        <FullScreenCenter>
+          <ActivityIndicator />
+        </FullScreenCenter>
+      )}
+
+      {cartData && (
+        <FlatList
+          data={cartData}
+          keyExtractor={item => item.id}
+          showsVerticalScrollIndicator={false}
+          ListFooterComponent={() => <CellItemSeparator />}
+          ItemSeparatorComponent={() => <CellItemSeparator />}
+          renderItem={({ item }) => <CartItemCell key={item.id} cartItem={item.StoreItem} sessionId={sessionId} />}
+        />
+      )}
     </FullScreenWhite>
   );
 };

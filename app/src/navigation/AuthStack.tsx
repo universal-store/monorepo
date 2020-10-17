@@ -80,7 +80,7 @@ export const RootAuthNavigator = () => (
 
 export type AuthStackParams = {
   RootAuthStack: undefined;
-  OnboardingStack: undefined;
+  OnboardingStack: { screen: string };
 };
 
 const AuthStack = createStackNavigator<AuthStackParams>();

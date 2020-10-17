@@ -116,13 +116,9 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
             const newUser = res.data.insert_User_one;
 
             if (newUser) {
-              void authContext.saveToken(newUser.sessionId);
-
-              // @ts-ignore
-              navigation.navigate('AuthStack', {
-                screen: 'LandingScreen',
-                params: { email: newUser.email, password: userPassword },
-              });
+              void authContext
+                .saveToken(newUser.sessionId)
+                .then(() => navigation.navigate('AuthStack', { screen: 'RootAuthStack' }));
             }
           }
         })

@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Keyboard, View as OnboardingFormContainer } from 'react-native';
 
 // Components
@@ -71,11 +71,7 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
     }
 
     if (validInput) {
-      // @ts-ignore
-      navigation.navigate('AuthStack', {
-        screen: 'LandingScreen',
-        params: { email: userEmail.toLowerCase(), password: userPassword },
-      });
+      navigation.navigate('ValidateUserScreen', { email: userEmail.toLowerCase(), password: userPassword });
     }
   };
 

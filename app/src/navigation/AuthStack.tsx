@@ -5,6 +5,15 @@ import React from 'react';
 // Screens
 import { CartScreen, FavoriteScreen, ItemDetail, MapViewScreen, ProfileScreen, ScanningScreen } from '&screens';
 
+// Tab Icons
+import {
+  CartScreenIcon,
+  FavoriteScreenIcon,
+  MapViewScreenIcon,
+  ProfileScreenIcon,
+  TabNavigationIconProps,
+} from '&icons';
+
 // Stack Navigators
 import { OnboardingStackNavigator } from './OnboardingStack';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -21,11 +30,35 @@ export type RootAuthTabParams = {
 const RootAuthTab = createBottomTabNavigator<RootAuthTabParams>();
 
 export const RootAuthTabNavigator = () => (
-  <RootAuthTab.Navigator initialRouteName="MapView">
-    <RootAuthTab.Screen name="MapView" component={MapViewScreen} />
-    <RootAuthTab.Screen name="FavoritesScreen" component={FavoriteScreen} />
-    <RootAuthTab.Screen name="CartScreen" component={CartScreen} />
-    <RootAuthTab.Screen name="ProfileScreen" component={ProfileScreen} />
+  <RootAuthTab.Navigator initialRouteName="MapView" tabBarOptions={{ showLabel: false }}>
+    <RootAuthTab.Screen
+      name="MapView"
+      component={MapViewScreen}
+      options={{
+        tabBarIcon: ({ focused }: TabNavigationIconProps) => <MapViewScreenIcon focused={focused} />,
+      }}
+    />
+    <RootAuthTab.Screen
+      name="FavoritesScreen"
+      component={FavoriteScreen}
+      options={{
+        tabBarIcon: ({ focused }: TabNavigationIconProps) => <FavoriteScreenIcon focused={focused} />,
+      }}
+    />
+    <RootAuthTab.Screen
+      name="CartScreen"
+      component={CartScreen}
+      options={{
+        tabBarIcon: ({ focused }: TabNavigationIconProps) => <CartScreenIcon focused={focused} />,
+      }}
+    />
+    <RootAuthTab.Screen
+      name="ProfileScreen"
+      component={ProfileScreen}
+      options={{
+        tabBarIcon: ({ focused }: TabNavigationIconProps) => <ProfileScreenIcon focused={focused} />,
+      }}
+    />
   </RootAuthTab.Navigator>
 );
 

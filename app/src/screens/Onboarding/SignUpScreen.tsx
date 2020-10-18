@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
 
 // Components
-import { Alert, Keyboard, View as OnboardingFormContainer } from 'react-native';
+import { Keyboard, View as OnboardingFormContainer } from 'react-native';
 
 import {
   HeaderLargeText as OnboardingHeaderTitleText,
@@ -12,8 +12,6 @@ import {
   LogoContainer,
   OnboardingButton,
   OnboardingButtonText,
-  OnboardingFormContainerHalf,
-  OnboardingFormHalfRow,
   OnboardingFormText,
   OnboardingHeaderContainer,
   OnboardingHeaderTextContainer,
@@ -49,14 +47,12 @@ type SignUpScreenProps = StackScreenProps<OnboardingStackParams, 'SignUpScreen'>
 export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
   // Form States
   const [userEmail, setUserEmail] = useState<string>('');
-  // const [userFirstName, setUserFirstName] = useState<string>('');
-  // const [userLastName, setUserLastName] = useState<string>('');
+
   const [userPassword, setUserPassword] = useState<string>('');
   const [userConfirmPassword, setUserConfirmPassword] = useState<string>('');
 
   // Validation States
   const [validEmail, setValidEmail] = useState<validInput>('NEEDS_CHECK');
-  // const [validFirstname, setValidFirstname] = useState<validInput>('NEEDS_CHECK');
   const [validPassword, setValidPassword] = useState<validInput>('NEEDS_CHECK');
   const [validConfirmPassword, setValidConfirmPassword] = useState<validInput>('NEEDS_CHECK');
 
@@ -73,13 +69,6 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
     } else {
       setValidEmail('VALID');
     }
-
-    // if (userFirstName === '') {
-    //   validInput = false;
-    //   setValidFirstname('INVALID');
-    // } else {
-    //   setValidFirstname('VALID');
-    // }
 
     if (userPassword === '') {
       validInput = false;
@@ -153,42 +142,6 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
               ) : (
                 <OnboardingRequiredText>Email is invalid</OnboardingRequiredText>
               ))}
-
-            {/*<OnboardingInputContainer valid={validFirstname}>*/}
-            {/*  <OnboardingFormContainerHalf>*/}
-            {/*    <OnboardingFormText>First Name*</OnboardingFormText>*/}
-
-            {/*    <OnboardingFormHalfRow>*/}
-            {/*      <OnboardingInputIconContainer>*/}
-            {/*        <PersonIcon />*/}
-            {/*      </OnboardingInputIconContainer>*/}
-
-            {/*      <OnboardingTextInput*/}
-            {/*        value={userFirstName}*/}
-            {/*        textContentType="name"*/}
-            {/*        autoCompleteType="name"*/}
-            {/*        placeholder="First Name"*/}
-            {/*        onChangeText={text => {*/}
-            {/*          setUserFirstName(text);*/}
-            {/*          setValidFirstname('NEEDS_CHECK');*/}
-            {/*        }}*/}
-            {/*      />*/}
-            {/*    </OnboardingFormHalfRow>*/}
-            {/*  </OnboardingFormContainerHalf>*/}
-
-            {/*  <OnboardingFormContainerHalf>*/}
-            {/*    <OnboardingFormText>Last Name</OnboardingFormText>*/}
-
-            {/*    <OnboardingTextInput*/}
-            {/*      value={userLastName}*/}
-            {/*      autoCompleteType="name"*/}
-            {/*      placeholder="Last Name"*/}
-            {/*      textContentType="familyName"*/}
-            {/*      onChangeText={setUserLastName}*/}
-            {/*    />*/}
-            {/*  </OnboardingFormContainerHalf>*/}
-            {/*</OnboardingInputContainer>*/}
-            {/*{validFirstname === 'INVALID' && <OnboardingRequiredText>First Name is required</OnboardingRequiredText>}*/}
 
             <OnboardingFormText>Password*</OnboardingFormText>
             <OnboardingInputContainer valid={validPassword}>

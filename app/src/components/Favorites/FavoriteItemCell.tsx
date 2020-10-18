@@ -47,7 +47,7 @@ export const FavoriteItemCell = ({ favItem }: FavoriteItemCellProps) => {
 
   // Get User Data
   const { data } = useGetUserQuery();
-  const userId = data?.User[0].id;
+  const userId = data?.User[0].id!;
 
   // Check if in favorites
   const { data: userFavorites } = useCheckItemInFavoritesQuery();

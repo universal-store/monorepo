@@ -1,6 +1,7 @@
 /** @format */
 
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
+import AsyncStorage from '@react-native-community/async-storage';
 
 // Components
 import { Alert, Keyboard, View as OnboardingFormContainer } from 'react-native';
@@ -31,39 +32,31 @@ import {
 } from '&components';
 
 // Iconography
-import { EmailIcon, LockIcon, PersonIcon, VisibleIcon } from '&icons';
-
-// Context
-import { AuthContext } from '&stores';
+import { EmailIcon, LockIcon, VisibleIcon } from '&icons';
 
 // Navigation
 import { OnboardingStackParams } from '&navigation';
 import { StackScreenProps } from '@react-navigation/stack';
 
 // Firebase Authentication
-import auth from '@react-native-firebase/auth';
-
-// GraphQL
-import { useCreateUserMutation } from '&graphql';
+import Firebase, { fns } from '../../lib/firebase';
 
 // Utils
-import { emailRegex, toCamelCase, validInput } from '&utils';
+import { emailRegex, validInput } from '&utils';
 
 type SignUpScreenProps = StackScreenProps<OnboardingStackParams, 'SignUpScreen'>;
 
 export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
-  const authContext = useContext(AuthContext);
-
   // Form States
   const [userEmail, setUserEmail] = useState<string>('');
-  const [userFirstName, setUserFirstName] = useState<string>('');
-  const [userLastName, setUserLastName] = useState<string>('');
+  // const [userFirstName, setUserFirstName] = useState<string>('');
+  // const [userLastName, setUserLastName] = useState<string>('');
   const [userPassword, setUserPassword] = useState<string>('');
   const [userConfirmPassword, setUserConfirmPassword] = useState<string>('');
 
   // Validation States
   const [validEmail, setValidEmail] = useState<validInput>('NEEDS_CHECK');
-  const [validFirstname, setValidFirstname] = useState<validInput>('NEEDS_CHECK');
+  // const [validFirstname, setValidFirstname] = useState<validInput>('NEEDS_CHECK');
   const [validPassword, setValidPassword] = useState<validInput>('NEEDS_CHECK');
   const [validConfirmPassword, setValidConfirmPassword] = useState<validInput>('NEEDS_CHECK');
 
@@ -71,10 +64,7 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
   const [securePassEntry, setSecurePassEntry] = useState<boolean>(true);
   const [secureConfirmPassEntry, setSecureConfirmPassEntry] = useState<boolean>(true);
 
-  // Create User Mutation
-  const [createUserMutation] = useCreateUserMutation();
-
-  const validateSignUp = () => {
+  const validateSignUp = async () => {
     let validInput = true;
 
     if (userEmail === '' || !emailRegex.test(userEmail)) {
@@ -84,12 +74,12 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
       setValidEmail('VALID');
     }
 
-    if (userFirstName === '') {
-      validInput = false;
-      setValidFirstname('INVALID');
-    } else {
-      setValidFirstname('VALID');
-    }
+    // if (userFirstName === '') {
+    //   validInput = false;
+    //   setValidFirstname('INVALID');
+    // } else {
+    //   setValidFirstname('VALID');
+    // }
 
     if (userPassword === '') {
       validInput = false;
@@ -105,28 +95,15 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
       setValidConfirmPassword('VALID');
     }
 
-    if (validInput && authContext) {
-      auth()
-        .createUserWithEmailAndPassword(userEmail.toLowerCase(), userPassword)
+    if (validInput) {
+      const registerUser = fns.httpsCallable('registerUser');
+      await registerUser({ email: userEmail.toLowerCase(), password: userPassword });
+      await Firebase.auth()
+        .signInWithEmailAndPassword(userEmail.toLowerCase(), userPassword)
         .then(async userCredentials => {
-          await authContext.saveToken(userCredentials.user.uid);
-
-          await createUserMutation({
-            variables: {
-              email: userEmail.toLowerCase(),
-              firstName: toCamelCase(userFirstName),
-              lastName: toCamelCase(userLastName),
-              sessionId: userCredentials.user.uid,
-            },
-          });
-        })
-        .catch(error => {
-          if (error.code === 'auth/email-already-in-use') {
-            Alert.alert('Account Found!', `That email address is already associated with an account`, [
-              { text: 'Okay' },
-            ]);
-          } else if (error.code === 'auth/invalid-email') {
-            Alert.alert('Invalid Email!', `That email address is invalid`, [{ text: 'Okay' }]);
+          if (userCredentials.user) {
+            const newToken = await userCredentials.user.getIdToken();
+            await AsyncStorage.setItem('userToken', newToken);
           }
         });
     }
@@ -177,41 +154,41 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
                 <OnboardingRequiredText>Email is invalid</OnboardingRequiredText>
               ))}
 
-            <OnboardingInputContainer valid={validFirstname}>
-              <OnboardingFormContainerHalf>
-                <OnboardingFormText>First Name*</OnboardingFormText>
+            {/*<OnboardingInputContainer valid={validFirstname}>*/}
+            {/*  <OnboardingFormContainerHalf>*/}
+            {/*    <OnboardingFormText>First Name*</OnboardingFormText>*/}
 
-                <OnboardingFormHalfRow>
-                  <OnboardingInputIconContainer>
-                    <PersonIcon />
-                  </OnboardingInputIconContainer>
+            {/*    <OnboardingFormHalfRow>*/}
+            {/*      <OnboardingInputIconContainer>*/}
+            {/*        <PersonIcon />*/}
+            {/*      </OnboardingInputIconContainer>*/}
 
-                  <OnboardingTextInput
-                    value={userFirstName}
-                    textContentType="name"
-                    autoCompleteType="name"
-                    placeholder="First Name"
-                    onChangeText={text => {
-                      setUserFirstName(text);
-                      setValidFirstname('NEEDS_CHECK');
-                    }}
-                  />
-                </OnboardingFormHalfRow>
-              </OnboardingFormContainerHalf>
+            {/*      <OnboardingTextInput*/}
+            {/*        value={userFirstName}*/}
+            {/*        textContentType="name"*/}
+            {/*        autoCompleteType="name"*/}
+            {/*        placeholder="First Name"*/}
+            {/*        onChangeText={text => {*/}
+            {/*          setUserFirstName(text);*/}
+            {/*          setValidFirstname('NEEDS_CHECK');*/}
+            {/*        }}*/}
+            {/*      />*/}
+            {/*    </OnboardingFormHalfRow>*/}
+            {/*  </OnboardingFormContainerHalf>*/}
 
-              <OnboardingFormContainerHalf>
-                <OnboardingFormText>Last Name</OnboardingFormText>
+            {/*  <OnboardingFormContainerHalf>*/}
+            {/*    <OnboardingFormText>Last Name</OnboardingFormText>*/}
 
-                <OnboardingTextInput
-                  value={userLastName}
-                  autoCompleteType="name"
-                  placeholder="Last Name"
-                  textContentType="familyName"
-                  onChangeText={setUserLastName}
-                />
-              </OnboardingFormContainerHalf>
-            </OnboardingInputContainer>
-            {validFirstname === 'INVALID' && <OnboardingRequiredText>First Name is required</OnboardingRequiredText>}
+            {/*    <OnboardingTextInput*/}
+            {/*      value={userLastName}*/}
+            {/*      autoCompleteType="name"*/}
+            {/*      placeholder="Last Name"*/}
+            {/*      textContentType="familyName"*/}
+            {/*      onChangeText={setUserLastName}*/}
+            {/*    />*/}
+            {/*  </OnboardingFormContainerHalf>*/}
+            {/*</OnboardingInputContainer>*/}
+            {/*{validFirstname === 'INVALID' && <OnboardingRequiredText>First Name is required</OnboardingRequiredText>}*/}
 
             <OnboardingFormText>Password*</OnboardingFormText>
             <OnboardingInputContainer valid={validPassword}>

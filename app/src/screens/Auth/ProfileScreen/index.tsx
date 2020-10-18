@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { ActivityIndicator } from 'react-native';
 
 // Components
@@ -29,8 +29,8 @@ import {
 import { CheckIcon } from '&icons';
 
 // Context
-import { AuthContext } from '&stores';
 import { useApolloClient } from '@apollo/client';
+import AsyncStorage from '@react-native-community/async-storage';
 
 // Firebase Authentication
 import auth from '@react-native-firebase/auth';
@@ -43,7 +43,6 @@ import { renderName } from '&utils';
 
 export const ProfileScreen = () => {
   const client = useApolloClient();
-  const authContext = useContext(AuthContext);
 
   const [signOutLoad, setSignOutLoad] = useState<boolean>(false);
 
@@ -110,7 +109,7 @@ export const ProfileScreen = () => {
         <SecondaryButton
           onPress={async () => {
             setSignOutLoad(true);
-            await authContext?.removeToken();
+            await AsyncStorage.removeItem('userToken');
             await auth()
               .signOut()
               .then(() => client.clearStore());

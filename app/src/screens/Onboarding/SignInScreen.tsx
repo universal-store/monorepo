@@ -1,6 +1,7 @@
 /** @format */
 
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
+import AsyncStorage from '@react-native-community/async-storage';
 import { Alert, Keyboard, View as OnboardingFormContainer } from 'react-native';
 
 // Components
@@ -37,10 +38,7 @@ import { OnboardingStackParams } from '&navigation';
 import { StackScreenProps } from '@react-navigation/stack';
 
 // Firebase Authentication
-import auth from '@react-native-firebase/auth';
-
-// Contextß
-import { AuthContext } from '&stores';
+import Firebase from '../../lib/firebase';
 
 // Utils
 import { emailRegex, validInput } from '&utils';
@@ -48,8 +46,6 @@ import { emailRegex, validInput } from '&utils';
 type SignInScreenProps = StackScreenProps<OnboardingStackParams, 'SignInScreen'>;
 
 export const SignInScreen = ({ navigation }: SignInScreenProps) => {
-  const authContext = useContext(AuthContext);
-
   // Form States
   const [userEmail, setUserEmail] = useState<string>('');
   const [userPassword, setUserPassword] = useState<string>('');
@@ -78,10 +74,15 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
       setValidPassword('VALID');
     }
 
-    if (authContext && validInput) {
-      auth()
+    if (validInput) {
+      Firebase.auth()
         .signInWithEmailAndPassword(userEmail.toLowerCase(), userPassword)
-        .then(async userCredentials => await authContext.saveToken(userCredentials.user.uid))
+        .then(async userCredentials => {
+          if (userCredentials.user) {
+            const newToken = await userCredentials.user.getIdToken();
+            await AsyncStorage.setItem('userToken', newToken);
+          }
+        })
         .catch(error => {
           if (error.code === 'auth/wrong-password') {
             Alert.alert('Wrong Password!', `That password does not match the account associated with that email`, [

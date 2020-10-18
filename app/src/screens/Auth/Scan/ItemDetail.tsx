@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ActivityIndicator } from 'react-native';
 
 // Libraries
@@ -34,9 +34,6 @@ import {
 // Iconography
 import { CartIcon, CloseIcon, HeartIconOff, HeartIconOn } from '&icons';
 
-// Context
-import { AuthContext } from '&stores';
-
 // Navigation
 import { RootAuthParams } from '&navigation';
 import { StackScreenProps } from '@react-navigation/stack';
@@ -66,10 +63,10 @@ type ItemDetailProps = StackScreenProps<RootAuthParams, 'ItemDetail'>;
 export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
   const { barcodeId } = route.params;
 
-  const authContext = useContext(AuthContext);
-  const userId = authContext?.token!;
-
   const [modalExpand, setModalExpand] = useState<boolean>(false);
+
+  const { data: userData } = useGetUserQuery();
+  const userId = userData?.User[0].id!;
 
   const { data, loading } = useGetStoreItemQuery({ variables: { barcodeId } });
   const itemData = data?.StoreItem_by_pk;

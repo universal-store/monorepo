@@ -46,7 +46,7 @@ export const CartItemCell = ({ cartItem }: CartItemCellProps) => {
 
   // Get User Data
   const { data } = useGetUserQuery();
-  const userId = data?.User[0].id;
+  const userId = data?.User[0].id!;
 
   // Check if in favorites
   const { data: userFavorites } = useCheckItemInFavoritesQuery({ variables: { barcodeId } });

@@ -8,6 +8,8 @@ import {
   HeaderLargeText as OnboardingHeaderTitleText,
   KeyboardDismiss,
   LogoContainer,
+  OnboardingButton,
+  OnboardingButtonText,
   OnboardingFormContainerHalf,
   OnboardingFormHalfRow,
   OnboardingFormText,
@@ -17,6 +19,7 @@ import {
   OnboardingInputIconContainer,
   OnboardingMainContainer,
   OnboardingRequiredText,
+  OnboardingScroll,
   OnboardingSubHeaderText,
   OnboardingTextInput,
 } from '&components';
@@ -55,8 +58,8 @@ export const UserInfoScreen = () => {
           </OnboardingHeaderTextContainer>
         </OnboardingHeaderContainer>
 
-        <OnboardingHeaderTitleText>Getting Started</OnboardingHeaderTitleText>
-        <OnboardingSubHeaderText>Create an account to continue</OnboardingSubHeaderText>
+        <OnboardingHeaderTitleText>Almost There!</OnboardingHeaderTitleText>
+        <OnboardingSubHeaderText>Tell us about yourself</OnboardingSubHeaderText>
 
         <OnboardingFormContainer>
           <OnboardingInputContainer valid={validFirstname}>
@@ -95,6 +98,10 @@ export const UserInfoScreen = () => {
           </OnboardingInputContainer>
           {validFirstname === 'INVALID' && <OnboardingRequiredText>First Name is required</OnboardingRequiredText>}
         </OnboardingFormContainer>
+
+        <OnboardingButton onPress={validateUserInfo}>
+          <OnboardingButtonText>Let's Go!</OnboardingButtonText>
+        </OnboardingButton>
       </OnboardingMainContainer>
     </KeyboardDismiss>
   );

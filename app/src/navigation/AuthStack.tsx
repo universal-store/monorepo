@@ -3,7 +3,15 @@
 import React from 'react';
 
 // Screens
-import { CartScreen, FavoriteScreen, ItemDetail, MapViewScreen, ProfileScreen, ScanningScreen } from '&screens';
+import {
+  CartScreen,
+  FavoriteScreen,
+  ItemDetail,
+  MapViewScreen,
+  ProfileScreen,
+  ScanningScreen,
+  UserInfoScreen,
+} from '&screens';
 
 // Tab Icons
 import {
@@ -63,6 +71,7 @@ export const RootAuthTabNavigator = () => (
 );
 
 export type RootAuthParams = {
+  UserInfoScreen: undefined;
   TabNavigation: { screen: string };
   ScanningScreen: undefined;
   ItemDetail: { barcodeId: string };
@@ -72,6 +81,7 @@ export const RootAuth = createStackNavigator<RootAuthParams>();
 
 export const RootAuthNavigator = () => (
   <RootAuth.Navigator initialRouteName="TabNavigation" screenOptions={{ headerShown: false, gestureEnabled: false }}>
+    <RootAuth.Screen name="UserInfoScreen" component={UserInfoScreen} />
     <RootAuth.Screen name="TabNavigation" component={RootAuthTabNavigator} />
     <RootAuth.Screen name="ScanningScreen" component={ScanningScreen} />
     <RootAuth.Screen name="ItemDetail" component={ItemDetail} />

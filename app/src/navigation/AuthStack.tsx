@@ -23,7 +23,6 @@ import {
 } from '&icons';
 
 // Stack Navigators
-import { OnboardingStackNavigator } from './OnboardingStack';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -70,34 +69,20 @@ export const RootAuthTabNavigator = () => (
   </RootAuthTab.Navigator>
 );
 
-export type RootAuthParams = {
+export type AuthStackParams = {
   UserInfoScreen: undefined;
   TabNavigation: { screen: string };
   ScanningScreen: undefined;
   ItemDetail: { barcodeId: string };
 };
 
-export const RootAuth = createStackNavigator<RootAuthParams>();
+export const AuthStack = createStackNavigator<AuthStackParams>();
 
-export const RootAuthNavigator = () => (
-  <RootAuth.Navigator initialRouteName="TabNavigation" screenOptions={{ headerShown: false, gestureEnabled: false }}>
-    <RootAuth.Screen name="UserInfoScreen" component={UserInfoScreen} />
-    <RootAuth.Screen name="TabNavigation" component={RootAuthTabNavigator} />
-    <RootAuth.Screen name="ScanningScreen" component={ScanningScreen} />
-    <RootAuth.Screen name="ItemDetail" component={ItemDetail} />
-  </RootAuth.Navigator>
-);
-
-export type AuthStackParams = {
-  RootAuthStack: undefined;
-  OnboardingStack: { screen: string };
-};
-
-const AuthStack = createStackNavigator<AuthStackParams>();
-
-export const AuthStackNavigator = () => (
-  <AuthStack.Navigator initialRouteName="RootAuthStack" screenOptions={{ headerShown: false, gestureEnabled: false }}>
-    <AuthStack.Screen name="RootAuthStack" component={RootAuthNavigator} />
-    <AuthStack.Screen name="OnboardingStack" component={OnboardingStackNavigator} />
+export const AuthNavigator = () => (
+  <AuthStack.Navigator initialRouteName="TabNavigation" screenOptions={{ headerShown: false, gestureEnabled: false }}>
+    <AuthStack.Screen name="UserInfoScreen" component={UserInfoScreen} />
+    <AuthStack.Screen name="TabNavigation" component={RootAuthTabNavigator} />
+    <AuthStack.Screen name="ScanningScreen" component={ScanningScreen} />
+    <AuthStack.Screen name="ItemDetail" component={ItemDetail} />
   </AuthStack.Navigator>
 );

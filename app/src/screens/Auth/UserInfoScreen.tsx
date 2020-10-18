@@ -27,15 +27,17 @@ import {
 // Iconography
 import { PersonIcon } from '&icons';
 
+// Navigation
+import { AuthStackParams } from '&navigation';
+import { StackScreenProps } from '@react-navigation/stack';
+
 // GraphQL
 import { useGetUserQuery, useUpdateUserNameMutation } from '&graphql';
 
 // Utils
 import { validInput } from '&utils';
-import { StackScreenProps } from '@react-navigation/stack';
-import { RootAuthParams } from '&navigation';
 
-type UserInfoScreenProps = StackScreenProps<RootAuthParams, 'UserInfoScreen'>;
+type UserInfoScreenProps = StackScreenProps<AuthStackParams, 'UserInfoScreen'>;
 
 export const UserInfoScreen = ({ navigation }: UserInfoScreenProps) => {
   // Form States

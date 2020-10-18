@@ -92,6 +92,14 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
             Alert.alert('Invalid Email!', `That email address is invalid`, [{ text: 'Okay' }]);
           } else if (error.code === 'auth/user-not-found') {
             Alert.alert('Invalid Credentials!', `That email is not associated with any accounts`, [{ text: 'Okay' }]);
+          } else if (error.code === 'auth/too-many-requests') {
+            Alert.alert(
+              'Access to your account has been temporarily suspended due to many failed login attempts!',
+              `Click "Forgot Password" to reset your password or try again later.`,
+              [{ text: 'Okay' }]
+            );
+          } else {
+            console.log(error);
           }
         });
     }

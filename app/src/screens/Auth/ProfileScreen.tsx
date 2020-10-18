@@ -35,10 +35,6 @@ import AsyncStorage from '@react-native-community/async-storage';
 // Firebase Authentication
 import Firebase from '../../lib/firebase';
 
-// Navigation
-import { AuthStackParams } from '&navigation';
-import { StackScreenProps } from '@react-navigation/stack';
-
 // Queries
 import { useGetUserQuery } from '&graphql';
 

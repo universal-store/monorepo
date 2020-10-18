@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
 
 // Components
-import { Keyboard, View as OnboardingFormContainer } from 'react-native';
+import { Alert, Keyboard, View as OnboardingFormContainer } from 'react-native';
 
 import {
   HeaderLargeText as OnboardingHeaderTitleText,
@@ -86,7 +86,14 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
 
     if (validInput) {
       const registerUser = fns.httpsCallable('registerUser');
-      await registerUser({ email: userEmail.toLowerCase(), password: userPassword });
+      await registerUser({ email: userEmail.toLowerCase(), password: userPassword }).catch(error => {
+        if (error.code === 'already-exists') {
+          Alert.alert('Account Found!', `That email address is already associated with an account`, [{ text: 'Okay' }]);
+        } else {
+          Alert.alert('Invalid Credentials!', `That email address/password is invalid`, [{ text: 'Okay' }]);
+        }
+      });
+
       await Firebase.auth()
         .signInWithEmailAndPassword(userEmail.toLowerCase(), userPassword)
         .then(async userCredentials => {

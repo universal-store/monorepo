@@ -9,7 +9,7 @@ import { SplashScreen } from '&screens';
 
 // Stack Navigators
 import { NavigationContainer } from '@react-navigation/native';
-import { AuthStackNavigator, OnboardingStackNavigator } from '&navigation';
+import { OnboardingStackNavigator, AuthNavigator } from '&navigation';
 
 // Theme
 import { theme } from '&theme';
@@ -69,7 +69,7 @@ const App = () => {
           {loading ? (
             <SplashScreen />
           ) : (
-            <NavigationContainer>{user ? <AuthStackNavigator /> : <OnboardingStackNavigator />}</NavigationContainer>
+            <NavigationContainer>{user ? <AuthNavigator /> : <OnboardingStackNavigator />}</NavigationContainer>
           )}
         </>
       </ApolloProvider>

@@ -1,8 +1,5 @@
 query GetUserCartItems {
     UserCartItem {
-        id
-        StoreItem {
-            ...StoreItemInfo
-        }
+        ...UserCartItemInfo
     }
 }

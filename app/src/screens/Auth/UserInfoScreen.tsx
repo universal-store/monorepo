@@ -27,14 +27,30 @@ import {
 // Iconography
 import { PersonIcon } from '&icons';
 
+// GraphQL
+import { useGetUserQuery, useUpdateUserNameMutation } from '&graphql';
+
 // Utils
 import { validInput } from '&utils';
+import { StackScreenProps } from '@react-navigation/stack';
+import { RootAuthParams } from '&navigation';
 
-export const UserInfoScreen = () => {
+type UserInfoScreenProps = StackScreenProps<RootAuthParams, 'UserInfoScreen'>;
+
+export const UserInfoScreen = ({ navigation }: UserInfoScreenProps) => {
+  // Form States
   const [userFirstName, setUserFirstName] = useState<string>('');
   const [userLastName, setUserLastName] = useState<string>('');
 
+  // Validation
   const [validFirstname, setValidFirstname] = useState<validInput>('NEEDS_CHECK');
+
+  // Get User
+  const { data } = useGetUserQuery();
+  const id = data?.User[0].id;
+
+  // Mutation
+  const [updateUserMutation] = useUpdateUserNameMutation();
 
   const validateUserInfo = () => {
     let validInput = true;
@@ -44,6 +60,12 @@ export const UserInfoScreen = () => {
       setValidFirstname('INVALID');
     } else {
       setValidFirstname('VALID');
+    }
+
+    if (validInput && id) {
+      void updateUserMutation({ variables: { id, firstName: userFirstName, lastName: userLastName } }).then(() =>
+        navigation.navigate('TabNavigation', { screen: 'MapView' })
+      );
     }
   };
 

@@ -1,6 +1,6 @@
 /** @format */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // Components
 import { FullScreenWhite, HelloUser } from '&components';
@@ -17,9 +17,11 @@ type MapViewScreenProps = StackScreenProps<RootAuthParams, 'TabNavigation'>;
 export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
   const { data: authData } = useGetUserQuery();
 
-  if (!authData?.User[0].firstName) {
-    navigation.navigate('UserInfoScreen');
-  }
+  useEffect(() => {
+    if (authData && !authData?.User[0].firstName) {
+      navigation.navigate('UserInfoScreen');
+    }
+  }, []);
 
   return <FullScreenWhite>{authData && <HelloUser userData={authData.User[0]} />}</FullScreenWhite>;
 };

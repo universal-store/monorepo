@@ -33,7 +33,11 @@ import { useApolloClient } from '@apollo/client';
 import AsyncStorage from '@react-native-community/async-storage';
 
 // Firebase Authentication
-import auth from '@react-native-firebase/auth';
+import Firebase from '../../lib/firebase';
+
+// Navigation
+import { AuthStackParams } from '&navigation';
+import { StackScreenProps } from '@react-navigation/stack';
 
 // Queries
 import { useGetUserQuery } from '&graphql';
@@ -110,7 +114,7 @@ export const ProfileScreen = () => {
           onPress={async () => {
             setSignOutLoad(true);
             await AsyncStorage.removeItem('userToken');
-            await auth()
+            await Firebase.auth()
               .signOut()
               .then(() => client.clearStore());
           }}

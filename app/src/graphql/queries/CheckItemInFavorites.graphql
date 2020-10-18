@@ -1,6 +1,6 @@
-query CheckItemInFavorites($sessionId: String!, $barcodeId: String!) {
+query CheckItemInFavorites($barcodeId: String!) {
     StoreItem_by_pk(barcodeId: $barcodeId) {
-        UserFavoriteItems(where: { User: { sessionId: { _eq: $sessionId } }, StoreItem: { barcodeId: { _eq: $barcodeId } } }) {
+        UserFavoriteItems(where: { StoreItem: { barcodeId: { _eq: $barcodeId } } }) {
             StoreItem {
                 ...StoreItemInfo
             }

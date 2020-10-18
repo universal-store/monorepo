@@ -1,20 +1,15 @@
 /** @format */
 
-import React, { useContext } from 'react';
+import React from 'react';
 
 // Components
 import { FullScreenWhite, HelloUser } from '&components';
-
-// Context
-import { AuthContext } from '&stores';
 
 // GraphQL
 import { useGetUserQuery } from '&graphql';
 
 export const MapViewScreen = () => {
-  const authContext = useContext(AuthContext);
+  const { data: authData } = useGetUserQuery();
 
-  const { data: authData } = useGetUserQuery({ variables: { sessionId: authContext?.token! } });
-
-  return <FullScreenWhite>{authData && authContext && <HelloUser userData={authData.User[0]} />}</FullScreenWhite>;
+  return <FullScreenWhite>{authData && <HelloUser userData={authData.User[0]} />}</FullScreenWhite>;
 };

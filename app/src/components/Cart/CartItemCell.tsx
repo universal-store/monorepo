@@ -32,11 +32,10 @@ import {
 
 // Props
 interface CartItemCellProps {
-  sessionId: string;
   cartItem: StoreItemInfoFragment;
 }
 
-export const CartItemCell = ({ cartItem, sessionId }: CartItemCellProps) => {
+export const CartItemCell = ({ cartItem }: CartItemCellProps) => {
   const { StoreItemPic, longName, price, quantity, barcodeId } = cartItem;
 
   // Navigation
@@ -46,11 +45,11 @@ export const CartItemCell = ({ cartItem, sessionId }: CartItemCellProps) => {
   const [addToFavoritesMutation] = useAddUserFavoriteItemMutation();
 
   // Get User Data
-  const { data } = useGetUserQuery({ variables: { sessionId } });
+  const { data } = useGetUserQuery();
   const userId = data?.User[0].id;
 
   // Check if in favorites
-  const { data: userFavorites } = useCheckItemInFavoritesQuery({ variables: { barcodeId, sessionId } });
+  const { data: userFavorites } = useCheckItemInFavoritesQuery({ variables: { barcodeId } });
   const [favorite, setFavorite] = useState<boolean>(false);
 
   useEffect(() => {
@@ -86,9 +85,7 @@ export const CartItemCell = ({ cartItem, sessionId }: CartItemCellProps) => {
                 onPress={() =>
                   void addToFavoritesMutation({
                     variables: { userId, itemBarcodeId: barcodeId },
-                    refetchQueries: () => [
-                      { query: CheckItemInFavoritesDocument, variables: { barcodeId, sessionId } },
-                    ],
+                    refetchQueries: () => [{ query: CheckItemInFavoritesDocument, variables: { barcodeId } }],
                   }).then(() => setFavorite(true))
                 }
               >

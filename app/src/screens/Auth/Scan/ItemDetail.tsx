@@ -67,18 +67,15 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
   const { barcodeId } = route.params;
 
   const authContext = useContext(AuthContext);
-  const sessionId = authContext?.token!;
+  const userId = authContext?.token!;
 
   const [modalExpand, setModalExpand] = useState<boolean>(false);
 
   const { data, loading } = useGetStoreItemQuery({ variables: { barcodeId } });
   const itemData = data?.StoreItem_by_pk;
 
-  const { data: userData } = useGetUserQuery({ variables: { sessionId } });
-  const userId = userData?.User[0].id;
-
-  const { data: userCart } = useCheckItemInCartQuery({ variables: { barcodeId, sessionId } });
-  const { data: userFavorites } = useCheckItemInFavoritesQuery({ variables: { barcodeId, sessionId } });
+  const { data: userCart } = useCheckItemInCartQuery({ variables: { barcodeId } });
+  const { data: userFavorites } = useCheckItemInFavoritesQuery({ variables: { barcodeId } });
 
   const [inCart, setInCart] = useState<boolean>(userCart?.StoreItem_by_pk?.UserCartItems.length !== 0);
   const [favorite, setFavorite] = useState<boolean>(userFavorites?.StoreItem_by_pk?.UserFavoriteItems.length !== 0);
@@ -140,12 +137,12 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
     if (favorite) {
       void removeFromFavoritesMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [{ query: CheckItemInFavoritesDocument, variables: { barcodeId, sessionId } }],
+        refetchQueries: [{ query: CheckItemInFavoritesDocument, variables: { barcodeId } }],
       });
     } else {
       void addToFavoritesMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [{ query: CheckItemInFavoritesDocument, variables: { barcodeId, sessionId } }],
+        refetchQueries: [{ query: CheckItemInFavoritesDocument, variables: { barcodeId } }],
       });
     }
   };
@@ -154,12 +151,12 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
     if (inCart) {
       void removeFromCartMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [{ query: CheckItemInCartDocument, variables: { barcodeId, sessionId } }],
+        refetchQueries: [{ query: CheckItemInCartDocument, variables: { barcodeId } }],
       });
     } else {
       void addToCartMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [{ query: CheckItemInCartDocument, variables: { barcodeId, sessionId } }],
+        refetchQueries: [{ query: CheckItemInCartDocument, variables: { barcodeId } }],
       });
     }
   };

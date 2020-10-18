@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
+
 // Screens
 import { SplashScreen } from '&screens';
 
@@ -14,7 +16,8 @@ import { theme } from '&theme';
 import { ThemeProvider } from 'styled-components/native';
 
 // Apollo
-import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+import { ApolloClient, ApolloProvider, createHttpLink, HttpLink, InMemoryCache } from '@apollo/client';
 
 // Firebase Authentication
 import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
@@ -25,15 +28,33 @@ import AuthProvider from '&stores';
 // Environment Variables
 import { GRAPHQL_API, HASURA_GRAPHQL_ADMIN_SECRET } from '&env';
 
-// Create the client
-const client = new ApolloClient({
-  cache: new InMemoryCache(),
-  link: new HttpLink({
-    uri: `${GRAPHQL_API}`,
+const httpLink = createHttpLink({
+  uri: `${GRAPHQL_API}`,
+});
+
+const authLink = setContext(async (_, { headers }) => {
+  const userId = await AsyncStorage.getItem('userToken');
+
+  if (userId)
+    return {
+      headers: {
+        'x-hasura-role': 'Shopper',
+        'x-hasura-user-id': userId,
+        'x-hasura-admin-secret': HASURA_GRAPHQL_ADMIN_SECRET,
+      },
+    };
+
+  return {
     headers: {
       'x-hasura-admin-secret': HASURA_GRAPHQL_ADMIN_SECRET,
     },
-  }),
+  };
+});
+
+// Create the client
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  link: authLink.concat(httpLink),
 });
 
 const App = () => {

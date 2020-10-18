@@ -33,10 +33,9 @@ import {
 
 // Props
 interface FavoriteItemCellProps {
-  sessionId: string;
   favItem: StoreItemInfoFragment;
 }
-export const FavoriteItemCell = ({ favItem, sessionId }: FavoriteItemCellProps) => {
+export const FavoriteItemCell = ({ favItem }: FavoriteItemCellProps) => {
   const { StoreItemPic, longName, price, barcodeId } = favItem;
 
   // Navigation
@@ -47,11 +46,11 @@ export const FavoriteItemCell = ({ favItem, sessionId }: FavoriteItemCellProps) 
   const [removeFromFavoritesMutation] = useRemoveUserFavoriteItemMutation();
 
   // Get User Data
-  const { data } = useGetUserQuery({ variables: { sessionId } });
+  const { data } = useGetUserQuery();
   const userId = data?.User[0].id;
 
   // Check if in favorites
-  const { data: userFavorites } = useCheckItemInFavoritesQuery({ variables: { barcodeId, sessionId } });
+  const { data: userFavorites } = useCheckItemInFavoritesQuery();
   const [favorite, setFavorite] = useState<boolean>(true);
 
   useEffect(() => {
@@ -65,16 +64,16 @@ export const FavoriteItemCell = ({ favItem, sessionId }: FavoriteItemCellProps) 
       void removeFromFavoritesMutation({
         variables: { userId, itemBarcodeId: barcodeId },
         refetchQueries: [
-          { query: GetUserFavoriteItemsDocument, variables: { sessionId } },
-          { query: CheckItemInFavoritesDocument, variables: { barcodeId, sessionId } },
+          { query: GetUserFavoriteItemsDocument },
+          { query: CheckItemInFavoritesDocument, variables: { barcodeId } },
         ],
       }).then(() => setFavorite(false));
     } else {
       void addToFavoritesMutation({
         variables: { userId, itemBarcodeId: barcodeId },
         refetchQueries: [
-          { query: GetUserFavoriteItemsDocument, variables: { sessionId } },
-          { query: CheckItemInFavoritesDocument, variables: { barcodeId, sessionId } },
+          { query: GetUserFavoriteItemsDocument },
+          { query: CheckItemInFavoritesDocument, variables: { barcodeId } },
         ],
       }).then(() => setFavorite(true));
     }

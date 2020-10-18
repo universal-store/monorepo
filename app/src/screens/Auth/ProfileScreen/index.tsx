@@ -28,7 +28,7 @@ import {
 // Iconography
 import { CheckIcon } from '&icons';
 
-// User Store
+// Context
 import { AuthContext } from '&stores';
 import { useApolloClient } from '@apollo/client';
 
@@ -47,7 +47,7 @@ export const ProfileScreen = () => {
 
   const [signOutLoad, setSignOutLoad] = useState<boolean>(false);
 
-  const { data, loading } = useGetUserQuery({ variables: { sessionId: authContext?.token! } });
+  const { data, loading } = useGetUserQuery();
 
   if (loading || signOutLoad)
     return (
@@ -108,13 +108,12 @@ export const ProfileScreen = () => {
 
       <ButtonContainer>
         <SecondaryButton
-          onPress={() => {
+          onPress={async () => {
             setSignOutLoad(true);
-
-            void client
-              .clearStore()
-              // @ts-ignore
-              .then(() => client.resetStore().then(() => authContext?.removeToken().then(() => auth().signOut())));
+            await authContext?.removeToken();
+            await auth()
+              .signOut()
+              .then(() => client.clearStore());
           }}
         >
           <SecondaryButtonText>Log Out</SecondaryButtonText>

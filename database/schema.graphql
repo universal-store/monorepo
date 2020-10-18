@@ -2566,7 +2566,7 @@ type UserCartItem {
   User: User!
   id: uuid!
   itemBarcodeId: String!
-  userId: uuid!
+  userId: String!
 }
 
 # aggregated selection of "UserCartItem"
@@ -2604,7 +2604,7 @@ input UserCartItem_bool_exp {
   _or: [UserCartItem_bool_exp]
   id: uuid_comparison_exp
   itemBarcodeId: String_comparison_exp
-  userId: uuid_comparison_exp
+  userId: String_comparison_exp
 }
 
 # unique or primary key constraints on table "UserCartItem"
@@ -2619,14 +2619,14 @@ input UserCartItem_insert_input {
   User: User_obj_rel_insert_input
   id: uuid
   itemBarcodeId: String
-  userId: uuid
+  userId: String
 }
 
 # aggregate max on columns
 type UserCartItem_max_fields {
   id: uuid
   itemBarcodeId: String
-  userId: uuid
+  userId: String
 }
 
 # order by max() on columns of table "UserCartItem"
@@ -2640,7 +2640,7 @@ input UserCartItem_max_order_by {
 type UserCartItem_min_fields {
   id: uuid
   itemBarcodeId: String
-  userId: uuid
+  userId: String
 }
 
 # order by min() on columns of table "UserCartItem"
@@ -2702,7 +2702,7 @@ enum UserCartItem_select_column {
 input UserCartItem_set_input {
   id: uuid
   itemBarcodeId: String
-  userId: uuid
+  userId: String
 }
 
 # update columns of table "UserCartItem"
@@ -2726,7 +2726,7 @@ type UserFavoriteItem {
   User: User!
   id: uuid!
   itemBarcodeId: String!
-  userId: uuid!
+  userId: String!
 }
 
 # aggregated selection of "UserFavoriteItem"
@@ -2764,7 +2764,7 @@ input UserFavoriteItem_bool_exp {
   _or: [UserFavoriteItem_bool_exp]
   id: uuid_comparison_exp
   itemBarcodeId: String_comparison_exp
-  userId: uuid_comparison_exp
+  userId: String_comparison_exp
 }
 
 # unique or primary key constraints on table "UserFavoriteItem"
@@ -2779,14 +2779,14 @@ input UserFavoriteItem_insert_input {
   User: User_obj_rel_insert_input
   id: uuid
   itemBarcodeId: String
-  userId: uuid
+  userId: String
 }
 
 # aggregate max on columns
 type UserFavoriteItem_max_fields {
   id: uuid
   itemBarcodeId: String
-  userId: uuid
+  userId: String
 }
 
 # order by max() on columns of table "UserFavoriteItem"
@@ -2800,7 +2800,7 @@ input UserFavoriteItem_max_order_by {
 type UserFavoriteItem_min_fields {
   id: uuid
   itemBarcodeId: String
-  userId: uuid
+  userId: String
 }
 
 # order by min() on columns of table "UserFavoriteItem"
@@ -2862,7 +2862,7 @@ enum UserFavoriteItem_select_column {
 input UserFavoriteItem_set_input {
   id: uuid
   itemBarcodeId: String
-  userId: uuid
+  userId: String
 }
 
 # update columns of table "UserFavoriteItem"
@@ -2886,7 +2886,7 @@ type UserFavoriteStore {
   User: User!
   id: uuid!
   storeId: uuid!
-  userId: uuid!
+  userId: String!
 }
 
 # aggregated selection of "UserFavoriteStore"
@@ -2924,7 +2924,7 @@ input UserFavoriteStore_bool_exp {
   _or: [UserFavoriteStore_bool_exp]
   id: uuid_comparison_exp
   storeId: uuid_comparison_exp
-  userId: uuid_comparison_exp
+  userId: String_comparison_exp
 }
 
 # unique or primary key constraints on table "UserFavoriteStore"
@@ -2939,14 +2939,14 @@ input UserFavoriteStore_insert_input {
   User: User_obj_rel_insert_input
   id: uuid
   storeId: uuid
-  userId: uuid
+  userId: String
 }
 
 # aggregate max on columns
 type UserFavoriteStore_max_fields {
   id: uuid
   storeId: uuid
-  userId: uuid
+  userId: String
 }
 
 # order by max() on columns of table "UserFavoriteStore"
@@ -2960,7 +2960,7 @@ input UserFavoriteStore_max_order_by {
 type UserFavoriteStore_min_fields {
   id: uuid
   storeId: uuid
-  userId: uuid
+  userId: String
 }
 
 # order by min() on columns of table "UserFavoriteStore"
@@ -3022,7 +3022,7 @@ enum UserFavoriteStore_select_column {
 input UserFavoriteStore_set_input {
   id: uuid
   storeId: uuid
-  userId: uuid
+  userId: String
 }
 
 # update columns of table "UserFavoriteStore"

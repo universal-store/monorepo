@@ -39,7 +39,7 @@ import { StackScreenProps } from '@react-navigation/stack';
 // Firebase Authentication
 import auth from '@react-native-firebase/auth';
 
-// User Store
+// Contextß
 import { AuthContext } from '&stores';
 
 // Utils

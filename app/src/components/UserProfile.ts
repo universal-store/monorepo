@@ -1,7 +1,6 @@
 /** @format */
 
 import styled from 'styled-components/native';
-import { Animated } from 'react-native';
 
 // Components
 import { FullScreenWhite, isiPhoneX, RowView } from './Views';

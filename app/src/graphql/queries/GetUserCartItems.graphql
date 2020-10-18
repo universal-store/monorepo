@@ -1,8 +1,5 @@
-query GetUserCartItems($sessionId: String!) {
-    UserCartItem(where: { User: { sessionId: { _eq: $sessionId } } }) {
-        id
-        StoreItem {
-            ...StoreItemInfo
-        }
+query GetUserCartItems {
+    UserCartItem {
+        ...UserCartItemInfo
     }
 }

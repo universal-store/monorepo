@@ -24,6 +24,7 @@ export const FavoritesHeaderTextRegular = styled(FavoritesHeaderTextBold)`
 
 export const FavoritesFindFilterContainer = styled(RowView)`
   width: 100%;
+  height: 37px;
   padding: 8px 24px;
   align-items: center;
   border-bottom-width: 1px;
@@ -35,7 +36,10 @@ export const FavoritesFindIconContainer = styled.View`
   height: 16px;
 `;
 
-export const FavoritesFindInput = styled.TextInput`
+export const FavoritesFindInput = styled.TextInput.attrs(({ theme }) => ({
+  selectionColor: theme.colors.gray[3],
+  placeholderTextColor: theme.colors.gray[4],
+}))`
   flex: 1;
   font-size: 16px;
   margin-left: 8px;

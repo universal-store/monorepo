@@ -4,21 +4,21 @@ import { useEffect, useState } from 'react';
 
 export * from './formValidationUtils';
 
-export const toCamelCase = (str: string) => {
+export const toCamelCase = (str: string): string => {
   const lowerStr = str.toLowerCase();
   return lowerStr.charAt(0).toUpperCase() + lowerStr.slice(1);
 };
 
-export const renderName = (firstName: string, lastName?: string) => {
+export const renderName = (firstName: string, lastName?: string): string => {
   let fullName = firstName;
   if (lastName) fullName += ' ' + lastName;
   return fullName;
 };
 
 // Code From https://usehooks.com/useDebounce/
-export const useDebounce = (value: string, delay: number) => {
+export const useDebounce = (value: string, delay: number): string => {
   // State and setters for debounced value
-  const [debouncedValue, setDebouncedValue] = useState(value);
+  const [debouncedValue, setDebouncedValue] = useState<string>(value);
 
   useEffect(
     () => {

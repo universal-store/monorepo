@@ -1,6 +1,7 @@
 /** @format */
 
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
+import AsyncStorage from '@react-native-community/async-storage';
 
 // Components
 import { Alert, Keyboard, View as OnboardingFormContainer } from 'react-native';
@@ -11,8 +12,6 @@ import {
   LogoContainer,
   OnboardingButton,
   OnboardingButtonText,
-  OnboardingFormContainerHalf,
-  OnboardingFormHalfRow,
   OnboardingFormText,
   OnboardingHeaderContainer,
   OnboardingHeaderTextContainer,
@@ -31,36 +30,29 @@ import {
 } from '&components';
 
 // Iconography
-import { EmailIcon, LockIcon, PersonIcon, VisibleIcon } from '&icons';
-
-// Context
-import { AuthContext } from '&stores';
+import { EmailIcon, LockIcon, VisibleIcon } from '&icons';
 
 // Navigation
 import { OnboardingStackParams } from '&navigation';
 import { StackScreenProps } from '@react-navigation/stack';
 
-// GraphQL
-import { useSignUpMutation } from '&graphql';
+// Firebase Authentication
+import Firebase, { fns } from '../../lib/firebase';
 
 // Utils
-import { emailRegex, toCamelCase, validInput } from '&utils';
+import { emailRegex, validInput } from '&utils';
 
 type SignUpScreenProps = StackScreenProps<OnboardingStackParams, 'SignUpScreen'>;
 
 export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
-  const authContext = useContext(AuthContext);
-
   // Form States
   const [userEmail, setUserEmail] = useState<string>('');
-  const [userFirstName, setUserFirstName] = useState<string>('');
-  const [userLastName, setUserLastName] = useState<string>('');
+
   const [userPassword, setUserPassword] = useState<string>('');
   const [userConfirmPassword, setUserConfirmPassword] = useState<string>('');
 
   // Validation States
   const [validEmail, setValidEmail] = useState<validInput>('NEEDS_CHECK');
-  const [validFirstname, setValidFirstname] = useState<validInput>('NEEDS_CHECK');
   const [validPassword, setValidPassword] = useState<validInput>('NEEDS_CHECK');
   const [validConfirmPassword, setValidConfirmPassword] = useState<validInput>('NEEDS_CHECK');
 
@@ -68,10 +60,7 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
   const [securePassEntry, setSecurePassEntry] = useState<boolean>(true);
   const [secureConfirmPassEntry, setSecureConfirmPassEntry] = useState<boolean>(true);
 
-  // Create User Mutation
-  const [signUpMutation] = useSignUpMutation();
-
-  const validateSignUp = () => {
+  const validateSignUp = async () => {
     let validInput = true;
 
     if (userEmail === '' || !emailRegex.test(userEmail)) {
@@ -79,13 +68,6 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
       setValidEmail('INVALID');
     } else {
       setValidEmail('VALID');
-    }
-
-    if (userFirstName === '') {
-      validInput = false;
-      setValidFirstname('INVALID');
-    } else {
-      setValidFirstname('VALID');
     }
 
     if (userPassword === '') {
@@ -102,29 +84,23 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
       setValidConfirmPassword('VALID');
     }
 
-    if (validInput && authContext) {
-      void signUpMutation({
-        variables: {
-          email: userEmail.toLowerCase(),
-          firstName: toCamelCase(userFirstName),
-          lastName: toCamelCase(userLastName),
-          password: userPassword,
-        },
-      })
-        .then(res => {
-          if (res.data) {
-            const newUser = res.data.insert_User_one;
+    if (validInput) {
+      const registerUser = fns.httpsCallable('registerUser');
+      await registerUser({ email: userEmail.toLowerCase(), password: userPassword }).catch(error => {
+        if (error.code === 'already-exists') {
+          Alert.alert('Account Found!', `That email address is already associated with an account`, [{ text: 'Okay' }]);
+        } else {
+          Alert.alert('Invalid Credentials!', `That email address/password is invalid`, [{ text: 'Okay' }]);
+        }
+      });
 
-            if (newUser) {
-              void authContext
-                .saveToken(newUser.sessionId)
-                .then(() => navigation.navigate('AuthStack', { screen: 'RootAuthStack' }));
-            }
+      await Firebase.auth()
+        .signInWithEmailAndPassword(userEmail.toLowerCase(), userPassword)
+        .then(async userCredentials => {
+          if (userCredentials.user) {
+            const newToken = await userCredentials.user.getIdToken();
+            await AsyncStorage.setItem('userToken', newToken);
           }
-        })
-        .catch(err => {
-          console.log(err);
-          Alert.alert('Account Found!', `An account associated with ${userEmail} already exists`, [{ text: 'Okay' }]);
         });
     }
   };
@@ -173,42 +149,6 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
               ) : (
                 <OnboardingRequiredText>Email is invalid</OnboardingRequiredText>
               ))}
-
-            <OnboardingInputContainer valid={validFirstname}>
-              <OnboardingFormContainerHalf>
-                <OnboardingFormText>First Name*</OnboardingFormText>
-
-                <OnboardingFormHalfRow>
-                  <OnboardingInputIconContainer>
-                    <PersonIcon />
-                  </OnboardingInputIconContainer>
-
-                  <OnboardingTextInput
-                    value={userFirstName}
-                    textContentType="name"
-                    autoCompleteType="name"
-                    placeholder="First Name"
-                    onChangeText={text => {
-                      setUserFirstName(text);
-                      setValidFirstname('NEEDS_CHECK');
-                    }}
-                  />
-                </OnboardingFormHalfRow>
-              </OnboardingFormContainerHalf>
-
-              <OnboardingFormContainerHalf>
-                <OnboardingFormText>Last Name</OnboardingFormText>
-
-                <OnboardingTextInput
-                  value={userLastName}
-                  autoCompleteType="name"
-                  placeholder="Last Name"
-                  textContentType="familyName"
-                  onChangeText={setUserLastName}
-                />
-              </OnboardingFormContainerHalf>
-            </OnboardingInputContainer>
-            {validFirstname === 'INVALID' && <OnboardingRequiredText>First Name is required</OnboardingRequiredText>}
 
             <OnboardingFormText>Password*</OnboardingFormText>
             <OnboardingInputContainer valid={validPassword}>

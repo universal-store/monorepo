@@ -113,7 +113,7 @@ type mutation_root {
   delete_UserProfilePic_by_pk(id: uuid!): UserProfilePic
 
   # delete single row from the table: "User"
-  delete_User_by_pk(id: uuid!): User
+  delete_User_by_pk(id: String!): User
 
   # insert data into the table: "Store"
   insert_Store(
@@ -815,7 +815,7 @@ type query_root {
   ): User_aggregate!
 
   # fetch data from the table: "User" using primary key columns
-  User_by_pk(id: uuid!): User
+  User_by_pk(id: String!): User
 }
 
 # columns and relationships of "Store"
@@ -2237,128 +2237,18 @@ type subscription_root {
   ): User_aggregate!
 
   # fetch data from the table: "User" using primary key columns
-  User_by_pk(id: uuid!): User
+  User_by_pk(id: String!): User
 }
 
 # columns and relationships of "User"
 type User {
-  # An array relationship
-  UserCartItems(
-    # distinct select on columns
-    distinct_on: [UserCartItem_select_column!]
-
-    # limit the number of rows returned
-    limit: Int
-
-    # skip the first n rows. Use only with order_by
-    offset: Int
-
-    # sort the rows by one or more columns
-    order_by: [UserCartItem_order_by!]
-
-    # filter the rows returned
-    where: UserCartItem_bool_exp
-  ): [UserCartItem!]!
-
-  # An aggregated array relationship
-  UserCartItems_aggregate(
-    # distinct select on columns
-    distinct_on: [UserCartItem_select_column!]
-
-    # limit the number of rows returned
-    limit: Int
-
-    # skip the first n rows. Use only with order_by
-    offset: Int
-
-    # sort the rows by one or more columns
-    order_by: [UserCartItem_order_by!]
-
-    # filter the rows returned
-    where: UserCartItem_bool_exp
-  ): UserCartItem_aggregate!
-
-  # An array relationship
-  UserFavoriteItems(
-    # distinct select on columns
-    distinct_on: [UserFavoriteItem_select_column!]
-
-    # limit the number of rows returned
-    limit: Int
-
-    # skip the first n rows. Use only with order_by
-    offset: Int
-
-    # sort the rows by one or more columns
-    order_by: [UserFavoriteItem_order_by!]
-
-    # filter the rows returned
-    where: UserFavoriteItem_bool_exp
-  ): [UserFavoriteItem!]!
-
-  # An aggregated array relationship
-  UserFavoriteItems_aggregate(
-    # distinct select on columns
-    distinct_on: [UserFavoriteItem_select_column!]
-
-    # limit the number of rows returned
-    limit: Int
-
-    # skip the first n rows. Use only with order_by
-    offset: Int
-
-    # sort the rows by one or more columns
-    order_by: [UserFavoriteItem_order_by!]
-
-    # filter the rows returned
-    where: UserFavoriteItem_bool_exp
-  ): UserFavoriteItem_aggregate!
-
-  # An array relationship
-  UserFavoriteStores(
-    # distinct select on columns
-    distinct_on: [UserFavoriteStore_select_column!]
-
-    # limit the number of rows returned
-    limit: Int
-
-    # skip the first n rows. Use only with order_by
-    offset: Int
-
-    # sort the rows by one or more columns
-    order_by: [UserFavoriteStore_order_by!]
-
-    # filter the rows returned
-    where: UserFavoriteStore_bool_exp
-  ): [UserFavoriteStore!]!
-
-  # An aggregated array relationship
-  UserFavoriteStores_aggregate(
-    # distinct select on columns
-    distinct_on: [UserFavoriteStore_select_column!]
-
-    # limit the number of rows returned
-    limit: Int
-
-    # skip the first n rows. Use only with order_by
-    offset: Int
-
-    # sort the rows by one or more columns
-    order_by: [UserFavoriteStore_order_by!]
-
-    # filter the rows returned
-    where: UserFavoriteStore_bool_exp
-  ): UserFavoriteStore_aggregate!
-
   # An object relationship
   UserProfilePic: UserProfilePic
   email: String!
-  firstName: name!
-  id: uuid!
+  firstName: name
+  id: String!
   lastName: name
-  password: String!
   profilePicId: uuid
-  sessionId: String!
 }
 
 # aggregated selection of "User"
@@ -2389,20 +2279,15 @@ input User_arr_rel_insert_input {
 
 # Boolean expression to filter rows from the table "User". All fields are combined with a logical 'AND'.
 input User_bool_exp {
-  UserCartItems: UserCartItem_bool_exp
-  UserFavoriteItems: UserFavoriteItem_bool_exp
-  UserFavoriteStores: UserFavoriteStore_bool_exp
   UserProfilePic: UserProfilePic_bool_exp
   _and: [User_bool_exp]
   _not: User_bool_exp
   _or: [User_bool_exp]
   email: String_comparison_exp
   firstName: name_comparison_exp
-  id: uuid_comparison_exp
+  id: String_comparison_exp
   lastName: name_comparison_exp
-  password: String_comparison_exp
   profilePicId: uuid_comparison_exp
-  sessionId: String_comparison_exp
 }
 
 # unique or primary key constraints on table "User"
@@ -2415,60 +2300,44 @@ enum User_constraint {
 
   # unique or primary key constraint
   User_profilePicId_key
-
-  # unique or primary key constraint
-  User_sessionId_key
 }
 
 # input type for inserting data into table "User"
 input User_insert_input {
-  UserCartItems: UserCartItem_arr_rel_insert_input
-  UserFavoriteItems: UserFavoriteItem_arr_rel_insert_input
-  UserFavoriteStores: UserFavoriteStore_arr_rel_insert_input
   UserProfilePic: UserProfilePic_obj_rel_insert_input
   email: String
   firstName: name
-  id: uuid
+  id: String
   lastName: name
-  password: String
   profilePicId: uuid
-  sessionId: String
 }
 
 # aggregate max on columns
 type User_max_fields {
   email: String
-  id: uuid
-  password: String
+  id: String
   profilePicId: uuid
-  sessionId: String
 }
 
 # order by max() on columns of table "User"
 input User_max_order_by {
   email: order_by
   id: order_by
-  password: order_by
   profilePicId: order_by
-  sessionId: order_by
 }
 
 # aggregate min on columns
 type User_min_fields {
   email: String
-  id: uuid
-  password: String
+  id: String
   profilePicId: uuid
-  sessionId: String
 }
 
 # order by min() on columns of table "User"
 input User_min_order_by {
   email: order_by
   id: order_by
-  password: order_by
   profilePicId: order_by
-  sessionId: order_by
 }
 
 # response of any mutation on the table "User"
@@ -2495,22 +2364,17 @@ input User_on_conflict {
 
 # ordering options when selecting data from "User"
 input User_order_by {
-  UserCartItems_aggregate: UserCartItem_aggregate_order_by
-  UserFavoriteItems_aggregate: UserFavoriteItem_aggregate_order_by
-  UserFavoriteStores_aggregate: UserFavoriteStore_aggregate_order_by
   UserProfilePic: UserProfilePic_order_by
   email: order_by
   firstName: order_by
   id: order_by
   lastName: order_by
-  password: order_by
   profilePicId: order_by
-  sessionId: order_by
 }
 
 # primary key columns input for table: "User"
 input User_pk_columns_input {
-  id: uuid!
+  id: String!
 }
 
 # select columns of table "User"
@@ -2528,24 +2392,16 @@ enum User_select_column {
   lastName
 
   # column name
-  password
-
-  # column name
   profilePicId
-
-  # column name
-  sessionId
 }
 
 # input type for updating data in table "User"
 input User_set_input {
   email: String
   firstName: name
-  id: uuid
+  id: String
   lastName: name
-  password: String
   profilePicId: uuid
-  sessionId: String
 }
 
 # update columns of table "User"
@@ -2563,25 +2419,16 @@ enum User_update_column {
   lastName
 
   # column name
-  password
-
-  # column name
   profilePicId
-
-  # column name
-  sessionId
 }
 
 # columns and relationships of "UserCartItem"
 type UserCartItem {
   # An object relationship
   StoreItem: StoreItem!
-
-  # An object relationship
-  User: User!
   id: uuid!
   itemBarcodeId: String!
-  userId: uuid!
+  userId: String!
 }
 
 # aggregated selection of "UserCartItem"
@@ -2613,13 +2460,12 @@ input UserCartItem_arr_rel_insert_input {
 # Boolean expression to filter rows from the table "UserCartItem". All fields are combined with a logical 'AND'.
 input UserCartItem_bool_exp {
   StoreItem: StoreItem_bool_exp
-  User: User_bool_exp
   _and: [UserCartItem_bool_exp]
   _not: UserCartItem_bool_exp
   _or: [UserCartItem_bool_exp]
   id: uuid_comparison_exp
   itemBarcodeId: String_comparison_exp
-  userId: uuid_comparison_exp
+  userId: String_comparison_exp
 }
 
 # unique or primary key constraints on table "UserCartItem"
@@ -2631,17 +2477,16 @@ enum UserCartItem_constraint {
 # input type for inserting data into table "UserCartItem"
 input UserCartItem_insert_input {
   StoreItem: StoreItem_obj_rel_insert_input
-  User: User_obj_rel_insert_input
   id: uuid
   itemBarcodeId: String
-  userId: uuid
+  userId: String
 }
 
 # aggregate max on columns
 type UserCartItem_max_fields {
   id: uuid
   itemBarcodeId: String
-  userId: uuid
+  userId: String
 }
 
 # order by max() on columns of table "UserCartItem"
@@ -2655,7 +2500,7 @@ input UserCartItem_max_order_by {
 type UserCartItem_min_fields {
   id: uuid
   itemBarcodeId: String
-  userId: uuid
+  userId: String
 }
 
 # order by min() on columns of table "UserCartItem"
@@ -2690,7 +2535,6 @@ input UserCartItem_on_conflict {
 # ordering options when selecting data from "UserCartItem"
 input UserCartItem_order_by {
   StoreItem: StoreItem_order_by
-  User: User_order_by
   id: order_by
   itemBarcodeId: order_by
   userId: order_by
@@ -2717,7 +2561,7 @@ enum UserCartItem_select_column {
 input UserCartItem_set_input {
   id: uuid
   itemBarcodeId: String
-  userId: uuid
+  userId: String
 }
 
 # update columns of table "UserCartItem"
@@ -2736,12 +2580,9 @@ enum UserCartItem_update_column {
 type UserFavoriteItem {
   # An object relationship
   StoreItem: StoreItem!
-
-  # An object relationship
-  User: User!
   id: uuid!
   itemBarcodeId: String!
-  userId: uuid!
+  userId: String!
 }
 
 # aggregated selection of "UserFavoriteItem"
@@ -2773,13 +2614,12 @@ input UserFavoriteItem_arr_rel_insert_input {
 # Boolean expression to filter rows from the table "UserFavoriteItem". All fields are combined with a logical 'AND'.
 input UserFavoriteItem_bool_exp {
   StoreItem: StoreItem_bool_exp
-  User: User_bool_exp
   _and: [UserFavoriteItem_bool_exp]
   _not: UserFavoriteItem_bool_exp
   _or: [UserFavoriteItem_bool_exp]
   id: uuid_comparison_exp
   itemBarcodeId: String_comparison_exp
-  userId: uuid_comparison_exp
+  userId: String_comparison_exp
 }
 
 # unique or primary key constraints on table "UserFavoriteItem"
@@ -2791,17 +2631,16 @@ enum UserFavoriteItem_constraint {
 # input type for inserting data into table "UserFavoriteItem"
 input UserFavoriteItem_insert_input {
   StoreItem: StoreItem_obj_rel_insert_input
-  User: User_obj_rel_insert_input
   id: uuid
   itemBarcodeId: String
-  userId: uuid
+  userId: String
 }
 
 # aggregate max on columns
 type UserFavoriteItem_max_fields {
   id: uuid
   itemBarcodeId: String
-  userId: uuid
+  userId: String
 }
 
 # order by max() on columns of table "UserFavoriteItem"
@@ -2815,7 +2654,7 @@ input UserFavoriteItem_max_order_by {
 type UserFavoriteItem_min_fields {
   id: uuid
   itemBarcodeId: String
-  userId: uuid
+  userId: String
 }
 
 # order by min() on columns of table "UserFavoriteItem"
@@ -2850,7 +2689,6 @@ input UserFavoriteItem_on_conflict {
 # ordering options when selecting data from "UserFavoriteItem"
 input UserFavoriteItem_order_by {
   StoreItem: StoreItem_order_by
-  User: User_order_by
   id: order_by
   itemBarcodeId: order_by
   userId: order_by
@@ -2877,7 +2715,7 @@ enum UserFavoriteItem_select_column {
 input UserFavoriteItem_set_input {
   id: uuid
   itemBarcodeId: String
-  userId: uuid
+  userId: String
 }
 
 # update columns of table "UserFavoriteItem"
@@ -2896,12 +2734,9 @@ enum UserFavoriteItem_update_column {
 type UserFavoriteStore {
   # An object relationship
   Store: Store!
-
-  # An object relationship
-  User: User!
   id: uuid!
   storeId: uuid!
-  userId: uuid!
+  userId: String!
 }
 
 # aggregated selection of "UserFavoriteStore"
@@ -2933,13 +2768,12 @@ input UserFavoriteStore_arr_rel_insert_input {
 # Boolean expression to filter rows from the table "UserFavoriteStore". All fields are combined with a logical 'AND'.
 input UserFavoriteStore_bool_exp {
   Store: Store_bool_exp
-  User: User_bool_exp
   _and: [UserFavoriteStore_bool_exp]
   _not: UserFavoriteStore_bool_exp
   _or: [UserFavoriteStore_bool_exp]
   id: uuid_comparison_exp
   storeId: uuid_comparison_exp
-  userId: uuid_comparison_exp
+  userId: String_comparison_exp
 }
 
 # unique or primary key constraints on table "UserFavoriteStore"
@@ -2951,17 +2785,16 @@ enum UserFavoriteStore_constraint {
 # input type for inserting data into table "UserFavoriteStore"
 input UserFavoriteStore_insert_input {
   Store: Store_obj_rel_insert_input
-  User: User_obj_rel_insert_input
   id: uuid
   storeId: uuid
-  userId: uuid
+  userId: String
 }
 
 # aggregate max on columns
 type UserFavoriteStore_max_fields {
   id: uuid
   storeId: uuid
-  userId: uuid
+  userId: String
 }
 
 # order by max() on columns of table "UserFavoriteStore"
@@ -2975,7 +2808,7 @@ input UserFavoriteStore_max_order_by {
 type UserFavoriteStore_min_fields {
   id: uuid
   storeId: uuid
-  userId: uuid
+  userId: String
 }
 
 # order by min() on columns of table "UserFavoriteStore"
@@ -3010,7 +2843,6 @@ input UserFavoriteStore_on_conflict {
 # ordering options when selecting data from "UserFavoriteStore"
 input UserFavoriteStore_order_by {
   Store: Store_order_by
-  User: User_order_by
   id: order_by
   storeId: order_by
   userId: order_by
@@ -3037,7 +2869,7 @@ enum UserFavoriteStore_select_column {
 input UserFavoriteStore_set_input {
   id: uuid
   storeId: uuid
-  userId: uuid
+  userId: String
 }
 
 # update columns of table "UserFavoriteStore"

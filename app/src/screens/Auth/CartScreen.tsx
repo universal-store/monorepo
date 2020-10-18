@@ -1,6 +1,7 @@
 /** @format */
 
-import React, { useCallback, useContext } from 'react';
+import React, { useCallback } from 'react';
+import { ActivityIndicator, FlatList } from 'react-native';
 
 // Components
 import {
@@ -19,18 +20,11 @@ import {
 // React Navigation
 import { useFocusEffect } from '@react-navigation/native';
 
-// User Store
-import { AuthContext } from '&stores';
-
 // GraphQL
 import { useGetUserCartItemsQuery } from '&graphql';
-import { ActivityIndicator, FlatList } from 'react-native';
 
 export const CartScreen = () => {
-  const authContext = useContext(AuthContext);
-  const sessionId = authContext?.token!;
-
-  const { data, refetch, loading } = useGetUserCartItemsQuery({ variables: { sessionId } });
+  const { data, refetch, loading } = useGetUserCartItemsQuery();
   const cartData = data?.UserCartItem;
 
   let cartTotal = 0;
@@ -68,9 +62,12 @@ export const CartScreen = () => {
           data={cartData}
           keyExtractor={item => item.id}
           showsVerticalScrollIndicator={false}
-          ListFooterComponent={() => <CellItemSeparator />}
+          ListFooterComponent={() => {
+            if (!cartData.length) return <></>;
+            return <CellItemSeparator />;
+          }}
           ItemSeparatorComponent={() => <CellItemSeparator />}
-          renderItem={({ item }) => <CartItemCell key={item.id} cartItem={item.StoreItem} sessionId={sessionId} />}
+          renderItem={({ item }) => <CartItemCell key={item.id} cartItem={item.StoreItem} />}
         />
       )}
     </FullScreenWhite>

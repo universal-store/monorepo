@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { ActivityIndicator, FlatList } from 'react-native';
 
 // Components
@@ -25,9 +25,6 @@ import { FindIcon } from '&icons';
 // React Navigation
 import { useFocusEffect } from '@react-navigation/native';
 
-// User Store
-import { AuthContext } from '&stores';
-
 // GraphQL
 import { useGetUserFavoriteItemsQuery, UserFavoriteItemInfoFragment } from '&graphql';
 
@@ -35,10 +32,7 @@ import { useGetUserFavoriteItemsQuery, UserFavoriteItemInfoFragment } from '&gra
 import { useDebounce } from '&utils';
 
 export const FavoriteScreen = () => {
-  const authContext = useContext(AuthContext);
-  const sessionId = authContext?.token!;
-
-  const { data, refetch, loading } = useGetUserFavoriteItemsQuery({ variables: { sessionId } });
+  const { data, refetch, loading } = useGetUserFavoriteItemsQuery();
   const favData = data?.UserFavoriteItem;
 
   const [itemQuery, setItemQuery] = useState<string>('');
@@ -100,9 +94,12 @@ export const FavoriteScreen = () => {
         data={filteredItems}
         keyExtractor={item => item.id}
         showsVerticalScrollIndicator={false}
-        ListFooterComponent={() => <CellItemSeparator />}
+        ListFooterComponent={() => {
+          if (!filteredItems.length) return <></>;
+          return <CellItemSeparator />;
+        }}
         ItemSeparatorComponent={() => <CellItemSeparator />}
-        renderItem={({ item }) => <FavoriteItemCell favItem={item.StoreItem} sessionId={sessionId} />}
+        renderItem={({ item }) => <FavoriteItemCell favItem={item.StoreItem} />}
       />
     </FullScreenWhite>
   );

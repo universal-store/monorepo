@@ -2,7 +2,6 @@
 
 fragment UserInfo on User {
   id
-  sessionId
   email
   firstName
   lastName

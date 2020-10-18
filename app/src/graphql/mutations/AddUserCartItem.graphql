@@ -1,4 +1,4 @@
-mutation AddUserCartItem($itemBarcodeId: String!, $userId: uuid) {
+mutation AddUserCartItem($itemBarcodeId: String!, $userId: String!) {
     insert_UserCartItem_one(object: { itemBarcodeId: $itemBarcodeId, userId: $userId }) {
         StoreItem {
             ...StoreItemInfo

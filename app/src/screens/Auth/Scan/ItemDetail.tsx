@@ -35,7 +35,7 @@ import {
 import { CartIcon, CloseIcon, HeartIconOff, HeartIconOn } from '&icons';
 
 // Navigation
-import { RootAuthParams } from '&navigation';
+import { RootAuthTabParams } from '&navigation';
 import { StackScreenProps } from '@react-navigation/stack';
 
 // GraphQL
@@ -58,7 +58,7 @@ const smallModalHeight = screenHeight - (isiPhoneX ? 402 : 372);
 
 const smallDescriptionLines = isiPhoneX ? 8 : 1;
 
-type ItemDetailProps = StackScreenProps<RootAuthParams, 'ItemDetail'>;
+type ItemDetailProps = StackScreenProps<RootAuthTabParams, 'ItemDetail'>;
 
 export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
   const { barcodeId } = route.params;
@@ -165,7 +165,7 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
           <CloseIcon />
         </ItemDetailHeaderButton>
 
-        <ItemDetailHeaderButton onPress={() => navigation.navigate('TabNavigation', { screen: 'CartScreen' })}>
+        <ItemDetailHeaderButton onPress={() => navigation.navigate('CartScreen')}>
           <CartIcon />
         </ItemDetailHeaderButton>
       </ItemDetailHeaderRow>

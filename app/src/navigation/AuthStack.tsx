@@ -1,6 +1,7 @@
 /** @format */
 
 import React from 'react';
+import { theme } from '&theme';
 
 // Screens
 import {
@@ -24,7 +25,7 @@ import {
 
 // Stack Navigators
 import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { AnimatedTabBarNavigator } from 'react-native-animated-nav-tab-bar';
 
 export type RootAuthTabParams = {
   MapView: { email: string; password: string };
@@ -34,14 +35,34 @@ export type RootAuthTabParams = {
   ItemDetail: { barcodeId: string };
 };
 
-const RootAuthTab = createBottomTabNavigator<RootAuthTabParams>();
+const RootAuthTab = AnimatedTabBarNavigator<RootAuthTabParams>();
 
 export const RootAuthTabNavigator = () => (
-  <RootAuthTab.Navigator initialRouteName="MapView" tabBarOptions={{ showLabel: false }}>
+  <RootAuthTab.Navigator
+    initialRouteName="MapView"
+    appearence={{
+      shadow: true,
+      floating: true,
+      dotSize: 'small',
+    }}
+    tabBarOptions={{
+      showLabel: false,
+      activeBackgroundColor: theme.colors.purple[1],
+      labelStyle: { color: theme.colors.white[1], fontWeight: 'bold' },
+      tabStyle: {
+        elevation: 4,
+        shadowRadius: 2.62,
+        shadowOpacity: 0.23,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+      },
+    }}
+  >
     <RootAuthTab.Screen
       name="MapView"
       component={MapViewScreen}
       options={{
+        title: 'Map',
         tabBarIcon: ({ focused }: TabNavigationIconProps) => <MapViewScreenIcon focused={focused} />,
       }}
     />
@@ -49,6 +70,7 @@ export const RootAuthTabNavigator = () => (
       name="FavoritesScreen"
       component={FavoriteScreen}
       options={{
+        title: 'Saved',
         tabBarIcon: ({ focused }: TabNavigationIconProps) => <FavoriteScreenIcon focused={focused} />,
       }}
     />
@@ -56,6 +78,7 @@ export const RootAuthTabNavigator = () => (
       name="CartScreen"
       component={CartScreen}
       options={{
+        title: 'Cart',
         tabBarIcon: ({ focused }: TabNavigationIconProps) => <CartScreenIcon focused={focused} />,
       }}
     />
@@ -63,6 +86,7 @@ export const RootAuthTabNavigator = () => (
       name="ProfileScreen"
       component={ProfileScreen}
       options={{
+        title: 'Profile',
         tabBarIcon: ({ focused }: TabNavigationIconProps) => <ProfileScreenIcon focused={focused} />,
       }}
     />

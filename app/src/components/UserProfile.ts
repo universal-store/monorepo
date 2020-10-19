@@ -10,7 +10,7 @@ export const UserProfileMainContainer = styled(FullScreenWhite)`
   flex: 1;
   width: 100%;
   display: flex;
-  padding: 24px;
+  padding: 24px 24px ${isiPhoneX ? 106 : 76}px; ;
 `;
 
 export const UserProfileHeaderText = styled(HeaderLargeText)`
@@ -68,6 +68,8 @@ export const UserProfileEmailContainer = styled.View`
 
 export const UserProfilePaymentInfoContainer = styled.TouchableOpacity`
   margin-bottom: 16px;
+  border-bottom-width: 1px;
+  border-bottom-color: ${({ theme }) => theme.colors.gray[5]};
 `;
 
 export const UserProfileCheckMarkLogoContainer = styled.View`

@@ -156,11 +156,6 @@
         "signature": "2b9f3e90d70810dab17d5eca94a736e2eed7d57d603b8879ea0a3c2829ddb26b",
         "affectsGlobalScope": true
       },
-      "./src/theme/index.ts": {
-        "version": "29245ab34a51040a5c62072b9165b29e58123603678225562fd4dcbd44650a5d",
-        "signature": "8c1e10562606fcbfed2c9fa5d370a41100757c0690c468e8123f8be06d5afec9",
-        "affectsGlobalScope": false
-      },
       "../node_modules/@types/react-native/globals.d.ts": {
         "version": "a4a0dff9c7f59d357b6ec45c22cdab883c628748a6947426a0611a13a27c950e",
         "signature": "a4a0dff9c7f59d357b6ec45c22cdab883c628748a6947426a0611a13a27c950e",
@@ -191,19 +186,9 @@
         "signature": "6364cf4e3f2ba09d2074d69520d3d4b01ce872ea32dbba81c1765e3ae32cea12",
         "affectsGlobalScope": true
       },
-      "../node_modules/@types/hoist-non-react-statics/index.d.ts": {
-        "version": "bfe1b52cf71aea9bf8815810cc5d9490fa9617313e3d3c2ee3809a28b80d0bb4",
-        "signature": "bfe1b52cf71aea9bf8815810cc5d9490fa9617313e3d3c2ee3809a28b80d0bb4",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@types/styled-components/index.d.ts": {
-        "version": "6117cbe65a212348fceff9e04e373039e5818b9dd97d6dd364ea64e2412d9ef9",
-        "signature": "6117cbe65a212348fceff9e04e373039e5818b9dd97d6dd364ea64e2412d9ef9",
-        "affectsGlobalScope": true
-      },
-      "../node_modules/@types/styled-components/native.d.ts": {
-        "version": "c18b6ea6258960da17573cb1a8097f39efae724c8e851fdad2832e65fed14959",
-        "signature": "c18b6ea6258960da17573cb1a8097f39efae724c8e851fdad2832e65fed14959",
+      "../node_modules/@react-native-community/async-storage/types/index.d.ts": {
+        "version": "87f20ddd4c71fb907ea6ed0273c398057ed9972676094c78794ed37260c2f3a8",
+        "signature": "87f20ddd4c71fb907ea6ed0273c398057ed9972676094c78794ed37260c2f3a8",
         "affectsGlobalScope": false
       },
       "../node_modules/react-native-reanimated/react-native-reanimated.d.ts": {
@@ -219,6 +204,21 @@
       "../node_modules/reanimated-bottom-sheet/lib/typescript/index.d.ts": {
         "version": "7b5a83dfdafa886513a6ddfeb8e9a63658510c1b96eb8e733205094151bd8bb6",
         "signature": "7b5a83dfdafa886513a6ddfeb8e9a63658510c1b96eb8e733205094151bd8bb6",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/hoist-non-react-statics/index.d.ts": {
+        "version": "bfe1b52cf71aea9bf8815810cc5d9490fa9617313e3d3c2ee3809a28b80d0bb4",
+        "signature": "bfe1b52cf71aea9bf8815810cc5d9490fa9617313e3d3c2ee3809a28b80d0bb4",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/styled-components/index.d.ts": {
+        "version": "6117cbe65a212348fceff9e04e373039e5818b9dd97d6dd364ea64e2412d9ef9",
+        "signature": "6117cbe65a212348fceff9e04e373039e5818b9dd97d6dd364ea64e2412d9ef9",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/@types/styled-components/native.d.ts": {
+        "version": "c18b6ea6258960da17573cb1a8097f39efae724c8e851fdad2832e65fed14959",
+        "signature": "c18b6ea6258960da17573cb1a8097f39efae724c8e851fdad2832e65fed14959",
         "affectsGlobalScope": false
       },
       "./src/components/text.ts": {
@@ -267,7 +267,7 @@
         "affectsGlobalScope": false
       },
       "./src/utils/index.ts": {
-        "version": "ec6ca56fa3c24ff29307f59b74b89973cdec8a96d076b0229da2b8b74c608bc3",
+        "version": "92c8fbd27005f42ca2350f6ddf6a6b04ba868274cf1aea132f88d1a4169131b2",
         "signature": "34a61dc1ef6eef9e66df7a5b18214372c6f4c680cb2e741cd29f8b08ee88effb",
         "affectsGlobalScope": false
       },
@@ -1482,8 +1482,8 @@
         "affectsGlobalScope": false
       },
       "./generated/graphql.tsx": {
-        "version": "40750e1356f3152ea4088a11e42f0b02aa715c61b70178e3151fc20cd8b60049",
-        "signature": "e52f2469a14045f8ceb56f569588fd56ffbdb0f5c662e102ff9bc06d42d81a08",
+        "version": "4c1a2b0d72c1b4cbc928532ec20f77f5dc9c290eaaa612c454b267bc951e9e2c",
+        "signature": "680b72e55d972585b2ce0b116b86f83fd3a7b5e96547dd24d2a9b5f1c1052fc2",
         "affectsGlobalScope": false
       },
       "./src/components/scan/itempreview.tsx": {
@@ -1512,7 +1512,7 @@
         "affectsGlobalScope": false
       },
       "./src/icons/tabnavigationicons.tsx": {
-        "version": "76478d8bddb4d6e33de308d63d6dca43ee2817b201714d552266ca0306b262d5",
+        "version": "19d26391053e4946cca9c1231a15e79942f932d481d8decabd4cd8f69ac720e9",
         "signature": "bbd2ef99f2531ce71a570b8f4e9a5406f8f1eeac0cb35b5e5b0b205d2fe9f7b1",
         "affectsGlobalScope": false
       },
@@ -1572,7 +1572,7 @@
         "affectsGlobalScope": false
       },
       "./src/components/cart/styled.ts": {
-        "version": "fc88d798eccad60f98dde751384c052d2167f31c71ef3d11568d42f1f03c4a4b",
+        "version": "e55acf48edd750ae1f51b9f77f28353164bcfa93d6017106bab6eb1fd126c8d5",
         "signature": "5a83c8ac628f24072608dec9ed827f3e7b9297501de92afadf532c1e2fcc51da",
         "affectsGlobalScope": false
       },
@@ -1782,8 +1782,8 @@
         "affectsGlobalScope": false
       },
       "./src/components/cart/cartitemcell.tsx": {
-        "version": "43ca4e4cf097b116a2e173c13b88097450ae16948d771e5c7d7f88e30aacf7f7",
-        "signature": "3002b988de70cb8148bc0e9798d6c1399612a73a56007745f94b012c2c695542",
+        "version": "7b428fbee61b4832afe4950c699a7e32a760c7bce9ae62492614efff68248a8f",
+        "signature": "58babec9a7864d56d13bf2d5be7ad9194c5d2fcd43553a4db57d12e3d9b44359",
         "affectsGlobalScope": false
       },
       "./src/components/cart/index.ts": {
@@ -1792,13 +1792,13 @@
         "affectsGlobalScope": false
       },
       "./src/components/landing/styled.ts": {
-        "version": "aee881ec5433d7ecbc36010d07bc80bc54d794980abb1e580bc2dc4de582dd27",
+        "version": "71a547f9405d47e3eb16f406a895c01fbbcd0bb16c62a95ba687f6e76897c702",
         "signature": "c044186fd48e7a4dc360f40ca13f0bde2f1e7b2a283abe0d3eaf25fc4154b31c",
         "affectsGlobalScope": false
       },
       "./src/components/landing/hellouser.tsx": {
-        "version": "a6ea6edf2a37de3239ac0b3bfeae9885f4ba304ff48616e929400dee27cf5def",
-        "signature": "a1c6b72fc36db9e12def752c9172a92646b5f9417d51e35ba5c92cfb91079572",
+        "version": "1a0bb9cdfa9de6b44eb9f025abcd900bd2c955a0322e289b1af1c20fddf439ed",
+        "signature": "ca2fa003b94cefaedd592deb87ae2813f58ccb85bd0a85c3c78a323ed9abc934",
         "affectsGlobalScope": false
       },
       "./src/components/landing/index.ts": {
@@ -1807,13 +1807,13 @@
         "affectsGlobalScope": false
       },
       "./src/components/favorites/styled.ts": {
-        "version": "080d6f18d1dc5d909e79b9d43a28afceb7013c27f2586b4168e810c0312e37c5",
+        "version": "1aac6b01e14886dac50330e14890e19a93d00127673949d6bd86a8e6ef1e3191",
         "signature": "6efa155c2a9ba00541550113671260f4b92b400ed2f11faf2c79287a08b030cc",
         "affectsGlobalScope": false
       },
       "./src/components/favorites/favoriteitemcell.tsx": {
-        "version": "f540800411c2ee33999f0e3d0b51b665bb115a7adb1243eb5544048199e65302",
-        "signature": "228538367526d59a5a973ebe95ac65310d0d67e9b8270d74017023e095d25362",
+        "version": "8f29a529ee91d94517fc33a0e20ec877b00de79342a23c2b9db9d8f22a0e6c59",
+        "signature": "48f5ba12d5be4698b8fdd080de8aa94f05d6bbce6fb260d54006b87b0e4f76f8",
         "affectsGlobalScope": false
       },
       "./src/components/favorites/index.ts": {
@@ -1832,7 +1832,7 @@
         "affectsGlobalScope": false
       },
       "./src/components/userprofile.ts": {
-        "version": "651afea2be305afd2c862fdf6f63cd1d4a831e3cde350385f608fe7d48d5b4bb",
+        "version": "c29916b0727f7ac4cb2570ba17daa852124a9c938d803b0bc602162e09497003",
         "signature": "faba4f3be1eeb72d2cd0f0f179311017d4c80fc129b7644c79e159d50ae879f7",
         "affectsGlobalScope": false
       },
@@ -1841,14 +1841,9 @@
         "signature": "c0ca135fca0c891edfdb132602955be2af018204a8677e8d3a0acc03f582478c",
         "affectsGlobalScope": false
       },
-      "../node_modules/@react-native-community/async-storage/types/index.d.ts": {
-        "version": "87f20ddd4c71fb907ea6ed0273c398057ed9972676094c78794ed37260c2f3a8",
-        "signature": "87f20ddd4c71fb907ea6ed0273c398057ed9972676094c78794ed37260c2f3a8",
-        "affectsGlobalScope": false
-      },
-      "./src/stores/index.tsx": {
-        "version": "ea3776a1d7c062f74f4986231dba875df755991fadfc92f5f81451e255a805c0",
-        "signature": "5ace141da764630178b8d8158599babb7ed92f219cb3e664f0bc32ec5e03b765",
+      "./src/theme/index.ts": {
+        "version": "29245ab34a51040a5c62072b9165b29e58123603678225562fd4dcbd44650a5d",
+        "signature": "8c1e10562606fcbfed2c9fa5d370a41100757c0690c468e8123f8be06d5afec9",
         "affectsGlobalScope": false
       },
       "../node_modules/react-native-safe-area-context/lib/typescript/src/safearea.types.d.ts": {
@@ -1966,9 +1961,24 @@
         "signature": "b1318576afcd95875250128006d18649a65402a4a5ee6502c32ffee600cd3ff2",
         "affectsGlobalScope": false
       },
+      "./src/navigation/authstack.tsx": {
+        "version": "5d9f66ebf2cd4489921de80d4757dac747933b286324cc96020185c05d6e95df",
+        "signature": "bc3d8715d69c34d5a9ba072b1d9fb1817f8388241c3aaea198eba75f628001fa",
+        "affectsGlobalScope": false
+      },
+      "./src/navigation/onboardingstack.tsx": {
+        "version": "e336d30558960b42909bca3f01536527fbf624fffdb26a2caef2d29fd745e284",
+        "signature": "d87f9fd4f27554f23e22f54c35c7ed83b40c25ce807e82707479861305bceade",
+        "affectsGlobalScope": false
+      },
+      "./src/navigation/index.ts": {
+        "version": "a8af076aa8a93adc53ba167f80fd03bff002c677541ff684157feff90b370b3c",
+        "signature": "6871724f8aa525be831ea1401689f5b8cfd768ecff707ee40d3001b1366cada6",
+        "affectsGlobalScope": false
+      },
       "./src/screens/auth/scan/itemdetail.tsx": {
-        "version": "257bd58b35fd154dc62b05274c3e140ae366449ef3c42c9a5063e9850577f766",
-        "signature": "8158495071d0fd07e1c1978f6b90dfe7b2bbaa82dd9e506cc9efd65f64df83dc",
+        "version": "f7e8752e29fbd272ab8451d5fb40593fe89884589669a5e3d35bab118d83015c",
+        "signature": "78e99f6314975844fede3d7b749a2a6595957f1ac126f57a60839403b5de3ad8",
         "affectsGlobalScope": false
       },
       "../node_modules/expo-barcode-scanner/build/barcodescanner.d.ts": {
@@ -1992,8 +2002,8 @@
         "affectsGlobalScope": false
       },
       "./src/screens/auth/scan/scanningscreen.tsx": {
-        "version": "d635098802b3dcd1500a74290ac453e574556953f52286d3818116acc102372f",
-        "signature": "153dae66bf473cde2f14ba88c2676837ecb73f3a68b14fb1f604bc835e0a3490",
+        "version": "f54397ea3ab06bdec540e0aa3b5f4a090d03ab9e4c7b38fcfe7fc9ae889cc7bf",
+        "signature": "a1ef6dbc3414654d2634d9dccac694cef032b9a529927a4605eb8692159fb2ec",
         "affectsGlobalScope": false
       },
       "./src/screens/auth/scan/index.ts": {
@@ -2001,48 +2011,58 @@
         "signature": "7d08225f755f8d995d4d0524a2cfd1ce0dd75451a2aa8439345f4d1b093df5bb",
         "affectsGlobalScope": false
       },
-      "../node_modules/@react-native-firebase/app/lib/index.d.ts": {
-        "version": "b5471bd4512040c1357216c2f66e9bebc632189c2763ab92b78666cb3a8f08e2",
-        "signature": "b5471bd4512040c1357216c2f66e9bebc632189c2763ab92b78666cb3a8f08e2",
+      "./src/screens/auth/mapview.tsx": {
+        "version": "0048520d9dab281a02d019d9bdcdd8b9af53831447f248eb7f105af84b51f222",
+        "signature": "c36ffce041c6d73ab6788bbb178517d2cb1ec67b58b5a9de3d2447bc0fe7c7c4",
         "affectsGlobalScope": false
       },
-      "../node_modules/@react-native-firebase/auth/lib/index.d.ts": {
-        "version": "efdeda5788572ecca2803a6e1d7e5059de98b6ef9d459becfb9bb3ea6c3e7064",
-        "signature": "efdeda5788572ecca2803a6e1d7e5059de98b6ef9d459becfb9bb3ea6c3e7064",
-        "affectsGlobalScope": false
-      },
-      "./src/screens/auth/mapview/index.tsx": {
-        "version": "03b90462ad66402e60665b3021cc81d12fd78ab5344ef0b59c55ee9dfe98d754",
-        "signature": "e9a83a4193b973ec0980b3df03640f118fd05ea380387a26f5bcd355d2e94e55",
-        "affectsGlobalScope": false
-      },
-      "./src/screens/auth/cartscreen/index.tsx": {
-        "version": "95d5f5341b320cff549a7cb36bdb42ea1fbcfc5ac4a272bb5f614edb2c6bcd14",
+      "./src/screens/auth/cartscreen.tsx": {
+        "version": "2c41011e1d6d47a2da54041bf1df9751b0762bdbafe7b88f509716b2910a066b",
         "signature": "21904ac78b41cfba344f3ec6ceeb7cc2551a8f9e5ad341373864c4a40e378743",
         "affectsGlobalScope": false
       },
-      "./src/screens/auth/profilescreen/index.tsx": {
-        "version": "27055d422ae2933007b6db3950a60d27215817cf257a70ed0403cadb07bb21f0",
+      "../node_modules/firebase/index.d.ts": {
+        "version": "a43a8d889f828eea497dc7ca246f8ea435d7be32ea7fdcbad45b6ee0d86a67ae",
+        "signature": "a43a8d889f828eea497dc7ca246f8ea435d7be32ea7fdcbad45b6ee0d86a67ae",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/firebase/empty-import.d.ts": {
+        "version": "d127b2f6d6afd338b821eedb33d8fa1c76d5fef62c1219797de8d913a12b2291",
+        "signature": "d127b2f6d6afd338b821eedb33d8fa1c76d5fef62c1219797de8d913a12b2291",
+        "affectsGlobalScope": false
+      },
+      "./src/lib/firebase.ts": {
+        "version": "f10834e933eebdb8281b0b68acad5488c376ed8165cefb3f3e909822b2efea9b",
+        "signature": "5f27e207f9067d16f128ab2e89ff115b1f89eb31af5b78a1d403d6785731c556",
+        "affectsGlobalScope": false
+      },
+      "./src/screens/auth/profilescreen.tsx": {
+        "version": "ee28aceee16c0d336b99761e9a398f424f22dfe35d646ac40abe601d61c2f33e",
         "signature": "ff4f2ed91d207440acc1d734785ebacccef382f6b30837d3251ec87ff5235461",
         "affectsGlobalScope": false
       },
-      "./src/screens/auth/favoritescreen/index.tsx": {
-        "version": "5cea2f1700876c808d7269065187c69e951bde81912f8050cab5339276e3678f",
+      "./src/screens/auth/favoritescreen.tsx": {
+        "version": "d25aebf352e43154085a2c078240319dcad97f18db9fac06fd0d974be40628e6",
         "signature": "39d0ec1ab1bba703c24735b8bff5a8cdac8ba899817945ad2425ee4f519c6456",
         "affectsGlobalScope": false
       },
+      "./src/screens/auth/userinfoscreen.tsx": {
+        "version": "7267f053624565d3ceb62b84ecf07b718bcdec715f2fd8f44346a1ebac505754",
+        "signature": "ac75eaa49a3147401e58104e1164262bbe4e3a37854cab6a2ed7bf7755546ffa",
+        "affectsGlobalScope": false
+      },
       "./src/screens/auth/index.ts": {
-        "version": "c7732fbcd88a4124470bdaf63e88c1ded52e33993dc921ca19eb38ea6440367d",
-        "signature": "e12372c603261e1de0588954e724693d48c8d4e968db9635a1701b460c6a61e9",
+        "version": "532c640f02e5ad6f2f3bea0357bf433269c1bfa2d9c082ce359df8559356da60",
+        "signature": "11753302ced56efbe405f7ca8a2b3274bae6b9109afb4add4336f9749cab2e3d",
         "affectsGlobalScope": false
       },
       "./src/screens/onboarding/signinscreen.tsx": {
-        "version": "058c55ba59ae2825c006bc641addd740b9a18ac78c42e6237125d0f80b41853a",
+        "version": "6d20dd2a787de361fe03f7f0c411cf33d2c4227e343f1a26255ae3fc71aa44f1",
         "signature": "7c8ecf4b2c12b9458f8861de53dbb1052e6f90993bccf08cfa0e58c96508c339",
         "affectsGlobalScope": false
       },
       "./src/screens/onboarding/signupscreen.tsx": {
-        "version": "b9b59d29150c29234d6b4fda2e44a657c4058aa62fb7aabcb9dcf5041646b9ef",
+        "version": "9567e359a942027d9d5704ae5c315463b7290c6787888dd300488071ac088568",
         "signature": "95334a9a1882f0142797b57e574cd6e61ec1472cc9e1e7aa9ff5979178df9646",
         "affectsGlobalScope": false
       },
@@ -2061,53 +2081,13 @@
         "signature": "60446d31793066562b923f69184f917e771656aabe478027ff350d46f55e59cf",
         "affectsGlobalScope": false
       },
-      "./src/navigation/onboardingstack.tsx": {
-        "version": "ee6ab6a62578b610fad606c853468aa82ea6cede9779e59c049aa90935f61ce0",
-        "signature": "210dd7ce1a88ccdf7663ddd4011fbee1ff85727488189e624ae1a8e36f241c70",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/types.d.ts": {
-        "version": "88fd51fd352ef5a892edf9193c1a3d0740486fbfd363ccdfc644abf0f22a19e0",
-        "signature": "88fd51fd352ef5a892edf9193c1a3d0740486fbfd363ccdfc644abf0f22a19e0",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/navigators/createbottomtabnavigator.d.ts": {
-        "version": "2e5012cdc9b9076a509af3531e63e35c358c446ae25a80b833a0cc186da0de40",
-        "signature": "2e5012cdc9b9076a509af3531e63e35c358c446ae25a80b833a0cc186da0de40",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/views/bottomtabview.d.ts": {
-        "version": "e91d4e38e11bc4925df5b2ccdd0236d112e8d39fa77c8aff7b04af5330e8135a",
-        "signature": "e91d4e38e11bc4925df5b2ccdd0236d112e8d39fa77c8aff7b04af5330e8135a",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/views/bottomtabbar.d.ts": {
-        "version": "87bdd22b8223cf57ea727f21071c0d98d27d447a11cf0d8df0bc5334a20a9284",
-        "signature": "87bdd22b8223cf57ea727f21071c0d98d27d447a11cf0d8df0bc5334a20a9284",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/index.d.ts": {
-        "version": "ec9d254e88e2f24c598e3888fdd23acbb2a72eaf347b85edc0b3a23442cfe453",
-        "signature": "ec9d254e88e2f24c598e3888fdd23acbb2a72eaf347b85edc0b3a23442cfe453",
-        "affectsGlobalScope": false
-      },
-      "./src/navigation/authstack.tsx": {
-        "version": "c4cb8e64f32d96302eabeec754b8aaf3891e52f417d804a42e2462fe850eb128",
-        "signature": "17e94c1167887daa04329e7325b645a538540be38085213a9ff78044c27d3886",
-        "affectsGlobalScope": false
-      },
-      "./src/navigation/root.tsx": {
-        "version": "c767fa76476c2d66f2a9c26bc5dba7f6539981e58cef37c4f0486b223aca3529",
-        "signature": "bc4c5320e05fe5660449e2505308575dab799e171c2ea63c0763d308ffadc202",
-        "affectsGlobalScope": false
-      },
-      "./src/navigation/index.ts": {
-        "version": "c1faee475780927b24d94865614a7c19942879b0f34be8fb4b55e0f8c3ddc58e",
-        "signature": "445503dc6ce50cdd73b80c7859007edf5e0159da0292582e4f153af0630c926d",
+      "../node_modules/@apollo/client/link/context/index.d.ts": {
+        "version": "272b868f62d242479a47cc3424f7dd5ff8bdc49e668b57b92332e707e884081c",
+        "signature": "272b868f62d242479a47cc3424f7dd5ff8bdc49e668b57b92332e707e884081c",
         "affectsGlobalScope": false
       },
       "./src/app.tsx": {
-        "version": "95e61b9de10008570ce111f6ad22ac3e41f544a94bc6a088f6d5d4aeb13dbd5d",
+        "version": "49e6cb65f63044e5fb99bdfb188ab012bf07ab2df9c590b977b96bb94068f929",
         "signature": "1f7357282945a7deda972b1957352320b3e416ec4cdec85a82585992c22fa144",
         "affectsGlobalScope": false
       },
@@ -2131,14 +2111,399 @@
         "signature": "d3bc2ab33fdf0f5e3e605347ade5ce4f70867df498b5c3d0d639faada03282a0",
         "affectsGlobalScope": false
       },
+      "./functions/node_modules/event-target-shim/index.d.ts": {
+        "version": "2859adaa4f2db3d4f0fc37ad86f056045341496b58fba0dbc16a222f9d5d55b1",
+        "signature": "2859adaa4f2db3d4f0fc37ad86f056045341496b58fba0dbc16a222f9d5d55b1",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/abort-controller/dist/abort-controller.d.ts": {
+        "version": "655ed305e8f4cb95d3f578040301a4e4d6ace112b1bd8824cd32bda66c3677d1",
+        "signature": "655ed305e8f4cb95d3f578040301a4e4d6ace112b1bd8824cd32bda66c3677d1",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/gaxios/build/src/common.d.ts": {
+        "version": "a955fa0d2d8dbcfcb1296963e49b907a2ac501d02b5a8916108eb238afc19fc6",
+        "signature": "a955fa0d2d8dbcfcb1296963e49b907a2ac501d02b5a8916108eb238afc19fc6",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/gaxios/build/src/gaxios.d.ts": {
+        "version": "dc1a68ad8a9684ad4b452c03aa656d4d63bdde95b4010411e233a5c4326e6f6a",
+        "signature": "dc1a68ad8a9684ad4b452c03aa656d4d63bdde95b4010411e233a5c4326e6f6a",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/gaxios/build/src/index.d.ts": {
+        "version": "cb789da1f75dc9d53848949aed3bb1d521de13c6340e5792a6b3f2c5e0c53e29",
+        "signature": "cb789da1f75dc9d53848949aed3bb1d521de13c6340e5792a6b3f2c5e0c53e29",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/google-auth-library/build/src/transporters.d.ts": {
+        "version": "82b70e72d3e16b95c6f933b0d146240214ef01dfe8e270f6e50f349223b0615d",
+        "signature": "82b70e72d3e16b95c6f933b0d146240214ef01dfe8e270f6e50f349223b0615d",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/google-auth-library/build/src/crypto/crypto.d.ts": {
+        "version": "48426cea1f526c040f5e25b5b46c72dc58e28dbca236ecb2d2f3c23ee2f3147e",
+        "signature": "48426cea1f526c040f5e25b5b46c72dc58e28dbca236ecb2d2f3c23ee2f3147e",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/google-auth-library/build/src/auth/credentials.d.ts": {
+        "version": "683563004226b83f33e4759f7976b180fab13042224e319476669d833f9f1fe0",
+        "signature": "683563004226b83f33e4759f7976b180fab13042224e319476669d833f9f1fe0",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/google-auth-library/build/src/auth/authclient.d.ts": {
+        "version": "ee00a6280d0c2a54ca31bc935a678ec560ec47fdab207382b64290b06995e626",
+        "signature": "ee00a6280d0c2a54ca31bc935a678ec560ec47fdab207382b64290b06995e626",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/google-auth-library/build/src/auth/loginticket.d.ts": {
+        "version": "3da10acc144b58168388267b5bd91d0df6a4ca4a24badfd235d3947576d3f9a9",
+        "signature": "3da10acc144b58168388267b5bd91d0df6a4ca4a24badfd235d3947576d3f9a9",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/google-auth-library/build/src/auth/oauth2client.d.ts": {
+        "version": "1d40605771c09e1b999b87725e20b6fea9a117c4ff6832f41b19838ff2b95008",
+        "signature": "1d40605771c09e1b999b87725e20b6fea9a117c4ff6832f41b19838ff2b95008",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/google-auth-library/build/src/auth/computeclient.d.ts": {
+        "version": "615954e8fe193fb3a2a7b91c9bb46fe18aaf60d2014da08da3c4d9a610c83477",
+        "signature": "615954e8fe193fb3a2a7b91c9bb46fe18aaf60d2014da08da3c4d9a610c83477",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts": {
+        "version": "01b8fe09ea0b18ceba458308fd349bd2545227995c1b370a6897ea7c8f4ae577",
+        "signature": "01b8fe09ea0b18ceba458308fd349bd2545227995c1b370a6897ea7c8f4ae577",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/google-auth-library/build/src/auth/envdetect.d.ts": {
+        "version": "ea9efc84288c02adb551e56f59235b5b3d613993acb0cbb74f1e1169a6ddaf23",
+        "signature": "ea9efc84288c02adb551e56f59235b5b3d613993acb0cbb74f1e1169a6ddaf23",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/gtoken/build/src/index.d.ts": {
+        "version": "645096a656964fdc919d68a791dc764c85eb9128fb164686a70c4f2d75fe1caa",
+        "signature": "645096a656964fdc919d68a791dc764c85eb9128fb164686a70c4f2d75fe1caa",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/google-auth-library/build/src/auth/jwtclient.d.ts": {
+        "version": "1445ef80723618786694bf663714c7cc1be265647d5b14299029554c9da115e1",
+        "signature": "1445ef80723618786694bf663714c7cc1be265647d5b14299029554c9da115e1",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/google-auth-library/build/src/auth/refreshclient.d.ts": {
+        "version": "e9203259c5f820618a0c10df0e0e28df87f2469770461540919b23d864b0e2f8",
+        "signature": "e9203259c5f820618a0c10df0e0e28df87f2469770461540919b23d864b0e2f8",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/google-auth-library/build/src/auth/googleauth.d.ts": {
+        "version": "d28ae5ca2e567db94cb2a19070820036bda8713fb1403fbb00bb239d2eb336b3",
+        "signature": "d28ae5ca2e567db94cb2a19070820036bda8713fb1403fbb00bb239d2eb336b3",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/google-auth-library/build/src/auth/iam.d.ts": {
+        "version": "925f03e0d23441ea93e30508a0b0c21ccbb06ed6af0fc19eed66729763849158",
+        "signature": "925f03e0d23441ea93e30508a0b0c21ccbb06ed6af0fc19eed66729763849158",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/google-auth-library/build/src/auth/jwtaccess.d.ts": {
+        "version": "bcea68b9bf0547a5b8ce7faf25cbbd7b7d0918e93c748d8e0e337a264440ad0d",
+        "signature": "bcea68b9bf0547a5b8ce7faf25cbbd7b7d0918e93c748d8e0e337a264440ad0d",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/google-auth-library/build/src/index.d.ts": {
+        "version": "b5f5fb8682b627fabd6173249639436577a19d93a36d09599879dd9dc104ac63",
+        "signature": "b5f5fb8682b627fabd6173249639436577a19d93a36d09599879dd9dc104ac63",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/teeny-request/build/src/index.d.ts": {
+        "version": "1ef82373a19bae276d64e230a668816d96562ffdf266bc67e0a91dd30bb20d0f",
+        "signature": "1ef82373a19bae276d64e230a668816d96562ffdf266bc67e0a91dd30bb20d0f",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/@google-cloud/common/build/src/util.d.ts": {
+        "version": "6e2c8ed913b49e9c93cf0aa682e48c97347d3da54d60d81d2b0e11e09da2f953",
+        "signature": "6e2c8ed913b49e9c93cf0aa682e48c97347d3da54d60d81d2b0e11e09da2f953",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/@google-cloud/common/build/src/service-object.d.ts": {
+        "version": "2931f8609009719078a11c85a1069470ff2a74ca01e19f2a46ff08cdecb22c28",
+        "signature": "2931f8609009719078a11c85a1069470ff2a74ca01e19f2a46ff08cdecb22c28",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/@google-cloud/common/build/src/operation.d.ts": {
+        "version": "7b0dad26d8d3ea293d332162f563f1f60c35dd5b0d44850fa330a901e781ca5d",
+        "signature": "7b0dad26d8d3ea293d332162f563f1f60c35dd5b0d44850fa330a901e781ca5d",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/@google-cloud/common/build/src/service.d.ts": {
+        "version": "27d8eb0ae5461fac42501d2fed4ff876414de3182dea7df38f465409b2ccb039",
+        "signature": "27d8eb0ae5461fac42501d2fed4ff876414de3182dea7df38f465409b2ccb039",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/@google-cloud/common/build/src/index.d.ts": {
+        "version": "a673754b47203b9e1d15d95014c847593f00b3e33fb2ace08f76d9c3dca3f9ab",
+        "signature": "a673754b47203b9e1d15d95014c847593f00b3e33fb2ace08f76d9c3dca3f9ab",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/@google-cloud/storage/build/src/acl.d.ts": {
+        "version": "4a16f63eab2003bf18f93d7c39c2cc582c75ebed56e64d382c427e22bcec509a",
+        "signature": "4a16f63eab2003bf18f93d7c39c2cc582c75ebed56e64d382c427e22bcec509a",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/@google-cloud/storage/build/src/signer.d.ts": {
+        "version": "22977aa28fc8f6c082d2065d6d8b7fa4dcd416f8ae4dff6ed99ec5e1555fe298",
+        "signature": "22977aa28fc8f6c082d2065d6d8b7fa4dcd416f8ae4dff6ed99ec5e1555fe298",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/@google-cloud/storage/build/src/file.d.ts": {
+        "version": "38878788e3023527bd860f1300650e246274cd214ad09eb689bc561fd7831719",
+        "signature": "38878788e3023527bd860f1300650e246274cd214ad09eb689bc561fd7831719",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/@google-cloud/storage/build/src/hmackey.d.ts": {
+        "version": "bd7f97a3fb993367447f8fbd7dedf0d9b4269a778404fef0ac5f398313b221a2",
+        "signature": "bd7f97a3fb993367447f8fbd7dedf0d9b4269a778404fef0ac5f398313b221a2",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/@google-cloud/storage/build/src/storage.d.ts": {
+        "version": "07098b194f4ad45856fc01df2f3d7ce2f68956ed86e6299254b204eabcf5bac8",
+        "signature": "07098b194f4ad45856fc01df2f3d7ce2f68956ed86e6299254b204eabcf5bac8",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/@google-cloud/storage/build/src/channel.d.ts": {
+        "version": "88e327017e5db7730f40e993f75fe947a8f4fdbf344d6176dba1a85490c824e4",
+        "signature": "88e327017e5db7730f40e993f75fe947a8f4fdbf344d6176dba1a85490c824e4",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/@google-cloud/storage/build/src/iam.d.ts": {
+        "version": "15981245ba7b6481bfab67ef18725554e5031da8d90f5153bfadce62aeedbb9e",
+        "signature": "15981245ba7b6481bfab67ef18725554e5031da8d90f5153bfadce62aeedbb9e",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/@google-cloud/storage/build/src/notification.d.ts": {
+        "version": "d3ff34f8218bcadd383b56f85f6ddf27f54f49abaf17ac05e58a04ff49bdcab7",
+        "signature": "d3ff34f8218bcadd383b56f85f6ddf27f54f49abaf17ac05e58a04ff49bdcab7",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/@google-cloud/storage/build/src/bucket.d.ts": {
+        "version": "8662bdd582ba440517d194716cd779b615f661b9b6f939cc91381363334fb6bd",
+        "signature": "8662bdd582ba440517d194716cd779b615f661b9b6f939cc91381363334fb6bd",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/@google-cloud/storage/build/src/index.d.ts": {
+        "version": "053ea839b135a17a15ad95c3635ab23fc1e12681082a86b91684df20c6e379df",
+        "signature": "053ea839b135a17a15ad95c3635ab23fc1e12681082a86b91684df20c6e379df",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/@google-cloud/firestore/types/firestore.d.ts": {
+        "version": "44e03c25aeec4d280e736457760954fa45047540660167937a7ed0e95c1777a0",
+        "signature": "44e03c25aeec4d280e736457760954fa45047540660167937a7ed0e95c1777a0",
+        "affectsGlobalScope": true
+      },
+      "./functions/node_modules/firebase-admin/lib/auth.d.ts": {
+        "version": "3c673f2121ff46c94146854f7c346d892d06d8eb6d69baf83767b4caaafcc0a4",
+        "signature": "3c673f2121ff46c94146854f7c346d892d06d8eb6d69baf83767b4caaafcc0a4",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/firebase-admin/lib/database.d.ts": {
+        "version": "7078239e9f8b9e15c40da4b1215c655f141318fad2a6afbf7981b43d98f2549b",
+        "signature": "7078239e9f8b9e15c40da4b1215c655f141318fad2a6afbf7981b43d98f2549b",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/firebase-admin/lib/messaging.d.ts": {
+        "version": "f3927cef2f92c45d0d86db6c303c9c2b480d2c55f31660dd2c9bf670789a2c0a",
+        "signature": "f3927cef2f92c45d0d86db6c303c9c2b480d2c55f31660dd2c9bf670789a2c0a",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/firebase-admin/lib/instance-id.d.ts": {
+        "version": "03b18caa2b66c55fe811fc08b003924a43008919d92c205d183df62c1d798609",
+        "signature": "03b18caa2b66c55fe811fc08b003924a43008919d92c205d183df62c1d798609",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/firebase-admin/lib/project-management.d.ts": {
+        "version": "2bc11440f309e8711f9209f0b8d646962ee52de8d085c005f2cac67d8d468dfd",
+        "signature": "2bc11440f309e8711f9209f0b8d646962ee52de8d085c005f2cac67d8d468dfd",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/firebase-admin/lib/security-rules.d.ts": {
+        "version": "844ba48177c60af6a86b6d0d20f28173ddfcf1e033840f6398c971f07c9d9045",
+        "signature": "844ba48177c60af6a86b6d0d20f28173ddfcf1e033840f6398c971f07c9d9045",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/firebase-admin/lib/index.d.ts": {
+        "version": "b6ffad9cad549d8062299edd1c5b4d414cd3df117414e0adfd619b42e684f757",
+        "signature": "b6ffad9cad549d8062299edd1c5b4d414cd3df117414e0adfd619b42e684f757",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/@types/range-parser/index.d.ts": {
+        "version": "4e88b833be14c7f384e0dcd57bb30acd799e8e34d212635d693e41a75a71164b",
+        "signature": "4e88b833be14c7f384e0dcd57bb30acd799e8e34d212635d693e41a75a71164b",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/@types/qs/index.d.ts": {
+        "version": "c236451df6139a965bb9b8fba15a43a8bebf4400ca589998e2bdc5e1291fa0f9",
+        "signature": "c236451df6139a965bb9b8fba15a43a8bebf4400ca589998e2bdc5e1291fa0f9",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/@types/express-serve-static-core/index.d.ts": {
+        "version": "495cc9f802a6bce4aa21dddf13f8e61b4f0b7976621af90e31c58a4dfe4802ef",
+        "signature": "495cc9f802a6bce4aa21dddf13f8e61b4f0b7976621af90e31c58a4dfe4802ef",
+        "affectsGlobalScope": true
+      },
+      "./functions/node_modules/@types/mime/index.d.ts": {
+        "version": "be27a64e821a3e5af838650e4aa25805c60f057d0c37a9762c378d19d364b3e6",
+        "signature": "be27a64e821a3e5af838650e4aa25805c60f057d0c37a9762c378d19d364b3e6",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/@types/serve-static/index.d.ts": {
+        "version": "adde1c915ab3b61a2821c72f226546c6c119a061a2ff4d6f90b3d61c005ae1f8",
+        "signature": "adde1c915ab3b61a2821c72f226546c6c119a061a2ff4d6f90b3d61c005ae1f8",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/@types/connect/index.d.ts": {
+        "version": "e6ffa74698f0a1d23e4223242ed7dcdb89d02bbbb063a1930e9f91d0385abe16",
+        "signature": "e6ffa74698f0a1d23e4223242ed7dcdb89d02bbbb063a1930e9f91d0385abe16",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/@types/body-parser/index.d.ts": {
+        "version": "ebddbd167c2fabd0151f50e5df94ca6d845149c47521280d8867afe3429dd078",
+        "signature": "ebddbd167c2fabd0151f50e5df94ca6d845149c47521280d8867afe3429dd078",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/@types/express/index.d.ts": {
+        "version": "af43f1d20a34fa56542ce2093fd9af37cb4f3076a648b63fd46b1ffac8948c9e",
+        "signature": "af43f1d20a34fa56542ce2093fd9af37cb4f3076a648b63fd46b1ffac8948c9e",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/firebase-functions/lib/function-configuration.d.ts": {
+        "version": "08ac33557808eb8c53a8a3cfcc9fa8e51d34677bf069247588a2a49e8d965ba4",
+        "signature": "08ac33557808eb8c53a8a3cfcc9fa8e51d34677bf069247588a2a49e8d965ba4",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts": {
+        "version": "a313f2d00131959867957572e178a04f0356dd7e38bd5677b40a53fef649a888",
+        "signature": "a313f2d00131959867957572e178a04f0356dd7e38bd5677b40a53fef649a888",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/firebase-functions/lib/providers/analytics.d.ts": {
+        "version": "230f2776b970caf8e470648d09f4bf01d6cf1612d6aadef4d4783343a8b5c7b7",
+        "signature": "230f2776b970caf8e470648d09f4bf01d6cf1612d6aadef4d4783343a8b5c7b7",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/firebase-functions/lib/providers/auth.d.ts": {
+        "version": "8a5cec8e62bd0dcb6e933c76743d57fd5b712663b8fd28c2c21c098e8fe027a4",
+        "signature": "8a5cec8e62bd0dcb6e933c76743d57fd5b712663b8fd28c2c21c098e8fe027a4",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/firebase-functions/lib/providers/crashlytics.d.ts": {
+        "version": "562fe3790baef287a9af523681e1afdc75425daa69e071bfe72704812472e08f",
+        "signature": "562fe3790baef287a9af523681e1afdc75425daa69e071bfe72704812472e08f",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/firebase-functions/lib/apps.d.ts": {
+        "version": "074ac0dea7b1b926227b2b990a9b38c8a2b36b5b0fb16591fc2c28234e35829e",
+        "signature": "074ac0dea7b1b926227b2b990a9b38c8a2b36b5b0fb16591fc2c28234e35829e",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/firebase-functions/lib/providers/database.d.ts": {
+        "version": "8ca2635fdaee8be02f06b8664362727dd814693f85a614bdc4309adc486fcd3f",
+        "signature": "8ca2635fdaee8be02f06b8664362727dd814693f85a614bdc4309adc486fcd3f",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/firebase-functions/lib/providers/firestore.d.ts": {
+        "version": "16792b0c9273b52277d12db9c58fa36be5f1d94990d49c31ea16311ed4b0a7ed",
+        "signature": "16792b0c9273b52277d12db9c58fa36be5f1d94990d49c31ea16311ed4b0a7ed",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/firebase-functions/lib/providers/https.d.ts": {
+        "version": "771103ca0f07c0aa5c73e6d60787a2603bb1cdfc853af4858603f72238bcc2fd",
+        "signature": "771103ca0f07c0aa5c73e6d60787a2603bb1cdfc853af4858603f72238bcc2fd",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/firebase-functions/lib/providers/pubsub.d.ts": {
+        "version": "0e9dcd03ba9f6dfe4ba74845cd86920b5e5de6704c4c8eac2fd292817d77773e",
+        "signature": "0e9dcd03ba9f6dfe4ba74845cd86920b5e5de6704c4c8eac2fd292817d77773e",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/firebase-functions/lib/providers/remoteconfig.d.ts": {
+        "version": "c4c0261b12524279056993ee8223189a7025f85f29d51317d417623b0fa5c090",
+        "signature": "c4c0261b12524279056993ee8223189a7025f85f29d51317d417623b0fa5c090",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/firebase-functions/lib/providers/storage.d.ts": {
+        "version": "496d7fa3b5a354fbe298366e17ce6bc0ecec576df7fafb63bf12f22fc47d935b",
+        "signature": "496d7fa3b5a354fbe298366e17ce6bc0ecec576df7fafb63bf12f22fc47d935b",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/firebase-functions/lib/providers/testlab.d.ts": {
+        "version": "471805944a5f2b948be9b514ab4f1206bfdf285cf07ea9749820146750ffbfe1",
+        "signature": "471805944a5f2b948be9b514ab4f1206bfdf285cf07ea9749820146750ffbfe1",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/firebase-functions/lib/logger.d.ts": {
+        "version": "3ffc6f27ce956873f171f8bc30a52448d25a9f562f2c3accb943e41bd6fa7427",
+        "signature": "3ffc6f27ce956873f171f8bc30a52448d25a9f562f2c3accb943e41bd6fa7427",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/firebase-functions/lib/handler-builder.d.ts": {
+        "version": "4b02cdd25c811e36d1aac25283bc864a95b9e922baf3141968853eb57d421e3c",
+        "signature": "4b02cdd25c811e36d1aac25283bc864a95b9e922baf3141968853eb57d421e3c",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/firebase-functions/lib/config.d.ts": {
+        "version": "e6f78f98b64c3340ad0d49a455132fbc9c50954dd49de5651824962e458d33ed",
+        "signature": "e6f78f98b64c3340ad0d49a455132fbc9c50954dd49de5651824962e458d33ed",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/firebase-functions/lib/function-builder.d.ts": {
+        "version": "e7342f4bf5ae87da7986a2d3119d405e9dcb4c14a25c73701afcd93d9d1e9ab3",
+        "signature": "e7342f4bf5ae87da7986a2d3119d405e9dcb4c14a25c73701afcd93d9d1e9ab3",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/firebase-functions/lib/index.d.ts": {
+        "version": "5330493098e0521a330cef4377a62f045155cacab3fbe0d3ecf7fa213e614fcd",
+        "signature": "5330493098e0521a330cef4377a62f045155cacab3fbe0d3ecf7fa213e614fcd",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/graphql/language/ast.d.ts": {
+        "version": "7b52c21bd6397ca26df3b7863fa2d5014aa4bbf5621377769726bbd59956e6bc",
+        "signature": "7b52c21bd6397ca26df3b7863fa2d5014aa4bbf5621377769726bbd59956e6bc",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/graphql-request/dist/types.d.ts": {
+        "version": "84d8d846698c4f041edacccb275ef19f5bf69cf5b3804f776bde294761b6b795",
+        "signature": "84d8d846698c4f041edacccb275ef19f5bf69cf5b3804f776bde294761b6b795",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/graphql-request/dist/types.dom.d.ts": {
+        "version": "c3732dbd39cad55b2b7f327c7eecc5b41b968f21350ccb55756d602da2b4fcd5",
+        "signature": "c3732dbd39cad55b2b7f327c7eecc5b41b968f21350ccb55756d602da2b4fcd5",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/graphql-request/dist/index.d.ts": {
+        "version": "395b15335128d448217514a7375ec05daadf2fffdac1cf0572d02eb8ac58898d",
+        "signature": "395b15335128d448217514a7375ec05daadf2fffdac1cf0572d02eb8ac58898d",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/dotenv/types/index.d.ts": {
+        "version": "c9ae0b351a07b52f29a28e869d8c7c8d29743bbb5eeddc7c0b5b2a69a2450528",
+        "signature": "c9ae0b351a07b52f29a28e869d8c7c8d29743bbb5eeddc7c0b5b2a69a2450528",
+        "affectsGlobalScope": false
+      },
+      "./functions/index.js": {
+        "version": "c745e5c27cb3e2cf51c6bbf4212f6cd6dc213a5e281b6f3b04c080558fcaf6f3",
+        "signature": "6d362a0da4e7778878fa3197a333e825f3896418917a04e0a17fc93064d6ccc7",
+        "affectsGlobalScope": true
+      },
       "./generated/graphql.fragment-types.ts": {
         "version": "139d1c55b1f45fd77293afea3988d5fc5cad904fcf501fd4d130d704f09a0568",
         "signature": "e44b2648b8a2cf09cd50caabf6649fe60362d56aa8e3f3b08618ffa121f61aa7",
         "affectsGlobalScope": false
       },
       "./types/env.d.ts": {
-        "version": "ed892b3c85e4a76384ac5b07236356b5a98b29ac8c4b2ec9a28233c4160993bc",
-        "signature": "ed892b3c85e4a76384ac5b07236356b5a98b29ac8c4b2ec9a28233c4160993bc",
+        "version": "5ce6a912bc327dbdd21df66b8d18f8cbd42af1ad9bbbe6d31de87730fa45c7bf",
+        "signature": "5ce6a912bc327dbdd21df66b8d18f8cbd42af1ad9bbbe6d31de87730fa45c7bf",
         "affectsGlobalScope": false
       },
       "./types/styled.d.ts": {
@@ -2271,6 +2636,11 @@
         "signature": "f67c920eba6ab8e4558cb9ab661d900188f101c5657e19b1e15829a1d491d46e",
         "affectsGlobalScope": false
       },
+      "../node_modules/@types/long/index.d.ts": {
+        "version": "e8465811693dfe4e96ef2b3dffda539d6edfe896961b7af37b44db2c0e48532b",
+        "signature": "e8465811693dfe4e96ef2b3dffda539d6edfe896961b7af37b44db2c0e48532b",
+        "affectsGlobalScope": false
+      },
       "../node_modules/@types/normalize-package-data/index.d.ts": {
         "version": "c9ad058b2cc9ce6dc2ed92960d6d009e8c04bef46d3f5312283debca6869f613",
         "signature": "c9ad058b2cc9ce6dc2ed92960d6d009e8c04bef46d3f5312283debca6869f613",
@@ -2332,6 +2702,9 @@
       "moduleResolution": 2,
       "baseUrl": "./src",
       "paths": {
+        "&lib": [
+          "./lib/*"
+        ],
         "&data": [
           "./data"
         ],
@@ -2375,6 +2748,378 @@
         "../node_modules/@types/react/index.d.ts",
         "./src/app.tsx"
       ],
+      "./functions/index.js": [
+        "./functions/node_modules/dotenv/types/index.d.ts",
+        "./functions/node_modules/firebase-admin/lib/index.d.ts",
+        "./functions/node_modules/firebase-functions/lib/index.d.ts",
+        "./functions/node_modules/graphql-request/dist/index.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/common/build/src/index.d.ts": [
+        "./functions/node_modules/@google-cloud/common/build/src/operation.d.ts",
+        "./functions/node_modules/@google-cloud/common/build/src/service-object.d.ts",
+        "./functions/node_modules/@google-cloud/common/build/src/service.d.ts",
+        "./functions/node_modules/@google-cloud/common/build/src/util.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/index.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/common/build/src/operation.d.ts": [
+        "./functions/node_modules/@google-cloud/common/build/src/service-object.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/common/build/src/service-object.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "./functions/node_modules/@google-cloud/common/build/src/util.d.ts",
+        "./functions/node_modules/teeny-request/build/src/index.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/common/build/src/service.d.ts": [
+        "./functions/node_modules/@google-cloud/common/build/src/service-object.d.ts",
+        "./functions/node_modules/@google-cloud/common/build/src/util.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/index.d.ts",
+        "./functions/node_modules/teeny-request/build/src/index.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/common/build/src/util.d.ts": [
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "./functions/node_modules/@google-cloud/common/build/src/service-object.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/index.d.ts",
+        "./functions/node_modules/teeny-request/build/src/index.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/storage/build/src/acl.d.ts": [
+        "./functions/node_modules/@google-cloud/common/build/src/index.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/storage/build/src/bucket.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "./functions/node_modules/@google-cloud/common/build/src/index.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/acl.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/channel.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/file.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/iam.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/notification.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/signer.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/storage.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/storage/build/src/channel.d.ts": [
+        "./functions/node_modules/@google-cloud/common/build/src/index.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/storage.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/storage/build/src/file.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "./functions/node_modules/@google-cloud/common/build/src/index.d.ts",
+        "./functions/node_modules/@google-cloud/common/build/src/util.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/acl.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/bucket.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/signer.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/storage.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/storage/build/src/hmackey.d.ts": [
+        "./functions/node_modules/@google-cloud/common/build/src/index.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/storage.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/storage/build/src/iam.d.ts": [
+        "./functions/node_modules/@google-cloud/common/build/src/index.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/bucket.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/storage/build/src/index.d.ts": [
+        "./functions/node_modules/@google-cloud/storage/build/src/acl.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/bucket.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/channel.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/file.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/hmackey.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/iam.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/notification.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/signer.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/storage.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/storage/build/src/notification.d.ts": [
+        "./functions/node_modules/@google-cloud/common/build/src/index.d.ts",
+        "./functions/node_modules/@google-cloud/common/build/src/util.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/bucket.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/storage/build/src/signer.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/storage/build/src/storage.d.ts": [
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "./functions/node_modules/@google-cloud/common/build/src/index.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/bucket.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/channel.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/file.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/hmackey.d.ts"
+      ],
+      "./functions/node_modules/@types/body-parser/index.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "./functions/node_modules/@types/connect/index.d.ts"
+      ],
+      "./functions/node_modules/@types/connect/index.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts"
+      ],
+      "./functions/node_modules/@types/express-serve-static-core/index.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "./functions/node_modules/@types/qs/index.d.ts",
+        "./functions/node_modules/@types/range-parser/index.d.ts"
+      ],
+      "./functions/node_modules/@types/express/index.d.ts": [
+        "./functions/node_modules/@types/body-parser/index.d.ts",
+        "./functions/node_modules/@types/express-serve-static-core/index.d.ts",
+        "./functions/node_modules/@types/serve-static/index.d.ts"
+      ],
+      "./functions/node_modules/@types/serve-static/index.d.ts": [
+        "./functions/node_modules/@types/express-serve-static-core/index.d.ts",
+        "./functions/node_modules/@types/mime/index.d.ts"
+      ],
+      "./functions/node_modules/abort-controller/dist/abort-controller.d.ts": [
+        "./functions/node_modules/event-target-shim/index.d.ts"
+      ],
+      "./functions/node_modules/dotenv/types/index.d.ts": [
+        "../node_modules/@types/node/index.d.ts"
+      ],
+      "./functions/node_modules/firebase-admin/lib/auth.d.ts": [
+        "./functions/node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./functions/node_modules/firebase-admin/lib/database.d.ts": [
+        "./functions/node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./functions/node_modules/firebase-admin/lib/index.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "./functions/node_modules/@google-cloud/firestore/types/firestore.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/index.d.ts",
+        "./functions/node_modules/firebase-admin/lib/auth.d.ts",
+        "./functions/node_modules/firebase-admin/lib/database.d.ts",
+        "./functions/node_modules/firebase-admin/lib/instance-id.d.ts",
+        "./functions/node_modules/firebase-admin/lib/messaging.d.ts",
+        "./functions/node_modules/firebase-admin/lib/project-management.d.ts",
+        "./functions/node_modules/firebase-admin/lib/security-rules.d.ts"
+      ],
+      "./functions/node_modules/firebase-admin/lib/instance-id.d.ts": [
+        "./functions/node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./functions/node_modules/firebase-admin/lib/messaging.d.ts": [
+        "./functions/node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./functions/node_modules/firebase-admin/lib/project-management.d.ts": [
+        "./functions/node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./functions/node_modules/firebase-admin/lib/security-rules.d.ts": [
+        "./functions/node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/apps.d.ts": [
+        "./functions/node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts": [
+        "./functions/node_modules/@types/express/index.d.ts",
+        "./functions/node_modules/firebase-functions/lib/function-configuration.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/config.d.ts": [
+        "./functions/node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/function-builder.d.ts": [
+        "./functions/node_modules/@types/express-serve-static-core/index.d.ts",
+        "./functions/node_modules/@types/express/index.d.ts",
+        "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts",
+        "./functions/node_modules/firebase-functions/lib/function-configuration.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/analytics.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/auth.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/crashlytics.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/database.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/firestore.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/https.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/pubsub.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/remoteconfig.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/storage.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/testlab.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/handler-builder.d.ts": [
+        "./functions/node_modules/@types/express/index.d.ts",
+        "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/analytics.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/auth.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/crashlytics.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/database.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/firestore.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/https.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/pubsub.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/remoteconfig.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/storage.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/testlab.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/index.d.ts": [
+        "./functions/node_modules/firebase-functions/lib/apps.d.ts",
+        "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts",
+        "./functions/node_modules/firebase-functions/lib/config.d.ts",
+        "./functions/node_modules/firebase-functions/lib/function-builder.d.ts",
+        "./functions/node_modules/firebase-functions/lib/function-configuration.d.ts",
+        "./functions/node_modules/firebase-functions/lib/handler-builder.d.ts",
+        "./functions/node_modules/firebase-functions/lib/logger.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/analytics.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/auth.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/crashlytics.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/database.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/firestore.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/https.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/pubsub.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/remoteconfig.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/storage.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/testlab.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/providers/analytics.d.ts": [
+        "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts",
+        "./functions/node_modules/firebase-functions/lib/function-configuration.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/providers/auth.d.ts": [
+        "./functions/node_modules/firebase-admin/lib/index.d.ts",
+        "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts",
+        "./functions/node_modules/firebase-functions/lib/function-configuration.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/providers/crashlytics.d.ts": [
+        "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts",
+        "./functions/node_modules/firebase-functions/lib/function-configuration.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/providers/database.d.ts": [
+        "./functions/node_modules/firebase-admin/lib/index.d.ts",
+        "./functions/node_modules/firebase-functions/lib/apps.d.ts",
+        "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts",
+        "./functions/node_modules/firebase-functions/lib/function-configuration.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/providers/firestore.d.ts": [
+        "./functions/node_modules/firebase-admin/lib/index.d.ts",
+        "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts",
+        "./functions/node_modules/firebase-functions/lib/function-configuration.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/providers/https.d.ts": [
+        "../node_modules/@types/node/index.d.ts",
+        "./functions/node_modules/@types/express/index.d.ts",
+        "./functions/node_modules/firebase-admin/lib/index.d.ts",
+        "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts",
+        "./functions/node_modules/firebase-functions/lib/function-configuration.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/providers/pubsub.d.ts": [
+        "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts",
+        "./functions/node_modules/firebase-functions/lib/function-configuration.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/providers/remoteconfig.d.ts": [
+        "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts",
+        "./functions/node_modules/firebase-functions/lib/function-configuration.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/providers/storage.d.ts": [
+        "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts",
+        "./functions/node_modules/firebase-functions/lib/function-configuration.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/providers/testlab.d.ts": [
+        "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts"
+      ],
+      "./functions/node_modules/gaxios/build/src/common.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/url.d.ts",
+        "./functions/node_modules/abort-controller/dist/abort-controller.d.ts"
+      ],
+      "./functions/node_modules/gaxios/build/src/gaxios.d.ts": [
+        "./functions/node_modules/gaxios/build/src/common.d.ts"
+      ],
+      "./functions/node_modules/gaxios/build/src/index.d.ts": [
+        "./functions/node_modules/gaxios/build/src/common.d.ts",
+        "./functions/node_modules/gaxios/build/src/gaxios.d.ts"
+      ],
+      "./functions/node_modules/google-auth-library/build/src/auth/authclient.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "./functions/node_modules/gaxios/build/src/index.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/oauth2client.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/transporters.d.ts"
+      ],
+      "./functions/node_modules/google-auth-library/build/src/auth/computeclient.d.ts": [
+        "./functions/node_modules/gaxios/build/src/index.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/oauth2client.d.ts"
+      ],
+      "./functions/node_modules/google-auth-library/build/src/auth/googleauth.d.ts": [
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "./functions/node_modules/gaxios/build/src/index.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/computeclient.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/envdetect.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/jwtclient.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/oauth2client.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/refreshclient.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/transporters.d.ts"
+      ],
+      "./functions/node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts": [
+        "./functions/node_modules/google-auth-library/build/src/auth/oauth2client.d.ts"
+      ],
+      "./functions/node_modules/google-auth-library/build/src/auth/jwtaccess.d.ts": [
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/oauth2client.d.ts"
+      ],
+      "./functions/node_modules/google-auth-library/build/src/auth/jwtclient.d.ts": [
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/oauth2client.d.ts",
+        "./functions/node_modules/gtoken/build/src/index.d.ts"
+      ],
+      "./functions/node_modules/google-auth-library/build/src/auth/oauth2client.d.ts": [
+        "./functions/node_modules/gaxios/build/src/index.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/authclient.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/loginticket.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/crypto/crypto.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/transporters.d.ts"
+      ],
+      "./functions/node_modules/google-auth-library/build/src/auth/refreshclient.d.ts": [
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/oauth2client.d.ts"
+      ],
+      "./functions/node_modules/google-auth-library/build/src/crypto/crypto.d.ts": [
+        "../node_modules/@types/node/index.d.ts"
+      ],
+      "./functions/node_modules/google-auth-library/build/src/index.d.ts": [
+        "./functions/node_modules/google-auth-library/build/src/auth/computeclient.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/envdetect.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/googleauth.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/iam.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/jwtaccess.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/jwtclient.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/loginticket.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/oauth2client.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/refreshclient.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/transporters.d.ts"
+      ],
+      "./functions/node_modules/google-auth-library/build/src/transporters.d.ts": [
+        "./functions/node_modules/gaxios/build/src/index.d.ts"
+      ],
+      "./functions/node_modules/graphql-request/dist/index.d.ts": [
+        "./functions/node_modules/graphql-request/dist/types.d.ts",
+        "./functions/node_modules/graphql-request/dist/types.dom.d.ts"
+      ],
+      "./functions/node_modules/graphql-request/dist/types.d.ts": [
+        "../node_modules/graphql/language/ast.d.ts"
+      ],
+      "./functions/node_modules/graphql/language/ast.d.ts": [
+        "../node_modules/graphql/language/source.d.ts",
+        "../node_modules/graphql/language/tokenkind.d.ts"
+      ],
+      "./functions/node_modules/teeny-request/build/src/index.d.ts": [
+        "../node_modules/@types/node/https.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts"
+      ],
       "./generated/graphql.tsx": [
         "../node_modules/@apollo/client/index.d.ts"
       ],
@@ -2384,10 +3129,16 @@
       ],
       "./src/app.tsx": [
         "../node_modules/@apollo/client/index.d.ts",
+        "../node_modules/@apollo/client/link/context/index.d.ts",
+        "../node_modules/@react-native-community/async-storage/types/index.d.ts",
+        "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/react/index.d.ts",
         "../node_modules/@types/styled-components/native.d.ts",
+        "../node_modules/firebase/index.d.ts",
+        "./src/lib/firebase.ts",
         "./src/navigation/index.ts",
-        "./src/stores/index.tsx",
+        "./src/screens/index.ts",
         "./src/theme/index.ts",
         "./types/env.d.ts"
       ],
@@ -2414,7 +3165,6 @@
         "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
         "../node_modules/@types/react/index.d.ts",
         "./generated/graphql.tsx",
-        "./src/components/cart/index.ts",
         "./src/components/favorites/styled.ts",
         "./src/icons/index.ts"
       ],
@@ -2502,7 +3252,6 @@
         "../node_modules/@types/styled-components/native.d.ts"
       ],
       "./src/components/userprofile.ts": [
-        "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/styled-components/native.d.ts",
         "./src/components/text.ts",
         "./src/components/views.ts"
@@ -2575,73 +3324,68 @@
         "../node_modules/@types/react/index.d.ts",
         "../node_modules/react-native-svg/src/index.d.ts"
       ],
+      "./src/lib/firebase.ts": [
+        "../node_modules/firebase/empty-import.d.ts",
+        "../node_modules/firebase/index.d.ts",
+        "./types/env.d.ts"
+      ],
       "./src/navigation/authstack.tsx": [
-        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/index.d.ts",
         "../node_modules/@react-navigation/stack/lib/typescript/src/index.d.ts",
         "../node_modules/@types/react/index.d.ts",
         "./src/icons/index.ts",
-        "./src/navigation/onboardingstack.tsx",
-        "./src/screens/index.ts"
+        "./src/screens/index.ts",
+        "./src/theme/index.ts"
       ],
       "./src/navigation/index.ts": [
         "./src/navigation/authstack.tsx",
-        "./src/navigation/onboardingstack.tsx",
-        "./src/navigation/root.tsx"
+        "./src/navigation/onboardingstack.tsx"
       ],
       "./src/navigation/onboardingstack.tsx": [
         "../node_modules/@react-navigation/stack/lib/typescript/src/index.d.ts",
         "../node_modules/@types/react/index.d.ts",
-        "./src/navigation/authstack.tsx",
         "./src/screens/index.ts"
       ],
-      "./src/navigation/root.tsx": [
-        "../node_modules/@react-native-firebase/auth/lib/index.d.ts",
-        "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
-        "../node_modules/@types/react-native/index.d.ts",
-        "../node_modules/@types/react/index.d.ts",
-        "./src/navigation/authstack.tsx",
-        "./src/navigation/onboardingstack.tsx",
-        "./src/screens/index.ts"
-      ],
-      "./src/screens/auth/cartscreen/index.tsx": [
+      "./src/screens/auth/cartscreen.tsx": [
         "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/react/index.d.ts",
         "./generated/graphql.tsx",
-        "./src/components/index.ts",
-        "./src/stores/index.tsx"
+        "./src/components/index.ts"
       ],
-      "./src/screens/auth/favoritescreen/index.tsx": [
+      "./src/screens/auth/favoritescreen.tsx": [
         "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/react/index.d.ts",
         "./generated/graphql.tsx",
         "./src/components/index.ts",
         "./src/icons/index.ts",
-        "./src/stores/index.tsx",
         "./src/utils/index.ts"
       ],
       "./src/screens/auth/index.ts": [
-        "./src/screens/auth/cartscreen/index.tsx",
-        "./src/screens/auth/favoritescreen/index.tsx",
-        "./src/screens/auth/mapview/index.tsx",
-        "./src/screens/auth/profilescreen/index.tsx",
-        "./src/screens/auth/scan/index.ts"
+        "./src/screens/auth/cartscreen.tsx",
+        "./src/screens/auth/favoritescreen.tsx",
+        "./src/screens/auth/mapview.tsx",
+        "./src/screens/auth/profilescreen.tsx",
+        "./src/screens/auth/scan/index.ts",
+        "./src/screens/auth/userinfoscreen.tsx"
       ],
-      "./src/screens/auth/mapview/index.tsx": [
-        "../node_modules/@react-native-firebase/auth/lib/index.d.ts",
+      "./src/screens/auth/mapview.tsx": [
+        "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
+        "../node_modules/@react-navigation/stack/lib/typescript/src/index.d.ts",
         "../node_modules/@types/react/index.d.ts",
         "./generated/graphql.tsx",
         "./src/components/index.ts",
-        "./src/stores/index.tsx"
+        "./src/navigation/index.ts"
       ],
-      "./src/screens/auth/profilescreen/index.tsx": [
+      "./src/screens/auth/profilescreen.tsx": [
+        "../node_modules/@apollo/client/index.d.ts",
+        "../node_modules/@react-native-community/async-storage/types/index.d.ts",
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/react/index.d.ts",
         "./generated/graphql.tsx",
         "./src/components/index.ts",
         "./src/icons/index.ts",
-        "./src/stores/index.tsx",
+        "./src/lib/firebase.ts",
         "./src/utils/index.ts"
       ],
       "./src/screens/auth/scan/index.ts": [
@@ -2656,8 +3400,7 @@
         "./generated/graphql.tsx",
         "./src/components/index.ts",
         "./src/icons/index.ts",
-        "./src/navigation/index.ts",
-        "./src/stores/index.tsx"
+        "./src/navigation/index.ts"
       ],
       "./src/screens/auth/scan/scanningscreen.tsx": [
         "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
@@ -2672,6 +3415,16 @@
         "./src/icons/index.ts",
         "./src/navigation/index.ts"
       ],
+      "./src/screens/auth/userinfoscreen.tsx": [
+        "../node_modules/@react-navigation/stack/lib/typescript/src/index.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "./generated/graphql.tsx",
+        "./src/components/index.ts",
+        "./src/icons/index.ts",
+        "./src/navigation/index.ts",
+        "./src/utils/index.ts"
+      ],
       "./src/screens/index.ts": [
         "./src/screens/auth/index.ts",
         "./src/screens/onboarding/index.ts",
@@ -2682,35 +3435,30 @@
         "./src/screens/onboarding/signupscreen.tsx"
       ],
       "./src/screens/onboarding/signinscreen.tsx": [
-        "../node_modules/@react-native-firebase/auth/lib/index.d.ts",
+        "../node_modules/@react-native-community/async-storage/types/index.d.ts",
         "../node_modules/@react-navigation/stack/lib/typescript/src/index.d.ts",
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/react/index.d.ts",
         "./src/components/index.ts",
         "./src/icons/index.ts",
+        "./src/lib/firebase.ts",
         "./src/navigation/index.ts",
-        "./src/stores/index.tsx",
         "./src/utils/index.ts"
       ],
       "./src/screens/onboarding/signupscreen.tsx": [
-        "../node_modules/@react-native-firebase/auth/lib/index.d.ts",
+        "../node_modules/@react-native-community/async-storage/types/index.d.ts",
         "../node_modules/@react-navigation/stack/lib/typescript/src/index.d.ts",
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/react/index.d.ts",
-        "./generated/graphql.tsx",
         "./src/components/index.ts",
         "./src/icons/index.ts",
+        "./src/lib/firebase.ts",
         "./src/navigation/index.ts",
-        "./src/stores/index.tsx",
         "./src/utils/index.ts"
       ],
       "./src/screens/splashscreen.tsx": [
         "../node_modules/@types/react/index.d.ts",
         "./src/components/index.ts"
-      ],
-      "./src/stores/index.tsx": [
-        "../node_modules/@react-native-community/async-storage/types/index.d.ts",
-        "../node_modules/@types/react/index.d.ts"
       ],
       "./src/utils/index.ts": [
         "../node_modules/@types/react/index.d.ts",
@@ -2891,6 +3639,9 @@
       "../node_modules/@apollo/client/index.d.ts": [
         "../node_modules/@apollo/client/core/index.d.ts",
         "../node_modules/@apollo/client/react/index.d.ts"
+      ],
+      "../node_modules/@apollo/client/link/context/index.d.ts": [
+        "../node_modules/@apollo/client/link/core/index.d.ts"
       ],
       "../node_modules/@apollo/client/link/core/apollolink.d.ts": [
         "../node_modules/@apollo/client/link/core/types.d.ts",
@@ -3130,32 +3881,6 @@
       ],
       "../node_modules/@graphql-typed-document-node/core/index.d.ts": [
         "../node_modules/graphql/index.d.ts"
-      ],
-      "../node_modules/@react-native-firebase/auth/lib/index.d.ts": [
-        "../node_modules/@react-native-firebase/app/lib/index.d.ts"
-      ],
-      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/index.d.ts": [
-        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/navigators/createbottomtabnavigator.d.ts",
-        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/types.d.ts",
-        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/views/bottomtabbar.d.ts",
-        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/views/bottomtabview.d.ts"
-      ],
-      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/navigators/createbottomtabnavigator.d.ts": [
-        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/types.d.ts",
-        "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts"
-      ],
-      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/types.d.ts": [
-        "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
-        "../node_modules/@types/react-native/index.d.ts",
-        "../node_modules/@types/react/index.d.ts"
-      ],
-      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/views/bottomtabbar.d.ts": [
-        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/types.d.ts"
-      ],
-      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/views/bottomtabview.d.ts": [
-        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/types.d.ts",
-        "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
-        "../node_modules/@types/react/index.d.ts"
       ],
       "../node_modules/@react-navigation/core/lib/typescript/src/basenavigationcontainer.d.ts": [
         "../node_modules/@react-navigation/core/lib/typescript/src/types.d.ts",
@@ -4251,6 +4976,378 @@
       "./__tests__/app-test.tsx": [
         "../node_modules/@types/react-native/index.d.ts"
       ],
+      "./functions/index.js": [
+        "./functions/node_modules/@types/express-serve-static-core/index.d.ts",
+        "./functions/node_modules/@types/express/index.d.ts",
+        "./functions/node_modules/firebase-admin/lib/auth.d.ts",
+        "./functions/node_modules/firebase-functions/lib/index.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/common/build/src/index.d.ts": [
+        "./functions/node_modules/@google-cloud/common/build/src/operation.d.ts",
+        "./functions/node_modules/@google-cloud/common/build/src/service-object.d.ts",
+        "./functions/node_modules/@google-cloud/common/build/src/service.d.ts",
+        "./functions/node_modules/@google-cloud/common/build/src/util.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/index.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/common/build/src/operation.d.ts": [
+        "./functions/node_modules/@google-cloud/common/build/src/service-object.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/common/build/src/service-object.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "./functions/node_modules/@google-cloud/common/build/src/util.d.ts",
+        "./functions/node_modules/teeny-request/build/src/index.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/common/build/src/service.d.ts": [
+        "./functions/node_modules/@google-cloud/common/build/src/service-object.d.ts",
+        "./functions/node_modules/@google-cloud/common/build/src/util.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/index.d.ts",
+        "./functions/node_modules/teeny-request/build/src/index.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/common/build/src/util.d.ts": [
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "./functions/node_modules/@google-cloud/common/build/src/service-object.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/index.d.ts",
+        "./functions/node_modules/teeny-request/build/src/index.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/storage/build/src/acl.d.ts": [
+        "./functions/node_modules/@google-cloud/common/build/src/index.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/storage/build/src/bucket.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "./functions/node_modules/@google-cloud/common/build/src/index.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/acl.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/channel.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/file.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/iam.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/notification.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/signer.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/storage.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/storage/build/src/channel.d.ts": [
+        "./functions/node_modules/@google-cloud/common/build/src/index.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/storage.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/storage/build/src/file.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "./functions/node_modules/@google-cloud/common/build/src/index.d.ts",
+        "./functions/node_modules/@google-cloud/common/build/src/util.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/acl.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/bucket.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/signer.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/storage.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/storage/build/src/hmackey.d.ts": [
+        "./functions/node_modules/@google-cloud/common/build/src/index.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/storage.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/storage/build/src/iam.d.ts": [
+        "./functions/node_modules/@google-cloud/common/build/src/index.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/bucket.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/storage/build/src/index.d.ts": [
+        "./functions/node_modules/@google-cloud/storage/build/src/acl.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/bucket.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/channel.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/file.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/hmackey.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/iam.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/notification.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/signer.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/storage.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/storage/build/src/notification.d.ts": [
+        "./functions/node_modules/@google-cloud/common/build/src/index.d.ts",
+        "./functions/node_modules/@google-cloud/common/build/src/util.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/bucket.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/storage/build/src/signer.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts"
+      ],
+      "./functions/node_modules/@google-cloud/storage/build/src/storage.d.ts": [
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "./functions/node_modules/@google-cloud/common/build/src/index.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/bucket.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/channel.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/file.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/hmackey.d.ts"
+      ],
+      "./functions/node_modules/@types/body-parser/index.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "./functions/node_modules/@types/connect/index.d.ts"
+      ],
+      "./functions/node_modules/@types/connect/index.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts"
+      ],
+      "./functions/node_modules/@types/express-serve-static-core/index.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "./functions/node_modules/@types/qs/index.d.ts",
+        "./functions/node_modules/@types/range-parser/index.d.ts"
+      ],
+      "./functions/node_modules/@types/express/index.d.ts": [
+        "./functions/node_modules/@types/body-parser/index.d.ts",
+        "./functions/node_modules/@types/express-serve-static-core/index.d.ts",
+        "./functions/node_modules/@types/serve-static/index.d.ts"
+      ],
+      "./functions/node_modules/@types/serve-static/index.d.ts": [
+        "./functions/node_modules/@types/express-serve-static-core/index.d.ts",
+        "./functions/node_modules/@types/mime/index.d.ts"
+      ],
+      "./functions/node_modules/abort-controller/dist/abort-controller.d.ts": [
+        "./functions/node_modules/event-target-shim/index.d.ts"
+      ],
+      "./functions/node_modules/dotenv/types/index.d.ts": [
+        "../node_modules/@types/node/index.d.ts"
+      ],
+      "./functions/node_modules/firebase-admin/lib/auth.d.ts": [
+        "./functions/node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./functions/node_modules/firebase-admin/lib/database.d.ts": [
+        "./functions/node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./functions/node_modules/firebase-admin/lib/index.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "./functions/node_modules/@google-cloud/firestore/types/firestore.d.ts",
+        "./functions/node_modules/@google-cloud/storage/build/src/index.d.ts",
+        "./functions/node_modules/firebase-admin/lib/auth.d.ts",
+        "./functions/node_modules/firebase-admin/lib/database.d.ts",
+        "./functions/node_modules/firebase-admin/lib/instance-id.d.ts",
+        "./functions/node_modules/firebase-admin/lib/messaging.d.ts",
+        "./functions/node_modules/firebase-admin/lib/project-management.d.ts",
+        "./functions/node_modules/firebase-admin/lib/security-rules.d.ts"
+      ],
+      "./functions/node_modules/firebase-admin/lib/instance-id.d.ts": [
+        "./functions/node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./functions/node_modules/firebase-admin/lib/messaging.d.ts": [
+        "./functions/node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./functions/node_modules/firebase-admin/lib/project-management.d.ts": [
+        "./functions/node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./functions/node_modules/firebase-admin/lib/security-rules.d.ts": [
+        "./functions/node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/apps.d.ts": [
+        "./functions/node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts": [
+        "./functions/node_modules/@types/express/index.d.ts",
+        "./functions/node_modules/firebase-functions/lib/function-configuration.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/config.d.ts": [
+        "./functions/node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/function-builder.d.ts": [
+        "./functions/node_modules/@types/express-serve-static-core/index.d.ts",
+        "./functions/node_modules/@types/express/index.d.ts",
+        "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts",
+        "./functions/node_modules/firebase-functions/lib/function-configuration.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/analytics.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/auth.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/crashlytics.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/database.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/firestore.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/https.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/pubsub.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/remoteconfig.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/storage.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/testlab.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/handler-builder.d.ts": [
+        "./functions/node_modules/@types/express/index.d.ts",
+        "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/analytics.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/auth.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/crashlytics.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/database.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/firestore.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/https.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/pubsub.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/remoteconfig.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/storage.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/testlab.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/index.d.ts": [
+        "./functions/node_modules/firebase-functions/lib/apps.d.ts",
+        "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts",
+        "./functions/node_modules/firebase-functions/lib/config.d.ts",
+        "./functions/node_modules/firebase-functions/lib/function-builder.d.ts",
+        "./functions/node_modules/firebase-functions/lib/function-configuration.d.ts",
+        "./functions/node_modules/firebase-functions/lib/handler-builder.d.ts",
+        "./functions/node_modules/firebase-functions/lib/logger.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/analytics.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/auth.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/crashlytics.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/database.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/firestore.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/https.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/pubsub.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/remoteconfig.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/storage.d.ts",
+        "./functions/node_modules/firebase-functions/lib/providers/testlab.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/providers/analytics.d.ts": [
+        "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts",
+        "./functions/node_modules/firebase-functions/lib/function-configuration.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/providers/auth.d.ts": [
+        "./functions/node_modules/firebase-admin/lib/index.d.ts",
+        "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts",
+        "./functions/node_modules/firebase-functions/lib/function-configuration.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/providers/crashlytics.d.ts": [
+        "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts",
+        "./functions/node_modules/firebase-functions/lib/function-configuration.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/providers/database.d.ts": [
+        "./functions/node_modules/firebase-admin/lib/index.d.ts",
+        "./functions/node_modules/firebase-functions/lib/apps.d.ts",
+        "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts",
+        "./functions/node_modules/firebase-functions/lib/function-configuration.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/providers/firestore.d.ts": [
+        "./functions/node_modules/firebase-admin/lib/index.d.ts",
+        "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts",
+        "./functions/node_modules/firebase-functions/lib/function-configuration.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/providers/https.d.ts": [
+        "../node_modules/@types/node/index.d.ts",
+        "./functions/node_modules/@types/express/index.d.ts",
+        "./functions/node_modules/firebase-admin/lib/index.d.ts",
+        "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts",
+        "./functions/node_modules/firebase-functions/lib/function-configuration.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/providers/pubsub.d.ts": [
+        "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts",
+        "./functions/node_modules/firebase-functions/lib/function-configuration.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/providers/remoteconfig.d.ts": [
+        "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts",
+        "./functions/node_modules/firebase-functions/lib/function-configuration.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/providers/storage.d.ts": [
+        "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts",
+        "./functions/node_modules/firebase-functions/lib/function-configuration.d.ts"
+      ],
+      "./functions/node_modules/firebase-functions/lib/providers/testlab.d.ts": [
+        "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts"
+      ],
+      "./functions/node_modules/gaxios/build/src/common.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/url.d.ts",
+        "./functions/node_modules/abort-controller/dist/abort-controller.d.ts"
+      ],
+      "./functions/node_modules/gaxios/build/src/gaxios.d.ts": [
+        "./functions/node_modules/gaxios/build/src/common.d.ts"
+      ],
+      "./functions/node_modules/gaxios/build/src/index.d.ts": [
+        "./functions/node_modules/gaxios/build/src/common.d.ts",
+        "./functions/node_modules/gaxios/build/src/gaxios.d.ts"
+      ],
+      "./functions/node_modules/google-auth-library/build/src/auth/authclient.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "./functions/node_modules/gaxios/build/src/index.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/oauth2client.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/transporters.d.ts"
+      ],
+      "./functions/node_modules/google-auth-library/build/src/auth/computeclient.d.ts": [
+        "./functions/node_modules/gaxios/build/src/index.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/oauth2client.d.ts"
+      ],
+      "./functions/node_modules/google-auth-library/build/src/auth/googleauth.d.ts": [
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "./functions/node_modules/gaxios/build/src/index.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/computeclient.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/envdetect.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/jwtclient.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/oauth2client.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/refreshclient.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/transporters.d.ts"
+      ],
+      "./functions/node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts": [
+        "./functions/node_modules/google-auth-library/build/src/auth/oauth2client.d.ts"
+      ],
+      "./functions/node_modules/google-auth-library/build/src/auth/jwtaccess.d.ts": [
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/oauth2client.d.ts"
+      ],
+      "./functions/node_modules/google-auth-library/build/src/auth/jwtclient.d.ts": [
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/oauth2client.d.ts",
+        "./functions/node_modules/gtoken/build/src/index.d.ts"
+      ],
+      "./functions/node_modules/google-auth-library/build/src/auth/oauth2client.d.ts": [
+        "./functions/node_modules/gaxios/build/src/index.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/authclient.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/loginticket.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/crypto/crypto.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/transporters.d.ts"
+      ],
+      "./functions/node_modules/google-auth-library/build/src/auth/refreshclient.d.ts": [
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/oauth2client.d.ts"
+      ],
+      "./functions/node_modules/google-auth-library/build/src/crypto/crypto.d.ts": [
+        "../node_modules/@types/node/index.d.ts"
+      ],
+      "./functions/node_modules/google-auth-library/build/src/index.d.ts": [
+        "./functions/node_modules/google-auth-library/build/src/auth/computeclient.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/envdetect.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/googleauth.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/iam.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/jwtaccess.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/jwtclient.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/loginticket.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/oauth2client.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/auth/refreshclient.d.ts",
+        "./functions/node_modules/google-auth-library/build/src/transporters.d.ts"
+      ],
+      "./functions/node_modules/google-auth-library/build/src/transporters.d.ts": [
+        "./functions/node_modules/gaxios/build/src/index.d.ts"
+      ],
+      "./functions/node_modules/graphql-request/dist/index.d.ts": [
+        "./functions/node_modules/graphql-request/dist/types.d.ts",
+        "./functions/node_modules/graphql-request/dist/types.dom.d.ts"
+      ],
+      "./functions/node_modules/graphql-request/dist/types.d.ts": [
+        "../node_modules/graphql/language/ast.d.ts"
+      ],
+      "./functions/node_modules/graphql/language/ast.d.ts": [
+        "../node_modules/graphql/language/source.d.ts",
+        "../node_modules/graphql/language/tokenkind.d.ts"
+      ],
+      "./functions/node_modules/teeny-request/build/src/index.d.ts": [
+        "../node_modules/@types/node/https.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts"
+      ],
       "./generated/graphql.tsx": [
         "../node_modules/@apollo/client/index.d.ts"
       ],
@@ -4356,6 +5453,10 @@
         "./src/icons/personicon.tsx",
         "./src/icons/tabnavigationicons.tsx"
       ],
+      "./src/lib/firebase.ts": [
+        "../node_modules/firebase/empty-import.d.ts",
+        "../node_modules/firebase/index.d.ts"
+      ],
       "./src/navigation/authstack.tsx": [
         "../node_modules/@react-navigation/core/lib/typescript/src/index.d.ts",
         "../node_modules/@react-navigation/routers/lib/typescript/src/index.d.ts",
@@ -4365,15 +5466,19 @@
       ],
       "./src/navigation/index.ts": [
         "./src/navigation/authstack.tsx",
-        "./src/navigation/onboardingstack.tsx",
-        "./src/navigation/root.tsx"
+        "./src/navigation/onboardingstack.tsx"
       ],
       "./src/screens/auth/index.ts": [
-        "./src/screens/auth/cartscreen/index.tsx",
-        "./src/screens/auth/favoritescreen/index.tsx",
-        "./src/screens/auth/mapview/index.tsx",
-        "./src/screens/auth/profilescreen/index.tsx",
-        "./src/screens/auth/scan/index.ts"
+        "./src/screens/auth/cartscreen.tsx",
+        "./src/screens/auth/favoritescreen.tsx",
+        "./src/screens/auth/mapview.tsx",
+        "./src/screens/auth/profilescreen.tsx",
+        "./src/screens/auth/scan/index.ts",
+        "./src/screens/auth/userinfoscreen.tsx"
+      ],
+      "./src/screens/auth/mapview.tsx": [
+        "../node_modules/@react-navigation/stack/lib/typescript/src/index.d.ts",
+        "./src/navigation/index.ts"
       ],
       "./src/screens/auth/scan/index.ts": [
         "./src/screens/auth/scan/itemdetail.tsx",
@@ -4384,6 +5489,10 @@
         "./src/navigation/index.ts"
       ],
       "./src/screens/auth/scan/scanningscreen.tsx": [
+        "../node_modules/@react-navigation/stack/lib/typescript/src/index.d.ts",
+        "./src/navigation/index.ts"
+      ],
+      "./src/screens/auth/userinfoscreen.tsx": [
         "../node_modules/@react-navigation/stack/lib/typescript/src/index.d.ts",
         "./src/navigation/index.ts"
       ],
@@ -4403,9 +5512,6 @@
       "./src/screens/onboarding/signupscreen.tsx": [
         "../node_modules/@react-navigation/stack/lib/typescript/src/index.d.ts",
         "./src/navigation/index.ts"
-      ],
-      "./src/stores/index.tsx": [
-        "../node_modules/@types/react/index.d.ts"
       ],
       "./src/utils/index.ts": [
         "./src/utils/formvalidationutils.ts"
@@ -4585,6 +5691,9 @@
       "../node_modules/@apollo/client/index.d.ts": [
         "../node_modules/@apollo/client/core/index.d.ts",
         "../node_modules/@apollo/client/react/index.d.ts"
+      ],
+      "../node_modules/@apollo/client/link/context/index.d.ts": [
+        "../node_modules/@apollo/client/link/core/index.d.ts"
       ],
       "../node_modules/@apollo/client/link/core/apollolink.d.ts": [
         "../node_modules/@apollo/client/link/core/types.d.ts",
@@ -4824,32 +5933,6 @@
       ],
       "../node_modules/@graphql-typed-document-node/core/index.d.ts": [
         "../node_modules/graphql/index.d.ts"
-      ],
-      "../node_modules/@react-native-firebase/auth/lib/index.d.ts": [
-        "../node_modules/@react-native-firebase/app/lib/index.d.ts"
-      ],
-      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/index.d.ts": [
-        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/navigators/createbottomtabnavigator.d.ts",
-        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/types.d.ts",
-        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/views/bottomtabbar.d.ts",
-        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/views/bottomtabview.d.ts"
-      ],
-      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/navigators/createbottomtabnavigator.d.ts": [
-        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/types.d.ts",
-        "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts"
-      ],
-      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/types.d.ts": [
-        "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
-        "../node_modules/@types/react-native/index.d.ts",
-        "../node_modules/@types/react/index.d.ts"
-      ],
-      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/views/bottomtabbar.d.ts": [
-        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/types.d.ts"
-      ],
-      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/views/bottomtabview.d.ts": [
-        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/types.d.ts",
-        "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
-        "../node_modules/@types/react/index.d.ts"
       ],
       "../node_modules/@react-navigation/core/lib/typescript/src/basenavigationcontainer.d.ts": [
         "../node_modules/@react-navigation/core/lib/typescript/src/types.d.ts",
@@ -5943,6 +7026,83 @@
     },
     "semanticDiagnosticsPerFile": [
       "./__tests__/app-test.tsx",
+      "./functions/index.js",
+      "./functions/node_modules/@google-cloud/common/build/src/index.d.ts",
+      "./functions/node_modules/@google-cloud/common/build/src/operation.d.ts",
+      "./functions/node_modules/@google-cloud/common/build/src/service-object.d.ts",
+      "./functions/node_modules/@google-cloud/common/build/src/service.d.ts",
+      "./functions/node_modules/@google-cloud/common/build/src/util.d.ts",
+      "./functions/node_modules/@google-cloud/firestore/types/firestore.d.ts",
+      "./functions/node_modules/@google-cloud/storage/build/src/acl.d.ts",
+      "./functions/node_modules/@google-cloud/storage/build/src/bucket.d.ts",
+      "./functions/node_modules/@google-cloud/storage/build/src/channel.d.ts",
+      "./functions/node_modules/@google-cloud/storage/build/src/file.d.ts",
+      "./functions/node_modules/@google-cloud/storage/build/src/hmackey.d.ts",
+      "./functions/node_modules/@google-cloud/storage/build/src/iam.d.ts",
+      "./functions/node_modules/@google-cloud/storage/build/src/index.d.ts",
+      "./functions/node_modules/@google-cloud/storage/build/src/notification.d.ts",
+      "./functions/node_modules/@google-cloud/storage/build/src/signer.d.ts",
+      "./functions/node_modules/@google-cloud/storage/build/src/storage.d.ts",
+      "./functions/node_modules/@types/body-parser/index.d.ts",
+      "./functions/node_modules/@types/connect/index.d.ts",
+      "./functions/node_modules/@types/express-serve-static-core/index.d.ts",
+      "./functions/node_modules/@types/express/index.d.ts",
+      "./functions/node_modules/@types/mime/index.d.ts",
+      "./functions/node_modules/@types/qs/index.d.ts",
+      "./functions/node_modules/@types/range-parser/index.d.ts",
+      "./functions/node_modules/@types/serve-static/index.d.ts",
+      "./functions/node_modules/abort-controller/dist/abort-controller.d.ts",
+      "./functions/node_modules/dotenv/types/index.d.ts",
+      "./functions/node_modules/event-target-shim/index.d.ts",
+      "./functions/node_modules/firebase-admin/lib/auth.d.ts",
+      "./functions/node_modules/firebase-admin/lib/database.d.ts",
+      "./functions/node_modules/firebase-admin/lib/index.d.ts",
+      "./functions/node_modules/firebase-admin/lib/instance-id.d.ts",
+      "./functions/node_modules/firebase-admin/lib/messaging.d.ts",
+      "./functions/node_modules/firebase-admin/lib/project-management.d.ts",
+      "./functions/node_modules/firebase-admin/lib/security-rules.d.ts",
+      "./functions/node_modules/firebase-functions/lib/apps.d.ts",
+      "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts",
+      "./functions/node_modules/firebase-functions/lib/config.d.ts",
+      "./functions/node_modules/firebase-functions/lib/function-builder.d.ts",
+      "./functions/node_modules/firebase-functions/lib/function-configuration.d.ts",
+      "./functions/node_modules/firebase-functions/lib/handler-builder.d.ts",
+      "./functions/node_modules/firebase-functions/lib/index.d.ts",
+      "./functions/node_modules/firebase-functions/lib/logger.d.ts",
+      "./functions/node_modules/firebase-functions/lib/providers/analytics.d.ts",
+      "./functions/node_modules/firebase-functions/lib/providers/auth.d.ts",
+      "./functions/node_modules/firebase-functions/lib/providers/crashlytics.d.ts",
+      "./functions/node_modules/firebase-functions/lib/providers/database.d.ts",
+      "./functions/node_modules/firebase-functions/lib/providers/firestore.d.ts",
+      "./functions/node_modules/firebase-functions/lib/providers/https.d.ts",
+      "./functions/node_modules/firebase-functions/lib/providers/pubsub.d.ts",
+      "./functions/node_modules/firebase-functions/lib/providers/remoteconfig.d.ts",
+      "./functions/node_modules/firebase-functions/lib/providers/storage.d.ts",
+      "./functions/node_modules/firebase-functions/lib/providers/testlab.d.ts",
+      "./functions/node_modules/gaxios/build/src/common.d.ts",
+      "./functions/node_modules/gaxios/build/src/gaxios.d.ts",
+      "./functions/node_modules/gaxios/build/src/index.d.ts",
+      "./functions/node_modules/google-auth-library/build/src/auth/authclient.d.ts",
+      "./functions/node_modules/google-auth-library/build/src/auth/computeclient.d.ts",
+      "./functions/node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+      "./functions/node_modules/google-auth-library/build/src/auth/envdetect.d.ts",
+      "./functions/node_modules/google-auth-library/build/src/auth/googleauth.d.ts",
+      "./functions/node_modules/google-auth-library/build/src/auth/iam.d.ts",
+      "./functions/node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts",
+      "./functions/node_modules/google-auth-library/build/src/auth/jwtaccess.d.ts",
+      "./functions/node_modules/google-auth-library/build/src/auth/jwtclient.d.ts",
+      "./functions/node_modules/google-auth-library/build/src/auth/loginticket.d.ts",
+      "./functions/node_modules/google-auth-library/build/src/auth/oauth2client.d.ts",
+      "./functions/node_modules/google-auth-library/build/src/auth/refreshclient.d.ts",
+      "./functions/node_modules/google-auth-library/build/src/crypto/crypto.d.ts",
+      "./functions/node_modules/google-auth-library/build/src/index.d.ts",
+      "./functions/node_modules/google-auth-library/build/src/transporters.d.ts",
+      "./functions/node_modules/graphql-request/dist/index.d.ts",
+      "./functions/node_modules/graphql-request/dist/types.d.ts",
+      "./functions/node_modules/graphql-request/dist/types.dom.d.ts",
+      "./functions/node_modules/graphql/language/ast.d.ts",
+      "./functions/node_modules/gtoken/build/src/index.d.ts",
+      "./functions/node_modules/teeny-request/build/src/index.d.ts",
       "./generated/graphql.fragment-types.ts",
       "./generated/graphql.tsx",
       "./index.js",
@@ -5983,44 +7143,77 @@
       "./src/icons/passwordicons.tsx",
       "./src/icons/personicon.tsx",
       "./src/icons/tabnavigationicons.tsx",
-      "./src/navigation/authstack.tsx",
-      "./src/navigation/index.ts",
-      "./src/navigation/onboardingstack.tsx",
-      "./src/navigation/root.tsx",
-      "./src/screens/auth/cartscreen/index.tsx",
-      "./src/screens/auth/favoritescreen/index.tsx",
-      "./src/screens/auth/index.ts",
-      "./src/screens/auth/mapview/index.tsx",
-      "./src/screens/auth/profilescreen/index.tsx",
-      "./src/screens/auth/scan/index.ts",
-      "./src/screens/auth/scan/itemdetail.tsx",
+      "./src/lib/firebase.ts",
       [
-        "./src/screens/auth/scan/scanningscreen.tsx",
+        "./src/navigation/authstack.tsx",
         [
           {
-            "file": "./src/screens/auth/scan/scanningscreen.tsx",
-            "start": 2373,
-            "length": 15,
-            "code": 2345,
+            "file": "./src/navigation/authstack.tsx",
+            "start": 504,
+            "length": 35,
+            "code": 7016,
             "category": 1,
-            "messageText": "Argument of type 'string' is not assignable to parameter of type '{ key: string; params?: { screen: string; } | { barcodeId: string; } | undefined; } | { name: \"ItemDetail\" | \"ScanningScreen\" | \"TabNavigation\"; key?: string | undefined; params: { screen: string; } | { ...; } | undefined; }'."
-          },
-          {
-            "file": "./src/screens/auth/scan/scanningscreen.tsx",
-            "start": 2956,
-            "length": 15,
-            "code": 2345,
-            "category": 1,
-            "messageText": "Argument of type 'string' is not assignable to parameter of type '{ key: string; params?: { screen: string; } | { barcodeId: string; } | undefined; } | { name: \"ItemDetail\" | \"ScanningScreen\" | \"TabNavigation\"; key?: string | undefined; params: { screen: string; } | { ...; } | undefined; }'."
+            "messageText": {
+              "messageText": "Could not find a declaration file for module 'react-native-animated-nav-tab-bar'. '/Users/chrisjobando/universal-store/node_modules/react-native-animated-nav-tab-bar/index.js' implicitly has an 'any' type.",
+              "category": 1,
+              "code": 7016,
+              "next": [
+                {
+                  "messageText": "Try `npm install @types/react-native-animated-nav-tab-bar` if it exists or add a new declaration (.d.ts) file containing `declare module 'react-native-animated-nav-tab-bar';`",
+                  "category": 1,
+                  "code": 7035
+                }
+              ]
+            }
           }
         ]
       ],
+      "./src/navigation/index.ts",
+      "./src/navigation/onboardingstack.tsx",
+      "./src/screens/auth/cartscreen.tsx",
+      "./src/screens/auth/favoritescreen.tsx",
+      "./src/screens/auth/index.ts",
+      "./src/screens/auth/mapview.tsx",
+      "./src/screens/auth/profilescreen.tsx",
+      "./src/screens/auth/scan/index.ts",
+      [
+        "./src/screens/auth/scan/itemdetail.tsx",
+        [
+          {
+            "file": "./src/screens/auth/scan/itemdetail.tsx",
+            "start": 5267,
+            "length": 15,
+            "code": 2345,
+            "category": 1,
+            "messageText": {
+              "messageText": "Argument of type '[\"TabNavigation\", { screen: string; }]' is not assignable to parameter of type '[\"MapView\" | \"ItemDetail\" | \"FavoritesScreen\" | \"CartScreen\" | \"ProfileScreen\"] | [\"MapView\" | \"ItemDetail\" | \"FavoritesScreen\" | \"CartScreen\" | \"ProfileScreen\", { ...; } | { ...; } | undefined]'.",
+              "category": 1,
+              "code": 2345,
+              "next": [
+                {
+                  "messageText": "Type '[\"TabNavigation\", { screen: string; }]' is not assignable to type '[\"MapView\" | \"ItemDetail\" | \"FavoritesScreen\" | \"CartScreen\" | \"ProfileScreen\", { email: string; password: string; } | { barcodeId: string; } | undefined]'.",
+                  "category": 1,
+                  "code": 2322,
+                  "next": [
+                    {
+                      "messageText": "Type '\"TabNavigation\"' is not assignable to type '\"MapView\" | \"ItemDetail\" | \"FavoritesScreen\" | \"CartScreen\" | \"ProfileScreen\"'.",
+                      "category": 1,
+                      "code": 2322
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      ],
+      "./src/screens/auth/scan/scanningscreen.tsx",
+      "./src/screens/auth/userinfoscreen.tsx",
       "./src/screens/index.ts",
       "./src/screens/onboarding/index.ts",
       "./src/screens/onboarding/signinscreen.tsx",
       "./src/screens/onboarding/signupscreen.tsx",
       "./src/screens/splashscreen.tsx",
-      "./src/stores/index.tsx",
       "./src/theme/index.ts",
       "./src/utils/formvalidationutils.ts",
       "./src/utils/index.ts",
@@ -6050,6 +7243,7 @@
       "../node_modules/@apollo/client/core/watchqueryoptions.d.ts",
       "../node_modules/@apollo/client/errors/index.d.ts",
       "../node_modules/@apollo/client/index.d.ts",
+      "../node_modules/@apollo/client/link/context/index.d.ts",
       "../node_modules/@apollo/client/link/core/apollolink.d.ts",
       "../node_modules/@apollo/client/link/core/concat.d.ts",
       "../node_modules/@apollo/client/link/core/empty.d.ts",
@@ -6113,13 +7307,6 @@
       "../node_modules/@babel/types/lib/index.d.ts",
       "../node_modules/@graphql-typed-document-node/core/index.d.ts",
       "../node_modules/@react-native-community/async-storage/types/index.d.ts",
-      "../node_modules/@react-native-firebase/app/lib/index.d.ts",
-      "../node_modules/@react-native-firebase/auth/lib/index.d.ts",
-      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/index.d.ts",
-      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/navigators/createbottomtabnavigator.d.ts",
-      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/types.d.ts",
-      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/views/bottomtabbar.d.ts",
-      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/views/bottomtabview.d.ts",
       "../node_modules/@react-navigation/core/lib/typescript/src/basenavigationcontainer.d.ts",
       "../node_modules/@react-navigation/core/lib/typescript/src/createnavigatorfactory.d.ts",
       "../node_modules/@react-navigation/core/lib/typescript/src/currentrendercontext.d.ts",
@@ -6203,6 +7390,7 @@
       "../node_modules/@types/json-schema/index.d.ts",
       "../node_modules/@types/json-stable-stringify/index.d.ts",
       "../node_modules/@types/jsonwebtoken/index.d.ts",
+      "../node_modules/@types/long/index.d.ts",
       "../node_modules/@types/node/assert.d.ts",
       "../node_modules/@types/node/async_hooks.d.ts",
       "../node_modules/@types/node/base.d.ts",
@@ -6291,6 +7479,28 @@
         ]
       ],
       "../node_modules/expo-camera/build/index.d.ts",
+      "../node_modules/firebase/empty-import.d.ts",
+      [
+        "../node_modules/firebase/index.d.ts",
+        [
+          {
+            "file": "../node_modules/firebase/index.d.ts",
+            "start": 269972,
+            "length": 25,
+            "messageText": "Cannot find name 'ServiceWorkerRegistration'.",
+            "category": 1,
+            "code": 2304
+          },
+          {
+            "file": "../node_modules/firebase/index.d.ts",
+            "start": 273904,
+            "length": 25,
+            "messageText": "Cannot find name 'ServiceWorkerRegistration'.",
+            "category": 1,
+            "code": 2304
+          }
+        ]
+      ],
       "../node_modules/graphql-tag/index.d.ts",
       "../node_modules/graphql/error/formaterror.d.ts",
       "../node_modules/graphql/error/graphqlerror.d.ts",
@@ -6441,6 +7651,314 @@
     "affectedFilesPendingEmit": [
       [
         "./__tests__/app-test.tsx",
+        1
+      ],
+      [
+        "./functions/index.js",
+        1
+      ],
+      [
+        "./functions/node_modules/@google-cloud/common/build/src/index.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/@google-cloud/common/build/src/operation.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/@google-cloud/common/build/src/service-object.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/@google-cloud/common/build/src/service.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/@google-cloud/common/build/src/util.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/@google-cloud/firestore/types/firestore.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/@google-cloud/storage/build/src/acl.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/@google-cloud/storage/build/src/bucket.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/@google-cloud/storage/build/src/channel.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/@google-cloud/storage/build/src/file.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/@google-cloud/storage/build/src/hmackey.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/@google-cloud/storage/build/src/iam.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/@google-cloud/storage/build/src/index.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/@google-cloud/storage/build/src/notification.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/@google-cloud/storage/build/src/signer.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/@google-cloud/storage/build/src/storage.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/@types/body-parser/index.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/@types/connect/index.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/@types/express-serve-static-core/index.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/@types/express/index.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/@types/mime/index.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/@types/qs/index.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/@types/range-parser/index.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/@types/serve-static/index.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/abort-controller/dist/abort-controller.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/dotenv/types/index.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/event-target-shim/index.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/firebase-admin/lib/auth.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/firebase-admin/lib/database.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/firebase-admin/lib/index.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/firebase-admin/lib/instance-id.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/firebase-admin/lib/messaging.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/firebase-admin/lib/project-management.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/firebase-admin/lib/security-rules.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/firebase-functions/lib/apps.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/firebase-functions/lib/cloud-functions.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/firebase-functions/lib/config.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/firebase-functions/lib/function-builder.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/firebase-functions/lib/function-configuration.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/firebase-functions/lib/handler-builder.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/firebase-functions/lib/index.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/firebase-functions/lib/logger.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/firebase-functions/lib/providers/analytics.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/firebase-functions/lib/providers/auth.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/firebase-functions/lib/providers/crashlytics.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/firebase-functions/lib/providers/database.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/firebase-functions/lib/providers/firestore.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/firebase-functions/lib/providers/https.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/firebase-functions/lib/providers/pubsub.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/firebase-functions/lib/providers/remoteconfig.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/firebase-functions/lib/providers/storage.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/firebase-functions/lib/providers/testlab.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/gaxios/build/src/common.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/gaxios/build/src/gaxios.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/gaxios/build/src/index.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/google-auth-library/build/src/auth/authclient.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/google-auth-library/build/src/auth/computeclient.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/google-auth-library/build/src/auth/envdetect.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/google-auth-library/build/src/auth/googleauth.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/google-auth-library/build/src/auth/iam.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/google-auth-library/build/src/auth/jwtaccess.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/google-auth-library/build/src/auth/jwtclient.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/google-auth-library/build/src/auth/loginticket.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/google-auth-library/build/src/auth/oauth2client.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/google-auth-library/build/src/auth/refreshclient.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/google-auth-library/build/src/crypto/crypto.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/google-auth-library/build/src/index.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/google-auth-library/build/src/transporters.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/graphql-request/dist/index.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/graphql-request/dist/types.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/graphql-request/dist/types.dom.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/graphql/language/ast.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/gtoken/build/src/index.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/teeny-request/build/src/index.d.ts",
         1
       ],
       [
@@ -6604,6 +8122,10 @@
         1
       ],
       [
+        "./src/lib/firebase.ts",
+        1
+      ],
+      [
         "./src/navigation/authstack.tsx",
         1
       ],
@@ -6620,7 +8142,15 @@
         1
       ],
       [
+        "./src/screens/auth/cartscreen.tsx",
+        1
+      ],
+      [
         "./src/screens/auth/cartscreen/index.tsx",
+        1
+      ],
+      [
+        "./src/screens/auth/favoritescreen.tsx",
         1
       ],
       [
@@ -6632,7 +8162,15 @@
         1
       ],
       [
+        "./src/screens/auth/mapview.tsx",
+        1
+      ],
+      [
         "./src/screens/auth/mapview/index.tsx",
+        1
+      ],
+      [
+        "./src/screens/auth/profilescreen.tsx",
         1
       ],
       [
@@ -6649,6 +8187,10 @@
       ],
       [
         "./src/screens/auth/scan/scanningscreen.tsx",
+        1
+      ],
+      [
+        "./src/screens/auth/userinfoscreen.tsx",
         1
       ],
       [
@@ -6789,6 +8331,10 @@
       ],
       [
         "../node_modules/@apollo/client/index.d.ts",
+        1
+      ],
+      [
+        "../node_modules/@apollo/client/link/context/index.d.ts",
         1
       ],
       [
@@ -7404,6 +8950,10 @@
         1
       ],
       [
+        "../node_modules/@types/long/index.d.ts",
+        1
+      ],
+      [
         "../node_modules/@types/node/assert.d.ts",
         1
       ],
@@ -7705,6 +9255,14 @@
       ],
       [
         "../node_modules/expo-camera/build/index.d.ts",
+        1
+      ],
+      [
+        "../node_modules/firebase/empty-import.d.ts",
+        1
+      ],
+      [
+        "../node_modules/firebase/index.d.ts",
         1
       ],
       [

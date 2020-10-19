@@ -19,7 +19,6 @@ import {
   OnboardingInputIconContainer,
   OnboardingMainContainer,
   OnboardingRequiredText,
-  OnboardingScroll,
   OnboardingSubHeaderText,
   OnboardingTextInput,
 } from '&components';
@@ -124,7 +123,7 @@ export const UserInfoScreen = ({ navigation }: UserInfoScreenProps) => {
         </OnboardingFormContainer>
 
         <OnboardingButton onPress={validateUserInfo}>
-          <OnboardingButtonText>Let's Go!</OnboardingButtonText>
+          <OnboardingButtonText>{`Let's Go!`}</OnboardingButtonText>
         </OnboardingButton>
       </OnboardingMainContainer>
     </KeyboardDismiss>

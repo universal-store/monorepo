@@ -49,8 +49,8 @@ export const CartItemCell = ({ cartItem }: CartItemCellProps) => {
   const userId = data?.User[0].id!;
 
   // Check if in favorites
+  const [favorite, setFavorite] = useState<boolean>(true);
   const { data: userFavorites } = useCheckItemInFavoritesQuery({ variables: { barcodeId } });
-  const [favorite, setFavorite] = useState<boolean>(false);
 
   useEffect(() => {
     if (userFavorites) {

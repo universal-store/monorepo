@@ -20,14 +20,14 @@ export const FullScreen = styled.View`
   height: ${screenHeight}px;
 `;
 
-export const FullScreenCenter = styled(FullScreen)`
-  align-items: center;
-  justify-content: center;
-`;
-
 export const FullScreenWhite = styled(FullScreen)`
   padding-top: ${isiPhoneX ? 30 : 0}px;
   background-color: ${({ theme }) => theme.colors.white[1]};
+`;
+
+export const FullScreenCenter = styled(FullScreenWhite)`
+  align-items: center;
+  justify-content: center;
 `;
 
 export const FullScreenLightPurple = styled(FullScreen)`

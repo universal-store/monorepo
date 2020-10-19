@@ -1,10 +1,6 @@
 /** @format */
 
 import React, { useCallback, useEffect, useState } from 'react';
-import { theme } from '&theme';
-
-// Libraries
-import { MaterialIndicator } from 'react-native-indicators';
 
 // Components
 import { FlatList } from 'react-native';
@@ -22,6 +18,7 @@ import {
   FullScreenWhite,
   FavoritesFilterButton,
   FullScreenCenter,
+  LoadingOverlay,
 } from '&components';
 
 // Iconography
@@ -89,11 +86,7 @@ export const FavoriteScreen = () => {
         </FavoritesFilterButton>
       </FavoritesFindFilterContainer>
 
-      {loading && (
-        <FullScreenCenter>
-          <MaterialIndicator color={theme.colors.purple[1]} />
-        </FullScreenCenter>
-      )}
+      {loading && <LoadingOverlay />}
 
       <FlatList
         data={filteredItems}

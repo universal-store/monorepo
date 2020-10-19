@@ -20,6 +20,7 @@ import {
   CartItemCell,
   CellItemSeparator,
   FullScreenCenter,
+  LoadingOverlay,
 } from '&components';
 
 // React Navigation
@@ -56,11 +57,7 @@ export const CartScreen = () => {
         <CartSubtotalPrice>${cartTotal.toFixed(2)}</CartSubtotalPrice>
       </CartPriceContainer>
 
-      {loading && (
-        <FullScreenCenter>
-          <MaterialIndicator color={theme.colors.purple[1]} />
-        </FullScreenCenter>
-      )}
+      {loading && <LoadingOverlay />}
 
       {cartData && (
         <FlatList

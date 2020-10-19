@@ -6,6 +6,7 @@ export * from './Text';
 // General
 export * from './Views';
 export * from './Buttons';
+export * from './LoadingOverlay';
 
 // Onboarding Screens
 export * from './Splash';

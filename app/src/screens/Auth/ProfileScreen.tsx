@@ -1,10 +1,6 @@
 /** @format */
 
 import React, { useState } from 'react';
-import { theme } from '&theme';
-
-// Libraries
-import { MaterialIndicator } from 'react-native-indicators';
 
 // Components
 import {
@@ -26,6 +22,7 @@ import {
   SecondaryButton,
   ButtonContainer,
   SecondaryButtonText,
+  LoadingOverlay,
 } from '&components';
 
 // Iconography
@@ -54,7 +51,7 @@ export const ProfileScreen = () => {
   if (loading || signOutLoad)
     return (
       <FullScreenCenter>
-        <MaterialIndicator color={theme.colors.purple[1]} />
+        <LoadingOverlay />
       </FullScreenCenter>
     );
 

@@ -9,6 +9,7 @@ import { Alert, Keyboard, View as OnboardingFormContainer } from 'react-native';
 import {
   HeaderLargeText as OnboardingHeaderTitleText,
   KeyboardDismiss,
+  LoadingOverlay,
   LogoContainer,
   OnboardingButton,
   OnboardingButtonText,
@@ -60,6 +61,9 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
   const [securePassEntry, setSecurePassEntry] = useState<boolean>(true);
   const [secureConfirmPassEntry, setSecureConfirmPassEntry] = useState<boolean>(true);
 
+  // Loading Indicator
+  const [loading, setLoading] = useState<boolean>(false);
+
   const validateSignUp = async () => {
     let validInput = true;
 
@@ -85,6 +89,8 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
     }
 
     if (validInput) {
+      setLoading(true);
+
       const registerUser = fns.httpsCallable('registerUser');
       await registerUser({ email: userEmail.toLowerCase(), password: userPassword }).catch(error => {
         if (error.code === 'already-exists') {
@@ -102,6 +108,8 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
             await AsyncStorage.setItem('userToken', newToken);
           }
         });
+
+      setLoading(false);
     }
   };
 
@@ -218,6 +226,8 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
             <OnboardingSmallerBoldText> Privacy Policy</OnboardingSmallerBoldText>
           </OnboardingSmallerText>
         </OnboardingScroll>
+
+        {loading && <LoadingOverlay />}
       </OnboardingMainContainer>
     </KeyboardDismiss>
   );

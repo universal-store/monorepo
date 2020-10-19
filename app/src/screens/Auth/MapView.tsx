@@ -1,22 +1,33 @@
 /** @format */
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { theme } from '&theme';
 
 // Libraries
-import { Platform } from 'react-native';
-import MapView, { EventUserLocation, PROVIDER_GOOGLE, Region } from 'react-native-maps';
+import { Linking, Platform } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 import { request, PERMISSIONS } from 'react-native-permissions';
+import MapView, { EventUserLocation, PROVIDER_GOOGLE, Region } from 'react-native-maps';
 
 // Components
-import { CameraIconContainer, FullScreen, MapStyle, StoreMap } from '&components';
+import {
+  CameraIconContainer,
+  CameraSettingsButton,
+  CameraSettingsText,
+  FullScreen,
+  MapStyle,
+  NoLocationPermissionsScreen,
+  NoLocationPermissionsText,
+  StoreMap,
+  ToggleFocusButton,
+} from '&components';
 
 // Iconography
-import { CameraIcon } from '&icons';
+import { CameraIcon, MapArrowIcon } from '&icons';
 
 // Navigation
 import { AuthStackParams } from '&navigation';
+import { useFocusEffect } from '@react-navigation/native';
 import { StackScreenProps } from '@react-navigation/stack';
 
 type MapViewScreenProps = StackScreenProps<AuthStackParams, 'TabNavigation'>;
@@ -25,27 +36,37 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
   const mapRef = useRef<MapView>(null);
 
   const [currentPosition, setCurrentPosition] = useState<Region>();
+
+  // Map State
   const [storeSelected, setStoreSelected] = useState<boolean>(false);
+  const [focusedUserLocation, setFocusedUserLocation] = useState<boolean>(true);
 
-  useEffect(() => {
-    void requestLocationPermission();
-  }, []);
+  // Location Permissions
+  const [locationPermission, setLocationPermission] = useState<boolean | undefined>();
 
-  const requestLocationPermission = async () => {
-    if (Platform.OS === 'ios') {
-      const response = await request(PERMISSIONS.IOS.LOCATION_WHEN_IN_USE);
-
-      if (response === 'granted') {
-        locateCurrentPosition();
+  useFocusEffect(
+    useCallback(() => {
+      if (Platform.OS === 'ios') {
+        void request(PERMISSIONS.IOS.LOCATION_WHEN_IN_USE).then(res => {
+          if (res === 'granted') {
+            locateCurrentPosition();
+            setLocationPermission(true);
+          } else {
+            setLocationPermission(false);
+          }
+        });
+      } else {
+        void request(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION).then(res => {
+          if (res === 'granted') {
+            locateCurrentPosition();
+            setLocationPermission(true);
+          } else {
+            setLocationPermission(false);
+          }
+        });
       }
-    } else {
-      const response = await request(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION);
-
-      if (response === 'granted') {
-        locateCurrentPosition();
-      }
-    }
-  };
+    }, [])
+  );
 
   const locateCurrentPosition = (userLocation?: EventUserLocation) => {
     if (userLocation) {
@@ -74,16 +95,29 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
     }
   };
 
+  if (locationPermission === false) {
+    return (
+      <NoLocationPermissionsScreen>
+        <NoLocationPermissionsText>
+          Make sure to grant Universal Store permissions to use your location!
+        </NoLocationPermissionsText>
+
+        <CameraSettingsButton onPress={() => Linking.openSettings()}>
+          <CameraSettingsText>Go to Settings</CameraSettingsText>
+        </CameraSettingsButton>
+      </NoLocationPermissionsScreen>
+    );
+  }
+
   return (
     <FullScreen>
       <StoreMap
         ref={mapRef}
         loadingEnabled
-        showsUserLocation
         minZoomLevel={17}
         maxZoomLevel={20}
+        showsUserLocation
         pitchEnabled={false}
-        scrollEnabled={false}
         region={currentPosition}
         customMapStyle={MapStyle}
         provider={PROVIDER_GOOGLE}
@@ -97,6 +131,7 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
           right: 0,
           bottom: 65,
         }}
+        onRegionChange={() => setFocusedUserLocation(false)}
       />
 
       {storeSelected && (
@@ -104,6 +139,19 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
           <CameraIcon />
         </CameraIconContainer>
       )}
+
+      <ToggleFocusButton
+        focused={focusedUserLocation}
+        style={{ elevation: 4 }}
+        onPress={() => {
+          if (!focusedUserLocation && mapRef.current) {
+            locateCurrentPosition();
+            setFocusedUserLocation(true);
+          }
+        }}
+      >
+        <MapArrowIcon />
+      </ToggleFocusButton>
     </FullScreen>
   );
 };

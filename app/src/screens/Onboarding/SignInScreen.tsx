@@ -9,6 +9,7 @@ import { Alert, Keyboard, View as OnboardingFormContainer } from 'react-native';
 import {
   HeaderLargeText as OnboardingHeaderTitleText,
   KeyboardDismiss,
+  LoadingOverlay,
   LogoContainer,
   OnboardingButton,
   OnboardingButtonText,
@@ -58,6 +59,9 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
   // Determines if text in password input is visible or not
   const [secureTextEntry, setSecureTextEntry] = useState<boolean>(true);
 
+  // Loading Indicator
+  const [loading, setLoading] = useState<boolean>(false);
+
   const validateSignIn = () => {
     let validInput = true;
 
@@ -76,6 +80,8 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
     }
 
     if (validInput) {
+      setLoading(true);
+
       Firebase.auth()
         .signInWithEmailAndPassword(userEmail.toLowerCase(), userPassword)
         .then(async userCredentials => {
@@ -103,6 +109,8 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
             console.log(error);
           }
         });
+
+      setLoading(false);
     }
   };
 
@@ -184,6 +192,8 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
             <OnboardingButtonText>Log In</OnboardingButtonText>
           </OnboardingButton>
         </OnboardingScroll>
+
+        {loading && <LoadingOverlay />}
       </OnboardingMainContainer>
     </KeyboardDismiss>
   );

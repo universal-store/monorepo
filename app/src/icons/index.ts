@@ -7,12 +7,14 @@ export * from './BackArrowIcon';
 
 // General Icons
 export * from './CartIcon';
+export * from './FindIcon';
+export * from './HeartIcon';
 export * from './TabNavigationIcons';
 
 // Profile Screen
 export * from './CheckIcon';
 
-// Onboarding Icons
+// Form Icons
 export * from './EmailIcon';
 export * from './PersonIcon';
 export * from './PasswordIcons';
@@ -21,8 +23,5 @@ export * from './PasswordIcons';
 export * from './FlashIcon';
 export * from './BarcodeIcon';
 
-// Item Details Page
-export * from './HeartIcon';
-
-// Favorites Page
-export * from './FindIcon';
+// MapView
+export * from './MapArrowIcon';

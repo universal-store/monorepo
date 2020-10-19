@@ -5,24 +5,60 @@ import styled from 'styled-components/native';
 // Library
 import MapView, { MapStyleElement } from 'react-native-maps';
 
+// Components
+import { HeaderLargeText } from '../Text';
+import { FullScreenCenter, RowView } from '../Views';
+
+// Styled Components
+export const NoLocationPermissionsScreen = styled(FullScreenCenter)`
+  background-color: ${({ theme }) => theme.colors.gray[1]};
+`;
+
+export const NoLocationPermissionsText = styled(HeaderLargeText)`
+  text-align: center;
+  color: ${({ theme }) => theme.colors.white[1]};
+`;
+
 export const StoreMap = styled(MapView)`
   flex: 1;
 `;
 
 export const CameraIconContainer = styled.TouchableOpacity`
-  z-index: 1;
+  position: absolute;
   width: 64px;
   height: 64px;
   display: flex;
+  margin: 0 auto;
   border-radius: 64px;
   align-items: center;
   shadow-opacity: 0.23;
   shadow-radius: 2.62px;
   shadow-offset: 0px 2px;
   justify-content: center;
-  margin: auto auto 106px;
   shadow-color: ${({ theme }) => theme.colors.gray[1]};
   background-color: ${({ theme }) => theme.colors.purple[1]};
+`;
+
+interface ToggleFocusButtonProps {
+  focused: boolean;
+}
+
+export const ToggleFocusButton = styled.TouchableOpacity<ToggleFocusButtonProps>`
+  position: absolute;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  bottom: 114px;
+  margin-left: auto;
+  border-radius: 64px;
+  align-items: center;
+  shadow-opacity: 0.23;
+  shadow-radius: 2.62px;
+  shadow-offset: 0px 2px;
+  justify-content: center;
+  shadow-color: ${({ theme }) => theme.colors.gray[1]};
+  background-color: ${({ theme, focused }) => (focused ? theme.colors.purple[1] : theme.colors.gray[1])};
 `;
 
 export const MapStyle: MapStyleElement[] = [

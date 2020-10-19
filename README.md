@@ -9,6 +9,7 @@ Universal Store is a mobile app that eliminates wait times and long lines when s
 -   Styled Components
 -   Typescript
 -   Prettier and Eslint
+-   Firebase
 
 ## Installation Guide:
 
@@ -25,15 +26,6 @@ Universal Store is a mobile app that eliminates wait times and long lines when s
 - https://marketplace.visualstudio.com/items?itemName=kelset.rn-full-pack
 
 > Open workspace in your IDE, then run `yarn` in terminal
-
-##### Local DB Setup (Only do this once):
-> [Download Docker](https://www.docker.com/products/docker-desktop)
-
-> In root directory, run `yarn start:database`
-
-#### Look at Database
-
-> Go to [Hasura Console](https://localhost:8080/)
 
 ## Helpful Resources:
 

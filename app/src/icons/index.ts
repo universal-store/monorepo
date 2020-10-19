@@ -2,6 +2,7 @@
 
 // Navigation
 export * from './CloseIcon';
+export * from './CameraIcon';
 export * from './BackArrowIcon';
 
 // General Icons

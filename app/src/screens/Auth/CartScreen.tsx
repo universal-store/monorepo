@@ -1,9 +1,14 @@
 /** @format */
 
 import React, { useCallback } from 'react';
-import { ActivityIndicator, FlatList } from 'react-native';
+import { theme } from '&theme';
+
+// Libraries
+import { MaterialIndicator } from 'react-native-indicators';
 
 // Components
+import { FlatList } from 'react-native';
+
 import {
   FullScreenWhite,
   CartPriceContainer,
@@ -53,7 +58,7 @@ export const CartScreen = () => {
 
       {loading && (
         <FullScreenCenter>
-          <ActivityIndicator />
+          <MaterialIndicator color={theme.colors.purple[1]} />
         </FullScreenCenter>
       )}
 

@@ -37,7 +37,7 @@ import { OnboardingStackParams } from '&navigation';
 import { StackScreenProps } from '@react-navigation/stack';
 
 // Firebase Authentication
-import Firebase, { fns } from '../../lib/firebase';
+import { Firebase, fns } from '&lib';
 
 // Utils
 import { emailRegex, validInput } from '&utils';

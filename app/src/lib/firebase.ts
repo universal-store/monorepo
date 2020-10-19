@@ -26,11 +26,5 @@ const config: FirebaseConfig = {
   messagingSenderId: MESSAGE_SENDER_ID,
 };
 
-const Firebase = firebase.initializeApp(config);
-
-export default Firebase;
+export const Firebase = firebase.initializeApp(config);
 export const fns = firebase.functions();
-
-export interface FirebaseError {
-  code: string;
-}

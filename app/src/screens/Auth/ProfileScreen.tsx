@@ -1,7 +1,10 @@
 /** @format */
 
 import React, { useState } from 'react';
-import { ActivityIndicator } from 'react-native';
+import { theme } from '&theme';
+
+// Libraries
+import { MaterialIndicator } from 'react-native-indicators';
 
 // Components
 import {
@@ -33,7 +36,7 @@ import { useApolloClient } from '@apollo/client';
 import AsyncStorage from '@react-native-community/async-storage';
 
 // Firebase Authentication
-import Firebase from '../../lib/firebase';
+import { Firebase } from '&lib';
 
 // Queries
 import { useGetUserQuery } from '&graphql';
@@ -51,7 +54,7 @@ export const ProfileScreen = () => {
   if (loading || signOutLoad)
     return (
       <FullScreenCenter>
-        <ActivityIndicator />
+        <MaterialIndicator color={theme.colors.purple[1]} />
       </FullScreenCenter>
     );
 

@@ -2,9 +2,10 @@
 
 import React, { useState } from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
-import { Alert, Keyboard, View as OnboardingFormContainer } from 'react-native';
 
 // Components
+import { Alert, Keyboard, View as OnboardingFormContainer } from 'react-native';
+
 import {
   HeaderLargeText as OnboardingHeaderTitleText,
   KeyboardDismiss,
@@ -38,7 +39,7 @@ import { OnboardingStackParams } from '&navigation';
 import { StackScreenProps } from '@react-navigation/stack';
 
 // Firebase Authentication
-import Firebase from '../../lib/firebase';
+import { Firebase } from '&lib';
 
 // Utils
 import { emailRegex, validInput } from '&utils';

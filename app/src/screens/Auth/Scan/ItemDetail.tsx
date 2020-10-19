@@ -1,10 +1,11 @@
 /** @format */
 
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator } from 'react-native';
+import { theme } from '&theme';
 
 // Libraries
 import BottomSheet from 'reanimated-bottom-sheet';
+import { MaterialIndicator } from 'react-native-indicators';
 
 // Components
 import {
@@ -171,7 +172,7 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
       </ItemDetailHeaderRow>
 
       <ItemDetailImageContainer>
-        {loading && <ActivityIndicator />}
+        {loading && <MaterialIndicator color={theme.colors.purple[1]} />}
 
         {itemData && itemData.StoreItemPic && (
           <ItemDetailImage

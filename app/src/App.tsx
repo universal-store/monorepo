@@ -21,7 +21,7 @@ import { ApolloClient, ApolloProvider, createHttpLink, InMemoryCache } from '@ap
 
 // Firebase Authentication
 import { User } from 'firebase';
-import Firebase from './lib/firebase';
+import { Firebase } from '&lib';
 
 // Environment Variables
 import { GRAPHQL_API } from '&env';

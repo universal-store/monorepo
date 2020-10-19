@@ -1,9 +1,14 @@
 /** @format */
 
 import React, { useCallback, useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList } from 'react-native';
+import { theme } from '&theme';
+
+// Libraries
+import { MaterialIndicator } from 'react-native-indicators';
 
 // Components
+import { FlatList } from 'react-native';
+
 import {
   CellItemSeparator,
   FavoritesFilterText,
@@ -86,7 +91,7 @@ export const FavoriteScreen = () => {
 
       {loading && (
         <FullScreenCenter>
-          <ActivityIndicator />
+          <MaterialIndicator color={theme.colors.purple[1]} />
         </FullScreenCenter>
       )}
 

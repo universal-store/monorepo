@@ -10,7 +10,7 @@ export const UserProfileMainContainer = styled(FullScreenWhite)`
   flex: 1;
   width: 100%;
   display: flex;
-  padding: 24px 24px ${isiPhoneX ? 106 : 76}px; ;
+  padding: 24px 24px 106px; ;
 `;
 
 export const UserProfileHeaderText = styled(HeaderLargeText)`

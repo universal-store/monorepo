@@ -1,9 +1,10 @@
 /** @format */
 
 import React, { useState } from 'react';
-import { Keyboard, View as OnboardingFormContainer } from 'react-native';
 
 // Components
+import { Keyboard, View as OnboardingFormContainer } from 'react-native';
+
 import {
   HeaderLargeText as OnboardingHeaderTitleText,
   KeyboardDismiss,

@@ -65,6 +65,8 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
           }
         });
       }
+
+      setFocusedUserLocation(true);
     }, [])
   );
 
@@ -122,7 +124,6 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
         customMapStyle={MapStyle}
         provider={PROVIDER_GOOGLE}
         initialRegion={currentPosition}
-        onUserLocationChange={locateCurrentPosition}
         loadingIndicatorColor={theme.colors.purple[1]}
         loadingBackgroundColor={theme.colors.white[1]}
         mapPadding={{

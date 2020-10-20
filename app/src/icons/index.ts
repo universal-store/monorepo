@@ -24,4 +24,5 @@ export * from './FlashIcon';
 export * from './BarcodeIcon';
 
 // MapView
+export * from './MarkerIcon';
 export * from './MapArrowIcon';

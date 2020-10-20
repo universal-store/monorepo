@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Linking } from 'react-native';
 
 // Libraries
@@ -40,7 +40,7 @@ import { StackScreenProps } from '@react-navigation/stack';
 type ScanningScreenProps = StackScreenProps<AuthStackParams, 'ScanningScreen'>;
 
 export const ScanningScreen = ({ navigation }: ScanningScreenProps) => {
-  let cameraRef: Camera | null = null;
+  const cameraRef = useRef<Camera>(null);
   const isFocused = useIsFocused();
 
   // TODO: remove in production
@@ -64,17 +64,18 @@ export const ScanningScreen = ({ navigation }: ScanningScreenProps) => {
   }, []);
 
   const resetScanner = () => {
-    if (scanned && cameraRef) {
+    if (scanned && cameraRef.current) {
       setScanned(false);
-      cameraRef.resumePreview();
+      cameraRef.current.resumePreview();
+      setBarcodeId('-1');
     }
   };
 
   const handleBarCodeScanned = ({ data }: BarCodeScanningResult) => {
-    if (!scanned && cameraRef) {
+    if (!scanned && cameraRef.current) {
       setFlash(false);
       setScanned(true);
-      cameraRef.pausePreview();
+      cameraRef.current.pausePreview();
 
       setBarcodeId(data);
     }
@@ -123,7 +124,7 @@ export const ScanningScreen = ({ navigation }: ScanningScreenProps) => {
           </ScannerHeaderRow>
 
           <CameraView
-            ref={ref => (cameraRef = ref)}
+            ref={cameraRef}
             type={Camera.Constants.Type.back}
             flashMode={flash ? 'torch' : 'off'}
             onBarCodeScanned={handleBarCodeScanned}
@@ -143,6 +144,9 @@ export const ScanningScreen = ({ navigation }: ScanningScreenProps) => {
       <ItemPreview
         shown={scanned}
         barcodeId={barcodeId}
+        badScan={() => {
+          resetScanner();
+        }}
         onPress={() => {
           resetScanner();
           navigation.navigate('ItemDetail', { barcodeId });

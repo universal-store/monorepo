@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { theme } from '&theme';
 
 // Libraries
@@ -30,19 +30,27 @@ import { AuthStackParams } from '&navigation';
 import { useFocusEffect } from '@react-navigation/native';
 import { StackScreenProps } from '@react-navigation/stack';
 
+// GraphQL
+import { useGetUserQuery } from '&graphql';
+
 type MapViewScreenProps = StackScreenProps<AuthStackParams, 'TabNavigation'>;
 
 export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
   const mapRef = useRef<MapView>(null);
 
   const [currentPosition, setCurrentPosition] = useState<Region>();
-
   // Map State
   const [storeSelected, setStoreSelected] = useState<boolean>(true);
   const [focusedUserLocation, setFocusedUserLocation] = useState<boolean>(true);
 
   // Location Permissions
   const [locationPermission, setLocationPermission] = useState<boolean | undefined>();
+
+  // Check for complete profile
+  const { data: authData } = useGetUserQuery();
+  useEffect(() => {
+    if (authData && authData.User.length && !authData.User[0].firstName) navigation.navigate('UserInfoScreen');
+  }, [authData]);
 
   useFocusEffect(
     useCallback(() => {

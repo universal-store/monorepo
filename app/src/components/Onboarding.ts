@@ -9,11 +9,15 @@ import { HeaderSmallText, TextSmall, TextSmall2 } from './Text';
 // Utils
 import { validInput } from '&utils';
 
-export const OnboardingMainContainer = styled(FullScreenWhite)`
-  flex: 1;
+interface OnboardingMainContainerProps {
+  enableShift?: boolean;
+}
+
+export const OnboardingMainContainer = styled(FullScreenWhite)<OnboardingMainContainerProps>`
   width: 100%;
   display: flex;
   padding: 0 32px;
+  padding-bottom: ${({ enableShift }) => (enableShift ? '50px' : 0)};
 `;
 
 export const OnboardingScroll = styled.ScrollView`
@@ -100,7 +104,9 @@ export const OnboardingSmallText = styled(TextSmall2)`
   color: ${({ theme }) => theme.colors.gray[3]};
 `;
 
-export const OnboardingRequiredText = styled(TextSmall2)``;
+export const OnboardingRequiredText = styled(TextSmall2)`
+  color: ${({ theme }) => theme.colors.red};
+`;
 
 export const OnboardingRow = styled(RowView)`
   margin-top: 24px;

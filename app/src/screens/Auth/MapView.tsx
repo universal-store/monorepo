@@ -38,7 +38,7 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
   const [currentPosition, setCurrentPosition] = useState<Region>();
 
   // Map State
-  const [storeSelected, setStoreSelected] = useState<boolean>(false);
+  const [storeSelected, setStoreSelected] = useState<boolean>(true);
   const [focusedUserLocation, setFocusedUserLocation] = useState<boolean>(true);
 
   // Location Permissions
@@ -126,13 +126,15 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
         initialRegion={currentPosition}
         loadingIndicatorColor={theme.colors.purple[1]}
         loadingBackgroundColor={theme.colors.white[1]}
+        onRegionChange={() => {
+          if (focusedUserLocation) setFocusedUserLocation(false);
+        }}
         mapPadding={{
           top: 0,
           left: 15,
           right: 0,
           bottom: 65,
         }}
-        onRegionChange={() => setFocusedUserLocation(false)}
       />
 
       {storeSelected && (

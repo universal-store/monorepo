@@ -36,7 +36,7 @@ interface FavoriteItemCellProps {
   favItem: StoreItemInfoFragment;
 }
 export const FavoriteItemCell = ({ favItem }: FavoriteItemCellProps) => {
-  const { StoreItemPic, longName, price, barcodeId } = favItem;
+  const { StoreItemPic, longName, price, barcodeId, shortName } = favItem;
 
   // Navigation
   const navigation = useNavigation();
@@ -82,18 +82,18 @@ export const FavoriteItemCell = ({ favItem }: FavoriteItemCellProps) => {
   return (
     <FavoriteItemCellContainer onPress={() => navigation.navigate('ItemDetail', { barcodeId })}>
       <FavoritesItemCellContainerSmall>
-        <FavoriteItemImageContainer>
-          {StoreItemPic && (
+        {StoreItemPic && (
+          <FavoriteItemImageContainer>
             <FavoriteItemImage
               source={{
                 uri: StoreItemPic.size64,
               }}
             />
-          )}
-        </FavoriteItemImageContainer>
+          </FavoriteItemImageContainer>
+        )}
 
         <FavoritesItemCellTextContainer>
-          <FavoritesItemNameText numberOfLines={1}>{longName}</FavoritesItemNameText>
+          <FavoritesItemNameText numberOfLines={1}>{shortName ? shortName : longName}</FavoritesItemNameText>
           <FavoritesItemPriceText>{price}</FavoritesItemPriceText>
         </FavoritesItemCellTextContainer>
       </FavoritesItemCellContainerSmall>

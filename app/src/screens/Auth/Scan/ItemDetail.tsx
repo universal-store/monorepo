@@ -160,6 +160,8 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
 
   return (
     <FullScreenLightPurple>
+      {loading && <LoadingOverlay />}
+
       <ItemDetailHeaderRow>
         <ItemDetailHeaderButton onPress={() => navigation.goBack()}>
           <CloseIcon />
@@ -171,8 +173,6 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
       </ItemDetailHeaderRow>
 
       <ItemDetailImageContainer>
-        {loading && <LoadingOverlay />}
-
         {itemData && itemData.StoreItemPic && (
           <ItemDetailImage
             source={{

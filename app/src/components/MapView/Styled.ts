@@ -7,7 +7,7 @@ import MapView, { MapStyleElement } from 'react-native-maps';
 
 // Components
 import { HeaderLargeText } from '../Text';
-import { FullScreenCenter, RowView } from '../Views';
+import { FullScreenCenter, RowView, screenWidth } from '../Views';
 
 // Styled Components
 export const NoLocationPermissionsScreen = styled(FullScreenCenter)`
@@ -27,6 +27,7 @@ export const CameraIconContainer = styled.TouchableOpacity`
   position: absolute;
   width: 64px;
   height: 64px;
+  bottom: 108px;
   display: flex;
   margin: 0 auto;
   border-radius: 64px;
@@ -35,6 +36,7 @@ export const CameraIconContainer = styled.TouchableOpacity`
   shadow-radius: 2.62px;
   shadow-offset: 0px 2px;
   justify-content: center;
+  left: ${screenWidth / 2 - 32}px;
   shadow-color: ${({ theme }) => theme.colors.gray[1]};
   background-color: ${({ theme }) => theme.colors.purple[1]};
 `;

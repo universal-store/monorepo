@@ -56,6 +56,7 @@ export const FavoritesFilterText = styled(TextSmall)`
 `;
 
 export const FavoriteItemCellContainer = styled.TouchableOpacity`
+  flex: 1;
   width: 100%;
   height: 80px;
   display: flex;
@@ -66,11 +67,12 @@ export const FavoriteItemCellContainer = styled.TouchableOpacity`
 `;
 
 export const FavoritesItemCellContainerSmall = styled(RowView)`
+  flex: 1;
   align-items: center;
 `;
 
 export const FavoritesItemCellTextContainer = styled.View`
-  margin: 0 16px;
+  margin-right: 16px;
 `;
 
 export const FavoritesItemNameText = styled(TextLarge2)``;
@@ -83,7 +85,7 @@ export const FavoriteItemImageContainer = styled.View`
   width: 48px;
   height: 48px;
   border-radius: 4px;
-  background-color: ${({ theme }) => theme.colors.gray[5]};
+  margin-right: 16px;
 `;
 
 export const FavoriteItemImage = styled.Image`

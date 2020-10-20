@@ -1,0 +1,5 @@
+mutation InsertStoreItem($shortName:  String, $quantity:  String, $price: money!, $longName: String!, $description: String, $barcodeId: String!) {
+    insert_StoreItem_one(object: { shortName: $shortName, quantity: $quantity, price: $price, longName: $longName, description: $description, barcodeId: $barcodeId, storeId: "3aa81470-9fad-4ca7-b3b6-676ee0b1a42c" }) {
+        ...StoreItemInfo
+    }
+}

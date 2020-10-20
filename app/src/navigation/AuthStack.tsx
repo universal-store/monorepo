@@ -5,6 +5,7 @@ import { theme } from '&theme';
 
 // Screens
 import {
+  AddItemScreen,
   CartScreen,
   FavoriteScreen,
   ItemDetail,
@@ -98,6 +99,7 @@ export type AuthStackParams = {
   TabNavigation: { screen: string };
   ScanningScreen: undefined;
   ItemDetail: { barcodeId: string };
+  AddItemScreen: { barcodeId: string };
 };
 
 export const AuthStack = createStackNavigator<AuthStackParams>();
@@ -108,5 +110,6 @@ export const AuthNavigator = () => (
     <AuthStack.Screen name="TabNavigation" component={RootAuthTabNavigator} />
     <AuthStack.Screen name="ScanningScreen" component={ScanningScreen} />
     <AuthStack.Screen name="ItemDetail" component={ItemDetail} />
+    <AuthStack.Screen name="AddItemScreen" component={AddItemScreen} options={{ gestureEnabled: true }} />
   </AuthStack.Navigator>
 );

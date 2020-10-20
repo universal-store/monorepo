@@ -7,8 +7,6 @@ import {
   FullScreenCenter,
   UserProfileMainContainer,
   UserProfileHeaderRow,
-  UserProfilePicture,
-  UserProfilePictureContainer,
   UserProfileHeaderText,
   UserProfileSubHeaderText,
   UserProfileEmailContainer,
@@ -18,7 +16,6 @@ import {
   UserPaymentInfoNameRow,
   UserProfileCheckMarkLogoContainer,
   UserProfileHeaderNameText,
-  UserProfileInitialText,
   SecondaryButton,
   ButtonContainer,
   SecondaryButtonText,
@@ -58,24 +55,9 @@ export const ProfileScreen = () => {
   // User Data
   const userData = data ? data.User[0] : undefined;
 
-  let userInitials = '';
-
-  if (userData)
-    userInitials = userData.lastName
-      ? userData.firstName.charAt(0) + userData.lastName.charAt(0)
-      : userData.firstName.charAt(0);
-
   return (
     <UserProfileMainContainer>
       <UserProfileHeaderRow>
-        <UserProfilePictureContainer>
-          {userData && userData.UserProfilePic ? (
-            <UserProfilePicture source={{ uri: userData.UserProfilePic.size128 }} />
-          ) : (
-            <UserProfileInitialText>{userInitials}</UserProfileInitialText>
-          )}
-        </UserProfilePictureContainer>
-
         <UserProfileHeaderText numberOfLines={1}>
           Hi,{' '}
           {userData && (

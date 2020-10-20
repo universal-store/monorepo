@@ -37,29 +37,6 @@ export const UserProfilePaymentInfoText = styled(TextSmall2)`
   color: ${({ theme }) => theme.colors.gray[1]};
 `;
 
-export const UserProfilePictureContainer = styled.View`
-  display: flex;
-  width: 64px;
-  height: 64px;
-  margin-right: 24px;
-  border-radius: 64px;
-  align-items: center;
-  justify-content: center;
-  background-color: ${({ theme }) => theme.colors.purple[3]};
-`;
-
-export const UserProfilePicture = styled.Image`
-  width: 64px;
-  height: 64px;
-  border-radius: 64px;
-`;
-
-export const UserProfileInitialText = styled(HeaderLargeText)`
-  font-size: 28px;
-  text-align: center;
-  color: ${({ theme }) => theme.colors.purple[1]};
-`;
-
 export const UserProfileEmailContainer = styled.View`
   margin-bottom: 16px;
   border-bottom-width: 1px;

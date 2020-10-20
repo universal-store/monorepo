@@ -39,6 +39,7 @@ export const CartSubtotalPrice = styled(HeaderSmallText)`
 `;
 
 export const CartItemCellContainer = styled.TouchableOpacity`
+  flex: 1;
   width: 100%;
   height: 80px;
   display: flex;
@@ -48,6 +49,7 @@ export const CartItemCellContainer = styled.TouchableOpacity`
 `;
 
 export const CartItemCellContainerSmall = styled(RowView)`
+  flex: 1;
   align-items: center;
 `;
 
@@ -55,7 +57,7 @@ export const CartItemImageContainer = styled.View`
   width: 48px;
   height: 48px;
   border-radius: 4px;
-  background-color: ${({ theme }) => theme.colors.gray[5]};
+  margin-right: 16px;
 `;
 
 export const CartItemImage = styled.Image`
@@ -66,7 +68,6 @@ export const CartItemImage = styled.Image`
 
 export const CartItemCellTextContainer = styled.View`
   flex: 1;
-  margin: 0 16px;
 `;
 
 export const CartItemCellTextRowContainer = styled(RowView)``;

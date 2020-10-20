@@ -20,16 +20,18 @@ import {
   ScannerHeaderButton,
 } from '&components';
 
+// Iconography
+import { BackArrowIconGray } from '&icons';
+
 // Navigation
 import { AuthStackParams } from '&navigation';
 import { StackScreenProps } from '@react-navigation/stack';
 
 // GraphQL
-import {} from '&graphql';
+import { useInsertStoreItemMutation } from '&graphql';
 
 // Utils
-import { validInput } from '&utils';
-import { BackArrowIcon, BackArrowIconGray } from '&icons';
+import { currencyRegex, validInput } from '&utils';
 
 type AddItemScreenProps = StackScreenProps<AuthStackParams, 'AddItemScreen'>;
 
@@ -47,26 +49,19 @@ export const AddItemScreen = ({ navigation, route }: AddItemScreenProps) => {
 
   // Validation
   const [validPrice, setValidPrice] = useState<validInput>('NEEDS_CHECK');
-  const [validQuantity, setValidQuantity] = useState<validInput>('NEEDS_CHECK');
   const [validLongName, setValidLongName] = useState<validInput>('NEEDS_CHECK');
 
   // Mutation
+  const [insertStoreItemMutation] = useInsertStoreItemMutation();
 
   const validateItemInfo = () => {
     let validInput = true;
 
-    if (price === '') {
+    if (price === '' || !currencyRegex.test(price)) {
       validInput = false;
       setValidPrice('INVALID');
     } else {
       setValidPrice('VALID');
-    }
-
-    if (quantity === '') {
-      validInput = false;
-      setValidQuantity('INVALID');
-    } else {
-      setValidQuantity('VALID');
     }
 
     if (longName === '') {
@@ -77,9 +72,9 @@ export const AddItemScreen = ({ navigation, route }: AddItemScreenProps) => {
     }
 
     if (validInput) {
-      // void updateUserMutation({ variables: { id, firstName: userFirstName, lastName: userLastName } }).then(() =>
-      //   navigation.navigate('TabNavigation', { screen: 'MapView' })
-      // );
+      void insertStoreItemMutation({
+        variables: { shortName, longName, description, barcodeId, quantity, price },
+      }).then(navigation.goBack);
     }
   };
 
@@ -142,18 +137,16 @@ export const AddItemScreen = ({ navigation, route }: AddItemScreenProps) => {
             </OnboardingInputContainer>
             {validLongName === 'INVALID' && <OnboardingRequiredText>Item Price is required</OnboardingRequiredText>}
 
-            <OnboardingFormText>Item Size*</OnboardingFormText>
-            <OnboardingInputContainer valid={validQuantity}>
+            <OnboardingFormText>Item Size</OnboardingFormText>
+            <OnboardingInputContainer valid={'NEEDS_CHECK'}>
               <OnboardingTextInput
                 value={quantity}
                 placeholder="Enter item size"
                 onChangeText={text => {
                   setQuantity(text);
-                  setValidQuantity('NEEDS_CHECK');
                 }}
               />
             </OnboardingInputContainer>
-            {validQuantity === 'INVALID' && <OnboardingRequiredText>Item Size is required</OnboardingRequiredText>}
 
             <OnboardingFormText>Item Description</OnboardingFormText>
             <OnboardingInputContainer valid={'NEEDS_CHECK'}>

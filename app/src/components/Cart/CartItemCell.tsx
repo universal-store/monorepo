@@ -36,7 +36,7 @@ interface CartItemCellProps {
 }
 
 export const CartItemCell = ({ cartItem }: CartItemCellProps) => {
-  const { StoreItemPic, longName, price, quantity, barcodeId } = cartItem;
+  const { StoreItemPic, shortName, longName, price, quantity, barcodeId } = cartItem;
 
   // Navigation
   const navigation = useNavigation();
@@ -61,18 +61,19 @@ export const CartItemCell = ({ cartItem }: CartItemCellProps) => {
   return (
     <CartItemCellContainer onPress={() => navigation.navigate('ItemDetail', { barcodeId })}>
       <CartItemCellContainerSmall>
-        <CartItemImageContainer>
-          {StoreItemPic && (
+        {StoreItemPic && (
+          <CartItemImageContainer>
             <CartItemImage
               source={{
                 uri: StoreItemPic.size64,
               }}
             />
-          )}
-        </CartItemImageContainer>
+          </CartItemImageContainer>
+        )}
+
         <CartItemCellTextContainer>
           <CartItemCellTextRowContainer>
-            <CartItemNameText numberOfLines={1}>{longName}</CartItemNameText>
+            <CartItemNameText numberOfLines={1}>{shortName ? shortName : longName}</CartItemNameText>
             <CartItemQuantityText>
               Qty <CartItemQuantityNumberText>{quantity}</CartItemQuantityNumberText>
             </CartItemQuantityText>

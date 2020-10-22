@@ -107,7 +107,7 @@ export const CartItemCell = ({ cartItem }: CartItemCellProps) => {
 
   return (
     <Swipeable friction={2} renderLeftActions={renderLeftActions} renderRightActions={renderRightActions}>
-      <CartItemCellContainer onPress={() => navigation.navigate('ItemDetail', { barcodeId })}>
+      <CartItemCellContainer onPress={() => navigation.navigate('ItemDetail', { barcodeId, scanned: true })}>
         <CartItemCellContainerSmall>
           {StoreItemPic && (
             <CartItemImageContainer>

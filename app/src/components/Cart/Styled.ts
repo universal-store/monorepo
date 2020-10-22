@@ -46,6 +46,7 @@ export const CartItemCellContainer = styled.TouchableOpacity`
   padding: 16px 24px;
   align-items: center;
   flex-direction: row;
+  background-color: ${({ theme }) => theme.colors.white[1]};
 `;
 
 export const CartItemCellContainerSmall = styled(RowView)`
@@ -70,32 +71,11 @@ export const CartItemCellTextContainer = styled.View`
   flex: 1;
 `;
 
-export const CartItemCellTextRowContainer = styled(RowView)``;
-
 export const CartItemNameText = styled(TextLarge2)`
-  margin-right: 52px;
   margin-bottom: auto;
-`;
-
-export const CartItemQuantityText = styled(TextSmall)`
-  margin-left: auto;
-  margin-bottom: auto;
-`;
-
-export const CartItemQuantityNumberText = styled(CartItemQuantityText)`
-  font-family: NunitoSans-Bold;
 `;
 
 export const CartItemPriceText = styled(HeaderSmallText)`
   margin-top: auto;
-  color: ${({ theme }) => theme.colors.purple[1]};
-`;
-
-export const CartItemAddFavoriteButton = styled.TouchableOpacity`
-  margin-top: auto;
-  margin-left: auto;
-`;
-
-export const CartItemAddFavorite = styled(TextSmall2)`
   color: ${({ theme }) => theme.colors.purple[1]};
 `;

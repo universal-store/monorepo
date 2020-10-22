@@ -64,6 +64,7 @@ export const FavoriteItemCellContainer = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  background-color: ${({ theme }) => theme.colors.white[1]};
 `;
 
 export const FavoritesItemCellContainerSmall = styled(RowView)`
@@ -92,9 +93,4 @@ export const FavoriteItemImage = styled.Image`
   width: 48px;
   height: 48px;
   border-radius: 4px;
-`;
-
-export const FavoritesItemHeartContainer = styled.TouchableOpacity`
-  width: 24px;
-  height: 24px;
 `;

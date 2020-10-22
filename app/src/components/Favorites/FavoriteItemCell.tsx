@@ -1,34 +1,32 @@
 /** @format */
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+
+// Libraries
+import Swipeable from 'react-native-gesture-handler/Swipeable';
 
 // Components
 import {
   FavoriteItemCellContainer,
   FavoritesItemCellContainerSmall,
   FavoritesItemCellTextContainer,
-  FavoritesItemHeartContainer,
   FavoritesItemNameText,
   FavoritesItemPriceText,
   FavoriteItemImageContainer,
   FavoriteItemImage,
 } from './Styled';
 
-// Iconography
-import { HeartIconOff, HeartIconOn } from '&icons';
+import { AnimatedSwipeRemoveContainer, AnimatedSwipeText } from '../SwipeGesture';
 
 // Navigation
 import { useNavigation } from '@react-navigation/native';
 
 // GraphQL
 import {
-  CheckItemInFavoritesDocument,
-  StoreItemInfoFragment,
-  useCheckItemInFavoritesQuery,
-  useAddUserFavoriteItemMutation,
-  useRemoveUserFavoriteItemMutation,
   useGetUserQuery,
+  StoreItemInfoFragment,
   GetUserFavoriteItemsDocument,
+  useRemoveUserFavoriteItemMutation,
 } from '&graphql';
 
 // Props
@@ -42,65 +40,45 @@ export const FavoriteItemCell = ({ favItem }: FavoriteItemCellProps) => {
   const navigation = useNavigation();
 
   // Mutations
-  const [addToFavoritesMutation] = useAddUserFavoriteItemMutation();
   const [removeFromFavoritesMutation] = useRemoveUserFavoriteItemMutation();
 
   // Get User Data
   const { data } = useGetUserQuery();
   const userId = data?.User[0].id!;
 
-  // Check if in favorites
-  const { data: userFavorites } = useCheckItemInFavoritesQuery();
-  const [favorite, setFavorite] = useState<boolean>(true);
-
-  useEffect(() => {
-    if (userFavorites) {
-      setFavorite(userFavorites.StoreItem_by_pk?.UserFavoriteItems.length !== 0);
-    }
-  }, [favorite, userFavorites]);
-
-  const addOrRemoveFromFavorites = () => {
-    if (favorite) {
-      void removeFromFavoritesMutation({
-        variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [
-          { query: GetUserFavoriteItemsDocument },
-          { query: CheckItemInFavoritesDocument, variables: { barcodeId } },
-        ],
-      }).then(() => setFavorite(false));
-    } else {
-      void addToFavoritesMutation({
-        variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [
-          { query: GetUserFavoriteItemsDocument },
-          { query: CheckItemInFavoritesDocument, variables: { barcodeId } },
-        ],
-      }).then(() => setFavorite(true));
-    }
-  };
+  const renderRightActions = () => (
+    <AnimatedSwipeRemoveContainer
+      onPress={() =>
+        void removeFromFavoritesMutation({
+          variables: { userId, itemBarcodeId: barcodeId },
+          refetchQueries: [{ query: GetUserFavoriteItemsDocument }],
+        })
+      }
+    >
+      <AnimatedSwipeText>Remove</AnimatedSwipeText>
+    </AnimatedSwipeRemoveContainer>
+  );
 
   return (
-    <FavoriteItemCellContainer onPress={() => navigation.navigate('ItemDetail', { barcodeId })}>
-      <FavoritesItemCellContainerSmall>
-        {StoreItemPic && (
-          <FavoriteItemImageContainer>
-            <FavoriteItemImage
-              source={{
-                uri: StoreItemPic.size64,
-              }}
-            />
-          </FavoriteItemImageContainer>
-        )}
+    <Swipeable friction={2} renderRightActions={renderRightActions}>
+      <FavoriteItemCellContainer onPress={() => navigation.navigate('ItemDetail', { barcodeId })}>
+        <FavoritesItemCellContainerSmall>
+          {StoreItemPic && (
+            <FavoriteItemImageContainer>
+              <FavoriteItemImage
+                source={{
+                  uri: StoreItemPic.size64,
+                }}
+              />
+            </FavoriteItemImageContainer>
+          )}
 
-        <FavoritesItemCellTextContainer>
-          <FavoritesItemNameText numberOfLines={1}>{shortName ? shortName : longName}</FavoritesItemNameText>
-          <FavoritesItemPriceText>{price}</FavoritesItemPriceText>
-        </FavoritesItemCellTextContainer>
-      </FavoritesItemCellContainerSmall>
-
-      <FavoritesItemHeartContainer onPress={addOrRemoveFromFavorites}>
-        {favorite ? <HeartIconOn /> : <HeartIconOff />}
-      </FavoritesItemHeartContainer>
-    </FavoriteItemCellContainer>
+          <FavoritesItemCellTextContainer>
+            <FavoritesItemNameText numberOfLines={1}>{shortName ? shortName : longName}</FavoritesItemNameText>
+            <FavoritesItemPriceText>{price}</FavoritesItemPriceText>
+          </FavoritesItemCellTextContainer>
+        </FavoritesItemCellContainerSmall>
+      </FavoriteItemCellContainer>
+    </Swipeable>
   );
 };

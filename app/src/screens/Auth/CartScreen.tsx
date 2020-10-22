@@ -1,10 +1,6 @@
 /** @format */
 
-import React, { useCallback } from 'react';
-import { theme } from '&theme';
-
-// Libraries
-import { MaterialIndicator } from 'react-native-indicators';
+import React from 'react';
 
 // Components
 import { FlatList } from 'react-native';
@@ -19,30 +15,20 @@ import {
   CartHeaderTextContainer,
   CartItemCell,
   CellItemSeparator,
-  FullScreenCenter,
   LoadingOverlay,
 } from '&components';
-
-// React Navigation
-import { useFocusEffect } from '@react-navigation/native';
 
 // GraphQL
 import { useGetUserCartItemsQuery } from '&graphql';
 
 export const CartScreen = () => {
-  const { data, refetch, loading } = useGetUserCartItemsQuery();
+  const { data, loading } = useGetUserCartItemsQuery();
   const cartData = data?.UserCartItem;
 
   let cartTotal = 0;
   if (cartData) {
     cartData.forEach(cartItem => (cartTotal += parseFloat(cartItem.StoreItem.price.substring(1))));
   }
-
-  useFocusEffect(
-    useCallback(() => {
-      void refetch();
-    }, [])
-  );
 
   return (
     <FullScreenWhite>

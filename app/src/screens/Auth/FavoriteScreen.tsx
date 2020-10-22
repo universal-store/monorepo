@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // Components
 import { FlatList } from 'react-native';
@@ -17,15 +17,11 @@ import {
   FavoriteItemCell,
   FullScreenWhite,
   FavoritesFilterButton,
-  FullScreenCenter,
   LoadingOverlay,
 } from '&components';
 
 // Iconography
 import { FindIcon } from '&icons';
-
-// React Navigation
-import { useFocusEffect } from '@react-navigation/native';
 
 // GraphQL
 import { useGetUserFavoriteItemsQuery, UserFavoriteItemInfoFragment } from '&graphql';
@@ -34,7 +30,7 @@ import { useGetUserFavoriteItemsQuery, UserFavoriteItemInfoFragment } from '&gra
 import { useDebounce } from '&utils';
 
 export const FavoriteScreen = () => {
-  const { data, refetch, loading } = useGetUserFavoriteItemsQuery();
+  const { data, loading } = useGetUserFavoriteItemsQuery();
   const favData = data?.UserFavoriteItem;
 
   const [itemQuery, setItemQuery] = useState<string>('');
@@ -42,12 +38,6 @@ export const FavoriteScreen = () => {
 
   // Causes a delay before updating item filter
   const debouncedItemQuery = useDebounce(itemQuery, 500);
-
-  useFocusEffect(
-    useCallback(() => {
-      void refetch();
-    }, [])
-  );
 
   useEffect(() => {
     if (favData) {

@@ -20,8 +20,8 @@ import { setContext } from '@apollo/client/link/context';
 import { ApolloClient, ApolloProvider, createHttpLink, InMemoryCache } from '@apollo/client';
 
 // Firebase Authentication
-import { User } from 'firebase';
 import { Firebase } from '&lib';
+import { auth, User } from 'firebase';
 
 // Environment Variables
 import { GRAPHQL_API } from '&env';
@@ -51,14 +51,15 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<User | null>(null);
 
-  const onAuthStateChanged = (user: User | null) => {
-    setUser(user);
-    if (loading) setLoading(false);
+  const onAuthStateChanged = () => {
+    return Firebase.auth().onAuthStateChanged(user => {
+      setUser(user);
+      if (loading) setLoading(false);
+    });
   };
 
   useEffect(() => {
-    const subscriber = Firebase.auth().onAuthStateChanged(onAuthStateChanged);
-    return subscriber;
+    Firebase.auth().setPersistence(auth.Auth.Persistence.LOCAL).then(onAuthStateChanged);
   }, []);
 
   return (

@@ -2,32 +2,36 @@
 
 import React, { useEffect, useState } from 'react';
 
+// Libraries
+import Swipeable from 'react-native-gesture-handler/Swipeable';
+
 // Components
 import {
   CartItemCellContainer,
   CartItemCellContainerSmall,
   CartItemCellTextContainer,
   CartItemNameText,
-  CartItemQuantityText,
   CartItemImageContainer,
-  CartItemQuantityNumberText,
   CartItemPriceText,
-  CartItemAddFavorite,
-  CartItemCellTextRowContainer,
   CartItemImage,
-  CartItemAddFavoriteButton,
 } from './Styled';
+
+import { AnimatedSwipeFavoriteContainer, AnimatedSwipeRemoveContainer, AnimatedSwipeText } from '../SwipeGesture';
 
 // Navigation
 import { useNavigation } from '@react-navigation/native';
 
 // GraphQL
 import {
-  CheckItemInFavoritesDocument,
   StoreItemInfoFragment,
+  GetUserCartItemsDocument,
+  CheckItemInFavoritesDocument,
+  GetUserFavoriteItemsDocument,
   useGetUserQuery,
   useCheckItemInFavoritesQuery,
+  useRemoveUserCartItemMutation,
   useAddUserFavoriteItemMutation,
+  useRemoveUserFavoriteItemMutation,
 } from '&graphql';
 
 // Props
@@ -36,13 +40,16 @@ interface CartItemCellProps {
 }
 
 export const CartItemCell = ({ cartItem }: CartItemCellProps) => {
-  const { StoreItemPic, shortName, longName, price, quantity, barcodeId } = cartItem;
+  const { StoreItemPic, shortName, longName, price, barcodeId } = cartItem;
 
   // Navigation
   const navigation = useNavigation();
 
   // Mutations
   const [addToFavoritesMutation] = useAddUserFavoriteItemMutation();
+  const [removeFromFavoritesMutation] = useRemoveUserFavoriteItemMutation();
+
+  const [removeFromCartMutation] = useRemoveUserCartItemMutation();
 
   // Get User Data
   const { data } = useGetUserQuery();
@@ -52,6 +59,46 @@ export const CartItemCell = ({ cartItem }: CartItemCellProps) => {
   const [favorite, setFavorite] = useState<boolean>(true);
   const { data: userFavorites } = useCheckItemInFavoritesQuery({ variables: { barcodeId } });
 
+  // Swipeable Actions
+  const renderLeftActions = () => (
+    <AnimatedSwipeFavoriteContainer
+      onPress={() => {
+        if (favorite) {
+          void removeFromFavoritesMutation({
+            variables: { userId, itemBarcodeId: barcodeId },
+            refetchQueries: [
+              { query: GetUserFavoriteItemsDocument },
+              { query: CheckItemInFavoritesDocument, variables: { barcodeId } },
+            ],
+          });
+        } else {
+          void addToFavoritesMutation({
+            variables: { userId, itemBarcodeId: barcodeId },
+            refetchQueries: [
+              { query: GetUserFavoriteItemsDocument },
+              { query: CheckItemInFavoritesDocument, variables: { barcodeId } },
+            ],
+          });
+        }
+      }}
+    >
+      <AnimatedSwipeText>{favorite ? 'Un-favorite' : 'Favorite'}</AnimatedSwipeText>
+    </AnimatedSwipeFavoriteContainer>
+  );
+
+  const renderRightActions = () => (
+    <AnimatedSwipeRemoveContainer
+      onPress={() =>
+        void removeFromCartMutation({
+          variables: { userId, itemBarcodeId: barcodeId },
+          refetchQueries: [{ query: GetUserCartItemsDocument }],
+        })
+      }
+    >
+      <AnimatedSwipeText>Remove</AnimatedSwipeText>
+    </AnimatedSwipeRemoveContainer>
+  );
+
   useEffect(() => {
     if (userFavorites) {
       setFavorite(userFavorites.StoreItem_by_pk?.UserFavoriteItems.length !== 0);
@@ -59,43 +106,25 @@ export const CartItemCell = ({ cartItem }: CartItemCellProps) => {
   }, [favorite, userFavorites]);
 
   return (
-    <CartItemCellContainer onPress={() => navigation.navigate('ItemDetail', { barcodeId })}>
-      <CartItemCellContainerSmall>
-        {StoreItemPic && (
-          <CartItemImageContainer>
-            <CartItemImage
-              source={{
-                uri: StoreItemPic.size64,
-              }}
-            />
-          </CartItemImageContainer>
-        )}
+    <Swipeable friction={2} renderLeftActions={renderLeftActions} renderRightActions={renderRightActions}>
+      <CartItemCellContainer onPress={() => navigation.navigate('ItemDetail', { barcodeId })}>
+        <CartItemCellContainerSmall>
+          {StoreItemPic && (
+            <CartItemImageContainer>
+              <CartItemImage
+                source={{
+                  uri: StoreItemPic.size64,
+                }}
+              />
+            </CartItemImageContainer>
+          )}
 
-        <CartItemCellTextContainer>
-          <CartItemCellTextRowContainer>
+          <CartItemCellTextContainer>
             <CartItemNameText numberOfLines={1}>{shortName ? shortName : longName}</CartItemNameText>
-            <CartItemQuantityText>
-              Qty <CartItemQuantityNumberText>{quantity}</CartItemQuantityNumberText>
-            </CartItemQuantityText>
-          </CartItemCellTextRowContainer>
-
-          <CartItemCellTextRowContainer>
             <CartItemPriceText>{price}</CartItemPriceText>
-            {!favorite && (
-              <CartItemAddFavoriteButton
-                onPress={() =>
-                  void addToFavoritesMutation({
-                    variables: { userId, itemBarcodeId: barcodeId },
-                    refetchQueries: () => [{ query: CheckItemInFavoritesDocument, variables: { barcodeId } }],
-                  }).then(() => setFavorite(true))
-                }
-              >
-                <CartItemAddFavorite>Add to Favorites</CartItemAddFavorite>
-              </CartItemAddFavoriteButton>
-            )}
-          </CartItemCellTextRowContainer>
-        </CartItemCellTextContainer>
-      </CartItemCellContainerSmall>
-    </CartItemCellContainer>
+          </CartItemCellTextContainer>
+        </CartItemCellContainerSmall>
+      </CartItemCellContainer>
+    </Swipeable>
   );
 };

@@ -50,6 +50,8 @@ import {
   useRemoveUserCartItemMutation,
   useAddUserFavoriteItemMutation,
   useRemoveUserFavoriteItemMutation,
+  GetUserFavoriteItemsDocument,
+  GetUserCartItemsDocument,
 } from '&graphql';
 
 // Constants
@@ -61,7 +63,7 @@ const smallDescriptionLines = isiPhoneX ? 8 : 1;
 type ItemDetailProps = StackScreenProps<RootAuthTabParams, 'ItemDetail'>;
 
 export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
-  const { barcodeId } = route.params;
+  const { barcodeId, scanned } = route.params;
 
   const [modalExpand, setModalExpand] = useState<boolean>(false);
 
@@ -134,12 +136,18 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
     if (favorite) {
       void removeFromFavoritesMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [{ query: CheckItemInFavoritesDocument, variables: { barcodeId } }],
+        refetchQueries: [
+          { query: GetUserFavoriteItemsDocument },
+          { query: CheckItemInFavoritesDocument, variables: { barcodeId } },
+        ],
       });
     } else {
       void addToFavoritesMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [{ query: CheckItemInFavoritesDocument, variables: { barcodeId } }],
+        refetchQueries: [
+          { query: GetUserFavoriteItemsDocument },
+          { query: CheckItemInFavoritesDocument, variables: { barcodeId } },
+        ],
       });
     }
   };
@@ -148,12 +156,18 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
     if (inCart) {
       void removeFromCartMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [{ query: CheckItemInCartDocument, variables: { barcodeId } }],
+        refetchQueries: [
+          { query: GetUserCartItemsDocument },
+          { query: CheckItemInCartDocument, variables: { barcodeId } },
+        ],
       });
     } else {
       void addToCartMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [{ query: CheckItemInCartDocument, variables: { barcodeId } }],
+        refetchQueries: [
+          { query: GetUserCartItemsDocument },
+          { query: CheckItemInCartDocument, variables: { barcodeId } },
+        ],
       });
     }
   };
@@ -195,7 +209,7 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
         />
       )}
 
-      {itemData && (
+      {itemData && scanned && (
         <AddCartButtonContainer>
           <AddCartButton added={inCart} onPress={addOrRemoveFromCart}>
             <AddCartButtonText added={inCart}>{inCart ? 'Added!' : 'Add to Cart'}</AddCartButtonText>

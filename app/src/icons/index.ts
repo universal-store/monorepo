@@ -9,6 +9,7 @@ export * from './BackArrowIcon';
 export * from './CartIcon';
 export * from './FindIcon';
 export * from './HeartIcon';
+export * from './SwipeIcons';
 export * from './TabNavigationIcons';
 
 // Profile Screen

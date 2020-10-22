@@ -33,7 +33,7 @@ export type RootAuthTabParams = {
   FavoritesScreen: undefined;
   CartScreen: undefined;
   ProfileScreen: undefined;
-  ItemDetail: { barcodeId: string };
+  ItemDetail: { barcodeId: string; scanned?: boolean };
 };
 
 const RootAuthTab = AnimatedTabBarNavigator<RootAuthTabParams>();
@@ -98,7 +98,7 @@ export type AuthStackParams = {
   UserInfoScreen: undefined;
   TabNavigation: { screen: string };
   ScanningScreen: undefined;
-  ItemDetail: { barcodeId: string };
+  ItemDetail: { barcodeId: string; scanned?: boolean };
   AddItemScreen: { barcodeId: string };
 };
 

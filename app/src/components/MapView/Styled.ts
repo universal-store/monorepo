@@ -6,8 +6,8 @@ import styled from 'styled-components/native';
 import MapView, { MapStyleElement } from 'react-native-maps';
 
 // Components
-import { HeaderLargeText } from '../Text';
-import { FullScreenCenter, RowView, screenWidth } from '../Views';
+import { HeaderLargeText, TextSmall2 } from '../Text';
+import { FullScreenCenter, RowView, screenWidth, isiPhoneX } from '../Views';
 
 // Styled Components
 export const NoLocationPermissionsScreen = styled(FullScreenCenter)`
@@ -159,3 +159,60 @@ export const MapStyle: MapStyleElement[] = [
     ],
   },
 ];
+
+// Baseline for a ScrollView from how I saw it should look like from online sources,
+// but it wasn't working yet. I commented it and made a RowView with the same name temporarily.
+
+// export const PillFilterScrollView = styled.ScrollView.attrs(() => ({
+//   contentContainerStyle: {
+//     horizontal: "true",
+//     height: 28,
+//     alignItems: 'center',
+//     justifyContent: 'center'
+//   }
+// }))``;
+
+export const PillFilterScrollView = styled(RowView)`
+  width: 100%;
+  height: 28px;
+  padding: 8px 24px;
+  align-items: center;
+  justify-content: center;
+  border-bottom-width: 1px;
+  border-bottom-color: ${({ theme }) => theme.colors.gray[5]};
+`;
+
+export const PillFilterButtonContainer = styled.View`
+  position: absolute;
+  bottom: 0;
+  width: 106px;
+  z-index: 100;
+  padding: 16px 32px ${isiPhoneX ? 54 : 24}px;
+  background-color: ${({ theme }) => theme.colors.white[1]};
+`;
+
+interface PillFilterProp {
+  selected: boolean;
+}
+
+export const PillFilterButton = styled.TouchableOpacity<PillFilterProp>`
+  position: absolute;
+  left: 12px;
+  top: 3px;
+  display: flex;
+  /* margin-top: 79px; */
+  margin-left: 22px;
+  border-radius: 15px;
+  align-items: center;
+  justify-content: center;
+  shadow-opacity: 0.23;
+  shadow-radius: 2.62px;
+  shadow-offset: 0px 2px;
+  shadow-color: ${({ theme }) => theme.colors.gray[1]};
+  border: 2px solid ${({ theme, selected }) => (selected ? theme.colors.purple[1] : theme.colors.white[1])};
+  background-color: ${({ theme, selected }) => (selected ? theme.colors.purple[1] : theme.colors.white[1])};
+`;
+
+export const PillFilterButtonText = styled(TextSmall2)<PillFilterProp>`
+  color: ${({ theme, selected }) => (selected ? theme.colors.white[1] : theme.colors.purple[1])};
+`;

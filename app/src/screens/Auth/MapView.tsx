@@ -20,6 +20,10 @@ import {
   NoLocationPermissionsText,
   StoreMap,
   ToggleFocusButton,
+  PillFilterButton,
+  PillFilterButtonContainer,
+  PillFilterButtonText,
+  PillFilterScrollView,
 } from '&components';
 
 // Iconography
@@ -45,6 +49,15 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
 
   // Location Permissions
   const [locationPermission, setLocationPermission] = useState<boolean | undefined>();
+
+  // Pill Filter State
+  const [pillFilterState, setFilterState] = useState<boolean[]>([false, false, false]);
+
+  const togglePillFilter = (index: number) => {
+    const tempPillFilter = [...pillFilterState];
+    tempPillFilter[index] = !tempPillFilter[index];
+    setFilterState(tempPillFilter);
+  };
 
   // Check for complete profile
   const { data: authData } = useGetUserQuery();
@@ -163,6 +176,15 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
       >
         <MapArrowIcon />
       </ToggleFocusButton>
+      <PillFilterScrollView>
+        <PillFilterButton selected={pillFilterState[0]} onPress={() => togglePillFilter(0)}>
+          <PillFilterButtonText selected={pillFilterState[0]}>Department</PillFilterButtonText>
+        </PillFilterButton>
+
+        <PillFilterButton selected={pillFilterState[1]} onPress={() => togglePillFilter(1)}>
+          <PillFilterButtonText selected={pillFilterState[1]}>Convenience</PillFilterButtonText>
+        </PillFilterButton>
+      </PillFilterScrollView>
     </FullScreen>
   );
 };

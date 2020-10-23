@@ -1,6 +1,7 @@
 # @format
 
-fragment StoreItem on StoreItem {
+fragment StoreItemInfo on StoreItem {
+    barcodeId
     price
     quantity
     longName

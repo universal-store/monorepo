@@ -21,6 +21,7 @@ export const theme = {
       1: '#8560FF',
       2: '#906CFF',
       3: '#F4F1FF',
+      38: 'rgba(244, 241, 255, 0.8)',
     },
     red: '#FB3552',
     green: '#A6E995',

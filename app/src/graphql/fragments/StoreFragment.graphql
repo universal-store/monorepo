@@ -1,0 +1,11 @@
+fragment StoreInfo on Store {
+    id
+    name
+    address
+    category
+    googlePlacesId
+    StorePic {
+        size64
+        size128
+    }
+}

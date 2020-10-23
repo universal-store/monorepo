@@ -1,0 +1,5 @@
+mutation UpdateUserName($id: String!, $firstName: name, $lastName: name) {
+    update_User(where: { id: { _eq: $id } }, _set: { firstName: $firstName, lastName: $lastName }) {
+        affected_rows
+    }
+}

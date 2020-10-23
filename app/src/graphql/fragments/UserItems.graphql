@@ -1,0 +1,13 @@
+fragment UserCartItemInfo on UserCartItem {
+    id
+    StoreItem {
+        ...StoreItemInfo
+    }
+}
+
+fragment UserFavoriteItemInfo on UserFavoriteItem {
+    id
+    StoreItem {
+        ...StoreItemInfo
+    }
+}

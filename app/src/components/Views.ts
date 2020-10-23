@@ -20,16 +20,18 @@ export const FullScreen = styled.View`
   height: ${screenHeight}px;
 `;
 
-export const FullScreenCenter = styled(FullScreen)`
+export const FullScreenWhite = styled(FullScreen)`
+  padding-top: ${isiPhoneX ? 30 : 0}px;
+  background-color: ${({ theme }) => theme.colors.white[1]};
+`;
+
+export const FullScreenCenter = styled(FullScreenWhite)`
   align-items: center;
   justify-content: center;
 `;
 
-export const FullScreenWhite = styled(FullScreen)`
-  background-color: ${({ theme }) => theme.colors.white[1]};
-`;
-
 export const FullScreenLightPurple = styled(FullScreen)`
+  padding-top: ${isiPhoneX ? 30 : 0}px;
   background-color: ${({ theme }) => theme.colors.purple[3]};
 `;
 
@@ -50,10 +52,15 @@ export const KeyboardDismiss = styled.TouchableWithoutFeedback`
   flex: 1;
 `;
 
+export const CellItemSeparator = styled.View`
+  width: 100%;
+  height: 1px;
+  background-color: ${({ theme }) => theme.colors.gray[5]};
+`;
+
 // TODO: Remove in production
 export const TestButtons = styled.View`
   margin-top: auto;
-  margin-bottom: ${isiPhoneX ? 30 : 0}px;
 `;
 
 export const TestButton = styled.TouchableOpacity`

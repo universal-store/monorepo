@@ -1,4 +1,5 @@
 /** @format */
 
 export * from './Styled';
-export * from './HelloUser';
+
+export * from './FavoriteItemCell';

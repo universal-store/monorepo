@@ -1,6 +1,0 @@
-query SignIn($email: String!, $password: String!) {
-  User(where: {email: {_eq: $email}, password: {_eq: $password}}) {
-	...UserInfo
-  }
-}
-

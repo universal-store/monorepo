@@ -1,0 +1,9 @@
+query CheckItemInFavorites($barcodeId: String!) {
+    StoreItem_by_pk(barcodeId: $barcodeId) {
+        UserFavoriteItems(where: { StoreItem: { barcodeId: { _eq: $barcodeId } } }) {
+            StoreItem {
+                ...StoreItemInfo
+            }
+        }
+    }
+}

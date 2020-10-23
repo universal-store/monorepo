@@ -1,9 +1,5 @@
-query GetUserFavoriteItems($sessionId: String!, $barcodeId: String!) {
-    StoreItem_by_pk(barcodeId: $barcodeId) {
-        UserFavoriteItems(where: {User: {sessionId: {_eq: $sessionId}}, StoreItem: {barcodeId: {_eq: $barcodeId}}}) {
-            StoreItem {
-                ...StoreItem
-            }
-        }
-    }
+query GetUserFavoriteItems {
+  UserFavoriteItem {
+    ...UserFavoriteItemInfo
+  }
 }

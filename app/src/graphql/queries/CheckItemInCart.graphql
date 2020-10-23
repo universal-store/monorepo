@@ -1,0 +1,9 @@
+query CheckItemInCart($barcodeId: String!) {
+    StoreItem_by_pk(barcodeId: $barcodeId) {
+        UserCartItems(where: { StoreItem: { barcodeId: { _eq: $barcodeId } } }) {
+            StoreItem {
+                ...StoreItemInfo
+            }
+        }
+    }
+}

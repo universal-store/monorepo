@@ -1,62 +1,115 @@
 /** @format */
 
 import React from 'react';
+import { theme } from '&theme';
 
 // Screens
-import { CartScreen, FavoriteScreen, ItemDetail, MapViewScreen, ProfileScreen, ScanningScreen } from '&screens';
+import {
+  AddItemScreen,
+  CartScreen,
+  FavoriteScreen,
+  ItemDetail,
+  MapViewScreen,
+  ProfileScreen,
+  ScanningScreen,
+  UserInfoScreen,
+} from '&screens';
+
+// Tab Icons
+import {
+  CartScreenIcon,
+  FavoriteScreenIcon,
+  MapViewScreenIcon,
+  ProfileScreenIcon,
+  TabNavigationIconProps,
+} from '&icons';
 
 // Stack Navigators
-import { OnboardingStackNavigator } from './OnboardingStack';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { AnimatedTabBarNavigator } from 'react-native-animated-nav-tab-bar';
 
-export type RootAuthParams = {
+export type RootAuthTabParams = {
   MapView: { email: string; password: string };
   FavoritesScreen: undefined;
   CartScreen: undefined;
   ProfileScreen: undefined;
+  ItemDetail: { barcodeId: string; scanned?: boolean };
 };
 
-const RootAuth = createBottomTabNavigator();
+const RootAuthTab = AnimatedTabBarNavigator<RootAuthTabParams>();
 
 export const RootAuthTabNavigator = () => (
-  <RootAuth.Navigator initialRouteName="MapView">
-    <RootAuth.Screen name="MapView" component={MapViewScreen} />
-    <RootAuth.Screen name="FavoritesScreen" component={FavoriteScreen} />
-    {/*<RootAuth.Screen name="ScanningScreen" component={ScanningStackNavigator} />*/}
-    <RootAuth.Screen name="CartScreen" component={CartScreen} />
-    <RootAuth.Screen name="ProfileScreen" component={ProfileScreen} />
-  </RootAuth.Navigator>
-);
-
-export type ScanningStackParams = {
-  ScanningScreen: undefined;
-  ItemDetail: { barcodeId: string };
-};
-
-const ScanningStack = createStackNavigator<ScanningStackParams>();
-
-export const ScanningStackNavigator = () => (
-  <ScanningStack.Navigator
-    initialRouteName="ScanningScreen"
-    screenOptions={{ headerShown: false, gestureEnabled: false }}
+  <RootAuthTab.Navigator
+    initialRouteName="MapView"
+    appearence={{
+      shadow: true,
+      floating: true,
+      dotSize: 'small',
+    }}
+    tabBarOptions={{
+      showLabel: false,
+      activeBackgroundColor: theme.colors.purple[1],
+      labelStyle: { color: theme.colors.white[1], fontWeight: 'bold' },
+      tabStyle: {
+        elevation: 4,
+        shadowRadius: 2.62,
+        shadowOpacity: 0.23,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+      },
+    }}
   >
-    <ScanningStack.Screen name="ScanningScreen" component={ScanningScreen} />
-    <ScanningStack.Screen name="ItemDetail" component={ItemDetail} />
-  </ScanningStack.Navigator>
+    <RootAuthTab.Screen
+      name="MapView"
+      component={MapViewScreen}
+      options={{
+        title: 'Map',
+        tabBarIcon: ({ focused }: TabNavigationIconProps) => <MapViewScreenIcon focused={focused} />,
+      }}
+    />
+    <RootAuthTab.Screen
+      name="FavoritesScreen"
+      component={FavoriteScreen}
+      options={{
+        title: 'Saved',
+        tabBarIcon: ({ focused }: TabNavigationIconProps) => <FavoriteScreenIcon focused={focused} />,
+      }}
+    />
+    <RootAuthTab.Screen
+      name="CartScreen"
+      component={CartScreen}
+      options={{
+        title: 'Cart',
+        tabBarIcon: ({ focused }: TabNavigationIconProps) => <CartScreenIcon focused={focused} />,
+      }}
+    />
+    <RootAuthTab.Screen
+      name="ProfileScreen"
+      component={ProfileScreen}
+      options={{
+        title: 'Profile',
+        tabBarIcon: ({ focused }: TabNavigationIconProps) => <ProfileScreenIcon focused={focused} />,
+      }}
+    />
+  </RootAuthTab.Navigator>
 );
 
 export type AuthStackParams = {
-  RootAuthTabs: undefined;
-  OnboardingStack: undefined;
+  UserInfoScreen: undefined;
+  TabNavigation: { screen: string };
+  ScanningScreen: undefined;
+  ItemDetail: { barcodeId: string; scanned?: boolean };
+  AddItemScreen: { barcodeId: string };
 };
 
-const AuthStack = createStackNavigator<AuthStackParams>();
+export const AuthStack = createStackNavigator<AuthStackParams>();
 
-export const AuthStackNavigator = () => (
-  <AuthStack.Navigator initialRouteName="RootAuthTabs" screenOptions={{ headerShown: false, gestureEnabled: false }}>
-    <AuthStack.Screen name="RootAuthTabs" component={RootAuthTabNavigator} />
-
-    <AuthStack.Screen name="OnboardingStack" component={OnboardingStackNavigator} />
+export const AuthNavigator = () => (
+  <AuthStack.Navigator initialRouteName="TabNavigation" screenOptions={{ headerShown: false, gestureEnabled: false }}>
+    <AuthStack.Screen name="UserInfoScreen" component={UserInfoScreen} />
+    <AuthStack.Screen name="TabNavigation" component={RootAuthTabNavigator} />
+    <AuthStack.Screen name="ScanningScreen" component={ScanningScreen} />
+    <AuthStack.Screen name="ItemDetail" component={ItemDetail} />
+    <AuthStack.Screen name="AddItemScreen" component={AddItemScreen} options={{ gestureEnabled: true }} />
   </AuthStack.Navigator>
 );

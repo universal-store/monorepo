@@ -2,12 +2,20 @@
 
 // Navigation
 export * from './CloseIcon';
+export * from './CameraIcon';
 export * from './BackArrowIcon';
 
 // General Icons
 export * from './CartIcon';
+export * from './FindIcon';
+export * from './HeartIcon';
+export * from './SwipeIcons';
+export * from './TabNavigationIcons';
 
-// Onboarding Icons
+// Profile Screen
+export * from './CheckIcon';
+
+// Form Icons
 export * from './EmailIcon';
 export * from './PersonIcon';
 export * from './PasswordIcons';
@@ -16,5 +24,6 @@ export * from './PasswordIcons';
 export * from './FlashIcon';
 export * from './BarcodeIcon';
 
-// Item Details Page
-export * from './HeartIcon';
+// MapView
+export * from './MarkerIcon';
+export * from './MapArrowIcon';

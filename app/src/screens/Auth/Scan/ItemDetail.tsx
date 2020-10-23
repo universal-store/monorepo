@@ -1,7 +1,6 @@
 /** @format */
 
-import React, { useContext, useEffect, useState } from 'react';
-import { ActivityIndicator } from 'react-native';
+import React, { useEffect, useState } from 'react';
 
 // Libraries
 import BottomSheet from 'reanimated-bottom-sheet';
@@ -25,6 +24,7 @@ import {
   ItemPriceText,
   ItemSizeText,
   ItemSubDetailRow,
+  LoadingOverlay,
   ProductDetailsHeaderText,
   ProductDetailsScroll,
   ProductDetailsText,
@@ -34,19 +34,18 @@ import {
 // Iconography
 import { CartIcon, CloseIcon, HeartIconOff, HeartIconOn } from '&icons';
 
-// Context
-import { AuthContext } from '&stores';
-
 // Navigation
-import { AuthStackParams } from '&navigation';
+import { RootAuthTabParams } from '&navigation';
 import { StackScreenProps } from '@react-navigation/stack';
 
 // GraphQL
 import {
+  CheckItemInCartDocument,
+  CheckItemInFavoritesDocument,
   useGetUserQuery,
   useGetStoreItemQuery,
-  useGetUserCartItemsQuery,
-  useGetUserFavoriteItemsQuery,
+  useCheckItemInCartQuery,
+  useCheckItemInFavoritesQuery,
   useAddUserCartItemMutation,
   useRemoveUserCartItemMutation,
   useAddUserFavoriteItemMutation,
@@ -56,28 +55,26 @@ import {
 } from '&graphql';
 
 // Constants
-const largeModalHeight = screenHeight - (isiPhoneX ? 122 : 92);
+const largeModalHeight = screenHeight - (isiPhoneX ? 92 : 62);
 const smallModalHeight = screenHeight - (isiPhoneX ? 402 : 372);
 
 const smallDescriptionLines = isiPhoneX ? 8 : 1;
 
-type ItemDetailProps = StackScreenProps<AuthStackParams, 'ItemDetail'>;
+type ItemDetailProps = StackScreenProps<RootAuthTabParams, 'ItemDetail'>;
 
 export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
-  const { barcodeId } = route.params;
-  const authContext = useContext(AuthContext);
-  const sessionId = authContext?.token!;
+  const { barcodeId, scanned } = route.params;
 
   const [modalExpand, setModalExpand] = useState<boolean>(false);
+
+  const { data: userData } = useGetUserQuery();
+  const userId = userData?.User[0].id!;
 
   const { data, loading } = useGetStoreItemQuery({ variables: { barcodeId } });
   const itemData = data?.StoreItem_by_pk;
 
-  const { data: userData } = useGetUserQuery({ variables: { sessionId } });
-  const userId = userData?.User[0].id;
-
-  const { data: userCart } = useGetUserCartItemsQuery({ variables: { barcodeId, sessionId } });
-  const { data: userFavorites } = useGetUserFavoriteItemsQuery({ variables: { barcodeId, sessionId } });
+  const { data: userCart } = useCheckItemInCartQuery({ variables: { barcodeId } });
+  const { data: userFavorites } = useCheckItemInFavoritesQuery({ variables: { barcodeId } });
 
   const [inCart, setInCart] = useState<boolean>(userCart?.StoreItem_by_pk?.UserCartItems.length !== 0);
   const [favorite, setFavorite] = useState<boolean>(userFavorites?.StoreItem_by_pk?.UserFavoriteItems.length !== 0);
@@ -86,13 +83,13 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
     if (userCart) {
       setInCart(userCart.StoreItem_by_pk?.UserCartItems.length !== 0);
     }
-  }, [userCart]);
+  }, [inCart, userCart]);
 
   useEffect(() => {
     if (userFavorites) {
       setFavorite(userFavorites.StoreItem_by_pk?.UserFavoriteItems.length !== 0);
     }
-  }, [favorite]);
+  }, [favorite, userFavorites]);
 
   // Mutations
   const [addToCartMutation] = useAddUserCartItemMutation();
@@ -139,12 +136,18 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
     if (favorite) {
       void removeFromFavoritesMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: () => [{ query: GetUserFavoriteItemsDocument, variables: { barcodeId, sessionId } }],
+        refetchQueries: [
+          { query: GetUserFavoriteItemsDocument },
+          { query: CheckItemInFavoritesDocument, variables: { barcodeId } },
+        ],
       });
     } else {
       void addToFavoritesMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: () => [{ query: GetUserFavoriteItemsDocument, variables: { barcodeId, sessionId } }],
+        refetchQueries: [
+          { query: GetUserFavoriteItemsDocument },
+          { query: CheckItemInFavoritesDocument, variables: { barcodeId } },
+        ],
       });
     }
   };
@@ -153,31 +156,37 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
     if (inCart) {
       void removeFromCartMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: () => [{ query: GetUserCartItemsDocument, variables: { barcodeId, sessionId } }],
+        refetchQueries: [
+          { query: GetUserCartItemsDocument },
+          { query: CheckItemInCartDocument, variables: { barcodeId } },
+        ],
       });
     } else {
       void addToCartMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: () => [{ query: GetUserCartItemsDocument, variables: { barcodeId, sessionId } }],
+        refetchQueries: [
+          { query: GetUserCartItemsDocument },
+          { query: CheckItemInCartDocument, variables: { barcodeId } },
+        ],
       });
     }
   };
 
   return (
     <FullScreenLightPurple>
+      {loading && <LoadingOverlay />}
+
       <ItemDetailHeaderRow>
         <ItemDetailHeaderButton onPress={() => navigation.goBack()}>
           <CloseIcon />
         </ItemDetailHeaderButton>
 
-        <ItemDetailHeaderButton>
+        <ItemDetailHeaderButton onPress={() => navigation.navigate('CartScreen')}>
           <CartIcon />
         </ItemDetailHeaderButton>
       </ItemDetailHeaderRow>
 
       <ItemDetailImageContainer>
-        {loading && <ActivityIndicator />}
-
         {itemData && itemData.StoreItemPic && (
           <ItemDetailImage
             source={{
@@ -200,7 +209,7 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
         />
       )}
 
-      {itemData && (
+      {itemData && scanned && (
         <AddCartButtonContainer>
           <AddCartButton added={inCart} onPress={addOrRemoveFromCart}>
             <AddCartButtonText added={inCart}>{inCart ? 'Added!' : 'Add to Cart'}</AddCartButtonText>

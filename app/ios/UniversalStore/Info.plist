@@ -40,7 +40,9 @@
 	<key>NSCameraUsageDescription</key>
 	<string/>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string>Universal Store needs permission to access your location</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+  <string>Universal Store needs permission to access your location</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string/>
 	<key>UIAppFonts</key>

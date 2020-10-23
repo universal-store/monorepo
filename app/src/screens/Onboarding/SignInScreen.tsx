@@ -1,12 +1,15 @@
 /** @format */
 
 import React, { useState } from 'react';
-import { Keyboard, View as OnboardingFormContainer } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
 // Components
+import { Alert, Keyboard, View as OnboardingFormContainer } from 'react-native';
+
 import {
   HeaderLargeText as OnboardingHeaderTitleText,
   KeyboardDismiss,
+  LoadingOverlay,
   LogoContainer,
   OnboardingButton,
   OnboardingButtonText,
@@ -36,6 +39,9 @@ import { EmailIcon, LockIcon, VisibleIcon } from '&icons';
 import { OnboardingStackParams } from '&navigation';
 import { StackScreenProps } from '@react-navigation/stack';
 
+// Firebase Authentication
+import { Firebase } from '&lib';
+
 // Utils
 import { emailRegex, validInput } from '&utils';
 
@@ -52,6 +58,9 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
 
   // Determines if text in password input is visible or not
   const [secureTextEntry, setSecureTextEntry] = useState<boolean>(true);
+
+  // Loading Indicator
+  const [loading, setLoading] = useState<boolean>(false);
 
   const validateSignIn = () => {
     let validInput = true;
@@ -71,11 +80,37 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
     }
 
     if (validInput) {
-      // @ts-ignore
-      navigation.navigate('AuthStack', {
-        screen: 'LandingScreen',
-        params: { email: userEmail.toLowerCase(), password: userPassword },
-      });
+      setLoading(true);
+
+      Firebase.auth()
+        .signInWithEmailAndPassword(userEmail.toLowerCase(), userPassword)
+        .then(async userCredentials => {
+          if (userCredentials.user) {
+            const newToken = await userCredentials.user.getIdToken();
+            await AsyncStorage.setItem('userToken', newToken);
+          }
+        })
+        .catch(error => {
+          if (error.code === 'auth/wrong-password') {
+            Alert.alert('Wrong Password!', `That password does not match the account associated with that email`, [
+              { text: 'Okay' },
+            ]);
+          } else if (error.code === 'auth/invalid-email') {
+            Alert.alert('Invalid Email!', `That email address is invalid`, [{ text: 'Okay' }]);
+          } else if (error.code === 'auth/user-not-found') {
+            Alert.alert('Invalid Credentials!', `That email is not associated with any accounts`, [{ text: 'Okay' }]);
+          } else if (error.code === 'auth/too-many-requests') {
+            Alert.alert(
+              'Access to your account has been temporarily suspended due to many failed login attempts!',
+              `Click "Forgot Password" to reset your password or try again later.`,
+              [{ text: 'Okay' }]
+            );
+          } else {
+            console.log(error);
+          }
+        });
+
+      setLoading(false);
     }
   };
 
@@ -157,6 +192,8 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
             <OnboardingButtonText>Log In</OnboardingButtonText>
           </OnboardingButton>
         </OnboardingScroll>
+
+        {loading && <LoadingOverlay />}
       </OnboardingMainContainer>
     </KeyboardDismiss>
   );

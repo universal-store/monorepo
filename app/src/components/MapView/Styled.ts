@@ -10,6 +10,36 @@ import { HeaderLargeText } from '../Text';
 import { FullScreenCenter, RowView, screenWidth } from '../Views';
 
 // Styled Components
+export const FindIconContainer = styled.View`
+  width: 16px;
+  height: 16px;
+  margin-left: 16px;
+  margin-right: 12px;
+`;
+
+export const MapHeaderContainer = styled(RowView)`
+  margin: 24px 24px 0px 24px;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 40px;
+  height: 34px;
+  width: 100%;
+`;
+
+export const MapHeaderInputContainer = styled(RowView)`
+  margin-bottom: 8px;
+  align-items: center;
+`;
+
+export const MapHeaderTextInput = styled.TextInput.attrs(({ theme }) => ({
+  selectionColor: theme.colors.gray[3],
+  placeholderTextColor: theme.colors.gray[4],
+}))`
+  padding-top: 8px;
+  padding-right: 16px;
+  font-family: NunitoSansRegular;
+`;
+
 export const NoLocationPermissionsScreen = styled(FullScreenCenter)`
   background-color: ${({ theme }) => theme.colors.gray[1]};
 `;

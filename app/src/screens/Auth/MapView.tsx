@@ -14,7 +14,11 @@ import {
   CameraIconContainer,
   CameraSettingsButton,
   CameraSettingsText,
+  FindIconContainer,
   FullScreen,
+  MapHeaderContainer,
+  MapHeaderInputContainer,
+  MapHeaderTextInput,
   MapStyle,
   NoLocationPermissionsScreen,
   NoLocationPermissionsText,
@@ -23,7 +27,7 @@ import {
 } from '&components';
 
 // Iconography
-import { CameraIcon, MapArrowIcon } from '&icons';
+import { CameraIcon, FindIcon, MapArrowIcon } from '&icons';
 
 // Navigation
 import { AuthStackParams } from '&navigation';
@@ -121,6 +125,14 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
 
   return (
     <FullScreen>
+      <MapHeaderContainer>
+        <FindIconContainer>
+          <FindIcon />
+        </FindIconContainer>
+        <MapHeaderInputContainer>
+          <MapHeaderTextInput placeholder="Search for store" />
+        </MapHeaderInputContainer>
+      </MapHeaderContainer>
       <StoreMap
         ref={mapRef}
         loadingEnabled

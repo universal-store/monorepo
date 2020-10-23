@@ -10,20 +10,19 @@ import { HeaderLargeText } from '../Text';
 import { FullScreenCenter, RowView, screenWidth } from '../Views';
 
 // Styled Components
-export const FindIconContainer = styled.View`
-  width: 16px;
-  height: 16px;
-  margin-left: 16px;
-  margin-right: 12px;
-`;
-
 export const MapHeaderContainer = styled(RowView)`
   margin: 24px 24px 0px 24px;
   align-items: center;
   background: #ffffff;
   border-radius: 40px;
   height: 34px;
-  width: 100%;
+`;
+
+export const FindIconContainer = styled.View`
+  width: 16px;
+  height: 16px;
+  margin-left: 16px;
+  margin-right: 12px;
 `;
 
 export const MapHeaderInputContainer = styled(RowView)`
@@ -35,8 +34,7 @@ export const MapHeaderTextInput = styled.TextInput.attrs(({ theme }) => ({
   placeholderTextColor: theme.colors.gray[4],
 }))`
   flex: 1;
-  padding-top: 8px;
-  padding-right: 16px;
+  padding: 8px 16px 8px 0px;
   font-family: NunitoSansRegular;
 `;
 

@@ -172,7 +172,7 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
         }}
       >
         <MapMarkerText>Publix</MapMarkerText>
-        <MarkerIcon></MarkerIcon>
+        <MarkerIcon />
       </Marker>
     </FullScreen>
   );

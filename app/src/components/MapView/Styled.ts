@@ -6,7 +6,7 @@ import styled from 'styled-components/native';
 import MapView, { MapStyleElement } from 'react-native-maps';
 
 // Components
-import { HeaderLargeText } from '../Text';
+import { HeaderLargeText, HeaderSmallText } from '../Text';
 import { FullScreenCenter, RowView, screenWidth } from '../Views';
 
 // Styled Components
@@ -17,6 +17,11 @@ export const NoLocationPermissionsScreen = styled(FullScreenCenter)`
 export const NoLocationPermissionsText = styled(HeaderLargeText)`
   text-align: center;
   color: ${({ theme }) => theme.colors.white[1]};
+`;
+
+export const MapMarkerText = styled(HeaderSmallText)`
+  text-align: center;
+  color: ${({ theme }) => theme.colors.gray[2]};
 `;
 
 export const StoreMap = styled(MapView)`

@@ -27,7 +27,6 @@ export const MapHeaderContainer = styled(RowView)`
 `;
 
 export const MapHeaderInputContainer = styled(RowView)`
-  margin-bottom: 8px;
   align-items: center;
 `;
 
@@ -35,6 +34,7 @@ export const MapHeaderTextInput = styled.TextInput.attrs(({ theme }) => ({
   selectionColor: theme.colors.gray[3],
   placeholderTextColor: theme.colors.gray[4],
 }))`
+  flex: 1;
   padding-top: 8px;
   padding-right: 16px;
   font-family: NunitoSansRegular;

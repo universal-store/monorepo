@@ -4,7 +4,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { theme } from '&theme';
 
 // Libraries
-import { Linking, Platform } from 'react-native';
+import { FlatList, Linking, Platform } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 import { request, PERMISSIONS } from 'react-native-permissions';
 import MapView, { EventUserLocation, PROVIDER_GOOGLE, Region, Marker } from 'react-native-maps';
@@ -12,7 +12,6 @@ import MapView, { EventUserLocation, PROVIDER_GOOGLE, Region, Marker } from 'rea
 // Components
 import {
   CameraIconContainer,
-  MapMarkerContainer,
   CameraSettingsButton,
   CameraSettingsText,
   MapMarkerText,
@@ -22,10 +21,11 @@ import {
   NoLocationPermissionsText,
   StoreMap,
   ToggleFocusButton,
-  PillFilterButton,
-  PillFilterButtonContainer,
-  PillFilterButtonText,
-  PillFilterScrollView,
+  MapViewStoreCategoryButton,
+  MapViewStoreCategoryButtonText,
+  MapViewStoreCategoryContainer,
+  MapViewStoreCategoryListPadding,
+  MapViewStoreCategoryPadding,
 } from '&components';
 
 // Iconography
@@ -38,6 +38,9 @@ import { StackScreenProps } from '@react-navigation/stack';
 
 // GraphQL
 import { useGetUserQuery } from '&graphql';
+
+// Store Categories
+const STORE_CATEGORIES = ['Department', 'Convenience', 'Electronic', 'Pharamacy', 'Supermarket'];
 
 type MapViewScreenProps = StackScreenProps<AuthStackParams, 'TabNavigation'>;
 
@@ -55,14 +58,9 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
   // Pill Filter State
   const [pillFilterState, setFilterState] = useState<boolean[]>([false, false, false]);
 
-  const togglePillFilter = (index: number) => {
-    const tempPillFilter = [...pillFilterState];
-    tempPillFilter[index] = !tempPillFilter[index];
-    setFilterState(tempPillFilter);
-  };
-
   // Check for complete profile
   const { data: authData } = useGetUserQuery();
+
   useEffect(() => {
     if (authData && authData.User.length && !authData.User[0].firstName) navigation.navigate('UserInfoScreen');
   }, [authData]);
@@ -92,6 +90,12 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
       setFocusedUserLocation(true);
     }, [])
   );
+
+  const togglePillFilter = (index: number) => {
+    const tempPillFilter = [...pillFilterState];
+    tempPillFilter[index] = !tempPillFilter[index];
+    setFilterState(tempPillFilter);
+  };
 
   const locateCurrentPosition = (userLocation?: EventUserLocation) => {
     if (userLocation) {
@@ -136,8 +140,31 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
 
   return (
     <FullScreen>
+      <MapViewStoreCategoryContainer>
+        <FlatList
+          horizontal
+          data={STORE_CATEGORIES}
+          keyExtractor={item => item + '_pill'}
+          ItemSeparatorComponent={() => <MapViewStoreCategoryPadding />}
+          ListHeaderComponent={() => <MapViewStoreCategoryListPadding />}
+          ListFooterComponent={() => <MapViewStoreCategoryListPadding />}
+          renderItem={({ item, index }) => (
+            <MapViewStoreCategoryButton selected={pillFilterState[index]} onPress={() => togglePillFilter(index)}>
+              <MapViewStoreCategoryButtonText selected={pillFilterState[index]}>{item}</MapViewStoreCategoryButtonText>
+            </MapViewStoreCategoryButton>
+          )}
+          showsHorizontalScrollIndicator={false}
+        />
+      </MapViewStoreCategoryContainer>
+
       <StoreMap
         ref={mapRef}
+        mapPadding={{
+          top: 0,
+          left: 15,
+          right: 0,
+          bottom: 65,
+        }}
         loadingEnabled
         minZoomLevel={17}
         maxZoomLevel={20}
@@ -152,13 +179,19 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
         onRegionChange={() => {
           if (focusedUserLocation) setFocusedUserLocation(false);
         }}
-        mapPadding={{
-          top: 0,
-          left: 15,
-          right: 0,
-          bottom: 65,
-        }}
-      />
+      >
+        {currentPosition && (
+          <Marker
+            coordinate={{
+              latitude: currentPosition.latitude,
+              longitude: currentPosition.longitude,
+            }}
+          >
+            <MapMarkerText>Publix</MapMarkerText>
+            <MarkerIcon />
+          </Marker>
+        )}
+      </StoreMap>
 
       {storeSelected && (
         <CameraIconContainer style={{ elevation: 4 }} onPress={() => navigation.navigate('ScanningScreen')}>
@@ -178,26 +211,6 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
       >
         <MapArrowIcon />
       </ToggleFocusButton>
-
-      <PillFilterScrollView>
-        <PillFilterButton selected={pillFilterState[0]} onPress={() => togglePillFilter(0)}>
-          <PillFilterButtonText selected={pillFilterState[0]}>Department</PillFilterButtonText>
-        </PillFilterButton>
-
-        <PillFilterButton selected={pillFilterState[1]} onPress={() => togglePillFilter(1)}>
-          <PillFilterButtonText selected={pillFilterState[1]}>Convenience</PillFilterButtonText>
-        </PillFilterButton>
-      </PillFilterScrollView>
-
-      <Marker
-        coordinate={{
-          latitude: 37.8,
-          longitude: -233,
-        }}
-      >
-        <MapMarkerText>Publix</MapMarkerText>
-        <MarkerIcon />
-      </Marker>
     </FullScreen>
   );
 };

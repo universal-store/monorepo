@@ -7,13 +7,15 @@ import { theme } from '&theme';
 import { Linking, Platform } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 import { request, PERMISSIONS } from 'react-native-permissions';
-import MapView, { EventUserLocation, PROVIDER_GOOGLE, Region } from 'react-native-maps';
+import MapView, { EventUserLocation, PROVIDER_GOOGLE, Region, Marker } from 'react-native-maps';
 
 // Components
 import {
   CameraIconContainer,
+  MapMarkerContainer,
   CameraSettingsButton,
   CameraSettingsText,
+  MapMarkerText,
   FullScreen,
   MapStyle,
   NoLocationPermissionsScreen,
@@ -27,7 +29,7 @@ import {
 } from '&components';
 
 // Iconography
-import { CameraIcon, MapArrowIcon } from '&icons';
+import { CameraIcon, MapArrowIcon, MarkerIcon } from '&icons';
 
 // Navigation
 import { AuthStackParams } from '&navigation';
@@ -176,6 +178,7 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
       >
         <MapArrowIcon />
       </ToggleFocusButton>
+
       <PillFilterScrollView>
         <PillFilterButton selected={pillFilterState[0]} onPress={() => togglePillFilter(0)}>
           <PillFilterButtonText selected={pillFilterState[0]}>Department</PillFilterButtonText>
@@ -185,6 +188,16 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
           <PillFilterButtonText selected={pillFilterState[1]}>Convenience</PillFilterButtonText>
         </PillFilterButton>
       </PillFilterScrollView>
+
+      <Marker
+        coordinate={{
+          latitude: 37.8,
+          longitude: -233,
+        }}
+      >
+        <MapMarkerText>Publix</MapMarkerText>
+        <MarkerIcon />
+      </Marker>
     </FullScreen>
   );
 };

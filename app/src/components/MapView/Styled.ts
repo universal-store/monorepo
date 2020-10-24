@@ -6,7 +6,7 @@ import styled from 'styled-components/native';
 import MapView, { MapStyleElement } from 'react-native-maps';
 
 // Components
-import { HeaderLargeText, TextSmall2 } from '../Text';
+import { HeaderLargeText, HeaderSmallText, TextSmall2 } from '../Text';
 import { FullScreenCenter, RowView, screenWidth, isiPhoneX } from '../Views';
 
 // Styled Components
@@ -17,6 +17,11 @@ export const NoLocationPermissionsScreen = styled(FullScreenCenter)`
 export const NoLocationPermissionsText = styled(HeaderLargeText)`
   text-align: center;
   color: ${({ theme }) => theme.colors.white[1]};
+`;
+
+export const MapMarkerText = styled(HeaderSmallText)`
+  text-align: center;
+  color: ${({ theme }) => theme.colors.gray[2]};
 `;
 
 export const StoreMap = styled(MapView)`
@@ -200,7 +205,6 @@ export const PillFilterButton = styled.TouchableOpacity<PillFilterProp>`
   left: 12px;
   top: 3px;
   display: flex;
-  /* margin-top: 79px; */
   margin-left: 22px;
   border-radius: 15px;
   align-items: center;

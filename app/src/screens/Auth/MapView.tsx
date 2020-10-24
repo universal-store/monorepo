@@ -14,11 +14,7 @@ import {
   CameraIconContainer,
   CameraSettingsButton,
   CameraSettingsText,
-  FindIconContainer,
   FullScreen,
-  MapHeaderContainer,
-  MapHeaderInputContainer,
-  MapHeaderTextInput,
   MapMarkerText,
   MapStyle,
   MapViewStoreCategoryButton,
@@ -26,6 +22,9 @@ import {
   MapViewStoreCategoryContainer,
   MapViewStoreCategoryListPadding,
   MapViewStoreCategoryPadding,
+  MapViewTextInput,
+  MapViewTextInputContainer,
+  MapViewTextInputIconContainer,
   NoLocationPermissionsScreen,
   NoLocationPermissionsText,
   StoreMap,
@@ -53,14 +52,13 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
 
   const [currentPosition, setCurrentPosition] = useState<Region>();
   // Map State
+  const [storeQuery, setStoreQuery] = useState<string>('');
   const [storeSelected, setStoreSelected] = useState<boolean>(true);
   const [focusedUserLocation, setFocusedUserLocation] = useState<boolean>(true);
+  const [categoryFilter, setCategoryFilter] = useState<boolean[]>([false, false, false, false, false]);
 
   // Location Permissions
   const [locationPermission, setLocationPermission] = useState<boolean | undefined>();
-
-  // Pill Filter State
-  const [pillFilterState, setFilterState] = useState<boolean[]>([false, false, false]);
 
   // Check for complete profile
   const { data: authData } = useGetUserQuery();
@@ -96,9 +94,9 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
   );
 
   const togglePillFilter = (index: number) => {
-    const tempPillFilter = [...pillFilterState];
-    tempPillFilter[index] = !tempPillFilter[index];
-    setFilterState(tempPillFilter);
+    const tempCategoryFilter = [...categoryFilter];
+    tempCategoryFilter[index] = !tempCategoryFilter[index];
+    setCategoryFilter(tempCategoryFilter);
   };
 
   const locateCurrentPosition = (userLocation?: EventUserLocation) => {
@@ -144,14 +142,17 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
 
   return (
     <FullScreen>
-      <MapHeaderContainer>
-        <FindIconContainer>
+      <MapViewTextInputContainer>
+        <MapViewTextInputIconContainer>
           <FindIcon />
-        </FindIconContainer>
-        <MapHeaderInputContainer>
-          <MapHeaderTextInput placeholder="Search for store" />
-        </MapHeaderInputContainer>
-      </MapHeaderContainer>
+        </MapViewTextInputIconContainer>
+        <MapViewTextInput
+          value={storeQuery}
+          editable={!storeSelected}
+          onChangeText={setStoreQuery}
+          placeholder="Search for store"
+        />
+      </MapViewTextInputContainer>
 
       <MapViewStoreCategoryContainer>
         <FlatList
@@ -162,8 +163,8 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
           ListHeaderComponent={() => <MapViewStoreCategoryListPadding />}
           ListFooterComponent={() => <MapViewStoreCategoryListPadding />}
           renderItem={({ item, index }) => (
-            <MapViewStoreCategoryButton selected={pillFilterState[index]} onPress={() => togglePillFilter(index)}>
-              <MapViewStoreCategoryButtonText selected={pillFilterState[index]}>{item}</MapViewStoreCategoryButtonText>
+            <MapViewStoreCategoryButton selected={categoryFilter[index]} onPress={() => togglePillFilter(index)}>
+              <MapViewStoreCategoryButtonText selected={categoryFilter[index]}>{item}</MapViewStoreCategoryButtonText>
             </MapViewStoreCategoryButton>
           )}
           showsHorizontalScrollIndicator={false}

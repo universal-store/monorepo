@@ -6,38 +6,10 @@ import styled from 'styled-components/native';
 import MapView, { MapStyleElement } from 'react-native-maps';
 
 // Components
-import { FullScreenCenter, screenWidth, isiPhoneX } from '../Views';
 import { HeaderLargeText, HeaderSmallText, TextMedium2 } from '../Text';
+import { FullScreenCenter, isiPhoneX, RowView, screenWidth } from '../Views';
 
 // Styled Components
-export const MapHeaderContainer = styled(RowView)`
-  margin: 24px 24px 0px 24px;
-  align-items: center;
-  background: #ffffff;
-  border-radius: 40px;
-  height: 34px;
-`;
-
-export const FindIconContainer = styled.View`
-  width: 16px;
-  height: 16px;
-  margin-left: 16px;
-  margin-right: 12px;
-`;
-
-export const MapHeaderInputContainer = styled(RowView)`
-  align-items: center;
-`;
-
-export const MapHeaderTextInput = styled.TextInput.attrs(({ theme }) => ({
-  selectionColor: theme.colors.gray[3],
-  placeholderTextColor: theme.colors.gray[4],
-}))`
-  flex: 1;
-  padding: 8px 16px 8px 0px;
-  font-family: NunitoSansRegular;
-`;
-
 export const NoLocationPermissionsScreen = styled(FullScreenCenter)`
   background-color: ${({ theme }) => theme.colors.gray[1]};
 `;
@@ -47,53 +19,50 @@ export const NoLocationPermissionsText = styled(HeaderLargeText)`
   color: ${({ theme }) => theme.colors.white[1]};
 `;
 
+export const StoreMap = styled(MapView)`
+  flex: 1;
+`;
+
 export const MapMarkerText = styled(HeaderSmallText)`
   text-align: center;
   color: ${({ theme }) => theme.colors.gray[2]};
 `;
 
-export const StoreMap = styled(MapView)`
+export const MapViewTextInputContainer = styled(RowView)`
+  position: absolute;
   flex: 1;
-`;
-
-export const CameraIconContainer = styled.TouchableOpacity`
-  position: absolute;
-  width: 64px;
-  height: 64px;
-  bottom: 108px;
+  left: 24px;
+  z-index: 1;
   display: flex;
-  margin: 0 auto;
-  border-radius: 64px;
+  padding: 8px 16px;
   align-items: center;
+  border-radius: 40px;
+  margin-bottom: 24px;
   shadow-opacity: 0.23;
   shadow-radius: 2.62px;
   shadow-offset: 0px 2px;
-  justify-content: center;
-  left: ${screenWidth / 2 - 32}px;
+  width: ${screenWidth - 48}px;
+  top: ${isiPhoneX ? 54 : 24}px;
+  background: ${({ theme }) => theme.colors.white[1]};
   shadow-color: ${({ theme }) => theme.colors.gray[1]};
-  background-color: ${({ theme }) => theme.colors.purple[1]};
 `;
 
-interface ToggleFocusButtonProps {
-  focused: boolean;
-}
-
-export const ToggleFocusButton = styled.TouchableOpacity<ToggleFocusButtonProps>`
-  position: absolute;
-  right: 24px;
-  width: 48px;
-  height: 48px;
+export const MapViewTextInputIconContainer = styled.View`
+  width: 16px;
+  height: 16px;
   display: flex;
-  bottom: 114px;
-  margin-left: auto;
-  border-radius: 64px;
+  margin-right: 12px;
   align-items: center;
-  shadow-opacity: 0.23;
-  shadow-radius: 2.62px;
-  shadow-offset: 0px 2px;
   justify-content: center;
-  shadow-color: ${({ theme }) => theme.colors.gray[1]};
-  background-color: ${({ theme, focused }) => (focused ? theme.colors.purple[1] : theme.colors.gray[1])};
+`;
+
+export const MapViewTextInput = styled.TextInput.attrs(({ theme }) => ({
+  selectionColor: theme.colors.gray[3],
+  placeholderTextColor: theme.colors.gray[4],
+}))`
+  font-size: 15px;
+  font-family: NunitoSans-Regular;
+  color: ${({ theme }) => theme.colors.gray[1]};
 `;
 
 export const MapViewStoreCategoryContainer = styled.View`
@@ -135,6 +104,46 @@ export const MapViewStoreCategoryButton = styled.TouchableHighlight<MapViewStore
 
 export const MapViewStoreCategoryButtonText = styled(TextMedium2)<MapViewStoreCategoryProp>`
   color: ${({ theme, selected }) => (selected ? theme.colors.white[1] : theme.colors.purple[1])};
+`;
+
+export const CameraIconContainer = styled.TouchableOpacity`
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  bottom: 108px;
+  display: flex;
+  margin: 0 auto;
+  border-radius: 64px;
+  align-items: center;
+  shadow-opacity: 0.23;
+  shadow-radius: 2.62px;
+  shadow-offset: 0px 2px;
+  justify-content: center;
+  left: ${screenWidth / 2 - 32}px;
+  shadow-color: ${({ theme }) => theme.colors.gray[1]};
+  background-color: ${({ theme }) => theme.colors.purple[1]};
+`;
+
+interface ToggleFocusButtonProps {
+  focused: boolean;
+}
+
+export const ToggleFocusButton = styled.TouchableOpacity<ToggleFocusButtonProps>`
+  position: absolute;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  bottom: 114px;
+  margin-left: auto;
+  border-radius: 64px;
+  align-items: center;
+  shadow-opacity: 0.23;
+  shadow-radius: 2.62px;
+  shadow-offset: 0px 2px;
+  justify-content: center;
+  shadow-color: ${({ theme }) => theme.colors.gray[1]};
+  background-color: ${({ theme, focused }) => (focused ? theme.colors.purple[1] : theme.colors.gray[1])};
 `;
 
 // ----------------------------------- Map Styling -----------------------------------

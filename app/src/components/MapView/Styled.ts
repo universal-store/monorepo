@@ -6,8 +6,8 @@ import styled from 'styled-components/native';
 import MapView, { MapStyleElement } from 'react-native-maps';
 
 // Components
-import { HeaderLargeText } from '../Text';
-import { FullScreenCenter, RowView, screenWidth } from '../Views';
+import { FullScreenCenter, screenWidth, isiPhoneX } from '../Views';
+import { HeaderLargeText, HeaderSmallText, TextMedium2 } from '../Text';
 
 // Styled Components
 export const MapHeaderContainer = styled(RowView)`
@@ -45,6 +45,11 @@ export const NoLocationPermissionsScreen = styled(FullScreenCenter)`
 export const NoLocationPermissionsText = styled(HeaderLargeText)`
   text-align: center;
   color: ${({ theme }) => theme.colors.white[1]};
+`;
+
+export const MapMarkerText = styled(HeaderSmallText)`
+  text-align: center;
+  color: ${({ theme }) => theme.colors.gray[2]};
 `;
 
 export const StoreMap = styled(MapView)`
@@ -90,6 +95,49 @@ export const ToggleFocusButton = styled.TouchableOpacity<ToggleFocusButtonProps>
   shadow-color: ${({ theme }) => theme.colors.gray[1]};
   background-color: ${({ theme, focused }) => (focused ? theme.colors.purple[1] : theme.colors.gray[1])};
 `;
+
+export const MapViewStoreCategoryContainer = styled.View`
+  position: absolute;
+  flex: 1;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  top: ${isiPhoneX ? 94 : 64}px;
+`;
+
+export const MapViewStoreCategoryPadding = styled.View`
+  width: 10px;
+`;
+
+export const MapViewStoreCategoryListPadding = styled.View`
+  width: 24px;
+`;
+
+interface MapViewStoreCategoryProp {
+  selected: boolean;
+}
+
+export const MapViewStoreCategoryButton = styled.TouchableHighlight<MapViewStoreCategoryProp>`
+  width: auto;
+  height: 28px;
+  display: flex;
+  padding: 0 12px;
+  margin: 10px 0;
+  border-radius: 15px;
+  align-items: center;
+  shadow-opacity: 0.23;
+  shadow-radius: 2.62px;
+  shadow-offset: 0px 2px;
+  justify-content: center;
+  shadow-color: ${({ theme }) => theme.colors.gray[1]};
+  background-color: ${({ theme, selected }) => (selected ? theme.colors.purple[1] : theme.colors.purple[3])};
+`;
+
+export const MapViewStoreCategoryButtonText = styled(TextMedium2)<MapViewStoreCategoryProp>`
+  color: ${({ theme, selected }) => (selected ? theme.colors.white[1] : theme.colors.purple[1])};
+`;
+
+// ----------------------------------- Map Styling -----------------------------------
 
 export const MapStyle: MapStyleElement[] = [
   {

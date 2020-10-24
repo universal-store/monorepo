@@ -1,0 +1,5 @@
+query GetStoreInfo($id: uuid!) {
+    Store_by_pk(id: $id) {
+        ...StoreInfo
+    }
+}

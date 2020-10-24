@@ -3,7 +3,7 @@
 import styled from 'styled-components/native';
 
 // Library
-import MapView, { MapStyleElement } from 'react-native-maps';
+import MapView, { MapStyleElement, Marker } from 'react-native-maps';
 
 // Components
 import { HeaderLargeText, HeaderSmallText, TextMedium2 } from '../Text';
@@ -23,7 +23,12 @@ export const StoreMap = styled(MapView)`
   flex: 1;
 `;
 
-export const MapMarkerText = styled(HeaderSmallText)`
+export const MapViewMarker = styled(Marker)`
+  display: flex;
+  align-items: center;
+`;
+
+export const MapViewMarkerText = styled(HeaderSmallText)`
   text-align: center;
   color: ${({ theme }) => theme.colors.gray[2]};
 `;

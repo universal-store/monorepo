@@ -1,9 +1,16 @@
+fragment MarkerInfo on Store {
+    id
+    name
+    location
+}
+
+
 fragment StoreInfo on Store {
     id
     name
     address
     category
-    googlePlacesId
+    location
     StorePic {
         size64
         size128

@@ -1,7 +1,5 @@
-query Stores {
+query GetStores {
   Store {
-    id
-    name
-    googlePlacesId
+    ...MarkerInfo
   }
 }

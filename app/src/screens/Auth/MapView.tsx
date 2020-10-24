@@ -7,7 +7,7 @@ import { theme } from '&theme';
 import { FlatList, Linking, Platform } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 import { request, PERMISSIONS } from 'react-native-permissions';
-import MapView, { EventUserLocation, PROVIDER_GOOGLE, Region, Marker } from 'react-native-maps';
+import MapView, { EventUserLocation, PROVIDER_GOOGLE, Region } from 'react-native-maps';
 
 // Components
 import {
@@ -15,8 +15,9 @@ import {
   CameraSettingsButton,
   CameraSettingsText,
   FullScreen,
-  MapMarkerText,
   MapStyle,
+  MapViewMarker,
+  MapViewMarkerText,
   MapViewStoreCategoryButton,
   MapViewStoreCategoryButtonText,
   MapViewStoreCategoryContainer,
@@ -40,7 +41,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import { StackScreenProps } from '@react-navigation/stack';
 
 // GraphQL
-import { useGetUserQuery } from '&graphql';
+import { useGetUserQuery, useGetStoresQuery } from '&graphql';
 
 // Store Categories
 const STORE_CATEGORIES = ['Department', 'Convenience', 'Electronic', 'Pharamacy', 'Supermarket'];
@@ -62,6 +63,9 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
 
   // Check for complete profile
   const { data: authData } = useGetUserQuery();
+
+  // Query all Stores
+  const { data: storesData } = useGetStoresQuery();
 
   useEffect(() => {
     if (authData && authData.User.length && !authData.User[0].firstName) navigation.navigate('UserInfoScreen');
@@ -194,17 +198,19 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
           if (focusedUserLocation) setFocusedUserLocation(false);
         }}
       >
-        {currentPosition && (
-          <Marker
-            coordinate={{
-              latitude: currentPosition.latitude,
-              longitude: currentPosition.longitude,
-            }}
-          >
-            <MapMarkerText>Publix</MapMarkerText>
-            <MarkerIcon />
-          </Marker>
-        )}
+        {storesData &&
+          storesData?.Store &&
+          storesData.Store.map(store => (
+            <MapViewMarker
+              coordinate={{
+                latitude: store.location.coordinates[0],
+                longitude: store.location.coordinates[1],
+              }}
+            >
+              <MapViewMarkerText>{store.name}</MapViewMarkerText>
+              <MarkerIcon />
+            </MapViewMarker>
+          ))}
       </StoreMap>
 
       {storeSelected && (

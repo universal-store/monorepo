@@ -4,6 +4,7 @@
 export * from './Text';
 
 // General
+export * from './Modal';
 export * from './Views';
 export * from './Buttons';
 export * from './LoadingOverlay';

@@ -3,9 +3,9 @@
 import styled from 'styled-components/native';
 
 // Components
-import { isiPhoneX, RowView, screenWidth } from '../Views';
+import { isiPhoneX, RowView, screenWidth } from './Views';
 
-import { HeaderMediumText, HeaderSmallText, TextMedium2, TextSmall } from '../Text';
+import { HeaderMediumText, HeaderSmallText, TextMedium2, TextSmall } from './Text';
 
 export const ItemDetailHeaderRow = styled(RowView)`
   width: 100%;
@@ -35,36 +35,6 @@ export const ItemDetailImageContainer = styled.View`
 export const ItemDetailImage = styled.Image`
   width: 256px;
   height: 256px;
-`;
-
-export const ItemDetailModalHeader = styled.View`
-  height: 36px;
-  elevation: 4;
-  display: flex;
-  shadow-radius: 2px;
-  align-items: center;
-  shadow-opacity: 0.15;
-  justify-content: center;
-  shadow-offset: 0px -3.5px;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-  shadow-color: ${({ theme }) => theme.colors.gray[1]};
-  background-color: ${({ theme }) => theme.colors.white[1]};
-`;
-
-export const ItemDetailModalHeaderTab = styled.View`
-  width: 42px;
-  height: 4px;
-  border-radius: 8px;
-  background-color: ${({ theme }) => theme.colors.gray[3]};
-`;
-
-export const ItemDetailModalContainer = styled.View`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  padding: 0 32px 24px;
-  background-color: ${({ theme }) => theme.colors.white[1]};
 `;
 
 export const ItemSubDetailRow = styled(RowView)`

@@ -17,18 +17,19 @@ import {
   ItemDetailHeaderRow,
   ItemDetailImage,
   ItemDetailImageContainer,
-  ItemDetailModalContainer,
-  ItemDetailModalHeader,
-  ItemDetailModalHeaderTab,
   ItemNameText,
   ItemPriceText,
   ItemSizeText,
   ItemSubDetailRow,
+  largeModalHeight,
   LoadingOverlay,
+  ModalContainer,
+  ModalHeader,
+  ModalHeaderTab,
   ProductDetailsHeaderText,
   ProductDetailsScroll,
   ProductDetailsText,
-  screenHeight,
+  smallModalHeight,
 } from '&components';
 
 // Iconography
@@ -54,18 +55,10 @@ import {
   GetUserCartItemsDocument,
 } from '&graphql';
 
-// Constants
-const largeModalHeight = screenHeight - (isiPhoneX ? 92 : 62);
-const smallModalHeight = screenHeight - (isiPhoneX ? 402 : 372);
-
-const smallDescriptionLines = isiPhoneX ? 8 : 1;
-
 type ItemDetailProps = StackScreenProps<RootAuthTabParams, 'ItemDetail'>;
 
 export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
   const { barcodeId, scanned } = route.params;
-
-  const [modalExpand, setModalExpand] = useState<boolean>(false);
 
   const { data: userData } = useGetUserQuery();
   const userId = userData?.User[0].id!;
@@ -99,15 +92,15 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
   const [removeFromFavoritesMutation] = useRemoveUserFavoriteItemMutation();
 
   const renderHeader = () => (
-    <ItemDetailModalHeader>
-      <ItemDetailModalHeaderTab />
-    </ItemDetailModalHeader>
+    <ModalHeader>
+      <ModalHeaderTab />
+    </ModalHeader>
   );
 
   const renderContent = () => (
     <>
       {itemData && (
-        <ItemDetailModalContainer>
+        <ModalContainer>
           <ItemSubDetailRow>
             <ItemNameText numberOfLines={2}>{itemData.longName}</ItemNameText>
 
@@ -123,11 +116,9 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
 
           <ProductDetailsHeaderText>Product Details</ProductDetailsHeaderText>
           <ProductDetailsScroll bounces={false} showsVerticalScrollIndicator={false}>
-            <ProductDetailsText numberOfLines={modalExpand ? 50 : smallDescriptionLines}>
-              {itemData.description}
-            </ProductDetailsText>
+            <ProductDetailsText>{itemData.description}</ProductDetailsText>
           </ProductDetailsScroll>
-        </ItemDetailModalContainer>
+        </ModalContainer>
       )}
     </>
   );
@@ -196,20 +187,16 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
         )}
       </ItemDetailImageContainer>
 
-      {itemData && (
-        <BottomSheet
-          initialSnap={1}
-          renderHeader={renderHeader}
-          renderContent={renderContent}
-          enabledBottomInitialAnimation
-          enabledContentGestureInteraction={false}
-          onOpenStart={() => setModalExpand(true)}
-          onCloseStart={() => setModalExpand(false)}
-          snapPoints={[largeModalHeight, smallModalHeight]}
-        />
-      )}
+      <BottomSheet
+        initialSnap={1}
+        renderHeader={renderHeader}
+        renderContent={renderContent}
+        enabledBottomInitialAnimation
+        enabledContentGestureInteraction={false}
+        snapPoints={[largeModalHeight, smallModalHeight]}
+      />
 
-      {itemData && scanned && (
+      {scanned && (
         <AddCartButtonContainer>
           <AddCartButton added={inCart} onPress={addOrRemoveFromCart}>
             <AddCartButtonText added={inCart}>{inCart ? 'Added!' : 'Add to Cart'}</AddCartButtonText>

@@ -2,6 +2,13 @@
 
 import styled from 'styled-components/native';
 
+import { isiPhoneX, screenHeight } from './Views';
+
+// Constants
+export const largeModalHeight = screenHeight - (isiPhoneX ? 92 : 62);
+export const smallModalHeight = screenHeight - (isiPhoneX ? 402 : 372);
+
+// Styled Components
 export const ModalHeader = styled.View`
   height: 36px;
   elevation: 4;

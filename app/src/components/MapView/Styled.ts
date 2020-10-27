@@ -7,6 +7,7 @@ import MapView, { MapStyleElement, Marker } from 'react-native-maps';
 
 // Components
 import { Pressable } from 'react-native';
+import { smallModalHeight } from '../Modal';
 import { HeaderLargeText, HeaderSmallText, TextMedium2 } from '../Text';
 import { FullScreenCenter, isiPhoneX, RowView, screenWidth } from '../Views';
 
@@ -22,6 +23,11 @@ export const NoLocationPermissionsText = styled(HeaderLargeText)`
 
 export const StoreMap = styled(MapView)`
   flex: 1;
+`;
+
+export const StoreMapBottomPadding = styled.View`
+  height: ${smallModalHeight - 12}px;
+  background-color: ${({ theme }) => theme.colors.purple[3]};
 `;
 
 export const MapViewMarker = styled(Marker)`

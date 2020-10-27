@@ -6,7 +6,8 @@ import React from 'react';
 import BottomSheet from 'reanimated-bottom-sheet';
 
 // Components
-import { largeModalHeight, ModalContainer, ModalHeader, ModalHeaderTab, smallModalHeight } from '&components';
+import { LoadingOverlay } from '../LoadingOverlay';
+import { largeModalHeight, ModalContainer, ModalHeader, ModalHeaderTab, smallModalHeight } from '../Modal';
 
 // GraphQL
 import { MarkerInfoFragment, useGetStoreInfoQuery } from '&graphql';
@@ -43,11 +44,18 @@ export const StorePreview = ({ store }: StorePreviewProps) => {
   );
 
   return (
-    <BottomSheet
-      initialSnap={1}
-      renderHeader={renderHeader}
-      renderContent={renderContent}
-      snapPoints={[largeModalHeight, smallModalHeight]}
-    />
+    <>
+      {storeData ? (
+        <BottomSheet
+          initialSnap={1}
+          enabledBottomClamp
+          renderHeader={renderHeader}
+          renderContent={renderContent}
+          snapPoints={[largeModalHeight, smallModalHeight]}
+        />
+      ) : (
+        <LoadingOverlay />
+      )}
+    </>
   );
 };

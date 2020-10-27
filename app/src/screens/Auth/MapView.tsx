@@ -28,6 +28,7 @@ import {
   NoLocationPermissionsScreen,
   NoLocationPermissionsText,
   StoreMap,
+  StoreMapBottomPadding,
   StorePreview,
   ToggleFocusButton,
 } from '&components';
@@ -151,7 +152,7 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
         </MapViewTextInputIconContainer>
         <MapViewTextInput
           value={storeQuery}
-          // editable={!storeSelected}
+          editable={!storePreview}
           onChangeText={setStoreQuery}
           placeholder="Search for store"
         />
@@ -178,9 +179,9 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
         ref={mapRef}
         mapPadding={{
           top: 0,
-          left: 15,
           right: 0,
-          bottom: 65,
+          left: storePreview ? 0 : 15,
+          bottom: storePreview ? 12 : 65,
         }}
         loadingEnabled
         minZoomLevel={17}
@@ -216,9 +217,11 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
                   );
 
                   if (storePreview !== undefined && storePreview.id === store.id) {
+                    setStoreQuery('');
                     setStorePreview(undefined);
                   } else {
                     setStorePreview(store);
+                    setStoreQuery(store.name);
                   }
                 }
               }}
@@ -229,7 +232,12 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
           ))}
       </StoreMap>
 
-      {storePreview && <StorePreview store={storePreview} />}
+      {storePreview && (
+        <>
+          <StoreMapBottomPadding />
+          <StorePreview store={storePreview} />
+        </>
+      )}
 
       <ToggleFocusButton style={{ elevation: 4 }} onPress={() => locateCurrentPosition()}>
         <MapArrowIcon />

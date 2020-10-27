@@ -1,6 +1,6 @@
 /** @format */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // Libraries
 import BottomSheet from 'reanimated-bottom-sheet';
@@ -17,11 +17,16 @@ import { Text } from 'react-native';
 
 interface StorePreviewProps {
   store: MarkerInfoFragment;
+  onSelect: () => void;
 }
 
-export const StorePreview = ({ store }: StorePreviewProps) => {
+export const StorePreview = ({ store, onSelect }: StorePreviewProps) => {
   const { data } = useGetStoreInfoQuery({ variables: { id: store.id } });
   const storeData = data?.Store_by_pk;
+
+  useEffect(() => {
+    onSelect();
+  }, []);
 
   const renderHeader = () => (
     <ModalHeader>

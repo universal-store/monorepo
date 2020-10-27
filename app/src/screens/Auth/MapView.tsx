@@ -191,6 +191,8 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
         region={currentPosition}
         customMapStyle={MapStyle}
         provider={PROVIDER_GOOGLE}
+        zoomEnabled={!storePreview}
+        scrollEnabled={!storePreview}
         initialRegion={currentPosition}
         loadingIndicatorColor={theme.colors.purple[1]}
         loadingBackgroundColor={theme.colors.white[1]}
@@ -205,24 +207,12 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
                 longitude: store.location.coordinates[1],
               }}
               onPress={() => {
-                if (mapRef.current) {
-                  mapRef.current.animateToRegion(
-                    {
-                      latitudeDelta: 0.002,
-                      longitudeDelta: 0.002,
-                      latitude: store.location.coordinates[0],
-                      longitude: store.location.coordinates[1],
-                    },
-                    100
-                  );
-
-                  if (storePreview !== undefined && storePreview.id === store.id) {
-                    setStoreQuery('');
-                    setStorePreview(undefined);
-                  } else {
-                    setStorePreview(store);
-                    setStoreQuery(store.name);
-                  }
+                if (storePreview !== undefined && storePreview.id === store.id) {
+                  setStoreQuery('');
+                  setStorePreview(undefined);
+                } else {
+                  setStorePreview(store);
+                  setStoreQuery(store.name);
                 }
               }}
             >
@@ -235,7 +225,21 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
       {storePreview && (
         <>
           <StoreMapBottomPadding />
-          <StorePreview store={storePreview} />
+          <StorePreview
+            store={storePreview}
+            onSelect={() =>
+              mapRef.current &&
+              mapRef.current.animateToRegion(
+                {
+                  latitudeDelta: 0.0015,
+                  longitudeDelta: 0.0015,
+                  latitude: storePreview.location.coordinates[0],
+                  longitude: storePreview.location.coordinates[1],
+                },
+                200
+              )
+            }
+          />
         </>
       )}
 

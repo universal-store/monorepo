@@ -25,11 +25,13 @@ import {
   MapViewTextInput,
   MapViewTextInputContainer,
   MapViewTextInputIconContainer,
+  MapViewTextInputRowView,
   NoLocationPermissionsScreen,
   NoLocationPermissionsText,
   StoreMap,
   StoreMapBottomPadding,
   StorePreview,
+  StoreSuggestionHeader,
   ToggleFocusButton,
 } from '&components';
 
@@ -43,9 +45,10 @@ import { StackScreenProps } from '@react-navigation/stack';
 
 // GraphQL
 import { MarkerInfoFragment, useGetUserQuery, useGetStoresQuery } from '&graphql';
+import { StoreSuggestionCell } from 'components/MapView/StoreSuggestionCell';
 
 // Store Categories
-const STORE_CATEGORIES = ['Department', 'Convenience', 'Electronic', 'Pharamacy', 'Supermarket'];
+const STORE_CATEGORIES = ['Supermarket', 'Department', 'Convenience', 'Pharamacy', 'Electronic'];
 
 type MapViewScreenProps = StackScreenProps<AuthStackParams, 'TabNavigation'>;
 
@@ -58,6 +61,7 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
   const [storeQuery, setStoreQuery] = useState<string>('');
   // const [storeSelected, setStoreSelected] = useState<boolean>(false);
   const [storePreview, setStorePreview] = useState<MarkerInfoFragment>();
+  const [filteredStores, setFilteredStores] = useState<MarkerInfoFragment[]>();
   const [categoryFilter, setCategoryFilter] = useState<boolean[]>([false, false, false, false, false]);
 
   // Location Permissions
@@ -68,6 +72,12 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
 
   // Query all Stores
   const { data: storesData } = useGetStoresQuery();
+
+  useEffect(() => {
+    if (storesData) {
+      setFilteredStores(storesData.Store);
+    }
+  });
 
   useEffect(() => {
     if (authData && authData.User.length && !authData.User[0].firstName) navigation.navigate('UserInfoScreen');
@@ -130,6 +140,18 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
     }
   };
 
+  // const filterStoresByCategory = () => {
+  //   const selectedCategories = [];
+
+  //   if (categoryFilter[0]) selectedCategories.push('Supermarket');
+  //   if (categoryFilter[1]) selectedCategories.push('Department');
+  //   if (categoryFilter[2]) selectedCategories.push('Convenience');
+  //   if (categoryFilter[3]) selectedCategories.push('Pharmacy');
+  //   if (categoryFilter[4]) selectedCategories.push('Electronic');
+
+  //   // const tempFilteredStores = storesData?.Store.filter(store => ???
+  // };
+
   if (locationPermission === false) {
     return (
       <NoLocationPermissionsScreen>
@@ -146,16 +168,28 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
 
   return (
     <FullScreen>
-      <MapViewTextInputContainer>
-        <MapViewTextInputIconContainer>
-          <FindIcon />
-        </MapViewTextInputIconContainer>
-        <MapViewTextInput
-          value={storeQuery}
-          editable={!storePreview}
-          onChangeText={setStoreQuery}
-          placeholder="Search for store"
-        />
+      <MapViewTextInputContainer empty={storeQuery === ''}>
+        <MapViewTextInputRowView>
+          <MapViewTextInputIconContainer>
+            <FindIcon />
+          </MapViewTextInputIconContainer>
+          <MapViewTextInput
+            value={storeQuery}
+            editable={!storePreview}
+            onChangeText={setStoreQuery}
+            placeholder="Search for store"
+          />
+        </MapViewTextInputRowView>
+        {storeQuery !== '' && (
+          <>
+            <StoreSuggestionHeader />
+            <StoreSuggestionCell />
+            <StoreSuggestionCell />
+            <StoreSuggestionCell />
+            <StoreSuggestionCell />
+            <StoreSuggestionCell />
+          </>
+        )}
       </MapViewTextInputContainer>
 
       <MapViewStoreCategoryContainer>
@@ -197,9 +231,8 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
         loadingIndicatorColor={theme.colors.purple[1]}
         loadingBackgroundColor={theme.colors.white[1]}
       >
-        {storesData &&
-          storesData?.Store &&
-          storesData.Store.map(store => (
+        {filteredStores &&
+          filteredStores.map(store => (
             <MapViewMarker
               key={store.id}
               coordinate={{

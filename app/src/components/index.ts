@@ -19,4 +19,5 @@ export * from './Cart';
 export * from './MapView';
 export * from './Favorites';
 export * from './ItemDetail';
+export * from './StoreDetail';
 export * from './UserProfile';

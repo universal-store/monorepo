@@ -9,15 +9,10 @@ import { HeaderSmallText, TextSmall, TextSmall2 } from './Text';
 // Utils
 import { validInput } from '&utils';
 
-interface OnboardingMainContainerProps {
-  enableShift?: boolean;
-}
-
 export const OnboardingMainContainer = styled(FullScreenWhite)<OnboardingMainContainerProps>`
   width: 100%;
   display: flex;
   padding: 0 32px;
-  padding-bottom: ${({ enableShift }) => (enableShift ? '50px' : 0)};
 `;
 
 export const OnboardingScroll = styled.ScrollView`

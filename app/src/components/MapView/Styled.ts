@@ -6,6 +6,7 @@ import styled from 'styled-components/native';
 import MapView, { MapStyleElement, Marker } from 'react-native-maps';
 
 // Components
+import { Pressable } from 'react-native';
 import { HeaderLargeText, HeaderSmallText, TextMedium2 } from '../Text';
 import { FullScreenCenter, isiPhoneX, RowView, screenWidth } from '../Views';
 
@@ -91,7 +92,7 @@ interface MapViewStoreCategoryProp {
   selected: boolean;
 }
 
-export const MapViewStoreCategoryButton = styled.TouchableHighlight<MapViewStoreCategoryProp>`
+export const MapViewStoreCategoryButton = styled(Pressable)<MapViewStoreCategoryProp>`
   width: auto;
   height: 28px;
   display: flex;

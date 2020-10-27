@@ -3,9 +3,9 @@
 import styled from 'styled-components/native';
 
 // Components
-import { isiPhoneX, RowView, screenWidth } from '../Views';
+import { isiPhoneX, RowView, screenWidth } from './Views';
 
-import { HeaderMediumText, HeaderSmallText, TextMedium2, TextSmall } from '../Text';
+import { HeaderMediumText, HeaderSmallText, TextMedium2, TextSmall } from './Text';
 
 export const ItemDetailHeaderRow = styled(RowView)`
   width: 100%;

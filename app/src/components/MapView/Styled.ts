@@ -154,8 +154,6 @@ export const ToggleFocusButton = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.colors.gray[1]};
 `;
 
-// ----------------------------------- StoreDetail Styling -----------------------------------
-
 // ----------------------------------- Map Styling -----------------------------------
 
 export const MapStyle: MapStyleElement[] = [

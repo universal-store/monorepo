@@ -3,7 +3,10 @@
 fragment MarkerInfo on Store {
   id
   name
+<<<<<<< HEAD
   category
+=======
+>>>>>>> bc02e562427930b095b62f2fed57f43d92097721
   location
 }
 

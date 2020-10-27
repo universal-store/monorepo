@@ -31,6 +31,7 @@ import {
   StoreMap,
   StoreMapBottomPadding,
   StorePreview,
+  StoreSuggestionCell,
   StoreSuggestionHeader,
   ToggleFocusButton,
 } from '&components';
@@ -45,7 +46,6 @@ import { StackScreenProps } from '@react-navigation/stack';
 
 // GraphQL
 import { MarkerInfoFragment, useGetUserQuery, useGetStoresQuery } from '&graphql';
-import { StoreSuggestionCell } from 'components/MapView/StoreSuggestionCell';
 
 // Store Categories
 const STORE_CATEGORIES = ['Supermarket', 'Department', 'Convenience', 'Pharamacy', 'Electronic'];

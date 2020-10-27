@@ -16,8 +16,13 @@ import { MarkerInfoFragment, useGetStoreInfoQuery } from '&graphql';
 import { Text } from 'react-native';
 
 interface StorePreviewProps {
+<<<<<<< HEAD
   onSelect: () => void;
   store: MarkerInfoFragment;
+=======
+  store: MarkerInfoFragment;
+  onSelect: () => void;
+>>>>>>> bc02e562427930b095b62f2fed57f43d92097721
 }
 
 export const StorePreview = ({ store, onSelect }: StorePreviewProps) => {

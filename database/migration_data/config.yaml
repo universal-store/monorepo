@@ -1,9 +1,0 @@
-# @format
-
-version: 2
-endpoint: http://localhost:8080
-admin_secret: "${HASURA_GRAPHQL_ADMIN_SECRET}"
-metadata_directory: metadata
-actions:
-  kind: synchronous
-  handler_webhook_baseurl: http://localhost:3000

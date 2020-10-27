@@ -899,6 +899,7 @@ type Store {
   ): UserFavoriteStore_aggregate!
   address: String!
   category: String
+  description: String
   id: uuid!
   location: geography!
   name: String!
@@ -941,6 +942,7 @@ input Store_bool_exp {
   _or: [Store_bool_exp]
   address: String_comparison_exp
   category: String_comparison_exp
+  description: String_comparison_exp
   id: uuid_comparison_exp
   location: geography_comparison_exp
   name: String_comparison_exp
@@ -963,6 +965,7 @@ input Store_insert_input {
   UserFavoriteStores: UserFavoriteStore_arr_rel_insert_input
   address: String
   category: String
+  description: String
   id: uuid
   location: geography
   name: String
@@ -973,6 +976,7 @@ input Store_insert_input {
 type Store_max_fields {
   address: String
   category: String
+  description: String
   id: uuid
   name: String
   storePicId: uuid
@@ -982,6 +986,7 @@ type Store_max_fields {
 input Store_max_order_by {
   address: order_by
   category: order_by
+  description: order_by
   id: order_by
   name: order_by
   storePicId: order_by
@@ -991,6 +996,7 @@ input Store_max_order_by {
 type Store_min_fields {
   address: String
   category: String
+  description: String
   id: uuid
   name: String
   storePicId: uuid
@@ -1000,6 +1006,7 @@ type Store_min_fields {
 input Store_min_order_by {
   address: order_by
   category: order_by
+  description: order_by
   id: order_by
   name: order_by
   storePicId: order_by
@@ -1034,6 +1041,7 @@ input Store_order_by {
   UserFavoriteStores_aggregate: UserFavoriteStore_aggregate_order_by
   address: order_by
   category: order_by
+  description: order_by
   id: order_by
   location: order_by
   name: order_by
@@ -1054,6 +1062,9 @@ enum Store_select_column {
   category
 
   # column name
+  description
+
+  # column name
   id
 
   # column name
@@ -1070,6 +1081,7 @@ enum Store_select_column {
 input Store_set_input {
   address: String
   category: String
+  description: String
   id: uuid
   location: geography
   name: String
@@ -1083,6 +1095,9 @@ enum Store_update_column {
 
   # column name
   category
+
+  # column name
+  description
 
   # column name
   id

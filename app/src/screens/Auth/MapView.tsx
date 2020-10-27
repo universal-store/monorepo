@@ -4,7 +4,6 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { theme } from '&theme';
 
 // Libraries
-import BottomSheet from 'reanimated-bottom-sheet';
 import { FlatList, Linking, Platform } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 import { request, PERMISSIONS } from 'react-native-permissions';
@@ -15,7 +14,6 @@ import {
   CameraSettingsButton,
   CameraSettingsText,
   FullScreen,
-  largeModalHeight,
   MapStyle,
   MapViewMarker,
   MapViewMarkerText,
@@ -27,13 +25,10 @@ import {
   MapViewTextInput,
   MapViewTextInputContainer,
   MapViewTextInputIconContainer,
-  ModalContainer,
-  ModalHeader,
-  ModalHeaderTab,
   NoLocationPermissionsScreen,
   NoLocationPermissionsText,
   StoreMap,
-  smallModalHeight,
+  StorePreview,
   ToggleFocusButton,
 } from '&components';
 
@@ -46,8 +41,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import { StackScreenProps } from '@react-navigation/stack';
 
 // GraphQL
-import { useGetUserQuery, useGetStoresQuery } from '&graphql';
-import { Text } from 'react-native-svg';
+import { MarkerInfoFragment, useGetUserQuery, useGetStoresQuery } from '&graphql';
 
 // Store Categories
 const STORE_CATEGORIES = ['Department', 'Convenience', 'Electronic', 'Pharamacy', 'Supermarket'];
@@ -61,7 +55,8 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
 
   // Map State
   const [storeQuery, setStoreQuery] = useState<string>('');
-  const [storeSelected, setStoreSelected] = useState<boolean>(false);
+  // const [storeSelected, setStoreSelected] = useState<boolean>(false);
+  const [storePreview, setStorePreview] = useState<MarkerInfoFragment>();
   const [categoryFilter, setCategoryFilter] = useState<boolean[]>([false, false, false, false, false]);
 
   // Location Permissions
@@ -148,18 +143,6 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
     );
   }
 
-  const renderHeader = () => (
-    <ModalHeader>
-      <ModalHeaderTab />
-    </ModalHeader>
-  );
-
-  const renderContent = () => (
-    <ModalContainer>
-      <Text>Test</Text>
-    </ModalContainer>
-  );
-
   return (
     <FullScreen>
       <MapViewTextInputContainer>
@@ -168,7 +151,7 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
         </MapViewTextInputIconContainer>
         <MapViewTextInput
           value={storeQuery}
-          editable={!storeSelected}
+          // editable={!storeSelected}
           onChangeText={setStoreQuery}
           placeholder="Search for store"
         />
@@ -231,23 +214,22 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
                     },
                     100
                   );
+
+                  if (storePreview !== undefined && storePreview.id === store.id) {
+                    setStorePreview(undefined);
+                  } else {
+                    setStorePreview(store);
+                  }
                 }
               }}
             >
               <MapViewMarkerText>{store.name}</MapViewMarkerText>
-              <MarkerIcon />
+              <MarkerIcon selected={storePreview !== undefined && storePreview.id === store.id} />
             </MapViewMarker>
           ))}
       </StoreMap>
 
-      {storeSelected && (
-        <BottomSheet
-          initialSnap={1}
-          renderHeader={renderHeader}
-          renderContent={renderContent}
-          snapPoints={[largeModalHeight, smallModalHeight]}
-        />
-      )}
+      {storePreview && <StorePreview store={storePreview} />}
 
       <ToggleFocusButton style={{ elevation: 4 }} onPress={() => locateCurrentPosition()}>
         <MapArrowIcon />

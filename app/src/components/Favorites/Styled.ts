@@ -1,6 +1,7 @@
 /** @format */
 
 import styled from 'styled-components/native';
+import { Pressable } from 'react-native';
 
 // Components
 import { RowView } from '../Views';
@@ -55,7 +56,7 @@ export const FavoritesFilterText = styled(TextSmall)`
   margin-left: 24px;
 `;
 
-export const FavoriteItemCellContainer = styled.TouchableOpacity`
+export const FavoriteItemCellContainer = styled(Pressable)`
   flex: 1;
   width: 100%;
   height: 80px;

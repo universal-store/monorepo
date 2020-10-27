@@ -82,7 +82,7 @@ export const CartItemCell = ({ cartItem }: CartItemCellProps) => {
         }
       }}
     >
-      <AnimatedSwipeText>{favorite ? 'Un-favorite' : 'Favorite'}</AnimatedSwipeText>
+      <AnimatedSwipeText>{favorite ? 'Unfavorite' : 'Favorite'}</AnimatedSwipeText>
     </AnimatedSwipeFavoriteContainer>
   );
 

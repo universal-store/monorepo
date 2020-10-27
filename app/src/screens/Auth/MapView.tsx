@@ -11,7 +11,6 @@ import MapView, { EventUserLocation, PROVIDER_GOOGLE, Region } from 'react-nativ
 
 // Components
 import {
-  CameraIconContainer,
   CameraSettingsButton,
   CameraSettingsText,
   FullScreen,
@@ -26,14 +25,19 @@ import {
   MapViewTextInput,
   MapViewTextInputContainer,
   MapViewTextInputIconContainer,
+  MapViewTextInputRowView,
   NoLocationPermissionsScreen,
   NoLocationPermissionsText,
   StoreMap,
+  StoreMapBottomPadding,
+  StorePreview,
+  StoreSuggestionCell,
+  StoreSuggestionHeader,
   ToggleFocusButton,
 } from '&components';
 
 // Iconography
-import { CameraIcon, FindIcon, MapArrowIcon, MarkerIcon } from '&icons';
+import { FindIcon, MapArrowIcon, MarkerIcon } from '&icons';
 
 // Navigation
 import { AuthStackParams } from '&navigation';
@@ -41,10 +45,10 @@ import { useFocusEffect } from '@react-navigation/native';
 import { StackScreenProps } from '@react-navigation/stack';
 
 // GraphQL
-import { useGetUserQuery, useGetStoresQuery } from '&graphql';
+import { MarkerInfoFragment, useGetUserQuery, useGetStoresQuery } from '&graphql';
 
 // Store Categories
-const STORE_CATEGORIES = ['Department', 'Convenience', 'Electronic', 'Pharamacy', 'Supermarket'];
+const STORE_CATEGORIES = ['Supermarket', 'Department', 'Convenience', 'Pharamacy', 'Electronic'];
 
 type MapViewScreenProps = StackScreenProps<AuthStackParams, 'TabNavigation'>;
 
@@ -52,10 +56,12 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
   const mapRef = useRef<MapView>(null);
 
   const [currentPosition, setCurrentPosition] = useState<Region>();
+
   // Map State
   const [storeQuery, setStoreQuery] = useState<string>('');
-  const [storeSelected, setStoreSelected] = useState<boolean>(true);
-  const [focusedUserLocation, setFocusedUserLocation] = useState<boolean>(true);
+  // const [storeSelected, setStoreSelected] = useState<boolean>(false);
+  const [storePreview, setStorePreview] = useState<MarkerInfoFragment>();
+  const [filteredStores, setFilteredStores] = useState<MarkerInfoFragment[]>();
   const [categoryFilter, setCategoryFilter] = useState<boolean[]>([false, false, false, false, false]);
 
   // Location Permissions
@@ -66,6 +72,12 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
 
   // Query all Stores
   const { data: storesData } = useGetStoresQuery();
+
+  useEffect(() => {
+    if (storesData) {
+      setFilteredStores(storesData.Store);
+    }
+  });
 
   useEffect(() => {
     if (authData && authData.User.length && !authData.User[0].firstName) navigation.navigate('UserInfoScreen');
@@ -92,8 +104,6 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
           }
         });
       }
-
-      setFocusedUserLocation(true);
     }, [])
   );
 
@@ -130,6 +140,18 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
     }
   };
 
+  // const filterStoresByCategory = () => {
+  //   const selectedCategories = [];
+
+  //   if (categoryFilter[0]) selectedCategories.push('Supermarket');
+  //   if (categoryFilter[1]) selectedCategories.push('Department');
+  //   if (categoryFilter[2]) selectedCategories.push('Convenience');
+  //   if (categoryFilter[3]) selectedCategories.push('Pharmacy');
+  //   if (categoryFilter[4]) selectedCategories.push('Electronic');
+
+  //   // const tempFilteredStores = storesData?.Store.filter(store => ???
+  // };
+
   if (locationPermission === false) {
     return (
       <NoLocationPermissionsScreen>
@@ -146,16 +168,28 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
 
   return (
     <FullScreen>
-      <MapViewTextInputContainer>
-        <MapViewTextInputIconContainer>
-          <FindIcon />
-        </MapViewTextInputIconContainer>
-        <MapViewTextInput
-          value={storeQuery}
-          editable={!storeSelected}
-          onChangeText={setStoreQuery}
-          placeholder="Search for store"
-        />
+      <MapViewTextInputContainer empty={storeQuery === ''}>
+        <MapViewTextInputRowView>
+          <MapViewTextInputIconContainer>
+            <FindIcon />
+          </MapViewTextInputIconContainer>
+          <MapViewTextInput
+            value={storeQuery}
+            editable={!storePreview}
+            onChangeText={setStoreQuery}
+            placeholder="Search for store"
+          />
+        </MapViewTextInputRowView>
+        {storeQuery !== '' && (
+          <>
+            <StoreSuggestionHeader />
+            <StoreSuggestionCell />
+            <StoreSuggestionCell />
+            <StoreSuggestionCell />
+            <StoreSuggestionCell />
+            <StoreSuggestionCell />
+          </>
+        )}
       </MapViewTextInputContainer>
 
       <MapViewStoreCategoryContainer>
@@ -179,9 +213,9 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
         ref={mapRef}
         mapPadding={{
           top: 0,
-          left: 15,
           right: 0,
-          bottom: 65,
+          left: storePreview ? 0 : 15,
+          bottom: storePreview ? 12 : 65,
         }}
         loadingEnabled
         minZoomLevel={17}
@@ -191,47 +225,64 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
         region={currentPosition}
         customMapStyle={MapStyle}
         provider={PROVIDER_GOOGLE}
+        zoomEnabled={!storePreview}
+        scrollEnabled={!storePreview}
         initialRegion={currentPosition}
         loadingIndicatorColor={theme.colors.purple[1]}
         loadingBackgroundColor={theme.colors.white[1]}
-        onRegionChange={() => {
-          if (focusedUserLocation) setFocusedUserLocation(false);
-        }}
       >
-        {storesData &&
-          storesData?.Store &&
-          storesData.Store.map(store => (
+        {filteredStores &&
+          filteredStores.map(store => (
             <MapViewMarker
               key={store.id}
               coordinate={{
                 latitude: store.location.coordinates[0],
                 longitude: store.location.coordinates[1],
               }}
+              onPress={() => {
+                if (storePreview !== undefined && storePreview.id === store.id) {
+                  setStoreQuery('');
+                  setStorePreview(undefined);
+                } else {
+                  setStorePreview(store);
+                  setStoreQuery(store.name);
+                }
+              }}
             >
               <MapViewMarkerText>{store.name}</MapViewMarkerText>
-              <MarkerIcon />
+              <MarkerIcon selected={storePreview !== undefined && storePreview.id === store.id} />
             </MapViewMarker>
           ))}
       </StoreMap>
 
-      {storeSelected && (
-        <CameraIconContainer style={{ elevation: 4 }} onPress={() => navigation.navigate('ScanningScreen')}>
-          <CameraIcon />
-        </CameraIconContainer>
+      {storePreview && (
+        <>
+          <StoreMapBottomPadding />
+          <StorePreview
+            store={storePreview}
+            onSelect={() =>
+              mapRef.current &&
+              mapRef.current.animateToRegion(
+                {
+                  latitudeDelta: 0.0015,
+                  longitudeDelta: 0.0015,
+                  latitude: storePreview.location.coordinates[0],
+                  longitude: storePreview.location.coordinates[1],
+                },
+                200
+              )
+            }
+          />
+        </>
       )}
 
-      <ToggleFocusButton
-        focused={focusedUserLocation}
-        style={{ elevation: 4 }}
-        onPress={() => {
-          if (!focusedUserLocation && mapRef.current) {
-            locateCurrentPosition();
-            setFocusedUserLocation(true);
-          }
-        }}
-      >
+      <ToggleFocusButton style={{ elevation: 4 }} onPress={() => locateCurrentPosition()}>
         <MapArrowIcon />
       </ToggleFocusButton>
     </FullScreen>
   );
 };
+
+// <CameraIconContainer style={{ elevation: 4 }} onPress={() => navigation.navigate('ScanningScreen')}>
+//   <CameraIcon />
+// </CameraIconContainer>

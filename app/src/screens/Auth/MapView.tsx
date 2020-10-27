@@ -202,6 +202,7 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
           storesData?.Store &&
           storesData.Store.map(store => (
             <MapViewMarker
+              key={store.id}
               coordinate={{
                 latitude: store.location.coordinates[0],
                 longitude: store.location.coordinates[1],

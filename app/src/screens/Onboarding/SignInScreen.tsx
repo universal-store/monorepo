@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
 
 // Components
-import { Alert, Keyboard, View as OnboardingFormContainer } from 'react-native';
+import { Alert, Keyboard, KeyboardAvoidingView, View as OnboardingFormContainer } from 'react-native';
 
 import {
   HeaderLargeText as OnboardingHeaderTitleText,
@@ -20,6 +20,7 @@ import {
   OnboardingInputContainer,
   OnboardingInputIconContainer,
   OnboardingMainContainer,
+  OnboardingPadding,
   OnboardingRequiredText,
   OnboardingRow,
   OnboardingScroll,
@@ -115,86 +116,90 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
   };
 
   return (
-    <KeyboardDismiss onPress={Keyboard.dismiss}>
-      <OnboardingMainContainer>
-        <OnboardingScroll bounces={false} keyboardShouldPersistTaps="always" showsVerticalScrollIndicator={false}>
-          <OnboardingHeaderContainer>
-            <LogoContainer />
-            <OnboardingHeaderTextContainer>
-              <OnboardingHeaderTitleText>Universal Store</OnboardingHeaderTitleText>
-              <OnboardingSubHeaderText>Redefining express checkout.</OnboardingSubHeaderText>
-            </OnboardingHeaderTextContainer>
-          </OnboardingHeaderContainer>
+    <KeyboardAvoidingView enabled behavior="padding" style={{ flex: 1 }}>
+      <KeyboardDismiss onPress={Keyboard.dismiss}>
+        <OnboardingMainContainer>
+          <OnboardingScroll bounces={false} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
+            <OnboardingHeaderContainer>
+              <LogoContainer />
+              <OnboardingHeaderTextContainer>
+                <OnboardingHeaderTitleText>Universal Store</OnboardingHeaderTitleText>
+                <OnboardingSubHeaderText>Redefining express checkout.</OnboardingSubHeaderText>
+              </OnboardingHeaderTextContainer>
+            </OnboardingHeaderContainer>
 
-          <OnboardingHeaderTitleText>Sign In</OnboardingHeaderTitleText>
-          <OnboardingSubHeaderText>Welcome back!</OnboardingSubHeaderText>
+            <OnboardingHeaderTitleText>Sign In</OnboardingHeaderTitleText>
+            <OnboardingSubHeaderText>Welcome back!</OnboardingSubHeaderText>
 
-          <OnboardingFormContainer>
-            <OnboardingFormText>Email</OnboardingFormText>
-            <OnboardingInputContainer valid={validEmail}>
-              <OnboardingInputIconContainer>
-                <EmailIcon />
-              </OnboardingInputIconContainer>
-              <OnboardingTextInput
-                value={userEmail}
-                autoCompleteType="email"
-                keyboardType="email-address"
-                textContentType="emailAddress"
-                placeholder="Enter your email address..."
-                onChangeText={text => {
-                  setUserEmail(text);
-                  setValidEmail('NEEDS_CHECK');
-                }}
-              />
-            </OnboardingInputContainer>
-            {validEmail === 'INVALID' &&
-              (userEmail === '' ? (
-                <OnboardingRequiredText>Email is required</OnboardingRequiredText>
-              ) : (
-                <OnboardingRequiredText>Email is invalid</OnboardingRequiredText>
-              ))}
+            <OnboardingFormContainer>
+              <OnboardingFormText>Email</OnboardingFormText>
+              <OnboardingInputContainer valid={validEmail}>
+                <OnboardingInputIconContainer>
+                  <EmailIcon />
+                </OnboardingInputIconContainer>
+                <OnboardingTextInput
+                  value={userEmail}
+                  autoCompleteType="email"
+                  keyboardType="email-address"
+                  textContentType="emailAddress"
+                  placeholder="Enter your email address..."
+                  onChangeText={text => {
+                    setUserEmail(text);
+                    setValidEmail('NEEDS_CHECK');
+                  }}
+                />
+              </OnboardingInputContainer>
+              {validEmail === 'INVALID' &&
+                (userEmail === '' ? (
+                  <OnboardingRequiredText>Email is required</OnboardingRequiredText>
+                ) : (
+                  <OnboardingRequiredText>Email is invalid</OnboardingRequiredText>
+                ))}
 
-            <OnboardingFormText>Password</OnboardingFormText>
-            <OnboardingInputContainer valid={validPassword}>
-              <OnboardingInputIconContainer>
-                <LockIcon />
-              </OnboardingInputIconContainer>
-              <OnboardingTextInput
-                value={userPassword}
-                textContentType="password"
-                autoCompleteType="password"
-                secureTextEntry={secureTextEntry}
-                placeholder="Enter a password..."
-                onChangeText={text => {
-                  setUserPassword(text);
-                  setValidPassword('NEEDS_CHECK');
-                }}
-              />
-              <OnboardingSecureInputIconContainer onPress={() => setSecureTextEntry(!secureTextEntry)}>
-                <VisibleIcon />
-              </OnboardingSecureInputIconContainer>
-            </OnboardingInputContainer>
-            {validPassword === 'INVALID' && <OnboardingRequiredText>Password is required</OnboardingRequiredText>}
+              <OnboardingFormText>Password</OnboardingFormText>
+              <OnboardingInputContainer valid={validPassword}>
+                <OnboardingInputIconContainer>
+                  <LockIcon />
+                </OnboardingInputIconContainer>
+                <OnboardingTextInput
+                  value={userPassword}
+                  textContentType="password"
+                  autoCompleteType="password"
+                  secureTextEntry={secureTextEntry}
+                  placeholder="Enter a password..."
+                  onChangeText={text => {
+                    setUserPassword(text);
+                    setValidPassword('NEEDS_CHECK');
+                  }}
+                />
+                <OnboardingSecureInputIconContainer onPress={() => setSecureTextEntry(!secureTextEntry)}>
+                  <VisibleIcon />
+                </OnboardingSecureInputIconContainer>
+              </OnboardingInputContainer>
+              {validPassword === 'INVALID' && <OnboardingRequiredText>Password is required</OnboardingRequiredText>}
 
-            <OnboardingForgotPasswordButton onPress={() => console.log('Forgot Password Pressed')}>
-              <OnboardingSmallText>Forgot Password?</OnboardingSmallText>
-            </OnboardingForgotPasswordButton>
-          </OnboardingFormContainer>
+              <OnboardingForgotPasswordButton onPress={() => console.log('Forgot Password Pressed')}>
+                <OnboardingSmallText>Forgot Password?</OnboardingSmallText>
+              </OnboardingForgotPasswordButton>
+            </OnboardingFormContainer>
 
-          <OnboardingRow>
-            <OnboardingSmallerText>Need an account? </OnboardingSmallerText>
-            <OnboardingTextButton onPress={() => navigation.navigate('SignUpScreen')}>
-              <OnboardingSmallerBoldText>Sign Up</OnboardingSmallerBoldText>
-            </OnboardingTextButton>
-          </OnboardingRow>
+            <OnboardingRow>
+              <OnboardingSmallerText>Need an account? </OnboardingSmallerText>
+              <OnboardingTextButton onPress={() => navigation.navigate('SignUpScreen')}>
+                <OnboardingSmallerBoldText>Sign Up</OnboardingSmallerBoldText>
+              </OnboardingTextButton>
+            </OnboardingRow>
 
-          <OnboardingButton onPress={validateSignIn}>
-            <OnboardingButtonText>Log In</OnboardingButtonText>
-          </OnboardingButton>
-        </OnboardingScroll>
+            <OnboardingButton onPress={validateSignIn}>
+              <OnboardingButtonText>Log In</OnboardingButtonText>
+            </OnboardingButton>
 
-        {loading && <LoadingOverlay />}
-      </OnboardingMainContainer>
-    </KeyboardDismiss>
+            <OnboardingPadding />
+          </OnboardingScroll>
+
+          {loading && <LoadingOverlay />}
+        </OnboardingMainContainer>
+      </KeyboardDismiss>
+    </KeyboardAvoidingView>
   );
 };

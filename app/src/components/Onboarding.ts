@@ -144,3 +144,7 @@ export const OnboardingButton = styled.TouchableOpacity`
 export const OnboardingButtonText = styled(HeaderSmallText)`
   color: ${({ theme }) => theme.colors.white[1]};
 `;
+
+export const OnboardingPadding = styled.View`
+  height: 24px;
+`;

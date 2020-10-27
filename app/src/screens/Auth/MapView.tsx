@@ -47,6 +47,7 @@ import { StackScreenProps } from '@react-navigation/stack';
 
 // GraphQL
 import { useGetUserQuery, useGetStoresQuery } from '&graphql';
+import { Text } from 'react-native-svg';
 
 // Store Categories
 const STORE_CATEGORIES = ['Department', 'Convenience', 'Electronic', 'Pharamacy', 'Supermarket'];
@@ -57,10 +58,10 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
   const mapRef = useRef<MapView>(null);
 
   const [currentPosition, setCurrentPosition] = useState<Region>();
+
   // Map State
   const [storeQuery, setStoreQuery] = useState<string>('');
-  const [storeSelected, setStoreSelected] = useState<boolean>(true);
-  const [focusedUserLocation, setFocusedUserLocation] = useState<boolean>(true);
+  const [storeSelected, setStoreSelected] = useState<boolean>(false);
   const [categoryFilter, setCategoryFilter] = useState<boolean[]>([false, false, false, false, false]);
 
   // Location Permissions
@@ -97,8 +98,6 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
           }
         });
       }
-
-      setFocusedUserLocation(true);
     }, [])
   );
 
@@ -155,7 +154,11 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
     </ModalHeader>
   );
 
-  const renderContent = () => <ModalContainer></ModalContainer>;
+  const renderContent = () => (
+    <ModalContainer>
+      <Text>Test</Text>
+    </ModalContainer>
+  );
 
   return (
     <FullScreen>
@@ -207,9 +210,6 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
         initialRegion={currentPosition}
         loadingIndicatorColor={theme.colors.purple[1]}
         loadingBackgroundColor={theme.colors.white[1]}
-        onRegionChange={() => {
-          if (focusedUserLocation) setFocusedUserLocation(false);
-        }}
       >
         {storesData &&
           storesData?.Store &&
@@ -219,6 +219,19 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
               coordinate={{
                 latitude: store.location.coordinates[0],
                 longitude: store.location.coordinates[1],
+              }}
+              onPress={() => {
+                if (mapRef.current) {
+                  mapRef.current.animateToRegion(
+                    {
+                      latitudeDelta: 0.002,
+                      longitudeDelta: 0.002,
+                      latitude: store.location.coordinates[0],
+                      longitude: store.location.coordinates[1],
+                    },
+                    100
+                  );
+                }
               }}
             >
               <MapViewMarkerText>{store.name}</MapViewMarkerText>
@@ -236,16 +249,7 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
         />
       )}
 
-      <ToggleFocusButton
-        focused={focusedUserLocation}
-        style={{ elevation: 4 }}
-        onPress={() => {
-          if (!focusedUserLocation && mapRef.current) {
-            locateCurrentPosition();
-            setFocusedUserLocation(true);
-          }
-        }}
-      >
+      <ToggleFocusButton style={{ elevation: 4 }} onPress={() => locateCurrentPosition()}>
         <MapArrowIcon />
       </ToggleFocusButton>
     </FullScreen>

@@ -130,11 +130,7 @@ export const CameraIconContainer = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.colors.purple[1]};
 `;
 
-interface ToggleFocusButtonProps {
-  focused: boolean;
-}
-
-export const ToggleFocusButton = styled.TouchableOpacity<ToggleFocusButtonProps>`
+export const ToggleFocusButton = styled.TouchableOpacity`
   position: absolute;
   right: 24px;
   width: 48px;
@@ -149,8 +145,10 @@ export const ToggleFocusButton = styled.TouchableOpacity<ToggleFocusButtonProps>
   shadow-offset: 0px 2px;
   justify-content: center;
   shadow-color: ${({ theme }) => theme.colors.gray[1]};
-  background-color: ${({ theme, focused }) => (focused ? theme.colors.purple[1] : theme.colors.gray[1])};
+  background-color: ${({ theme }) => theme.colors.gray[1]};
 `;
+
+// ----------------------------------- StoreDetail Styling -----------------------------------
 
 // ----------------------------------- Map Styling -----------------------------------
 

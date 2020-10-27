@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { theme } from '&theme';
 
 // Libraries
+import BottomSheet from 'reanimated-bottom-sheet';
 import { FlatList, Linking, Platform } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 import { request, PERMISSIONS } from 'react-native-permissions';
@@ -11,10 +12,10 @@ import MapView, { EventUserLocation, PROVIDER_GOOGLE, Region } from 'react-nativ
 
 // Components
 import {
-  CameraIconContainer,
   CameraSettingsButton,
   CameraSettingsText,
   FullScreen,
+  largeModalHeight,
   MapStyle,
   MapViewMarker,
   MapViewMarkerText,
@@ -26,14 +27,18 @@ import {
   MapViewTextInput,
   MapViewTextInputContainer,
   MapViewTextInputIconContainer,
+  ModalContainer,
+  ModalHeader,
+  ModalHeaderTab,
   NoLocationPermissionsScreen,
   NoLocationPermissionsText,
   StoreMap,
+  smallModalHeight,
   ToggleFocusButton,
 } from '&components';
 
 // Iconography
-import { CameraIcon, FindIcon, MapArrowIcon, MarkerIcon } from '&icons';
+import { FindIcon, MapArrowIcon, MarkerIcon } from '&icons';
 
 // Navigation
 import { AuthStackParams } from '&navigation';
@@ -144,6 +149,14 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
     );
   }
 
+  const renderHeader = () => (
+    <ModalHeader>
+      <ModalHeaderTab />
+    </ModalHeader>
+  );
+
+  const renderContent = () => <ModalContainer></ModalContainer>;
+
   return (
     <FullScreen>
       <MapViewTextInputContainer>
@@ -215,9 +228,12 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
       </StoreMap>
 
       {storeSelected && (
-        <CameraIconContainer style={{ elevation: 4 }} onPress={() => navigation.navigate('ScanningScreen')}>
-          <CameraIcon />
-        </CameraIconContainer>
+        <BottomSheet
+          initialSnap={1}
+          renderHeader={renderHeader}
+          renderContent={renderContent}
+          snapPoints={[largeModalHeight, smallModalHeight]}
+        />
       )}
 
       <ToggleFocusButton
@@ -235,3 +251,7 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
     </FullScreen>
   );
 };
+
+// <CameraIconContainer style={{ elevation: 4 }} onPress={() => navigation.navigate('ScanningScreen')}>
+//   <CameraIcon />
+// </CameraIconContainer>

@@ -76,3 +76,7 @@ export const TestButton = styled.TouchableOpacity`
 export const TestButtonText = styled(HeaderSmallText)`
   color: ${({ theme }) => theme.colors.white[1]};
 `;
+
+// Constants
+export const largeModalHeight = screenHeight - (isiPhoneX ? 92 : 62);
+export const smallModalHeight = screenHeight - (isiPhoneX ? 402 : 372);

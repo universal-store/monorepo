@@ -47,6 +47,9 @@ import { StackScreenProps } from '@react-navigation/stack';
 // GraphQL
 import { MarkerInfoFragment, useGetUserQuery, useGetStoresQuery } from '&graphql';
 
+// TODO: Remove (testing only)
+import DeviceInfo from 'react-native-device-info';
+
 // Store Categories
 const STORE_CATEGORIES = ['Supermarket', 'Department', 'Convenience', 'Pharamacy', 'Electronic'];
 
@@ -76,8 +79,20 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
   useEffect(() => {
     if (storesData) {
       setFilteredStores(storesData.Store);
+
+      // TODO: Remove from production
+      void DeviceInfo.isEmulator().then(_res =>
+        setFilteredStores([
+          {
+            id: 'f7904981-2691-40d6-ac44-67105aa24bfb',
+            name: 'Chevron',
+            category: 'Convenience',
+            location: { coordinates: [37.785834, -122.406417] },
+          },
+        ])
+      );
     }
-  });
+  }, [storesData]);
 
   useEffect(() => {
     if (authData && authData.User.length && !authData.User[0].firstName) navigation.navigate('UserInfoScreen');
@@ -180,7 +195,7 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
             placeholder="Search for store"
           />
         </MapViewTextInputRowView>
-        {storeQuery !== '' && (
+        {storeQuery !== '' && !storePreview && (
           <>
             <StoreSuggestionHeader />
             <StoreSuggestionCell />

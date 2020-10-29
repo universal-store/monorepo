@@ -56,6 +56,7 @@ export const StorePreview = ({ store, onSelect }: StorePreviewProps) => {
           enabledBottomClamp
           renderHeader={renderHeader}
           renderContent={renderContent}
+          enabledBottomInitialAnimation
           snapPoints={[largeModalHeight, smallModalHeight]}
         />
       ) : (

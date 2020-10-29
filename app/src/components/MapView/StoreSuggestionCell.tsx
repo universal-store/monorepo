@@ -3,7 +3,7 @@
 import React from 'react';
 
 // Components
-import { StoreSuggestionCellContainer } from './Styled';
+import { StoreSuggestionCellContainer, StoreSuggestionNameText, StoreSuggestionAddressText } from './Styled';
 
 // TODO: Replace
 import { Text } from 'react-native';
@@ -11,7 +11,8 @@ import { Text } from 'react-native';
 export const StoreSuggestionCell = () => {
   return (
     <StoreSuggestionCellContainer>
-      <Text>Publix</Text>
+      <StoreSuggestionNameText>Publix</StoreSuggestionNameText>
+      <StoreSuggestionAddressText>950 W Peachtree St NW, Atlanta, GA 30309</StoreSuggestionAddressText>
     </StoreSuggestionCellContainer>
   );
 };

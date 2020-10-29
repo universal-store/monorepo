@@ -8,7 +8,7 @@ import MapView, { MapStyleElement, Marker } from 'react-native-maps';
 // Components
 import { Pressable } from 'react-native';
 import { smallModalHeight } from '../Modal';
-import { HeaderLargeText, HeaderSmallText, TextMedium2 } from '../Text';
+import { HeaderLargeText, HeaderSmallText, TextMedium2, TextSmall2 } from '../Text';
 import { FullScreenCenter, isiPhoneX, RowView, screenWidth } from '../Views';
 
 // Styled Components
@@ -172,12 +172,21 @@ export const StoreSuggestionContainer = styled.View`
   background-color: ${({ theme }) => theme.colors.white[1]};
 `;
 
-export const StoreSuggestionCellContainer = styled.View`
+export const StoreSuggestionCellContainer = styled(RowView)`
   padding: 8px 12px;
   border-bottom-width: 1px;
   border-bottom-color: ${({ theme }) => theme.colors.gray[5]};
+  justify-content: space-between;
 `;
 
+export const StoreSuggestionNameText = styled(TextSmall2)`
+  font-size: 13px;
+`;
+
+export const StoreSuggestionAddressText = styled(TextSmall2)`
+  font-size: 11px;
+  color: ${({ theme }) => theme.colors.gray[4]};
+`;
 // ----------------------------------- Map Styling -----------------------------------
 
 export const MapStyle: MapStyleElement[] = [

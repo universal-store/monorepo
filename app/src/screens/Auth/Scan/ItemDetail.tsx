@@ -24,6 +24,7 @@ import {
   largeModalHeight,
   LoadingOverlay,
   ModalContainer,
+  ModalFlexContainer,
   ModalHeader,
   ModalHeaderTab,
   ProductDetailsHeaderText,
@@ -98,9 +99,9 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
   );
 
   const renderContent = () => (
-    <>
+    <ModalContainer>
       {itemData && (
-        <ModalContainer>
+        <ModalFlexContainer>
           <ItemSubDetailRow>
             <ItemNameText numberOfLines={2}>{itemData.longName}</ItemNameText>
 
@@ -115,12 +116,17 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
           </ItemSubDetailRow>
 
           <ProductDetailsHeaderText>Product Details</ProductDetailsHeaderText>
-          <ProductDetailsScroll bounces={false} showsVerticalScrollIndicator={false}>
+          <ProductDetailsScroll
+            bounces={false}
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={{ paddingBottom: isiPhoneX ? 100 : 70 }}
+          >
+            <ProductDetailsText>{itemData.description}</ProductDetailsText>
             <ProductDetailsText>{itemData.description}</ProductDetailsText>
           </ProductDetailsScroll>
-        </ModalContainer>
+        </ModalFlexContainer>
       )}
-    </>
+    </ModalContainer>
   );
 
   const addOrRemoveFromFavorites = () => {
@@ -189,6 +195,7 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
 
       <BottomSheet
         initialSnap={1}
+        enabledBottomClamp
         renderHeader={renderHeader}
         renderContent={renderContent}
         enabledBottomInitialAnimation

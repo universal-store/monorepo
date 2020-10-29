@@ -82,16 +82,17 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
       setFilteredStores(storesData.Store);
 
       // TODO: Remove from production
-      void DeviceInfo.isEmulator().then(_res =>
-        setFilteredStores([
-          {
-            id: 'f7904981-2691-40d6-ac44-67105aa24bfb',
-            name: 'Chevron',
-            category: 'Convenience',
-            location: { coordinates: [37.785834, -122.406417] },
-          },
-        ])
-      );
+      void DeviceInfo.isEmulator().then(res => {
+        if (res)
+          setFilteredStores([
+            {
+              id: 'f7904981-2691-40d6-ac44-67105aa24bfb',
+              name: 'Chevron',
+              category: 'Convenience',
+              location: { coordinates: [37.785834, -122.406417] },
+            },
+          ]);
+      });
     }
   }, [storesData]);
 

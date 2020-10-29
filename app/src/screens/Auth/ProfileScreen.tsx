@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 
 // Components
 import {
@@ -29,9 +29,6 @@ import { CheckIcon } from '&icons';
 import { useApolloClient } from '@apollo/client';
 import AsyncStorage from '@react-native-community/async-storage';
 
-// Navigation
-import { useFocusEffect } from '@react-navigation/native';
-
 // Firebase Authentication
 import { Firebase } from '&lib';
 
@@ -46,13 +43,7 @@ export const ProfileScreen = () => {
 
   const [signOutLoad, setSignOutLoad] = useState<boolean>(false);
 
-  const { data, loading, refetch } = useGetUserQuery();
-
-  useFocusEffect(
-    useCallback(() => {
-      void refetch();
-    }, [])
-  );
+  const { data, loading } = useGetUserQuery();
 
   if (loading || signOutLoad)
     return (

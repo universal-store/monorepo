@@ -2,7 +2,16 @@ package com.universalstore;
 
 import com.facebook.react.ReactActivity;
 
+import android.os.Bundle; // required for onCreate parameter
+import org.devio.rn.splashscreen.SplashScreen;
+
 public class MainActivity extends ReactActivity {
+
+   @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        SplashScreen.show(this);  // here
+        super.onCreate(savedInstanceState);
+    }
 
   /**
    * Returns the name of the main component registered from JavaScript. This is used to schedule

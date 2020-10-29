@@ -13,7 +13,7 @@ import MapView, { EventUserLocation, PROVIDER_GOOGLE, Region } from 'react-nativ
 import {
   CameraSettingsButton,
   CameraSettingsText,
-  FullScreen,
+  FullScreenLightPurple,
   MapStyle,
   MapViewMarker,
   MapViewMarkerText,
@@ -182,7 +182,7 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
   }
 
   return (
-    <FullScreen>
+    <FullScreenLightPurple>
       <MapViewTextInputContainer empty={storeQuery === ''}>
         <MapViewTextInputRowView>
           <MapViewTextInputIconContainer>
@@ -237,6 +237,7 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
         maxZoomLevel={20}
         showsUserLocation
         pitchEnabled={false}
+        showsIndoors={false}
         region={currentPosition}
         customMapStyle={MapStyle}
         provider={PROVIDER_GOOGLE}
@@ -294,7 +295,7 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
       <ToggleFocusButton style={{ elevation: 4 }} onPress={() => locateCurrentPosition()}>
         <MapArrowIcon />
       </ToggleFocusButton>
-    </FullScreen>
+    </FullScreenLightPurple>
   );
 };
 

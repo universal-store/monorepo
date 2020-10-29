@@ -28,7 +28,7 @@ export const ModalHeaderTab = styled.View`
   width: 42px;
   height: 4px;
   border-radius: 8px;
-  background-color: ${({ theme }) => theme.colors.gray[3]};
+  background-color: ${({ theme }) => theme.colors.gray[4]};
 `;
 
 export const ModalContainer = styled.View`

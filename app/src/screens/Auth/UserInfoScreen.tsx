@@ -25,7 +25,7 @@ import {
 } from '&components';
 
 // Iconography
-import { PersonIcon } from '&icons';
+import { AppIcon, PersonIcon } from '&icons';
 
 // Navigation
 import { AuthStackParams } from '&navigation';
@@ -76,7 +76,9 @@ export const UserInfoScreen = ({ navigation }: UserInfoScreenProps) => {
       <KeyboardDismiss onPress={Keyboard.dismiss}>
         <OnboardingMainContainer>
           <OnboardingHeaderContainer>
-            <LogoContainer />
+            <LogoContainer>
+              <AppIcon />
+            </LogoContainer>
             <OnboardingHeaderTextContainer>
               <OnboardingHeaderTitleText>Universal Store</OnboardingHeaderTitleText>
               <OnboardingSubHeaderText>Redefining express checkout.</OnboardingSubHeaderText>

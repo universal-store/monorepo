@@ -34,7 +34,7 @@ import {
 } from '&components';
 
 // Iconography
-import { EmailIcon, LockIcon, VisibleIcon } from '&icons';
+import { AppIcon, EmailIcon, LockIcon, VisibleIcon } from '&icons';
 
 // Navigation
 import { OnboardingStackParams } from '&navigation';
@@ -121,7 +121,9 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
         <OnboardingMainContainer>
           <OnboardingScroll bounces={false} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
             <OnboardingHeaderContainer>
-              <LogoContainer />
+              <LogoContainer>
+                <AppIcon />
+              </LogoContainer>
               <OnboardingHeaderTextContainer>
                 <OnboardingHeaderTitleText>Universal Store</OnboardingHeaderTitleText>
                 <OnboardingSubHeaderText>Redefining express checkout.</OnboardingSubHeaderText>

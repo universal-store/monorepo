@@ -25,14 +25,13 @@ import {
   MapViewTextInput,
   MapViewTextInputContainer,
   MapViewTextInputIconContainer,
-  MapViewTextInputRowView,
   NoLocationPermissionsScreen,
   NoLocationPermissionsText,
   StoreMap,
   StoreMapBottomPadding,
   StorePreview,
   StoreSuggestionCell,
-  StoreSuggestionHeader,
+  StoreSuggestionContainer,
   ToggleFocusButton,
 } from '&components';
 
@@ -49,6 +48,7 @@ import { MarkerInfoFragment, useGetUserQuery, useGetStoresQuery } from '&graphql
 
 // TODO: Remove (testing only)
 import DeviceInfo from 'react-native-device-info';
+import { TextInput } from 'react-native';
 
 // Store Categories
 const STORE_CATEGORIES = ['Supermarket', 'Department', 'Convenience', 'Pharamacy', 'Electronic'];
@@ -57,6 +57,7 @@ type MapViewScreenProps = StackScreenProps<AuthStackParams, 'TabNavigation'>;
 
 export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
   const mapRef = useRef<MapView>(null);
+  const inputRef = useRef<TextInput>(null);
 
   const [currentPosition, setCurrentPosition] = useState<Region>();
 
@@ -183,29 +184,28 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
 
   return (
     <FullScreenLightPurple>
-      <MapViewTextInputContainer empty={storeQuery === ''}>
-        <MapViewTextInputRowView>
-          <MapViewTextInputIconContainer>
-            <FindIcon />
-          </MapViewTextInputIconContainer>
-          <MapViewTextInput
-            value={storeQuery}
-            editable={!storePreview}
-            onChangeText={setStoreQuery}
-            placeholder="Search for store"
-          />
-        </MapViewTextInputRowView>
-        {storeQuery !== '' && !storePreview && (
-          <>
-            <StoreSuggestionHeader />
-            <StoreSuggestionCell />
-            <StoreSuggestionCell />
-            <StoreSuggestionCell />
-            <StoreSuggestionCell />
-            <StoreSuggestionCell />
-          </>
-        )}
+      <MapViewTextInputContainer>
+        <MapViewTextInputIconContainer>
+          <FindIcon />
+        </MapViewTextInputIconContainer>
+        <MapViewTextInput
+          ref={inputRef}
+          value={storeQuery}
+          editable={!storePreview}
+          onChangeText={setStoreQuery}
+          placeholder="Search for store"
+        />
       </MapViewTextInputContainer>
+
+      {storeQuery !== '' && !storePreview && inputRef.current && inputRef.current.isFocused() && (
+        <StoreSuggestionContainer>
+          <StoreSuggestionCell />
+          <StoreSuggestionCell />
+          <StoreSuggestionCell />
+          <StoreSuggestionCell />
+          <StoreSuggestionCell />
+        </StoreSuggestionContainer>
+      )}
 
       <MapViewStoreCategoryContainer>
         <FlatList
@@ -246,6 +246,7 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
         initialRegion={currentPosition}
         loadingIndicatorColor={theme.colors.purple[1]}
         loadingBackgroundColor={theme.colors.white[1]}
+        onRegionChange={() => inputRef.current && inputRef.current.blur()}
       >
         {filteredStores &&
           filteredStores.map(store => (

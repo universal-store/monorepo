@@ -52,8 +52,14 @@ const App = () => {
   const [user, setUser] = useState<User | null>(null);
 
   const onAuthStateChanged = () => {
-    return Firebase.auth().onAuthStateChanged(user => {
-      setUser(user);
+    return Firebase.auth().onAuthStateChanged(async user => {
+      if (user) {
+        const newToken = await user.getIdToken(true);
+        await AsyncStorage.setItem('userToken', newToken);
+
+        setUser(user);
+      }
+
       if (loading) setLoading(false);
     });
   };

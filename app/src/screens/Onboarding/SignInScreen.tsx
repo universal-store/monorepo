@@ -87,7 +87,7 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
         .signInWithEmailAndPassword(userEmail.toLowerCase(), userPassword)
         .then(async userCredentials => {
           if (userCredentials.user) {
-            const newToken = await userCredentials.user.getIdToken();
+            const newToken = await userCredentials.user.getIdToken(true);
             await AsyncStorage.setItem('userToken', newToken);
           }
         })

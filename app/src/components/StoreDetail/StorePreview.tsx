@@ -7,6 +7,7 @@ import BottomSheet from 'reanimated-bottom-sheet';
 
 // Components
 import { LoadingOverlay } from '../LoadingOverlay';
+import { PopularItemCell } from './PopularItemCell';
 import { largeModalHeight, ModalContainer, ModalHeader, ModalHeaderTab, smallModalHeight } from '../Modal';
 
 // GraphQL
@@ -43,6 +44,11 @@ export const StorePreview = ({ store, onSelect }: StorePreviewProps) => {
           <Text>{storeData.address}</Text>
           <Text>{storeData.description}</Text>
           <Text>Popular Items</Text>
+          <PopularItemCell />
+          <PopularItemCell />
+          <PopularItemCell />
+          <PopularItemCell />
+          <PopularItemCell />
         </>
       )}
     </ModalContainer>

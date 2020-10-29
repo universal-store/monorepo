@@ -14,6 +14,8 @@ import {
   OnboardingButton,
   OnboardingButtonText,
   OnboardingFormText,
+  OnboardingGoogleButton,
+  OnboardingGoogleButtonText,
   OnboardingHeaderContainer,
   OnboardingHeaderTextContainer,
   OnboardingInputContainer,
@@ -39,6 +41,7 @@ import { OnboardingStackParams } from '&navigation';
 import { StackScreenProps } from '@react-navigation/stack';
 
 // Firebase Authentication
+import firebase from 'firebase';
 import { Firebase, fns } from '&lib';
 
 // Utils
@@ -112,6 +115,22 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
 
       setLoading(false);
     }
+  };
+
+  const onboardWithGoogle = async () => {
+    setLoading(true);
+
+    await Firebase.auth()
+      .signInWithPopup(new firebase.auth.GoogleAuthProvider())
+      .then(async userCredentials => {
+        if (userCredentials.user) {
+          const newToken = await userCredentials.user.getIdToken();
+          await AsyncStorage.setItem('userToken', newToken);
+        }
+      })
+      .catch(err => console.log(err));
+
+    setLoading(false);
   };
 
   return (
@@ -217,6 +236,10 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
             <OnboardingButton onPress={validateSignUp}>
               <OnboardingButtonText>Sign Up</OnboardingButtonText>
             </OnboardingButton>
+
+            <OnboardingGoogleButton onPress={onboardWithGoogle}>
+              <OnboardingGoogleButtonText>Sign Up With Google</OnboardingGoogleButtonText>
+            </OnboardingGoogleButton>
 
             <OnboardingSmallerText>
               By continuing you agree to our

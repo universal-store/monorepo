@@ -18,6 +18,8 @@ import org.unimodules.adapters.react.ModuleRegistryAdapter;
 import org.unimodules.adapters.react.ReactModuleRegistryProvider;
 import org.unimodules.core.interfaces.SingletonModule;
 
+import co.apptailor.googlesignin.RNGoogleSigninPackage;
+
 public class MainApplication extends Application implements ReactApplication {
   private final ReactModuleRegistryProvider mModuleRegistryProvider = new ReactModuleRegistryProvider(new BasePackageList().getPackageList(), null);
 
@@ -39,7 +41,10 @@ public class MainApplication extends Application implements ReactApplication {
           List<ReactPackage> unimodules = Arrays.<ReactPackage>asList(
             new ModuleRegistryAdapter(mModuleRegistryProvider)
           );
+
           packages.addAll(unimodules);
+          packages.add(new RNGoogleSigninPackage())
+          
           return packages;
         }
 

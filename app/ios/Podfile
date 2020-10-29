@@ -12,6 +12,8 @@ target 'UniversalStore' do
   permissions_path = '../../node_modules/react-native-permissions/ios'
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse.podspec"
 
+  pod 'GoogleSignIn', '~> 5.0.2'
+
   use_unimodules!(modules_paths: ['../../node_modules'])
   config = use_native_modules!
   use_react_native!(:path => config[:reactNativePath]) # https://github.com/facebook/react-native/issues/29371

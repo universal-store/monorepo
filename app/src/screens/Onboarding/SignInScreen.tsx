@@ -15,6 +15,8 @@ import {
   OnboardingButtonText,
   OnboardingForgotPasswordButton,
   OnboardingFormText,
+  OnboardingGoogleButton,
+  OnboardingGoogleButtonText,
   OnboardingHeaderContainer,
   OnboardingHeaderTextContainer,
   OnboardingInputContainer,
@@ -196,6 +198,9 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
               <OnboardingButtonText>Log In</OnboardingButtonText>
             </OnboardingButton>
 
+            <OnboardingGoogleButton>
+              <OnboardingGoogleButtonText>Sign In With Google</OnboardingGoogleButtonText>
+            </OnboardingGoogleButton>
             <OnboardingPadding />
           </OnboardingScroll>
 

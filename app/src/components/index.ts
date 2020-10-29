@@ -10,7 +10,6 @@ export * from './Buttons';
 export * from './LoadingOverlay';
 
 // Onboarding Screens
-export * from './Splash';
 export * from './Onboarding';
 
 // Auth Screens

@@ -13,7 +13,7 @@ import MapView, { EventUserLocation, PROVIDER_GOOGLE, Region } from 'react-nativ
 import {
   CameraSettingsButton,
   CameraSettingsText,
-  FullScreen,
+  FullScreenLightPurple,
   MapStyle,
   MapViewMarker,
   MapViewMarkerText,
@@ -25,17 +25,13 @@ import {
   MapViewTextInput,
   MapViewTextInputContainer,
   MapViewTextInputIconContainer,
-  MapViewTextInputRowView,
-  ModalHeader,
-  ModalHeaderTab,
-  ModalContainer,
   NoLocationPermissionsScreen,
   NoLocationPermissionsText,
   StoreMap,
   StoreMapBottomPadding,
   StorePreview,
   StoreSuggestionCell,
-  StoreSuggestionHeader,
+  StoreSuggestionContainer,
   ToggleFocusButton,
 } from '&components';
 
@@ -52,6 +48,7 @@ import { MarkerInfoFragment, useGetUserQuery, useGetStoresQuery } from '&graphql
 
 // TODO: Remove (testing only)
 import DeviceInfo from 'react-native-device-info';
+import { TextInput } from 'react-native';
 
 // Store Categories
 const STORE_CATEGORIES = ['Supermarket', 'Department', 'Convenience', 'Pharamacy', 'Electronic'];
@@ -60,6 +57,7 @@ type MapViewScreenProps = StackScreenProps<AuthStackParams, 'TabNavigation'>;
 
 export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
   const mapRef = useRef<MapView>(null);
+  const inputRef = useRef<TextInput>(null);
 
   const [currentPosition, setCurrentPosition] = useState<Region>();
 
@@ -84,16 +82,17 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
       setFilteredStores(storesData.Store);
 
       // TODO: Remove from production
-      void DeviceInfo.isEmulator().then(_res =>
-        setFilteredStores([
-          {
-            id: 'f7904981-2691-40d6-ac44-67105aa24bfb',
-            name: 'Chevron',
-            category: 'Convenience',
-            location: { coordinates: [37.785834, -122.406417] },
-          },
-        ])
-      );
+      void DeviceInfo.isEmulator().then(res => {
+        if (res)
+          setFilteredStores([
+            {
+              id: 'f7904981-2691-40d6-ac44-67105aa24bfb',
+              name: 'Chevron',
+              category: 'Convenience',
+              location: { coordinates: [37.785834, -122.406417] },
+            },
+          ]);
+      });
     }
   }, [storesData]);
 
@@ -185,30 +184,29 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
   }
 
   return (
-    <FullScreen>
-      <MapViewTextInputContainer empty={storeQuery === ''}>
-        <MapViewTextInputRowView>
-          <MapViewTextInputIconContainer>
-            <FindIcon />
-          </MapViewTextInputIconContainer>
-          <MapViewTextInput
-            value={storeQuery}
-            editable={!storePreview}
-            onChangeText={setStoreQuery}
-            placeholder="Search for store"
-          />
-        </MapViewTextInputRowView>
-        {storeQuery !== '' && !storePreview && (
-          <>
-            <StoreSuggestionHeader />
-            <StoreSuggestionCell />
-            <StoreSuggestionCell />
-            <StoreSuggestionCell />
-            <StoreSuggestionCell />
-            <StoreSuggestionCell />
-          </>
-        )}
+    <FullScreenLightPurple>
+      <MapViewTextInputContainer>
+        <MapViewTextInputIconContainer>
+          <FindIcon />
+        </MapViewTextInputIconContainer>
+        <MapViewTextInput
+          ref={inputRef}
+          value={storeQuery}
+          editable={!storePreview}
+          onChangeText={setStoreQuery}
+          placeholder="Search for store"
+        />
       </MapViewTextInputContainer>
+
+      {storeQuery !== '' && !storePreview && inputRef.current && inputRef.current.isFocused() && (
+        <StoreSuggestionContainer>
+          <StoreSuggestionCell />
+          <StoreSuggestionCell />
+          <StoreSuggestionCell />
+          <StoreSuggestionCell />
+          <StoreSuggestionCell />
+        </StoreSuggestionContainer>
+      )}
 
       <MapViewStoreCategoryContainer>
         <FlatList
@@ -240,6 +238,7 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
         maxZoomLevel={20}
         showsUserLocation
         pitchEnabled={false}
+        showsIndoors={false}
         region={currentPosition}
         customMapStyle={MapStyle}
         provider={PROVIDER_GOOGLE}
@@ -248,6 +247,7 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
         initialRegion={currentPosition}
         loadingIndicatorColor={theme.colors.purple[1]}
         loadingBackgroundColor={theme.colors.white[1]}
+        onRegionChange={() => inputRef.current && inputRef.current.blur()}
       >
         {filteredStores &&
           filteredStores.map(store => (
@@ -297,7 +297,7 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
       <ToggleFocusButton style={{ elevation: 4 }} onPress={() => locateCurrentPosition()}>
         <MapArrowIcon />
       </ToggleFocusButton>
-    </FullScreen>
+    </FullScreenLightPurple>
   );
 };
 

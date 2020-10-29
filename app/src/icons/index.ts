@@ -6,6 +6,7 @@ export * from './CameraIcon';
 export * from './BackArrowIcon';
 
 // General Icons
+export * from './AppIcon';
 export * from './CartIcon';
 export * from './FindIcon';
 export * from './HeartIcon';

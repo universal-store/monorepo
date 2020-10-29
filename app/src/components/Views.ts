@@ -31,7 +31,6 @@ export const FullScreenCenter = styled(FullScreenWhite)`
 `;
 
 export const FullScreenLightPurple = styled(FullScreen)`
-  padding-top: ${isiPhoneX ? 30 : 0}px;
   background-color: ${({ theme }) => theme.colors.purple[3]};
 `;
 

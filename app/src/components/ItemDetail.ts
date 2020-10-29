@@ -67,12 +67,11 @@ export const ItemSizeText = styled(TextMedium2)`
 `;
 
 export const ProductDetailsHeaderText = styled(HeaderSmallText)`
-  margin-top: 16px;
+  margin: 16px 0 8px;
 `;
 
 export const ProductDetailsScroll = styled.ScrollView`
   flex: 1;
-  height: auto;
 `;
 
 export const ProductDetailsText = styled(TextSmall)`

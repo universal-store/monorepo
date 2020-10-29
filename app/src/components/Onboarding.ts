@@ -9,7 +9,7 @@ import { HeaderSmallText, TextSmall, TextSmall2 } from './Text';
 // Utils
 import { validInput } from '&utils';
 
-export const OnboardingMainContainer = styled(FullScreenWhite)<OnboardingMainContainerProps>`
+export const OnboardingMainContainer = styled(FullScreenWhite)`
   width: 100%;
   display: flex;
   padding: 0 32px;
@@ -27,7 +27,11 @@ export const OnboardingHeaderContainer = styled(RowView)`
 export const LogoContainer = styled.View`
   width: 50px;
   height: 50px;
+  display: flex;
+  padding-top: 5px;
+  align-items: center;
   border-radius: 10px;
+  justify-content: center;
   background-color: ${({ theme }) => theme.colors.purple[1]};
 `;
 

@@ -20,6 +20,17 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.612367329435-j5cnkbkktmg2f7cs030avejho4ie60ll</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -38,13 +49,13 @@
 		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string/>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Universal Store needs permission to access your location</string>
+	<string></string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Universal Store needs permission to access your location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Universal Store needs permission to access your location</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string/>
+	<string></string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>NunitoSans-Regular.ttf</string>

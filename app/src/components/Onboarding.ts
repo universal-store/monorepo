@@ -132,7 +132,6 @@ export const OnboardingButton = styled.TouchableOpacity`
   width: 100%;
   height: 40px;
   display: flex;
-  padding: 10px;
   border-radius: 40px;
   align-items: center;
   margin: 48px 0 8px;

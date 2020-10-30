@@ -8,8 +8,8 @@ import MapView, { MapStyleElement, Marker } from 'react-native-maps';
 // Components
 import { Pressable } from 'react-native';
 import { smallModalHeight } from '../Modal';
-import { HeaderLargeText, HeaderSmallText, TextMedium2, TextSmall2 } from '../Text';
 import { FullScreenCenter, isiPhoneX, RowView, screenWidth } from '../Views';
+import { HeaderLargeText, HeaderSmallText, TextMedium2, TextSmall2 } from '../Text';
 
 // Styled Components
 export const NoLocationPermissionsScreen = styled(FullScreenCenter)`
@@ -45,8 +45,8 @@ export const MapViewTextInputContainer = styled(RowView)`
   flex: 1;
   left: 24px;
   z-index: 2;
-  display: flex;
-  padding: 8px 16px;
+  height: 40px;
+  padding: 0 16px;
   align-items: center;
   border-radius: 40px;
   margin-bottom: 24px;
@@ -57,6 +57,11 @@ export const MapViewTextInputContainer = styled(RowView)`
   top: ${isiPhoneX ? 54 : 24}px;
   shadow-color: ${({ theme }) => theme.colors.gray[1]};
   background-color: ${({ theme }) => theme.colors.white[1]};
+`;
+
+export const MapViewTextInputRowView = styled(RowView)`
+  margin: 8px 16px;
+  align-items: center;
 `;
 
 export const MapViewTextInputIconContainer = styled.View`
@@ -72,8 +77,9 @@ export const MapViewTextInput = styled.TextInput.attrs(({ theme }) => ({
   selectionColor: theme.colors.gray[3],
   placeholderTextColor: theme.colors.gray[4],
 }))`
-  flex: 1;
+  display: flex;
   font-size: 15px;
+  align-items: center;
   font-family: NunitoSans-Regular;
   color: ${({ theme }) => theme.colors.gray[1]};
 `;
@@ -162,29 +168,29 @@ export const StoreSuggestionContainer = styled.View`
   flex: 1;
   left: 24px;
   z-index: 2;
+  height: 240px;
   border-radius: 8px;
   shadow-opacity: 0.23;
   shadow-radius: 2.62px;
   shadow-offset: 0px 2px;
   width: ${screenWidth - 48}px;
-  top: ${isiPhoneX ? 96 : 66}px;
+  top: ${isiPhoneX ? 106 : 76}px;
   shadow-color: ${({ theme }) => theme.colors.gray[1]};
   background-color: ${({ theme }) => theme.colors.white[1]};
 `;
 
-export const StoreSuggestionCellContainer = styled(RowView)`
-  padding: 8px 12px;
+export const StoreSuggestionCellContainer = styled.View`
+  height: 48px;
+  display: flex;
+  padding: 0 12px;
+  justify-content: center;
   border-bottom-width: 1px;
   border-bottom-color: ${({ theme }) => theme.colors.gray[5]};
-  justify-content: space-between;
 `;
 
-export const StoreSuggestionNameText = styled(TextSmall2)`
-  font-size: 13px;
-`;
+export const StoreSuggestionNameText = styled(HeaderSmallText)``;
 
 export const StoreSuggestionAddressText = styled(TextSmall2)`
-  font-size: 11px;
   color: ${({ theme }) => theme.colors.gray[4]};
 `;
 // ----------------------------------- Map Styling -----------------------------------

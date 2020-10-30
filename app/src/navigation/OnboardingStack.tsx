@@ -9,10 +9,9 @@ import { SignInScreen, SignUpScreen, UserInfoScreen } from '&screens';
 import { createStackNavigator } from '@react-navigation/stack';
 
 export type OnboardingStackParams = {
-  AuthStack: { screen: string };
   SignInScreen: undefined;
   SignUpScreen: undefined;
-  UserInfoScreen: undefined;
+  UserInfoScreen: { id: string; token: string };
 };
 
 const OnboardingStack = createStackNavigator<OnboardingStackParams>();

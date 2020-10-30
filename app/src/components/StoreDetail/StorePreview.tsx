@@ -9,11 +9,13 @@ import BottomSheet from 'reanimated-bottom-sheet';
 import { LoadingOverlay } from '../LoadingOverlay';
 import { PopularItemCell } from './PopularItemCell';
 import { largeModalHeight, ModalContainer, ModalHeader, ModalHeaderTab, smallModalHeight } from '../Modal';
+
 import {
   SelectStoreButton,
   SelectStoreButtonContainer,
   SelectStoreButtonText,
   StoreDetailHeaderRow,
+  StoreDetailImage,
   StoreDetailImageContainer,
   StoreDetailStoreNameText,
   StoreDetailStoreCategoryText,
@@ -24,9 +26,6 @@ import {
 
 // GraphQL
 import { MarkerInfoFragment, useGetStoreInfoQuery } from '&graphql';
-
-// TODO: Remove
-import { Text } from 'react-native';
 
 // Constants
 const freeSnap = [largeModalHeight - 10, smallModalHeight];
@@ -60,12 +59,21 @@ export const StorePreview = ({ store, onSelect }: StorePreviewProps) => {
       {storeData && (
         <>
           <StoreDetailHeaderRow>
-            <StoreDetailImageContainer></StoreDetailImageContainer>
+            {storeData.StorePic && (
+              <StoreDetailImageContainer>
+                <StoreDetailImage source={{ uri: storeData.StorePic.size64 }} />
+              </StoreDetailImageContainer>
+            )}
             <StoreDetailStoreNameText>{storeData.name}</StoreDetailStoreNameText>
           </StoreDetailHeaderRow>
+
           <StoreDetailStoreCategoryText>{storeData.category}</StoreDetailStoreCategoryText>
           <StoreDetailStoreAddressText>{storeData.address}</StoreDetailStoreAddressText>
-          <StoreDetailStoreDescriptionText>{storeData.description}</StoreDetailStoreDescriptionText>
+
+          {storeData.description && (
+            <StoreDetailStoreDescriptionText>{storeData.description}</StoreDetailStoreDescriptionText>
+          )}
+
           <StoreDetailPopularItemHeaderText>Popular Items</StoreDetailPopularItemHeaderText>
           <PopularItemCell />
           <PopularItemCell />

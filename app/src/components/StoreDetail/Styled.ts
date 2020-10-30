@@ -3,7 +3,7 @@
 import styled from 'styled-components/native';
 
 // Typography
-import { HeaderMediumText, HeaderSmallText, TextMedium, TextSmall, TextSmall2 } from './../Text';
+import { HeaderMediumText, HeaderSmallText, TextLarge, TextMedium2, TextSmall } from './../Text';
 
 // Constants
 import { isiPhoneX, screenWidth, RowView } from './../Views';
@@ -41,43 +41,49 @@ export const SelectStoreButtonText = styled(HeaderMediumText)<SelectStoreButtonP
 export const StoreDetailHeaderRow = styled(RowView)`
   width: 100%;
   margin-bottom: 4px;
-  margin-top: 24px;
 `;
 
 export const StoreDetailImageContainer = styled.View`
   width: 32px;
   height: 32px;
+  display: flex;
   margin-right: 12px;
+  align-items: center;
+  justify-content: center;
 `;
 
-export const StoreDetailStoreNameText = styled(TextMedium)``;
+export const StoreDetailImage = styled.Image`
+  width: 32px;
+  height: 32px;
+`;
 
-export const StoreDetailStoreCategoryText = styled(TextSmall)`
-  color: ${({ theme }) => theme.colors.gray[3]};
+export const StoreDetailStoreNameText = styled(TextLarge)``;
+
+export const StoreDetailStoreCategoryText = styled(TextMedium2)`
   margin-bottom: 4px;
+  color: ${({ theme }) => theme.colors.gray[3]};
 `;
 
-export const StoreDetailStoreAddressText = styled(TextSmall2)`
-  margin-bottom: 13px;
-  font-size: 13px;
+export const StoreDetailStoreAddressText = styled(TextSmall)`
+  margin-bottom: 12px;
 `;
 
-export const StoreDetailStoreDescriptionText = styled(TextSmall)`
-  margin-bottom: 17px;
+export const StoreDetailStoreDescriptionText = styled(TextMedium2)`
+  margin-bottom: 16px;
 `;
 
 export const StoreDetailPopularItemHeaderText = styled(HeaderSmallText)`
   margin-bottom: 12px;
+  font-family: NunitoSans-Bold;
 `;
 
 export const StoreDetailPopularItemContainer = styled(RowView)`
-  width: 100%;
+  height: 32px;
+  align-items: center;
   margin-bottom: 12px;
 `;
 
-export const StoreDetailPopularItemNameText = styled(TextSmall)`
-  margin-bottom: 12px;
-`;
+export const StoreDetailPopularItemNameText = styled(TextSmall)``;
 
 export const StoreDetailPopularItemPriceText = styled(HeaderSmallText)`
   margin-left: auto;

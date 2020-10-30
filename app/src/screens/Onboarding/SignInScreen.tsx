@@ -195,7 +195,6 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
             <OnboardingButton onPress={validateSignIn}>
               <OnboardingButtonText>Log In</OnboardingButtonText>
             </OnboardingButton>
-
             <OnboardingPadding />
           </OnboardingScroll>
 

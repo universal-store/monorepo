@@ -40,16 +40,15 @@ export const MapViewMarkerText = styled(HeaderSmallText)`
   color: ${({ theme }) => theme.colors.gray[2]};
 `;
 
-interface MapViewTextInputContainerProps {
-  empty: boolean;
-}
-
-export const MapViewTextInputContainer = styled.View<MapViewTextInputContainerProps>`
+export const MapViewTextInputContainer = styled(RowView)`
   position: absolute;
   flex: 1;
   left: 24px;
   z-index: 2;
-  display: flex;
+  height: 40px;
+  padding: 0 16px;
+  align-items: center;
+  border-radius: 40px;
   margin-bottom: 24px;
   shadow-opacity: 0.23;
   shadow-radius: 2.62px;
@@ -58,10 +57,6 @@ export const MapViewTextInputContainer = styled.View<MapViewTextInputContainerPr
   top: ${isiPhoneX ? 54 : 24}px;
   shadow-color: ${({ theme }) => theme.colors.gray[1]};
   background-color: ${({ theme }) => theme.colors.white[1]};
-  border-top-left-radius: ${({ empty }) => (empty ? 40 : 20)}px;
-  border-top-right-radius: ${({ empty }) => (empty ? 40 : 20)}px;
-  border-bottom-left-radius: ${({ empty }) => (empty ? 40 : 8)}px;
-  border-bottom-right-radius: ${({ empty }) => (empty ? 40 : 8)}px;
 `;
 
 export const MapViewTextInputRowView = styled(RowView)`
@@ -83,6 +78,7 @@ export const MapViewTextInput = styled.TextInput.attrs(({ theme }) => ({
   placeholderTextColor: theme.colors.gray[4],
 }))`
   font-size: 15px;
+  line-height: 18px;
   font-family: NunitoSans-Regular;
   color: ${({ theme }) => theme.colors.gray[1]};
 `;
@@ -166,13 +162,27 @@ export const ToggleFocusButton = styled.TouchableOpacity`
 
 // --------------------------------- Store Suggestion --------------------------------
 
-export const StoreSuggestionHeader = styled.View`
-  height: 1px;
-  background-color: ${({ theme }) => theme.colors.gray[5]};
+export const StoreSuggestionContainer = styled.View`
+  position: absolute;
+  flex: 1;
+  left: 24px;
+  z-index: 2;
+  height: 240px;
+  border-radius: 8px;
+  shadow-opacity: 0.23;
+  shadow-radius: 2.62px;
+  shadow-offset: 0px 2px;
+  width: ${screenWidth - 48}px;
+  top: ${isiPhoneX ? 106 : 76}px;
+  shadow-color: ${({ theme }) => theme.colors.gray[1]};
+  background-color: ${({ theme }) => theme.colors.white[1]};
 `;
 
 export const StoreSuggestionCellContainer = styled.View`
-  padding: 4px 8px;
+  height: 48px;
+  display: flex;
+  padding: 0 12px;
+  justify-content: center;
   border-bottom-width: 1px;
   background-color: ${({ theme }) => theme.colors.white[1]};
   border-bottom-color: ${({ theme }) => theme.colors.gray[5]};

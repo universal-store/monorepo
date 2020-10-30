@@ -51,7 +51,7 @@ import DeviceInfo from 'react-native-device-info';
 import { TextInput } from 'react-native';
 
 // Store Categories
-const STORE_CATEGORIES = ['Supermarket', 'Department', 'Convenience', 'Pharamacy', 'Electronic'];
+const STORE_CATEGORIES = ['Supermarket', 'Department', 'Convenience', 'Pharmacy', 'Electronic'];
 
 type MapViewScreenProps = StackScreenProps<AuthStackParams, 'TabNavigation'>;
 
@@ -76,6 +76,10 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
 
   // Query all Stores
   const { data: storesData } = useGetStoresQuery();
+
+  //filtering out stores based on store category
+  //TODO: how do I get the stores selected category?
+  storesData?.Store.filter(store => STORE_CATEGORIES.includes(store.category));
 
   useEffect(() => {
     if (storesData) {

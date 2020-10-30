@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
 
 // Components
@@ -43,8 +43,10 @@ import { StackScreenProps } from '@react-navigation/stack';
 // Firebase Authentication
 import firebase from 'firebase';
 import { Firebase, fns } from '&lib';
+import { GoogleSignin } from '@react-native-community/google-signin';
 
 // Utils
+import { WEB_CLIENT_ID } from '&env';
 import { emailRegex, validInput } from '&utils';
 
 type SignUpScreenProps = StackScreenProps<OnboardingStackParams, 'SignUpScreen'>;
@@ -67,6 +69,10 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
 
   // Loading Indicator
   const [loading, setLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    GoogleSignin.configure({ webClientId: WEB_CLIENT_ID, offlineAccess: false });
+  });
 
   const validateSignUp = async () => {
     let validInput = true;
@@ -117,18 +123,14 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
     }
   };
 
-  const onboardWithGoogle = async () => {
+  const signInWithGoogle = async () => {
     setLoading(true);
 
-    await Firebase.auth()
-      .signInWithPopup(new firebase.auth.GoogleAuthProvider())
-      .then(async userCredentials => {
-        if (userCredentials.user) {
-          const newToken = await userCredentials.user.getIdToken();
-          await AsyncStorage.setItem('userToken', newToken);
-        }
-      })
-      .catch(err => console.log(err));
+    await GoogleSignin.hasPlayServices();
+    await GoogleSignin.signInSilently().then(async userCredentials => {
+      const credential = firebase.auth.GoogleAuthProvider.credential(userCredentials.idToken);
+      await Firebase.auth().signInWithCredential(credential);
+    });
 
     setLoading(false);
   };
@@ -237,7 +239,7 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
               <OnboardingButtonText>Sign Up</OnboardingButtonText>
             </OnboardingButton>
 
-            <OnboardingGoogleButton onPress={onboardWithGoogle}>
+            <OnboardingGoogleButton onPress={signInWithGoogle}>
               <OnboardingGoogleButtonText>Sign Up With Google</OnboardingGoogleButtonText>
             </OnboardingGoogleButton>
 

@@ -8,13 +8,14 @@
     "rn:link": "react-native link",
     "ios:xcode": "xed ios",
     "ios:pods": "pod-install ios",
-    "ios": "react-native run-ios --no-packager",
-    "ios:install": "yarn ios:pods && yarn ios",
+    "ios:run": "react-native run-ios --no-packager",
+    "ios": "yarn ios:pods && yarn ios:run",
+    "ios:build": "cd ios && react-native bundle --minify --entry-file index.js --platform ios --dev false --bundle-output main.jsbundle",
     "android": "react-native run-android --no-packager",
     "start": "react-native start --reset-cache"
   },
   "dependencies": {
-    "@apollo/client": "^3.0.0-beta.32",
+    "@apollo/client": "^3.2.5",
     "@react-native-community/async-storage": "^1.7.1",
     "@react-native-community/geolocation": "^2.0.2",
     "@react-native-community/google-signin": "^5.0.0",
@@ -23,13 +24,13 @@
     "@react-navigation/stack": "^5.9.0",
     "expo-barcode-scanner": "^9.0.0",
     "expo-camera": "^9.0.0",
-    "firebase": "^7.24.0",
+    "firebase": "^8.0.0",
     "graphql": "^15.3.0",
     "metro-react-native-babel-preset": "^0.63.0",
-    "react": "16.14.0",
+    "react": "^17.0.1",
     "react-native": "^0.63.2",
     "react-native-animated-nav-tab-bar": "^3.0.5",
-    "react-native-device-info": "^6.0.2",
+    "react-native-device-info": "^7.0.2",
     "react-native-dotenv": "^2.4.0",
     "react-native-gesture-handler": "^1.5.6",
     "react-native-indicators": "^0.17.0",
@@ -69,20 +70,9 @@
     "metro-react-native-babel-preset": "^0.63.0",
     "pod-install": "^0.1.10",
     "prettier": "^2.1.2",
-    "react-test-renderer": "^16.14.0",
+    "react-test-renderer": "^17.0.1",
     "ts-node": "9.0.0",
     "ts-node-dev": "^1.0.0",
     "typescript": "^4.0.2"
   },
-  "jest": {
-    "preset": "react-native",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
-  }
 }

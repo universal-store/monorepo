@@ -21,6 +21,7 @@
 		7D5EAA37D0FC1DB00EB9B0C0 /* libPods-UniversalStore-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B04E68CAC494AD64180EAEC5 /* libPods-UniversalStore-tvOS.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		AFC6030B4ECD43E9A4256DBB /* NunitoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C74549D418F47FFB51424AB /* NunitoSans-Bold.ttf */; };
+		B0B903EE254B8DB70036E409 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 008F07F21AC5B25A0029DE68 /* main.jsbundle */; };
 		B0C2BB52253B5476007B3660 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B0C2BB51253B5476007B3660 /* GoogleService-Info.plist */; };
 		CC56E85A3B5D2B54D015C36A /* libPods-UniversalStore-UniversalStoreTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1835DF09A8EB3ABB2F46FCE /* libPods-UniversalStore-UniversalStoreTests.a */; };
 		FD3B44D3FB6A46E5A2199A71 /* NunitoSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0EF9B07AFBCB4CFB8D0AE3A5 /* NunitoSans-ExtraBold.ttf */; };
@@ -368,6 +369,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0B903EE254B8DB70036E409 /* main.jsbundle in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				AFC6030B4ECD43E9A4256DBB /* NunitoSans-Bold.ttf in Resources */,
@@ -407,7 +409,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export NODE_BINARY=/Users/chrisjobando/.nvm/versions/node/v12.18.3/bin/node\n../../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		278182F15DC781A9992224B3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -571,7 +573,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
+			shellScript = "##export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\n##echo \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../../node_modules/react-native/scripts/.packager.env\"\n##if [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n##  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n##    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n##      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n##      exit 2\n##    fi\n##  else\n##    open \"$SRCROOT/../../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n##  fi\n##fi\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F122414F3F0027D42C /* Start Packager */ = {

@@ -24,10 +24,11 @@ import {
   StoreDetailStoreAddressText,
   StoreDetailStoreDescriptionText,
   StoreDetailPopularItemHeaderText,
+  StoreDetailCloseIconContainer,
 } from './Styled';
 
 // Iconography
-import { CameraIcon } from '&icons';
+import { CameraIcon, CloseIcon } from '&icons';
 
 // Navigation
 import { useNavigation } from '@react-navigation/native';
@@ -40,11 +41,12 @@ const freeSnap = [largeModalHeight - 10, smallModalHeight];
 const restrictSnap = [largeModalHeight - 10, largeModalHeight - 11];
 
 interface StorePreviewProps {
+  onClose: () => void;
   onSelect: () => void;
   store: MarkerInfoFragment;
 }
 
-export const StorePreview = ({ store, onSelect }: StorePreviewProps) => {
+export const StorePreview = ({ store, onClose, onSelect }: StorePreviewProps) => {
   const navigation = useNavigation();
 
   const { data } = useGetStoreInfoQuery({ variables: { id: store.id } });
@@ -77,6 +79,10 @@ export const StorePreview = ({ store, onSelect }: StorePreviewProps) => {
               )}
 
               <StoreDetailStoreNameText numberOfLines={1}>{storeData.name}</StoreDetailStoreNameText>
+
+              <StoreDetailCloseIconContainer onPress={onClose}>
+                <CloseIcon />
+              </StoreDetailCloseIconContainer>
             </StoreDetailHeaderRow>
 
             <StoreDetailStoreCategoryText>{storeData.category}</StoreDetailStoreCategoryText>

@@ -15,6 +15,7 @@ export const StoreDetailContainer = styled.View`
 export const StoreDetailHeaderRow = styled(RowView)`
   width: 100%;
   margin-bottom: 4px;
+  align-items: center;
 `;
 
 export const StoreDetailImageContainer = styled.View`
@@ -33,6 +34,16 @@ export const StoreDetailImage = styled.Image`
 
 export const StoreDetailStoreNameText = styled(TextLarge)`
   flex: 1;
+`;
+
+export const StoreDetailCloseIconContainer = styled.TouchableOpacity`
+  width: 24px;
+  height: 24px;
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+  border-radius: 24px;
+  justify-content: center;
 `;
 
 export const StoreDetailStoreCategoryText = styled(TextMedium2)`

@@ -267,6 +267,10 @@ export const MapViewScreen = () => {
           <StoreMapBottomPadding />
           <StorePreview
             store={storePreview}
+            onClose={() => {
+              setStoreQuery('');
+              setStorePreview(undefined);
+            }}
             onSelect={() =>
               mapRef.current &&
               mapRef.current.animateToRegion(

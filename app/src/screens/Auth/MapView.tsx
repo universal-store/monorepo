@@ -144,17 +144,22 @@ export const MapViewScreen = () => {
     }
   };
 
-  // const filterStoresByCategory = () => {
-  //   const selectedCategories = [];
+  const filterStoresByCategory = () => {
+    const selectedCategories: string[] = [];
 
-  //   if (categoryFilter[0]) selectedCategories.push('Supermarket');
-  //   if (categoryFilter[1]) selectedCategories.push('Department');
-  //   if (categoryFilter[2]) selectedCategories.push('Convenience');
-  //   if (categoryFilter[3]) selectedCategories.push('Pharmacy');
-  //   if (categoryFilter[4]) selectedCategories.push('Electronic');
+    if (categoryFilter[0]) selectedCategories.push('Supermarket');
+    if (categoryFilter[1]) selectedCategories.push('Department');
+    if (categoryFilter[2]) selectedCategories.push('Convenience');
+    if (categoryFilter[3]) selectedCategories.push('Pharmacy');
+    if (categoryFilter[4]) selectedCategories.push('Electronic');
 
-  //   // const tempFilteredStores = storesData?.Store.filter(store => ???
-  // };
+    const tempFilteredStores = storesData?.Store.filter(store => {
+      if (store.category) {
+        selectedCategories.includes(store.category);
+      }
+    });
+    setFilteredStores(tempFilteredStores);
+  };
 
   if (locationPermission === false) {
     return (

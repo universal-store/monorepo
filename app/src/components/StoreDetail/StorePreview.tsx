@@ -64,6 +64,7 @@ export const StorePreview = ({ store, onSelect }: StorePreviewProps) => {
                 <StoreDetailImage source={{ uri: storeData.StorePic.size64 }} />
               </StoreDetailImageContainer>
             )}
+
             <StoreDetailStoreNameText>{storeData.name}</StoreDetailStoreNameText>
           </StoreDetailHeaderRow>
 

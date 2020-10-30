@@ -2,10 +2,11 @@
 
 import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'react-native';
+import SplashScreen from 'react-native-splash-screen';
 import AsyncStorage from '@react-native-community/async-storage';
 
-// Screens
-import SplashScreen from 'react-native-splash-screen';
+//Components
+import { LoadingOverlay } from '&components';
 
 // Stack Navigators
 import { NavigationContainer } from '@react-navigation/native';
@@ -20,12 +21,11 @@ import { setContext } from '@apollo/client/link/context';
 import { ApolloClient, ApolloProvider, createHttpLink, InMemoryCache } from '@apollo/client';
 
 // Firebase Authentication
+import firebase from 'firebase';
 import { Firebase } from '&lib';
-import { auth, User } from 'firebase';
 
 // Environment Variables
 import { GRAPHQL_API } from '&env';
-import { LoadingOverlay } from '&components';
 
 const httpLink = createHttpLink({
   uri: `${GRAPHQL_API}`,
@@ -50,7 +50,7 @@ const client = new ApolloClient({
 
 const App = () => {
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<firebase.User | null>(null);
 
   const onAuthStateChanged = () => {
     return Firebase.auth().onAuthStateChanged(async user => {
@@ -67,7 +67,7 @@ const App = () => {
 
   useEffect(() => {
     SplashScreen.hide();
-    Firebase.auth().setPersistence(auth.Auth.Persistence.LOCAL).then(onAuthStateChanged);
+    Firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(onAuthStateChanged);
   }, []);
 
   return (
@@ -78,7 +78,9 @@ const App = () => {
           {loading ? (
             <LoadingOverlay />
           ) : (
-            <NavigationContainer>{user ? <AuthNavigator /> : <OnboardingStackNavigator />}</NavigationContainer>
+            <NavigationContainer>
+              {user && user.displayName ? <AuthNavigator /> : <OnboardingStackNavigator />}
+            </NavigationContainer>
           )}
         </>
       </ApolloProvider>

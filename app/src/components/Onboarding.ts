@@ -139,18 +139,8 @@ export const OnboardingButton = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.colors.purple[1]};
 `;
 
-export const OnboardingGoogleButton = styled(OnboardingButton)`
-  margin-top: 0;
-  border: 2px solid ${({ theme }) => theme.colors.blue};
-  background-color: ${({ theme }) => theme.colors.white[1]};
-`;
-
 export const OnboardingButtonText = styled(HeaderSmallText)`
   color: ${({ theme }) => theme.colors.white[1]};
-`;
-
-export const OnboardingGoogleButtonText = styled(HeaderSmallText)`
-  color: ${({ theme }) => theme.colors.blue};
 `;
 
 export const OnboardingPadding = styled.View`

@@ -1,7 +1,6 @@
 /** @format */
 
-import React, { useEffect, useState } from 'react';
-import AsyncStorage from '@react-native-community/async-storage';
+import React, { useState } from 'react';
 
 // Components
 import { Alert, Keyboard, KeyboardAvoidingView, View as OnboardingFormContainer } from 'react-native';
@@ -14,8 +13,6 @@ import {
   OnboardingButton,
   OnboardingButtonText,
   OnboardingFormText,
-  OnboardingGoogleButton,
-  OnboardingGoogleButtonText,
   OnboardingHeaderContainer,
   OnboardingHeaderTextContainer,
   OnboardingInputContainer,
@@ -41,12 +38,9 @@ import { OnboardingStackParams } from '&navigation';
 import { StackScreenProps } from '@react-navigation/stack';
 
 // Firebase Authentication
-import firebase from 'firebase';
 import { Firebase, fns } from '&lib';
-import { GoogleSignin } from '@react-native-community/google-signin';
 
 // Utils
-import { WEB_CLIENT_ID } from '&env';
 import { emailRegex, validInput } from '&utils';
 
 type SignUpScreenProps = StackScreenProps<OnboardingStackParams, 'SignUpScreen'>;
@@ -54,7 +48,6 @@ type SignUpScreenProps = StackScreenProps<OnboardingStackParams, 'SignUpScreen'>
 export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
   // Form States
   const [userEmail, setUserEmail] = useState<string>('');
-
   const [userPassword, setUserPassword] = useState<string>('');
   const [userConfirmPassword, setUserConfirmPassword] = useState<string>('');
 
@@ -69,10 +62,6 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
 
   // Loading Indicator
   const [loading, setLoading] = useState<boolean>(false);
-
-  useEffect(() => {
-    GoogleSignin.configure({ webClientId: WEB_CLIENT_ID, offlineAccess: false });
-  });
 
   const validateSignUp = async () => {
     let validInput = true;
@@ -115,24 +104,13 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
         .then(async userCredentials => {
           if (userCredentials.user) {
             const newToken = await userCredentials.user.getIdToken();
-            await AsyncStorage.setItem('userToken', newToken);
+
+            navigation.navigate('UserInfoScreen', { id: userCredentials.user.uid, token: newToken });
           }
         });
 
       setLoading(false);
     }
-  };
-
-  const signInWithGoogle = async () => {
-    setLoading(true);
-
-    await GoogleSignin.hasPlayServices();
-    await GoogleSignin.signInSilently().then(async userCredentials => {
-      const credential = firebase.auth.GoogleAuthProvider.credential(userCredentials.idToken);
-      await Firebase.auth().signInWithCredential(credential);
-    });
-
-    setLoading(false);
   };
 
   return (
@@ -238,10 +216,6 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
             <OnboardingButton onPress={validateSignUp}>
               <OnboardingButtonText>Sign Up</OnboardingButtonText>
             </OnboardingButton>
-
-            <OnboardingGoogleButton onPress={signInWithGoogle}>
-              <OnboardingGoogleButtonText>Sign Up With Google</OnboardingGoogleButtonText>
-            </OnboardingGoogleButton>
 
             <OnboardingSmallerText>
               By continuing you agree to our

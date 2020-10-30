@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
 
 // Components
@@ -15,8 +15,6 @@ import {
   OnboardingButtonText,
   OnboardingForgotPasswordButton,
   OnboardingFormText,
-  OnboardingGoogleButton,
-  OnboardingGoogleButtonText,
   OnboardingHeaderContainer,
   OnboardingHeaderTextContainer,
   OnboardingInputContainer,
@@ -43,12 +41,9 @@ import { OnboardingStackParams } from '&navigation';
 import { StackScreenProps } from '@react-navigation/stack';
 
 // Firebase Authentication
-import firebase from 'firebase';
 import { Firebase } from '&lib';
-import { GoogleSignin } from '@react-native-community/google-signin';
 
 // Utils
-import { WEB_CLIENT_ID } from '&env';
 import { emailRegex, validInput } from '&utils';
 
 type SignInScreenProps = StackScreenProps<OnboardingStackParams, 'SignInScreen'>;
@@ -67,10 +62,6 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
 
   // Loading Indicator
   const [loading, setLoading] = useState<boolean>(false);
-
-  useEffect(() => {
-    GoogleSignin.configure({ webClientId: WEB_CLIENT_ID, offlineAccess: false });
-  });
 
   const validateSignIn = () => {
     let validInput = true;
@@ -122,18 +113,6 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
 
       setLoading(false);
     }
-  };
-
-  const signInWithGoogle = async () => {
-    setLoading(true);
-
-    await GoogleSignin.hasPlayServices();
-    await GoogleSignin.signInSilently().then(async userCredentials => {
-      const credential = firebase.auth.GoogleAuthProvider.credential(userCredentials.idToken);
-      await Firebase.auth().signInWithCredential(credential);
-    });
-
-    setLoading(false);
   };
 
   return (
@@ -216,10 +195,6 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
             <OnboardingButton onPress={validateSignIn}>
               <OnboardingButtonText>Log In</OnboardingButtonText>
             </OnboardingButton>
-
-            <OnboardingGoogleButton onPress={signInWithGoogle}>
-              <OnboardingGoogleButtonText>Sign In With Google</OnboardingGoogleButtonText>
-            </OnboardingGoogleButton>
             <OnboardingPadding />
           </OnboardingScroll>
 

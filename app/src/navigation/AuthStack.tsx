@@ -12,7 +12,6 @@ import {
   MapViewScreen,
   ProfileScreen,
   ScanningScreen,
-  UserInfoScreen,
 } from '&screens';
 
 // Tab Icons
@@ -95,7 +94,6 @@ export const RootAuthTabNavigator = () => (
 );
 
 export type AuthStackParams = {
-  UserInfoScreen: undefined;
   TabNavigation: { screen: string };
   ScanningScreen: undefined;
   ItemDetail: { barcodeId: string; scanned?: boolean };
@@ -106,7 +104,6 @@ export const AuthStack = createStackNavigator<AuthStackParams>();
 
 export const AuthNavigator = () => (
   <AuthStack.Navigator initialRouteName="TabNavigation" screenOptions={{ headerShown: false, gestureEnabled: false }}>
-    <AuthStack.Screen name="UserInfoScreen" component={UserInfoScreen} />
     <AuthStack.Screen name="TabNavigation" component={RootAuthTabNavigator} />
     <AuthStack.Screen name="ScanningScreen" component={ScanningScreen} />
     <AuthStack.Screen name="ItemDetail" component={ItemDetail} />

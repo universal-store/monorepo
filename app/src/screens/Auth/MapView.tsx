@@ -2,9 +2,9 @@
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { theme } from '&theme';
+import { FlatList, Linking, Platform, TextInput } from 'react-native';
 
 // Libraries
-import { FlatList, Linking, Platform } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 import { request, PERMISSIONS } from 'react-native-permissions';
 import MapView, { EventUserLocation, PROVIDER_GOOGLE, Region } from 'react-native-maps';
@@ -39,23 +39,18 @@ import {
 import { FindIcon, MapArrowIcon, MarkerIcon } from '&icons';
 
 // Navigation
-import { AuthStackParams } from '&navigation';
 import { useFocusEffect } from '@react-navigation/native';
-import { StackScreenProps } from '@react-navigation/stack';
 
 // GraphQL
-import { MarkerInfoFragment, useGetUserQuery, useGetStoresQuery } from '&graphql';
+import { MarkerInfoFragment, useGetStoresQuery } from '&graphql';
 
 // TODO: Remove (testing only)
 import DeviceInfo from 'react-native-device-info';
-import { TextInput } from 'react-native';
 
 // Store Categories
-const STORE_CATEGORIES = ['Supermarket', 'Department', 'Convenience', 'Pharamacy', 'Electronic'];
+const STORE_CATEGORIES = ['Supermarket', 'Department', 'Convenience', 'Pharmacy', 'Electronic'];
 
-type MapViewScreenProps = StackScreenProps<AuthStackParams, 'TabNavigation'>;
-
-export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
+export const MapViewScreen = () => {
   const mapRef = useRef<MapView>(null);
   const inputRef = useRef<TextInput>(null);
 
@@ -71,9 +66,6 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
   // Location Permissions
   const [locationPermission, setLocationPermission] = useState<boolean | undefined>();
 
-  // Check for complete profile
-  const { data: authData } = useGetUserQuery();
-
   // Query all Stores
   const { data: storesData } = useGetStoresQuery();
 
@@ -81,24 +73,20 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
     if (storesData) {
       setFilteredStores(storesData.Store);
 
-      // TODO: Remove from production
-      void DeviceInfo.isEmulator().then(res => {
-        if (res)
-          setFilteredStores([
-            {
-              id: 'f7904981-2691-40d6-ac44-67105aa24bfb',
-              name: 'Chevron',
-              category: 'Convenience',
-              location: { coordinates: [37.785834, -122.406417] },
-            },
-          ]);
-      });
+      // // TODO: Remove from production
+      // void DeviceInfo.isEmulator().then(res => {
+      //   if (res)
+      //     setFilteredStores([
+      //       {
+      //         id: 'f7904981-2691-40d6-ac44-67105aa24bfb',
+      //         name: 'Chevron',
+      //         category: 'Convenience',
+      //         location: { coordinates: [37.785834, -122.406417] },
+      //       },
+      //     ]);
+      // });
     }
   }, [storesData]);
-
-  useEffect(() => {
-    if (authData && authData.User.length && !authData.User[0].firstName) navigation.navigate('UserInfoScreen');
-  }, [authData]);
 
   useFocusEffect(
     useCallback(() => {
@@ -238,12 +226,14 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
         maxZoomLevel={20}
         showsUserLocation
         pitchEnabled={false}
+        showsCompass={false}
         showsIndoors={false}
         region={currentPosition}
         customMapStyle={MapStyle}
         provider={PROVIDER_GOOGLE}
         zoomEnabled={!storePreview}
         scrollEnabled={!storePreview}
+        showsMyLocationButton={false}
         initialRegion={currentPosition}
         loadingIndicatorColor={theme.colors.purple[1]}
         loadingBackgroundColor={theme.colors.white[1]}

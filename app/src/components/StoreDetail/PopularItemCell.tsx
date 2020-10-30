@@ -2,26 +2,20 @@
 
 import React from 'react';
 
-// Components
 import {
-  PopularItemCellContainer,
-  PopularItemCellContainerSmall,
-  PopularItemCellTextContainer,
-  PopularItemNameText,
-  PopularItemPriceText,
-  PopularItemImageContainer,
-} from '&components';
+  StoreDetailPopularItemContainer,
+  StoreDetailPopularItemNameText,
+  StoreDetailPopularItemPriceText,
+} from './Styled';
 
 export const PopularItemCell = () => {
   return (
-    <PopularItemCellContainer>
-      <PopularItemCellContainerSmall>
-        <PopularItemImageContainer />
-        <PopularItemCellTextContainer>
-          <PopularItemNameText numberOfLines={1}>Hand Sanitizer</PopularItemNameText>
-          <PopularItemPriceText>$2.99</PopularItemPriceText>
-        </PopularItemCellTextContainer>
-      </PopularItemCellContainerSmall>
-    </PopularItemCellContainer>
+    <>
+      <StoreDetailPopularItemContainer onPress={() => console.log('Pressed')}>
+        {/*<StoreDetailImageContainer><StoreDetailImage src={{uri: }} /></StoreDetailImageContainer>*/}
+        <StoreDetailPopularItemNameText numberOfLines={1}>Hand Sanitizer</StoreDetailPopularItemNameText>
+        <StoreDetailPopularItemPriceText>$2.99</StoreDetailPopularItemPriceText>
+      </StoreDetailPopularItemContainer>
+    </>
   );
 };

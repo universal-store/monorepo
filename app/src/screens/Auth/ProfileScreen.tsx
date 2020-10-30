@@ -1,6 +1,7 @@
 /** @format */
 
 import React, { useState } from 'react';
+import { DevSettings } from 'react-native';
 
 // Components
 import {
@@ -43,7 +44,9 @@ export const ProfileScreen = () => {
 
   const [signOutLoad, setSignOutLoad] = useState<boolean>(false);
 
+  // User Data
   const { data, loading } = useGetUserQuery();
+  const userData = data ? data.User[0] : undefined;
 
   if (loading || signOutLoad)
     return (
@@ -51,9 +54,6 @@ export const ProfileScreen = () => {
         <LoadingOverlay />
       </FullScreenCenter>
     );
-
-  // User Data
-  const userData = data ? data.User[0] : undefined;
 
   return (
     <UserProfileMainContainer>
@@ -94,7 +94,13 @@ export const ProfileScreen = () => {
             await AsyncStorage.removeItem('userToken');
             await Firebase.auth()
               .signOut()
-              .then(() => client.clearStore());
+              .then(async () => {
+                await client.clearStore();
+              });
+
+            await DevSettings.reload();
+
+            setSignOutLoad(false);
           }}
         >
           <SecondaryButtonText>Log Out</SecondaryButtonText>

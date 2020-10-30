@@ -1,22 +1,83 @@
 /** @format */
 
 import styled from 'styled-components/native';
-import { RowView } from '../Views';
-import { Pressable } from 'react-native';
 
 // Typography
-import { HeaderMediumText, TextMedium2, TextSmall } from './../Text';
+import { HeaderMediumText, HeaderSmallText, TextLarge, TextMedium2, TextSmall } from '../Text';
 
 // Constants
-import { isiPhoneX, screenWidth } from './../Views';
+import { isiPhoneX, screenWidth, RowView } from '../Views';
+
+export const StoreDetailContainer = styled.View`
+  padding: 0 32px;
+`;
+
+export const StoreDetailHeaderRow = styled(RowView)`
+  width: 100%;
+  margin-bottom: 4px;
+`;
+
+export const StoreDetailImageContainer = styled.View`
+  width: 32px;
+  height: 32px;
+  display: flex;
+  margin-right: 12px;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const StoreDetailImage = styled.Image`
+  width: 32px;
+  height: 32px;
+`;
+
+export const StoreDetailStoreNameText = styled(TextLarge)``;
+
+export const StoreDetailStoreCategoryText = styled(TextMedium2)`
+  margin-bottom: 4px;
+  color: ${({ theme }) => theme.colors.gray[3]};
+`;
+
+export const StoreDetailStoreAddressText = styled(TextSmall)`
+  margin-bottom: 12px;
+`;
+
+export const StoreDetailStoreDescriptionText = styled(TextMedium2)`
+  margin-bottom: 16px;
+`;
+
+// Popular Item Cell
+export const StoreDetailPopularItemHeaderText = styled(HeaderSmallText)`
+  margin-bottom: 12px;
+  font-family: NunitoSans-Bold;
+`;
+
+export const StoreDetailPopularItemContainer = styled.TouchableOpacity`
+  height: 40px;
+  display: flex;
+  padding: 0 32px;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 12px;
+`;
+
+export const StoreDetailPopularItemNameText = styled(TextSmall)`
+  flex: 1;
+  margin-right: 16px;
+`;
+
+export const StoreDetailPopularItemPriceText = styled(HeaderSmallText)`
+  margin-left: auto;
+  color: ${({ theme }) => theme.colors.purple[1]};
+`;
 
 // Select Store Button
 export const SelectStoreButtonContainer = styled.View`
   position: absolute;
-  bottom: 0;
+  left: 32px;
   width: 100%;
   z-index: 100;
-  padding: 16px 32px ${isiPhoneX ? 106 : 76}px;
+  bottom: ${isiPhoneX ? 106 : 76}px;
   background-color: ${({ theme }) => theme.colors.white[1]};
 `;
 
@@ -38,34 +99,4 @@ export const SelectStoreButton = styled.TouchableOpacity<SelectStoreButtonProps>
 
 export const SelectStoreButtonText = styled(HeaderMediumText)<SelectStoreButtonProps>`
   color: ${({ theme, selected }) => (selected ? theme.colors.white[1] : theme.colors.purple[1])};
-`;
-
-export const PopularItemCellContainer = styled(Pressable)`
-  flex: 1;
-  margin-right: 64px;
-`;
-
-export const PopularItemCellContainerSmall = styled(RowView)`
-  flex: 1;
-  align-items: center;
-`;
-
-export const PopularItemImageContainer = styled.View`
-  width: 32px;
-  height: 32px;
-  border-radius: 4px;
-  margin-right: 12px;
-  background-color: ${({ theme }) => theme.colors.gray[5]};
-`;
-
-export const PopularItemCellTextContainer = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-`;
-
-export const PopularItemNameText = styled(TextMedium2)``;
-
-export const PopularItemPriceText = styled(TextSmall)`
-  color: ${({ theme }) => theme.colors.purple[1]};
 `;

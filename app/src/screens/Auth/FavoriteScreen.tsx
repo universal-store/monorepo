@@ -30,7 +30,7 @@ import { useGetUserFavoriteItemsQuery, UserFavoriteItemInfoFragment } from '&gra
 import { useDebounce } from '&utils';
 
 export const FavoriteScreen = () => {
-  const { data, loading } = useGetUserFavoriteItemsQuery();
+  const { data, loading, startPolling, stopPolling } = useGetUserFavoriteItemsQuery();
   const favData = data?.UserFavoriteItem;
 
   const [itemQuery, setItemQuery] = useState<string>('');
@@ -38,6 +38,11 @@ export const FavoriteScreen = () => {
 
   // Causes a delay before updating item filter
   const debouncedItemQuery = useDebounce(itemQuery, 500);
+
+  useEffect(() => {
+    startPolling(500);
+    return () => stopPolling();
+  });
 
   useEffect(() => {
     if (favData) {

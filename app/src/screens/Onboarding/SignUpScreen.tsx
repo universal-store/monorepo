@@ -1,7 +1,6 @@
 /** @format */
 
 import React, { useState } from 'react';
-import AsyncStorage from '@react-native-community/async-storage';
 
 // Components
 import { Alert, Keyboard, KeyboardAvoidingView, View as OnboardingFormContainer } from 'react-native';
@@ -49,7 +48,6 @@ type SignUpScreenProps = StackScreenProps<OnboardingStackParams, 'SignUpScreen'>
 export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
   // Form States
   const [userEmail, setUserEmail] = useState<string>('');
-
   const [userPassword, setUserPassword] = useState<string>('');
   const [userConfirmPassword, setUserConfirmPassword] = useState<string>('');
 
@@ -106,7 +104,8 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
         .then(async userCredentials => {
           if (userCredentials.user) {
             const newToken = await userCredentials.user.getIdToken();
-            await AsyncStorage.setItem('userToken', newToken);
+
+            navigation.navigate('UserInfoScreen', { id: userCredentials.user.uid, token: newToken });
           }
         });
 

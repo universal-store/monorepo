@@ -190,8 +190,6 @@ dependencies {
 
     addUnimodulesDependencies([modulesPaths: ['../../../node_modules']])
 
-    implementation(project(":react-native-google-signin"))
-
     implementation 'com.android.support:multidex:1.0.3'
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {

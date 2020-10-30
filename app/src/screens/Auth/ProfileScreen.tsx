@@ -3,6 +3,9 @@
 import React, { useState } from 'react';
 import { DevSettings } from 'react-native';
 
+// Libraries
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
+
 // Components
 import {
   FullScreenCenter,
@@ -37,7 +40,7 @@ import { Firebase } from '&lib';
 import { useGetUserQuery } from '&graphql';
 
 // Utils
-import { renderName } from '&utils';
+import { hapticOptions, renderName } from '&utils';
 
 export const ProfileScreen = () => {
   const client = useApolloClient();
@@ -90,6 +93,8 @@ export const ProfileScreen = () => {
       <ButtonContainer>
         <SecondaryButton
           onPress={async () => {
+            ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
+
             setSignOutLoad(true);
             await AsyncStorage.removeItem('userToken');
             await Firebase.auth()

@@ -3,6 +3,9 @@
 import React, { useState } from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
 
+// Libraries
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
+
 // Components
 import { Alert, Keyboard, KeyboardAvoidingView, View as OnboardingFormContainer } from 'react-native';
 
@@ -44,7 +47,7 @@ import { StackScreenProps } from '@react-navigation/stack';
 import { Firebase } from '&lib';
 
 // Utils
-import { emailRegex, validInput } from '&utils';
+import { emailRegex, hapticOptions, validInput } from '&utils';
 
 type SignInScreenProps = StackScreenProps<OnboardingStackParams, 'SignInScreen'>;
 
@@ -180,19 +183,34 @@ export const SignInScreen = ({ navigation }: SignInScreenProps) => {
               </OnboardingInputContainer>
               {validPassword === 'INVALID' && <OnboardingRequiredText>Password is required</OnboardingRequiredText>}
 
-              <OnboardingForgotPasswordButton onPress={() => console.log('Forgot Password Pressed')}>
+              <OnboardingForgotPasswordButton
+                onPress={() => {
+                  ReactNativeHapticFeedback.trigger('selection', hapticOptions);
+                  console.log('Forgot Password Pressed');
+                }}
+              >
                 <OnboardingSmallText>Forgot Password?</OnboardingSmallText>
               </OnboardingForgotPasswordButton>
             </OnboardingFormContainer>
 
             <OnboardingRow>
               <OnboardingSmallerText>Need an account? </OnboardingSmallerText>
-              <OnboardingTextButton onPress={() => navigation.navigate('SignUpScreen')}>
+              <OnboardingTextButton
+                onPress={() => {
+                  ReactNativeHapticFeedback.trigger('selection', hapticOptions);
+                  navigation.navigate('SignUpScreen');
+                }}
+              >
                 <OnboardingSmallerBoldText>Sign Up</OnboardingSmallerBoldText>
               </OnboardingTextButton>
             </OnboardingRow>
 
-            <OnboardingButton onPress={validateSignIn}>
+            <OnboardingButton
+              onPress={() => {
+                ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
+                validateSignIn();
+              }}
+            >
               <OnboardingButtonText>Log In</OnboardingButtonText>
             </OnboardingButton>
             <OnboardingPadding />

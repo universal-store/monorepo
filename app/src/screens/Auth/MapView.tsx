@@ -226,12 +226,14 @@ export const MapViewScreen = () => {
         maxZoomLevel={20}
         showsUserLocation
         pitchEnabled={false}
+        showsCompass={false}
         showsIndoors={false}
         region={currentPosition}
         customMapStyle={MapStyle}
         provider={PROVIDER_GOOGLE}
         zoomEnabled={!storePreview}
         scrollEnabled={!storePreview}
+        showsMyLocationButton={false}
         initialRegion={currentPosition}
         loadingIndicatorColor={theme.colors.purple[1]}
         loadingBackgroundColor={theme.colors.white[1]}

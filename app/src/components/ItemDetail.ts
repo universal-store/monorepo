@@ -97,8 +97,13 @@ export const AddCartButton = styled.TouchableOpacity<AddCartButtonProps>`
   margin-top: auto;
   border-radius: 8px;
   align-items: center;
+  shadow-opacity: 0.23;
+  shadow-radius: 2.62px;
+  shadow-offset: 0px 2px;
   justify-content: center;
   width: ${screenWidth - 64}px;
+  shadow-color: ${({ theme }) => theme.colors.gray[1]};
+
   border: 2px solid ${({ theme }) => theme.colors.purple[1]};
   background-color: ${({ theme, added }) => (added ? theme.colors.purple[1] : theme.colors.white[1])};
 `;

@@ -35,10 +35,11 @@ export const ModalContainer = styled.View`
   width: 100%;
   height: 100%;
   display: flex;
-  padding: 0 32px 24px;
+  padding-bottom: 24px;
   background-color: ${({ theme }) => theme.colors.white[1]};
 `;
 
 export const ModalFlexContainer = styled.View`
   flex: 1;
+  padding: 0 32px;
 `;

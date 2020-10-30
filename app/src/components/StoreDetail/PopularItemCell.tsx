@@ -11,9 +11,9 @@ import {
 export const PopularItemCell = () => {
   return (
     <>
-      <StoreDetailPopularItemContainer>
+      <StoreDetailPopularItemContainer onPress={() => console.log('Pressed')}>
         {/*<StoreDetailImageContainer><StoreDetailImage src={{uri: }} /></StoreDetailImageContainer>*/}
-        <StoreDetailPopularItemNameText>Hand Sanitizer</StoreDetailPopularItemNameText>
+        <StoreDetailPopularItemNameText numberOfLines={1}>Hand Sanitizer</StoreDetailPopularItemNameText>
         <StoreDetailPopularItemPriceText>$2.99</StoreDetailPopularItemPriceText>
       </StoreDetailPopularItemContainer>
     </>

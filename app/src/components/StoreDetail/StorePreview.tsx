@@ -14,6 +14,7 @@ import {
   SelectStoreButton,
   SelectStoreButtonContainer,
   SelectStoreButtonText,
+  StoreDetailContainer,
   StoreDetailHeaderRow,
   StoreDetailImage,
   StoreDetailImageContainer,
@@ -58,24 +59,27 @@ export const StorePreview = ({ store, onSelect }: StorePreviewProps) => {
     <ModalContainer>
       {storeData && (
         <>
-          <StoreDetailHeaderRow>
-            {storeData.StorePic && (
-              <StoreDetailImageContainer>
-                <StoreDetailImage source={{ uri: storeData.StorePic.size64 }} />
-              </StoreDetailImageContainer>
+          <StoreDetailContainer>
+            <StoreDetailHeaderRow>
+              {storeData.StorePic && (
+                <StoreDetailImageContainer>
+                  <StoreDetailImage source={{ uri: storeData.StorePic.size64 }} />
+                </StoreDetailImageContainer>
+              )}
+
+              <StoreDetailStoreNameText>{storeData.name}</StoreDetailStoreNameText>
+            </StoreDetailHeaderRow>
+
+            <StoreDetailStoreCategoryText>{storeData.category}</StoreDetailStoreCategoryText>
+            <StoreDetailStoreAddressText>{storeData.address}</StoreDetailStoreAddressText>
+
+            {storeData.description && (
+              <StoreDetailStoreDescriptionText>{storeData.description}</StoreDetailStoreDescriptionText>
             )}
 
-            <StoreDetailStoreNameText>{storeData.name}</StoreDetailStoreNameText>
-          </StoreDetailHeaderRow>
+            <StoreDetailPopularItemHeaderText>Popular Items</StoreDetailPopularItemHeaderText>
+          </StoreDetailContainer>
 
-          <StoreDetailStoreCategoryText>{storeData.category}</StoreDetailStoreCategoryText>
-          <StoreDetailStoreAddressText>{storeData.address}</StoreDetailStoreAddressText>
-
-          {storeData.description && (
-            <StoreDetailStoreDescriptionText>{storeData.description}</StoreDetailStoreDescriptionText>
-          )}
-
-          <StoreDetailPopularItemHeaderText>Popular Items</StoreDetailPopularItemHeaderText>
           <PopularItemCell />
           <PopularItemCell />
           <PopularItemCell />

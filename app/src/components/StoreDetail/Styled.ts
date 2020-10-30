@@ -3,39 +3,13 @@
 import styled from 'styled-components/native';
 
 // Typography
-import { HeaderMediumText, HeaderSmallText, TextLarge, TextMedium2, TextSmall } from './../Text';
+import { HeaderMediumText, HeaderSmallText, TextLarge, TextMedium2, TextSmall } from '../Text';
 
 // Constants
-import { isiPhoneX, screenWidth, RowView } from './../Views';
+import { isiPhoneX, screenWidth, RowView } from '../Views';
 
-// Select Store Button
-export const SelectStoreButtonContainer = styled.View`
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  z-index: 100;
-  padding: 16px 32px ${isiPhoneX ? 106 : 76}px;
-  background-color: ${({ theme }) => theme.colors.white[1]};
-`;
-
-interface SelectStoreButtonProps {
-  selected: boolean;
-}
-
-export const SelectStoreButton = styled.TouchableOpacity<SelectStoreButtonProps>`
-  height: 48px;
-  display: flex;
-  margin-top: auto;
-  border-radius: 8px;
-  align-items: center;
-  justify-content: center;
-  width: ${screenWidth - 64}px;
-  border: 2px solid ${({ theme }) => theme.colors.purple[1]};
-  background-color: ${({ theme, selected }) => (selected ? theme.colors.purple[1] : theme.colors.white[1])};
-`;
-
-export const SelectStoreButtonText = styled(HeaderMediumText)<SelectStoreButtonProps>`
-  color: ${({ theme, selected }) => (selected ? theme.colors.white[1] : theme.colors.purple[1])};
+export const StoreDetailContainer = styled.View`
+  padding: 0 32px;
 `;
 
 export const StoreDetailHeaderRow = styled(RowView)`
@@ -72,20 +46,57 @@ export const StoreDetailStoreDescriptionText = styled(TextMedium2)`
   margin-bottom: 16px;
 `;
 
+// Popular Item Cell
 export const StoreDetailPopularItemHeaderText = styled(HeaderSmallText)`
   margin-bottom: 12px;
   font-family: NunitoSans-Bold;
 `;
 
-export const StoreDetailPopularItemContainer = styled(RowView)`
-  height: 32px;
+export const StoreDetailPopularItemContainer = styled.TouchableOpacity`
+  height: 40px;
+  display: flex;
+  padding: 0 32px;
   align-items: center;
+  flex-direction: row;
   margin-bottom: 12px;
 `;
 
-export const StoreDetailPopularItemNameText = styled(TextSmall)``;
+export const StoreDetailPopularItemNameText = styled(TextSmall)`
+  flex: 1;
+  margin-right: 16px;
+`;
 
 export const StoreDetailPopularItemPriceText = styled(HeaderSmallText)`
   margin-left: auto;
   color: ${({ theme }) => theme.colors.purple[1]};
+`;
+
+// Select Store Button
+export const SelectStoreButtonContainer = styled.View`
+  position: absolute;
+  left: 32px;
+  width: 100%;
+  z-index: 100;
+  bottom: ${isiPhoneX ? 106 : 76}px;
+  background-color: ${({ theme }) => theme.colors.white[1]};
+`;
+
+interface SelectStoreButtonProps {
+  selected: boolean;
+}
+
+export const SelectStoreButton = styled.TouchableOpacity<SelectStoreButtonProps>`
+  height: 48px;
+  display: flex;
+  margin-top: auto;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  width: ${screenWidth - 64}px;
+  border: 2px solid ${({ theme }) => theme.colors.purple[1]};
+  background-color: ${({ theme, selected }) => (selected ? theme.colors.purple[1] : theme.colors.white[1])};
+`;
+
+export const SelectStoreButtonText = styled(HeaderMediumText)<SelectStoreButtonProps>`
+  color: ${({ theme, selected }) => (selected ? theme.colors.white[1] : theme.colors.purple[1])};
 `;

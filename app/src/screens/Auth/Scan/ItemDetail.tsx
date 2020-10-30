@@ -96,6 +96,46 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
   const [removeFromCartMutation] = useRemoveUserCartItemMutation();
   const [removeFromFavoritesMutation] = useRemoveUserFavoriteItemMutation();
 
+  const addOrRemoveFromFavorites = async () => {
+    if (favorite) {
+      await removeFromFavoritesMutation({
+        variables: { userId, itemBarcodeId: barcodeId },
+        refetchQueries: [
+          { query: GetUserFavoriteItemsDocument },
+          { query: CheckItemInFavoritesDocument, variables: { barcodeId } },
+        ],
+      });
+    } else {
+      await addToFavoritesMutation({
+        variables: { userId, itemBarcodeId: barcodeId },
+        refetchQueries: [
+          { query: GetUserFavoriteItemsDocument },
+          { query: CheckItemInFavoritesDocument, variables: { barcodeId } },
+        ],
+      });
+    }
+  };
+
+  const addOrRemoveFromCart = async () => {
+    if (inCart) {
+      await removeFromCartMutation({
+        variables: { userId, itemBarcodeId: barcodeId },
+        refetchQueries: [
+          { query: GetUserCartItemsDocument },
+          { query: CheckItemInCartDocument, variables: { barcodeId } },
+        ],
+      });
+    } else {
+      await addToCartMutation({
+        variables: { userId, itemBarcodeId: barcodeId },
+        refetchQueries: [
+          { query: GetUserCartItemsDocument },
+          { query: CheckItemInCartDocument, variables: { barcodeId } },
+        ],
+      });
+    }
+  };
+
   const renderHeader = () => (
     <ModalHeader>
       <ModalHeaderTab />
@@ -113,7 +153,7 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
               <ItemDetailFavoriteButton
                 onPress={() => {
                   ReactNativeHapticFeedback.trigger('selection', hapticOptions);
-                  addOrRemoveFromFavorites();
+                  void addOrRemoveFromFavorites();
                 }}
               >
                 {favorite ? <HeartIconOn /> : <HeartIconOff />}
@@ -139,46 +179,6 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
       </ModalFlexContainer>
     </ModalContainer>
   );
-
-  const addOrRemoveFromFavorites = () => {
-    if (favorite) {
-      void removeFromFavoritesMutation({
-        variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [
-          { query: GetUserFavoriteItemsDocument },
-          { query: CheckItemInFavoritesDocument, variables: { barcodeId } },
-        ],
-      });
-    } else {
-      void addToFavoritesMutation({
-        variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [
-          { query: GetUserFavoriteItemsDocument },
-          { query: CheckItemInFavoritesDocument, variables: { barcodeId } },
-        ],
-      });
-    }
-  };
-
-  const addOrRemoveFromCart = () => {
-    if (inCart) {
-      void removeFromCartMutation({
-        variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [
-          { query: GetUserCartItemsDocument },
-          { query: CheckItemInCartDocument, variables: { barcodeId } },
-        ],
-      });
-    } else {
-      void addToCartMutation({
-        variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [
-          { query: GetUserCartItemsDocument },
-          { query: CheckItemInCartDocument, variables: { barcodeId } },
-        ],
-      });
-    }
-  };
 
   return (
     <FullScreenLightPurple>
@@ -230,7 +230,7 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
             added={inCart}
             onPress={() => {
               ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
-              addOrRemoveFromCart();
+              void addOrRemoveFromCart();
             }}
           >
             <AddCartButtonText added={inCart}>{inCart ? 'Added!' : 'Add to Cart'}</AddCartButtonText>

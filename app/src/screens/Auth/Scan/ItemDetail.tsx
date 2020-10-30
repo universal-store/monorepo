@@ -109,7 +109,12 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
           <ItemSubDetailRow>
             <ItemNameText numberOfLines={2}>{itemData.longName}</ItemNameText>
 
-            <ItemDetailFavoriteButton onPress={addOrRemoveFromFavorites}>
+            <ItemDetailFavoriteButton
+              onPress={() => {
+                ReactNativeHapticFeedback.trigger('selection', hapticOptions);
+                addOrRemoveFromFavorites();
+              }}
+            >
               {favorite ? <HeartIconOn /> : <HeartIconOff />}
             </ItemDetailFavoriteButton>
           </ItemSubDetailRow>
@@ -178,11 +183,21 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
       {loading && <LoadingOverlay />}
 
       <ItemDetailHeaderRow>
-        <ItemDetailHeaderButton onPress={() => navigation.goBack()}>
+        <ItemDetailHeaderButton
+          onPress={() => {
+            ReactNativeHapticFeedback.trigger('selection', hapticOptions);
+            navigation.goBack();
+          }}
+        >
           <CloseIcon />
         </ItemDetailHeaderButton>
 
-        <ItemDetailHeaderButton onPress={() => navigation.navigate('CartScreen')}>
+        <ItemDetailHeaderButton
+          onPress={() => {
+            ReactNativeHapticFeedback.trigger('selection', hapticOptions);
+            navigation.navigate('CartScreen');
+          }}
+        >
           <CartIcon />
         </ItemDetailHeaderButton>
       </ItemDetailHeaderRow>

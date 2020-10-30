@@ -6,6 +6,7 @@ import { Linking } from 'react-native';
 // Libraries
 import { Camera } from 'expo-camera';
 import { BarCodeScanner } from 'expo-barcode-scanner';
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import { BarCodeScanningResult } from 'expo-camera/build/Camera.types';
 
 // TODO: Remove (testing only)
@@ -36,6 +37,9 @@ import { BackArrowIcon, FlashIconOff, FlashIconOn } from '&icons';
 import { AuthStackParams } from '&navigation';
 import { useIsFocused } from '@react-navigation/native';
 import { StackScreenProps } from '@react-navigation/stack';
+
+// Utils
+import { hapticOptions } from '&utils';
 
 type ScanningScreenProps = StackScreenProps<AuthStackParams, 'ScanningScreen'>;
 
@@ -78,6 +82,7 @@ export const ScanningScreen = ({ navigation }: ScanningScreenProps) => {
       cameraRef.current.pausePreview();
 
       setBarcodeId(data);
+      ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
     }
   };
 
@@ -149,6 +154,7 @@ export const ScanningScreen = ({ navigation }: ScanningScreenProps) => {
         }}
         onPress={() => {
           resetScanner();
+          ReactNativeHapticFeedback.trigger('selection', hapticOptions);
           navigation.navigate('ItemDetail', { barcodeId, scanned: true });
         }}
       />

@@ -2,6 +2,9 @@
 
 import React, { useState } from 'react';
 
+// Libraries
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
+
 // Components
 import { Alert, Keyboard, KeyboardAvoidingView, View as OnboardingFormContainer } from 'react-native';
 
@@ -41,7 +44,7 @@ import { StackScreenProps } from '@react-navigation/stack';
 import { Firebase, fns } from '&lib';
 
 // Utils
-import { emailRegex, validInput } from '&utils';
+import { emailRegex, hapticOptions, validInput } from '&utils';
 
 type SignUpScreenProps = StackScreenProps<OnboardingStackParams, 'SignUpScreen'>;
 
@@ -208,12 +211,22 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
 
             <OnboardingRow>
               <OnboardingSmallerText>Already have an account? </OnboardingSmallerText>
-              <OnboardingTextButton onPress={() => navigation.navigate('SignInScreen')}>
+              <OnboardingTextButton
+                onPress={() => {
+                  ReactNativeHapticFeedback.trigger('selection', hapticOptions);
+                  navigation.navigate('SignInScreen');
+                }}
+              >
                 <OnboardingSmallerBoldText>Log In</OnboardingSmallerBoldText>
               </OnboardingTextButton>
             </OnboardingRow>
 
-            <OnboardingButton onPress={validateSignUp}>
+            <OnboardingButton
+              onPress={() => {
+                ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
+                validateSignUp();
+              }}
+            >
               <OnboardingButtonText>Sign Up</OnboardingButtonText>
             </OnboardingButton>
 

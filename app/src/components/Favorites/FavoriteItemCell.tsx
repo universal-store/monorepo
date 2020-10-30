@@ -4,6 +4,7 @@ import React from 'react';
 
 // Libraries
 import Swipeable from 'react-native-gesture-handler/Swipeable';
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
 // Components
 import {
@@ -29,6 +30,9 @@ import {
   useRemoveUserFavoriteItemMutation,
 } from '&graphql';
 
+// Utils
+import { hapticOptions } from '&utils';
+
 // Props
 interface FavoriteItemCellProps {
   favItem: StoreItemInfoFragment;
@@ -48,12 +52,14 @@ export const FavoriteItemCell = ({ favItem }: FavoriteItemCellProps) => {
 
   const renderRightActions = () => (
     <AnimatedSwipeRemoveContainer
-      onPress={() =>
+      onPress={() => {
         void removeFromFavoritesMutation({
           variables: { userId, itemBarcodeId: barcodeId },
           refetchQueries: [{ query: GetUserFavoriteItemsDocument }],
-        })
-      }
+        });
+
+        ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
+      }}
     >
       <AnimatedSwipeText>Remove</AnimatedSwipeText>
     </AnimatedSwipeRemoveContainer>
@@ -61,7 +67,12 @@ export const FavoriteItemCell = ({ favItem }: FavoriteItemCellProps) => {
 
   return (
     <Swipeable friction={2} renderRightActions={renderRightActions}>
-      <FavoriteItemCellContainer onPress={() => navigation.navigate('ItemDetail', { barcodeId })}>
+      <FavoriteItemCellContainer
+        onPress={() => {
+          ReactNativeHapticFeedback.trigger('selection', hapticOptions);
+          navigation.navigate('ItemDetail', { barcodeId });
+        }}
+      >
         <FavoritesItemCellContainerSmall>
           {StoreItemPic && (
             <FavoriteItemImageContainer>

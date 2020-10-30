@@ -3,6 +3,9 @@
 import React from 'react';
 import { theme } from '&theme';
 
+// Libraries
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
+
 // Screens
 import {
   AddItemScreen,
@@ -26,6 +29,9 @@ import {
 // Stack Navigators
 import { createStackNavigator } from '@react-navigation/stack';
 import { AnimatedTabBarNavigator } from 'react-native-animated-nav-tab-bar';
+
+// Utils
+import { hapticOptions } from '&utils';
 
 export type RootAuthTabParams = {
   MapView: { email: string; password: string };
@@ -61,6 +67,9 @@ export const RootAuthTabNavigator = () => (
     <RootAuthTab.Screen
       name="MapView"
       component={MapViewScreen}
+      listeners={{
+        tabPress: () => ReactNativeHapticFeedback.trigger('selection', hapticOptions),
+      }}
       options={{
         title: 'Stores',
         tabBarIcon: ({ focused }: TabNavigationIconProps) => <MapViewScreenIcon focused={focused} />,
@@ -69,6 +78,9 @@ export const RootAuthTabNavigator = () => (
     <RootAuthTab.Screen
       name="FavoritesScreen"
       component={FavoriteScreen}
+      listeners={{
+        tabPress: () => ReactNativeHapticFeedback.trigger('selection', hapticOptions),
+      }}
       options={{
         title: 'Saved',
         tabBarIcon: ({ focused }: TabNavigationIconProps) => <FavoriteScreenIcon focused={focused} />,
@@ -77,6 +89,9 @@ export const RootAuthTabNavigator = () => (
     <RootAuthTab.Screen
       name="CartScreen"
       component={CartScreen}
+      listeners={{
+        tabPress: () => ReactNativeHapticFeedback.trigger('selection', hapticOptions),
+      }}
       options={{
         title: 'Cart',
         tabBarIcon: ({ focused }: TabNavigationIconProps) => <CartScreenIcon focused={focused} />,
@@ -85,6 +100,9 @@ export const RootAuthTabNavigator = () => (
     <RootAuthTab.Screen
       name="ProfileScreen"
       component={ProfileScreen}
+      listeners={{
+        tabPress: () => ReactNativeHapticFeedback.trigger('selection', hapticOptions),
+      }}
       options={{
         title: 'Profile',
         tabBarIcon: ({ focused }: TabNavigationIconProps) => <ProfileScreenIcon focused={focused} />,

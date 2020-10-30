@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 
 // Libraries
 import BottomSheet from 'reanimated-bottom-sheet';
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
 // Components
 import {
@@ -56,6 +57,9 @@ import {
   GetUserCartItemsDocument,
 } from '&graphql';
 
+// Utils
+import { hapticOptions } from '&utils';
+
 type ItemDetailProps = StackScreenProps<RootAuthTabParams, 'ItemDetail'>;
 
 export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
@@ -105,7 +109,12 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
           <ItemSubDetailRow>
             <ItemNameText numberOfLines={2}>{itemData.longName}</ItemNameText>
 
-            <ItemDetailFavoriteButton onPress={addOrRemoveFromFavorites}>
+            <ItemDetailFavoriteButton
+              onPress={() => {
+                ReactNativeHapticFeedback.trigger('selection', hapticOptions);
+                addOrRemoveFromFavorites();
+              }}
+            >
               {favorite ? <HeartIconOn /> : <HeartIconOff />}
             </ItemDetailFavoriteButton>
           </ItemSubDetailRow>
@@ -174,11 +183,21 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
       {loading && <LoadingOverlay />}
 
       <ItemDetailHeaderRow>
-        <ItemDetailHeaderButton onPress={() => navigation.goBack()}>
+        <ItemDetailHeaderButton
+          onPress={() => {
+            ReactNativeHapticFeedback.trigger('selection', hapticOptions);
+            navigation.goBack();
+          }}
+        >
           <CloseIcon />
         </ItemDetailHeaderButton>
 
-        <ItemDetailHeaderButton onPress={() => navigation.navigate('CartScreen')}>
+        <ItemDetailHeaderButton
+          onPress={() => {
+            ReactNativeHapticFeedback.trigger('selection', hapticOptions);
+            navigation.navigate('CartScreen');
+          }}
+        >
           <CartIcon />
         </ItemDetailHeaderButton>
       </ItemDetailHeaderRow>
@@ -205,7 +224,13 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
 
       {scanned && (
         <AddCartButtonContainer>
-          <AddCartButton added={inCart} onPress={addOrRemoveFromCart}>
+          <AddCartButton
+            added={inCart}
+            onPress={() => {
+              ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
+              addOrRemoveFromCart();
+            }}
+          >
             <AddCartButtonText added={inCart}>{inCart ? 'Added!' : 'Add to Cart'}</AddCartButtonText>
           </AddCartButton>
         </AddCartButtonContainer>

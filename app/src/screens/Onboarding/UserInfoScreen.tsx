@@ -1,8 +1,10 @@
 /** @format */
 
 import React, { useState } from 'react';
-import AsyncStorage from '@react-native-community/async-storage';
 import { DevSettings, Keyboard, KeyboardAvoidingView, View as OnboardingFormContainer } from 'react-native';
+
+// Libraries
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
 // Components
 import {
@@ -33,11 +35,14 @@ import { AppIcon, PersonIcon } from '&icons';
 import { StackScreenProps } from '@react-navigation/stack';
 import { OnboardingStackParams } from '&navigation';
 
+// Context
+import AsyncStorage from '@react-native-community/async-storage';
+
 // GraphQL
 import { useUpdateUserNameMutation } from '&graphql';
 
 // Utils
-import { validInput } from '&utils';
+import { hapticOptions, validInput } from '&utils';
 import { Firebase } from '&lib';
 
 type UserInfoScreenProps = StackScreenProps<OnboardingStackParams, 'UserInfoScreen'>;
@@ -139,7 +144,12 @@ export const UserInfoScreen = ({ route }: UserInfoScreenProps) => {
               {validFirstname === 'INVALID' && <OnboardingRequiredText>First Name is required</OnboardingRequiredText>}
             </OnboardingFormContainer>
 
-            <OnboardingButton onPress={validateUserInfo}>
+            <OnboardingButton
+              onPress={() => {
+                ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
+                validateUserInfo();
+              }}
+            >
               <OnboardingButtonText>Let's Go!</OnboardingButtonText>
             </OnboardingButton>
           </OnboardingScroll>

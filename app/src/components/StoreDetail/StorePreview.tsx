@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 // Libraries
 import BottomSheet from 'reanimated-bottom-sheet';
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
 // Components
 import { LoadingOverlay } from '../LoadingOverlay';
@@ -35,6 +36,9 @@ import { useNavigation } from '@react-navigation/native';
 
 // GraphQL
 import { MarkerInfoFragment, useGetStoreInfoQuery } from '&graphql';
+
+// Utils
+import { hapticOptions } from '&utils';
 
 // Constants
 const freeSnap = [largeModalHeight - 10, smallModalHeight];
@@ -137,6 +141,8 @@ export const StorePreview = ({ store, onClose, onSelect }: StorePreviewProps) =>
                     sheetRef.current.snapTo(1);
                   }
                 }
+
+                ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
                 setStoreSelected(!storeSelected);
               }}
             >

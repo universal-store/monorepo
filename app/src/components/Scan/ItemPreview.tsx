@@ -3,6 +3,9 @@
 import React, { useEffect, useState } from 'react';
 import { Alert, Animated } from 'react-native';
 
+// Libraries
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
+
 // Styled Components
 import {
   AnimatedItemPreviewContainer,
@@ -19,6 +22,9 @@ import { useNavigation } from '@react-navigation/native';
 
 // Queries
 import { useGetStoreItemQuery } from '&graphql';
+
+// Utils
+import { hapticOptions } from '&utils';
 
 interface ItemPreviewProps {
   shown: boolean;
@@ -42,6 +48,10 @@ export const ItemPreview = ({ badScan, barcodeId, onPress, shown }: ItemPreviewP
       useNativeDriver: true,
       toValue: shown ? 1 : 0,
     }).start();
+
+    if (shown) {
+      ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
+    }
   }, [shown]);
 
   if (shown && !loading && !itemData) {

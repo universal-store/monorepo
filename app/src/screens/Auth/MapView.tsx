@@ -7,6 +7,7 @@ import { FlatList, Linking, Platform, TextInput } from 'react-native';
 // Libraries
 import Geolocation from '@react-native-community/geolocation';
 import { request, PERMISSIONS } from 'react-native-permissions';
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import MapView, { EventUserLocation, PROVIDER_GOOGLE, Region } from 'react-native-maps';
 
 // Components
@@ -44,6 +45,9 @@ import { useFocusEffect } from '@react-navigation/native';
 // GraphQL
 import { MarkerInfoFragment, useGetStoresQuery } from '&graphql';
 
+// Utils
+import { hapticOptions } from '&utils';
+
 // TODO: Remove (testing only)
 import DeviceInfo from 'react-native-device-info';
 
@@ -72,18 +76,18 @@ export const MapViewScreen = () => {
     if (storesData) {
       setFilteredStores(storesData.Store);
 
-      // // TODO: Remove from production
-      // void DeviceInfo.isEmulator().then(res => {
-      //   if (res)
-      //     setFilteredStores([
-      //       {
-      //         id: 'f7904981-2691-40d6-ac44-67105aa24bfb',
-      //         name: 'Chevron',
-      //         category: 'Convenience',
-      //         location: { coordinates: [37.785834, -122.406417] },
-      //       },
-      //     ]);
-      // });
+      // TODO: Remove from production
+      void DeviceInfo.isEmulator().then(res => {
+        if (res)
+          setFilteredStores([
+            {
+              id: 'f7904981-2691-40d6-ac44-67105aa24bfb',
+              name: 'Chevron',
+              category: 'Convenience',
+              location: { coordinates: [37.785834, -122.406417] },
+            },
+          ]);
+      });
     }
   }, [storesData]);
 
@@ -209,7 +213,14 @@ export const MapViewScreen = () => {
           ListHeaderComponent={() => <MapViewStoreCategoryListPadding />}
           ListFooterComponent={() => <MapViewStoreCategoryListPadding />}
           renderItem={({ item, index }) => (
-            <MapViewStoreCategoryButton selected={categoryFilter[index]} onPress={() => togglePillFilter(index)}>
+            <MapViewStoreCategoryButton
+              selected={categoryFilter[index]}
+              onPress={() => {
+                togglePillFilter(index);
+                filterStoresByCategory();
+                ReactNativeHapticFeedback.trigger('selection', hapticOptions);
+              }}
+            >
               <MapViewStoreCategoryButtonText selected={categoryFilter[index]}>{item}</MapViewStoreCategoryButtonText>
             </MapViewStoreCategoryButton>
           )}
@@ -252,6 +263,8 @@ export const MapViewScreen = () => {
                 longitude: store.location.coordinates[1],
               }}
               onPress={() => {
+                ReactNativeHapticFeedback.trigger('selection', hapticOptions);
+
                 if (storePreview !== undefined && storePreview.id === store.id) {
                   setStoreQuery('');
                   setStorePreview(undefined);
@@ -292,7 +305,13 @@ export const MapViewScreen = () => {
         </>
       )}
 
-      <ToggleFocusButton style={{ elevation: 4 }} onPress={() => locateCurrentPosition()}>
+      <ToggleFocusButton
+        style={{ elevation: 4 }}
+        onPress={() => {
+          ReactNativeHapticFeedback.trigger('impactLight', hapticOptions);
+          locateCurrentPosition();
+        }}
+      >
         <MapArrowIcon />
       </ToggleFocusButton>
     </FullScreenLightPurple>

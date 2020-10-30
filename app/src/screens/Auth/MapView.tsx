@@ -73,18 +73,18 @@ export const MapViewScreen = () => {
     if (storesData) {
       setFilteredStores(storesData.Store);
 
-      // TODO: Remove from production
-      void DeviceInfo.isEmulator().then(res => {
-        if (res)
-          setFilteredStores([
-            {
-              id: 'f7904981-2691-40d6-ac44-67105aa24bfb',
-              name: 'Chevron',
-              category: 'Convenience',
-              location: { coordinates: [37.785834, -122.406417] },
-            },
-          ]);
-      });
+      // // TODO: Remove from production
+      // void DeviceInfo.isEmulator().then(res => {
+      //   if (res)
+      //     setFilteredStores([
+      //       {
+      //         id: 'f7904981-2691-40d6-ac44-67105aa24bfb',
+      //         name: 'Chevron',
+      //         category: 'Convenience',
+      //         location: { coordinates: [37.785834, -122.406417] },
+      //       },
+      //     ]);
+      // });
     }
   }, [storesData]);
 
@@ -226,12 +226,14 @@ export const MapViewScreen = () => {
         maxZoomLevel={20}
         showsUserLocation
         pitchEnabled={false}
+        showsCompass={false}
         showsIndoors={false}
         region={currentPosition}
         customMapStyle={MapStyle}
         provider={PROVIDER_GOOGLE}
         zoomEnabled={!storePreview}
         scrollEnabled={!storePreview}
+        showsMyLocationButton={false}
         initialRegion={currentPosition}
         loadingIndicatorColor={theme.colors.purple[1]}
         loadingBackgroundColor={theme.colors.white[1]}

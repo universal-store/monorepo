@@ -9,13 +9,23 @@ import BottomSheet from 'reanimated-bottom-sheet';
 import { LoadingOverlay } from '../LoadingOverlay';
 import { PopularItemCell } from './PopularItemCell';
 import { largeModalHeight, ModalContainer, ModalHeader, ModalHeaderTab, smallModalHeight } from '../Modal';
-import { SelectStoreButton, SelectStoreButtonContainer, SelectStoreButtonText } from './Styled';
+
+import {
+  SelectStoreButton,
+  SelectStoreButtonContainer,
+  SelectStoreButtonText,
+  StoreDetailHeaderRow,
+  StoreDetailImage,
+  StoreDetailImageContainer,
+  StoreDetailStoreNameText,
+  StoreDetailStoreCategoryText,
+  StoreDetailStoreAddressText,
+  StoreDetailStoreDescriptionText,
+  StoreDetailPopularItemHeaderText,
+} from './Styled';
 
 // GraphQL
 import { MarkerInfoFragment, useGetStoreInfoQuery } from '&graphql';
-
-// TODO: Remove
-import { Text } from 'react-native';
 
 // Constants
 const freeSnap = [largeModalHeight - 10, smallModalHeight];
@@ -48,11 +58,24 @@ export const StorePreview = ({ store, onSelect }: StorePreviewProps) => {
     <ModalContainer>
       {storeData && (
         <>
-          <Text>{storeData.name}</Text>
-          <Text>{storeData.category}</Text>
-          <Text>{storeData.address}</Text>
-          <Text>{storeData.description}</Text>
-          <Text>Popular Items</Text>
+          <StoreDetailHeaderRow>
+            {storeData.StorePic && (
+              <StoreDetailImageContainer>
+                <StoreDetailImage source={{ uri: storeData.StorePic.size64 }} />
+              </StoreDetailImageContainer>
+            )}
+
+            <StoreDetailStoreNameText>{storeData.name}</StoreDetailStoreNameText>
+          </StoreDetailHeaderRow>
+
+          <StoreDetailStoreCategoryText>{storeData.category}</StoreDetailStoreCategoryText>
+          <StoreDetailStoreAddressText>{storeData.address}</StoreDetailStoreAddressText>
+
+          {storeData.description && (
+            <StoreDetailStoreDescriptionText>{storeData.description}</StoreDetailStoreDescriptionText>
+          )}
+
+          <StoreDetailPopularItemHeaderText>Popular Items</StoreDetailPopularItemHeaderText>
           <PopularItemCell />
           <PopularItemCell />
           <PopularItemCell />

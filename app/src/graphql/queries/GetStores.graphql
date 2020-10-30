@@ -1,4 +1,3 @@
-
 query GetStores {
   Store {
     ...MarkerInfo

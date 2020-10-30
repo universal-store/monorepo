@@ -45,8 +45,9 @@ export const MapViewTextInputContainer = styled(RowView)`
   flex: 1;
   left: 24px;
   z-index: 2;
+  height: 40px;
   display: flex;
-  padding: 8px 16px;
+  padding: 0 16px;
   align-items: center;
   border-radius: 40px;
   margin-bottom: 24px;
@@ -74,6 +75,7 @@ export const MapViewTextInput = styled.TextInput.attrs(({ theme }) => ({
 }))`
   flex: 1;
   font-size: 15px;
+  line-height: 18px;
   font-family: NunitoSans-Regular;
   color: ${({ theme }) => theme.colors.gray[1]};
 `;
@@ -162,18 +164,22 @@ export const StoreSuggestionContainer = styled.View`
   flex: 1;
   left: 24px;
   z-index: 2;
+  height: 160px;
   border-radius: 8px;
   shadow-opacity: 0.23;
   shadow-radius: 2.62px;
   shadow-offset: 0px 2px;
   width: ${screenWidth - 48}px;
-  top: ${isiPhoneX ? 96 : 66}px;
+  top: ${isiPhoneX ? 106 : 76}px;
   shadow-color: ${({ theme }) => theme.colors.gray[1]};
   background-color: ${({ theme }) => theme.colors.white[1]};
 `;
 
 export const StoreSuggestionCellContainer = styled.View`
-  padding: 8px 12px;
+  height: 32px;
+  display: flex;
+  padding: 0 12px;
+  justify-content: center;
   border-bottom-width: 1px;
   border-bottom-color: ${({ theme }) => theme.colors.gray[5]};
 `;

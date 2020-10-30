@@ -48,7 +48,7 @@ import { MarkerInfoFragment, useGetStoresQuery } from '&graphql';
 import DeviceInfo from 'react-native-device-info';
 
 // Store Categories
-const STORE_CATEGORIES = ['Supermarket', 'Department', 'Convenience', 'Pharamacy', 'Electronic'];
+const STORE_CATEGORIES = ['Supermarket', 'Department', 'Convenience', 'Pharmacy', 'Electronic'];
 
 export const MapViewScreen = () => {
   const mapRef = useRef<MapView>(null);

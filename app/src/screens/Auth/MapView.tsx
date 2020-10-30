@@ -77,10 +77,6 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
   // Query all Stores
   const { data: storesData } = useGetStoresQuery();
 
-  //filtering out stores based on store category
-  //TODO: how do I get the stores selected category?
-  storesData?.Store.filter(store => STORE_CATEGORIES.includes(store.category));
-
   useEffect(() => {
     if (storesData) {
       setFilteredStores(storesData.Store);
@@ -161,17 +157,17 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
     }
   };
 
-  // const filterStoresByCategory = () => {
-  //   const selectedCategories = [];
+  const filterStoresByCategory = () => {
+    const selectedCategories: string[] = [];
 
-  //   if (categoryFilter[0]) selectedCategories.push('Supermarket');
-  //   if (categoryFilter[1]) selectedCategories.push('Department');
-  //   if (categoryFilter[2]) selectedCategories.push('Convenience');
-  //   if (categoryFilter[3]) selectedCategories.push('Pharmacy');
-  //   if (categoryFilter[4]) selectedCategories.push('Electronic');
+    if (categoryFilter[0]) selectedCategories.push('Supermarket');
+    if (categoryFilter[1]) selectedCategories.push('Department');
+    if (categoryFilter[2]) selectedCategories.push('Convenience');
+    if (categoryFilter[3]) selectedCategories.push('Pharmacy');
+    if (categoryFilter[4]) selectedCategories.push('Electronic');
 
-  //   // const tempFilteredStores = storesData?.Store.filter(store => ???
-  // };
+    const tempFilteredStores = storesData?.Store.filter(store => selectedCategories.includes(store.category!));
+  };
 
   if (locationPermission === false) {
     return (

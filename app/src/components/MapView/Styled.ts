@@ -125,24 +125,6 @@ export const MapViewStoreCategoryButtonText = styled(TextMedium2)<MapViewStoreCa
   color: ${({ theme, selected }) => (selected ? theme.colors.white[1] : theme.colors.purple[1])};
 `;
 
-export const CameraIconContainer = styled.TouchableOpacity`
-  position: absolute;
-  width: 64px;
-  height: 64px;
-  bottom: 108px;
-  display: flex;
-  margin: 0 auto;
-  border-radius: 64px;
-  align-items: center;
-  shadow-opacity: 0.23;
-  shadow-radius: 2.62px;
-  shadow-offset: 0px 2px;
-  justify-content: center;
-  left: ${screenWidth / 2 - 32}px;
-  shadow-color: ${({ theme }) => theme.colors.gray[1]};
-  background-color: ${({ theme }) => theme.colors.purple[1]};
-`;
-
 export const ToggleFocusButton = styled.TouchableOpacity`
   position: absolute;
   right: 24px;

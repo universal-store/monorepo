@@ -15,6 +15,7 @@ export const StoreDetailContainer = styled.View`
 export const StoreDetailHeaderRow = styled(RowView)`
   width: 100%;
   margin-bottom: 4px;
+  align-items: center;
 `;
 
 export const StoreDetailImageContainer = styled.View`
@@ -31,7 +32,19 @@ export const StoreDetailImage = styled.Image`
   height: 32px;
 `;
 
-export const StoreDetailStoreNameText = styled(TextLarge)``;
+export const StoreDetailStoreNameText = styled(TextLarge)`
+  flex: 1;
+`;
+
+export const StoreDetailCloseIconContainer = styled.TouchableOpacity`
+  width: 24px;
+  height: 24px;
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+  border-radius: 24px;
+  justify-content: center;
+`;
 
 export const StoreDetailStoreCategoryText = styled(TextMedium2)`
   margin-bottom: 4px;
@@ -91,12 +104,37 @@ export const SelectStoreButton = styled.TouchableOpacity<SelectStoreButtonProps>
   margin-top: auto;
   border-radius: 8px;
   align-items: center;
+  shadow-opacity: 0.23;
+  shadow-radius: 2.62px;
+  shadow-offset: 0px 2px;
   justify-content: center;
   width: ${screenWidth - 64}px;
+  shadow-color: ${({ theme }) => theme.colors.gray[1]};
   border: 2px solid ${({ theme }) => theme.colors.purple[1]};
   background-color: ${({ theme, selected }) => (selected ? theme.colors.purple[1] : theme.colors.white[1])};
 `;
 
 export const SelectStoreButtonText = styled(HeaderMediumText)<SelectStoreButtonProps>`
   color: ${({ theme, selected }) => (selected ? theme.colors.white[1] : theme.colors.purple[1])};
+`;
+
+// Camera Icon
+
+export const CameraIconContainer = styled.TouchableOpacity`
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  z-index: 999;
+  display: flex;
+  margin: 0 auto;
+  border-radius: 64px;
+  align-items: center;
+  shadow-opacity: 0.23;
+  shadow-radius: 2.62px;
+  shadow-offset: 0px 2px;
+  justify-content: center;
+  left: ${screenWidth / 2 - 32}px;
+  bottom: ${isiPhoneX ? 170 : 140}px;
+  shadow-color: ${({ theme }) => theme.colors.gray[1]};
+  background-color: ${({ theme }) => theme.colors.purple[1]};
 `;

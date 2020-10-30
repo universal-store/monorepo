@@ -58,7 +58,6 @@ export const MapViewScreen = () => {
 
   // Map State
   const [storeQuery, setStoreQuery] = useState<string>('');
-  // const [storeSelected, setStoreSelected] = useState<boolean>(false);
   const [storePreview, setStorePreview] = useState<MarkerInfoFragment>();
   const [filteredStores, setFilteredStores] = useState<MarkerInfoFragment[]>();
   const [categoryFilter, setCategoryFilter] = useState<boolean[]>([false, false, false, false, false]);
@@ -268,6 +267,10 @@ export const MapViewScreen = () => {
           <StoreMapBottomPadding />
           <StorePreview
             store={storePreview}
+            onClose={() => {
+              setStoreQuery('');
+              setStorePreview(undefined);
+            }}
             onSelect={() =>
               mapRef.current &&
               mapRef.current.animateToRegion(
@@ -290,7 +293,3 @@ export const MapViewScreen = () => {
     </FullScreenLightPurple>
   );
 };
-
-// <CameraIconContainer style={{ elevation: 4 }} onPress={() => navigation.navigate('ScanningScreen')}>
-//   <CameraIcon />
-// </CameraIconContainer>

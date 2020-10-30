@@ -11,6 +11,7 @@ import { PopularItemCell } from './PopularItemCell';
 import { largeModalHeight, ModalContainer, ModalHeader, ModalHeaderTab, smallModalHeight } from '../Modal';
 
 import {
+  CameraIconContainer,
   SelectStoreButton,
   SelectStoreButtonContainer,
   SelectStoreButtonText,
@@ -23,7 +24,14 @@ import {
   StoreDetailStoreAddressText,
   StoreDetailStoreDescriptionText,
   StoreDetailPopularItemHeaderText,
+  StoreDetailCloseIconContainer,
 } from './Styled';
+
+// Iconography
+import { CameraIcon, CloseIcon } from '&icons';
+
+// Navigation
+import { useNavigation } from '@react-navigation/native';
 
 // GraphQL
 import { MarkerInfoFragment, useGetStoreInfoQuery } from '&graphql';
@@ -33,11 +41,14 @@ const freeSnap = [largeModalHeight - 10, smallModalHeight];
 const restrictSnap = [largeModalHeight - 10, largeModalHeight - 11];
 
 interface StorePreviewProps {
+  onClose: () => void;
   onSelect: () => void;
   store: MarkerInfoFragment;
 }
 
-export const StorePreview = ({ store, onSelect }: StorePreviewProps) => {
+export const StorePreview = ({ store, onClose, onSelect }: StorePreviewProps) => {
+  const navigation = useNavigation();
+
   const { data } = useGetStoreInfoQuery({ variables: { id: store.id } });
   const storeData = data?.Store_by_pk;
 
@@ -67,14 +78,20 @@ export const StorePreview = ({ store, onSelect }: StorePreviewProps) => {
                 </StoreDetailImageContainer>
               )}
 
-              <StoreDetailStoreNameText>{storeData.name}</StoreDetailStoreNameText>
+              <StoreDetailStoreNameText numberOfLines={1}>{storeData.name}</StoreDetailStoreNameText>
+
+              <StoreDetailCloseIconContainer onPress={onClose}>
+                <CloseIcon />
+              </StoreDetailCloseIconContainer>
             </StoreDetailHeaderRow>
 
             <StoreDetailStoreCategoryText>{storeData.category}</StoreDetailStoreCategoryText>
-            <StoreDetailStoreAddressText>{storeData.address}</StoreDetailStoreAddressText>
+            <StoreDetailStoreAddressText numberOfLines={2}>{storeData.address} </StoreDetailStoreAddressText>
 
             {storeData.description && (
-              <StoreDetailStoreDescriptionText>{storeData.description}</StoreDetailStoreDescriptionText>
+              <StoreDetailStoreDescriptionText numberOfLines={2}>
+                {storeData.description}
+              </StoreDetailStoreDescriptionText>
             )}
 
             <StoreDetailPopularItemHeaderText>Popular Items</StoreDetailPopularItemHeaderText>
@@ -103,6 +120,12 @@ export const StorePreview = ({ store, onSelect }: StorePreviewProps) => {
             enabledBottomInitialAnimation
             snapPoints={storeSelected ? restrictSnap : freeSnap}
           />
+
+          {storeSelected && (
+            <CameraIconContainer style={{ elevation: 4 }} onPress={() => navigation.navigate('ScanningScreen')}>
+              <CameraIcon />
+            </CameraIconContainer>
+          )}
 
           <SelectStoreButtonContainer>
             <SelectStoreButton

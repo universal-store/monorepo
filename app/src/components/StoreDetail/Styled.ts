@@ -1,9 +1,11 @@
 /** @format */
 
 import styled from 'styled-components/native';
+import { RowView } from '../Views';
+import { Pressable } from 'react-native';
 
 // Typography
-import { HeaderMediumText } from './../Text';
+import { HeaderMediumText, TextMedium2, TextSmall } from './../Text';
 
 // Constants
 import { isiPhoneX, screenWidth } from './../Views';
@@ -36,4 +38,34 @@ export const SelectStoreButton = styled.TouchableOpacity<SelectStoreButtonProps>
 
 export const SelectStoreButtonText = styled(HeaderMediumText)<SelectStoreButtonProps>`
   color: ${({ theme, selected }) => (selected ? theme.colors.white[1] : theme.colors.purple[1])};
+`;
+
+export const PopularItemCellContainer = styled(Pressable)`
+  flex: 1;
+  margin-right: 64px;
+`;
+
+export const PopularItemCellContainerSmall = styled(RowView)`
+  flex: 1;
+  align-items: center;
+`;
+
+export const PopularItemImageContainer = styled.View`
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  margin-right: 12px;
+  background-color: ${({ theme }) => theme.colors.gray[5]};
+`;
+
+export const PopularItemCellTextContainer = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+`;
+
+export const PopularItemNameText = styled(TextMedium2)``;
+
+export const PopularItemPriceText = styled(TextSmall)`
+  color: ${({ theme }) => theme.colors.purple[1]};
 `;

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 
 // Libraries
 import Swipeable from 'react-native-gesture-handler/Swipeable';
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
 // Components
 import {
@@ -33,6 +34,9 @@ import {
   useAddUserFavoriteItemMutation,
   useRemoveUserFavoriteItemMutation,
 } from '&graphql';
+
+// Utils
+import { hapticOptions } from '&utils';
 
 // Props
 interface CartItemCellProps {
@@ -80,6 +84,8 @@ export const CartItemCell = ({ cartItem }: CartItemCellProps) => {
             ],
           });
         }
+
+        ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
       }}
     >
       <AnimatedSwipeText>{favorite ? 'Unfavorite' : 'Favorite'}</AnimatedSwipeText>
@@ -88,12 +94,14 @@ export const CartItemCell = ({ cartItem }: CartItemCellProps) => {
 
   const renderRightActions = () => (
     <AnimatedSwipeRemoveContainer
-      onPress={() =>
+      onPress={() => {
         void removeFromCartMutation({
           variables: { userId, itemBarcodeId: barcodeId },
           refetchQueries: [{ query: GetUserCartItemsDocument }],
-        })
-      }
+        });
+
+        ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
+      }}
     >
       <AnimatedSwipeText>Remove</AnimatedSwipeText>
     </AnimatedSwipeRemoveContainer>
@@ -107,7 +115,12 @@ export const CartItemCell = ({ cartItem }: CartItemCellProps) => {
 
   return (
     <Swipeable friction={2} renderLeftActions={renderLeftActions} renderRightActions={renderRightActions}>
-      <CartItemCellContainer onPress={() => navigation.navigate('ItemDetail', { barcodeId, scanned: true })}>
+      <CartItemCellContainer
+        onPress={() => {
+          ReactNativeHapticFeedback.trigger('selection', hapticOptions);
+          navigation.navigate('ItemDetail', { barcodeId, scanned: true });
+        }}
+      >
         <CartItemCellContainerSmall>
           {StoreItemPic && (
             <CartItemImageContainer>

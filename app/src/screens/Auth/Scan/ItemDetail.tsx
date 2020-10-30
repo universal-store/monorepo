@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 
 // Libraries
 import BottomSheet from 'reanimated-bottom-sheet';
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
 // Components
 import {
@@ -55,6 +56,9 @@ import {
   GetUserFavoriteItemsDocument,
   GetUserCartItemsDocument,
 } from '&graphql';
+
+// Utils
+import { hapticOptions } from '&utils';
 
 type ItemDetailProps = StackScreenProps<RootAuthTabParams, 'ItemDetail'>;
 
@@ -205,7 +209,13 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
 
       {scanned && (
         <AddCartButtonContainer>
-          <AddCartButton added={inCart} onPress={addOrRemoveFromCart}>
+          <AddCartButton
+            added={inCart}
+            onPress={() => {
+              ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
+              addOrRemoveFromCart();
+            }}
+          >
             <AddCartButtonText added={inCart}>{inCart ? 'Added!' : 'Add to Cart'}</AddCartButtonText>
           </AddCartButton>
         </AddCartButtonContainer>

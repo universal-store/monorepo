@@ -213,7 +213,14 @@ export const MapViewScreen = () => {
           ListHeaderComponent={() => <MapViewStoreCategoryListPadding />}
           ListFooterComponent={() => <MapViewStoreCategoryListPadding />}
           renderItem={({ item, index }) => (
-            <MapViewStoreCategoryButton selected={categoryFilter[index]} onPress={() => togglePillFilter(index)}>
+            <MapViewStoreCategoryButton
+              selected={categoryFilter[index]}
+              onPress={() => {
+                togglePillFilter(index);
+                filterStoresByCategory();
+                ReactNativeHapticFeedback.trigger('selection', hapticOptions);
+              }}
+            >
               <MapViewStoreCategoryButtonText selected={categoryFilter[index]}>{item}</MapViewStoreCategoryButtonText>
             </MapViewStoreCategoryButton>
           )}
@@ -298,7 +305,13 @@ export const MapViewScreen = () => {
         </>
       )}
 
-      <ToggleFocusButton style={{ elevation: 4 }} onPress={() => locateCurrentPosition()}>
+      <ToggleFocusButton
+        style={{ elevation: 4 }}
+        onPress={() => {
+          ReactNativeHapticFeedback.trigger('impactLight', hapticOptions);
+          locateCurrentPosition();
+        }}
+      >
         <MapArrowIcon />
       </ToggleFocusButton>
     </FullScreenLightPurple>

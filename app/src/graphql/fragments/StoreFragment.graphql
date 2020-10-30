@@ -1,11 +1,21 @@
+# @format
+
+fragment MarkerInfo on Store {
+  id
+  name
+  category
+  location
+}
+
 fragment StoreInfo on Store {
-    id
-    name
-    address
-    category
-    googlePlacesId
-    StorePic {
-        size64
-        size128
-    }
+  id
+  name
+  address
+  category
+  location
+  description
+  StorePic {
+    size64
+    size128
+  }
 }

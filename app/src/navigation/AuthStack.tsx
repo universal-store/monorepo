@@ -63,7 +63,7 @@ export const RootAuthTabNavigator = () => (
       name="MapView"
       component={MapViewScreen}
       options={{
-        title: 'Map',
+        title: 'Stores',
         tabBarIcon: ({ focused }: TabNavigationIconProps) => <MapViewScreenIcon focused={focused} />,
       }}
     />

@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 
 // Components
-import { Keyboard, View, View as OnboardingFormContainer } from 'react-native';
+import { Keyboard, KeyboardAvoidingView, View as OnboardingFormContainer } from 'react-native';
 
 import {
   HeaderLargeText as OnboardingHeaderTitleText,
@@ -13,6 +13,7 @@ import {
   OnboardingFormText,
   OnboardingInputContainer,
   OnboardingMainContainer,
+  OnboardingPadding,
   OnboardingRequiredText,
   OnboardingScroll,
   OnboardingSubHeaderText,
@@ -37,8 +38,6 @@ type AddItemScreenProps = StackScreenProps<AuthStackParams, 'AddItemScreen'>;
 
 export const AddItemScreen = ({ navigation, route }: AddItemScreenProps) => {
   const { barcodeId } = route.params;
-
-  const [enableShift, setEnableShift] = useState<boolean>(true);
 
   // Form States
   const [price, setPrice] = useState<string>('');
@@ -79,94 +78,93 @@ export const AddItemScreen = ({ navigation, route }: AddItemScreenProps) => {
   };
 
   return (
-    <KeyboardDismiss onPress={Keyboard.dismiss}>
-      <OnboardingMainContainer enableShift={enableShift}>
-        <OnboardingScroll
-          bounces={false}
-          keyboardShouldPersistTaps="handled"
-          showsVerticalScrollIndicator={false}
-          contentContainerStyle={{ paddingTop: 32, paddingBottom: 160 }}
-        >
-          <View style={{ height: 24 }} />
+    <KeyboardAvoidingView enabled behavior="padding" style={{ flex: 1 }}>
+      <KeyboardDismiss onPress={Keyboard.dismiss}>
+        <OnboardingMainContainer>
+          <OnboardingPadding />
 
-          <ScannerHeaderButton onPress={navigation.goBack}>
-            <BackArrowIconGray />
-          </ScannerHeaderButton>
+          <OnboardingScroll bounces={false} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
+            <OnboardingPadding />
 
-          <View style={{ height: 24 }} />
+            <ScannerHeaderButton onPress={navigation.goBack}>
+              <BackArrowIconGray />
+            </ScannerHeaderButton>
 
-          <OnboardingHeaderTitleText>Add An Item</OnboardingHeaderTitleText>
-          <OnboardingSubHeaderText>Fill out required fields</OnboardingSubHeaderText>
+            <OnboardingPadding />
 
-          <OnboardingFormContainer>
-            <OnboardingFormText>Item Name*</OnboardingFormText>
-            <OnboardingInputContainer valid={validLongName}>
-              <OnboardingTextInput
-                value={longName}
-                placeholder="Enter item name"
-                onChangeText={text => {
-                  setLongName(text);
-                  setValidLongName('NEEDS_CHECK');
-                }}
-              />
-            </OnboardingInputContainer>
-            {validLongName === 'INVALID' && <OnboardingRequiredText>Item Name is required</OnboardingRequiredText>}
+            <OnboardingHeaderTitleText>Add An Item</OnboardingHeaderTitleText>
+            <OnboardingSubHeaderText>Fill out required fields</OnboardingSubHeaderText>
 
-            <OnboardingFormText>Item Name (short)</OnboardingFormText>
-            <OnboardingInputContainer valid={'NEEDS_CHECK'}>
-              <OnboardingTextInput
-                value={shortName}
-                placeholder="Enter a shorter name"
-                onChangeText={text => {
-                  setShortName(text);
-                }}
-              />
-            </OnboardingInputContainer>
+            <OnboardingFormContainer>
+              <OnboardingFormText>Item Name*</OnboardingFormText>
+              <OnboardingInputContainer valid={validLongName}>
+                <OnboardingTextInput
+                  value={longName}
+                  placeholder="Enter item name"
+                  onChangeText={text => {
+                    setLongName(text);
+                    setValidLongName('NEEDS_CHECK');
+                  }}
+                />
+              </OnboardingInputContainer>
+              {validLongName === 'INVALID' && <OnboardingRequiredText>Item Name is required</OnboardingRequiredText>}
 
-            <OnboardingFormText>Price*</OnboardingFormText>
-            <OnboardingInputContainer valid={validPrice}>
-              <OnboardingTextInput
-                value={price}
-                keyboardType="numeric"
-                placeholder="Enter item name"
-                onChangeText={text => {
-                  setPrice(text);
-                  setValidPrice('NEEDS_CHECK');
-                }}
-              />
-            </OnboardingInputContainer>
-            {validLongName === 'INVALID' && <OnboardingRequiredText>Item Price is required</OnboardingRequiredText>}
+              <OnboardingFormText>Item Name (short)</OnboardingFormText>
+              <OnboardingInputContainer valid={'NEEDS_CHECK'}>
+                <OnboardingTextInput
+                  value={shortName}
+                  placeholder="Enter a shorter name"
+                  onChangeText={text => {
+                    setShortName(text);
+                  }}
+                />
+              </OnboardingInputContainer>
 
-            <OnboardingFormText>Item Size</OnboardingFormText>
-            <OnboardingInputContainer valid={'NEEDS_CHECK'}>
-              <OnboardingTextInput
-                value={quantity}
-                placeholder="Enter item size"
-                onChangeText={text => {
-                  setQuantity(text);
-                }}
-              />
-            </OnboardingInputContainer>
+              <OnboardingFormText>Price*</OnboardingFormText>
+              <OnboardingInputContainer valid={validPrice}>
+                <OnboardingTextInput
+                  value={price}
+                  keyboardType="numeric"
+                  placeholder="Enter item name"
+                  onChangeText={text => {
+                    setPrice(text);
+                    setValidPrice('NEEDS_CHECK');
+                  }}
+                />
+              </OnboardingInputContainer>
+              {validLongName === 'INVALID' && <OnboardingRequiredText>Item Price is required</OnboardingRequiredText>}
 
-            <OnboardingFormText>Item Description</OnboardingFormText>
-            <OnboardingInputContainer valid={'NEEDS_CHECK'}>
-              <OnboardingTextInput
-                multiline
-                numberOfLines={4}
-                value={description}
-                placeholder="Enter a description"
-                onChangeText={text => {
-                  setDescription(text);
-                }}
-              />
-            </OnboardingInputContainer>
+              <OnboardingFormText>Item Size</OnboardingFormText>
+              <OnboardingInputContainer valid={'NEEDS_CHECK'}>
+                <OnboardingTextInput
+                  value={quantity}
+                  placeholder="Enter item size"
+                  onChangeText={text => {
+                    setQuantity(text);
+                  }}
+                />
+              </OnboardingInputContainer>
 
-            <OnboardingButton onPress={validateItemInfo}>
-              <OnboardingButtonText>{`Add Item`}</OnboardingButtonText>
-            </OnboardingButton>
-          </OnboardingFormContainer>
-        </OnboardingScroll>
-      </OnboardingMainContainer>
-    </KeyboardDismiss>
+              <OnboardingFormText>Item Description</OnboardingFormText>
+              <OnboardingInputContainer valid={'NEEDS_CHECK'}>
+                <OnboardingTextInput
+                  multiline
+                  numberOfLines={4}
+                  value={description}
+                  placeholder="Enter a description"
+                  onChangeText={text => {
+                    setDescription(text);
+                  }}
+                />
+              </OnboardingInputContainer>
+
+              <OnboardingButton onPress={validateItemInfo}>
+                <OnboardingButtonText>{`Add Item`}</OnboardingButtonText>
+              </OnboardingButton>
+            </OnboardingFormContainer>
+          </OnboardingScroll>
+        </OnboardingMainContainer>
+      </KeyboardDismiss>
+    </KeyboardAvoidingView>
   );
 };

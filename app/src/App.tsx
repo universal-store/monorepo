@@ -5,7 +5,7 @@ import { StatusBar } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 
 // Screens
-import { SplashScreen } from '&screens';
+import SplashScreen from 'react-native-splash-screen';
 
 // Stack Navigators
 import { NavigationContainer } from '@react-navigation/native';
@@ -25,6 +25,7 @@ import { auth, User } from 'firebase';
 
 // Environment Variables
 import { GRAPHQL_API } from '&env';
+import { LoadingOverlay } from '&components';
 
 const httpLink = createHttpLink({
   uri: `${GRAPHQL_API}`,
@@ -52,13 +53,20 @@ const App = () => {
   const [user, setUser] = useState<User | null>(null);
 
   const onAuthStateChanged = () => {
-    return Firebase.auth().onAuthStateChanged(user => {
-      setUser(user);
+    return Firebase.auth().onAuthStateChanged(async user => {
+      if (user) {
+        const newToken = await user.getIdToken(true);
+        await AsyncStorage.setItem('userToken', newToken);
+
+        setUser(user);
+      }
+
       if (loading) setLoading(false);
     });
   };
 
   useEffect(() => {
+    SplashScreen.hide();
     Firebase.auth().setPersistence(auth.Auth.Persistence.LOCAL).then(onAuthStateChanged);
   }, []);
 
@@ -68,7 +76,7 @@ const App = () => {
         <>
           <StatusBar barStyle="dark-content" />
           {loading ? (
-            <SplashScreen />
+            <LoadingOverlay />
           ) : (
             <NavigationContainer>{user ? <AuthNavigator /> : <OnboardingStackNavigator />}</NavigationContainer>
           )}

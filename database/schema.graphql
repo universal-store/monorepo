@@ -17,6 +17,80 @@ input Boolean_comparison_exp {
   _nin: [Boolean!]
 }
 
+scalar geography
+
+# Expression to compare the result of casting a column of type geography. Multiple
+# cast targets are combined with logical 'AND'.
+input geography_cast_exp {
+  geometry: geometry_comparison_exp
+}
+
+# expression to compare columns of type geography. All fields are combined with logical 'AND'.
+input geography_comparison_exp {
+  _cast: geography_cast_exp
+  _eq: geography
+  _gt: geography
+  _gte: geography
+  _in: [geography!]
+  _is_null: Boolean
+  _lt: geography
+  _lte: geography
+  _neq: geography
+  _nin: [geography!]
+
+  # is the column within a distance from a geography value
+  _st_d_within: st_d_within_geography_input
+
+  # does the column spatially intersect the given geography value
+  _st_intersects: geography
+}
+
+scalar geometry
+
+# Expression to compare the result of casting a column of type geometry. Multiple
+# cast targets are combined with logical 'AND'.
+input geometry_cast_exp {
+  geography: geography_comparison_exp
+}
+
+# expression to compare columns of type geometry. All fields are combined with logical 'AND'.
+input geometry_comparison_exp {
+  _cast: geometry_cast_exp
+  _eq: geometry
+  _gt: geometry
+  _gte: geometry
+  _in: [geometry!]
+  _is_null: Boolean
+  _lt: geometry
+  _lte: geometry
+  _neq: geometry
+  _nin: [geometry!]
+
+  # does the column contain the given geometry value
+  _st_contains: geometry
+
+  # does the column crosses the given geometry value
+  _st_crosses: geometry
+
+  # is the column within a distance from a geometry value
+  _st_d_within: st_d_within_input
+
+  # is the column equal to given geometry value. Directionality is ignored
+  _st_equals: geometry
+
+  # does the column spatially intersect the given geometry value
+  _st_intersects: geometry
+
+  # does the column 'spatially overlap' (intersect but not completely contain) the given geometry value
+  _st_overlaps: geometry
+
+  # does the column have atleast one point in common with the given geometry value
+  _st_touches: geometry
+
+  # is the column contained in the given geometry value
+  _st_within: geometry
+}
+
 scalar money
 
 # expression to compare columns of type money. All fields are combined with logical 'AND'.
@@ -736,6 +810,17 @@ type query_root {
   User_by_pk(id: String!): User
 }
 
+input st_d_within_geography_input {
+  distance: Float!
+  from: geography!
+  use_spheroid: Boolean = true
+}
+
+input st_d_within_input {
+  distance: Float!
+  from: geometry!
+}
+
 # columns and relationships of "Store"
 type Store {
   # An array relationship
@@ -814,8 +899,9 @@ type Store {
   ): UserFavoriteStore_aggregate!
   address: String!
   category: String
-  googlePlacesId: String!
+  description: String
   id: uuid!
+  location: geography!
   name: String!
   storePicId: uuid
 }
@@ -856,8 +942,9 @@ input Store_bool_exp {
   _or: [Store_bool_exp]
   address: String_comparison_exp
   category: String_comparison_exp
-  googlePlacesId: String_comparison_exp
+  description: String_comparison_exp
   id: uuid_comparison_exp
+  location: geography_comparison_exp
   name: String_comparison_exp
   storePicId: uuid_comparison_exp
 }
@@ -878,8 +965,9 @@ input Store_insert_input {
   UserFavoriteStores: UserFavoriteStore_arr_rel_insert_input
   address: String
   category: String
-  googlePlacesId: String
+  description: String
   id: uuid
+  location: geography
   name: String
   storePicId: uuid
 }
@@ -888,7 +976,7 @@ input Store_insert_input {
 type Store_max_fields {
   address: String
   category: String
-  googlePlacesId: String
+  description: String
   id: uuid
   name: String
   storePicId: uuid
@@ -898,7 +986,7 @@ type Store_max_fields {
 input Store_max_order_by {
   address: order_by
   category: order_by
-  googlePlacesId: order_by
+  description: order_by
   id: order_by
   name: order_by
   storePicId: order_by
@@ -908,7 +996,7 @@ input Store_max_order_by {
 type Store_min_fields {
   address: String
   category: String
-  googlePlacesId: String
+  description: String
   id: uuid
   name: String
   storePicId: uuid
@@ -918,7 +1006,7 @@ type Store_min_fields {
 input Store_min_order_by {
   address: order_by
   category: order_by
-  googlePlacesId: order_by
+  description: order_by
   id: order_by
   name: order_by
   storePicId: order_by
@@ -953,8 +1041,9 @@ input Store_order_by {
   UserFavoriteStores_aggregate: UserFavoriteStore_aggregate_order_by
   address: order_by
   category: order_by
-  googlePlacesId: order_by
+  description: order_by
   id: order_by
+  location: order_by
   name: order_by
   storePicId: order_by
 }
@@ -973,10 +1062,13 @@ enum Store_select_column {
   category
 
   # column name
-  googlePlacesId
+  description
 
   # column name
   id
+
+  # column name
+  location
 
   # column name
   name
@@ -989,8 +1081,9 @@ enum Store_select_column {
 input Store_set_input {
   address: String
   category: String
-  googlePlacesId: String
+  description: String
   id: uuid
+  location: geography
   name: String
   storePicId: uuid
 }
@@ -1004,10 +1097,13 @@ enum Store_update_column {
   category
 
   # column name
-  googlePlacesId
+  description
 
   # column name
   id
+
+  # column name
+  location
 
   # column name
   name

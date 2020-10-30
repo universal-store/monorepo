@@ -4,7 +4,8 @@ import styled from 'styled-components/native';
 
 // Components
 import { RowView } from '../Views';
-import { HeaderLargeText, HeaderSmallText, TextLarge2, TextSmall, TextSmall2 } from '../Text';
+import { Pressable } from 'react-native';
+import { HeaderLargeText, HeaderSmallText, TextLarge2 } from '../Text';
 
 export const CartHeaderTextContainer = styled.View`
   display: flex;
@@ -38,7 +39,7 @@ export const CartSubtotalPrice = styled(HeaderSmallText)`
   color: ${({ theme }) => theme.colors.purple[2]};
 `;
 
-export const CartItemCellContainer = styled.TouchableOpacity`
+export const CartItemCellContainer = styled(Pressable)`
   flex: 1;
   width: 100%;
   height: 80px;

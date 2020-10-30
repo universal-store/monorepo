@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 
 // Components
-import { Keyboard, View as OnboardingFormContainer } from 'react-native';
+import { Keyboard, KeyboardAvoidingView, View as OnboardingFormContainer } from 'react-native';
 
 import {
   HeaderLargeText as OnboardingHeaderTitleText,
@@ -25,7 +25,7 @@ import {
 } from '&components';
 
 // Iconography
-import { PersonIcon } from '&icons';
+import { AppIcon, PersonIcon } from '&icons';
 
 // Navigation
 import { AuthStackParams } from '&navigation';
@@ -72,61 +72,65 @@ export const UserInfoScreen = ({ navigation }: UserInfoScreenProps) => {
   };
 
   return (
-    <KeyboardDismiss onPress={Keyboard.dismiss}>
-      <OnboardingMainContainer>
-        <OnboardingHeaderContainer>
-          <LogoContainer />
-          <OnboardingHeaderTextContainer>
-            <OnboardingHeaderTitleText>Universal Store</OnboardingHeaderTitleText>
-            <OnboardingSubHeaderText>Redefining express checkout.</OnboardingSubHeaderText>
-          </OnboardingHeaderTextContainer>
-        </OnboardingHeaderContainer>
+    <KeyboardAvoidingView enabled behavior="padding" style={{ flex: 1 }}>
+      <KeyboardDismiss onPress={Keyboard.dismiss}>
+        <OnboardingMainContainer>
+          <OnboardingHeaderContainer>
+            <LogoContainer>
+              <AppIcon />
+            </LogoContainer>
+            <OnboardingHeaderTextContainer>
+              <OnboardingHeaderTitleText>Universal Store</OnboardingHeaderTitleText>
+              <OnboardingSubHeaderText>Redefining express checkout.</OnboardingSubHeaderText>
+            </OnboardingHeaderTextContainer>
+          </OnboardingHeaderContainer>
 
-        <OnboardingHeaderTitleText>Almost There!</OnboardingHeaderTitleText>
-        <OnboardingSubHeaderText>Tell us about yourself</OnboardingSubHeaderText>
+          <OnboardingHeaderTitleText>Almost There!</OnboardingHeaderTitleText>
+          <OnboardingSubHeaderText>Tell us about yourself</OnboardingSubHeaderText>
 
-        <OnboardingFormContainer>
-          <OnboardingInputContainer valid={validFirstname}>
-            <OnboardingFormContainerHalf>
-              <OnboardingFormText>First Name*</OnboardingFormText>
+          <OnboardingFormContainer>
+            <OnboardingInputContainer valid={validFirstname}>
+              <OnboardingFormContainerHalf>
+                <OnboardingFormText>First Name*</OnboardingFormText>
 
-              <OnboardingFormHalfRow>
-                <OnboardingInputIconContainer>
-                  <PersonIcon />
-                </OnboardingInputIconContainer>
+                <OnboardingFormHalfRow>
+                  <OnboardingInputIconContainer>
+                    <PersonIcon />
+                  </OnboardingInputIconContainer>
+
+                  <OnboardingTextInput
+                    value={userFirstName}
+                    textContentType="name"
+                    autoCompleteType="name"
+                    placeholder="First Name"
+                    onChangeText={text => {
+                      setUserFirstName(text);
+                      setValidFirstname('NEEDS_CHECK');
+                    }}
+                  />
+                </OnboardingFormHalfRow>
+              </OnboardingFormContainerHalf>
+
+              <OnboardingFormContainerHalf>
+                <OnboardingFormText>Last Name</OnboardingFormText>
 
                 <OnboardingTextInput
-                  value={userFirstName}
-                  textContentType="name"
+                  value={userLastName}
                   autoCompleteType="name"
-                  placeholder="First Name"
-                  onChangeText={text => {
-                    setUserFirstName(text);
-                    setValidFirstname('NEEDS_CHECK');
-                  }}
+                  placeholder="Last Name"
+                  textContentType="familyName"
+                  onChangeText={setUserLastName}
                 />
-              </OnboardingFormHalfRow>
-            </OnboardingFormContainerHalf>
+              </OnboardingFormContainerHalf>
+            </OnboardingInputContainer>
+            {validFirstname === 'INVALID' && <OnboardingRequiredText>First Name is required</OnboardingRequiredText>}
+          </OnboardingFormContainer>
 
-            <OnboardingFormContainerHalf>
-              <OnboardingFormText>Last Name</OnboardingFormText>
-
-              <OnboardingTextInput
-                value={userLastName}
-                autoCompleteType="name"
-                placeholder="Last Name"
-                textContentType="familyName"
-                onChangeText={setUserLastName}
-              />
-            </OnboardingFormContainerHalf>
-          </OnboardingInputContainer>
-          {validFirstname === 'INVALID' && <OnboardingRequiredText>First Name is required</OnboardingRequiredText>}
-        </OnboardingFormContainer>
-
-        <OnboardingButton onPress={validateUserInfo}>
-          <OnboardingButtonText>{`Let's Go!`}</OnboardingButtonText>
-        </OnboardingButton>
-      </OnboardingMainContainer>
-    </KeyboardDismiss>
+          <OnboardingButton onPress={validateUserInfo}>
+            <OnboardingButtonText>{`Let's Go!`}</OnboardingButtonText>
+          </OnboardingButton>
+        </OnboardingMainContainer>
+      </KeyboardDismiss>
+    </KeyboardAvoidingView>
   );
 };

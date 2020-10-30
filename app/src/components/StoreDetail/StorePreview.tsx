@@ -72,7 +72,7 @@ export const StorePreview = ({ store, onClose, onSelect }: StorePreviewProps) =>
 
   const renderContent = () => (
     <ModalContainer>
-      {storeData && (
+      {storeData ? (
         <>
           <StoreDetailContainer>
             <StoreDetailHeaderRow>
@@ -84,7 +84,12 @@ export const StorePreview = ({ store, onClose, onSelect }: StorePreviewProps) =>
 
               <StoreDetailStoreNameText numberOfLines={1}>{storeData.name}</StoreDetailStoreNameText>
 
-              <StoreDetailCloseIconContainer onPress={onClose}>
+              <StoreDetailCloseIconContainer
+                onPress={() => {
+                  ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
+                  onClose();
+                }}
+              >
                 <CloseIcon />
               </StoreDetailCloseIconContainer>
             </StoreDetailHeaderRow>
@@ -107,54 +112,56 @@ export const StorePreview = ({ store, onClose, onSelect }: StorePreviewProps) =>
           <PopularItemCell />
           <PopularItemCell />
         </>
+      ) : (
+        <LoadingOverlay />
       )}
     </ModalContainer>
   );
 
   return (
     <>
-      {storeData ? (
-        <>
-          <BottomSheet
-            ref={sheetRef}
-            initialSnap={1}
-            enabledBottomClamp
-            renderHeader={renderHeader}
-            renderContent={renderContent}
-            enabledBottomInitialAnimation
-            snapPoints={storeSelected ? restrictSnap : freeSnap}
-          />
+      <BottomSheet
+        ref={sheetRef}
+        initialSnap={1}
+        enabledBottomClamp
+        renderHeader={renderHeader}
+        renderContent={renderContent}
+        enabledBottomInitialAnimation
+        snapPoints={storeSelected ? restrictSnap : freeSnap}
+      />
 
-          {storeSelected && (
-            <CameraIconContainer style={{ elevation: 4 }} onPress={() => navigation.navigate('ScanningScreen')}>
-              <CameraIcon />
-            </CameraIconContainer>
-          )}
-
-          <SelectStoreButtonContainer>
-            <SelectStoreButton
-              selected={storeSelected}
-              onPress={() => {
-                if (sheetRef.current) {
-                  if (!storeSelected) sheetRef.current.snapTo(0);
-                  else {
-                    sheetRef.current.snapTo(1);
-                  }
-                }
-
-                ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
-                setStoreSelected(!storeSelected);
-              }}
-            >
-              <SelectStoreButtonText selected={storeSelected}>
-                {storeSelected ? 'Stop Shopping' : 'Select Store'}
-              </SelectStoreButtonText>
-            </SelectStoreButton>
-          </SelectStoreButtonContainer>
-        </>
-      ) : (
-        <LoadingOverlay />
+      {storeSelected && (
+        <CameraIconContainer
+          style={{ elevation: 4 }}
+          onPress={() => {
+            ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
+            navigation.navigate('ScanningScreen');
+          }}
+        >
+          <CameraIcon />
+        </CameraIconContainer>
       )}
+
+      <SelectStoreButtonContainer>
+        <SelectStoreButton
+          selected={storeSelected}
+          onPress={() => {
+            if (sheetRef.current) {
+              if (!storeSelected) sheetRef.current.snapTo(0);
+              else {
+                sheetRef.current.snapTo(1);
+              }
+            }
+
+            ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
+            setStoreSelected(!storeSelected);
+          }}
+        >
+          <SelectStoreButtonText selected={storeSelected}>
+            {storeSelected ? 'Stop Shopping' : 'Select Store'}
+          </SelectStoreButtonText>
+        </SelectStoreButton>
+      </SelectStoreButtonContainer>
     </>
   );
 };

@@ -73,6 +73,10 @@ export const MapViewScreen = () => {
   const { data: storesData } = useGetStoresQuery();
 
   useEffect(() => {
+    filterStoresByCategory();
+  }, [categoryFilter]);
+
+  useEffect(() => {
     if (storesData) {
       setFilteredStores(storesData.Store);
 
@@ -115,12 +119,6 @@ export const MapViewScreen = () => {
     }, [])
   );
 
-  const togglePillFilter = (index: number) => {
-    const tempCategoryFilter = [...categoryFilter];
-    tempCategoryFilter[index] = !tempCategoryFilter[index];
-    setCategoryFilter(tempCategoryFilter);
-  };
-
   const locateCurrentPosition = (userLocation?: EventUserLocation) => {
     if (userLocation) {
       const region: Region = {
@@ -149,7 +147,9 @@ export const MapViewScreen = () => {
   };
 
   const filterStoresByCategory = () => {
-    const selectedCategories: string[] = [];
+    if (!storesData) return;
+
+    let selectedCategories: string[] = [];
 
     if (categoryFilter[0]) selectedCategories.push('Supermarket');
     if (categoryFilter[1]) selectedCategories.push('Department');
@@ -157,12 +157,23 @@ export const MapViewScreen = () => {
     if (categoryFilter[3]) selectedCategories.push('Pharmacy');
     if (categoryFilter[4]) selectedCategories.push('Electronic');
 
-    const tempFilteredStores = storesData?.Store.filter(store => {
+    if (categoryFilter.every(category => !category)) {
+      selectedCategories = [...STORE_CATEGORIES];
+    }
+
+    const tempFilteredStores = storesData.Store.filter(store => {
       if (store.category) {
-        selectedCategories.includes(store.category);
+        return selectedCategories.includes(store.category);
       }
     });
+
     setFilteredStores(tempFilteredStores);
+  };
+
+  const togglePillFilter = (index: number) => {
+    const tempCategoryFilter = [...categoryFilter];
+    tempCategoryFilter[index] = !tempCategoryFilter[index];
+    setCategoryFilter(tempCategoryFilter);
   };
 
   if (locationPermission === false) {
@@ -217,7 +228,6 @@ export const MapViewScreen = () => {
               selected={categoryFilter[index]}
               onPress={() => {
                 togglePillFilter(index);
-                filterStoresByCategory();
                 ReactNativeHapticFeedback.trigger('selection', hapticOptions);
               }}
             >
@@ -263,7 +273,7 @@ export const MapViewScreen = () => {
                 longitude: store.location.coordinates[1],
               }}
               onPress={() => {
-                ReactNativeHapticFeedback.trigger('selection', hapticOptions);
+                ReactNativeHapticFeedback.trigger('impactHeavy', hapticOptions);
 
                 if (storePreview !== undefined && storePreview.id === store.id) {
                   setStoreQuery('');

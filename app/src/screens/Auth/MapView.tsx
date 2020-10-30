@@ -166,7 +166,11 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
     if (categoryFilter[3]) selectedCategories.push('Pharmacy');
     if (categoryFilter[4]) selectedCategories.push('Electronic');
 
-    const tempFilteredStores = storesData?.Store.filter(store => selectedCategories.includes(store.category!));
+    const tempFilteredStores = storesData?.Store.filter(store => {
+      if (store.category) {
+        selectedCategories.includes(store.category);
+      }
+    });
   };
 
   if (locationPermission === false) {

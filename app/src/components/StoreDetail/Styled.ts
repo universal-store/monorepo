@@ -3,10 +3,10 @@
 import styled from 'styled-components/native';
 
 // Typography
-import { HeaderMediumText } from './../Text';
+import { HeaderMediumText, HeaderSmallText, TextMedium, TextSmall, TextSmall2 } from './../Text';
 
 // Constants
-import { isiPhoneX, screenWidth } from './../Views';
+import { isiPhoneX, screenWidth, RowView } from './../Views';
 
 // Select Store Button
 export const SelectStoreButtonContainer = styled.View`
@@ -36,4 +36,58 @@ export const SelectStoreButton = styled.TouchableOpacity<SelectStoreButtonProps>
 
 export const SelectStoreButtonText = styled(HeaderMediumText)<SelectStoreButtonProps>`
   color: ${({ theme, selected }) => (selected ? theme.colors.white[1] : theme.colors.purple[1])};
+`;
+
+export const StoreDetailHeaderRow = styled(RowView)`
+  width: 100%;
+  margin-bottom: 4px;
+  margin-top: 24px;
+`;
+
+export const StoreDetailStoreImageContainer = styled.View`
+  width: 32px;
+  height: 32px;
+  margin-right: 12px;
+`;
+
+export const StoreDetailStoreNameText = styled(TextMedium)`
+  color: ${({ theme }) => theme.colors.gray[1]};
+`;
+
+export const StoreDetailStoreCategoryText = styled(TextSmall)`
+  color: ${({ theme }) => theme.colors.gray[3]};
+  margin-bottom: 4px;
+  font-size: 15px;
+`;
+
+export const StoreDetailStoreAddressText = styled(TextSmall2)`
+  color: ${({ theme }) => theme.colors.gray[1]};
+  margin-bottom: 13px;
+  font-size: 13px;
+`;
+
+export const StoreDetailStoreDescriptionText = styled(TextSmall)`
+  color: ${({ theme }) => theme.colors.gray[1]};
+  margin-bottom: 17px;
+  font-size: 15px;
+`;
+
+export const StoreDetailPopularItemHeaderText = styled(HeaderSmallText)`
+  color: ${({ theme }) => theme.colors.gray[1]};
+  margin-bottom: 12px;
+`;
+
+export const StoreDetailPopularItemPicture = styled(RowView)`
+  width: 100%;
+  margin-bottom: 12px;
+`;
+
+export const StoreDetailPopularItemNameText = styled(HeaderSmallText)`
+  color: ${({ theme }) => theme.colors.gray[1]};
+  margin-bottom: 12px;
+`;
+
+export const StoreDetailPopularItemPriceText = styled(HeaderSmallText)`
+  color: ${({ theme }) => theme.colors.gray[1]};
+  margin-bottom: 12px;
 `;

@@ -14,7 +14,7 @@ import {
   SelectStoreButtonContainer,
   SelectStoreButtonText,
   StoreDetailHeaderRow,
-  StoreDetailStoreImageContainer,
+  StoreDetailImageContainer,
   StoreDetailStoreNameText,
   StoreDetailStoreCategoryText,
   StoreDetailStoreAddressText,
@@ -60,7 +60,7 @@ export const StorePreview = ({ store, onSelect }: StorePreviewProps) => {
       {storeData && (
         <>
           <StoreDetailHeaderRow>
-            <StoreDetailStoreImageContainer></StoreDetailStoreImageContainer>
+            <StoreDetailImageContainer></StoreDetailImageContainer>
             <StoreDetailStoreNameText>{storeData.name}</StoreDetailStoreNameText>
           </StoreDetailHeaderRow>
           <StoreDetailStoreCategoryText>{storeData.category}</StoreDetailStoreCategoryText>

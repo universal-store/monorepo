@@ -44,50 +44,42 @@ export const StoreDetailHeaderRow = styled(RowView)`
   margin-top: 24px;
 `;
 
-export const StoreDetailStoreImageContainer = styled.View`
+export const StoreDetailImageContainer = styled.View`
   width: 32px;
   height: 32px;
   margin-right: 12px;
 `;
 
-export const StoreDetailStoreNameText = styled(TextMedium)`
-  color: ${({ theme }) => theme.colors.gray[1]};
-`;
+export const StoreDetailStoreNameText = styled(TextMedium)``;
 
 export const StoreDetailStoreCategoryText = styled(TextSmall)`
   color: ${({ theme }) => theme.colors.gray[3]};
   margin-bottom: 4px;
-  font-size: 15px;
 `;
 
 export const StoreDetailStoreAddressText = styled(TextSmall2)`
-  color: ${({ theme }) => theme.colors.gray[1]};
   margin-bottom: 13px;
   font-size: 13px;
 `;
 
 export const StoreDetailStoreDescriptionText = styled(TextSmall)`
-  color: ${({ theme }) => theme.colors.gray[1]};
   margin-bottom: 17px;
-  font-size: 15px;
 `;
 
 export const StoreDetailPopularItemHeaderText = styled(HeaderSmallText)`
-  color: ${({ theme }) => theme.colors.gray[1]};
   margin-bottom: 12px;
 `;
 
-export const StoreDetailPopularItemPicture = styled(RowView)`
+export const StoreDetailPopularItemContainer = styled(RowView)`
   width: 100%;
   margin-bottom: 12px;
 `;
 
-export const StoreDetailPopularItemNameText = styled(HeaderSmallText)`
-  color: ${({ theme }) => theme.colors.gray[1]};
+export const StoreDetailPopularItemNameText = styled(TextSmall)`
   margin-bottom: 12px;
 `;
 
 export const StoreDetailPopularItemPriceText = styled(HeaderSmallText)`
-  color: ${({ theme }) => theme.colors.gray[1]};
-  margin-bottom: 12px;
+  margin-left: auto;
+  color: ${({ theme }) => theme.colors.purple[1]};
 `;

@@ -171,6 +171,7 @@ export const MapViewScreen = ({ navigation }: MapViewScreenProps) => {
         selectedCategories.includes(store.category);
       }
     });
+    setFilteredStores(tempFilteredStores);
   };
 
   if (locationPermission === false) {

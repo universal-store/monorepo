@@ -7,18 +7,21 @@ import styled from 'styled-components/native';
 // Libraries
 import { MaterialIndicator } from 'react-native-indicators';
 
+// Constants
+import { screenHeight, screenWidth } from './Views';
+
 // Styled Components
 const LoadingOverlayContainer = styled.View`
   position: absolute;
   top: 0;
   left: 0;
   flex: 1;
-  width: 100%;
-  height: 100%;
   z-index: 999;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: ${screenWidth}px;
+  height: ${screenHeight}px;
 `;
 
 export const LoadingOverlay = () => (

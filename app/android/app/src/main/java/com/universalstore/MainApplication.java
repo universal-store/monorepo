@@ -39,7 +39,9 @@ public class MainApplication extends Application implements ReactApplication {
           List<ReactPackage> unimodules = Arrays.<ReactPackage>asList(
             new ModuleRegistryAdapter(mModuleRegistryProvider)
           );
+
           packages.addAll(unimodules);
+
           return packages;
         }
 

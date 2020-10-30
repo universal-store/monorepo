@@ -49,13 +49,13 @@
 		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Universal Store needs permission to access your location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Universal Store needs permission to access your location</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UIAppFonts</key>
 	<array>
 		<string>NunitoSans-Regular.ttf</string>

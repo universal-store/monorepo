@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 
 export * from './formValidationUtils';
+export * from './hapticFeedbackUtils';
 
 export const toCamelCase = (str: string): string => {
   const lowerStr = str.toLowerCase();

@@ -1,0 +1,7 @@
+query GetPopularItems($id: uuid!) {
+    Store_by_pk(id: $id) {
+        StoreItems(order_by: {longName: asc}, where: {purchased: {_eq: true}}) {
+            ...PopularItemInfo
+        }
+    }
+}

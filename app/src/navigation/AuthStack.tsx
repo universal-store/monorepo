@@ -18,17 +18,66 @@ import {
 } from '&screens';
 
 // Tab Icons
-import {
-  CartScreenIcon,
-  FavoriteScreenIcon,
-  MapViewScreenIcon,
-  ProfileScreenIcon,
-  TabNavigationIconProps,
-} from '&icons';
+import { CartScreenIcon, FavoriteScreenIcon, MapViewScreenIcon, ProfileScreenIcon } from '&icons';
 
 // Stack Navigators
 import { createStackNavigator } from '@react-navigation/stack';
-import { AnimatedTabBarNavigator } from 'react-native-animated-nav-tab-bar';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import AnimatedTabBar, { TabsConfig, BubbleTabBarItemConfig } from '@gorhom/animated-tabbar';
+
+// Utils
+import { hapticOptions } from '&utils';
+
+const tabs: TabsConfig<BubbleTabBarItemConfig> = {
+  MapView: {
+    labelStyle: { color: theme.colors.white[1], fontWeight: 'bold' },
+    icon: {
+      component: MapViewScreenIcon,
+      activeColor: theme.colors.white[1],
+      inactiveColor: theme.colors.gray[3],
+    },
+    background: {
+      activeColor: theme.colors.purple[1],
+      inactiveColor: theme.colors.white[1],
+    },
+  },
+  FavoritesScreen: {
+    labelStyle: { color: theme.colors.white[1], fontWeight: 'bold' },
+    icon: {
+      component: FavoriteScreenIcon,
+      activeColor: theme.colors.white[1],
+      inactiveColor: theme.colors.gray[3],
+    },
+    background: {
+      activeColor: theme.colors.purple[1],
+      inactiveColor: theme.colors.white[1],
+    },
+  },
+  CartScreen: {
+    labelStyle: { color: theme.colors.white[1], fontWeight: 'bold' },
+    icon: {
+      component: CartScreenIcon,
+      activeColor: theme.colors.white[1],
+      inactiveColor: theme.colors.gray[3],
+    },
+    background: {
+      activeColor: theme.colors.purple[1],
+      inactiveColor: theme.colors.white[1],
+    },
+  },
+  ProfileScreen: {
+    labelStyle: { color: theme.colors.white[1], fontWeight: 'bold' },
+    icon: {
+      component: ProfileScreenIcon,
+      activeColor: theme.colors.white[1],
+      inactiveColor: theme.colors.gray[3],
+    },
+    background: {
+      activeColor: theme.colors.purple[1],
+      inactiveColor: theme.colors.white[1],
+    },
+  },
+};
 
 // Utils
 import { hapticOptions } from '&utils';
@@ -41,29 +90,10 @@ export type RootAuthTabParams = {
   ItemDetail: { barcodeId: string; scanned?: boolean };
 };
 
-const RootAuthTab = AnimatedTabBarNavigator<RootAuthTabParams>();
+const RootAuthTab = createBottomTabNavigator<RootAuthTabParams>();
 
 export const RootAuthTabNavigator = () => (
-  <RootAuthTab.Navigator
-    initialRouteName="MapView"
-    appearence={{
-      shadow: true,
-      floating: true,
-      dotSize: 'small',
-    }}
-    tabBarOptions={{
-      showLabel: false,
-      activeBackgroundColor: theme.colors.purple[1],
-      labelStyle: { color: theme.colors.white[1], fontWeight: 'bold' },
-      tabStyle: {
-        elevation: 4,
-        shadowRadius: 2.62,
-        shadowOpacity: 0.23,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-      },
-    }}
-  >
+  <RootAuthTab.Navigator initialRouteName="MapView" tabBar={props => <AnimatedTabBar tabs={tabs} {...props} />}>
     <RootAuthTab.Screen
       name="MapView"
       component={MapViewScreen}
@@ -72,7 +102,9 @@ export const RootAuthTabNavigator = () => (
       }}
       options={{
         title: 'Stores',
-        tabBarIcon: ({ focused }: TabNavigationIconProps) => <MapViewScreenIcon focused={focused} />,
+      }}
+      listeners={{
+        tabPress: () => ReactNativeHapticFeedback.trigger('selection', hapticOptions),
       }}
     />
     <RootAuthTab.Screen
@@ -83,7 +115,6 @@ export const RootAuthTabNavigator = () => (
       }}
       options={{
         title: 'Saved',
-        tabBarIcon: ({ focused }: TabNavigationIconProps) => <FavoriteScreenIcon focused={focused} />,
       }}
     />
     <RootAuthTab.Screen
@@ -94,7 +125,6 @@ export const RootAuthTabNavigator = () => (
       }}
       options={{
         title: 'Cart',
-        tabBarIcon: ({ focused }: TabNavigationIconProps) => <CartScreenIcon focused={focused} />,
       }}
     />
     <RootAuthTab.Screen
@@ -105,7 +135,6 @@ export const RootAuthTabNavigator = () => (
       }}
       options={{
         title: 'Profile',
-        tabBarIcon: ({ focused }: TabNavigationIconProps) => <ProfileScreenIcon focused={focused} />,
       }}
     />
   </RootAuthTab.Navigator>

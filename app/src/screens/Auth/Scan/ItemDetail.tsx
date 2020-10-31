@@ -74,8 +74,8 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
   const { data: userCart } = useCheckItemInCartQuery({ variables: { barcodeId } });
   const { data: userFavorites } = useCheckItemInFavoritesQuery({ variables: { barcodeId } });
 
-  const [inCart, setInCart] = useState<boolean>(userCart?.StoreItem_by_pk?.UserCartItems.length !== 0);
-  const [favorite, setFavorite] = useState<boolean>(userFavorites?.StoreItem_by_pk?.UserFavoriteItems.length !== 0);
+  const [inCart, setInCart] = useState<boolean>(false);
+  const [favorite, setFavorite] = useState<boolean>(false);
 
   useEffect(() => {
     if (userCart) {
@@ -96,6 +96,46 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
   const [removeFromCartMutation] = useRemoveUserCartItemMutation();
   const [removeFromFavoritesMutation] = useRemoveUserFavoriteItemMutation();
 
+  const addOrRemoveFromFavorites = async () => {
+    if (favorite) {
+      await removeFromFavoritesMutation({
+        variables: { userId, itemBarcodeId: barcodeId },
+        refetchQueries: [
+          { query: GetUserFavoriteItemsDocument },
+          { query: CheckItemInFavoritesDocument, variables: { barcodeId } },
+        ],
+      });
+    } else {
+      await addToFavoritesMutation({
+        variables: { userId, itemBarcodeId: barcodeId },
+        refetchQueries: [
+          { query: GetUserFavoriteItemsDocument },
+          { query: CheckItemInFavoritesDocument, variables: { barcodeId } },
+        ],
+      });
+    }
+  };
+
+  const addOrRemoveFromCart = async () => {
+    if (inCart) {
+      await removeFromCartMutation({
+        variables: { userId, itemBarcodeId: barcodeId },
+        refetchQueries: [
+          { query: GetUserCartItemsDocument },
+          { query: CheckItemInCartDocument, variables: { barcodeId } },
+        ],
+      });
+    } else {
+      await addToCartMutation({
+        variables: { userId, itemBarcodeId: barcodeId },
+        refetchQueries: [
+          { query: GetUserCartItemsDocument },
+          { query: CheckItemInCartDocument, variables: { barcodeId } },
+        ],
+      });
+    }
+  };
+
   const renderHeader = () => (
     <ModalHeader>
       <ModalHeaderTab />
@@ -104,79 +144,41 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
 
   const renderContent = () => (
     <ModalContainer>
-      {itemData && (
-        <ModalFlexContainer>
-          <ItemSubDetailRow>
-            <ItemNameText numberOfLines={2}>{itemData.longName}</ItemNameText>
+      <ModalFlexContainer>
+        {itemData && (
+          <>
+            <ItemSubDetailRow>
+              <ItemNameText numberOfLines={2}>{itemData.longName}</ItemNameText>
 
-            <ItemDetailFavoriteButton
-              onPress={() => {
-                ReactNativeHapticFeedback.trigger('selection', hapticOptions);
-                addOrRemoveFromFavorites();
-              }}
+              <ItemDetailFavoriteButton
+                onPress={() => {
+                  ReactNativeHapticFeedback.trigger('selection', hapticOptions);
+                  void addOrRemoveFromFavorites();
+                }}
+              >
+                {favorite ? <HeartIconOn /> : <HeartIconOff />}
+              </ItemDetailFavoriteButton>
+            </ItemSubDetailRow>
+
+            <ItemSubDetailRow>
+              <ItemSizeText numberOfLines={1}>{itemData.quantity}</ItemSizeText>
+              <ItemPriceText>{itemData.price}</ItemPriceText>
+            </ItemSubDetailRow>
+
+            <ProductDetailsHeaderText>Product Details</ProductDetailsHeaderText>
+            <ProductDetailsScroll
+              bounces={false}
+              showsVerticalScrollIndicator={false}
+              contentContainerStyle={{ paddingBottom: isiPhoneX ? 100 : 70 }}
             >
-              {favorite ? <HeartIconOn /> : <HeartIconOff />}
-            </ItemDetailFavoriteButton>
-          </ItemSubDetailRow>
-
-          <ItemSubDetailRow>
-            <ItemSizeText numberOfLines={1}>{itemData.quantity}</ItemSizeText>
-            <ItemPriceText>{itemData.price}</ItemPriceText>
-          </ItemSubDetailRow>
-
-          <ProductDetailsHeaderText>Product Details</ProductDetailsHeaderText>
-          <ProductDetailsScroll
-            bounces={false}
-            showsVerticalScrollIndicator={false}
-            contentContainerStyle={{ paddingBottom: isiPhoneX ? 100 : 70 }}
-          >
-            <ProductDetailsText>{itemData.description}</ProductDetailsText>
-            <ProductDetailsText>{itemData.description}</ProductDetailsText>
-          </ProductDetailsScroll>
-        </ModalFlexContainer>
-      )}
+              <ProductDetailsText>{itemData.description}</ProductDetailsText>
+              <ProductDetailsText>{itemData.description}</ProductDetailsText>
+            </ProductDetailsScroll>
+          </>
+        )}
+      </ModalFlexContainer>
     </ModalContainer>
   );
-
-  const addOrRemoveFromFavorites = () => {
-    if (favorite) {
-      void removeFromFavoritesMutation({
-        variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [
-          { query: GetUserFavoriteItemsDocument },
-          { query: CheckItemInFavoritesDocument, variables: { barcodeId } },
-        ],
-      });
-    } else {
-      void addToFavoritesMutation({
-        variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [
-          { query: GetUserFavoriteItemsDocument },
-          { query: CheckItemInFavoritesDocument, variables: { barcodeId } },
-        ],
-      });
-    }
-  };
-
-  const addOrRemoveFromCart = () => {
-    if (inCart) {
-      void removeFromCartMutation({
-        variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [
-          { query: GetUserCartItemsDocument },
-          { query: CheckItemInCartDocument, variables: { barcodeId } },
-        ],
-      });
-    } else {
-      void addToCartMutation({
-        variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [
-          { query: GetUserCartItemsDocument },
-          { query: CheckItemInCartDocument, variables: { barcodeId } },
-        ],
-      });
-    }
-  };
 
   return (
     <FullScreenLightPurple>
@@ -228,7 +230,7 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
             added={inCart}
             onPress={() => {
               ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
-              addOrRemoveFromCart();
+              void addOrRemoveFromCart();
             }}
           >
             <AddCartButtonText added={inCart}>{inCart ? 'Added!' : 'Add to Cart'}</AddCartButtonText>

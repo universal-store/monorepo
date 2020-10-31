@@ -14,3 +14,12 @@ fragment StoreItemInfo on StoreItem {
         size256
     }
 }
+
+fragment PopularItemInfo on StoreItem {
+    price
+    barcodeId
+    shortName
+    StoreItemPic {
+        size64
+    }
+}

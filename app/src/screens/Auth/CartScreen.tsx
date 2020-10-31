@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useEffect } from 'react';
+import React from 'react';
 
 // Components
 import { FlatList } from 'react-native';
@@ -22,18 +22,13 @@ import {
 import { useGetUserCartItemsQuery } from '&graphql';
 
 export const CartScreen = () => {
-  const { data, loading, startPolling, stopPolling } = useGetUserCartItemsQuery();
+  const { data, loading } = useGetUserCartItemsQuery();
   const cartData = data?.UserCartItem;
 
   let cartTotal = 0;
   if (cartData) {
     cartData.forEach(cartItem => (cartTotal += parseFloat(cartItem.StoreItem.price.substring(1))));
   }
-
-  useEffect(() => {
-    startPolling(500);
-    return () => stopPolling();
-  });
 
   return (
     <FullScreenWhite>

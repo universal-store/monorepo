@@ -94,7 +94,12 @@ export const ScanningScreen = ({ navigation }: ScanningScreenProps) => {
     return (
       <NoCameraScreen>
         <ScannerHeaderRow>
-          <ScannerHeaderButton onPress={navigation.goBack}>
+          <ScannerHeaderButton
+            onPress={() => {
+              ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
+              navigation.goBack();
+            }}
+          >
             <BackArrowIcon />
           </ScannerHeaderButton>
         </ScannerHeaderRow>
@@ -113,7 +118,12 @@ export const ScanningScreen = ({ navigation }: ScanningScreenProps) => {
       {isFocused && (
         <>
           <ScannerHeaderRow>
-            <ScannerHeaderButton onPress={navigation.goBack}>
+            <ScannerHeaderButton
+              onPress={() => {
+                ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
+                navigation.goBack();
+              }}
+            >
               <BackArrowIcon />
             </ScannerHeaderButton>
 
@@ -121,6 +131,7 @@ export const ScanningScreen = ({ navigation }: ScanningScreenProps) => {
 
             <ScannerHeaderButton
               onPress={() => {
+                ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
                 if (!scanned) setFlash(!flash);
               }}
             >

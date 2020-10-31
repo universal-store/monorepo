@@ -120,8 +120,8 @@ export const MapViewScreen = () => {
           const region: Region = {
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
-            latitude: 33.780547,
-            longitude: -84.388937,
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
           };
 
           setCurrentPosition(region);

@@ -224,7 +224,7 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
             <OnboardingButton
               onPress={() => {
                 ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
-                validateSignUp();
+                void validateSignUp();
               }}
             >
               <OnboardingButtonText>Sign Up</OnboardingButtonText>

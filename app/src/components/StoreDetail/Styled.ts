@@ -6,7 +6,7 @@ import styled from 'styled-components/native';
 import { HeaderMediumText, HeaderSmallText, TextLarge, TextMedium2, TextSmall } from '../Text';
 
 // Constants
-import { isiPhoneX, screenWidth, RowView } from '../Views';
+import { screenWidth, RowView } from '../Views';
 
 export const StoreDetailContainer = styled.View`
   padding: 0 32px;

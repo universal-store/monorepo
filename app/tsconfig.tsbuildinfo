@@ -142,8 +142,8 @@
         "affectsGlobalScope": true
       },
       "../node_modules/csstype/index.d.ts": {
-        "version": "b3a4ee9791cdd4f5029b3ffe60b9cae1ac308a4238b0444f40a5222e4ecc5cc1",
-        "signature": "b3a4ee9791cdd4f5029b3ffe60b9cae1ac308a4238b0444f40a5222e4ecc5cc1",
+        "version": "c89da57b29cf0a695fe46e6ab8cd7d64edb15a6708ae2352e30d79a3936ccc5c",
+        "signature": "c89da57b29cf0a695fe46e6ab8cd7d64edb15a6708ae2352e30d79a3936ccc5c",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/prop-types/index.d.ts": {
@@ -152,8 +152,8 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@types/react/index.d.ts": {
-        "version": "2b9f3e90d70810dab17d5eca94a736e2eed7d57d603b8879ea0a3c2829ddb26b",
-        "signature": "2b9f3e90d70810dab17d5eca94a736e2eed7d57d603b8879ea0a3c2829ddb26b",
+        "version": "bc0442bf081aef1f744186372dc384f891ebdf7f3985a13788b7a7f65d353465",
+        "signature": "bc0442bf081aef1f744186372dc384f891ebdf7f3985a13788b7a7f65d353465",
         "affectsGlobalScope": true
       },
       "../node_modules/@types/react-native/globals.d.ts": {
@@ -182,28 +182,18 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@types/react-native/index.d.ts": {
-        "version": "6364cf4e3f2ba09d2074d69520d3d4b01ce872ea32dbba81c1765e3ae32cea12",
-        "signature": "6364cf4e3f2ba09d2074d69520d3d4b01ce872ea32dbba81c1765e3ae32cea12",
+        "version": "194c5c3dab2580b8e4a221664656bae7207fb8578a396d140ec5ed890c895e29",
+        "signature": "194c5c3dab2580b8e4a221664656bae7207fb8578a396d140ec5ed890c895e29",
         "affectsGlobalScope": true
+      },
+      "../node_modules/react-native-splash-screen/index.d.ts": {
+        "version": "aaf7993e33e9eebe71ea4087903eaf0258d684bdefeca986d5d2f823dabb6f07",
+        "signature": "aaf7993e33e9eebe71ea4087903eaf0258d684bdefeca986d5d2f823dabb6f07",
+        "affectsGlobalScope": false
       },
       "../node_modules/@react-native-community/async-storage/types/index.d.ts": {
         "version": "87f20ddd4c71fb907ea6ed0273c398057ed9972676094c78794ed37260c2f3a8",
         "signature": "87f20ddd4c71fb907ea6ed0273c398057ed9972676094c78794ed37260c2f3a8",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/react-native-reanimated/react-native-reanimated.d.ts": {
-        "version": "23fb51cce7dd6b924aedd4e151526a1e4523a1cdd9164e4b795eecd2d003b88b",
-        "signature": "23fb51cce7dd6b924aedd4e151526a1e4523a1cdd9164e4b795eecd2d003b88b",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/react-native-gesture-handler/react-native-gesture-handler.d.ts": {
-        "version": "3700c0c87ecb0f4e21f2440d7ddec0dc8cd987bb0e3d96d8d318fc84b426e9c6",
-        "signature": "3700c0c87ecb0f4e21f2440d7ddec0dc8cd987bb0e3d96d8d318fc84b426e9c6",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/reanimated-bottom-sheet/lib/typescript/index.d.ts": {
-        "version": "7b5a83dfdafa886513a6ddfeb8e9a63658510c1b96eb8e733205094151bd8bb6",
-        "signature": "7b5a83dfdafa886513a6ddfeb8e9a63658510c1b96eb8e733205094151bd8bb6",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/hoist-non-react-statics/index.d.ts": {
@@ -247,8 +237,13 @@
         "affectsGlobalScope": false
       },
       "./src/components/views.ts": {
-        "version": "d501e8bdcae139637e16962e52f583e09782a9b39470a1a51e99d4787e18f9b0",
-        "signature": "a781da9594c589af3c6ef3451a971d05bd7d0a9f7abecee9c932ba1b7e292698",
+        "version": "e41bed467c830029f4433899c7f67ceb3f90a0d78910358779430da93d734b92",
+        "signature": "e0aa724128ba9470253df2627956eff5b04ed01b688698e602183f8435d12bf4",
+        "affectsGlobalScope": false
+      },
+      "./src/components/modal.ts": {
+        "version": "bca2c7b2b016e75c5339e9dbd1f7a744ef45fef8ea7b7e0e4384911a4eaac668",
+        "signature": "cc5b263f2f8fc1191c9be835b70bd9763fc730ebe1e10a92bac6679cca796778",
         "affectsGlobalScope": false
       },
       "./src/components/buttons.ts": {
@@ -256,29 +251,254 @@
         "signature": "e4eb04c4631745a32d00065cbe0d39b08645f88003969bc26694555e61417faa",
         "affectsGlobalScope": false
       },
-      "./src/components/splash.ts": {
-        "version": "b616b4309697edfff333dfc0d33b2fcb95ce12fbe15d1bed805dc5ee83ed0ade",
-        "signature": "e2317b59752ab029110d472757ae0ffc190c4c1613d669c3aaf2ee2b0694b408",
+      "./src/theme/index.ts": {
+        "version": "9b0fe0969296c5af8590c2f170005d2ec6bc834b93e15215d19c42d64913b31a",
+        "signature": "d01f03159bda714e0e113d489f807e751c20cac420bfaf92976b497da51a0ea2",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/react-native-indicators/index.d.ts": {
+        "version": "a20785cb080297d400cc3c3ce1d98ea59f24b521e418bbbd04073cc4b64d3216",
+        "signature": "a20785cb080297d400cc3c3ce1d98ea59f24b521e418bbbd04073cc4b64d3216",
+        "affectsGlobalScope": false
+      },
+      "./src/components/loadingoverlay.tsx": {
+        "version": "fb8f55bc84e94961e99606bc1d85a205de98e67a3cd202bb5dd2c0f7d3954caf",
+        "signature": "1461b70febbd5e180d57afe65c6d4ff2e89658f1ceda47052f85c53b2c31c7ff",
         "affectsGlobalScope": false
       },
       "./src/utils/formvalidationutils.ts": {
-        "version": "3f1a0a6209eeb7f31c6788000628c1105e951b4fc67d9fac136d137d2e6682f2",
-        "signature": "c3c7fde83f824572394afcc649b19be27e9df64e2f4c4170b03709ec4bad3701",
+        "version": "a7993dac796fadfee9b5b573e25e67f320c7b12aa8eeb6a47e2bb37337f91108",
+        "signature": "07f1ba5e6a46005404b179e7e04ec0ed9a3f725b280204ff8dc20d6451093e46",
+        "affectsGlobalScope": false
+      },
+      "./src/utils/hapticfeedbackutils.ts": {
+        "version": "e6547cccbf5c39ed47e0ef625670b85c929e9c2408a44585e3da7bc861a138bd",
+        "signature": "560e66c7fb344124ecfb77107563b05928dda3fa6ca615b395a525eb10faf5ae",
         "affectsGlobalScope": false
       },
       "./src/utils/index.ts": {
-        "version": "92c8fbd27005f42ca2350f6ddf6a6b04ba868274cf1aea132f88d1a4169131b2",
-        "signature": "34a61dc1ef6eef9e66df7a5b18214372c6f4c680cb2e741cd29f8b08ee88effb",
+        "version": "39e9d470c6afa70f91574e1deb93de62866cef668e033cffb1c677e0462ec035",
+        "signature": "53a5944a754576b99e3eac7fe9223b5d748c7d32b12199741417700995fb8593",
         "affectsGlobalScope": false
       },
       "./src/components/onboarding.ts": {
-        "version": "39f4fe36dd0d473a8fc4ce0281d5098c97a0e1bc0efbb9c7f21c20cf745ea99b",
-        "signature": "8e183d6dddb10c65543a976b3030d57a0e7f0ae468f0afb803ebb96ef254355b",
+        "version": "998358784f70200fca05346de46f51c6e0995eb5a59ebc7003f6e1e6ee2c9e15",
+        "signature": "9500a7fc1a0e24a47ab5b46a61f23a88aa6c271fd95e2cc45b5f106b0e69f6d1",
         "affectsGlobalScope": false
       },
       "./src/components/scan/styled.ts": {
         "version": "c380f062b2319d05791b469add51e5667ad1ea8d2c53fb49c6ce505786f1c910",
         "signature": "8781ed17acf19e129707f748ce659e3654b4f704d6eb5dc043ae1c090d26f0e5",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/react-native-haptic-feedback/index.d.ts": {
+        "version": "26d9dec1b93b93331a6784c72ee5a908d654f85cf9604c67f6312623946ecf8a",
+        "signature": "26d9dec1b93b93331a6784c72ee5a908d654f85cf9604c67f6312623946ecf8a",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/routers/lib/typescript/src/types.d.ts": {
+        "version": "d31ae699961833ddf4934b1949d019aa3a5b68390aecf5a36c37c713d9a973f1",
+        "signature": "d31ae699961833ddf4934b1949d019aa3a5b68390aecf5a36c37c713d9a973f1",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/routers/lib/typescript/src/commonactions.d.ts": {
+        "version": "ff54d4fe35229b8736bab7ca09d84fc13340dc4cfe8ddd0243f759ff98d217db",
+        "signature": "ff54d4fe35229b8736bab7ca09d84fc13340dc4cfe8ddd0243f759ff98d217db",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/routers/lib/typescript/src/baserouter.d.ts": {
+        "version": "97e0fe27ea413e79bb2b76721eb4bef93f8b6c130de69a79d6739444ba7a4079",
+        "signature": "97e0fe27ea413e79bb2b76721eb4bef93f8b6c130de69a79d6739444ba7a4079",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/routers/lib/typescript/src/stackrouter.d.ts": {
+        "version": "5604903224016cc57caf43770880d36906f74fa0c0bfa30eaf6879f2eb6238af",
+        "signature": "5604903224016cc57caf43770880d36906f74fa0c0bfa30eaf6879f2eb6238af",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/routers/lib/typescript/src/tabrouter.d.ts": {
+        "version": "9dcef8326b9653c2140e1701c3bcf39207922f4f21b28e59925111d23b22e8d0",
+        "signature": "9dcef8326b9653c2140e1701c3bcf39207922f4f21b28e59925111d23b22e8d0",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/routers/lib/typescript/src/drawerrouter.d.ts": {
+        "version": "334e2f04b6b775998676a0b92db1010b1e0c6e9f235a23935789a7fcb914db43",
+        "signature": "334e2f04b6b775998676a0b92db1010b1e0c6e9f235a23935789a7fcb914db43",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/routers/lib/typescript/src/index.d.ts": {
+        "version": "a3e06486315a5d6aca5c6c51ad338591c46a9abb9f032c0a880f4fc23c58990d",
+        "signature": "a3e06486315a5d6aca5c6c51ad338591c46a9abb9f032c0a880f4fc23c58990d",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/core/lib/typescript/src/types.d.ts": {
+        "version": "7b4964059af66d70aaa7f37b9d737ac0bb51523e5923e2f0dbb3ea91101b0eae",
+        "signature": "7b4964059af66d70aaa7f37b9d737ac0bb51523e5923e2f0dbb3ea91101b0eae",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/core/lib/typescript/src/basenavigationcontainer.d.ts": {
+        "version": "3154aae94a314b670d4ca825e7089fc4f4c4e31db5473367dfed10ce93ae68f8",
+        "signature": "3154aae94a314b670d4ca825e7089fc4f4c4e31db5473367dfed10ce93ae68f8",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/core/lib/typescript/src/createnavigatorfactory.d.ts": {
+        "version": "4e246414756d2471a5f57ec9b83245524d44ece2ef79d869b5a531208add6780",
+        "signature": "4e246414756d2471a5f57ec9b83245524d44ece2ef79d869b5a531208add6780",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/core/lib/typescript/src/navigationhelperscontext.d.ts": {
+        "version": "8e7fbcd85a88cff952bfddf018a878437ff3721a3ef9d5a82e4aa33540fd166c",
+        "signature": "8e7fbcd85a88cff952bfddf018a878437ff3721a3ef9d5a82e4aa33540fd166c",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/core/lib/typescript/src/navigationcontext.d.ts": {
+        "version": "99cff8d8ecff76cf6d2c01c36a67fbf7961122748c07020d11f17b5e15f64422",
+        "signature": "99cff8d8ecff76cf6d2c01c36a67fbf7961122748c07020d11f17b5e15f64422",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/core/lib/typescript/src/navigationroutecontext.d.ts": {
+        "version": "f9261b84d8004d9f496ef8e6e6801aea969a451cca6809fb014c9ef6ee2c4b4c",
+        "signature": "f9261b84d8004d9f496ef8e6e6801aea969a451cca6809fb014c9ef6ee2c4b4c",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/core/lib/typescript/src/currentrendercontext.d.ts": {
+        "version": "717c85e439a2e28054138caa84613aa81252448a4a9f4f4c8e66cf430f399cf9",
+        "signature": "717c85e439a2e28054138caa84613aa81252448a4a9f4f4c8e66cf430f399cf9",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/core/lib/typescript/src/usenavigationbuilder.d.ts": {
+        "version": "09907acae2120bc6e72705db68de5db3697183de7e1f9a30f55b1a611d76a44a",
+        "signature": "09907acae2120bc6e72705db68de5db3697183de7e1f9a30f55b1a611d76a44a",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/core/lib/typescript/src/usenavigation.d.ts": {
+        "version": "b2880926ee002e26613daa950b99eaaf54767e88c02d6019b545a0b787e03eaf",
+        "signature": "b2880926ee002e26613daa950b99eaaf54767e88c02d6019b545a0b787e03eaf",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/core/lib/typescript/src/useroute.d.ts": {
+        "version": "c8792295a56e3f685129308d41efab07e27f267f0947cd817cb9f4a7617663de",
+        "signature": "c8792295a56e3f685129308d41efab07e27f267f0947cd817cb9f4a7617663de",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/core/lib/typescript/src/usefocuseffect.d.ts": {
+        "version": "948355e572a01fac5781b65489e7c0ac98656f760ed3ad57721a55a344d1315e",
+        "signature": "948355e572a01fac5781b65489e7c0ac98656f760ed3ad57721a55a344d1315e",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/core/lib/typescript/src/useisfocused.d.ts": {
+        "version": "87f0dfc5b56b9dbf64e8a3993cc8db88d1bb4ae1154539e1e85e34d8736ab97d",
+        "signature": "87f0dfc5b56b9dbf64e8a3993cc8db88d1bb4ae1154539e1e85e34d8736ab97d",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/core/lib/typescript/src/usenavigationstate.d.ts": {
+        "version": "3f330b6ffb4b66966103db9aec9228228e109aea2d14366f04b12222dc1d3361",
+        "signature": "3f330b6ffb4b66966103db9aec9228228e109aea2d14366f04b12222dc1d3361",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/core/lib/typescript/src/getstatefrompath.d.ts": {
+        "version": "e4e14f80a180dbdad64eef8f0700e2cd5ce49dce687d2f565552044bf3b70a99",
+        "signature": "e4e14f80a180dbdad64eef8f0700e2cd5ce49dce687d2f565552044bf3b70a99",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/core/lib/typescript/src/getpathfromstate.d.ts": {
+        "version": "7ed03aac31eba23b636b60ac2a346c05e7d1c1624e4f3b060fc8273de5770851",
+        "signature": "7ed03aac31eba23b636b60ac2a346c05e7d1c1624e4f3b060fc8273de5770851",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/core/lib/typescript/src/getactionfromstate.d.ts": {
+        "version": "3738acb1c483679b3b337dd62cea6fdb547047fd407f8a91826ac955b3657785",
+        "signature": "3738acb1c483679b3b337dd62cea6fdb547047fd407f8a91826ac955b3657785",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/core/lib/typescript/src/getfocusedroutenamefromroute.d.ts": {
+        "version": "96af48f58c93f75f41576b49d8f8a3f6bcdee294d9e3f6579eea742d95d8dd1c",
+        "signature": "96af48f58c93f75f41576b49d8f8a3f6bcdee294d9e3f6579eea742d95d8dd1c",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/core/lib/typescript/src/index.d.ts": {
+        "version": "3f7013acbcc83982dbc09a9c77e1453482d6209f3cb48b0db293002ee2553b1c",
+        "signature": "3f7013acbcc83982dbc09a9c77e1453482d6209f3cb48b0db293002ee2553b1c",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/native/lib/typescript/src/types.d.ts": {
+        "version": "d55a0971fe1ae2b5742b4a28a5cc2dae0886d318dcb4a899566daa785a1d2e34",
+        "signature": "d55a0971fe1ae2b5742b4a28a5cc2dae0886d318dcb4a899566daa785a1d2e34",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/native/lib/typescript/src/navigationcontainer.d.ts": {
+        "version": "8401397ae7b67ac7994bec9f9d6ddbacd5b40203af5646e2a05986b0174d1d31",
+        "signature": "8401397ae7b67ac7994bec9f9d6ddbacd5b40203af5646e2a05986b0174d1d31",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/native/lib/typescript/src/usebackbutton.d.ts": {
+        "version": "27315fbee0aee7886e5991a8b2edbb693ae53d332c4fd1bd8f510aa8e3096feb",
+        "signature": "27315fbee0aee7886e5991a8b2edbb693ae53d332c4fd1bd8f510aa8e3096feb",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/native/lib/typescript/src/usescrolltotop.d.ts": {
+        "version": "c2d455a045f1bc5de7ef50102f4916f6e4b6c948ffc861c313f473fc1da5b6c0",
+        "signature": "c2d455a045f1bc5de7ef50102f4916f6e4b6c948ffc861c313f473fc1da5b6c0",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/native/lib/typescript/src/theming/defaulttheme.d.ts": {
+        "version": "48f3e2543105da93484b51b1979764f345befa92e4d2031109cf2297739c3c95",
+        "signature": "48f3e2543105da93484b51b1979764f345befa92e4d2031109cf2297739c3c95",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/native/lib/typescript/src/theming/darktheme.d.ts": {
+        "version": "528e7087c8e41701cd1af78e52bdc107553eeb44245885c5cd92b2dd3209a6b4",
+        "signature": "528e7087c8e41701cd1af78e52bdc107553eeb44245885c5cd92b2dd3209a6b4",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/native/lib/typescript/src/theming/themeprovider.d.ts": {
+        "version": "b08950d68c97431fb98c2f6faa5da8b012d49145559c8218416be5ec3214c521",
+        "signature": "b08950d68c97431fb98c2f6faa5da8b012d49145559c8218416be5ec3214c521",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/native/lib/typescript/src/theming/usetheme.d.ts": {
+        "version": "2f2275fb011f92825710c151ae9cd29d9aa1dedbcd99fcdd412dbbe644757e4d",
+        "signature": "2f2275fb011f92825710c151ae9cd29d9aa1dedbcd99fcdd412dbbe644757e4d",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/native/lib/typescript/src/link.d.ts": {
+        "version": "6477985c5202f923b093ef846f6419b9ad622e4a8f8622ebe48f84baadaa3e16",
+        "signature": "6477985c5202f923b093ef846f6419b9ad622e4a8f8622ebe48f84baadaa3e16",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/native/lib/typescript/src/uselinking.d.ts": {
+        "version": "359145cf3a5cb8a3d5eacb2ee7412428d0a5c43eb99b728489dd4d8c248bff91",
+        "signature": "359145cf3a5cb8a3d5eacb2ee7412428d0a5c43eb99b728489dd4d8c248bff91",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/native/lib/typescript/src/uselinkto.d.ts": {
+        "version": "1d9c1b01bf97e67e186f94aa133d4611bd5fc581968ed2aad913009cc0ea9005",
+        "signature": "1d9c1b01bf97e67e186f94aa133d4611bd5fc581968ed2aad913009cc0ea9005",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/native/lib/typescript/src/uselinkprops.d.ts": {
+        "version": "a056a887393061b50c78c9216fa368b498bc6bade79ed32f00afd142bdc78ef8",
+        "signature": "a056a887393061b50c78c9216fa368b498bc6bade79ed32f00afd142bdc78ef8",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/native/lib/typescript/src/uselinkbuilder.d.ts": {
+        "version": "fded4150da5c204dd68ce7603bc36950d6a24f7768d7848df3ff232889213616",
+        "signature": "fded4150da5c204dd68ce7603bc36950d6a24f7768d7848df3ff232889213616",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/native/lib/typescript/src/servercontext.d.ts": {
+        "version": "6e2cbb13f526e6f7c70ea3a4bdc9634301f018fa3965f2dde7f1d37a8e5c7e9c",
+        "signature": "6e2cbb13f526e6f7c70ea3a4bdc9634301f018fa3965f2dde7f1d37a8e5c7e9c",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/native/lib/typescript/src/servercontainer.d.ts": {
+        "version": "2fd3c27eab8f2e941560b8f1d9b2480d558a3bfecb9f7450478a758c9ce96cb0",
+        "signature": "2fd3c27eab8f2e941560b8f1d9b2480d558a3bfecb9f7450478a758c9ce96cb0",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts": {
+        "version": "6e51a400a1bfb0d2a9dc4432fb4577001f02dada8caa68b357d2afa4e8f0d751",
+        "signature": "6e51a400a1bfb0d2a9dc4432fb4577001f02dada8caa68b357d2afa4e8f0d751",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/zen-observable/index.d.ts": {
@@ -297,8 +517,8 @@
         "affectsGlobalScope": false
       },
       "../node_modules/graphql/language/source.d.ts": {
-        "version": "8a9605a3d12a83ad1571654f37c86b26d29f85788bc3507c7945c11bcce0249f",
-        "signature": "8a9605a3d12a83ad1571654f37c86b26d29f85788bc3507c7945c11bcce0249f",
+        "version": "115d60d2b07ac7d513543b5e86e13bbf9a9524faf8bdf4985bd7a08815b46406",
+        "signature": "115d60d2b07ac7d513543b5e86e13bbf9a9524faf8bdf4985bd7a08815b46406",
         "affectsGlobalScope": false
       },
       "../node_modules/graphql/language/tokenkind.d.ts": {
@@ -327,8 +547,8 @@
         "affectsGlobalScope": false
       },
       "../node_modules/graphql/type/definition.d.ts": {
-        "version": "a0bd02090341298952a07d90755ba017903be7cb1a6e1f2871a2d1f9cf7e648a",
-        "signature": "a0bd02090341298952a07d90755ba017903be7cb1a6e1f2871a2d1f9cf7e648a",
+        "version": "58d4731b1b9da2133f15c139c5a39154549e227b7fd7051d6933372de89b3b00",
+        "signature": "58d4731b1b9da2133f15c139c5a39154549e227b7fd7051d6933372de89b3b00",
         "affectsGlobalScope": false
       },
       "../node_modules/graphql/type/directives.d.ts": {
@@ -357,8 +577,8 @@
         "affectsGlobalScope": false
       },
       "../node_modules/graphql/execution/execute.d.ts": {
-        "version": "b0587f497da9cfe51e82ac962d6f50d3ffa8d478599ba9440e15e5304f8425a7",
-        "signature": "b0587f497da9cfe51e82ac962d6f50d3ffa8d478599ba9440e15e5304f8425a7",
+        "version": "d24cd8c79f8eb91b85d4a61e75188504f0d2dcd6ab8ebb87ac22a8ba0ec200b2",
+        "signature": "d24cd8c79f8eb91b85d4a61e75188504f0d2dcd6ab8ebb87ac22a8ba0ec200b2",
         "affectsGlobalScope": false
       },
       "../node_modules/graphql/graphql.d.ts": {
@@ -652,8 +872,8 @@
         "affectsGlobalScope": false
       },
       "../node_modules/graphql/error/locatederror.d.ts": {
-        "version": "9b600dbf693b874e3d26c17a781558fc2ea2dfd03684d86ba879bff83e017beb",
-        "signature": "9b600dbf693b874e3d26c17a781558fc2ea2dfd03684d86ba879bff83e017beb",
+        "version": "01a1038d946f7820cfb6136f103dc282e3d2cbe8ad2ea244bbe1c15a94727cfb",
+        "signature": "01a1038d946f7820cfb6136f103dc282e3d2cbe8ad2ea244bbe1c15a94727cfb",
         "affectsGlobalScope": false
       },
       "../node_modules/graphql/error/index.d.ts": {
@@ -761,19 +981,24 @@
         "signature": "e4188659bc53e80d6c46cf76e5bdc2968a137166f1e5a853088fc6a0aed4f52b",
         "affectsGlobalScope": false
       },
+      "../node_modules/graphql/utilities/typedquerydocumentnode.d.ts": {
+        "version": "ea3882010173f50840078eb0e7b013a8a1d9d2b23dbe1725fb0e8350c9abd856",
+        "signature": "ea3882010173f50840078eb0e7b013a8a1d9d2b23dbe1725fb0e8350c9abd856",
+        "affectsGlobalScope": false
+      },
       "../node_modules/graphql/utilities/finddeprecatedusages.d.ts": {
         "version": "85968e53cc97754877d8b409ca3815b1c0f1c4317d41d47b7975a31e8f3a5bf4",
         "signature": "85968e53cc97754877d8b409ca3815b1c0f1c4317d41d47b7975a31e8f3a5bf4",
         "affectsGlobalScope": false
       },
       "../node_modules/graphql/utilities/index.d.ts": {
-        "version": "b75fabf593cdf45fc87043ec7b3775d3fcb304354619e2488c7b72c4a49e7315",
-        "signature": "b75fabf593cdf45fc87043ec7b3775d3fcb304354619e2488c7b72c4a49e7315",
+        "version": "b318a3e94029ffc01f1a3eb1797647bf7487a2a179d4da963043c42fdaf0b4f5",
+        "signature": "b318a3e94029ffc01f1a3eb1797647bf7487a2a179d4da963043c42fdaf0b4f5",
         "affectsGlobalScope": false
       },
       "../node_modules/graphql/index.d.ts": {
-        "version": "b1d9d4c03b3c064dba84dee9e9db189cf3b20521df15e5fcef445a8963e8be83",
-        "signature": "b1d9d4c03b3c064dba84dee9e9db189cf3b20521df15e5fcef445a8963e8be83",
+        "version": "5375bb0209e24fa9f1968d78202308dc4d7762bd1a85c50e32caedd83b49c70d",
+        "signature": "5375bb0209e24fa9f1968d78202308dc4d7762bd1a85c50e32caedd83b49c70d",
         "affectsGlobalScope": false
       },
       "../node_modules/@apollo/client/utilities/graphql/directives.d.ts": {
@@ -882,8 +1107,8 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@apollo/client/cache/inmemory/policies.d.ts": {
-        "version": "ec7214e807e0c4b56079864a3e4cb92bf05ba3d346a63e3aecc2b0d67fa83c59",
-        "signature": "ec7214e807e0c4b56079864a3e4cb92bf05ba3d346a63e3aecc2b0d67fa83c59",
+        "version": "18d4983b857592de0dc54b6e9520aff3fc2e0811377d862eb82216e2636e0994",
+        "signature": "18d4983b857592de0dc54b6e9520aff3fc2e0811377d862eb82216e2636e0994",
         "affectsGlobalScope": false
       },
       "../node_modules/@apollo/client/cache/core/types/common.d.ts": {
@@ -977,8 +1202,8 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@apollo/client/link/core/types.d.ts": {
-        "version": "92236102566698520245d14c102afc89e7e55973277de1e320451d35dce5c972",
-        "signature": "92236102566698520245d14c102afc89e7e55973277de1e320451d35dce5c972",
+        "version": "355b87bcdbf991e8efb0ffab5cb37b3f4aed90fd230258fb3d14354ce354d08a",
+        "signature": "355b87bcdbf991e8efb0ffab5cb37b3f4aed90fd230258fb3d14354ce354d08a",
         "affectsGlobalScope": false
       },
       "../node_modules/@apollo/client/link/core/apollolink.d.ts": {
@@ -1022,8 +1247,8 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@types/node/globals.d.ts": {
-        "version": "f0e1ae308bd02b992192a5340ca3c4aef6674109db4bc5a316efffca5538c897",
-        "signature": "f0e1ae308bd02b992192a5340ca3c4aef6674109db4bc5a316efffca5538c897",
+        "version": "1332704d6761c94b85753fc3cadc36109f53e5d92fad137ac3de18083febedf3",
+        "signature": "1332704d6761c94b85753fc3cadc36109f53e5d92fad137ac3de18083febedf3",
         "affectsGlobalScope": true
       },
       "../node_modules/@types/node/async_hooks.d.ts": {
@@ -1077,23 +1302,23 @@
         "affectsGlobalScope": true
       },
       "../node_modules/@types/node/events.d.ts": {
-        "version": "072b0ac82ae8fe05b0d4f2eadb7f6edd0ebd84175ecad2f9e09261290a86bcee",
-        "signature": "072b0ac82ae8fe05b0d4f2eadb7f6edd0ebd84175ecad2f9e09261290a86bcee",
+        "version": "365e8358843a23944be84b810b1f774ea0223adfccc085f30fd7f4c13dc8a09f",
+        "signature": "365e8358843a23944be84b810b1f774ea0223adfccc085f30fd7f4c13dc8a09f",
         "affectsGlobalScope": true
       },
       "../node_modules/@types/node/fs.d.ts": {
-        "version": "153d5de3d87030ac8964a61cb5c633fee293b65a88a33bf2828d846d4245a688",
-        "signature": "153d5de3d87030ac8964a61cb5c633fee293b65a88a33bf2828d846d4245a688",
+        "version": "f87f95c015900102a5c0edcdebb17596de1382510e6cc17ab79f375d3505bb12",
+        "signature": "f87f95c015900102a5c0edcdebb17596de1382510e6cc17ab79f375d3505bb12",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/node/fs/promises.d.ts": {
-        "version": "ea3dc62a64e00e96ae85e0ce8526927b5cb618aa952991e8b3dfb188ad87c509",
-        "signature": "ea3dc62a64e00e96ae85e0ce8526927b5cb618aa952991e8b3dfb188ad87c509",
+        "version": "05b5679a897598ebe556ee93415b3af1f456e674ea82e4d7afcd716bfe43aa98",
+        "signature": "05b5679a897598ebe556ee93415b3af1f456e674ea82e4d7afcd716bfe43aa98",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/node/http.d.ts": {
-        "version": "bc5c54a670de2e78532fc7743b00c7944d4228cc964ecf5d5ef39eae35251450",
-        "signature": "bc5c54a670de2e78532fc7743b00c7944d4228cc964ecf5d5ef39eae35251450",
+        "version": "35fe02b2c10616cc7ac3db9c15778df7ed9c99276889efdd9be31f342841cfcd",
+        "signature": "35fe02b2c10616cc7ac3db9c15778df7ed9c99276889efdd9be31f342841cfcd",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/node/http2.d.ts": {
@@ -1137,8 +1362,8 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@types/node/process.d.ts": {
-        "version": "b76ce3aa1f0a6604830143a5b2c12b189b0a8f4a180e2f9d7edc65946747032a",
-        "signature": "b76ce3aa1f0a6604830143a5b2c12b189b0a8f4a180e2f9d7edc65946747032a",
+        "version": "e64979f6084c279bf8cd58dbc9203567f68f1ed19a8ad91351f078f03323ddf6",
+        "signature": "e64979f6084c279bf8cd58dbc9203567f68f1ed19a8ad91351f078f03323ddf6",
         "affectsGlobalScope": true
       },
       "../node_modules/@types/node/punycode.d.ts": {
@@ -1157,8 +1382,8 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@types/node/repl.d.ts": {
-        "version": "dd3706b25d06fe23c73d16079e8c66ac775831ef419da00716bf2aee530a04a4",
-        "signature": "dd3706b25d06fe23c73d16079e8c66ac775831ef419da00716bf2aee530a04a4",
+        "version": "acbed967a379b3e9f73237ba9473f8b337eeea14b7dc64d445430b5d695751da",
+        "signature": "acbed967a379b3e9f73237ba9473f8b337eeea14b7dc64d445430b5d695751da",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/node/stream.d.ts": {
@@ -1177,8 +1402,8 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@types/node/tls.d.ts": {
-        "version": "3181290a158e54a78c1a57c41791ec1cbdc860ae565916daa1bf4e425b7edac7",
-        "signature": "3181290a158e54a78c1a57c41791ec1cbdc860ae565916daa1bf4e425b7edac7",
+        "version": "a0545ca910ec6b318b8e1d63813c980c3be44824cf217b6477a56fbe9c7927d5",
+        "signature": "a0545ca910ec6b318b8e1d63813c980c3be44824cf217b6477a56fbe9c7927d5",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/node/trace_events.d.ts": {
@@ -1217,8 +1442,8 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@types/node/zlib.d.ts": {
-        "version": "638f49a0db5d30977533a8cfabf3e10ab30724360424698e8d5fd41ca272e070",
-        "signature": "638f49a0db5d30977533a8cfabf3e10ab30724360424698e8d5fd41ca272e070",
+        "version": "15fbe50526244954eb2f933546bca6cdcf0db16c9428d099b3b386c1db5799ab",
+        "signature": "15fbe50526244954eb2f933546bca6cdcf0db16c9428d099b3b386c1db5799ab",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/node/ts3.4/base.d.ts": {
@@ -1237,8 +1462,8 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@types/node/ts3.6/base.d.ts": {
-        "version": "0f04bc8950ad634ac8ac70f704f200ef06f8852af9017f97c446de4def5b3546",
-        "signature": "0f04bc8950ad634ac8ac70f704f200ef06f8852af9017f97c446de4def5b3546",
+        "version": "ad1ae5ae98eceb9af99061e83e867b9897d267aebc8f3b938c9424deabadf4bb",
+        "signature": "ad1ae5ae98eceb9af99061e83e867b9897d267aebc8f3b938c9424deabadf4bb",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/node/assert.d.ts": {
@@ -1247,13 +1472,13 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@types/node/base.d.ts": {
-        "version": "d20072cb51d8baad944bedd935a25c7f10c29744e9a648d2c72c215337356077",
-        "signature": "d20072cb51d8baad944bedd935a25c7f10c29744e9a648d2c72c215337356077",
+        "version": "e61a21e9418f279bc480394a94d1581b2dee73747adcbdef999b6737e34d721b",
+        "signature": "e61a21e9418f279bc480394a94d1581b2dee73747adcbdef999b6737e34d721b",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/node/index.d.ts": {
-        "version": "35cbbc58882d2c158032d7f24ba8953d7e1caeb8cb98918d85819496109f55d2",
-        "signature": "35cbbc58882d2c158032d7f24ba8953d7e1caeb8cb98918d85819496109f55d2",
+        "version": "5825520e2099309182c6e2a2b3061b060d42a098c58f67d1754880a7e2cce99a",
+        "signature": "5825520e2099309182c6e2a2b3061b060d42a098c58f67d1754880a7e2cce99a",
         "affectsGlobalScope": false
       },
       "../node_modules/ts-invariant/lib/invariant.d.ts": {
@@ -1482,13 +1707,13 @@
         "affectsGlobalScope": false
       },
       "./generated/graphql.tsx": {
-        "version": "4c1a2b0d72c1b4cbc928532ec20f77f5dc9c290eaaa612c454b267bc951e9e2c",
-        "signature": "680b72e55d972585b2ce0b116b86f83fd3a7b5e96547dd24d2a9b5f1c1052fc2",
+        "version": "8f485adb276e6fa39f77d31723ab6ba5710f8b49a3a78152cc454b19cabd8d70",
+        "signature": "4690d584aa7f6a15838aa904385bea10cf9c2867eb502db813f99770056a8d6a",
         "affectsGlobalScope": false
       },
       "./src/components/scan/itempreview.tsx": {
-        "version": "2ee92379ec24b6499150c5ac1f791e9c7ae87b35ca595f3b36cc43e1c7c6d8d7",
-        "signature": "ef23c0aefc1cd8a5ac96ba8b4cf95157314b23662f24afa8b2cf04d959ed3459",
+        "version": "e0b701f32e525d9b7750e824f4d19d64f05b95ba1616b31f9670672c0f952ecc",
+        "signature": "cc08cdd48e7d70f577cb9aa6978f43a7b24d36e20ef83f45e4ebf983c6794911",
         "affectsGlobalScope": false
       },
       "../node_modules/react-native-svg/src/index.d.ts": {
@@ -1501,19 +1726,49 @@
         "signature": "79cba2eef8c086e41011a09471b19a1093eb39d23da0cbe2ed8c2473a0caf7ec",
         "affectsGlobalScope": false
       },
+      "./src/icons/cameraicon.tsx": {
+        "version": "8a9d2fef0199f4276f8871c7d7d6fb729844cbb793a34e66a7250317367e96ef",
+        "signature": "198f8c8ec575fdc22585cc0da7f9003b3c78e17064ad1ae2757d53e54d979654",
+        "affectsGlobalScope": false
+      },
       "./src/icons/backarrowicon.tsx": {
-        "version": "b108a466c80248f8a4d4d340a725ec3742638c3e820e6ceef0f4a1705ca1f08a",
-        "signature": "2497563f454a65805dcf9d11eeb66415e282f0aab6ee95e1668237c74ecb3846",
+        "version": "2c7ebfe5aae3f3cb1cf247e337a5a49fed783465313420fcec404ef83ff981f3",
+        "signature": "8583b022e944c2d00748d3b776314f5519a0ab667e069078b4f2490ed1a6300f",
+        "affectsGlobalScope": false
+      },
+      "./src/icons/appicon.tsx": {
+        "version": "5e30f5da82441a03b4f9bae36d1761617b81e38a11140c0260eaf2a04c07c9ee",
+        "signature": "71c3f24648f43ed160ef0b66abc00cc6ba44f2275dfa5dc3c10a96f7441b35a9",
         "affectsGlobalScope": false
       },
       "./src/icons/carticon.tsx": {
-        "version": "a78a6a5b307b022f12e53d31735d875b13d1fcdb0b0792b2c4c55bf080bbe546",
+        "version": "5eede1a6560529f1ecb17685a4c61694de834d8631227c9d7e3ca79895f3a8e8",
         "signature": "de7e1704bac3f06e4a2c9b4c3945c4973f797b3414d52c0cbe19770cdec3ef36",
         "affectsGlobalScope": false
       },
+      "./src/icons/findicon.tsx": {
+        "version": "7d1d39a54cd18c2b5a99c1e6c4f444ea8b32c14bdb8b030ecaeaa4a329680678",
+        "signature": "960b54b1d1bf3a1374a9da66deb77bd0350bb39a7f102fb5ea405f5536841f8e",
+        "affectsGlobalScope": false
+      },
+      "./src/icons/hearticon.tsx": {
+        "version": "d941fe507bb9cdd8944ffe3c5615e222a92162e3923fcde20b4d5b39fac09272",
+        "signature": "a99ec7c24478df56f3e05be2c469e4c53719f622586d536a421c78ed4f7401c0",
+        "affectsGlobalScope": false
+      },
+      "./src/icons/swipeicons.tsx": {
+        "version": "8c8df3166954556c11b323e75d5d8d37f256e44ede31220a0e88f128a62f6c9e",
+        "signature": "21710d97b971c7fedb18153e8e4fb0df4695228c08d434a9ad2e5ada2cfdd270",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/react-native-reanimated/react-native-reanimated.d.ts": {
+        "version": "23fb51cce7dd6b924aedd4e151526a1e4523a1cdd9164e4b795eecd2d003b88b",
+        "signature": "23fb51cce7dd6b924aedd4e151526a1e4523a1cdd9164e4b795eecd2d003b88b",
+        "affectsGlobalScope": false
+      },
       "./src/icons/tabnavigationicons.tsx": {
-        "version": "19d26391053e4946cca9c1231a15e79942f932d481d8decabd4cd8f69ac720e9",
-        "signature": "bbd2ef99f2531ce71a570b8f4e9a5406f8f1eeac0cb35b5e5b0b205d2fe9f7b1",
+        "version": "26464277c61a1c01df694922072092c4b7808dba807e8356331132d2e1ba9d63",
+        "signature": "f766d7e152b91d5c532c4b6aa513a1acfab977b2dad06256fb799d8fe98767b0",
         "affectsGlobalScope": false
       },
       "./src/icons/checkicon.tsx": {
@@ -1546,19 +1801,19 @@
         "signature": "b871c6bd7e41cbebd7efbd3031374e73a25129e40ae7cdc190c0233ddf17a1d6",
         "affectsGlobalScope": false
       },
-      "./src/icons/hearticon.tsx": {
-        "version": "d941fe507bb9cdd8944ffe3c5615e222a92162e3923fcde20b4d5b39fac09272",
-        "signature": "a99ec7c24478df56f3e05be2c469e4c53719f622586d536a421c78ed4f7401c0",
+      "./src/icons/markericon.tsx": {
+        "version": "ee6cf96b13035b5fb1dc30eab694fface3cf7678d5db61a22f4c16dcacd430d5",
+        "signature": "c9786f866584bd1bcdcb1ed73c1e6b7804c09502dc40cb53b930b9b2d71ecd4b",
         "affectsGlobalScope": false
       },
-      "./src/icons/findicon.tsx": {
-        "version": "7d1d39a54cd18c2b5a99c1e6c4f444ea8b32c14bdb8b030ecaeaa4a329680678",
-        "signature": "960b54b1d1bf3a1374a9da66deb77bd0350bb39a7f102fb5ea405f5536841f8e",
+      "./src/icons/maparrowicon.tsx": {
+        "version": "55b793faa71685778a5ac1f11efbebb9ec3aa15a3048e3a8c7fc9ac10ff2b00d",
+        "signature": "eff5a41f04f97a6b478e3023a76fb5e8d57f1f236f71683eff7f43d6dcbd73a9",
         "affectsGlobalScope": false
       },
       "./src/icons/index.ts": {
-        "version": "b11c9b16b5993a9504d5ca5308c5aa0f7b93810c4c9e72b6a4a081e693bf04dd",
-        "signature": "d8b08a8dac4a3b213b4b00fef4646cf77fc026d0b921d526d4e47adef434be6e",
+        "version": "0f5c8404ca3a59ed4213684f9c38724d4c2de66be2a35c4d2fdd4ab28033e004",
+        "signature": "5bee9f1b97b8836d53ee1a6140ac20d8464a1833baf15bcd1508fa3187a83d2f",
         "affectsGlobalScope": false
       },
       "./src/components/scan/scanneroverlay.tsx": {
@@ -1572,217 +1827,17 @@
         "affectsGlobalScope": false
       },
       "./src/components/cart/styled.ts": {
-        "version": "e55acf48edd750ae1f51b9f77f28353164bcfa93d6017106bab6eb1fd126c8d5",
-        "signature": "5a83c8ac628f24072608dec9ed827f3e7b9297501de92afadf532c1e2fcc51da",
+        "version": "238513b9658e0a1be2101dc61c0e1e687aedbf9ebefaff58f39445fa664ea6ff",
+        "signature": "a066b7b4fe73460a57ebc5622a229e1d2cc4c62625e99e4b7001fb3943566dad",
         "affectsGlobalScope": false
       },
-      "../node_modules/@react-navigation/routers/lib/typescript/src/types.d.ts": {
-        "version": "e15a09ed21a30c4cd986696abd01a372a0d9b9f03b67e1e73e896c893afaf178",
-        "signature": "e15a09ed21a30c4cd986696abd01a372a0d9b9f03b67e1e73e896c893afaf178",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/routers/lib/typescript/src/commonactions.d.ts": {
-        "version": "ff54d4fe35229b8736bab7ca09d84fc13340dc4cfe8ddd0243f759ff98d217db",
-        "signature": "ff54d4fe35229b8736bab7ca09d84fc13340dc4cfe8ddd0243f759ff98d217db",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/routers/lib/typescript/src/baserouter.d.ts": {
-        "version": "95ec9225aa90e50c361eacc7272a91a415bb64ff96a41037157884d1fa95652d",
-        "signature": "95ec9225aa90e50c361eacc7272a91a415bb64ff96a41037157884d1fa95652d",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/routers/lib/typescript/src/stackrouter.d.ts": {
-        "version": "61f48a8102fd3ee3ba767864a7d8e833cb461fb8e7e8b2e8ad4077e4f124b332",
-        "signature": "61f48a8102fd3ee3ba767864a7d8e833cb461fb8e7e8b2e8ad4077e4f124b332",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/routers/lib/typescript/src/tabrouter.d.ts": {
-        "version": "a6cb0ed8945915b1cca05891ec4f5194caf2ec5b4fae15b1b3ebc474879da83b",
-        "signature": "a6cb0ed8945915b1cca05891ec4f5194caf2ec5b4fae15b1b3ebc474879da83b",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/routers/lib/typescript/src/drawerrouter.d.ts": {
-        "version": "da651109f42e06e2ba4ae47579c92490cf3b6b61935da33c9a0432d74e5ce5ac",
-        "signature": "da651109f42e06e2ba4ae47579c92490cf3b6b61935da33c9a0432d74e5ce5ac",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/routers/lib/typescript/src/index.d.ts": {
-        "version": "a3e06486315a5d6aca5c6c51ad338591c46a9abb9f032c0a880f4fc23c58990d",
-        "signature": "a3e06486315a5d6aca5c6c51ad338591c46a9abb9f032c0a880f4fc23c58990d",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/core/lib/typescript/src/types.d.ts": {
-        "version": "cf1e0f85dfc9e5183b2fa5820f56ddee0117ca661fc260701e04a9d34c292f6c",
-        "signature": "cf1e0f85dfc9e5183b2fa5820f56ddee0117ca661fc260701e04a9d34c292f6c",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/core/lib/typescript/src/basenavigationcontainer.d.ts": {
-        "version": "3154aae94a314b670d4ca825e7089fc4f4c4e31db5473367dfed10ce93ae68f8",
-        "signature": "3154aae94a314b670d4ca825e7089fc4f4c4e31db5473367dfed10ce93ae68f8",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/core/lib/typescript/src/createnavigatorfactory.d.ts": {
-        "version": "4e246414756d2471a5f57ec9b83245524d44ece2ef79d869b5a531208add6780",
-        "signature": "4e246414756d2471a5f57ec9b83245524d44ece2ef79d869b5a531208add6780",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/core/lib/typescript/src/navigationhelperscontext.d.ts": {
-        "version": "8e7fbcd85a88cff952bfddf018a878437ff3721a3ef9d5a82e4aa33540fd166c",
-        "signature": "8e7fbcd85a88cff952bfddf018a878437ff3721a3ef9d5a82e4aa33540fd166c",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/core/lib/typescript/src/navigationcontext.d.ts": {
-        "version": "99cff8d8ecff76cf6d2c01c36a67fbf7961122748c07020d11f17b5e15f64422",
-        "signature": "99cff8d8ecff76cf6d2c01c36a67fbf7961122748c07020d11f17b5e15f64422",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/core/lib/typescript/src/navigationroutecontext.d.ts": {
-        "version": "13478ea0a086e194559d7c501a20ec9b34054710650114e5e96e214df6dd9146",
-        "signature": "13478ea0a086e194559d7c501a20ec9b34054710650114e5e96e214df6dd9146",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/core/lib/typescript/src/currentrendercontext.d.ts": {
-        "version": "717c85e439a2e28054138caa84613aa81252448a4a9f4f4c8e66cf430f399cf9",
-        "signature": "717c85e439a2e28054138caa84613aa81252448a4a9f4f4c8e66cf430f399cf9",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/core/lib/typescript/src/usenavigationbuilder.d.ts": {
-        "version": "8c0a98044a9f27652d090f47b3662d1618b38c89a804a0b15d36d3e4ddd119aa",
-        "signature": "8c0a98044a9f27652d090f47b3662d1618b38c89a804a0b15d36d3e4ddd119aa",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/core/lib/typescript/src/usenavigation.d.ts": {
-        "version": "b2880926ee002e26613daa950b99eaaf54767e88c02d6019b545a0b787e03eaf",
-        "signature": "b2880926ee002e26613daa950b99eaaf54767e88c02d6019b545a0b787e03eaf",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/core/lib/typescript/src/useroute.d.ts": {
-        "version": "c8792295a56e3f685129308d41efab07e27f267f0947cd817cb9f4a7617663de",
-        "signature": "c8792295a56e3f685129308d41efab07e27f267f0947cd817cb9f4a7617663de",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/core/lib/typescript/src/usefocuseffect.d.ts": {
-        "version": "948355e572a01fac5781b65489e7c0ac98656f760ed3ad57721a55a344d1315e",
-        "signature": "948355e572a01fac5781b65489e7c0ac98656f760ed3ad57721a55a344d1315e",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/core/lib/typescript/src/useisfocused.d.ts": {
-        "version": "87f0dfc5b56b9dbf64e8a3993cc8db88d1bb4ae1154539e1e85e34d8736ab97d",
-        "signature": "87f0dfc5b56b9dbf64e8a3993cc8db88d1bb4ae1154539e1e85e34d8736ab97d",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/core/lib/typescript/src/usenavigationstate.d.ts": {
-        "version": "3f330b6ffb4b66966103db9aec9228228e109aea2d14366f04b12222dc1d3361",
-        "signature": "3f330b6ffb4b66966103db9aec9228228e109aea2d14366f04b12222dc1d3361",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/core/lib/typescript/src/getstatefrompath.d.ts": {
-        "version": "4143c68701260d416b394b05c1a4e188fead58f8c6c72ceed8ce1cb6f0718896",
-        "signature": "4143c68701260d416b394b05c1a4e188fead58f8c6c72ceed8ce1cb6f0718896",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/core/lib/typescript/src/getpathfromstate.d.ts": {
-        "version": "1f7009d3a8154e6c0f2f9701c54722b556de351def35dea4b8d08cc24a24b766",
-        "signature": "1f7009d3a8154e6c0f2f9701c54722b556de351def35dea4b8d08cc24a24b766",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/core/lib/typescript/src/getactionfromstate.d.ts": {
-        "version": "1e9073824ecb6a01a0b807a820ea6f1c742bee7376866d8fc7f0e460b432cd09",
-        "signature": "1e9073824ecb6a01a0b807a820ea6f1c742bee7376866d8fc7f0e460b432cd09",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/core/lib/typescript/src/getfocusedroutenamefromroute.d.ts": {
-        "version": "96af48f58c93f75f41576b49d8f8a3f6bcdee294d9e3f6579eea742d95d8dd1c",
-        "signature": "96af48f58c93f75f41576b49d8f8a3f6bcdee294d9e3f6579eea742d95d8dd1c",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/core/lib/typescript/src/index.d.ts": {
-        "version": "3f7013acbcc83982dbc09a9c77e1453482d6209f3cb48b0db293002ee2553b1c",
-        "signature": "3f7013acbcc83982dbc09a9c77e1453482d6209f3cb48b0db293002ee2553b1c",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/native/lib/typescript/src/types.d.ts": {
-        "version": "227e387ce8a0a96d091766131627d67b6fba06907b39376c3ca8e56590d1ebef",
-        "signature": "227e387ce8a0a96d091766131627d67b6fba06907b39376c3ca8e56590d1ebef",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/native/lib/typescript/src/navigationcontainer.d.ts": {
-        "version": "8401397ae7b67ac7994bec9f9d6ddbacd5b40203af5646e2a05986b0174d1d31",
-        "signature": "8401397ae7b67ac7994bec9f9d6ddbacd5b40203af5646e2a05986b0174d1d31",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/native/lib/typescript/src/usebackbutton.d.ts": {
-        "version": "27315fbee0aee7886e5991a8b2edbb693ae53d332c4fd1bd8f510aa8e3096feb",
-        "signature": "27315fbee0aee7886e5991a8b2edbb693ae53d332c4fd1bd8f510aa8e3096feb",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/native/lib/typescript/src/usescrolltotop.d.ts": {
-        "version": "c2d455a045f1bc5de7ef50102f4916f6e4b6c948ffc861c313f473fc1da5b6c0",
-        "signature": "c2d455a045f1bc5de7ef50102f4916f6e4b6c948ffc861c313f473fc1da5b6c0",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/native/lib/typescript/src/theming/defaulttheme.d.ts": {
-        "version": "48f3e2543105da93484b51b1979764f345befa92e4d2031109cf2297739c3c95",
-        "signature": "48f3e2543105da93484b51b1979764f345befa92e4d2031109cf2297739c3c95",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/native/lib/typescript/src/theming/darktheme.d.ts": {
-        "version": "528e7087c8e41701cd1af78e52bdc107553eeb44245885c5cd92b2dd3209a6b4",
-        "signature": "528e7087c8e41701cd1af78e52bdc107553eeb44245885c5cd92b2dd3209a6b4",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/native/lib/typescript/src/theming/themeprovider.d.ts": {
-        "version": "b08950d68c97431fb98c2f6faa5da8b012d49145559c8218416be5ec3214c521",
-        "signature": "b08950d68c97431fb98c2f6faa5da8b012d49145559c8218416be5ec3214c521",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/native/lib/typescript/src/theming/usetheme.d.ts": {
-        "version": "2f2275fb011f92825710c151ae9cd29d9aa1dedbcd99fcdd412dbbe644757e4d",
-        "signature": "2f2275fb011f92825710c151ae9cd29d9aa1dedbcd99fcdd412dbbe644757e4d",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/native/lib/typescript/src/link.d.ts": {
-        "version": "6477985c5202f923b093ef846f6419b9ad622e4a8f8622ebe48f84baadaa3e16",
-        "signature": "6477985c5202f923b093ef846f6419b9ad622e4a8f8622ebe48f84baadaa3e16",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/native/lib/typescript/src/uselinking.d.ts": {
-        "version": "ac0d1d3a89efc203b39ceab1aeaded69a6c010867281e7508171c6b16a8188d0",
-        "signature": "ac0d1d3a89efc203b39ceab1aeaded69a6c010867281e7508171c6b16a8188d0",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/native/lib/typescript/src/uselinkto.d.ts": {
-        "version": "1d9c1b01bf97e67e186f94aa133d4611bd5fc581968ed2aad913009cc0ea9005",
-        "signature": "1d9c1b01bf97e67e186f94aa133d4611bd5fc581968ed2aad913009cc0ea9005",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/native/lib/typescript/src/uselinkprops.d.ts": {
-        "version": "e204da36168e28782f028d358d3344419d8fb36e17c13271f019858be2bb913e",
-        "signature": "e204da36168e28782f028d358d3344419d8fb36e17c13271f019858be2bb913e",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/native/lib/typescript/src/uselinkbuilder.d.ts": {
-        "version": "fded4150da5c204dd68ce7603bc36950d6a24f7768d7848df3ff232889213616",
-        "signature": "fded4150da5c204dd68ce7603bc36950d6a24f7768d7848df3ff232889213616",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/native/lib/typescript/src/servercontext.d.ts": {
-        "version": "6e2cbb13f526e6f7c70ea3a4bdc9634301f018fa3965f2dde7f1d37a8e5c7e9c",
-        "signature": "6e2cbb13f526e6f7c70ea3a4bdc9634301f018fa3965f2dde7f1d37a8e5c7e9c",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/native/lib/typescript/src/servercontainer.d.ts": {
-        "version": "2fd3c27eab8f2e941560b8f1d9b2480d558a3bfecb9f7450478a758c9ce96cb0",
-        "signature": "2fd3c27eab8f2e941560b8f1d9b2480d558a3bfecb9f7450478a758c9ce96cb0",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts": {
-        "version": "6e51a400a1bfb0d2a9dc4432fb4577001f02dada8caa68b357d2afa4e8f0d751",
-        "signature": "6e51a400a1bfb0d2a9dc4432fb4577001f02dada8caa68b357d2afa4e8f0d751",
+      "./src/components/swipegesture.ts": {
+        "version": "fb5f5d320300a7ce1fc8b7f31f1291cab40834d5f0c1668a4d0dadefb174b001",
+        "signature": "935a91ed1b47632c2e8caa33f9c5b59d758980408a78687fa11b3e5ab5a3dc08",
         "affectsGlobalScope": false
       },
       "./src/components/cart/cartitemcell.tsx": {
-        "version": "7b428fbee61b4832afe4950c699a7e32a760c7bce9ae62492614efff68248a8f",
+        "version": "092cf261652d8631d241609aa99da8c6632b3cbd068b81da0ae0f1595262ed66",
         "signature": "58babec9a7864d56d13bf2d5be7ad9194c5d2fcd43553a4db57d12e3d9b44359",
         "affectsGlobalScope": false
       },
@@ -1791,28 +1846,33 @@
         "signature": "ae9165ccf24e7004a4937ba6d9d2eb4e539a58ce3d8c10e1b0e41a27ae07bfe4",
         "affectsGlobalScope": false
       },
-      "./src/components/landing/styled.ts": {
-        "version": "71a547f9405d47e3eb16f406a895c01fbbcd0bb16c62a95ba687f6e76897c702",
-        "signature": "c044186fd48e7a4dc360f40ca13f0bde2f1e7b2a283abe0d3eaf25fc4154b31c",
+      "../node_modules/react-native-maps/index.d.ts": {
+        "version": "7c0102ebbcf191856ae5f00ee2b8530adb10d80f08e4e3fd973daa8d573ca628",
+        "signature": "7c0102ebbcf191856ae5f00ee2b8530adb10d80f08e4e3fd973daa8d573ca628",
         "affectsGlobalScope": false
       },
-      "./src/components/landing/hellouser.tsx": {
-        "version": "1a0bb9cdfa9de6b44eb9f025abcd900bd2c955a0322e289b1af1c20fddf439ed",
-        "signature": "ca2fa003b94cefaedd592deb87ae2813f58ccb85bd0a85c3c78a323ed9abc934",
+      "./src/components/mapview/styled.ts": {
+        "version": "0fd37ec8299472c6eec47436edef0a3fcac8156d0a74515f8c86afb4d823a6b0",
+        "signature": "0a7a6fc6ca05961acf37d669aea594f3ea5d3f4aa5944daec3f7b032c80a6484",
         "affectsGlobalScope": false
       },
-      "./src/components/landing/index.ts": {
-        "version": "bcfeba1c0f96f8eedb719667f28dced2d7258d3702230e646bb23bb20c55dc3d",
-        "signature": "5c4ce64346db094c65a236b609f4d6398e176315f0a450126ec7615986fea7c9",
+      "./src/components/mapview/storesuggestioncell.tsx": {
+        "version": "a3c19675e5ef52fb95133faeced93599987532854378b2a33aaeb5909852e080",
+        "signature": "bd5972b25e3532259e48330a148b4b49ee01b197c60e4dbfd7e56082105adbab",
+        "affectsGlobalScope": false
+      },
+      "./src/components/mapview/index.ts": {
+        "version": "c6f667bd68d2c55d9a731e52be870e7221a47ba14ebff19fc363801877eaeb00",
+        "signature": "4e94cc2fb61d8d4cbc7220253dcec5661915bdf31e51719d5d32b403714b572b",
         "affectsGlobalScope": false
       },
       "./src/components/favorites/styled.ts": {
-        "version": "1aac6b01e14886dac50330e14890e19a93d00127673949d6bd86a8e6ef1e3191",
-        "signature": "6efa155c2a9ba00541550113671260f4b92b400ed2f11faf2c79287a08b030cc",
+        "version": "417d619e974edb7b7a3f38c2d57fd06ba815345cc3e82fff72fc9623c97ce6a6",
+        "signature": "c201f98b6bc8b33ccd9c847b51c6fcf19626e9ceb2a504c2bdff78f797a55e19",
         "affectsGlobalScope": false
       },
       "./src/components/favorites/favoriteitemcell.tsx": {
-        "version": "8f29a529ee91d94517fc33a0e20ec877b00de79342a23c2b9db9d8f22a0e6c59",
+        "version": "8c140708794128b7ec97a04e0094f380ff0b81979404393abc6919e84aca601b",
         "signature": "48f5ba12d5be4698b8fdd080de8aa94f05d6bbce6fb260d54006b87b0e4f76f8",
         "affectsGlobalScope": false
       },
@@ -1821,29 +1881,49 @@
         "signature": "af17a8b81cb3ee02f209464817206cdbc34b49669ddf13dfef06db09fb6bf1ad",
         "affectsGlobalScope": false
       },
-      "./src/components/itemdetail/styled.ts": {
-        "version": "bc55b6500efff935626635b4d7c8cb2b530ac5faf9ea441bb4d9735baad85ce5",
-        "signature": "3c261ab5caa49041fe583b01b43f323949963dc24aba4629b8fa98b3ff2a72a5",
+      "./src/components/itemdetail.ts": {
+        "version": "93bafc7d26c0611c2b2a74d46d6a222a52ac6bdaf2989543f368dddc8e7e5b81",
+        "signature": "13e366e894b27d9d264bb9b43db114c50ea3d97277ca0b55f28d02910a806ee1",
         "affectsGlobalScope": false
       },
-      "./src/components/itemdetail/index.ts": {
-        "version": "09d84a7a1f58a151010c1923706f476ad1f4c0ddf4f5f52089512d9c8a33e534",
-        "signature": "f89858ffce92df27610ecd2e62b5f29df3ee80b62be68e5eb2c2b1bdf635ef60",
+      "./src/components/storedetail/styled.ts": {
+        "version": "6d4f490b45c378ce5b5bd152da74c89a6f7a719e355a8dffe85f6285702a07f9",
+        "signature": "4a63d28a2f1256c090b6723a010525701161869329036da80e0c858f8c6e60f6",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/react-native-gesture-handler/react-native-gesture-handler.d.ts": {
+        "version": "3700c0c87ecb0f4e21f2440d7ddec0dc8cd987bb0e3d96d8d318fc84b426e9c6",
+        "signature": "3700c0c87ecb0f4e21f2440d7ddec0dc8cd987bb0e3d96d8d318fc84b426e9c6",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/reanimated-bottom-sheet/lib/typescript/index.d.ts": {
+        "version": "7b5a83dfdafa886513a6ddfeb8e9a63658510c1b96eb8e733205094151bd8bb6",
+        "signature": "7b5a83dfdafa886513a6ddfeb8e9a63658510c1b96eb8e733205094151bd8bb6",
+        "affectsGlobalScope": false
+      },
+      "./src/components/storedetail/popularitemcell.tsx": {
+        "version": "e1a6669ba463891aa1fad130fe6a8b80c6993ef6bfa71437d0e2e2e133a4bae5",
+        "signature": "9447a2a776fd78a2c498c65a8f9892c906c12c24a9b685c099547628539b6e25",
+        "affectsGlobalScope": false
+      },
+      "./src/components/storedetail/storepreview.tsx": {
+        "version": "66f3cb7cd86fa59bddaa5f5c237330846cfad346a3f90c237eca527abe2dc5d6",
+        "signature": "3bf851988ae8ce5a7eee2090b3a165444eb13e10fc6bec3ef029eedcc64e9454",
+        "affectsGlobalScope": false
+      },
+      "./src/components/storedetail/index.ts": {
+        "version": "12f990a80e103128dd564dd3bc92c2a31aec314b58f2dc080ddfc29b83e98237",
+        "signature": "4eebec60dbeb577afe44d7251f1274f750e4858cf8fb7375f29a0808e15695ce",
         "affectsGlobalScope": false
       },
       "./src/components/userprofile.ts": {
-        "version": "c29916b0727f7ac4cb2570ba17daa852124a9c938d803b0bc602162e09497003",
-        "signature": "faba4f3be1eeb72d2cd0f0f179311017d4c80fc129b7644c79e159d50ae879f7",
+        "version": "6ad0972e4c2c8924428c18815366445b1e0aab21168f2b0d240a900270933f3e",
+        "signature": "82827fbcdcbf6e60d4339f59dcdb2945a6594943c42018172bc98619f22941a5",
         "affectsGlobalScope": false
       },
       "./src/components/index.ts": {
-        "version": "f75d9648f739957c2b5115a93471024072dbfa65fee0232dec7aae299938c2c8",
-        "signature": "c0ca135fca0c891edfdb132602955be2af018204a8677e8d3a0acc03f582478c",
-        "affectsGlobalScope": false
-      },
-      "./src/theme/index.ts": {
-        "version": "29245ab34a51040a5c62072b9165b29e58123603678225562fd4dcbd44650a5d",
-        "signature": "8c1e10562606fcbfed2c9fa5d370a41100757c0690c468e8123f8be06d5afec9",
+        "version": "5c701b05381b5ec126d270d9ff720fc61b5c2b973735af0240cb81af573a50c0",
+        "signature": "2a63c75ff405a52aa65670f12162e13378133bc325f6b4d8152dc77569b61e87",
         "affectsGlobalScope": false
       },
       "../node_modules/react-native-safe-area-context/lib/typescript/src/safearea.types.d.ts": {
@@ -1872,8 +1952,8 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@react-navigation/stack/lib/typescript/src/types.d.ts": {
-        "version": "9213efc54d1fcba37aca20c98ca7ad6301e45ac217f7433087dde99c0d94055f",
-        "signature": "9213efc54d1fcba37aca20c98ca7ad6301e45ac217f7433087dde99c0d94055f",
+        "version": "902a578cfae6f5f41056a6e4154719346a5571409300a4d8c871d39e9dae7e6c",
+        "signature": "902a578cfae6f5f41056a6e4154719346a5571409300a4d8c871d39e9dae7e6c",
         "affectsGlobalScope": false
       },
       "../node_modules/@react-navigation/stack/lib/typescript/src/transitionconfigs/cardstyleinterpolators.d.ts": {
@@ -1897,13 +1977,13 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@react-navigation/stack/lib/typescript/src/navigators/createstacknavigator.d.ts": {
-        "version": "0b998d4811758b795f4945f2aabd3e6b844971202ba7d7c036e9d9b9ee260607",
-        "signature": "0b998d4811758b795f4945f2aabd3e6b844971202ba7d7c036e9d9b9ee260607",
+        "version": "4f0e7cbe7357782b2747531fe59db1521f2f5ee7ae4743dfebb6f4864ef22e48",
+        "signature": "4f0e7cbe7357782b2747531fe59db1521f2f5ee7ae4743dfebb6f4864ef22e48",
         "affectsGlobalScope": false
       },
       "../node_modules/@react-navigation/stack/lib/typescript/src/views/stack/stackview.d.ts": {
-        "version": "48c96567cee1b841210f8d10750090662cc9e476da4f5596f36bab340d8c3a11",
-        "signature": "48c96567cee1b841210f8d10750090662cc9e476da4f5596f36bab340d8c3a11",
+        "version": "6089eed01d7c5df0ace85d7d20522adb969a77eef012681cda284c97d04fad75",
+        "signature": "6089eed01d7c5df0ace85d7d20522adb969a77eef012681cda284c97d04fad75",
         "affectsGlobalScope": false
       },
       "../node_modules/@react-navigation/stack/lib/typescript/src/views/header/header.d.ts": {
@@ -1912,13 +1992,13 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@react-navigation/stack/lib/typescript/src/views/header/headertitle.d.ts": {
-        "version": "df24da7ebd5349466a8976e1ab2252db05af8ef02dd3139931eb041fc89d8571",
-        "signature": "df24da7ebd5349466a8976e1ab2252db05af8ef02dd3139931eb041fc89d8571",
+        "version": "641c64248b4bf87b95fc6944fda9ee0b216ff49ee8cf0fab478c585b8217ce19",
+        "signature": "641c64248b4bf87b95fc6944fda9ee0b216ff49ee8cf0fab478c585b8217ce19",
         "affectsGlobalScope": false
       },
       "../node_modules/@react-navigation/stack/lib/typescript/src/views/header/headerbackbutton.d.ts": {
-        "version": "3b76a95e3f7efc460201a8fa44a432b14ac7fe86ee1b6478447d553012fe1bfc",
-        "signature": "3b76a95e3f7efc460201a8fa44a432b14ac7fe86ee1b6478447d553012fe1bfc",
+        "version": "80f9ac72858033d1d8e74a50aed92bb2d99a8a217cc2cca22600595c4e230663",
+        "signature": "80f9ac72858033d1d8e74a50aed92bb2d99a8a217cc2cca22600595c4e230663",
         "affectsGlobalScope": false
       },
       "../node_modules/@react-navigation/stack/lib/typescript/src/views/header/headerbackground.d.ts": {
@@ -1961,23 +2041,8 @@
         "signature": "b1318576afcd95875250128006d18649a65402a4a5ee6502c32ffee600cd3ff2",
         "affectsGlobalScope": false
       },
-      "./src/navigation/authstack.tsx": {
-        "version": "5d9f66ebf2cd4489921de80d4757dac747933b286324cc96020185c05d6e95df",
-        "signature": "bc3d8715d69c34d5a9ba072b1d9fb1817f8388241c3aaea198eba75f628001fa",
-        "affectsGlobalScope": false
-      },
-      "./src/navigation/onboardingstack.tsx": {
-        "version": "e336d30558960b42909bca3f01536527fbf624fffdb26a2caef2d29fd745e284",
-        "signature": "d87f9fd4f27554f23e22f54c35c7ed83b40c25ce807e82707479861305bceade",
-        "affectsGlobalScope": false
-      },
-      "./src/navigation/index.ts": {
-        "version": "a8af076aa8a93adc53ba167f80fd03bff002c677541ff684157feff90b370b3c",
-        "signature": "6871724f8aa525be831ea1401689f5b8cfd768ecff707ee40d3001b1366cada6",
-        "affectsGlobalScope": false
-      },
       "./src/screens/auth/scan/itemdetail.tsx": {
-        "version": "f7e8752e29fbd272ab8451d5fb40593fe89884589669a5e3d35bab118d83015c",
+        "version": "4a32deef0f01b403f608d04b53c8d31f373c08b5dd45d83d9e197110911cff95",
         "signature": "78e99f6314975844fede3d7b749a2a6595957f1ac126f57a60839403b5de3ad8",
         "affectsGlobalScope": false
       },
@@ -2002,28 +2067,53 @@
         "affectsGlobalScope": false
       },
       "./src/screens/auth/scan/scanningscreen.tsx": {
-        "version": "f54397ea3ab06bdec540e0aa3b5f4a090d03ab9e4c7b38fcfe7fc9ae889cc7bf",
+        "version": "a299f04fa541e784b1de2883c861a070a3413cba06907b894ab95e143e44c95a",
         "signature": "a1ef6dbc3414654d2634d9dccac694cef032b9a529927a4605eb8692159fb2ec",
         "affectsGlobalScope": false
       },
+      "./src/screens/auth/scan/additemscreen.tsx": {
+        "version": "5e77cd5a3bdffab0a44a4200de5a92aab15dc71fb9ed4d1669c3f4e65618ef20",
+        "signature": "ded9c911e738855f1b9354078a2bbbc59fe343dbb65d14ce53aee5770f16273c",
+        "affectsGlobalScope": false
+      },
       "./src/screens/auth/scan/index.ts": {
-        "version": "5c6540d68f7332c52eea40850c9616e9f70c6a308e627d119edfdb929673276f",
-        "signature": "7d08225f755f8d995d4d0524a2cfd1ce0dd75451a2aa8439345f4d1b093df5bb",
+        "version": "8f4981e7d2f8d9b37127aed5184c9a6ed6a6bc90a12ce0c9a52a3350a5db589b",
+        "signature": "2c4a5a8ae261353ac565287a776cbb3cb9f3eab20cf99f2bb3b852957afd0586",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-native-community/geolocation/typings/index.d.ts": {
+        "version": "9567f4f66b1d99133b741c5cf9a6220409544dea5778e93574f7dce643b2b185",
+        "signature": "9567f4f66b1d99133b741c5cf9a6220409544dea5778e93574f7dce643b2b185",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/react-native-permissions/lib/typescript/constants.d.ts": {
+        "version": "dd6a6b64e098c2cb91a4845fa479f98a51e2ff4031f745e7cb6f43709e883aae",
+        "signature": "dd6a6b64e098c2cb91a4845fa479f98a51e2ff4031f745e7cb6f43709e883aae",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/react-native-permissions/lib/typescript/types.d.ts": {
+        "version": "eff864fdf6ed7197f30bed56ebed0498265088033783dd1b4e2f7dfb30f1832a",
+        "signature": "eff864fdf6ed7197f30bed56ebed0498265088033783dd1b4e2f7dfb30f1832a",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/react-native-permissions/lib/typescript/index.d.ts": {
+        "version": "60c645c85e3e208ad449393b38834dfd53d455de92bd21f9fb0373509d624231",
+        "signature": "60c645c85e3e208ad449393b38834dfd53d455de92bd21f9fb0373509d624231",
         "affectsGlobalScope": false
       },
       "./src/screens/auth/mapview.tsx": {
-        "version": "0048520d9dab281a02d019d9bdcdd8b9af53831447f248eb7f105af84b51f222",
-        "signature": "c36ffce041c6d73ab6788bbb178517d2cb1ec67b58b5a9de3d2447bc0fe7c7c4",
+        "version": "574b4f1e57bf9727800e7c0f20c4eefddcdc0634dc43f02a304c2a882214d85e",
+        "signature": "e9a83a4193b973ec0980b3df03640f118fd05ea380387a26f5bcd355d2e94e55",
         "affectsGlobalScope": false
       },
       "./src/screens/auth/cartscreen.tsx": {
-        "version": "2c41011e1d6d47a2da54041bf1df9751b0762bdbafe7b88f509716b2910a066b",
+        "version": "b4912b2a74f351c24bb3efe44dffbf8dff7c4a119fe3adfa04f266e6078d9326",
         "signature": "21904ac78b41cfba344f3ec6ceeb7cc2551a8f9e5ad341373864c4a40e378743",
         "affectsGlobalScope": false
       },
       "../node_modules/firebase/index.d.ts": {
-        "version": "a43a8d889f828eea497dc7ca246f8ea435d7be32ea7fdcbad45b6ee0d86a67ae",
-        "signature": "a43a8d889f828eea497dc7ca246f8ea435d7be32ea7fdcbad45b6ee0d86a67ae",
+        "version": "e47c6eb167f419013f574fb3e6884e39b9bf943851eae65456411ef8cb4cdf10",
+        "signature": "e47c6eb167f419013f574fb3e6884e39b9bf943851eae65456411ef8cb4cdf10",
         "affectsGlobalScope": false
       },
       "../node_modules/firebase/empty-import.d.ts": {
@@ -2032,53 +2122,193 @@
         "affectsGlobalScope": false
       },
       "./src/lib/firebase.ts": {
-        "version": "f10834e933eebdb8281b0b68acad5488c376ed8165cefb3f3e909822b2efea9b",
-        "signature": "5f27e207f9067d16f128ab2e89ff115b1f89eb31af5b78a1d403d6785731c556",
+        "version": "c20c95f67e4acdcefd1b56c77a51f9008bec267e654de19e373d1ee7630e800c",
+        "signature": "2dc122651c95d8129b1fbcdb3d448b4ebfc3a48313630f44a32dd22d9d799cc5",
+        "affectsGlobalScope": false
+      },
+      "./src/lib/index.ts": {
+        "version": "1fd6a34f016341fed215c3f529962bd9e13a689d48145cc446fc2cf6ca0094da",
+        "signature": "51e300f639c34e87eba92766e63e08c69e31f8e6f8e7cc653a37feaadf4ed776",
         "affectsGlobalScope": false
       },
       "./src/screens/auth/profilescreen.tsx": {
-        "version": "ee28aceee16c0d336b99761e9a398f424f22dfe35d646ac40abe601d61c2f33e",
+        "version": "1897ef598605fc96d039b8647f2c5b9bf75d688604be97e8c3957efb9b77c233",
         "signature": "ff4f2ed91d207440acc1d734785ebacccef382f6b30837d3251ec87ff5235461",
         "affectsGlobalScope": false
       },
       "./src/screens/auth/favoritescreen.tsx": {
-        "version": "d25aebf352e43154085a2c078240319dcad97f18db9fac06fd0d974be40628e6",
+        "version": "c05a8126f4ccdce206ad9163e46fcfd77dc0d02d927550b9f3b02030900ceda4",
         "signature": "39d0ec1ab1bba703c24735b8bff5a8cdac8ba899817945ad2425ee4f519c6456",
         "affectsGlobalScope": false
       },
-      "./src/screens/auth/userinfoscreen.tsx": {
-        "version": "7267f053624565d3ceb62b84ecf07b718bcdec715f2fd8f44346a1ebac505754",
-        "signature": "ac75eaa49a3147401e58104e1164262bbe4e3a37854cab6a2ed7bf7755546ffa",
-        "affectsGlobalScope": false
-      },
       "./src/screens/auth/index.ts": {
-        "version": "532c640f02e5ad6f2f3bea0357bf433269c1bfa2d9c082ce359df8559356da60",
-        "signature": "11753302ced56efbe405f7ca8a2b3274bae6b9109afb4add4336f9749cab2e3d",
+        "version": "c7732fbcd88a4124470bdaf63e88c1ded52e33993dc921ca19eb38ea6440367d",
+        "signature": "e12372c603261e1de0588954e724693d48c8d4e968db9635a1701b460c6a61e9",
         "affectsGlobalScope": false
       },
       "./src/screens/onboarding/signinscreen.tsx": {
-        "version": "6d20dd2a787de361fe03f7f0c411cf33d2c4227e343f1a26255ae3fc71aa44f1",
+        "version": "2ee340b7d2be6f56c12fc7f018de28e97de703a26bc205ca4e643a459cc1dcd0",
         "signature": "7c8ecf4b2c12b9458f8861de53dbb1052e6f90993bccf08cfa0e58c96508c339",
         "affectsGlobalScope": false
       },
       "./src/screens/onboarding/signupscreen.tsx": {
-        "version": "9567e359a942027d9d5704ae5c315463b7290c6787888dd300488071ac088568",
+        "version": "6a61863d66de4fcee1d72b62847af6b6a34e3bc6591a17fcb9d2e23d9d28bcec",
         "signature": "95334a9a1882f0142797b57e574cd6e61ec1472cc9e1e7aa9ff5979178df9646",
         "affectsGlobalScope": false
       },
-      "./src/screens/onboarding/index.ts": {
-        "version": "65ba982cfb11e4fc0910a97348c09e237802fd037297269536c7156746cdf238",
-        "signature": "411482dff336f24301b156873956fd0b24bb59c9fef9d361781f5ca2ea632541",
+      "./src/screens/onboarding/userinfoscreen.tsx": {
+        "version": "ab3028e499c5f06ee3cd1c03e7f3ec1880e7963ebe2241875ba8b3bb2ece3c1b",
+        "signature": "e52a104adaebaa188985a8d9775d4a4b79db5ff89443515b44d648a024a81094",
         "affectsGlobalScope": false
       },
-      "./src/screens/splashscreen.tsx": {
-        "version": "54d07426ca1ad8e0a157eedc78d26e7a15a048ef1bf35edee872c897a4db5889",
-        "signature": "35d349ef80f7feb8f05a6d88ad31f2f8ec11e4f022ff664fc5f86ce2ef617ff9",
+      "./src/screens/onboarding/index.ts": {
+        "version": "b3cedc70d60aa67d51f6067eeadeef8878f0598c05e4584b5a09c3d7eb927805",
+        "signature": "0ee0b4b34d13782a33abaacd7ae12bd7a1d95ed752b77b323ff3005bc2a28230",
         "affectsGlobalScope": false
       },
       "./src/screens/index.ts": {
-        "version": "a28bde9a3a15d37e1e4a536281dda7229ff7d8060bb872ace1345efcdc21c2f9",
-        "signature": "60446d31793066562b923f69184f917e771656aabe478027ff350d46f55e59cf",
+        "version": "acc666fb0e64d28fb29909bc8f3e9eaaf4a132387fbefcbb20a77e79bc815dad",
+        "signature": "dc3c312112b49ef96d7c7870172098f0747f71c3d7d91ea51e057c0fd3d1972f",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/types.d.ts": {
+        "version": "5ea12e6d8ac007125048d189cc9a312d1e66bc29bfad6752f092afccd89ec53e",
+        "signature": "5ea12e6d8ac007125048d189cc9a312d1e66bc29bfad6752f092afccd89ec53e",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/navigators/createbottomtabnavigator.d.ts": {
+        "version": "995874913e1c80608e3b8699804cfffdc8f6f39b2d15c069605b89dc493eb268",
+        "signature": "995874913e1c80608e3b8699804cfffdc8f6f39b2d15c069605b89dc493eb268",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/views/bottomtabview.d.ts": {
+        "version": "a4f4d60d1a5b405f34b55c84f6c973ddd855718f2ce3b31ad481075599b12fa4",
+        "signature": "a4f4d60d1a5b405f34b55c84f6c973ddd855718f2ce3b31ad481075599b12fa4",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/views/bottomtabbar.d.ts": {
+        "version": "277c3276a173668774c90340862b658783b88990316a04a396d88c982f985331",
+        "signature": "277c3276a173668774c90340862b658783b88990316a04a396d88c982f985331",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/index.d.ts": {
+        "version": "ec9d254e88e2f24c598e3888fdd23acbb2a72eaf347b85edc0b3a23442cfe453",
+        "signature": "ec9d254e88e2f24c598e3888fdd23acbb2a72eaf347b85edc0b3a23442cfe453",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/types.d.ts": {
+        "version": "0a15f2255065f5b4e0791e34109221b0a65c522d4aad53d50425df378c2ea625",
+        "signature": "0a15f2255065f5b4e0791e34109221b0a65c522d4aad53d50425df378c2ea625",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/types.d.ts": {
+        "version": "953b55fc9f6f537d33e986b2b4bcbdb29c9c29e4c2d9765cfb81281d3cbf2c45",
+        "signature": "953b55fc9f6f537d33e986b2b4bcbdb29c9c29e4c2d9765cfb81281d3cbf2c45",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/bubbletabbar.d.ts": {
+        "version": "5c018251c4bf9ee5b7b6bdf0ad4698d15aacd481d50c9e89cd60f78bd5c238c3",
+        "signature": "5c018251c4bf9ee5b7b6bdf0ad4698d15aacd481d50c9e89cd60f78bd5c238c3",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/item/bubbletabbaritem.d.ts": {
+        "version": "0ee55a12bf536ef985090aceecaa8f773e78fb7050a020dc839253bf7d8d6f3f",
+        "signature": "0ee55a12bf536ef985090aceecaa8f773e78fb7050a020dc839253bf7d8d6f3f",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/item/index.d.ts": {
+        "version": "8934cd4ca2f1732413c1f50b8665a24c55c9aec97b582cb7a29b094fb1f80152",
+        "signature": "8934cd4ca2f1732413c1f50b8665a24c55c9aec97b582cb7a29b094fb1f80152",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/index.d.ts": {
+        "version": "eb47fefed19ee9a7463af685f4c54a68e5b447b98de94bd2dd92975ab2ac45a0",
+        "signature": "eb47fefed19ee9a7463af685f4c54a68e5b447b98de94bd2dd92975ab2ac45a0",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/types.d.ts": {
+        "version": "87705de4c2b174e9a366f85321b8c0f1cc1a3367e133179c473fa35ed36bad4f",
+        "signature": "87705de4c2b174e9a366f85321b8c0f1cc1a3367e133179c473fa35ed36bad4f",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/flashytabbar.d.ts": {
+        "version": "bab4925881f19ff735dc5e051c030ebab805b27301844e9318f847f29528185d",
+        "signature": "bab4925881f19ff735dc5e051c030ebab805b27301844e9318f847f29528185d",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/item/flashytabbaritem.d.ts": {
+        "version": "675ebbc88bfaf3ac7b6c99a3e18c35661dd9a4a0ed3ee5864327bcded117a31b",
+        "signature": "675ebbc88bfaf3ac7b6c99a3e18c35661dd9a4a0ed3ee5864327bcded117a31b",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/item/index.d.ts": {
+        "version": "0448cd65f43764a0f7796515636da11b0154480278025df3636b1a71f309ffd1",
+        "signature": "0448cd65f43764a0f7796515636da11b0154480278025df3636b1a71f309ffd1",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/index.d.ts": {
+        "version": "c6f55a7b489d8190354437176fb4f0349e704a52482f64a2a4c32068bbc57d5d",
+        "signature": "c6f55a7b489d8190354437176fb4f0349e704a52482f64a2a4c32068bbc57d5d",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/types.d.ts": {
+        "version": "51f718644c498a40f1014fde31748ba1704d61dd2c350beb04839722a4f4a5b5",
+        "signature": "51f718644c498a40f1014fde31748ba1704d61dd2c350beb04839722a4f4a5b5",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/materialtabbar.d.ts": {
+        "version": "26a7856e2bb60e6f421f5a02ec4c6f0eee9916575220c3fe23bf74b861995fcc",
+        "signature": "26a7856e2bb60e6f421f5a02ec4c6f0eee9916575220c3fe23bf74b861995fcc",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/item/materialtabbaritem.d.ts": {
+        "version": "0abb6167fa29ca377a140b07e91af1ae39ce50cbfadef46eef8a7ac6d95975c0",
+        "signature": "0abb6167fa29ca377a140b07e91af1ae39ce50cbfadef46eef8a7ac6d95975c0",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/item/index.d.ts": {
+        "version": "209807bd1e53257fd9e4dc897aa92e5b2dfd7d5a651fd99bc2d1ac7a384ac487",
+        "signature": "209807bd1e53257fd9e4dc897aa92e5b2dfd7d5a651fd99bc2d1ac7a384ac487",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/index.d.ts": {
+        "version": "5a884341178a3f94c0ee8658b92e539834a0f981c517320b2f989d286044a0e0",
+        "signature": "5a884341178a3f94c0ee8658b92e539834a0f981c517320b2f989d286044a0e0",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets.d.ts": {
+        "version": "ab70b8a180d26af0bfb68e5e6f72bc266046121eaf0fc73b1c9e1e80fa9750a1",
+        "signature": "ab70b8a180d26af0bfb68e5e6f72bc266046121eaf0fc73b1c9e1e80fa9750a1",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/animatedtabbar.d.ts": {
+        "version": "ce21c374c07ae42c75b6197988a45fd3a21b1458db9761a59430003b149390be",
+        "signature": "ce21c374c07ae42c75b6197988a45fd3a21b1458db9761a59430003b149390be",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/animatedtabbarview.d.ts": {
+        "version": "709f4e890d4547b4a27227d2f86aa966f396fa22dc3ab55e99fa336328ff7ae3",
+        "signature": "709f4e890d4547b4a27227d2f86aa966f396fa22dc3ab55e99fa336328ff7ae3",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/index.d.ts": {
+        "version": "3273d81b51b8959e1b9bba663e8b980a0178cb31eb70931a508a234daa5fbf85",
+        "signature": "3273d81b51b8959e1b9bba663e8b980a0178cb31eb70931a508a234daa5fbf85",
+        "affectsGlobalScope": false
+      },
+      "./src/navigation/authstack.tsx": {
+        "version": "d3a039a875af29d7395d67db67f18cb009b27d7c2a438f20206330be471f2db4",
+        "signature": "92edc58aa93baf8b0cab764e6d4b6fbefa8a572d92ffeea8e13f992bbe31228b",
+        "affectsGlobalScope": false
+      },
+      "./src/navigation/onboardingstack.tsx": {
+        "version": "d6e6a563ef207e4d5dc2e12346cee946d974ee3c19cff7eecae30dc3d9a1f8ec",
+        "signature": "74ce812b9ca644217d2cda013b3129ab255b45ea7d07e51425d6fe60dd756fed",
+        "affectsGlobalScope": false
+      },
+      "./src/navigation/index.ts": {
+        "version": "a8af076aa8a93adc53ba167f80fd03bff002c677541ff684157feff90b370b3c",
+        "signature": "6871724f8aa525be831ea1401689f5b8cfd768ecff707ee40d3001b1366cada6",
         "affectsGlobalScope": false
       },
       "../node_modules/@apollo/client/link/context/index.d.ts": {
@@ -2087,7 +2317,7 @@
         "affectsGlobalScope": false
       },
       "./src/app.tsx": {
-        "version": "49e6cb65f63044e5fb99bdfb188ab012bf07ab2df9c590b977b96bb94068f929",
+        "version": "0cb0165d8ff373f642d200cb5aa1e0657e6084a61633a89f93d0eef9e464434f",
         "signature": "1f7357282945a7deda972b1957352320b3e416ec4cdec85a82585992c22fa144",
         "affectsGlobalScope": false
       },
@@ -2466,6 +2696,16 @@
         "signature": "5330493098e0521a330cef4377a62f045155cacab3fbe0d3ecf7fa213e614fcd",
         "affectsGlobalScope": false
       },
+      "./functions/node_modules/graphql/language/source.d.ts": {
+        "version": "8a9605a3d12a83ad1571654f37c86b26d29f85788bc3507c7945c11bcce0249f",
+        "signature": "8a9605a3d12a83ad1571654f37c86b26d29f85788bc3507c7945c11bcce0249f",
+        "affectsGlobalScope": false
+      },
+      "./functions/node_modules/graphql/language/tokenkind.d.ts": {
+        "version": "4a1545bdbccec0209a67da02f760fad629deedbe7d8ac9f55c93c82f95ff5449",
+        "signature": "4a1545bdbccec0209a67da02f760fad629deedbe7d8ac9f55c93c82f95ff5449",
+        "affectsGlobalScope": false
+      },
       "./functions/node_modules/graphql/language/ast.d.ts": {
         "version": "7b52c21bd6397ca26df3b7863fa2d5014aa4bbf5621377769726bbd59956e6bc",
         "signature": "7b52c21bd6397ca26df3b7863fa2d5014aa4bbf5621377769726bbd59956e6bc",
@@ -2497,8 +2737,8 @@
         "affectsGlobalScope": true
       },
       "./generated/graphql.fragment-types.ts": {
-        "version": "139d1c55b1f45fd77293afea3988d5fc5cad904fcf501fd4d130d704f09a0568",
-        "signature": "e44b2648b8a2cf09cd50caabf6649fe60362d56aa8e3f3b08618ffa121f61aa7",
+        "version": "f52ce5e7a3e7ea643e29fa7188e755c1e4989e1a04f859a876cf27c20bd19e22",
+        "signature": "4e1bb6bb0b95e290fd30fc97f16bef440c527fae1743f898ed33773c417de97d",
         "affectsGlobalScope": false
       },
       "./types/env.d.ts": {
@@ -2511,44 +2751,9 @@
         "signature": "456462055bfef1005f1cbfc44fe4e5167646aec2294b6eac7c11eb2903292c00",
         "affectsGlobalScope": false
       },
-      "../node_modules/@babel/types/lib/index.d.ts": {
-        "version": "3eb8ad25895d53cc6229dc83decbc338d649ed6f3d5b537c9966293b056b1f57",
-        "signature": "3eb8ad25895d53cc6229dc83decbc338d649ed6f3d5b537c9966293b056b1f57",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@types/babel__generator/index.d.ts": {
-        "version": "b25c5f2970d06c729f464c0aeaa64b1a5b5f1355aa93554bb5f9c199b8624b1e",
-        "signature": "b25c5f2970d06c729f464c0aeaa64b1a5b5f1355aa93554bb5f9c199b8624b1e",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@types/babel__traverse/index.d.ts": {
-        "version": "ef91066d2057cca50511e3af2d4aa54e07913a15f9cee1748f256139318eb413",
-        "signature": "ef91066d2057cca50511e3af2d4aa54e07913a15f9cee1748f256139318eb413",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@babel/parser/typings/babel-parser.d.ts": {
-        "version": "8678956904af215fe917b2df07b6c54f876fa64eb1f8a158e4ff38404cef3ff4",
-        "signature": "8678956904af215fe917b2df07b6c54f876fa64eb1f8a158e4ff38404cef3ff4",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@types/babel__template/index.d.ts": {
-        "version": "3e0a34f7207431d967dc32d593d1cda0c23975e9484bc8895b39d96ffca4a0d8",
-        "signature": "3e0a34f7207431d967dc32d593d1cda0c23975e9484bc8895b39d96ffca4a0d8",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@types/babel__core/index.d.ts": {
-        "version": "7df3163944694feeac63067632a8dc2e2dea1350119ec8b43df277af69198369",
-        "signature": "7df3163944694feeac63067632a8dc2e2dea1350119ec8b43df277af69198369",
-        "affectsGlobalScope": false
-      },
       "../node_modules/@types/eslint-visitor-keys/index.d.ts": {
         "version": "725d9be2fd48440256f4deb00649adffdbc5ecd282b09e89d4e200663792c34c",
         "signature": "725d9be2fd48440256f4deb00649adffdbc5ecd282b09e89d4e200663792c34c",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@types/graceful-fs/index.d.ts": {
-        "version": "2c7dca525f4e2e5f2b357dacb58ab6c8777995e6d505ef652bcbbf9789ac558f",
-        "signature": "2c7dca525f4e2e5f2b357dacb58ab6c8777995e6d505ef652bcbbf9789ac558f",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/hammerjs/index.d.ts": {
@@ -2576,46 +2781,6 @@
         "signature": "029769d13d9917e3284cb2356ed28a6576e8b07ae6a06ee1e672518adf21a102",
         "affectsGlobalScope": false
       },
-      "../node_modules/@types/jest/node_modules/jest-diff/build/cleanupsemantic.d.ts": {
-        "version": "e222104af6cb9415238ad358488b74d76eceeff238c1268ec6e85655b05341da",
-        "signature": "e222104af6cb9415238ad358488b74d76eceeff238c1268ec6e85655b05341da",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@types/jest/node_modules/jest-diff/build/types.d.ts": {
-        "version": "69da61a7b5093dac77fa3bec8be95dcf9a74c95a0e9161edb98bb24e30e439d2",
-        "signature": "69da61a7b5093dac77fa3bec8be95dcf9a74c95a0e9161edb98bb24e30e439d2",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@types/jest/node_modules/jest-diff/build/difflines.d.ts": {
-        "version": "eba230221317c985ab1953ccc3edc517f248b37db4fef7875cb2c8d08aff7be7",
-        "signature": "eba230221317c985ab1953ccc3edc517f248b37db4fef7875cb2c8d08aff7be7",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@types/jest/node_modules/jest-diff/build/printdiffs.d.ts": {
-        "version": "b83e796810e475da3564c6515bc0ae9577070596a33d89299b7d99f94ecfd921",
-        "signature": "b83e796810e475da3564c6515bc0ae9577070596a33d89299b7d99f94ecfd921",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@types/jest/node_modules/jest-diff/build/index.d.ts": {
-        "version": "b4439890c168d646357928431100daac5cbdee1d345a34e6bf6eca9f3abe22bc",
-        "signature": "b4439890c168d646357928431100daac5cbdee1d345a34e6bf6eca9f3abe22bc",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@types/jest/node_modules/pretty-format/build/types.d.ts": {
-        "version": "5d72971a459517c44c1379dab9ed248e87a61ba0a1e0f25c9d67e1e640cd9a09",
-        "signature": "5d72971a459517c44c1379dab9ed248e87a61ba0a1e0f25c9d67e1e640cd9a09",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@types/jest/node_modules/pretty-format/build/index.d.ts": {
-        "version": "02d734976af36f4273d930bea88b3e62adf6b078cf120c1c63d49aa8d8427c5c",
-        "signature": "02d734976af36f4273d930bea88b3e62adf6b078cf120c1c63d49aa8d8427c5c",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@types/jest/index.d.ts": {
-        "version": "f2b73fbe0e4e473289046067e91303cd1b0994206edc6d38b80aa45692afa6b8",
-        "signature": "f2b73fbe0e4e473289046067e91303cd1b0994206edc6d38b80aa45692afa6b8",
-        "affectsGlobalScope": true
-      },
       "../node_modules/@types/js-yaml/index.d.ts": {
         "version": "c303a72d3128054d400767264e6f5414b86bf29c1b11730c45027f2213e82f34",
         "signature": "c303a72d3128054d400767264e6f5414b86bf29c1b11730c45027f2213e82f34",
@@ -2641,24 +2806,14 @@
         "signature": "e8465811693dfe4e96ef2b3dffda539d6edfe896961b7af37b44db2c0e48532b",
         "affectsGlobalScope": false
       },
-      "../node_modules/@types/normalize-package-data/index.d.ts": {
-        "version": "c9ad058b2cc9ce6dc2ed92960d6d009e8c04bef46d3f5312283debca6869f613",
-        "signature": "c9ad058b2cc9ce6dc2ed92960d6d009e8c04bef46d3f5312283debca6869f613",
-        "affectsGlobalScope": false
-      },
       "../node_modules/@types/parse-json/index.d.ts": {
         "version": "2b8264b2fefd7367e0f20e2c04eed5d3038831fe00f5efbc110ff0131aab899b",
         "signature": "2b8264b2fefd7367e0f20e2c04eed5d3038831fe00f5efbc110ff0131aab899b",
         "affectsGlobalScope": false
       },
-      "../node_modules/@types/prettier/index.d.ts": {
-        "version": "7403a1397d48771d58d55c603d0c51aa3d4cd6467bca03140f085fdc432eb912",
-        "signature": "7403a1397d48771d58d55c603d0c51aa3d4cd6467bca03140f085fdc432eb912",
-        "affectsGlobalScope": false
-      },
       "../node_modules/@types/stack-utils/index.d.ts": {
-        "version": "c6c4fea9acc55d5e38ff2b70d57ab0b5cdbd08f8bc5d7a226e322cea128c5b57",
-        "signature": "c6c4fea9acc55d5e38ff2b70d57ab0b5cdbd08f8bc5d7a226e322cea128c5b57",
+        "version": "41422586881bcd739b4e62d9b91cd29909f8572aa3e3cdf316b7c50f14708d49",
+        "signature": "41422586881bcd739b4e62d9b91cd29909f8572aa3e3cdf316b7c50f14708d49",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/strip-bom/index.d.ts": {
@@ -2682,8 +2837,8 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@types/yargs/index.d.ts": {
-        "version": "587e091276e4676b63121333f417206cd84cadf91b09949303431920d19bc04f",
-        "signature": "587e091276e4676b63121333f417206cd84cadf91b09949303431920d19bc04f",
+        "version": "1a81627b04dd2feab19e26d3df04e79f50d5dae42b9b5f9181d23dc820c9f048",
+        "signature": "1a81627b04dd2feab19e26d3df04e79f50d5dae42b9b5f9181d23dc820c9f048",
         "affectsGlobalScope": false
       }
     },
@@ -2703,7 +2858,7 @@
       "baseUrl": "./src",
       "paths": {
         "&lib": [
-          "./lib/*"
+          "./lib"
         ],
         "&data": [
           "./data"
@@ -3109,11 +3264,11 @@
         "./functions/node_modules/graphql-request/dist/types.dom.d.ts"
       ],
       "./functions/node_modules/graphql-request/dist/types.d.ts": [
-        "../node_modules/graphql/language/ast.d.ts"
+        "./functions/node_modules/graphql/language/ast.d.ts"
       ],
       "./functions/node_modules/graphql/language/ast.d.ts": [
-        "../node_modules/graphql/language/source.d.ts",
-        "../node_modules/graphql/language/tokenkind.d.ts"
+        "./functions/node_modules/graphql/language/source.d.ts",
+        "./functions/node_modules/graphql/language/tokenkind.d.ts"
       ],
       "./functions/node_modules/teeny-request/build/src/index.d.ts": [
         "../node_modules/@types/node/https.d.ts",
@@ -3136,9 +3291,10 @@
         "../node_modules/@types/react/index.d.ts",
         "../node_modules/@types/styled-components/native.d.ts",
         "../node_modules/firebase/index.d.ts",
-        "./src/lib/firebase.ts",
+        "../node_modules/react-native-splash-screen/index.d.ts",
+        "./src/components/index.ts",
+        "./src/lib/index.ts",
         "./src/navigation/index.ts",
-        "./src/screens/index.ts",
         "./src/theme/index.ts",
         "./types/env.d.ts"
       ],
@@ -3149,14 +3305,19 @@
       "./src/components/cart/cartitemcell.tsx": [
         "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
         "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-gesture-handler/react-native-gesture-handler.d.ts",
+        "../node_modules/react-native-haptic-feedback/index.d.ts",
         "./generated/graphql.tsx",
-        "./src/components/cart/styled.ts"
+        "./src/components/cart/styled.ts",
+        "./src/components/swipegesture.ts",
+        "./src/utils/index.ts"
       ],
       "./src/components/cart/index.ts": [
         "./src/components/cart/cartitemcell.tsx",
         "./src/components/cart/styled.ts"
       ],
       "./src/components/cart/styled.ts": [
+        "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/styled-components/native.d.ts",
         "./src/components/text.ts",
         "./src/components/views.ts"
@@ -3164,15 +3325,19 @@
       "./src/components/favorites/favoriteitemcell.tsx": [
         "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
         "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-gesture-handler/react-native-gesture-handler.d.ts",
+        "../node_modules/react-native-haptic-feedback/index.d.ts",
         "./generated/graphql.tsx",
         "./src/components/favorites/styled.ts",
-        "./src/icons/index.ts"
+        "./src/components/swipegesture.ts",
+        "./src/utils/index.ts"
       ],
       "./src/components/favorites/index.ts": [
         "./src/components/favorites/favoriteitemcell.tsx",
         "./src/components/favorites/styled.ts"
       ],
       "./src/components/favorites/styled.ts": [
+        "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/styled-components/native.d.ts",
         "./src/components/text.ts",
         "./src/components/views.ts"
@@ -3181,38 +3346,48 @@
         "./src/components/buttons.ts",
         "./src/components/cart/index.ts",
         "./src/components/favorites/index.ts",
-        "./src/components/itemdetail/index.ts",
-        "./src/components/landing/index.ts",
+        "./src/components/itemdetail.ts",
+        "./src/components/loadingoverlay.tsx",
+        "./src/components/mapview/index.ts",
+        "./src/components/modal.ts",
         "./src/components/onboarding.ts",
         "./src/components/scan/index.ts",
-        "./src/components/splash.ts",
+        "./src/components/storedetail/index.ts",
         "./src/components/text.ts",
         "./src/components/userprofile.ts",
         "./src/components/views.ts"
       ],
-      "./src/components/itemdetail/index.ts": [
-        "./src/components/itemdetail/styled.ts"
-      ],
-      "./src/components/itemdetail/styled.ts": [
+      "./src/components/itemdetail.ts": [
         "../node_modules/@types/styled-components/native.d.ts",
         "./src/components/text.ts",
         "./src/components/views.ts"
       ],
-      "./src/components/landing/hellouser.tsx": [
-        "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
+      "./src/components/loadingoverlay.tsx": [
+        "../node_modules/@types/react-native-indicators/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "../node_modules/@types/styled-components/native.d.ts",
+        "./src/components/views.ts",
+        "./src/theme/index.ts"
+      ],
+      "./src/components/mapview/index.ts": [
+        "./src/components/mapview/storesuggestioncell.tsx",
+        "./src/components/mapview/styled.ts"
+      ],
+      "./src/components/mapview/storesuggestioncell.tsx": [
         "../node_modules/@types/react/index.d.ts",
         "./generated/graphql.tsx",
-        "./src/components/buttons.ts",
-        "./src/components/landing/styled.ts",
-        "./src/utils/index.ts"
+        "./src/components/mapview/styled.ts"
       ],
-      "./src/components/landing/index.ts": [
-        "./src/components/landing/hellouser.tsx",
-        "./src/components/landing/styled.ts"
-      ],
-      "./src/components/landing/styled.ts": [
+      "./src/components/mapview/styled.ts": [
+        "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/styled-components/native.d.ts",
+        "../node_modules/react-native-maps/index.d.ts",
+        "./src/components/modal.ts",
         "./src/components/text.ts",
+        "./src/components/views.ts"
+      ],
+      "./src/components/modal.ts": [
+        "../node_modules/@types/styled-components/native.d.ts",
         "./src/components/views.ts"
       ],
       "./src/components/onboarding.ts": [
@@ -3227,11 +3402,14 @@
         "./src/components/scan/styled.ts"
       ],
       "./src/components/scan/itempreview.tsx": [
+        "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-haptic-feedback/index.d.ts",
         "./generated/graphql.tsx",
         "./src/components/scan/styled.ts",
-        "./src/components/text.ts"
+        "./src/components/text.ts",
+        "./src/utils/index.ts"
       ],
       "./src/components/scan/scanneroverlay.tsx": [
         "../node_modules/@types/react/index.d.ts",
@@ -3244,7 +3422,37 @@
         "./src/components/text.ts",
         "./src/components/views.ts"
       ],
-      "./src/components/splash.ts": [
+      "./src/components/storedetail/index.ts": [
+        "./src/components/storedetail/storepreview.tsx",
+        "./src/components/storedetail/styled.ts"
+      ],
+      "./src/components/storedetail/popularitemcell.tsx": [
+        "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "./generated/graphql.tsx",
+        "./src/components/storedetail/styled.ts"
+      ],
+      "./src/components/storedetail/storepreview.tsx": [
+        "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-haptic-feedback/index.d.ts",
+        "../node_modules/reanimated-bottom-sheet/lib/typescript/index.d.ts",
+        "./generated/graphql.tsx",
+        "./src/components/loadingoverlay.tsx",
+        "./src/components/modal.ts",
+        "./src/components/storedetail/popularitemcell.tsx",
+        "./src/components/storedetail/styled.ts",
+        "./src/icons/index.ts",
+        "./src/utils/index.ts"
+      ],
+      "./src/components/storedetail/styled.ts": [
+        "../node_modules/@types/styled-components/native.d.ts",
+        "./src/components/text.ts",
+        "./src/components/views.ts"
+      ],
+      "./src/components/swipegesture.ts": [
+        "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/styled-components/native.d.ts",
         "./src/components/text.ts"
       ],
@@ -3262,11 +3470,19 @@
         "../node_modules/expo-camera/build/index.d.ts",
         "./src/components/text.ts"
       ],
+      "./src/icons/appicon.tsx": [
+        "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-svg/src/index.d.ts"
+      ],
       "./src/icons/backarrowicon.tsx": [
         "../node_modules/@types/react/index.d.ts",
         "../node_modules/react-native-svg/src/index.d.ts"
       ],
       "./src/icons/barcodeicon.tsx": [
+        "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-svg/src/index.d.ts"
+      ],
+      "./src/icons/cameraicon.tsx": [
         "../node_modules/@types/react/index.d.ts",
         "../node_modules/react-native-svg/src/index.d.ts"
       ],
@@ -3299,8 +3515,10 @@
         "../node_modules/react-native-svg/src/index.d.ts"
       ],
       "./src/icons/index.ts": [
+        "./src/icons/appicon.tsx",
         "./src/icons/backarrowicon.tsx",
         "./src/icons/barcodeicon.tsx",
+        "./src/icons/cameraicon.tsx",
         "./src/icons/carticon.tsx",
         "./src/icons/checkicon.tsx",
         "./src/icons/closeicon.tsx",
@@ -3308,9 +3526,20 @@
         "./src/icons/findicon.tsx",
         "./src/icons/flashicon.tsx",
         "./src/icons/hearticon.tsx",
+        "./src/icons/maparrowicon.tsx",
+        "./src/icons/markericon.tsx",
         "./src/icons/passwordicons.tsx",
         "./src/icons/personicon.tsx",
+        "./src/icons/swipeicons.tsx",
         "./src/icons/tabnavigationicons.tsx"
+      ],
+      "./src/icons/maparrowicon.tsx": [
+        "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-svg/src/index.d.ts"
+      ],
+      "./src/icons/markericon.tsx": [
+        "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-svg/src/index.d.ts"
       ],
       "./src/icons/passwordicons.tsx": [
         "../node_modules/@types/react/index.d.ts",
@@ -3320,8 +3549,13 @@
         "../node_modules/@types/react/index.d.ts",
         "../node_modules/react-native-svg/src/index.d.ts"
       ],
+      "./src/icons/swipeicons.tsx": [
+        "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-svg/src/index.d.ts"
+      ],
       "./src/icons/tabnavigationicons.tsx": [
         "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-reanimated/react-native-reanimated.d.ts",
         "../node_modules/react-native-svg/src/index.d.ts"
       ],
       "./src/lib/firebase.ts": [
@@ -3329,12 +3563,19 @@
         "../node_modules/firebase/index.d.ts",
         "./types/env.d.ts"
       ],
+      "./src/lib/index.ts": [
+        "./src/lib/firebase.ts"
+      ],
       "./src/navigation/authstack.tsx": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/index.d.ts",
+        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/index.d.ts",
         "../node_modules/@react-navigation/stack/lib/typescript/src/index.d.ts",
         "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-haptic-feedback/index.d.ts",
         "./src/icons/index.ts",
         "./src/screens/index.ts",
-        "./src/theme/index.ts"
+        "./src/theme/index.ts",
+        "./src/utils/index.ts"
       ],
       "./src/navigation/index.ts": [
         "./src/navigation/authstack.tsx",
@@ -3346,14 +3587,12 @@
         "./src/screens/index.ts"
       ],
       "./src/screens/auth/cartscreen.tsx": [
-        "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/react/index.d.ts",
         "./generated/graphql.tsx",
         "./src/components/index.ts"
       ],
       "./src/screens/auth/favoritescreen.tsx": [
-        "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/react/index.d.ts",
         "./generated/graphql.tsx",
@@ -3366,41 +3605,59 @@
         "./src/screens/auth/favoritescreen.tsx",
         "./src/screens/auth/mapview.tsx",
         "./src/screens/auth/profilescreen.tsx",
-        "./src/screens/auth/scan/index.ts",
-        "./src/screens/auth/userinfoscreen.tsx"
+        "./src/screens/auth/scan/index.ts"
       ],
       "./src/screens/auth/mapview.tsx": [
+        "../node_modules/@react-native-community/geolocation/typings/index.d.ts",
         "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
-        "../node_modules/@react-navigation/stack/lib/typescript/src/index.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-haptic-feedback/index.d.ts",
+        "../node_modules/react-native-maps/index.d.ts",
+        "../node_modules/react-native-permissions/lib/typescript/index.d.ts",
         "./generated/graphql.tsx",
         "./src/components/index.ts",
-        "./src/navigation/index.ts"
+        "./src/icons/index.ts",
+        "./src/theme/index.ts",
+        "./src/utils/index.ts"
       ],
       "./src/screens/auth/profilescreen.tsx": [
         "../node_modules/@apollo/client/index.d.ts",
         "../node_modules/@react-native-community/async-storage/types/index.d.ts",
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-haptic-feedback/index.d.ts",
         "./generated/graphql.tsx",
         "./src/components/index.ts",
         "./src/icons/index.ts",
-        "./src/lib/firebase.ts",
+        "./src/lib/index.ts",
+        "./src/utils/index.ts"
+      ],
+      "./src/screens/auth/scan/additemscreen.tsx": [
+        "../node_modules/@react-navigation/stack/lib/typescript/src/index.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "./generated/graphql.tsx",
+        "./src/components/index.ts",
+        "./src/icons/index.ts",
+        "./src/navigation/index.ts",
         "./src/utils/index.ts"
       ],
       "./src/screens/auth/scan/index.ts": [
+        "./src/screens/auth/scan/additemscreen.tsx",
         "./src/screens/auth/scan/itemdetail.tsx",
         "./src/screens/auth/scan/scanningscreen.tsx"
       ],
       "./src/screens/auth/scan/itemdetail.tsx": [
         "../node_modules/@react-navigation/stack/lib/typescript/src/index.d.ts",
-        "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-haptic-feedback/index.d.ts",
         "../node_modules/reanimated-bottom-sheet/lib/typescript/index.d.ts",
         "./generated/graphql.tsx",
         "./src/components/index.ts",
         "./src/icons/index.ts",
-        "./src/navigation/index.ts"
+        "./src/navigation/index.ts",
+        "./src/utils/index.ts"
       ],
       "./src/screens/auth/scan/scanningscreen.tsx": [
         "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
@@ -3411,15 +3668,7 @@
         "../node_modules/expo-camera/build/camera.types.d.ts",
         "../node_modules/expo-camera/build/index.d.ts",
         "../node_modules/react-native-device-info/lib/typescript/index.d.ts",
-        "./src/components/index.ts",
-        "./src/icons/index.ts",
-        "./src/navigation/index.ts"
-      ],
-      "./src/screens/auth/userinfoscreen.tsx": [
-        "../node_modules/@react-navigation/stack/lib/typescript/src/index.d.ts",
-        "../node_modules/@types/react-native/index.d.ts",
-        "../node_modules/@types/react/index.d.ts",
-        "./generated/graphql.tsx",
+        "../node_modules/react-native-haptic-feedback/index.d.ts",
         "./src/components/index.ts",
         "./src/icons/index.ts",
         "./src/navigation/index.ts",
@@ -3427,42 +3676,53 @@
       ],
       "./src/screens/index.ts": [
         "./src/screens/auth/index.ts",
-        "./src/screens/onboarding/index.ts",
-        "./src/screens/splashscreen.tsx"
+        "./src/screens/onboarding/index.ts"
       ],
       "./src/screens/onboarding/index.ts": [
         "./src/screens/onboarding/signinscreen.tsx",
-        "./src/screens/onboarding/signupscreen.tsx"
+        "./src/screens/onboarding/signupscreen.tsx",
+        "./src/screens/onboarding/userinfoscreen.tsx"
       ],
       "./src/screens/onboarding/signinscreen.tsx": [
         "../node_modules/@react-native-community/async-storage/types/index.d.ts",
         "../node_modules/@react-navigation/stack/lib/typescript/src/index.d.ts",
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-haptic-feedback/index.d.ts",
         "./src/components/index.ts",
         "./src/icons/index.ts",
-        "./src/lib/firebase.ts",
+        "./src/lib/index.ts",
         "./src/navigation/index.ts",
         "./src/utils/index.ts"
       ],
       "./src/screens/onboarding/signupscreen.tsx": [
+        "../node_modules/@react-navigation/stack/lib/typescript/src/index.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-haptic-feedback/index.d.ts",
+        "./src/components/index.ts",
+        "./src/icons/index.ts",
+        "./src/lib/index.ts",
+        "./src/navigation/index.ts",
+        "./src/utils/index.ts"
+      ],
+      "./src/screens/onboarding/userinfoscreen.tsx": [
         "../node_modules/@react-native-community/async-storage/types/index.d.ts",
         "../node_modules/@react-navigation/stack/lib/typescript/src/index.d.ts",
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-haptic-feedback/index.d.ts",
+        "./generated/graphql.tsx",
         "./src/components/index.ts",
         "./src/icons/index.ts",
-        "./src/lib/firebase.ts",
+        "./src/lib/index.ts",
         "./src/navigation/index.ts",
         "./src/utils/index.ts"
       ],
-      "./src/screens/splashscreen.tsx": [
-        "../node_modules/@types/react/index.d.ts",
-        "./src/components/index.ts"
-      ],
       "./src/utils/index.ts": [
         "../node_modules/@types/react/index.d.ts",
-        "./src/utils/formvalidationutils.ts"
+        "./src/utils/formvalidationutils.ts",
+        "./src/utils/hapticfeedbackutils.ts"
       ],
       "./types/styled.d.ts": [
         "../node_modules/@types/styled-components/index.d.ts",
@@ -3675,8 +3935,7 @@
       "../node_modules/@apollo/client/link/core/types.d.ts": [
         "../node_modules/@apollo/client/utilities/index.d.ts",
         "../node_modules/@types/zen-observable/index.d.ts",
-        "../node_modules/graphql/execution/execute.d.ts",
-        "../node_modules/graphql/language/ast.d.ts"
+        "../node_modules/graphql/index.d.ts"
       ],
       "../node_modules/@apollo/client/link/http/createhttplink.d.ts": [
         "../node_modules/@apollo/client/link/core/index.d.ts",
@@ -3876,11 +4135,132 @@
       "../node_modules/@apollo/client/utilities/policies/pagination.d.ts": [
         "../node_modules/@apollo/client/cache/index.d.ts"
       ],
-      "../node_modules/@babel/parser/typings/babel-parser.d.ts": [
-        "../node_modules/@babel/types/lib/index.d.ts"
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/animatedtabbar.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/types.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/animatedtabbarview.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/types.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/index.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/animatedtabbar.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/animatedtabbarview.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/index.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/index.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/index.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/types.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/index.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/index.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/index.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/types.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/bubbletabbar.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/types.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/types.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/index.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/bubbletabbar.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/item/index.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/types.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/item/bubbletabbaritem.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/types.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/item/index.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/item/bubbletabbaritem.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/types.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/types.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-reanimated/react-native-reanimated.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/flashytabbar.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/types.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/types.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/index.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/flashytabbar.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/item/index.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/types.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/item/flashytabbaritem.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/types.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/item/index.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/item/flashytabbaritem.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/types.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/types.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-reanimated/react-native-reanimated.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/index.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/item/index.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/materialtabbar.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/types.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/item/index.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/item/materialtabbaritem.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/item/materialtabbaritem.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/types.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/materialtabbar.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/types.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/types.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/types.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/types.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-reanimated/react-native-reanimated.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/types.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/react-native-reanimated/react-native-reanimated.d.ts"
       ],
       "../node_modules/@graphql-typed-document-node/core/index.d.ts": [
         "../node_modules/graphql/index.d.ts"
+      ],
+      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/index.d.ts": [
+        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/navigators/createbottomtabnavigator.d.ts",
+        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/types.d.ts",
+        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/views/bottomtabbar.d.ts",
+        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/views/bottomtabview.d.ts"
+      ],
+      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/navigators/createbottomtabnavigator.d.ts": [
+        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/types.d.ts",
+        "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/types.d.ts": [
+        "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/views/bottomtabbar.d.ts": [
+        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/types.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/views/bottomtabview.d.ts": [
+        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/types.d.ts",
+        "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
+        "../node_modules/@types/react/index.d.ts"
       ],
       "../node_modules/@react-navigation/core/lib/typescript/src/basenavigationcontainer.d.ts": [
         "../node_modules/@react-navigation/core/lib/typescript/src/types.d.ts",
@@ -3895,6 +4275,7 @@
         "../node_modules/@types/react/index.d.ts"
       ],
       "../node_modules/@react-navigation/core/lib/typescript/src/getactionfromstate.d.ts": [
+        "../node_modules/@react-navigation/core/lib/typescript/src/types.d.ts",
         "../node_modules/@react-navigation/routers/lib/typescript/src/index.d.ts"
       ],
       "../node_modules/@react-navigation/core/lib/typescript/src/getfocusedroutenamefromroute.d.ts": [
@@ -3937,6 +4318,7 @@
         "../node_modules/@types/react/index.d.ts"
       ],
       "../node_modules/@react-navigation/core/lib/typescript/src/navigationroutecontext.d.ts": [
+        "../node_modules/@react-navigation/routers/lib/typescript/src/index.d.ts",
         "../node_modules/@types/react/index.d.ts"
       ],
       "../node_modules/@react-navigation/core/lib/typescript/src/types.d.ts": [
@@ -4074,7 +4456,8 @@
       ],
       "../node_modules/@react-navigation/stack/lib/typescript/src/navigators/createstacknavigator.d.ts": [
         "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
-        "../node_modules/@react-navigation/stack/lib/typescript/src/types.d.ts"
+        "../node_modules/@react-navigation/stack/lib/typescript/src/types.d.ts",
+        "../node_modules/@types/react/index.d.ts"
       ],
       "../node_modules/@react-navigation/stack/lib/typescript/src/transitionconfigs/cardstyleinterpolators.d.ts": [
         "../node_modules/@react-navigation/stack/lib/typescript/src/types.d.ts"
@@ -4117,40 +4500,21 @@
         "../node_modules/@types/react/index.d.ts"
       ],
       "../node_modules/@react-navigation/stack/lib/typescript/src/views/header/headerbackbutton.d.ts": [
-        "../node_modules/@react-navigation/stack/lib/typescript/src/types.d.ts"
+        "../node_modules/@react-navigation/stack/lib/typescript/src/types.d.ts",
+        "../node_modules/@types/react/index.d.ts"
       ],
       "../node_modules/@react-navigation/stack/lib/typescript/src/views/header/headerbackground.d.ts": [
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/react/index.d.ts"
       ],
       "../node_modules/@react-navigation/stack/lib/typescript/src/views/header/headertitle.d.ts": [
-        "../node_modules/@types/react-native/index.d.ts"
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts"
       ],
       "../node_modules/@react-navigation/stack/lib/typescript/src/views/stack/stackview.d.ts": [
         "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
         "../node_modules/@react-navigation/stack/lib/typescript/src/types.d.ts",
         "../node_modules/@types/react/index.d.ts"
-      ],
-      "../node_modules/@types/babel__core/index.d.ts": [
-        "../node_modules/@babel/parser/typings/babel-parser.d.ts",
-        "../node_modules/@babel/types/lib/index.d.ts",
-        "../node_modules/@types/babel__generator/index.d.ts",
-        "../node_modules/@types/babel__template/index.d.ts",
-        "../node_modules/@types/babel__traverse/index.d.ts"
-      ],
-      "../node_modules/@types/babel__generator/index.d.ts": [
-        "../node_modules/@babel/types/lib/index.d.ts"
-      ],
-      "../node_modules/@types/babel__template/index.d.ts": [
-        "../node_modules/@babel/parser/typings/babel-parser.d.ts",
-        "../node_modules/@babel/types/lib/index.d.ts"
-      ],
-      "../node_modules/@types/babel__traverse/index.d.ts": [
-        "../node_modules/@babel/types/lib/index.d.ts"
-      ],
-      "../node_modules/@types/graceful-fs/index.d.ts": [
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/index.d.ts"
       ],
       "../node_modules/@types/hoist-non-react-statics/index.d.ts": [
         "../node_modules/@types/react/index.d.ts"
@@ -4166,27 +4530,6 @@
       "../node_modules/@types/istanbul-reports/index.d.ts": [
         "../node_modules/@types/istanbul-lib-coverage/index.d.ts",
         "../node_modules/@types/istanbul-lib-report/index.d.ts"
-      ],
-      "../node_modules/@types/jest/index.d.ts": [
-        "../node_modules/@types/jest/node_modules/jest-diff/build/index.d.ts",
-        "../node_modules/@types/jest/node_modules/pretty-format/build/index.d.ts"
-      ],
-      "../node_modules/@types/jest/node_modules/jest-diff/build/difflines.d.ts": [
-        "../node_modules/@types/jest/node_modules/jest-diff/build/cleanupsemantic.d.ts",
-        "../node_modules/@types/jest/node_modules/jest-diff/build/types.d.ts"
-      ],
-      "../node_modules/@types/jest/node_modules/jest-diff/build/index.d.ts": [
-        "../node_modules/@types/jest/node_modules/jest-diff/build/cleanupsemantic.d.ts",
-        "../node_modules/@types/jest/node_modules/jest-diff/build/difflines.d.ts",
-        "../node_modules/@types/jest/node_modules/jest-diff/build/printdiffs.d.ts",
-        "../node_modules/@types/jest/node_modules/jest-diff/build/types.d.ts"
-      ],
-      "../node_modules/@types/jest/node_modules/jest-diff/build/printdiffs.d.ts": [
-        "../node_modules/@types/jest/node_modules/jest-diff/build/cleanupsemantic.d.ts",
-        "../node_modules/@types/jest/node_modules/jest-diff/build/types.d.ts"
-      ],
-      "../node_modules/@types/jest/node_modules/pretty-format/build/index.d.ts": [
-        "../node_modules/@types/jest/node_modules/pretty-format/build/types.d.ts"
       ],
       "../node_modules/@types/jsonwebtoken/index.d.ts": [
         "../node_modules/@types/node/index.d.ts"
@@ -4357,6 +4700,10 @@
       ],
       "../node_modules/@types/node/zlib.d.ts": [
         "../node_modules/@types/node/stream.d.ts"
+      ],
+      "../node_modules/@types/react-native-indicators/index.d.ts": [
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts"
       ],
       "../node_modules/@types/react-native/devtools.d.ts": [
         "../node_modules/@types/react-native/devtools.d.ts"
@@ -4652,6 +4999,7 @@
         "../node_modules/graphql/utilities/separateoperations.d.ts",
         "../node_modules/graphql/utilities/stripignoredcharacters.d.ts",
         "../node_modules/graphql/utilities/typecomparators.d.ts",
+        "../node_modules/graphql/utilities/typedquerydocumentnode.d.ts",
         "../node_modules/graphql/utilities/typefromast.d.ts",
         "../node_modules/graphql/utilities/typeinfo.d.ts",
         "../node_modules/graphql/utilities/valuefromast.d.ts",
@@ -4677,6 +5025,9 @@
       "../node_modules/graphql/utilities/typecomparators.d.ts": [
         "../node_modules/graphql/type/definition.d.ts",
         "../node_modules/graphql/type/schema.d.ts"
+      ],
+      "../node_modules/graphql/utilities/typedquerydocumentnode.d.ts": [
+        "../node_modules/graphql/language/ast.d.ts"
       ],
       "../node_modules/graphql/utilities/typefromast.d.ts": [
         "../node_modules/graphql/language/ast.d.ts",
@@ -4932,6 +5283,19 @@
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/react/index.d.ts",
         "../node_modules/react-native-gesture-handler/react-native-gesture-handler.d.ts"
+      ],
+      "../node_modules/react-native-maps/index.d.ts": [
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/react-native-permissions/lib/typescript/index.d.ts": [
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/react-native-permissions/lib/typescript/constants.d.ts",
+        "../node_modules/react-native-permissions/lib/typescript/types.d.ts"
+      ],
+      "../node_modules/react-native-permissions/lib/typescript/types.d.ts": [
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/react-native-permissions/lib/typescript/constants.d.ts"
       ],
       "../node_modules/react-native-reanimated/react-native-reanimated.d.ts": [
         "../node_modules/@types/react-native/index.d.ts",
@@ -5337,11 +5701,11 @@
         "./functions/node_modules/graphql-request/dist/types.dom.d.ts"
       ],
       "./functions/node_modules/graphql-request/dist/types.d.ts": [
-        "../node_modules/graphql/language/ast.d.ts"
+        "./functions/node_modules/graphql/language/ast.d.ts"
       ],
       "./functions/node_modules/graphql/language/ast.d.ts": [
-        "../node_modules/graphql/language/source.d.ts",
-        "../node_modules/graphql/language/tokenkind.d.ts"
+        "./functions/node_modules/graphql/language/source.d.ts",
+        "./functions/node_modules/graphql/language/tokenkind.d.ts"
       ],
       "./functions/node_modules/teeny-request/build/src/index.d.ts": [
         "../node_modules/@types/node/https.d.ts",
@@ -5364,6 +5728,7 @@
       ],
       "./src/components/cart/styled.ts": [
         "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
         "../node_modules/@types/styled-components/index.d.ts"
       ],
       "./src/components/favorites/favoriteitemcell.tsx": [
@@ -5375,36 +5740,42 @@
       ],
       "./src/components/favorites/styled.ts": [
         "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
         "../node_modules/@types/styled-components/index.d.ts"
       ],
       "./src/components/index.ts": [
         "./src/components/buttons.ts",
         "./src/components/cart/index.ts",
         "./src/components/favorites/index.ts",
-        "./src/components/itemdetail/index.ts",
-        "./src/components/landing/index.ts",
+        "./src/components/itemdetail.ts",
+        "./src/components/loadingoverlay.tsx",
+        "./src/components/mapview/index.ts",
+        "./src/components/modal.ts",
         "./src/components/onboarding.ts",
         "./src/components/scan/index.ts",
-        "./src/components/splash.ts",
+        "./src/components/storedetail/index.ts",
         "./src/components/text.ts",
         "./src/components/userprofile.ts",
         "./src/components/views.ts"
       ],
-      "./src/components/itemdetail/index.ts": [
-        "./src/components/itemdetail/styled.ts"
-      ],
-      "./src/components/itemdetail/styled.ts": [
+      "./src/components/itemdetail.ts": [
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/styled-components/index.d.ts"
       ],
-      "./src/components/landing/hellouser.tsx": [
+      "./src/components/mapview/index.ts": [
+        "./src/components/mapview/storesuggestioncell.tsx",
+        "./src/components/mapview/styled.ts"
+      ],
+      "./src/components/mapview/storesuggestioncell.tsx": [
         "./generated/graphql.tsx"
       ],
-      "./src/components/landing/index.ts": [
-        "./src/components/landing/hellouser.tsx",
-        "./src/components/landing/styled.ts"
+      "./src/components/mapview/styled.ts": [
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "../node_modules/@types/styled-components/index.d.ts",
+        "../node_modules/react-native-maps/index.d.ts"
       ],
-      "./src/components/landing/styled.ts": [
+      "./src/components/modal.ts": [
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/styled-components/index.d.ts"
       ],
@@ -5422,7 +5793,21 @@
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/styled-components/index.d.ts"
       ],
-      "./src/components/splash.ts": [
+      "./src/components/storedetail/index.ts": [
+        "./src/components/storedetail/storepreview.tsx",
+        "./src/components/storedetail/styled.ts"
+      ],
+      "./src/components/storedetail/popularitemcell.tsx": [
+        "./generated/graphql.tsx"
+      ],
+      "./src/components/storedetail/storepreview.tsx": [
+        "./generated/graphql.tsx"
+      ],
+      "./src/components/storedetail/styled.ts": [
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/styled-components/index.d.ts"
+      ],
+      "./src/components/swipegesture.ts": [
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/styled-components/index.d.ts"
       ],
@@ -5440,8 +5825,10 @@
         "../node_modules/expo-camera/build/index.d.ts"
       ],
       "./src/icons/index.ts": [
+        "./src/icons/appicon.tsx",
         "./src/icons/backarrowicon.tsx",
         "./src/icons/barcodeicon.tsx",
+        "./src/icons/cameraicon.tsx",
         "./src/icons/carticon.tsx",
         "./src/icons/checkicon.tsx",
         "./src/icons/closeicon.tsx",
@@ -5449,13 +5836,22 @@
         "./src/icons/findicon.tsx",
         "./src/icons/flashicon.tsx",
         "./src/icons/hearticon.tsx",
+        "./src/icons/maparrowicon.tsx",
+        "./src/icons/markericon.tsx",
         "./src/icons/passwordicons.tsx",
         "./src/icons/personicon.tsx",
+        "./src/icons/swipeicons.tsx",
         "./src/icons/tabnavigationicons.tsx"
+      ],
+      "./src/icons/tabnavigationicons.tsx": [
+        "../node_modules/react-native-reanimated/react-native-reanimated.d.ts"
       ],
       "./src/lib/firebase.ts": [
         "../node_modules/firebase/empty-import.d.ts",
         "../node_modules/firebase/index.d.ts"
+      ],
+      "./src/lib/index.ts": [
+        "./src/lib/firebase.ts"
       ],
       "./src/navigation/authstack.tsx": [
         "../node_modules/@react-navigation/core/lib/typescript/src/index.d.ts",
@@ -5473,14 +5869,14 @@
         "./src/screens/auth/favoritescreen.tsx",
         "./src/screens/auth/mapview.tsx",
         "./src/screens/auth/profilescreen.tsx",
-        "./src/screens/auth/scan/index.ts",
-        "./src/screens/auth/userinfoscreen.tsx"
+        "./src/screens/auth/scan/index.ts"
       ],
-      "./src/screens/auth/mapview.tsx": [
+      "./src/screens/auth/scan/additemscreen.tsx": [
         "../node_modules/@react-navigation/stack/lib/typescript/src/index.d.ts",
         "./src/navigation/index.ts"
       ],
       "./src/screens/auth/scan/index.ts": [
+        "./src/screens/auth/scan/additemscreen.tsx",
         "./src/screens/auth/scan/itemdetail.tsx",
         "./src/screens/auth/scan/scanningscreen.tsx"
       ],
@@ -5492,18 +5888,14 @@
         "../node_modules/@react-navigation/stack/lib/typescript/src/index.d.ts",
         "./src/navigation/index.ts"
       ],
-      "./src/screens/auth/userinfoscreen.tsx": [
-        "../node_modules/@react-navigation/stack/lib/typescript/src/index.d.ts",
-        "./src/navigation/index.ts"
-      ],
       "./src/screens/index.ts": [
         "./src/screens/auth/index.ts",
-        "./src/screens/onboarding/index.ts",
-        "./src/screens/splashscreen.tsx"
+        "./src/screens/onboarding/index.ts"
       ],
       "./src/screens/onboarding/index.ts": [
         "./src/screens/onboarding/signinscreen.tsx",
-        "./src/screens/onboarding/signupscreen.tsx"
+        "./src/screens/onboarding/signupscreen.tsx",
+        "./src/screens/onboarding/userinfoscreen.tsx"
       ],
       "./src/screens/onboarding/signinscreen.tsx": [
         "../node_modules/@react-navigation/stack/lib/typescript/src/index.d.ts",
@@ -5513,8 +5905,13 @@
         "../node_modules/@react-navigation/stack/lib/typescript/src/index.d.ts",
         "./src/navigation/index.ts"
       ],
+      "./src/screens/onboarding/userinfoscreen.tsx": [
+        "../node_modules/@react-navigation/stack/lib/typescript/src/index.d.ts",
+        "./src/navigation/index.ts"
+      ],
       "./src/utils/index.ts": [
-        "./src/utils/formvalidationutils.ts"
+        "./src/utils/formvalidationutils.ts",
+        "./src/utils/hapticfeedbackutils.ts"
       ],
       "./types/styled.d.ts": [
         "../node_modules/@types/styled-components/index.d.ts",
@@ -5727,8 +6124,7 @@
       "../node_modules/@apollo/client/link/core/types.d.ts": [
         "../node_modules/@apollo/client/utilities/index.d.ts",
         "../node_modules/@types/zen-observable/index.d.ts",
-        "../node_modules/graphql/execution/execute.d.ts",
-        "../node_modules/graphql/language/ast.d.ts"
+        "../node_modules/graphql/index.d.ts"
       ],
       "../node_modules/@apollo/client/link/http/createhttplink.d.ts": [
         "../node_modules/@apollo/client/link/core/index.d.ts",
@@ -5928,11 +6324,132 @@
       "../node_modules/@apollo/client/utilities/policies/pagination.d.ts": [
         "../node_modules/@apollo/client/cache/index.d.ts"
       ],
-      "../node_modules/@babel/parser/typings/babel-parser.d.ts": [
-        "../node_modules/@babel/types/lib/index.d.ts"
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/animatedtabbar.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/types.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/animatedtabbarview.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/types.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/index.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/animatedtabbar.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/animatedtabbarview.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/index.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/index.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/index.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/types.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/index.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/index.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/index.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/types.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/bubbletabbar.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/types.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/types.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/index.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/bubbletabbar.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/item/index.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/types.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/item/bubbletabbaritem.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/types.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/item/index.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/item/bubbletabbaritem.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/types.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/types.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-reanimated/react-native-reanimated.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/flashytabbar.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/types.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/types.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/index.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/flashytabbar.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/item/index.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/types.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/item/flashytabbaritem.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/types.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/item/index.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/item/flashytabbaritem.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/types.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/types.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-reanimated/react-native-reanimated.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/index.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/item/index.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/materialtabbar.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/types.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/item/index.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/item/materialtabbaritem.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/item/materialtabbaritem.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/types.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/materialtabbar.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/types.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/types.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/types.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/types.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-reanimated/react-native-reanimated.d.ts"
+      ],
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/types.d.ts": [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/react-native-reanimated/react-native-reanimated.d.ts"
       ],
       "../node_modules/@graphql-typed-document-node/core/index.d.ts": [
         "../node_modules/graphql/index.d.ts"
+      ],
+      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/index.d.ts": [
+        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/navigators/createbottomtabnavigator.d.ts",
+        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/types.d.ts",
+        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/views/bottomtabbar.d.ts",
+        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/views/bottomtabview.d.ts"
+      ],
+      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/navigators/createbottomtabnavigator.d.ts": [
+        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/types.d.ts",
+        "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/types.d.ts": [
+        "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/views/bottomtabbar.d.ts": [
+        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/types.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/views/bottomtabview.d.ts": [
+        "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/types.d.ts",
+        "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
+        "../node_modules/@types/react/index.d.ts"
       ],
       "../node_modules/@react-navigation/core/lib/typescript/src/basenavigationcontainer.d.ts": [
         "../node_modules/@react-navigation/core/lib/typescript/src/types.d.ts",
@@ -5947,6 +6464,7 @@
         "../node_modules/@types/react/index.d.ts"
       ],
       "../node_modules/@react-navigation/core/lib/typescript/src/getactionfromstate.d.ts": [
+        "../node_modules/@react-navigation/core/lib/typescript/src/types.d.ts",
         "../node_modules/@react-navigation/routers/lib/typescript/src/index.d.ts"
       ],
       "../node_modules/@react-navigation/core/lib/typescript/src/getfocusedroutenamefromroute.d.ts": [
@@ -5989,6 +6507,7 @@
         "../node_modules/@types/react/index.d.ts"
       ],
       "../node_modules/@react-navigation/core/lib/typescript/src/navigationroutecontext.d.ts": [
+        "../node_modules/@react-navigation/routers/lib/typescript/src/index.d.ts",
         "../node_modules/@types/react/index.d.ts"
       ],
       "../node_modules/@react-navigation/core/lib/typescript/src/types.d.ts": [
@@ -6126,7 +6645,8 @@
       ],
       "../node_modules/@react-navigation/stack/lib/typescript/src/navigators/createstacknavigator.d.ts": [
         "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
-        "../node_modules/@react-navigation/stack/lib/typescript/src/types.d.ts"
+        "../node_modules/@react-navigation/stack/lib/typescript/src/types.d.ts",
+        "../node_modules/@types/react/index.d.ts"
       ],
       "../node_modules/@react-navigation/stack/lib/typescript/src/transitionconfigs/cardstyleinterpolators.d.ts": [
         "../node_modules/@react-navigation/stack/lib/typescript/src/types.d.ts"
@@ -6169,40 +6689,21 @@
         "../node_modules/@types/react/index.d.ts"
       ],
       "../node_modules/@react-navigation/stack/lib/typescript/src/views/header/headerbackbutton.d.ts": [
-        "../node_modules/@react-navigation/stack/lib/typescript/src/types.d.ts"
+        "../node_modules/@react-navigation/stack/lib/typescript/src/types.d.ts",
+        "../node_modules/@types/react/index.d.ts"
       ],
       "../node_modules/@react-navigation/stack/lib/typescript/src/views/header/headerbackground.d.ts": [
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/react/index.d.ts"
       ],
       "../node_modules/@react-navigation/stack/lib/typescript/src/views/header/headertitle.d.ts": [
-        "../node_modules/@types/react-native/index.d.ts"
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts"
       ],
       "../node_modules/@react-navigation/stack/lib/typescript/src/views/stack/stackview.d.ts": [
         "../node_modules/@react-navigation/native/lib/typescript/src/index.d.ts",
         "../node_modules/@react-navigation/stack/lib/typescript/src/types.d.ts",
         "../node_modules/@types/react/index.d.ts"
-      ],
-      "../node_modules/@types/babel__core/index.d.ts": [
-        "../node_modules/@babel/parser/typings/babel-parser.d.ts",
-        "../node_modules/@babel/types/lib/index.d.ts",
-        "../node_modules/@types/babel__generator/index.d.ts",
-        "../node_modules/@types/babel__template/index.d.ts",
-        "../node_modules/@types/babel__traverse/index.d.ts"
-      ],
-      "../node_modules/@types/babel__generator/index.d.ts": [
-        "../node_modules/@babel/types/lib/index.d.ts"
-      ],
-      "../node_modules/@types/babel__template/index.d.ts": [
-        "../node_modules/@babel/parser/typings/babel-parser.d.ts",
-        "../node_modules/@babel/types/lib/index.d.ts"
-      ],
-      "../node_modules/@types/babel__traverse/index.d.ts": [
-        "../node_modules/@babel/types/lib/index.d.ts"
-      ],
-      "../node_modules/@types/graceful-fs/index.d.ts": [
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/index.d.ts"
       ],
       "../node_modules/@types/hoist-non-react-statics/index.d.ts": [
         "../node_modules/@types/react/index.d.ts"
@@ -6218,27 +6719,6 @@
       "../node_modules/@types/istanbul-reports/index.d.ts": [
         "../node_modules/@types/istanbul-lib-coverage/index.d.ts",
         "../node_modules/@types/istanbul-lib-report/index.d.ts"
-      ],
-      "../node_modules/@types/jest/index.d.ts": [
-        "../node_modules/@types/jest/node_modules/jest-diff/build/index.d.ts",
-        "../node_modules/@types/jest/node_modules/pretty-format/build/index.d.ts"
-      ],
-      "../node_modules/@types/jest/node_modules/jest-diff/build/difflines.d.ts": [
-        "../node_modules/@types/jest/node_modules/jest-diff/build/cleanupsemantic.d.ts",
-        "../node_modules/@types/jest/node_modules/jest-diff/build/types.d.ts"
-      ],
-      "../node_modules/@types/jest/node_modules/jest-diff/build/index.d.ts": [
-        "../node_modules/@types/jest/node_modules/jest-diff/build/cleanupsemantic.d.ts",
-        "../node_modules/@types/jest/node_modules/jest-diff/build/difflines.d.ts",
-        "../node_modules/@types/jest/node_modules/jest-diff/build/printdiffs.d.ts",
-        "../node_modules/@types/jest/node_modules/jest-diff/build/types.d.ts"
-      ],
-      "../node_modules/@types/jest/node_modules/jest-diff/build/printdiffs.d.ts": [
-        "../node_modules/@types/jest/node_modules/jest-diff/build/cleanupsemantic.d.ts",
-        "../node_modules/@types/jest/node_modules/jest-diff/build/types.d.ts"
-      ],
-      "../node_modules/@types/jest/node_modules/pretty-format/build/index.d.ts": [
-        "../node_modules/@types/jest/node_modules/pretty-format/build/types.d.ts"
       ],
       "../node_modules/@types/jsonwebtoken/index.d.ts": [
         "../node_modules/@types/node/index.d.ts"
@@ -6409,6 +6889,10 @@
       ],
       "../node_modules/@types/node/zlib.d.ts": [
         "../node_modules/@types/node/stream.d.ts"
+      ],
+      "../node_modules/@types/react-native-indicators/index.d.ts": [
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts"
       ],
       "../node_modules/@types/react-native/devtools.d.ts": [
         "../node_modules/@types/react-native/devtools.d.ts"
@@ -6704,6 +7188,7 @@
         "../node_modules/graphql/utilities/separateoperations.d.ts",
         "../node_modules/graphql/utilities/stripignoredcharacters.d.ts",
         "../node_modules/graphql/utilities/typecomparators.d.ts",
+        "../node_modules/graphql/utilities/typedquerydocumentnode.d.ts",
         "../node_modules/graphql/utilities/typefromast.d.ts",
         "../node_modules/graphql/utilities/typeinfo.d.ts",
         "../node_modules/graphql/utilities/valuefromast.d.ts",
@@ -6729,6 +7214,9 @@
       "../node_modules/graphql/utilities/typecomparators.d.ts": [
         "../node_modules/graphql/type/definition.d.ts",
         "../node_modules/graphql/type/schema.d.ts"
+      ],
+      "../node_modules/graphql/utilities/typedquerydocumentnode.d.ts": [
+        "../node_modules/graphql/language/ast.d.ts"
       ],
       "../node_modules/graphql/utilities/typefromast.d.ts": [
         "../node_modules/graphql/language/ast.d.ts",
@@ -6985,6 +7473,19 @@
         "../node_modules/@types/react/index.d.ts",
         "../node_modules/react-native-gesture-handler/react-native-gesture-handler.d.ts"
       ],
+      "../node_modules/react-native-maps/index.d.ts": [
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/react-native-permissions/lib/typescript/index.d.ts": [
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/react-native-permissions/lib/typescript/constants.d.ts",
+        "../node_modules/react-native-permissions/lib/typescript/types.d.ts"
+      ],
+      "../node_modules/react-native-permissions/lib/typescript/types.d.ts": [
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/react-native-permissions/lib/typescript/constants.d.ts"
+      ],
       "../node_modules/react-native-reanimated/react-native-reanimated.d.ts": [
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/react/index.d.ts"
@@ -7025,7 +7526,19 @@
       ]
     },
     "semanticDiagnosticsPerFile": [
-      "./__tests__/app-test.tsx",
+      [
+        "./__tests__/app-test.tsx",
+        [
+          {
+            "file": "./__tests__/app-test.tsx",
+            "start": 206,
+            "length": 2,
+            "messageText": "Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i @types/jest` or `npm i @types/mocha`.",
+            "category": 1,
+            "code": 2582
+          }
+        ]
+      ],
       "./functions/index.js",
       "./functions/node_modules/@google-cloud/common/build/src/index.d.ts",
       "./functions/node_modules/@google-cloud/common/build/src/operation.d.ts",
@@ -7101,6 +7614,8 @@
       "./functions/node_modules/graphql-request/dist/types.d.ts",
       "./functions/node_modules/graphql-request/dist/types.dom.d.ts",
       "./functions/node_modules/graphql/language/ast.d.ts",
+      "./functions/node_modules/graphql/language/source.d.ts",
+      "./functions/node_modules/graphql/language/tokenkind.d.ts",
       "./functions/node_modules/gtoken/build/src/index.d.ts",
       "./functions/node_modules/teeny-request/build/src/index.d.ts",
       "./generated/graphql.fragment-types.ts",
@@ -7116,22 +7631,29 @@
       "./src/components/favorites/index.ts",
       "./src/components/favorites/styled.ts",
       "./src/components/index.ts",
-      "./src/components/itemdetail/index.ts",
-      "./src/components/itemdetail/styled.ts",
-      "./src/components/landing/hellouser.tsx",
-      "./src/components/landing/index.ts",
-      "./src/components/landing/styled.ts",
+      "./src/components/itemdetail.ts",
+      "./src/components/loadingoverlay.tsx",
+      "./src/components/mapview/index.ts",
+      "./src/components/mapview/storesuggestioncell.tsx",
+      "./src/components/mapview/styled.ts",
+      "./src/components/modal.ts",
       "./src/components/onboarding.ts",
       "./src/components/scan/index.ts",
       "./src/components/scan/itempreview.tsx",
       "./src/components/scan/scanneroverlay.tsx",
       "./src/components/scan/styled.ts",
-      "./src/components/splash.ts",
+      "./src/components/storedetail/index.ts",
+      "./src/components/storedetail/popularitemcell.tsx",
+      "./src/components/storedetail/storepreview.tsx",
+      "./src/components/storedetail/styled.ts",
+      "./src/components/swipegesture.ts",
       "./src/components/text.ts",
       "./src/components/userprofile.ts",
       "./src/components/views.ts",
+      "./src/icons/appicon.tsx",
       "./src/icons/backarrowicon.tsx",
       "./src/icons/barcodeicon.tsx",
+      "./src/icons/cameraicon.tsx",
       "./src/icons/carticon.tsx",
       "./src/icons/checkicon.tsx",
       "./src/icons/closeicon.tsx",
@@ -7140,34 +7662,15 @@
       "./src/icons/flashicon.tsx",
       "./src/icons/hearticon.tsx",
       "./src/icons/index.ts",
+      "./src/icons/maparrowicon.tsx",
+      "./src/icons/markericon.tsx",
       "./src/icons/passwordicons.tsx",
       "./src/icons/personicon.tsx",
+      "./src/icons/swipeicons.tsx",
       "./src/icons/tabnavigationicons.tsx",
       "./src/lib/firebase.ts",
-      [
-        "./src/navigation/authstack.tsx",
-        [
-          {
-            "file": "./src/navigation/authstack.tsx",
-            "start": 504,
-            "length": 35,
-            "code": 7016,
-            "category": 1,
-            "messageText": {
-              "messageText": "Could not find a declaration file for module 'react-native-animated-nav-tab-bar'. '/Users/chrisjobando/universal-store/node_modules/react-native-animated-nav-tab-bar/index.js' implicitly has an 'any' type.",
-              "category": 1,
-              "code": 7016,
-              "next": [
-                {
-                  "messageText": "Try `npm install @types/react-native-animated-nav-tab-bar` if it exists or add a new declaration (.d.ts) file containing `declare module 'react-native-animated-nav-tab-bar';`",
-                  "category": 1,
-                  "code": 7035
-                }
-              ]
-            }
-          }
-        ]
-      ],
+      "./src/lib/index.ts",
+      "./src/navigation/authstack.tsx",
       "./src/navigation/index.ts",
       "./src/navigation/onboardingstack.tsx",
       "./src/screens/auth/cartscreen.tsx",
@@ -7175,47 +7678,18 @@
       "./src/screens/auth/index.ts",
       "./src/screens/auth/mapview.tsx",
       "./src/screens/auth/profilescreen.tsx",
+      "./src/screens/auth/scan/additemscreen.tsx",
       "./src/screens/auth/scan/index.ts",
-      [
-        "./src/screens/auth/scan/itemdetail.tsx",
-        [
-          {
-            "file": "./src/screens/auth/scan/itemdetail.tsx",
-            "start": 5267,
-            "length": 15,
-            "code": 2345,
-            "category": 1,
-            "messageText": {
-              "messageText": "Argument of type '[\"TabNavigation\", { screen: string; }]' is not assignable to parameter of type '[\"MapView\" | \"ItemDetail\" | \"FavoritesScreen\" | \"CartScreen\" | \"ProfileScreen\"] | [\"MapView\" | \"ItemDetail\" | \"FavoritesScreen\" | \"CartScreen\" | \"ProfileScreen\", { ...; } | { ...; } | undefined]'.",
-              "category": 1,
-              "code": 2345,
-              "next": [
-                {
-                  "messageText": "Type '[\"TabNavigation\", { screen: string; }]' is not assignable to type '[\"MapView\" | \"ItemDetail\" | \"FavoritesScreen\" | \"CartScreen\" | \"ProfileScreen\", { email: string; password: string; } | { barcodeId: string; } | undefined]'.",
-                  "category": 1,
-                  "code": 2322,
-                  "next": [
-                    {
-                      "messageText": "Type '\"TabNavigation\"' is not assignable to type '\"MapView\" | \"ItemDetail\" | \"FavoritesScreen\" | \"CartScreen\" | \"ProfileScreen\"'.",
-                      "category": 1,
-                      "code": 2322
-                    }
-                  ]
-                }
-              ]
-            }
-          }
-        ]
-      ],
+      "./src/screens/auth/scan/itemdetail.tsx",
       "./src/screens/auth/scan/scanningscreen.tsx",
-      "./src/screens/auth/userinfoscreen.tsx",
       "./src/screens/index.ts",
       "./src/screens/onboarding/index.ts",
       "./src/screens/onboarding/signinscreen.tsx",
       "./src/screens/onboarding/signupscreen.tsx",
-      "./src/screens/splashscreen.tsx",
+      "./src/screens/onboarding/userinfoscreen.tsx",
       "./src/theme/index.ts",
       "./src/utils/formvalidationutils.ts",
+      "./src/utils/hapticfeedbackutils.ts",
       "./src/utils/index.ts",
       "./types/env.d.ts",
       "./types/styled.d.ts",
@@ -7303,10 +7777,34 @@
       "../node_modules/@apollo/client/utilities/observables/iteration.d.ts",
       "../node_modules/@apollo/client/utilities/observables/observable.d.ts",
       "../node_modules/@apollo/client/utilities/policies/pagination.d.ts",
-      "../node_modules/@babel/parser/typings/babel-parser.d.ts",
-      "../node_modules/@babel/types/lib/index.d.ts",
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/animatedtabbar.d.ts",
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/animatedtabbarview.d.ts",
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/index.d.ts",
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets.d.ts",
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/bubbletabbar.d.ts",
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/index.d.ts",
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/item/bubbletabbaritem.d.ts",
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/item/index.d.ts",
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/types.d.ts",
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/flashytabbar.d.ts",
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/index.d.ts",
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/item/flashytabbaritem.d.ts",
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/item/index.d.ts",
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/types.d.ts",
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/index.d.ts",
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/item/index.d.ts",
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/item/materialtabbaritem.d.ts",
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/materialtabbar.d.ts",
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/types.d.ts",
+      "../node_modules/@gorhom/animated-tabbar/lib/typescript/types.d.ts",
       "../node_modules/@graphql-typed-document-node/core/index.d.ts",
       "../node_modules/@react-native-community/async-storage/types/index.d.ts",
+      "../node_modules/@react-native-community/geolocation/typings/index.d.ts",
+      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/index.d.ts",
+      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/navigators/createbottomtabnavigator.d.ts",
+      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/types.d.ts",
+      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/views/bottomtabbar.d.ts",
+      "../node_modules/@react-navigation/bottom-tabs/lib/typescript/src/views/bottomtabview.d.ts",
       "../node_modules/@react-navigation/core/lib/typescript/src/basenavigationcontainer.d.ts",
       "../node_modules/@react-navigation/core/lib/typescript/src/createnavigatorfactory.d.ts",
       "../node_modules/@react-navigation/core/lib/typescript/src/currentrendercontext.d.ts",
@@ -7366,26 +7864,13 @@
       "../node_modules/@react-navigation/stack/lib/typescript/src/views/header/headerbackground.d.ts",
       "../node_modules/@react-navigation/stack/lib/typescript/src/views/header/headertitle.d.ts",
       "../node_modules/@react-navigation/stack/lib/typescript/src/views/stack/stackview.d.ts",
-      "../node_modules/@types/babel__core/index.d.ts",
-      "../node_modules/@types/babel__generator/index.d.ts",
-      "../node_modules/@types/babel__template/index.d.ts",
-      "../node_modules/@types/babel__traverse/index.d.ts",
       "../node_modules/@types/eslint-visitor-keys/index.d.ts",
-      "../node_modules/@types/graceful-fs/index.d.ts",
       "../node_modules/@types/hammerjs/index.d.ts",
       "../node_modules/@types/hoist-non-react-statics/index.d.ts",
       "../node_modules/@types/http-proxy-agent/index.d.ts",
       "../node_modules/@types/istanbul-lib-coverage/index.d.ts",
       "../node_modules/@types/istanbul-lib-report/index.d.ts",
       "../node_modules/@types/istanbul-reports/index.d.ts",
-      "../node_modules/@types/jest/index.d.ts",
-      "../node_modules/@types/jest/node_modules/jest-diff/build/cleanupsemantic.d.ts",
-      "../node_modules/@types/jest/node_modules/jest-diff/build/difflines.d.ts",
-      "../node_modules/@types/jest/node_modules/jest-diff/build/index.d.ts",
-      "../node_modules/@types/jest/node_modules/jest-diff/build/printdiffs.d.ts",
-      "../node_modules/@types/jest/node_modules/jest-diff/build/types.d.ts",
-      "../node_modules/@types/jest/node_modules/pretty-format/build/index.d.ts",
-      "../node_modules/@types/jest/node_modules/pretty-format/build/types.d.ts",
       "../node_modules/@types/js-yaml/index.d.ts",
       "../node_modules/@types/json-schema/index.d.ts",
       "../node_modules/@types/json-stable-stringify/index.d.ts",
@@ -7438,10 +7923,9 @@
       "../node_modules/@types/node/wasi.d.ts",
       "../node_modules/@types/node/worker_threads.d.ts",
       "../node_modules/@types/node/zlib.d.ts",
-      "../node_modules/@types/normalize-package-data/index.d.ts",
       "../node_modules/@types/parse-json/index.d.ts",
-      "../node_modules/@types/prettier/index.d.ts",
       "../node_modules/@types/prop-types/index.d.ts",
+      "../node_modules/@types/react-native-indicators/index.d.ts",
       "../node_modules/@types/react-native/batchedbridge.d.ts",
       "../node_modules/@types/react-native/devtools.d.ts",
       "../node_modules/@types/react-native/globals.d.ts",
@@ -7485,7 +7969,7 @@
         [
           {
             "file": "../node_modules/firebase/index.d.ts",
-            "start": 269972,
+            "start": 270752,
             "length": 25,
             "messageText": "Cannot find name 'ServiceWorkerRegistration'.",
             "category": 1,
@@ -7493,7 +7977,7 @@
           },
           {
             "file": "../node_modules/firebase/index.d.ts",
-            "start": 273904,
+            "start": 274684,
             "length": 25,
             "messageText": "Cannot find name 'ServiceWorkerRegistration'.",
             "category": 1,
@@ -7556,6 +8040,7 @@
       "../node_modules/graphql/utilities/separateoperations.d.ts",
       "../node_modules/graphql/utilities/stripignoredcharacters.d.ts",
       "../node_modules/graphql/utilities/typecomparators.d.ts",
+      "../node_modules/graphql/utilities/typedquerydocumentnode.d.ts",
       "../node_modules/graphql/utilities/typefromast.d.ts",
       "../node_modules/graphql/utilities/typeinfo.d.ts",
       "../node_modules/graphql/utilities/valuefromast.d.ts",
@@ -7610,12 +8095,30 @@
       "../node_modules/react-native-device-info/lib/typescript/internal/privatetypes.d.ts",
       "../node_modules/react-native-device-info/lib/typescript/internal/types.d.ts",
       "../node_modules/react-native-gesture-handler/react-native-gesture-handler.d.ts",
+      "../node_modules/react-native-haptic-feedback/index.d.ts",
+      [
+        "../node_modules/react-native-maps/index.d.ts",
+        [
+          {
+            "file": "../node_modules/react-native-maps/index.d.ts",
+            "start": 15437,
+            "length": 9,
+            "messageText": "Cannot find module 'geojson' or its corresponding type declarations.",
+            "category": 1,
+            "code": 2307
+          }
+        ]
+      ],
+      "../node_modules/react-native-permissions/lib/typescript/constants.d.ts",
+      "../node_modules/react-native-permissions/lib/typescript/index.d.ts",
+      "../node_modules/react-native-permissions/lib/typescript/types.d.ts",
       "../node_modules/react-native-reanimated/react-native-reanimated.d.ts",
       "../node_modules/react-native-safe-area-context/lib/typescript/src/index.d.ts",
       "../node_modules/react-native-safe-area-context/lib/typescript/src/initialwindow.d.ts",
       "../node_modules/react-native-safe-area-context/lib/typescript/src/safearea.types.d.ts",
       "../node_modules/react-native-safe-area-context/lib/typescript/src/safeareacontext.d.ts",
       "../node_modules/react-native-safe-area-context/lib/typescript/src/safeareaview.d.ts",
+      "../node_modules/react-native-splash-screen/index.d.ts",
       "../node_modules/react-native-svg/src/index.d.ts",
       "../node_modules/reanimated-bottom-sheet/lib/typescript/index.d.ts",
       "../node_modules/ts-invariant/lib/invariant.d.ts",
@@ -7954,6 +8457,14 @@
         1
       ],
       [
+        "./functions/node_modules/graphql/language/source.d.ts",
+        1
+      ],
+      [
+        "./functions/node_modules/graphql/language/tokenkind.d.ts",
+        1
+      ],
+      [
         "./functions/node_modules/gtoken/build/src/index.d.ts",
         1
       ],
@@ -8014,23 +8525,27 @@
         1
       ],
       [
-        "./src/components/itemdetail/index.ts",
+        "./src/components/itemdetail.ts",
         1
       ],
       [
-        "./src/components/itemdetail/styled.ts",
+        "./src/components/loadingoverlay.tsx",
         1
       ],
       [
-        "./src/components/landing/hellouser.tsx",
+        "./src/components/mapview/index.ts",
         1
       ],
       [
-        "./src/components/landing/index.ts",
+        "./src/components/mapview/storesuggestioncell.tsx",
         1
       ],
       [
-        "./src/components/landing/styled.ts",
+        "./src/components/mapview/styled.ts",
+        1
+      ],
+      [
+        "./src/components/modal.ts",
         1
       ],
       [
@@ -8054,7 +8569,23 @@
         1
       ],
       [
-        "./src/components/splash.ts",
+        "./src/components/storedetail/index.ts",
+        1
+      ],
+      [
+        "./src/components/storedetail/popularitemcell.tsx",
+        1
+      ],
+      [
+        "./src/components/storedetail/storepreview.tsx",
+        1
+      ],
+      [
+        "./src/components/storedetail/styled.ts",
+        1
+      ],
+      [
+        "./src/components/swipegesture.ts",
         1
       ],
       [
@@ -8070,11 +8601,19 @@
         1
       ],
       [
+        "./src/icons/appicon.tsx",
+        1
+      ],
+      [
         "./src/icons/backarrowicon.tsx",
         1
       ],
       [
         "./src/icons/barcodeicon.tsx",
+        1
+      ],
+      [
+        "./src/icons/cameraicon.tsx",
         1
       ],
       [
@@ -8110,6 +8649,14 @@
         1
       ],
       [
+        "./src/icons/maparrowicon.tsx",
+        1
+      ],
+      [
+        "./src/icons/markericon.tsx",
+        1
+      ],
+      [
         "./src/icons/passwordicons.tsx",
         1
       ],
@@ -8118,11 +8665,19 @@
         1
       ],
       [
+        "./src/icons/swipeicons.tsx",
+        1
+      ],
+      [
         "./src/icons/tabnavigationicons.tsx",
         1
       ],
       [
         "./src/lib/firebase.ts",
+        1
+      ],
+      [
+        "./src/lib/index.ts",
         1
       ],
       [
@@ -8138,23 +8693,11 @@
         1
       ],
       [
-        "./src/navigation/root.tsx",
-        1
-      ],
-      [
         "./src/screens/auth/cartscreen.tsx",
         1
       ],
       [
-        "./src/screens/auth/cartscreen/index.tsx",
-        1
-      ],
-      [
         "./src/screens/auth/favoritescreen.tsx",
-        1
-      ],
-      [
-        "./src/screens/auth/favoritescreen/index.tsx",
         1
       ],
       [
@@ -8166,15 +8709,11 @@
         1
       ],
       [
-        "./src/screens/auth/mapview/index.tsx",
-        1
-      ],
-      [
         "./src/screens/auth/profilescreen.tsx",
         1
       ],
       [
-        "./src/screens/auth/profilescreen/index.tsx",
+        "./src/screens/auth/scan/additemscreen.tsx",
         1
       ],
       [
@@ -8187,10 +8726,6 @@
       ],
       [
         "./src/screens/auth/scan/scanningscreen.tsx",
-        1
-      ],
-      [
-        "./src/screens/auth/userinfoscreen.tsx",
         1
       ],
       [
@@ -8210,11 +8745,7 @@
         1
       ],
       [
-        "./src/screens/splashscreen.tsx",
-        1
-      ],
-      [
-        "./src/stores/index.tsx",
+        "./src/screens/onboarding/userinfoscreen.tsx",
         1
       ],
       [
@@ -8223,6 +8754,10 @@
       ],
       [
         "./src/utils/formvalidationutils.ts",
+        1
+      ],
+      [
+        "./src/utils/hapticfeedbackutils.ts",
         1
       ],
       [
@@ -8574,11 +9109,83 @@
         1
       ],
       [
-        "../node_modules/@babel/parser/typings/babel-parser.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/animatedtabbar.d.ts",
         1
       ],
       [
-        "../node_modules/@babel/types/lib/index.d.ts",
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/animatedtabbarview.d.ts",
+        1
+      ],
+      [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/index.d.ts",
+        1
+      ],
+      [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets.d.ts",
+        1
+      ],
+      [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/bubbletabbar.d.ts",
+        1
+      ],
+      [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/index.d.ts",
+        1
+      ],
+      [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/item/bubbletabbaritem.d.ts",
+        1
+      ],
+      [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/item/index.d.ts",
+        1
+      ],
+      [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/bubble/types.d.ts",
+        1
+      ],
+      [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/flashytabbar.d.ts",
+        1
+      ],
+      [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/index.d.ts",
+        1
+      ],
+      [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/item/flashytabbaritem.d.ts",
+        1
+      ],
+      [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/item/index.d.ts",
+        1
+      ],
+      [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/flashy/types.d.ts",
+        1
+      ],
+      [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/index.d.ts",
+        1
+      ],
+      [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/item/index.d.ts",
+        1
+      ],
+      [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/item/materialtabbaritem.d.ts",
+        1
+      ],
+      [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/materialtabbar.d.ts",
+        1
+      ],
+      [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/presets/material/types.d.ts",
+        1
+      ],
+      [
+        "../node_modules/@gorhom/animated-tabbar/lib/typescript/types.d.ts",
         1
       ],
       [
@@ -8590,11 +9197,7 @@
         1
       ],
       [
-        "../node_modules/@react-native-firebase/app/lib/index.d.ts",
-        1
-      ],
-      [
-        "../node_modules/@react-native-firebase/auth/lib/index.d.ts",
+        "../node_modules/@react-native-community/geolocation/typings/index.d.ts",
         1
       ],
       [
@@ -8854,27 +9457,7 @@
         1
       ],
       [
-        "../node_modules/@types/babel__core/index.d.ts",
-        1
-      ],
-      [
-        "../node_modules/@types/babel__generator/index.d.ts",
-        1
-      ],
-      [
-        "../node_modules/@types/babel__template/index.d.ts",
-        1
-      ],
-      [
-        "../node_modules/@types/babel__traverse/index.d.ts",
-        1
-      ],
-      [
         "../node_modules/@types/eslint-visitor-keys/index.d.ts",
-        1
-      ],
-      [
-        "../node_modules/@types/graceful-fs/index.d.ts",
         1
       ],
       [
@@ -8899,38 +9482,6 @@
       ],
       [
         "../node_modules/@types/istanbul-reports/index.d.ts",
-        1
-      ],
-      [
-        "../node_modules/@types/jest/index.d.ts",
-        1
-      ],
-      [
-        "../node_modules/@types/jest/node_modules/jest-diff/build/cleanupsemantic.d.ts",
-        1
-      ],
-      [
-        "../node_modules/@types/jest/node_modules/jest-diff/build/difflines.d.ts",
-        1
-      ],
-      [
-        "../node_modules/@types/jest/node_modules/jest-diff/build/index.d.ts",
-        1
-      ],
-      [
-        "../node_modules/@types/jest/node_modules/jest-diff/build/printdiffs.d.ts",
-        1
-      ],
-      [
-        "../node_modules/@types/jest/node_modules/jest-diff/build/types.d.ts",
-        1
-      ],
-      [
-        "../node_modules/@types/jest/node_modules/pretty-format/build/index.d.ts",
-        1
-      ],
-      [
-        "../node_modules/@types/jest/node_modules/pretty-format/build/types.d.ts",
         1
       ],
       [
@@ -9142,19 +9693,15 @@
         1
       ],
       [
-        "../node_modules/@types/normalize-package-data/index.d.ts",
-        1
-      ],
-      [
         "../node_modules/@types/parse-json/index.d.ts",
         1
       ],
       [
-        "../node_modules/@types/prettier/index.d.ts",
+        "../node_modules/@types/prop-types/index.d.ts",
         1
       ],
       [
-        "../node_modules/@types/prop-types/index.d.ts",
+        "../node_modules/@types/react-native-indicators/index.d.ts",
         1
       ],
       [
@@ -9486,6 +10033,10 @@
         1
       ],
       [
+        "../node_modules/graphql/utilities/typedquerydocumentnode.d.ts",
+        1
+      ],
+      [
         "../node_modules/graphql/utilities/typefromast.d.ts",
         1
       ],
@@ -9702,6 +10253,26 @@
         1
       ],
       [
+        "../node_modules/react-native-haptic-feedback/index.d.ts",
+        1
+      ],
+      [
+        "../node_modules/react-native-maps/index.d.ts",
+        1
+      ],
+      [
+        "../node_modules/react-native-permissions/lib/typescript/constants.d.ts",
+        1
+      ],
+      [
+        "../node_modules/react-native-permissions/lib/typescript/index.d.ts",
+        1
+      ],
+      [
+        "../node_modules/react-native-permissions/lib/typescript/types.d.ts",
+        1
+      ],
+      [
         "../node_modules/react-native-reanimated/react-native-reanimated.d.ts",
         1
       ],
@@ -9723,6 +10294,10 @@
       ],
       [
         "../node_modules/react-native-safe-area-context/lib/typescript/src/safeareaview.d.ts",
+        1
+      ],
+      [
+        "../node_modules/react-native-splash-screen/index.d.ts",
         1
       ],
       [
@@ -9759,5 +10334,5 @@
       ]
     ]
   },
-  "version": "4.0.3"
+  "version": "4.0.5"
 }

@@ -67,7 +67,7 @@ const App = () => {
 
   useEffect(() => {
     SplashScreen.hide();
-    Firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(onAuthStateChanged);
+    void Firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(onAuthStateChanged);
   }, []);
 
   return (

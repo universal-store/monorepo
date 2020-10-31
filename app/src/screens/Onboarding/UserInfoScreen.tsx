@@ -36,6 +36,7 @@ import { StackScreenProps } from '@react-navigation/stack';
 import { OnboardingStackParams } from '&navigation';
 
 // Context
+import { Firebase } from '&lib';
 import AsyncStorage from '@react-native-community/async-storage';
 
 // GraphQL
@@ -43,7 +44,6 @@ import { useUpdateUserNameMutation } from '&graphql';
 
 // Utils
 import { hapticOptions, validInput } from '&utils';
-import { Firebase } from '&lib';
 
 type UserInfoScreenProps = StackScreenProps<OnboardingStackParams, 'UserInfoScreen'>;
 
@@ -147,10 +147,10 @@ export const UserInfoScreen = ({ route }: UserInfoScreenProps) => {
             <OnboardingButton
               onPress={() => {
                 ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
-                validateUserInfo();
+                void validateUserInfo();
               }}
             >
-              <OnboardingButtonText>Let's Go!</OnboardingButtonText>
+              <OnboardingButtonText>{`Let's Go!`}</OnboardingButtonText>
             </OnboardingButton>
           </OnboardingScroll>
 

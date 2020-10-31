@@ -48,9 +48,6 @@ import { MarkerInfoFragment, useGetStoresQuery } from '&graphql';
 // Utils
 import { hapticOptions } from '&utils';
 
-// TODO: Remove (testing only)
-import DeviceInfo from 'react-native-device-info';
-
 // Store Categories
 const STORE_CATEGORIES = ['Supermarket', 'Department', 'Convenience', 'Pharmacy', 'Electronic'];
 
@@ -206,7 +203,10 @@ export const MapViewScreen = () => {
 
       {storeQuery !== '' && !storePreview && inputRef.current && inputRef.current.isFocused() && (
         <StoreSuggestionContainer>
-          {queriedStores && queriedStores.slice(0, 5).map(store => <StoreSuggestionCell storeData={store} />)}
+          {queriedStores &&
+            queriedStores
+              .slice(0, 5)
+              .map(store => <StoreSuggestionCell key={store.id + '_suggestion'} storeData={store} />)}
         </StoreSuggestionContainer>
       )}
 

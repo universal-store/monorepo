@@ -16,6 +16,7 @@ import {
   CartItemCell,
   CellItemSeparator,
   LoadingOverlay,
+  EmptyCartItemsState,
 } from '&components';
 
 // GraphQL
@@ -45,7 +46,7 @@ export const CartScreen = () => {
 
       {loading && <LoadingOverlay />}
 
-      {cartData && (
+      {cartData && cartData.length > 0 ? (
         <FlatList
           data={cartData}
           keyExtractor={item => item.id}
@@ -57,6 +58,8 @@ export const CartScreen = () => {
           ItemSeparatorComponent={() => <CellItemSeparator />}
           renderItem={({ item }) => <CartItemCell key={item.id} cartItem={item.StoreItem} />}
         />
+      ) : (
+        <EmptyCartItemsState />
       )}
     </FullScreenWhite>
   );

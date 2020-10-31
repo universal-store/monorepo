@@ -80,3 +80,9 @@ export const CartItemPriceText = styled(HeaderSmallText)`
   margin-top: auto;
   color: ${({ theme }) => theme.colors.purple[1]};
 `;
+
+export const NoCartItemsText = styled(CartHeaderTextRegular)`
+  padding: 0 40px;
+  text-align: center;
+  color: ${({ theme }) => theme.colors.gray[4]};
+`;

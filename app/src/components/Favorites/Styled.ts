@@ -95,3 +95,9 @@ export const FavoriteItemImage = styled.Image`
   height: 48px;
   border-radius: 4px;
 `;
+
+export const NoFavoritesText = styled(FavoritesHeaderTextRegular)`
+  padding: 0 40px;
+  text-align: center;
+  color: ${({ theme }) => theme.colors.gray[4]};
+`;

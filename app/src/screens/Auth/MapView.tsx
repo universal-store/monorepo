@@ -63,6 +63,7 @@ export const MapViewScreen = () => {
   // Map State
   const [storeQuery, setStoreQuery] = useState<string>('');
   const [storePreview, setStorePreview] = useState<MarkerInfoFragment>();
+  const [queriedStores, setQueriedStores] = useState<MarkerInfoFragment[]>();
   const [filteredStores, setFilteredStores] = useState<MarkerInfoFragment[]>();
   const [categoryFilter, setCategoryFilter] = useState<boolean[]>([false, false, false, false, false]);
 
@@ -78,6 +79,7 @@ export const MapViewScreen = () => {
 
   useEffect(() => {
     if (storesData) {
+      setQueriedStores(storesData.Store);
       setFilteredStores(storesData.Store);
     }
   }, [storesData]);
@@ -133,11 +135,17 @@ export const MapViewScreen = () => {
     }
   };
 
+  const filterStoresByQuery = (query: string) => {
+    if (!storesData) return;
+
+    const tempFilteredStores = storesData.Store.filter(store => store.name.includes(query));
+    setQueriedStores(tempFilteredStores);
+  };
+
   const filterStoresByCategory = () => {
     if (!storesData) return;
 
     let selectedCategories: string[] = [];
-
     if (categoryFilter[0]) selectedCategories.push('Supermarket');
     if (categoryFilter[1]) selectedCategories.push('Department');
     if (categoryFilter[2]) selectedCategories.push('Convenience');
@@ -152,6 +160,7 @@ export const MapViewScreen = () => {
       if (store.category) {
         return selectedCategories.includes(store.category);
       }
+      return true;
     });
 
     setFilteredStores(tempFilteredStores);
@@ -187,18 +196,17 @@ export const MapViewScreen = () => {
           ref={inputRef}
           value={storeQuery}
           editable={!storePreview}
-          onChangeText={setStoreQuery}
+          onChangeText={text => {
+            setStoreQuery(text);
+            filterStoresByQuery(text);
+          }}
           placeholder="Search for store"
         />
       </MapViewTextInputContainer>
 
       {storeQuery !== '' && !storePreview && inputRef.current && inputRef.current.isFocused() && (
         <StoreSuggestionContainer>
-          <StoreSuggestionCell />
-          <StoreSuggestionCell />
-          <StoreSuggestionCell />
-          <StoreSuggestionCell />
-          <StoreSuggestionCell />
+          {queriedStores && queriedStores.slice(0, 5).map(store => <StoreSuggestionCell storeData={store} />)}
         </StoreSuggestionContainer>
       )}
 

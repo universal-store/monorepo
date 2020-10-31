@@ -3,6 +3,7 @@
 fragment MarkerInfo on Store {
   id
   name
+  address
   category
   location
 }

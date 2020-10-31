@@ -150,7 +150,6 @@ export const StoreSuggestionContainer = styled.View`
   flex: 1;
   left: 24px;
   z-index: 2;
-  height: 240px;
   border-radius: 8px;
   shadow-opacity: 0.23;
   shadow-radius: 2.62px;

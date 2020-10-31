@@ -26,7 +26,11 @@ export const MapViewScreenIcon = ({ color }: TabNavigationIconProps) => {
       <AnimatedPath
         stroke={color}
         strokeWidth={2}
-        d="M18.36 9l.6 3H5.04l.6-3h12.72zM20 4H4v2h16V4zm0 3H4l-1 5v2h1v6h10v-6h4v6h2v-6h1v-2l-1-5zM6 18v-4h6v4H6z"
+        fill="none"
+        fillRule="evenodd"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M1 8l9-7 9 7v11a2 2 0 01-2 2H3a2 2 0 01-2-2V8z"
       />
     </Svg>
   );

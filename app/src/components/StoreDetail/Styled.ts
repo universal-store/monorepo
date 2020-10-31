@@ -87,10 +87,11 @@ export const StoreDetailPopularItemPriceText = styled(HeaderSmallText)`
 // Select Store Button
 export const SelectStoreButtonContainer = styled.View`
   position: absolute;
+  bottom: 0;
   left: 32px;
   width: 100%;
   z-index: 100;
-  bottom: ${isiPhoneX ? 106 : 76}px;
+  padding-bottom: 24px;
   background-color: ${({ theme }) => theme.colors.white[1]};
 `;
 
@@ -123,6 +124,7 @@ export const SelectStoreButtonText = styled(HeaderMediumText)<SelectStoreButtonP
 export const CameraIconContainer = styled.TouchableOpacity`
   position: absolute;
   width: 64px;
+  bottom: 88px;
   height: 64px;
   z-index: 999;
   display: flex;
@@ -134,7 +136,6 @@ export const CameraIconContainer = styled.TouchableOpacity`
   shadow-offset: 0px 2px;
   justify-content: center;
   left: ${screenWidth / 2 - 32}px;
-  bottom: ${isiPhoneX ? 170 : 140}px;
   shadow-color: ${({ theme }) => theme.colors.gray[1]};
   background-color: ${({ theme }) => theme.colors.purple[1]};
 `;

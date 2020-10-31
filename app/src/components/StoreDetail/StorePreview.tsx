@@ -41,8 +41,8 @@ import { MarkerInfoFragment, useGetStoreInfoQuery } from '&graphql';
 import { hapticOptions } from '&utils';
 
 // Constants
-const freeSnap = [largeModalHeight - 10, smallModalHeight];
-const restrictSnap = [largeModalHeight - 10, largeModalHeight - 11];
+const freeSnap = [largeModalHeight - 122, smallModalHeight - 122];
+const restrictSnap = [largeModalHeight - 122, largeModalHeight - 121];
 
 interface StorePreviewProps {
   onClose: () => void;

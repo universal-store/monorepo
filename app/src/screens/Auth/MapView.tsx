@@ -79,19 +79,6 @@ export const MapViewScreen = () => {
   useEffect(() => {
     if (storesData) {
       setFilteredStores(storesData.Store);
-
-      // TODO: Remove from production
-      void DeviceInfo.isEmulator().then(res => {
-        if (res)
-          setFilteredStores([
-            {
-              id: 'f7904981-2691-40d6-ac44-67105aa24bfb',
-              name: 'Chevron',
-              category: 'Convenience',
-              location: { coordinates: [37.785834, -122.406417] },
-            },
-          ]);
-      });
     }
   }, [storesData]);
 
@@ -243,8 +230,8 @@ export const MapViewScreen = () => {
         mapPadding={{
           top: 0,
           right: 0,
-          left: storePreview ? 0 : 15,
-          bottom: storePreview ? 12 : 65,
+          left: 12,
+          bottom: 12,
         }}
         loadingEnabled
         minZoomLevel={17}

@@ -26,7 +26,7 @@ export const StoreMap = styled(MapView)`
 `;
 
 export const StoreMapBottomPadding = styled.View`
-  height: ${smallModalHeight - 12}px;
+  height: ${smallModalHeight - 122}px;
   background-color: ${({ theme }) => theme.colors.purple[3]};
 `;
 
@@ -131,7 +131,7 @@ export const ToggleFocusButton = styled.TouchableOpacity`
   width: 48px;
   height: 48px;
   display: flex;
-  bottom: 114px;
+  bottom: 24px;
   margin-left: auto;
   border-radius: 64px;
   align-items: center;

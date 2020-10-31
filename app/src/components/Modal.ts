@@ -11,7 +11,6 @@ export const smallModalHeight = screenHeight - (isiPhoneX ? 402 : 372);
 // Styled Components
 export const ModalHeader = styled.View`
   height: 36px;
-  elevation: 4;
   display: flex;
   shadow-radius: 2px;
   align-items: center;

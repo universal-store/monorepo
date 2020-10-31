@@ -77,6 +77,7 @@ export const StoreDetailPopularItemContainer = styled.TouchableOpacity`
 export const StoreDetailPopularItemNameText = styled(TextSmall)`
   flex: 1;
   margin-right: 16px;
+  font-family: NunitoSans-Bold;
 `;
 
 export const StoreDetailPopularItemPriceText = styled(HeaderSmallText)`

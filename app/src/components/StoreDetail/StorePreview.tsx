@@ -7,6 +7,7 @@ import BottomSheet from 'reanimated-bottom-sheet';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
 // Components
+import { FlatList } from 'react-native';
 import { LoadingOverlay } from '../LoadingOverlay';
 import { PopularItemCell } from './PopularItemCell';
 import { largeModalHeight, ModalContainer, ModalHeader, ModalHeaderTab, smallModalHeight } from '../Modal';
@@ -35,7 +36,7 @@ import { CameraIcon, CloseIcon } from '&icons';
 import { useNavigation } from '@react-navigation/native';
 
 // GraphQL
-import { MarkerInfoFragment, useGetStoreInfoQuery } from '&graphql';
+import { MarkerInfoFragment, useGetStoreInfoQuery, useGetPopularItemsQuery } from '&graphql';
 
 // Utils
 import { hapticOptions } from '&utils';
@@ -55,6 +56,8 @@ export const StorePreview = ({ store, onClose, onSelect }: StorePreviewProps) =>
 
   const { data } = useGetStoreInfoQuery({ variables: { id: store.id } });
   const storeData = data?.Store_by_pk;
+
+  const { data: itemData } = useGetPopularItemsQuery({ variables: { id: store.id } });
 
   const sheetRef = useRef<BottomSheet>(null);
 
@@ -103,14 +106,20 @@ export const StorePreview = ({ store, onClose, onSelect }: StorePreviewProps) =>
               </StoreDetailStoreDescriptionText>
             )}
 
-            <StoreDetailPopularItemHeaderText>Popular Items</StoreDetailPopularItemHeaderText>
+            {itemData && itemData.Store_by_pk && itemData.Store_by_pk.StoreItems.length && (
+              <StoreDetailPopularItemHeaderText>Popular Items</StoreDetailPopularItemHeaderText>
+            )}
           </StoreDetailContainer>
 
-          <PopularItemCell />
-          <PopularItemCell />
-          <PopularItemCell />
-          <PopularItemCell />
-          <PopularItemCell />
+          {itemData && itemData.Store_by_pk && (
+            <FlatList
+              bounces={false}
+              showsVerticalScrollIndicator={false}
+              keyExtractor={item => item.barcodeId}
+              data={itemData.Store_by_pk.StoreItems}
+              renderItem={({ item }) => <PopularItemCell itemData={item} />}
+            />
+          )}
         </>
       ) : (
         <LoadingOverlay />

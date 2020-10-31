@@ -98,7 +98,7 @@ export const StorePreview = ({ store, onClose, onSelect }: StorePreviewProps) =>
             </StoreDetailHeaderRow>
 
             <StoreDetailStoreCategoryText>{storeData.category}</StoreDetailStoreCategoryText>
-            <StoreDetailStoreAddressText numberOfLines={2}>{storeData.address} </StoreDetailStoreAddressText>
+            <StoreDetailStoreAddressText numberOfLines={2}>{storeData.address}</StoreDetailStoreAddressText>
 
             {storeData.description && (
               <StoreDetailStoreDescriptionText numberOfLines={2}>
@@ -106,7 +106,7 @@ export const StorePreview = ({ store, onClose, onSelect }: StorePreviewProps) =>
               </StoreDetailStoreDescriptionText>
             )}
 
-            {itemData && itemData.Store_by_pk && itemData.Store_by_pk.StoreItems.length && (
+            {itemData && itemData.Store_by_pk && itemData.Store_by_pk.StoreItems.length > 0 && (
               <StoreDetailPopularItemHeaderText>Popular Items</StoreDetailPopularItemHeaderText>
             )}
           </StoreDetailContainer>

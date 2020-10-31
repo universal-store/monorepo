@@ -79,9 +79,6 @@ const tabs: TabsConfig<BubbleTabBarItemConfig> = {
   },
 };
 
-// Utils
-import { hapticOptions } from '&utils';
-
 export type RootAuthTabParams = {
   MapView: { email: string; password: string };
   FavoritesScreen: undefined;
@@ -93,6 +90,7 @@ export type RootAuthTabParams = {
 const RootAuthTab = createBottomTabNavigator<RootAuthTabParams>();
 
 export const RootAuthTabNavigator = () => (
+  // @ts-ignore
   <RootAuthTab.Navigator initialRouteName="MapView" tabBar={props => <AnimatedTabBar tabs={tabs} {...props} />}>
     <RootAuthTab.Screen
       name="MapView"
@@ -102,9 +100,6 @@ export const RootAuthTabNavigator = () => (
       }}
       options={{
         title: 'Stores',
-      }}
-      listeners={{
-        tabPress: () => ReactNativeHapticFeedback.trigger('selection', hapticOptions),
       }}
     />
     <RootAuthTab.Screen

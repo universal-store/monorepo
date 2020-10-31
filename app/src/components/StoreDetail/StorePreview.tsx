@@ -41,9 +41,6 @@ import { MarkerInfoFragment, useGetStoreInfoQuery, useGetPopularItemsQuery } fro
 // Utils
 import { hapticOptions } from '&utils';
 
-// Utils
-import { hapticOptions } from '&utils';
-
 // Constants
 const freeSnap = [largeModalHeight - 122, smallModalHeight - 122];
 const restrictSnap = [largeModalHeight - 122, largeModalHeight - 121];

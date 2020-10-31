@@ -135,7 +135,7 @@ export const MapViewScreen = () => {
   const filterStoresByQuery = (query: string) => {
     if (!storesData) return;
 
-    const tempFilteredStores = storesData.Store.filter(store => store.name.includes(query));
+    const tempFilteredStores = storesData.Store.filter(store => store.name.toLowerCase().includes(query.toLowerCase()));
     setQueriedStores(tempFilteredStores);
   };
 

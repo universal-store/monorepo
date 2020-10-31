@@ -101,7 +101,7 @@ export const StorePreview = ({ store, onClose, onSelect }: StorePreviewProps) =>
             <StoreDetailStoreAddressText numberOfLines={2}>{storeData.address}</StoreDetailStoreAddressText>
 
             {storeData.description && (
-              <StoreDetailStoreDescriptionText numberOfLines={2}>
+              <StoreDetailStoreDescriptionText numberOfLines={4}>
                 {storeData.description}
               </StoreDetailStoreDescriptionText>
             )}

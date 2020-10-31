@@ -136,6 +136,7 @@ export const StorePreview = ({ store, onClose, onSelect }: StorePreviewProps) =>
         renderHeader={renderHeader}
         renderContent={renderContent}
         enabledBottomInitialAnimation
+        enabledContentGestureInteraction={false}
         snapPoints={storeSelected ? restrictSnap : freeSnap}
       />
 

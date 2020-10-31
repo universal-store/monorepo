@@ -7,6 +7,7 @@ import { FlatList } from 'react-native';
 
 import {
   CellItemSeparator,
+  EmptyFavoritesState,
   FavoritesFilterText,
   FavoritesFindFilterContainer,
   FavoritesFindIconContainer,
@@ -78,17 +79,21 @@ export const FavoriteScreen = () => {
 
       {loading && <LoadingOverlay />}
 
-      <FlatList
-        data={filteredItems}
-        keyExtractor={item => item.id}
-        showsVerticalScrollIndicator={false}
-        ListFooterComponent={() => {
-          if (!filteredItems.length) return <></>;
-          return <CellItemSeparator />;
-        }}
-        ItemSeparatorComponent={() => <CellItemSeparator />}
-        renderItem={({ item }) => <FavoriteItemCell favItem={item.StoreItem} />}
-      />
+      {filteredItems.length > 0 ? (
+        <FlatList
+          data={filteredItems}
+          keyExtractor={item => item.id}
+          showsVerticalScrollIndicator={false}
+          ListFooterComponent={() => {
+            if (!filteredItems.length) return <></>;
+            return <CellItemSeparator />;
+          }}
+          ItemSeparatorComponent={() => <CellItemSeparator />}
+          renderItem={({ item }) => <FavoriteItemCell favItem={item.StoreItem} />}
+        />
+      ) : (
+        <EmptyFavoritesState />
+      )}
     </FullScreenWhite>
   );
 };

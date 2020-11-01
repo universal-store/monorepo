@@ -140,6 +140,8 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
         ],
       });
     }
+
+    await navigation.goBack();
   };
 
   const renderHeader = () => (

@@ -36,16 +36,6 @@ export const StoreDetailStoreNameText = styled(TextLarge)`
   flex: 1;
 `;
 
-export const StoreDetailCloseIconContainer = styled.TouchableOpacity`
-  width: 24px;
-  height: 24px;
-  display: flex;
-  margin-left: auto;
-  align-items: center;
-  border-radius: 24px;
-  justify-content: center;
-`;
-
 export const StoreDetailStoreCategoryText = styled(TextMedium2)`
   margin-bottom: 4px;
   color: ${({ theme }) => theme.colors.gray[3]};

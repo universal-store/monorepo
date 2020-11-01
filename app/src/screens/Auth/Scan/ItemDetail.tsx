@@ -11,6 +11,9 @@ import {
   AddCartButton,
   AddCartButtonContainer,
   AddCartButtonText,
+  BadgeContainer,
+  BadgeText,
+  CartIconContainer,
   FullScreenLightPurple,
   isiPhoneX,
   ItemDetailFavoriteButton,
@@ -55,6 +58,7 @@ import {
   useRemoveUserFavoriteItemMutation,
   GetUserFavoriteItemsDocument,
   GetUserCartItemsDocument,
+  useGetUserCartItemsQuery,
 } from '&graphql';
 
 // Utils
@@ -70,6 +74,8 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
 
   const { data, loading } = useGetStoreItemQuery({ variables: { barcodeId } });
   const itemData = data?.StoreItem_by_pk;
+
+  const { data: userCartItems } = useGetUserCartItemsQuery();
 
   const { data: userCart } = useCheckItemInCartQuery({ variables: { barcodeId } });
   const { data: userFavorites } = useCheckItemInFavoritesQuery({ variables: { barcodeId } });
@@ -200,7 +206,14 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
             navigation.navigate('CartScreen');
           }}
         >
-          <CartIcon />
+          <CartIconContainer>
+            <CartIcon />
+            {userCartItems && userCartItems.UserCartItem.length > 0 && (
+              <BadgeContainer>
+                <BadgeText>{userCartItems.UserCartItem.length}</BadgeText>
+              </BadgeContainer>
+            )}
+          </CartIconContainer>
         </ItemDetailHeaderButton>
       </ItemDetailHeaderRow>
 

@@ -100,6 +100,7 @@ export const RootAuthTabNavigator = () => (
       }}
       options={{
         title: 'Stores',
+        tabBarBadge: 100,
       }}
     />
     <RootAuthTab.Screen

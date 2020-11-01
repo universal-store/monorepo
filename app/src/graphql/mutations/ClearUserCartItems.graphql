@@ -1,0 +1,5 @@
+mutation ClearUserCartItems($userId: String!) {
+    delete_UserCartItem(where: {userId: {_eq: $userId}}) {
+        affected_rows
+    }
+}

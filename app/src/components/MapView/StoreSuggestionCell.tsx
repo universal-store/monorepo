@@ -9,12 +9,13 @@ import { StoreSuggestionCellContainer, StoreSuggestionNameText, StoreSuggestionA
 import { MarkerInfoFragment } from '&graphql';
 
 interface StoreSuggestionCellProps {
+  onPress: () => void;
   storeData: MarkerInfoFragment;
 }
 
-export const StoreSuggestionCell = ({ storeData }: StoreSuggestionCellProps) => {
+export const StoreSuggestionCell = ({ storeData, onPress }: StoreSuggestionCellProps) => {
   return (
-    <StoreSuggestionCellContainer>
+    <StoreSuggestionCellContainer onPress={onPress}>
       <StoreSuggestionNameText numberOfLines={1}>{storeData.name}</StoreSuggestionNameText>
       <StoreSuggestionAddressText numberOfLines={1}>{storeData.address}</StoreSuggestionAddressText>
     </StoreSuggestionCellContainer>

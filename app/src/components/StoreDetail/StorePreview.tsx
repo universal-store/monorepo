@@ -47,11 +47,12 @@ const restrictSnap = [largeModalHeight - 122, largeModalHeight - 121];
 
 interface StorePreviewProps {
   onClose: () => void;
+  suggestion: boolean;
   onSelect: () => void;
   store: MarkerInfoFragment;
 }
 
-export const StorePreview = ({ store, onClose, onSelect }: StorePreviewProps) => {
+export const StorePreview = ({ store, onClose, onSelect, suggestion }: StorePreviewProps) => {
   const navigation = useNavigation();
 
   const { data } = useGetStoreInfoQuery({ variables: { id: store.id } });
@@ -152,26 +153,28 @@ export const StorePreview = ({ store, onClose, onSelect }: StorePreviewProps) =>
         </CameraIconContainer>
       )}
 
-      <SelectStoreButtonContainer>
-        <SelectStoreButton
-          selected={storeSelected}
-          onPress={() => {
-            if (sheetRef.current) {
-              if (!storeSelected) sheetRef.current.snapTo(0);
-              else {
-                sheetRef.current.snapTo(1);
+      {!suggestion && (
+        <SelectStoreButtonContainer>
+          <SelectStoreButton
+            selected={storeSelected}
+            onPress={() => {
+              if (sheetRef.current) {
+                if (!storeSelected) sheetRef.current.snapTo(0);
+                else {
+                  sheetRef.current.snapTo(1);
+                }
               }
-            }
 
-            ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
-            setStoreSelected(!storeSelected);
-          }}
-        >
-          <SelectStoreButtonText selected={storeSelected}>
-            {storeSelected ? 'Stop Shopping' : 'Select Store'}
-          </SelectStoreButtonText>
-        </SelectStoreButton>
-      </SelectStoreButtonContainer>
+              ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
+              setStoreSelected(!storeSelected);
+            }}
+          >
+            <SelectStoreButtonText selected={storeSelected}>
+              {storeSelected ? 'Stop Shopping' : 'Select Store'}
+            </SelectStoreButtonText>
+          </SelectStoreButton>
+        </SelectStoreButtonContainer>
+      )}
     </>
   );
 };

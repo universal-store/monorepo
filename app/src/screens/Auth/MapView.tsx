@@ -59,6 +59,8 @@ export const MapViewScreen = () => {
 
   // Map State
   const [storeQuery, setStoreQuery] = useState<string>('');
+  const [suggestion, setSuggestion] = useState<boolean>(false);
+
   const [storePreview, setStorePreview] = useState<MarkerInfoFragment>();
   const [queriedStores, setQueriedStores] = useState<MarkerInfoFragment[]>();
   const [filteredStores, setFilteredStores] = useState<MarkerInfoFragment[]>();
@@ -204,9 +206,30 @@ export const MapViewScreen = () => {
       {storeQuery !== '' && !storePreview && inputRef.current && inputRef.current.isFocused() && (
         <StoreSuggestionContainer>
           {queriedStores &&
-            queriedStores
-              .slice(0, 5)
-              .map(store => <StoreSuggestionCell key={store.id + '_suggestion'} storeData={store} />)}
+            queriedStores.slice(0, 5).map(store => (
+              <StoreSuggestionCell
+                key={store.id + '_suggestion'}
+                storeData={store}
+                onPress={async () => {
+                  if (mapRef.current) {
+                    ReactNativeHapticFeedback.trigger('selection', hapticOptions);
+
+                    await mapRef.current.animateToRegion(
+                      {
+                        latitudeDelta: 0.0015,
+                        longitudeDelta: 0.0015,
+                        latitude: store.location.coordinates[0],
+                        longitude: store.location.coordinates[1],
+                      },
+                      200
+                    );
+
+                    await setSuggestion(true);
+                    await setStorePreview(store);
+                  }
+                }}
+              />
+            ))}
         </StoreSuggestionContainer>
       )}
 
@@ -290,7 +313,9 @@ export const MapViewScreen = () => {
           <StoreMapBottomPadding />
           <StorePreview
             store={storePreview}
+            suggestion={suggestion}
             onClose={() => {
+              setSuggestion(false);
               setStoreQuery('');
               setStorePreview(undefined);
             }}

@@ -160,7 +160,7 @@ export const StoreSuggestionContainer = styled.View`
   background-color: ${({ theme }) => theme.colors.white[1]};
 `;
 
-export const StoreSuggestionCellContainer = styled.View`
+export const StoreSuggestionCellContainer = styled.TouchableOpacity`
   height: 48px;
   display: flex;
   padding: 0 12px;

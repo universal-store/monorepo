@@ -18,6 +18,7 @@ import { ThemeProvider } from 'styled-components/native';
 
 // Apollo
 import { setContext } from '@apollo/client/link/context';
+import { SafeReadonly } from '@apollo/client/cache/core/types/common';
 import { ApolloClient, ApolloProvider, createHttpLink, InMemoryCache } from '@apollo/client';
 
 // Firebase Authentication
@@ -42,15 +43,22 @@ const authLink = setContext(async (_, { headers }) => {
   };
 });
 
+const AcceptIncoming = {
+  merge: (existing: SafeReadonly<any> | undefined, incoming: SafeReadonly<any> | undefined) => incoming,
+};
+
 // Create the client
 const client = new ApolloClient({
   cache: new InMemoryCache({
     typePolicies: {
       Query: {
         fields: {
-          project: {
-            merge: true,
-          },
+          Store: AcceptIncoming,
+          StoreItem: AcceptIncoming,
+          Store_by_pk: AcceptIncoming,
+          UserCartItem: AcceptIncoming,
+          StoreItem_by_pk: AcceptIncoming,
+          UserFavoriteItem: AcceptIncoming,
         },
       },
     },

@@ -4,9 +4,11 @@ import React, { useEffect, useRef, useState } from 'react';
 
 // Libraries
 import BottomSheet from 'reanimated-bottom-sheet';
+import { MaterialIndicator } from 'react-native-indicators';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
 // Components
+import { theme } from '&theme';
 import { Alert, FlatList } from 'react-native';
 import { LoadingOverlay } from '../LoadingOverlay';
 import { PopularItemCell } from './PopularItemCell';
@@ -129,7 +131,7 @@ export const StorePreview = ({ store, onClose, onSelect, suggestion }: StorePrev
           )}
         </>
       ) : (
-        <LoadingOverlay />
+        <MaterialIndicator color={theme.colors.purple[1]} />
       )}
     </ModalContainer>
   );
@@ -190,7 +192,7 @@ export const StorePreview = ({ store, onClose, onSelect, suggestion }: StorePrev
                         await setStoreSelected(false);
                         await setLoading(false);
 
-                        if (sheetRef) await sheetRef.current.snapTo(1);
+                        await onClose();
                       },
                     },
                     { text: 'No' },

@@ -1280,9 +1280,6 @@ enum StoreItem_constraint {
   StoreItem_barcodeId_key
 
   # unique or primary key constraint
-  StoreItem_itemImageId_key
-
-  # unique or primary key constraint
   StoreItem_pkey
 }
 

@@ -26,7 +26,7 @@ import firebase from 'firebase';
 import { Firebase } from '&lib';
 
 // Environment Variables
-import { GRAPHQL_API } from '&env';
+import { GRAPHQL_API } from './env';
 
 const httpLink = createHttpLink({
   uri: `${GRAPHQL_API}`,

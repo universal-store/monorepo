@@ -3,28 +3,8 @@
 import firebase from 'firebase';
 import 'firebase/functions';
 
-// Firebase Config Variables
-import { API_KEY, APP_ID, AUTH_DOMAIN, DATABASE_URL, MESSAGE_SENDER_ID, PROJECT_ID, STORAGE_BUCKET } from '&env';
+import { firebaseConfig } from '../env';
 
-interface FirebaseConfig {
-  appId: string;
-  apiKey: string;
-  projectId: string;
-  authDomain: string;
-  databaseURL: string;
-  storageBucket: string;
-  messagingSenderId: string;
-}
+export const Firebase = firebase.initializeApp(firebaseConfig);
 
-const config: FirebaseConfig = {
-  appId: APP_ID,
-  apiKey: API_KEY,
-  projectId: PROJECT_ID,
-  authDomain: AUTH_DOMAIN,
-  databaseURL: DATABASE_URL,
-  storageBucket: STORAGE_BUCKET,
-  messagingSenderId: MESSAGE_SENDER_ID,
-};
-
-export const Firebase = firebase.initializeApp(config);
 export const fns = firebase.functions();

@@ -37,7 +37,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { Firebase } from '&lib';
 
 // Queries
-import { useGetUserQuery } from '&graphql';
+import { useGetUserOrdersQuery, useGetUserQuery } from '&graphql';
 
 // Utils
 import { hapticOptions, renderName } from '&utils';
@@ -50,6 +50,10 @@ export const ProfileScreen = () => {
   // User Data
   const { data, loading } = useGetUserQuery();
   const userData = data ? data.User[0] : undefined;
+
+  // User Order Data
+  const { data: ordersData } = useGetUserOrdersQuery();
+  const orderData = ordersData ? ordersData.UserOrder : undefined;
 
   if (loading || signOutLoad)
     return (

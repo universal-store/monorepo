@@ -1,0 +1,4 @@
+fragment UserOrderInfo on UserOrder {
+    id
+    created_at
+}

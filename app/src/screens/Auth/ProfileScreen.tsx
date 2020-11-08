@@ -92,7 +92,7 @@ export const ProfileScreen = () => {
         <UserProfilePaymentInfoText>Exp: 07/24</UserProfilePaymentInfoText>
       </UserProfilePaymentInfoContainer>
 
-      <UserProfileSubHeaderText>My Orders</UserProfileSubHeaderText>
+      {orderData && orderData.length > 0 && <UserProfileSubHeaderText>My Orders</UserProfileSubHeaderText>}
 
       <ButtonContainer>
         <SecondaryButton

@@ -302,15 +302,31 @@ export const MapViewScreen = () => {
                 latitude: store.location.coordinates[0],
                 longitude: store.location.coordinates[1],
               }}
-              onPress={() => {
-                ReactNativeHapticFeedback.trigger('impactHeavy', hapticOptions);
+              onPress={async () => {
+                if (currentPosition) {
+                  ReactNativeHapticFeedback.trigger('impactHeavy', hapticOptions);
 
-                if (storePreview !== undefined && storePreview.id === store.id) {
-                  setStoreQuery('');
-                  setStorePreview(undefined);
-                } else {
-                  setStorePreview(store);
-                  setStoreQuery(store.name);
+                  const storeLocation = {
+                    latitude: store.location.coordinates[0],
+                    longitude: store.location.coordinates[1],
+                  };
+
+                  const curLocation = {
+                    latitude: currentPosition.latitude,
+                    longitude: currentPosition.longitude,
+                  };
+
+                  const distance = getDistance(storeLocation, curLocation);
+
+                  await setSuggestion(distance > 350);
+
+                  if (storePreview !== undefined && storePreview.id === store.id) {
+                    await setStoreQuery('');
+                    await setStorePreview(undefined);
+                  } else {
+                    await setStorePreview(store);
+                    await setStoreQuery(store.name);
+                  }
                 }
               }}
             >

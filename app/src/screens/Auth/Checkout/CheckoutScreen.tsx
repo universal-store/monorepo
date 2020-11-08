@@ -32,7 +32,15 @@ import { CloseIcon } from '&icons';
 import { useNavigation } from '@react-navigation/native';
 
 // GraphQL
-import { useGetUserCartItemsQuery } from '&graphql';
+import {
+  GetUserOrdersDocument,
+  GetUserCartItemsDocument,
+  useGetUserQuery,
+  useGetUserCartItemsQuery,
+  useCreateUserOrderMutation,
+  useClearUserCartItemsMutation,
+  usePurchaseStoreItemsMutation,
+} from '&graphql';
 
 // Utils
 import { hapticOptions } from '&utils';
@@ -54,9 +62,36 @@ export const CheckoutScreen = () => {
     );
   }
 
+  // Price Constants
   const subtotal = cartData.reduce((a, cartItem) => a + parseFloat(cartItem.StoreItem.price.substring(1)), 0);
   const sales_tax = (subtotal * SALES_TAX_PERCENT).toFixed(2);
-  const total = subtotal + parseFloat(sales_tax);
+  const total = (subtotal + parseFloat(sales_tax)).toFixed(2);
+
+  // Get User Query
+  const { data: userData } = useGetUserQuery();
+  const userId = userData?.User[0].id!;
+
+  // Mutations
+  const [createOrderMutation] = useCreateUserOrderMutation();
+  const [purchaseItemsMutation] = usePurchaseStoreItemsMutation();
+  const [clearCartMutation] = useClearUserCartItemsMutation();
+
+  const checkoutItems = async () => {
+    if (userId) {
+      let orderId = '';
+      const itemBarcodes = cartData.map(cartItem => cartItem.StoreItem.barcodeId);
+
+      await createOrderMutation({ variables: { userId }, refetchQueries: [{ query: GetUserOrdersDocument }] }).then(
+        res => {
+          if (res.data && res.data.insert_UserOrder_one) orderId = res.data.insert_UserOrder_one.id;
+        }
+      );
+      await purchaseItemsMutation({ variables: { itemBarcodes, orderId } });
+      await clearCartMutation({ variables: { userId }, refetchQueries: [{ query: GetUserCartItemsDocument }] });
+
+      await navigation.goBack();
+    }
+  };
 
   return (
     <FullScreenWhite>
@@ -107,7 +142,7 @@ export const CheckoutScreen = () => {
         isCheckoutScreen
         onPress={() => {
           ReactNativeHapticFeedback.trigger('selection', hapticOptions);
-          navigation.goBack();
+          checkoutItems();
         }}
       />
     </FullScreenWhite>

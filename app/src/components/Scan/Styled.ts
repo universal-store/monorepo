@@ -41,7 +41,7 @@ export const ScannerOverlayContainer = styled.View`
 
 export const TopLayer = styled.View`
   width: 100%;
-  height: ${isiPhoneX ? 130 : 100}px;
+  height: ${isiPhoneX ? 134 : 100}px;
   background-color: ${({ theme }) => theme.colors.transparent.black};
 `;
 
@@ -52,7 +52,7 @@ export const ScannerHeaderRow = styled(RowView)`
   margin-top: auto;
   align-items: center;
   padding: 0 32px 28px;
-  top: ${isiPhoneX ? 70 : 40}px;
+  top: ${isiPhoneX ? 74 : 40}px;
   justify-content: space-between;
 `;
 
@@ -140,7 +140,7 @@ const ItemPreviewContainer = styled.TouchableOpacity`
   shadow-opacity: 0.25;
   shadow-offset: 0px 4px;
   width: ${screenWidth - 48}px;
-  bottom: ${isiPhoneX ? 94 : 64}px;
+  bottom: ${isiPhoneX ? 98 : 64}px;
   shadow-color: ${({ theme }) => theme.colors.gray[1]};
   background-color: ${({ theme }) => theme.colors.white[1]};
 `;

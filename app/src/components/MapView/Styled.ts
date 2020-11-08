@@ -54,7 +54,7 @@ export const MapViewTextInputContainer = styled(RowView)`
   shadow-radius: 2.62px;
   shadow-offset: 0px 2px;
   width: ${screenWidth - 48}px;
-  top: ${isiPhoneX ? 54 : 24}px;
+  top: ${isiPhoneX ? 58 : 24}px;
   shadow-color: ${({ theme }) => theme.colors.gray[1]};
   background-color: ${({ theme }) => theme.colors.white[1]};
 `;
@@ -90,7 +90,7 @@ export const MapViewStoreCategoryContainer = styled.View`
   left: 0;
   z-index: 1;
   width: 100%;
-  top: ${isiPhoneX ? 94 : 64}px;
+  top: ${isiPhoneX ? 98 : 64}px;
 `;
 
 export const MapViewStoreCategoryPadding = styled.View`
@@ -155,7 +155,7 @@ export const StoreSuggestionContainer = styled.View`
   shadow-radius: 2.62px;
   shadow-offset: 0px 2px;
   width: ${screenWidth - 48}px;
-  top: ${isiPhoneX ? 106 : 76}px;
+  top: ${isiPhoneX ? 110 : 76}px;
   shadow-color: ${({ theme }) => theme.colors.gray[1]};
   background-color: ${({ theme }) => theme.colors.white[1]};
 `;

@@ -18,7 +18,7 @@ export const UserProfileHeaderRow = styled(RowView)`
   padding: 0 24px;
   margin-bottom: 24px;
   align-items: center;
-  margin-top: ${isiPhoneX ? 30 : 0}px;
+  margin-top: ${isiPhoneX ? 34 : 0}px;
 `;
 
 export const UserProfileHeaderText = styled(HeaderLargeText)`

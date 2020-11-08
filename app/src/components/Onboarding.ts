@@ -21,7 +21,7 @@ export const OnboardingScroll = styled.ScrollView`
 
 export const OnboardingHeaderContainer = styled(RowView)`
   width: 100%;
-  margin: ${isiPhoneX ? 78 : 48}px 0 24px;
+  margin: ${isiPhoneX ? 82 : 48}px 0 24px;
 `;
 
 export const LogoContainer = styled.View`

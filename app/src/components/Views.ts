@@ -21,7 +21,7 @@ export const FullScreen = styled.View`
 `;
 
 export const FullScreenWhite = styled(FullScreen)`
-  padding-top: ${isiPhoneX ? 30 : 0}px;
+  padding-top: ${isiPhoneX ? 34 : 0}px;
   background-color: ${({ theme }) => theme.colors.white[1]};
 `;
 

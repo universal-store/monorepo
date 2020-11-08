@@ -41,6 +41,7 @@ import { useGetUserOrdersQuery, useGetUserQuery } from '&graphql';
 
 // Utils
 import { hapticOptions, renderName } from '&utils';
+import { OrderCell } from '../../components/Orders';
 
 export const ProfileScreen = () => {
   const client = useApolloClient();
@@ -92,7 +93,14 @@ export const ProfileScreen = () => {
         <UserProfilePaymentInfoText>Exp: 07/24</UserProfilePaymentInfoText>
       </UserProfilePaymentInfoContainer>
 
-      {orderData && orderData.length > 0 && <UserProfileSubHeaderText>My Orders</UserProfileSubHeaderText>}
+      {orderData && orderData.length > 0 && (
+        <>
+          <UserProfileSubHeaderText>My Purchases</UserProfileSubHeaderText>
+          {orderData.slice(0, 3).map(order => (
+            <OrderCell key={order.id} orderData={order} />
+          ))}
+        </>
+      )}
 
       <ButtonContainer>
         <SecondaryButton

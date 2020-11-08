@@ -8,6 +8,13 @@ import { HeaderMediumText, HeaderSmallText, TextLarge, TextMedium2, TextSmall } 
 // Constants
 import { screenWidth, RowView } from '../Views';
 
+export const StoreDetailLoading = styled.View`
+  width: 100%;
+  display: flex;
+  margin-top: 48px;
+  justify-content: center;
+`;
+
 export const StoreDetailContainer = styled.View`
   padding: 0 32px;
 `;

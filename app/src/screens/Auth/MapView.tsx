@@ -5,6 +5,7 @@ import { theme } from '&theme';
 import { FlatList, Linking, Platform, TextInput } from 'react-native';
 
 // Libraries
+import { getDistance } from 'geolib';
 import Geolocation from '@react-native-community/geolocation';
 import { request, PERMISSIONS } from 'react-native-permissions';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
@@ -211,20 +212,31 @@ export const MapViewScreen = () => {
                 key={store.id + '_suggestion'}
                 storeData={store}
                 onPress={async () => {
-                  if (mapRef.current) {
+                  if (mapRef.current && currentPosition) {
                     ReactNativeHapticFeedback.trigger('selection', hapticOptions);
+
+                    const storeLocation = {
+                      latitude: store.location.coordinates[0],
+                      longitude: store.location.coordinates[1],
+                    };
 
                     await mapRef.current.animateToRegion(
                       {
+                        ...storeLocation,
                         latitudeDelta: 0.0015,
                         longitudeDelta: 0.0015,
-                        latitude: store.location.coordinates[0],
-                        longitude: store.location.coordinates[1],
                       },
                       200
                     );
 
-                    await setSuggestion(true);
+                    const curLocation = {
+                      latitude: currentPosition.latitude,
+                      longitude: currentPosition.longitude,
+                    };
+
+                    const distance = getDistance(storeLocation, curLocation);
+
+                    await setSuggestion(distance > 350);
                     await setStorePreview(store);
                   }
                 }}

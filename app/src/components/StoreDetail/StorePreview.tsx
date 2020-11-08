@@ -28,6 +28,7 @@ import {
   StoreDetailStoreAddressText,
   StoreDetailStoreDescriptionText,
   StoreDetailPopularItemHeaderText,
+  StoreDetailLoading,
 } from './Styled';
 
 // Iconography
@@ -131,7 +132,9 @@ export const StorePreview = ({ store, onClose, onSelect, suggestion }: StorePrev
           )}
         </>
       ) : (
-        <MaterialIndicator color={theme.colors.purple[1]} />
+        <StoreDetailLoading>
+          <MaterialIndicator color={theme.colors.purple[1]} />
+        </StoreDetailLoading>
       )}
     </ModalContainer>
   );

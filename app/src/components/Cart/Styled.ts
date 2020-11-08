@@ -3,9 +3,9 @@
 import styled from 'styled-components/native';
 
 // Components
-import { RowView } from '../Views';
+import { RowView, screenWidth } from '../Views';
 import { Pressable } from 'react-native';
-import { HeaderLargeText, HeaderSmallText, TextLarge2 } from '../Text';
+import { HeaderLargeText, HeaderMediumText, HeaderSmallText, TextLarge2 } from '../Text';
 
 export const CartHeaderTextContainer = styled.View`
   display: flex;
@@ -85,4 +85,21 @@ export const NoCartItemsText = styled(CartHeaderTextRegular)`
   padding: 0 40px;
   text-align: center;
   color: ${({ theme }) => theme.colors.gray[4]};
+`;
+
+export const CheckoutButtonContainer = styled.TouchableOpacity`
+  position: absolute;
+  left: 32px;
+  bottom: 32px;
+  height: 48px;
+  display: flex;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  width: ${screenWidth - 64}px;
+  background-color: ${({ theme }) => theme.colors.purple[1]};
+`;
+
+export const CheckoutButtonText = styled(HeaderMediumText)`
+  color: ${({ theme }) => theme.colors.white[1]};
 `;

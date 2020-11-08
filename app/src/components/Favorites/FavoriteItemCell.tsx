@@ -32,6 +32,7 @@ import {
 
 // Utils
 import { hapticOptions } from '&utils';
+import { ItemPreviewImage } from '../Scan';
 
 // Props
 interface FavoriteItemCellProps {
@@ -77,6 +78,7 @@ export const FavoriteItemCell = ({ favItem }: FavoriteItemCellProps) => {
           {StoreItemPic && (
             <FavoriteItemImageContainer>
               <FavoriteItemImage
+                resizeMode="contain"
                 source={{
                   uri: StoreItemPic.size64,
                 }}

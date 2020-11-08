@@ -22,6 +22,7 @@ import {
   ItemDetailImage,
   ItemDetailImageContainer,
   ItemNameText,
+  ItemPreviewImage,
   ItemPriceText,
   ItemSizeText,
   ItemSubDetailRow,
@@ -222,6 +223,7 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
       <ItemDetailImageContainer>
         {itemData && itemData.StoreItemPic && (
           <ItemDetailImage
+            resizeMode="contain"
             source={{
               uri: itemData.StoreItemPic.size256,
             }}

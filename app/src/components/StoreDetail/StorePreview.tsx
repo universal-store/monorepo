@@ -99,7 +99,7 @@ export const StorePreview = ({ store, onClose, onSelect, suggestion }: StorePrev
             <StoreDetailHeaderRow>
               {storeData.StorePic && (
                 <StoreDetailImageContainer>
-                  <StoreDetailImage source={{ uri: storeData.StorePic.size64 }} />
+                  <StoreDetailImage resizeMode="contain" source={{ uri: storeData.StorePic.size64 }} />
                 </StoreDetailImageContainer>
               )}
 

@@ -37,6 +37,7 @@ import {
 
 // Utils
 import { hapticOptions } from '&utils';
+import { ItemPreviewImage } from '../Scan';
 
 // Props
 interface CartItemCellProps {
@@ -125,6 +126,7 @@ export const CartItemCell = ({ cartItem }: CartItemCellProps) => {
           {StoreItemPic && (
             <CartItemImageContainer>
               <CartItemImage
+                resizeMode="contain"
                 source={{
                   uri: StoreItemPic.size64,
                 }}

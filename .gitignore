@@ -43,3 +43,4 @@ yarn-error.log
 
 # Environmental Variables
 .env
+/app/src/env.ts

@@ -46,7 +46,6 @@
            "&icons": ["./icons"],
            "&theme": ["./theme"],
            "&utils": ["./utils"],
-           "&env": ["../../.env"],
            "&stores": ["./stores"],
            "&screens": ["./screens"],
            "&navigation": ["./navigation"],

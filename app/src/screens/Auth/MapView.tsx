@@ -311,21 +311,29 @@ export const MapViewScreen = () => {
                     longitude: store.location.coordinates[1],
                   };
 
+                  await mapRef.current.animateToRegion(
+                    {
+                      ...storeLocation,
+                      latitudeDelta: 0.0015,
+                      longitudeDelta: 0.0015,
+                    },
+                    200
+                  );
+
                   const curLocation = {
                     latitude: currentPosition.latitude,
                     longitude: currentPosition.longitude,
                   };
 
                   const distance = getDistance(storeLocation, curLocation);
-
                   await setSuggestion(distance > 350);
 
                   if (storePreview !== undefined && storePreview.id === store.id) {
-                    await setStoreQuery('');
                     await setStorePreview(undefined);
+                    await setStoreQuery('');
                   } else {
-                    await setStorePreview(store);
                     await setStoreQuery(store.name);
+                    await setStorePreview(store);
                   }
                 }
               }}

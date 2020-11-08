@@ -303,7 +303,7 @@ export const MapViewScreen = () => {
                 longitude: store.location.coordinates[1],
               }}
               onPress={async () => {
-                if (currentPosition) {
+                if (currentPosition && mapRef.current) {
                   ReactNativeHapticFeedback.trigger('impactHeavy', hapticOptions);
 
                   const storeLocation = {

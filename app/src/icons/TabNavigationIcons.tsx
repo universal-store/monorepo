@@ -69,7 +69,7 @@ export const CartScreenIcon = ({ color }: TabNavigationIconProps) => {
           strokeWidth={2}
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6zM3 6h18M16 10a4 4 0 11-8 0"
+          d="M20.25 17.25H7.5L3.75 1.5H1.5m3 3h18l-2.25 9.75H6.75L4.5 4.5zM18.75 21.75a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM9 21.75a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
         />
       </Svg>
       {data && data.UserCartItem.length > 0 && (

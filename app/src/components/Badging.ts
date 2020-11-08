@@ -8,6 +8,9 @@ import { TextSmall2 } from './Text';
 export const CartIconContainer = styled.View`
   width: 24px;
   height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const BadgeContainer = styled.View`

@@ -22,6 +22,7 @@ import {
   ItemDetailImage,
   ItemDetailImageContainer,
   ItemNameText,
+  ItemPreviewImage,
   ItemPriceText,
   ItemSizeText,
   ItemSubDetailRow,
@@ -177,7 +178,7 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
             <ProductDetailsScroll
               bounces={false}
               showsVerticalScrollIndicator={false}
-              contentContainerStyle={{ paddingBottom: isiPhoneX ? 100 : 70 }}
+              contentContainerStyle={{ paddingBottom: isiPhoneX ? 104 : 70 }}
             >
               <ProductDetailsText>{itemData.description}</ProductDetailsText>
               <ProductDetailsText>{itemData.description}</ProductDetailsText>
@@ -222,6 +223,7 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
       <ItemDetailImageContainer>
         {itemData && itemData.StoreItemPic && (
           <ItemDetailImage
+            resizeMode="contain"
             source={{
               uri: itemData.StoreItemPic.size256,
             }}

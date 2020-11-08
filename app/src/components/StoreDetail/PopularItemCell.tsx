@@ -22,6 +22,7 @@ import { PopularItemInfoFragment } from '&graphql';
 
 // Utils
 import { hapticOptions } from '&utils';
+import { ItemPreviewImage } from '&components';
 
 interface PopularItemCellProps {
   itemData: PopularItemInfoFragment;
@@ -40,7 +41,7 @@ export const PopularItemCell = ({ itemData }: PopularItemCellProps) => {
       >
         {itemData.StoreItemPic && (
           <StoreDetailImageContainer>
-            <StoreDetailImage source={{ uri: itemData.StoreItemPic.size64 }} />
+            <StoreDetailImage resizeMode="contain" source={{ uri: itemData.StoreItemPic.size64 }} />
           </StoreDetailImageContainer>
         )}
 

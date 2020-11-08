@@ -83,7 +83,7 @@ export const AddCartButtonContainer = styled.View`
   bottom: 0;
   width: 100%;
   z-index: 100;
-  padding: 16px 32px ${isiPhoneX ? 54 : 24}px;
+  padding: 16px 32px ${isiPhoneX ? 58 : 24}px;
   background-color: ${({ theme }) => theme.colors.white[1]};
 `;
 

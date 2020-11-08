@@ -1,0 +1,5 @@
+mutation PurchaseStoreItems($itemBarcodes: [String!]!, $orderId: uuid!) {
+    update_StoreItem(where: { barcodeId: { _in: $itemBarcodes } }, _set: { purchased: true, orderId: $orderId }) {
+        affected_rows
+    }
+}

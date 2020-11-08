@@ -10,7 +10,15 @@ export const UserProfileMainContainer = styled(FullScreenWhite)`
   flex: 1;
   width: 100%;
   display: flex;
-  padding: 24px;
+  padding: 24px 0;
+`;
+
+export const UserProfileHeaderRow = styled(RowView)`
+  width: 100%;
+  padding: 0 24px;
+  margin-bottom: 24px;
+  align-items: center;
+  margin-top: ${isiPhoneX ? 34 : 0}px;
 `;
 
 export const UserProfileHeaderText = styled(HeaderLargeText)`
@@ -23,6 +31,7 @@ export const UserProfileHeaderNameText = styled(UserProfileHeaderText)`
 `;
 
 export const UserProfileSubHeaderText = styled(HeaderSmallText)`
+  margin-left: 24px;
   margin-bottom: 6px;
   color: ${({ theme }) => theme.colors.gray[1]};
 `;
@@ -38,12 +47,14 @@ export const UserProfilePaymentInfoText = styled(TextSmall2)`
 `;
 
 export const UserProfileEmailContainer = styled.View`
+  padding-left: 24px;
   margin-bottom: 16px;
   border-bottom-width: 1px;
   border-bottom-color: ${({ theme }) => theme.colors.gray[5]};
 `;
 
 export const UserProfilePaymentInfoContainer = styled.TouchableOpacity`
+  padding: 0 24px;
   margin-bottom: 16px;
   border-bottom-width: 1px;
   border-bottom-color: ${({ theme }) => theme.colors.gray[5]};
@@ -56,13 +67,6 @@ export const UserProfileCheckMarkLogoContainer = styled.View`
   margin-left: auto;
   align-content: center;
   justify-content: center;
-`;
-
-export const UserProfileHeaderRow = styled(RowView)`
-  width: 100%;
-  margin-bottom: 24px;
-  align-items: center;
-  margin-top: ${isiPhoneX ? 30 : 0}px;
 `;
 
 export const UserPaymentInfoNameRow = styled(RowView)``;

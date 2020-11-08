@@ -28,8 +28,9 @@ export const StoreDetailImageContainer = styled.View`
 `;
 
 export const StoreDetailImage = styled.Image`
-  width: 32px;
-  height: 32px;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
 `;
 
 export const StoreDetailStoreNameText = styled(TextLarge)`

@@ -1,20 +1,5 @@
 # @format
 
-fragment StoreItemInfo on StoreItem {
-    barcodeId
-    price
-    quantity
-    longName
-    purchased
-    shortName
-    description
-    StoreItemPic {
-        size64
-        size128
-        size256
-    }
-}
-
 fragment PopularItemInfo on StoreItem {
     price
     barcodeId
@@ -22,4 +7,28 @@ fragment PopularItemInfo on StoreItem {
     StoreItemPic {
         size64
     }
+    Store {
+        name
+        StorePic {
+            size64
+        }
+    }
+}
+
+
+fragment StoreItemInfo on StoreItem {
+    quantity
+    longName
+    purchased
+    description
+    StoreItemPic {
+        size128
+        size256
+    }
+    Store {
+        StorePic {
+            size128
+        }
+    }
+    ...PopularItemInfo
 }

@@ -1,0 +1,5 @@
+mutation CreateUserOrder($userId: String!) {
+    insert_UserOrder_one(object: { userId: $userId }) {
+        ...UserOrderInfo
+    }
+}

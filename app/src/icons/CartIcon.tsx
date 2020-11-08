@@ -6,11 +6,11 @@ import Svg, { Path } from 'react-native-svg';
 export const CartIcon = () => (
   <Svg width={20} height={20} fill="none">
     <Path
-      d="M5 1.667L2.5 5v11.667a1.666 1.666 0 001.667 1.666h11.666a1.666 1.666 0 001.667-1.666V5L15 1.667H5zM2.5 5h15M13.333 8.333a3.333 3.333 0 01-6.666 0"
-      stroke="#000"
-      strokeWidth={2}
+      stroke="#333"
+      strokeWidth={1.75}
       strokeLinecap="round"
       strokeLinejoin="round"
+      d="M16.875 14.375H6.25L3.125 1.25H1.25m2.5 2.5h15l-1.875 8.125H5.625L3.75 3.75zM15.625 18.125a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5zM7.5 18.125a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5z"
     />
   </Svg>
 );

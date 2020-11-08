@@ -14,7 +14,7 @@ const BasicButton = styled.TouchableOpacity`
 `;
 
 export const ButtonContainer = styled.View`
-  margin-top: auto;
+  margin: auto 24px 0;
 `;
 
 export const PrimaryButton = styled(BasicButton)`

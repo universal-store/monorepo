@@ -1,22 +1,24 @@
 # @format
 
-fragment MarkerInfo on Store {
+fragment StorePreview on Store {
   id
   name
+  StorePic {
+    size64
+  }
+}
+
+fragment MarkerInfo on Store {
   address
   category
   location
+  ...StorePreview
 }
 
 fragment StoreInfo on Store {
-  id
-  name
-  address
-  category
-  location
   description
   StorePic {
-    size64
     size128
   }
+  ...MarkerInfo
 }

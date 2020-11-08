@@ -37,10 +37,11 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { Firebase } from '&lib';
 
 // Queries
-import { useGetUserQuery } from '&graphql';
+import { useGetUserOrdersQuery, useGetUserQuery } from '&graphql';
 
 // Utils
 import { hapticOptions, renderName } from '&utils';
+import { OrderCell } from '../../components/Orders';
 
 export const ProfileScreen = () => {
   const client = useApolloClient();
@@ -50,6 +51,10 @@ export const ProfileScreen = () => {
   // User Data
   const { data, loading } = useGetUserQuery();
   const userData = data ? data.User[0] : undefined;
+
+  // User Order Data
+  const { data: ordersData } = useGetUserOrdersQuery();
+  const orderData = ordersData ? ordersData.UserOrder : undefined;
 
   if (loading || signOutLoad)
     return (
@@ -88,7 +93,14 @@ export const ProfileScreen = () => {
         <UserProfilePaymentInfoText>Exp: 07/24</UserProfilePaymentInfoText>
       </UserProfilePaymentInfoContainer>
 
-      <UserProfileSubHeaderText>My Orders</UserProfileSubHeaderText>
+      {orderData && orderData.length > 0 && (
+        <>
+          <UserProfileSubHeaderText>My Purchases</UserProfileSubHeaderText>
+          {orderData.slice(0, 3).map(order => (
+            <OrderCell key={order.id} orderData={order} />
+          ))}
+        </>
+      )}
 
       <ButtonContainer>
         <SecondaryButton

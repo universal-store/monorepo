@@ -83,6 +83,7 @@ export const ItemPreview = ({ badScan, barcodeId, onPress, shown }: ItemPreviewP
           <ItemPreviewImageContainer>
             {itemData && itemData.StoreItemPic && (
               <ItemPreviewImage
+                resizeMode="contain"
                 source={{
                   uri: itemData.StoreItemPic.size64,
                 }}

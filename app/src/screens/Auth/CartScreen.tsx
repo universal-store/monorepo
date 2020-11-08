@@ -2,6 +2,9 @@
 
 import React from 'react';
 
+// Libraries
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
+
 // Components
 import { FlatList } from 'react-native';
 
@@ -15,20 +18,30 @@ import {
   CartHeaderTextContainer,
   CartItemCell,
   CellItemSeparator,
-  LoadingOverlay,
+  CheckoutButton,
   EmptyCartItemsState,
+  LoadingOverlay,
 } from '&components';
+
+// Navigation
+import { AuthStackParams } from '&navigation';
+import { StackScreenProps } from '@react-navigation/stack';
 
 // GraphQL
 import { useGetUserCartItemsQuery } from '&graphql';
 
-export const CartScreen = () => {
+// Utils
+import { hapticOptions } from '&utils';
+
+type CartScreenProps = StackScreenProps<AuthStackParams, 'TabNavigation'>;
+
+export const CartScreen = ({ navigation }: CartScreenProps) => {
   const { data, loading } = useGetUserCartItemsQuery();
   const cartData = data?.UserCartItem;
 
   let cartTotal = 0;
   if (cartData) {
-    cartData.forEach(cartItem => (cartTotal += parseFloat(cartItem.StoreItem.price.substring(1))));
+    cartTotal = cartData.reduce((a, cartItem) => a + parseFloat(cartItem.StoreItem.price.substring(1)), 0);
   }
 
   return (
@@ -47,17 +60,27 @@ export const CartScreen = () => {
       {loading && <LoadingOverlay />}
 
       {cartData && cartData.length > 0 ? (
-        <FlatList
-          data={cartData}
-          keyExtractor={item => item.id}
-          showsVerticalScrollIndicator={false}
-          ListFooterComponent={() => {
-            if (!cartData.length) return <></>;
-            return <CellItemSeparator />;
-          }}
-          ItemSeparatorComponent={() => <CellItemSeparator />}
-          renderItem={({ item }) => <CartItemCell key={item.id} cartItem={item.StoreItem} />}
-        />
+        <>
+          <FlatList
+            data={cartData}
+            keyExtractor={item => item.id}
+            showsVerticalScrollIndicator={false}
+            ListFooterComponent={() => {
+              if (!cartData.length) return <></>;
+              return <CellItemSeparator />;
+            }}
+            ItemSeparatorComponent={() => <CellItemSeparator />}
+            renderItem={({ item }) => <CartItemCell key={item.id} cartItem={item.StoreItem} inCheckout={false} />}
+          />
+          <CheckoutButton
+            isCheckoutScreen={false}
+            text="Proceed to Checkout"
+            onPress={() => {
+              ReactNativeHapticFeedback.trigger('selection', hapticOptions);
+              navigation.navigate('CheckoutScreen');
+            }}
+          />
+        </>
       ) : (
         <EmptyCartItemsState />
       )}

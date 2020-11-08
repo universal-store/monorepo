@@ -37,14 +37,14 @@ import {
 
 // Utils
 import { hapticOptions } from '&utils';
-import { ItemPreviewImage } from '../Scan';
 
 // Props
 interface CartItemCellProps {
+  inCheckout: boolean;
   cartItem: StoreItemInfoFragment;
 }
 
-export const CartItemCell = ({ cartItem }: CartItemCellProps) => {
+export const CartItemCell = ({ cartItem, inCheckout }: CartItemCellProps) => {
   const { StoreItemPic, shortName, longName, price, barcodeId } = cartItem;
 
   // Navigation
@@ -113,6 +113,35 @@ export const CartItemCell = ({ cartItem }: CartItemCellProps) => {
       setFavorite(userFavorites.StoreItem_by_pk?.UserFavoriteItems.length !== 0);
     }
   }, [favorite, userFavorites]);
+
+  if (inCheckout) {
+    return (
+      <CartItemCellContainer
+        onPress={() => {
+          ReactNativeHapticFeedback.trigger('selection', hapticOptions);
+          navigation.navigate('ItemDetail', { barcodeId, scanned: true });
+        }}
+      >
+        <CartItemCellContainerSmall>
+          {StoreItemPic && (
+            <CartItemImageContainer>
+              <CartItemImage
+                resizeMode="contain"
+                source={{
+                  uri: StoreItemPic.size64,
+                }}
+              />
+            </CartItemImageContainer>
+          )}
+
+          <CartItemCellTextContainer>
+            <CartItemNameText numberOfLines={1}>{shortName ? shortName : longName}</CartItemNameText>
+            <CartItemPriceText>{price}</CartItemPriceText>
+          </CartItemCellTextContainer>
+        </CartItemCellContainerSmall>
+      </CartItemCellContainer>
+    );
+  }
 
   return (
     <Swipeable friction={2} renderLeftActions={renderLeftActions} renderRightActions={renderRightActions}>

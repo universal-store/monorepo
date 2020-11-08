@@ -41,7 +41,7 @@ export const CartScreen = ({ navigation }: CartScreenProps) => {
 
   let cartTotal = 0;
   if (cartData) {
-    cartData.forEach(cartItem => (cartTotal += parseFloat(cartItem.StoreItem.price.substring(1))));
+    cartTotal = cartData.reduce((a, cartItem) => a + parseFloat(cartItem.StoreItem.price.substring(1)), 0);
   }
 
   return (
@@ -70,14 +70,14 @@ export const CartScreen = ({ navigation }: CartScreenProps) => {
               return <CellItemSeparator />;
             }}
             ItemSeparatorComponent={() => <CellItemSeparator />}
-            renderItem={({ item }) => <CartItemCell key={item.id} cartItem={item.StoreItem} />}
+            renderItem={({ item }) => <CartItemCell key={item.id} cartItem={item.StoreItem} inCheckout={false} />}
           />
           <CheckoutButton
+            isCheckoutScreen={false}
             text="Proceed to Checkout"
             onPress={() => {
               ReactNativeHapticFeedback.trigger('selection', hapticOptions);
-
-              navigation.navigate('ScanningScreen');
+              navigation.navigate('CheckoutScreen');
             }}
           />
         </>

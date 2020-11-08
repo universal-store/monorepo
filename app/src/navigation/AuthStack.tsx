@@ -27,6 +27,7 @@ import AnimatedTabBar, { TabsConfig, BubbleTabBarItemConfig } from '@gorhom/anim
 
 // Utils
 import { hapticOptions } from '&utils';
+import { CheckoutScreen } from '../screens/Auth/Checkout';
 
 const tabs: TabsConfig<BubbleTabBarItemConfig> = {
   MapView: {
@@ -141,6 +142,7 @@ export type AuthStackParams = {
   ScanningScreen: undefined;
   ItemDetail: { barcodeId: string; scanned?: boolean };
   AddItemScreen: { barcodeId: string };
+  CheckoutScreen: undefined;
 };
 
 export const AuthStack = createStackNavigator<AuthStackParams>();
@@ -150,6 +152,7 @@ export const AuthNavigator = () => (
     <AuthStack.Screen name="TabNavigation" component={RootAuthTabNavigator} />
     <AuthStack.Screen name="ScanningScreen" component={ScanningScreen} />
     <AuthStack.Screen name="ItemDetail" component={ItemDetail} />
+    <AuthStack.Screen name="CheckoutScreen" component={CheckoutScreen} />
     <AuthStack.Screen name="AddItemScreen" component={AddItemScreen} options={{ gestureEnabled: true }} />
   </AuthStack.Navigator>
 );

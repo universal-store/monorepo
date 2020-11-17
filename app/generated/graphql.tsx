@@ -2948,11 +2948,7 @@ export type PopularItemInfoFragment = (
     & Pick<StoreItemPic, 'size64'>
   )>, Store: (
     { __typename?: 'Store' }
-    & Pick<Store, 'name'>
-    & { StorePic?: Maybe<(
-      { __typename?: 'StorePic' }
-      & Pick<StorePic, 'size64'>
-    )> }
+    & StorePreviewFragment
   ) }
 );
 
@@ -3398,13 +3394,10 @@ export const PopularItemInfoFragmentDoc = gql`
     size64
   }
   Store {
-    name
-    StorePic {
-      size64
-    }
+    ...StorePreview
   }
 }
-    `;
+    ${StorePreviewFragmentDoc}`;
 export const StoreItemInfoFragmentDoc = gql`
     fragment StoreItemInfo on StoreItem {
   quantity

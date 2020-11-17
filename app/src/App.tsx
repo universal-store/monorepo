@@ -54,6 +54,7 @@ const client = new ApolloClient({
       Query: {
         fields: {
           Store: AcceptIncoming,
+          StorePic: AcceptIncoming,
           StoreItem: AcceptIncoming,
           Store_by_pk: AcceptIncoming,
           UserCartItem: AcceptIncoming,

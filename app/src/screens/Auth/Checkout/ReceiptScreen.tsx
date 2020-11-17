@@ -37,6 +37,9 @@ import { AuthStackParams } from '&navigation';
 import { useNavigation } from '@react-navigation/native';
 import { StackScreenProps } from '@react-navigation/stack';
 
+// GraphQL
+import { StorePreviewFragment } from '&graphql';
+
 // Utils
 import { hapticOptions } from '&utils';
 
@@ -48,7 +51,9 @@ type ReceiptScreenProps = StackScreenProps<AuthStackParams, 'ReceiptScreen'>;
 export const ReceiptScreen = ({ route }: ReceiptScreenProps) => {
   const { orderData } = route.params;
 
-  const storeData = orderData.StoreItems[0].Store;
+  let storeData: StorePreviewFragment | undefined;
+
+  if (orderData.StoreItems.length > 0) storeData = orderData.StoreItems[0].Store;
 
   const navigation = useNavigation();
 
@@ -74,14 +79,16 @@ export const ReceiptScreen = ({ route }: ReceiptScreenProps) => {
         <CheckoutHeaderPadding />
       </CheckoutHeaderContainer>
 
-      <OrderStoreDetailContainer>
-        {storeData.StorePic && (
-          <StoreDetailImageContainer>
-            <StoreDetailImage resizeMode="contain" source={{ uri: storeData.StorePic.size64 }} />
-          </StoreDetailImageContainer>
-        )}
-        <StoreNameText>{storeData.name}</StoreNameText>
-      </OrderStoreDetailContainer>
+      {storeData && (
+        <OrderStoreDetailContainer>
+          {storeData.StorePic && (
+            <StoreDetailImageContainer>
+              <StoreDetailImage resizeMode="contain" source={{ uri: storeData.StorePic.size64 }} />
+            </StoreDetailImageContainer>
+          )}
+          <StoreNameText>{storeData.name}</StoreNameText>
+        </OrderStoreDetailContainer>
+      )}
 
       <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
         <CheckoutHeaderText>{`Items (${orderData.StoreItems.length})`}</CheckoutHeaderText>

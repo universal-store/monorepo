@@ -25,10 +25,10 @@ import { AddCartIcon, RemoveCartIcon } from '&icons';
 import {
   CheckItemInCartDocument,
   GetUserCartItemsDocument,
-  useAddUserCartItemMutation,
-  useCheckItemInCartQuery,
-  useGetStoreItemQuery,
   useGetUserQuery,
+  useGetStoreItemQuery,
+  useCheckItemInCartQuery,
+  useAddUserCartItemMutation,
   useRemoveUserCartItemMutation,
   useUpdateUserShoppingMutation,
 } from '&graphql';
@@ -85,21 +85,26 @@ export const ItemPreview = ({ badScan, barcodeId, onPress, toggleScanned, shown 
     }
   }, [shown]);
 
-  if (shown && !loading && !itemData) {
-    Alert.alert('Incorrect Scan!', `That item does not belong to this Store`, [
-      { text: 'Okay', onPress: badScan },
-      // TODO: Use for adding items during development
-      // {
-      //   text: 'Add Item To Database',
-      //   onPress: () => {
-      //     badScan();
-      //     navigation.navigate('AddItemScreen', { barcodeId });
-      //   },
-      // },
-    ]);
-    return <></>;
-  }
+  useEffect(() => {
+    if (shown && !loading && !itemData) {
+      Alert.alert('Incorrect Scan!', `That item does not belong to this Store`, [
+        { text: 'Okay', onPress: badScan },
+        // TODO: Use for adding items during development
+        // {
+        //   text: 'Add Item To Database',
+        //   onPress: () => {
+        //     badScan();
+        //     navigation.navigate('AddItemScreen', { barcodeId });
+        //   },
+        // },
+      ]);
+    }
+  }, [shown, loading, itemData]);
 
+  /**
+   * Similar function to previous ones
+   * Adds or removes an item from the user's cart
+   */
   const addOrRemoveFromCart = async () => {
     if (inCart) {
       await removeFromCartMutation({
@@ -127,49 +132,45 @@ export const ItemPreview = ({ badScan, barcodeId, onPress, toggleScanned, shown 
     });
   };
 
+  if (!shown || !itemData) return <></>;
+
   return (
-    <>
-      {shown && (
-        <AnimatedItemPreviewContainer
-          onPress={onPress}
-          style={{
-            transform: [
-              { translateY: animatedValue.interpolate({ inputRange: [0, 1], outputRange: [500, 0] }) },
-              { perspective: 1000 },
-            ],
-          }}
-        >
-          <ItemPreviewImageContainer>
-            {itemData && itemData.StoreItemPic && (
-              <ItemPreviewImage
-                resizeMode="contain"
-                source={{
-                  uri: itemData.StoreItemPic.size64,
-                }}
-              />
-            )}
-          </ItemPreviewImageContainer>
-
-          {itemData && (
-            <ItemPreviewTextContainer>
-              <HeaderSmallText numberOfLines={1}>
-                {itemData.shortName ? itemData.shortName : itemData.longName}
-              </HeaderSmallText>
-              <ItemPreviewPriceText>{itemData.price}</ItemPreviewPriceText>
-            </ItemPreviewTextContainer>
-          )}
-
-          <AddToCartButton
-            hitSlop={{ left: 8, right: 8 }}
-            onPress={async () => {
-              await addOrRemoveFromCart();
-              await toggleScanned();
+    <AnimatedItemPreviewContainer
+      onPress={onPress}
+      style={{
+        transform: [
+          { translateY: animatedValue.interpolate({ inputRange: [0, 1], outputRange: [500, 0] }) },
+          { perspective: 1000 },
+        ],
+      }}
+    >
+      <ItemPreviewImageContainer>
+        {itemData.StoreItemPic && (
+          <ItemPreviewImage
+            resizeMode="contain"
+            source={{
+              uri: itemData.StoreItemPic.size64,
             }}
-          >
-            {inCart ? <RemoveCartIcon /> : <AddCartIcon />}
-          </AddToCartButton>
-        </AnimatedItemPreviewContainer>
-      )}
-    </>
+          />
+        )}
+      </ItemPreviewImageContainer>
+
+      <ItemPreviewTextContainer>
+        <HeaderSmallText numberOfLines={1}>
+          {itemData.shortName ? itemData.shortName : itemData.longName}
+        </HeaderSmallText>
+        <ItemPreviewPriceText>{itemData.price}</ItemPreviewPriceText>
+      </ItemPreviewTextContainer>
+
+      <AddToCartButton
+        hitSlop={{ left: 8, right: 8 }}
+        onPress={async () => {
+          await addOrRemoveFromCart();
+          await toggleScanned();
+        }}
+      >
+        {inCart ? <RemoveCartIcon /> : <AddCartIcon />}
+      </AddToCartButton>
+    </AnimatedItemPreviewContainer>
   );
 };

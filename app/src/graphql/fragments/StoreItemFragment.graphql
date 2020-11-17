@@ -9,10 +9,7 @@ fragment PopularItemInfo on StoreItem {
         size64
     }
     Store {
-        name
-        StorePic {
-            size64
-        }
+        ...StorePreview
     }
 }
 

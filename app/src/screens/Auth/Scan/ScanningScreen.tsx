@@ -182,9 +182,7 @@ export const ScanningScreen = ({ navigation }: ScanningScreenProps) => {
       <ItemPreview
         shown={scanned}
         barcodeId={barcodeId}
-        badScan={() => {
-          resetScanner();
-        }}
+        badScan={resetScanner}
         onPress={() => {
           resetScanner();
           ReactNativeHapticFeedback.trigger('selection', hapticOptions);

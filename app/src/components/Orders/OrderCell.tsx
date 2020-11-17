@@ -19,7 +19,7 @@ import {
 } from './Styled';
 
 // GraphQL
-import { UserOrderInfoFragment } from '&graphql';
+import { StorePreviewFragment, UserOrderInfoFragment } from '&graphql';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import { hapticOptions } from '&utils';
 import { useNavigation } from '@react-navigation/native';
@@ -46,7 +46,9 @@ export const OrderCell = ({ orderData }: OrderCellProps) => {
   const sales_tax = (subtotal * SALES_TAX_PERCENT).toFixed(2);
   const total = (subtotal + parseFloat(sales_tax)).toFixed(2);
 
-  const store = StoreItems[0].Store;
+  let store: StorePreviewFragment | undefined;
+
+  if (StoreItems.length > 0) store = StoreItems[0].Store;
 
   return (
     <OrderCellContainer
@@ -55,11 +57,11 @@ export const OrderCell = ({ orderData }: OrderCellProps) => {
         navigation.navigate('ReceiptScreen', { orderData });
       }}
     >
-      {store.StorePic && <OrderCellImage resizeMode="contain" source={{ uri: store.StorePic.size64 }} />}
+      {store && store.StorePic && <OrderCellImage resizeMode="contain" source={{ uri: store.StorePic.size64 }} />}
 
       <OrderCellInnerContainer>
         <OrderCellHeaderRow>
-          <OrderCellTitleText numberOfLines={1}>{store.name}</OrderCellTitleText>
+          {store && <OrderCellTitleText numberOfLines={1}>{store.name}</OrderCellTitleText>}
           <OrderCellItemsText>{time_since}</OrderCellItemsText>
         </OrderCellHeaderRow>
 

@@ -40,6 +40,7 @@ import {
   useCreateUserOrderMutation,
   useClearUserCartItemsMutation,
   usePurchaseStoreItemsMutation,
+  UserOrderInfoFragment,
 } from '&graphql';
 
 // Utils
@@ -81,18 +82,23 @@ export const CheckoutScreen = () => {
    */
   const checkoutItems = async () => {
     if (userId) {
-      let orderId = '';
       const itemBarcodes = cartData.map(cartItem => cartItem.StoreItem.barcodeId);
 
+      let orderData: UserOrderInfoFragment | undefined;
+
       await createOrderMutation({ variables: { userId }, refetchQueries: [{ query: GetUserOrdersDocument }] }).then(
-        res => {
-          if (res.data && res.data.insert_UserOrder_one) orderId = res.data.insert_UserOrder_one.id;
+        async res => {
+          if (res.data && res.data.insert_UserOrder_one) {
+            orderData = res.data.insert_UserOrder_one;
+
+            if (orderData) {
+              await purchaseItemsMutation({ variables: { itemBarcodes, orderId: orderData.id } });
+              await clearCartMutation({ variables: { userId }, refetchQueries: [{ query: GetUserCartItemsDocument }] });
+              await navigation.navigate('ReceiptScreen', { orderData });
+            }
+          }
         }
       );
-      await purchaseItemsMutation({ variables: { itemBarcodes, orderId } });
-      await clearCartMutation({ variables: { userId }, refetchQueries: [{ query: GetUserCartItemsDocument }] });
-
-      await navigation.goBack();
     }
   };
 
@@ -145,7 +151,7 @@ export const CheckoutScreen = () => {
         isCheckoutScreen
         onPress={() => {
           ReactNativeHapticFeedback.trigger('selection', hapticOptions);
-          checkoutItems();
+          void checkoutItems();
         }}
       />
     </FullScreenWhite>

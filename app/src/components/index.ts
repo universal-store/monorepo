@@ -16,6 +16,7 @@ export * from './Onboarding';
 // Auth Screens
 export * from './Scan';
 export * from './Cart';
+export * from './Orders';
 export * from './MapView';
 export * from './Favorites';
 export * from './ItemDetail';

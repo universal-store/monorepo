@@ -46,6 +46,7 @@ export const CartItemCellContainer = styled(Pressable)`
   width: 100%;
   height: 80px;
   display: flex;
+  max-height: 80px;
   padding: 16px 24px;
   align-items: center;
   flex-direction: row;

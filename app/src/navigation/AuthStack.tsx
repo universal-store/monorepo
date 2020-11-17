@@ -10,10 +10,12 @@ import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import {
   AddItemScreen,
   CartScreen,
+  CheckoutScreen,
   FavoriteScreen,
   ItemDetail,
   MapViewScreen,
   ProfileScreen,
+  ReceiptScreen,
   ScanningScreen,
 } from '&screens';
 
@@ -25,9 +27,11 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import AnimatedTabBar, { TabsConfig, BubbleTabBarItemConfig } from '@gorhom/animated-tabbar';
 
+// GraphQL
+import { UserOrderInfoFragment } from '&graphql';
+
 // Utils
 import { hapticOptions } from '&utils';
-import { CheckoutScreen } from '../screens/Auth/Checkout';
 
 const tabs: TabsConfig<BubbleTabBarItemConfig> = {
   MapView: {
@@ -138,11 +142,12 @@ export const RootAuthTabNavigator = () => (
 );
 
 export type AuthStackParams = {
-  TabNavigation: { screen: string };
   ScanningScreen: undefined;
-  ItemDetail: { barcodeId: string; scanned?: boolean };
-  AddItemScreen: { barcodeId: string };
   CheckoutScreen: undefined;
+  TabNavigation: { screen: string };
+  AddItemScreen: { barcodeId: string };
+  ReceiptScreen: { orderData: UserOrderInfoFragment };
+  ItemDetail: { barcodeId: string; scanned?: boolean };
 };
 
 export const AuthStack = createStackNavigator<AuthStackParams>();
@@ -153,6 +158,7 @@ export const AuthNavigator = () => (
     <AuthStack.Screen name="ScanningScreen" component={ScanningScreen} />
     <AuthStack.Screen name="ItemDetail" component={ItemDetail} />
     <AuthStack.Screen name="CheckoutScreen" component={CheckoutScreen} />
+    <AuthStack.Screen name="ReceiptScreen" component={ReceiptScreen} />
     <AuthStack.Screen name="AddItemScreen" component={AddItemScreen} options={{ gestureEnabled: true }} />
   </AuthStack.Navigator>
 );

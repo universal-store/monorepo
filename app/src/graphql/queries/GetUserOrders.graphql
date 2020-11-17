@@ -1,5 +1,5 @@
 query GetUserOrders {
-    UserOrder(order_by: { created_at: asc }) {
+    UserOrder(order_by: { created_at: desc }) {
         ...UserOrderInfo
     }
 }

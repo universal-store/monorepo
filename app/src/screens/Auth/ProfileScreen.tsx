@@ -8,7 +8,12 @@ import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
 // Components
 import {
+  ButtonContainer,
   FullScreenCenter,
+  LoadingOverlay,
+  OrderCell,
+  SecondaryButton,
+  SecondaryButtonText,
   UserProfileMainContainer,
   UserProfileHeaderRow,
   UserProfileHeaderText,
@@ -20,10 +25,6 @@ import {
   UserPaymentInfoNameRow,
   UserProfileCheckMarkLogoContainer,
   UserProfileHeaderNameText,
-  SecondaryButton,
-  ButtonContainer,
-  SecondaryButtonText,
-  LoadingOverlay,
 } from '&components';
 
 // Iconography
@@ -41,7 +42,6 @@ import { useGetUserOrdersQuery, useGetUserQuery } from '&graphql';
 
 // Utils
 import { hapticOptions, renderName } from '&utils';
-import { OrderCell } from '../../components/Orders';
 
 export const ProfileScreen = () => {
   const client = useApolloClient();

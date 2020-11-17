@@ -2,6 +2,7 @@
 
 fragment PopularItemInfo on StoreItem {
     price
+    longName
     barcodeId
     shortName
     StoreItemPic {

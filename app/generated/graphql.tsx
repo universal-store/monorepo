@@ -2942,7 +2942,7 @@ export type StoreInfoFragment = (
 
 export type PopularItemInfoFragment = (
   { __typename?: 'StoreItem' }
-  & Pick<StoreItem, 'price' | 'barcodeId' | 'shortName'>
+  & Pick<StoreItem, 'price' | 'longName' | 'barcodeId' | 'shortName'>
   & { StoreItemPic?: Maybe<(
     { __typename?: 'StoreItemPic' }
     & Pick<StoreItemPic, 'size64'>
@@ -3391,6 +3391,7 @@ export const UserInfoFragmentDoc = gql`
 export const PopularItemInfoFragmentDoc = gql`
     fragment PopularItemInfo on StoreItem {
   price
+  longName
   barcodeId
   shortName
   StoreItemPic {
@@ -4269,7 +4270,7 @@ export function refetchGetUserFavoriteItemsQuery(variables?: GetUserFavoriteItem
     }
 export const GetUserOrdersDocument = gql`
     query GetUserOrders {
-  UserOrder(order_by: {created_at: asc}) {
+  UserOrder(order_by: {created_at: desc}) {
     ...UserOrderInfo
   }
 }

@@ -1,7 +1,7 @@
 /** @format */
 
 import styled from 'styled-components/native';
-import { RowView, TextSmall2 } from '&components';
+import { HeaderMediumText, RowView, TextSmall2 } from '&components';
 
 export const OrderCellContainer = styled.TouchableOpacity`
   width: 100%;
@@ -52,3 +52,16 @@ export const OrderCellPriceText = styled(OrderCellItemsText)`
   font-family: NunitoSans-Bold;
   color: ${({ theme }) => theme.colors.purple[1]};
 `;
+
+// Receipt Screen Components
+
+export const OrderStoreDetailContainer = styled.View`
+  height: 60px;
+  display: flex;
+  padding: 0 24px;
+  align-items: center;
+  flex-direction: row;
+  background-color: ${({ theme }) => theme.colors.white[1]};
+`;
+
+export const StoreNameText = styled(HeaderMediumText)``;

@@ -33,6 +33,7 @@ import {
   useRemoveUserCartItemMutation,
   useAddUserFavoriteItemMutation,
   useRemoveUserFavoriteItemMutation,
+  PopularItemInfoFragment,
 } from '&graphql';
 
 // Utils
@@ -41,7 +42,7 @@ import { hapticOptions } from '&utils';
 // Props
 interface CartItemCellProps {
   inCheckout: boolean;
-  cartItem: StoreItemInfoFragment;
+  cartItem: StoreItemInfoFragment | PopularItemInfoFragment;
 }
 
 export const CartItemCell = ({ cartItem, inCheckout }: CartItemCellProps) => {

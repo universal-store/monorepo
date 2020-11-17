@@ -44,7 +44,15 @@ import { FindIcon, MapArrowIcon, MarkerIcon } from '&icons';
 import { useFocusEffect } from '@react-navigation/native';
 
 // GraphQL
-import { MarkerInfoFragment, useGetStoresQuery } from '&graphql';
+import {
+  GetUserCartItemsDocument,
+  MarkerInfoFragment,
+  useClearUserCartItemsMutation,
+  useGetStoresQuery,
+  useGetUserQuery,
+  useGetUserShoppingQuery,
+  useRemoveUserShoppingMutation,
+} from '&graphql';
 
 // Utils
 import { hapticOptions } from '&utils';
@@ -62,6 +70,8 @@ export const MapViewScreen = () => {
   const [storeQuery, setStoreQuery] = useState<string>('');
   const [suggestion, setSuggestion] = useState<boolean>(false);
 
+  const [shopping, setShopping] = useState<boolean>(false);
+
   const [storePreview, setStorePreview] = useState<MarkerInfoFragment>();
   const [queriedStores, setQueriedStores] = useState<MarkerInfoFragment[]>();
   const [filteredStores, setFilteredStores] = useState<MarkerInfoFragment[]>();
@@ -70,19 +80,60 @@ export const MapViewScreen = () => {
   // Location Permissions
   const [locationPermission, setLocationPermission] = useState<boolean | undefined>();
 
+  // Get User Data
+  const { data: userData } = useGetUserQuery();
+  const userId = userData?.User[0].id!;
+
+  // Query if Shopping
+  const { data: shoppingData } = useGetUserShoppingQuery();
+
   // Query all Stores
   const { data: storesData } = useGetStoresQuery();
 
-  useEffect(() => {
-    filterStoresByCategory();
-  }, [categoryFilter]);
+  // Mutations
+  const [clearCartMutation] = useClearUserCartItemsMutation();
+  const [removeShoppingMutation] = useRemoveUserShoppingMutation();
 
   useEffect(() => {
     if (storesData) {
       setQueriedStores(storesData.Store);
       setFilteredStores(storesData.Store);
+
+      if (shoppingData && shoppingData.UserShopping.length > 0) {
+        const curStoreId = shoppingData.UserShopping[0].storeId;
+        const curStore = storesData.Store.filter(store => store.id === curStoreId)[0];
+
+        const timeShopping = getHourDiff(new Date(), new Date(shoppingData.UserShopping[0].updated_at));
+        if (timeShopping < 2) {
+          setShopping(true);
+          setStorePreview(curStore);
+          setStoreQuery(curStore.name);
+        } else {
+          void clearCartMutation({
+            variables: { userId },
+            refetchQueries: [{ query: GetUserCartItemsDocument }],
+          }).then(
+            () =>
+              void removeShoppingMutation({
+                variables: { userId },
+              })
+          );
+
+          setStoreQuery('');
+          setShopping(false);
+          setStorePreview(undefined);
+        }
+      } else {
+        setStoreQuery('');
+        setShopping(false);
+        setStorePreview(undefined);
+      }
     }
-  }, [storesData]);
+  }, [storesData, shoppingData]);
+
+  useEffect(() => {
+    filterStoresByCategory();
+  }, [categoryFilter]);
 
   useFocusEffect(
     useCallback(() => {
@@ -108,6 +159,22 @@ export const MapViewScreen = () => {
     }, [])
   );
 
+  /**
+   * Get hours passed between two times
+   * @param time1 Current Time
+   * @param time2 Last Shopping Time
+   */
+  const getHourDiff = (time1: Date, time2: Date) => {
+    let diff = (time1.getTime() - time2.getTime()) / 1000;
+    diff /= 60 * 60;
+    return Math.abs(Math.floor(diff));
+  };
+
+  /**
+   * If a location is passed, set that to current position,
+   * else get location from phone
+   * @param userLocation
+   */
   const locateCurrentPosition = (userLocation?: EventUserLocation) => {
     if (userLocation) {
       const region: Region = {
@@ -135,6 +202,10 @@ export const MapViewScreen = () => {
     }
   };
 
+  /**
+   * Filter stores that contain query
+   * @param query Search term in search bar
+   */
   const filterStoresByQuery = (query: string) => {
     if (!storesData) return;
 
@@ -142,6 +213,9 @@ export const MapViewScreen = () => {
     setQueriedStores(tempFilteredStores);
   };
 
+  /**
+   * Filter by stores containing the selected category pills
+   */
   const filterStoresByCategory = () => {
     if (!storesData) return;
 
@@ -166,12 +240,19 @@ export const MapViewScreen = () => {
     setFilteredStores(tempFilteredStores);
   };
 
+  /**
+   * Toggle a certain category pill on/off
+   * @param index (From 0) category in the category pill row
+   */
   const togglePillFilter = (index: number) => {
     const tempCategoryFilter = [...categoryFilter];
     tempCategoryFilter[index] = !tempCategoryFilter[index];
     setCategoryFilter(tempCategoryFilter);
   };
 
+  /**
+   * Show warning if location permissions were not provided
+   */
   if (locationPermission === false) {
     return (
       <NoLocationPermissionsScreen>
@@ -348,6 +429,7 @@ export const MapViewScreen = () => {
         <>
           <StoreMapBottomPadding />
           <StorePreview
+            shopping={shopping}
             store={storePreview}
             suggestion={suggestion}
             onClose={() => {

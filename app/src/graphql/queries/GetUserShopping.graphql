@@ -1,5 +1,6 @@
 query GetUserShopping {
     UserShopping {
+        storeId
         updated_at
     }
 }

@@ -1,5 +1,5 @@
-mutation UpdateUserShopping($currentTime: timestamptz!, $userId: String!) {
-    update_UserShopping(_set: {updated_at: $currentTime}, where: {userId: {_eq: $userId}}) {
+mutation UpdateUserShopping($currentTime: timestamptz!, $userId: String!, $lastItem: String!) {
+    update_UserShopping(_set: { updated_at: $currentTime, lastItem: $lastItem }, where: { userId: { _eq: $userId } }) {
         affected_rows
     }
 }

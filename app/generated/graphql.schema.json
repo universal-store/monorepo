@@ -19979,15 +19979,31 @@
         "description": null,
         "fields": [
           {
-            "name": "created_at",
+            "name": "Store",
             "description": null,
             "args": [],
             "type": {
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "SCALAR",
-                "name": "timestamptz",
+                "kind": "OBJECT",
+                "name": "Store",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "User",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "User",
                 "ofType": null
               }
             },
@@ -20011,7 +20027,19 @@
             "deprecationReason": null
           },
           {
-            "name": "updated_at",
+            "name": "lastItem",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "storeId",
             "description": null,
             "args": [],
             "type": {
@@ -20019,9 +20047,21 @@
               "name": null,
               "ofType": {
                 "kind": "SCALAR",
-                "name": "timestamptz",
+                "name": "uuid",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "updated_at",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "timestamptz",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -20262,6 +20302,26 @@
         "fields": null,
         "inputFields": [
           {
+            "name": "Store",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "Store_bool_exp",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "User",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "User_bool_exp",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "_and",
             "description": null,
             "type": {
@@ -20300,17 +20360,27 @@
             "defaultValue": null
           },
           {
-            "name": "created_at",
+            "name": "id",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "timestamptz_comparison_exp",
+              "name": "uuid_comparison_exp",
               "ofType": null
             },
             "defaultValue": null
           },
           {
-            "name": "id",
+            "name": "lastItem",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "String_comparison_exp",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "storeId",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -20374,17 +20444,47 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "created_at",
+            "name": "Store",
             "description": null,
             "type": {
-              "kind": "SCALAR",
-              "name": "timestamptz",
+              "kind": "INPUT_OBJECT",
+              "name": "Store_obj_rel_insert_input",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "User",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "User_obj_rel_insert_input",
               "ofType": null
             },
             "defaultValue": null
           },
           {
             "name": "id",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "uuid",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "lastItem",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "storeId",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -20424,19 +20524,31 @@
         "description": null,
         "fields": [
           {
-            "name": "created_at",
+            "name": "id",
             "description": null,
             "args": [],
             "type": {
               "kind": "SCALAR",
-              "name": "timestamptz",
+              "name": "uuid",
               "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "id",
+            "name": "lastItem",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "storeId",
             "description": null,
             "args": [],
             "type": {
@@ -20484,7 +20596,7 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "created_at",
+            "name": "id",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -20494,7 +20606,17 @@
             "defaultValue": null
           },
           {
-            "name": "id",
+            "name": "lastItem",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "order_by",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "storeId",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -20534,19 +20656,31 @@
         "description": null,
         "fields": [
           {
-            "name": "created_at",
+            "name": "id",
             "description": null,
             "args": [],
             "type": {
               "kind": "SCALAR",
-              "name": "timestamptz",
+              "name": "uuid",
               "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "id",
+            "name": "lastItem",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "storeId",
             "description": null,
             "args": [],
             "type": {
@@ -20594,7 +20728,7 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "created_at",
+            "name": "id",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -20604,7 +20738,17 @@
             "defaultValue": null
           },
           {
-            "name": "id",
+            "name": "lastItem",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "order_by",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "storeId",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -20788,7 +20932,27 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "created_at",
+            "name": "Store",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "Store_order_by",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "User",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "User_order_by",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "id",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -20798,7 +20962,17 @@
             "defaultValue": null
           },
           {
-            "name": "id",
+            "name": "lastItem",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "order_by",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "storeId",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -20866,13 +21040,19 @@
         "interfaces": null,
         "enumValues": [
           {
-            "name": "created_at",
+            "name": "id",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "id",
+            "name": "lastItem",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "storeId",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -20899,17 +21079,27 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "created_at",
+            "name": "id",
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "timestamptz",
+              "name": "uuid",
               "ofType": null
             },
             "defaultValue": null
           },
           {
-            "name": "id",
+            "name": "lastItem",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "storeId",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -20952,13 +21142,19 @@
         "interfaces": null,
         "enumValues": [
           {
-            "name": "created_at",
+            "name": "id",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "id",
+            "name": "lastItem",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "storeId",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null

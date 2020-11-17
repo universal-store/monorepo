@@ -1,5 +1,5 @@
-mutation CreateUserShopping($userId: String!) {
-    insert_UserShopping(objects: {userId: $userId}) {
-        affected_rows
+mutation CreateUserShopping($userId: String!, $storeId: uuid!) {
+    insert_UserShopping_one(object: { userId: $userId, storeId: $storeId }) {
+        updated_at
     }
 }

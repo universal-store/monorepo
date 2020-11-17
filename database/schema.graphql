@@ -3518,9 +3518,15 @@ enum UserOrder_update_column {
 
 # columns and relationships of "UserShopping"
 type UserShopping {
-  created_at: timestamptz!
+  # An object relationship
+  Store: Store!
+
+  # An object relationship
+  User: User!
   id: uuid!
-  updated_at: timestamptz!
+  lastItem: String
+  storeId: uuid!
+  updated_at: timestamptz
   userId: String!
 }
 
@@ -3552,11 +3558,14 @@ input UserShopping_arr_rel_insert_input {
 
 # Boolean expression to filter rows from the table "UserShopping". All fields are combined with a logical 'AND'.
 input UserShopping_bool_exp {
+  Store: Store_bool_exp
+  User: User_bool_exp
   _and: [UserShopping_bool_exp]
   _not: UserShopping_bool_exp
   _or: [UserShopping_bool_exp]
-  created_at: timestamptz_comparison_exp
   id: uuid_comparison_exp
+  lastItem: String_comparison_exp
+  storeId: uuid_comparison_exp
   updated_at: timestamptz_comparison_exp
   userId: String_comparison_exp
 }
@@ -3572,40 +3581,47 @@ enum UserShopping_constraint {
 
 # input type for inserting data into table "UserShopping"
 input UserShopping_insert_input {
-  created_at: timestamptz
+  Store: Store_obj_rel_insert_input
+  User: User_obj_rel_insert_input
   id: uuid
+  lastItem: String
+  storeId: uuid
   updated_at: timestamptz
   userId: String
 }
 
 # aggregate max on columns
 type UserShopping_max_fields {
-  created_at: timestamptz
   id: uuid
+  lastItem: String
+  storeId: uuid
   updated_at: timestamptz
   userId: String
 }
 
 # order by max() on columns of table "UserShopping"
 input UserShopping_max_order_by {
-  created_at: order_by
   id: order_by
+  lastItem: order_by
+  storeId: order_by
   updated_at: order_by
   userId: order_by
 }
 
 # aggregate min on columns
 type UserShopping_min_fields {
-  created_at: timestamptz
   id: uuid
+  lastItem: String
+  storeId: uuid
   updated_at: timestamptz
   userId: String
 }
 
 # order by min() on columns of table "UserShopping"
 input UserShopping_min_order_by {
-  created_at: order_by
   id: order_by
+  lastItem: order_by
+  storeId: order_by
   updated_at: order_by
   userId: order_by
 }
@@ -3634,8 +3650,11 @@ input UserShopping_on_conflict {
 
 # ordering options when selecting data from "UserShopping"
 input UserShopping_order_by {
-  created_at: order_by
+  Store: Store_order_by
+  User: User_order_by
   id: order_by
+  lastItem: order_by
+  storeId: order_by
   updated_at: order_by
   userId: order_by
 }
@@ -3648,10 +3667,13 @@ input UserShopping_pk_columns_input {
 # select columns of table "UserShopping"
 enum UserShopping_select_column {
   # column name
-  created_at
+  id
 
   # column name
-  id
+  lastItem
+
+  # column name
+  storeId
 
   # column name
   updated_at
@@ -3662,8 +3684,9 @@ enum UserShopping_select_column {
 
 # input type for updating data in table "UserShopping"
 input UserShopping_set_input {
-  created_at: timestamptz
   id: uuid
+  lastItem: String
+  storeId: uuid
   updated_at: timestamptz
   userId: String
 }
@@ -3671,10 +3694,13 @@ input UserShopping_set_input {
 # update columns of table "UserShopping"
 enum UserShopping_update_column {
   # column name
-  created_at
+  id
 
   # column name
-  id
+  lastItem
+
+  # column name
+  storeId
 
   # column name
   updated_at

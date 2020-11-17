@@ -46,6 +46,8 @@ import {
   useGetPopularItemsQuery,
   useGetUserCartItemsQuery,
   useClearUserCartItemsMutation,
+  useRemoveUserShoppingMutation,
+  useCreateUserShoppingMutation,
 } from '&graphql';
 
 // Utils
@@ -56,31 +58,39 @@ const freeSnap = [largeModalHeight - 122, smallModalHeight - 122];
 const restrictSnap = [largeModalHeight - 122, largeModalHeight - 121];
 
 interface StorePreviewProps {
+  shopping: boolean;
   onClose: () => void;
   suggestion: boolean;
   onSelect: () => void;
   store: MarkerInfoFragment;
 }
 
-export const StorePreview = ({ store, onClose, onSelect, suggestion }: StorePreviewProps) => {
+export const StorePreview = ({ store, shopping, suggestion, onClose, onSelect }: StorePreviewProps) => {
   const navigation = useNavigation();
 
-  const { data } = useGetStoreInfoQuery({ variables: { id: store.id } });
-  const storeData = data?.Store_by_pk;
-
-  const { data: itemData } = useGetPopularItemsQuery({ variables: { id: store.id } });
-
-  const { data: cartData } = useGetUserCartItemsQuery();
-
+  // Get User Data
   const { data: userData } = useGetUserQuery();
   const userId = userData?.User[0].id!;
 
+  // Get User Cart
+  const { data: cartData } = useGetUserCartItemsQuery();
+
+  // Get Store Data
+  const { data } = useGetStoreInfoQuery({ variables: { id: store.id } });
+  const storeData = data?.Store_by_pk;
+
+  // Get Popular Items
+  const { data: itemData } = useGetPopularItemsQuery({ variables: { id: store.id } });
+
+  // Mutations
   const [clearCartMutation] = useClearUserCartItemsMutation();
+  const [createShoppingMutation] = useCreateUserShoppingMutation();
+  const [removeShoppingMutation] = useRemoveUserShoppingMutation();
 
   const sheetRef = useRef<BottomSheet>(null);
 
   const [loading, setLoading] = useState<boolean>(false);
-  const [storeSelected, setStoreSelected] = useState<boolean>(false);
+  const [storeSelected, setStoreSelected] = useState<boolean>(shopping);
 
   useEffect(() => {
     onSelect();
@@ -168,14 +178,7 @@ export const StorePreview = ({ store, onClose, onSelect, suggestion }: StorePrev
         <SelectStoreButtonContainer>
           <SelectStoreButton
             selected={storeSelected}
-            onPress={() => {
-              if (sheetRef.current) {
-                if (!storeSelected) sheetRef.current.snapTo(0);
-                else {
-                  sheetRef.current.snapTo(1);
-                }
-              }
-
+            onPress={async () => {
               ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
 
               if (storeSelected && cartData && cartData.UserCartItem.length > 0) {
@@ -192,6 +195,9 @@ export const StorePreview = ({ store, onClose, onSelect, suggestion }: StorePrev
                           variables: { userId },
                           refetchQueries: [{ query: GetUserCartItemsDocument }],
                         });
+                        await removeShoppingMutation({
+                          variables: { userId },
+                        });
                         await setStoreSelected(false);
                         await setLoading(false);
 
@@ -202,7 +208,26 @@ export const StorePreview = ({ store, onClose, onSelect, suggestion }: StorePrev
                   ]
                 );
               } else {
-                setStoreSelected(!storeSelected);
+                if (storeData) {
+                  if (storeSelected) {
+                    await removeShoppingMutation({
+                      variables: { userId },
+                    }).then(() => {
+                      setStoreSelected(false);
+                      if (sheetRef.current) sheetRef.current.snapTo(1);
+                    });
+                  } else {
+                    await createShoppingMutation({
+                      variables: {
+                        userId,
+                        storeId: storeData.id,
+                      },
+                    }).then(() => {
+                      setStoreSelected(true);
+                      if (sheetRef.current) sheetRef.current.snapTo(0);
+                    });
+                  }
+                }
               }
             }}
           >

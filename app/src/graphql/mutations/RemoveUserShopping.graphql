@@ -1,0 +1,5 @@
+mutation RemoveUserShopping($userId: String!) {
+    delete_UserShopping(where: { userId: {_eq: $userId } }) {
+        affected_rows
+    }
+}

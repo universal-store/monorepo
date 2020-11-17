@@ -2746,9 +2746,12 @@ export enum UserOrder_Update_Column {
 
 export type UserShopping = {
   __typename?: 'UserShopping';
-  created_at: Scalars['timestamptz'];
+  Store: Store;
+  User: User;
   id: Scalars['uuid'];
-  updated_at: Scalars['timestamptz'];
+  lastItem?: Maybe<Scalars['String']>;
+  storeId: Scalars['uuid'];
+  updated_at?: Maybe<Scalars['timestamptz']>;
   userId: Scalars['String'];
 };
 
@@ -2783,11 +2786,14 @@ export type UserShopping_Arr_Rel_Insert_Input = {
 };
 
 export type UserShopping_Bool_Exp = {
+  Store?: Maybe<Store_Bool_Exp>;
+  User?: Maybe<User_Bool_Exp>;
   _and?: Maybe<Array<Maybe<UserShopping_Bool_Exp>>>;
   _not?: Maybe<UserShopping_Bool_Exp>;
   _or?: Maybe<Array<Maybe<UserShopping_Bool_Exp>>>;
-  created_at?: Maybe<Timestamptz_Comparison_Exp>;
   id?: Maybe<Uuid_Comparison_Exp>;
+  lastItem?: Maybe<String_Comparison_Exp>;
+  storeId?: Maybe<Uuid_Comparison_Exp>;
   updated_at?: Maybe<Timestamptz_Comparison_Exp>;
   userId?: Maybe<String_Comparison_Exp>;
 };
@@ -2798,38 +2804,45 @@ export enum UserShopping_Constraint {
 }
 
 export type UserShopping_Insert_Input = {
-  created_at?: Maybe<Scalars['timestamptz']>;
+  Store?: Maybe<Store_Obj_Rel_Insert_Input>;
+  User?: Maybe<User_Obj_Rel_Insert_Input>;
   id?: Maybe<Scalars['uuid']>;
+  lastItem?: Maybe<Scalars['String']>;
+  storeId?: Maybe<Scalars['uuid']>;
   updated_at?: Maybe<Scalars['timestamptz']>;
   userId?: Maybe<Scalars['String']>;
 };
 
 export type UserShopping_Max_Fields = {
   __typename?: 'UserShopping_max_fields';
-  created_at?: Maybe<Scalars['timestamptz']>;
   id?: Maybe<Scalars['uuid']>;
+  lastItem?: Maybe<Scalars['String']>;
+  storeId?: Maybe<Scalars['uuid']>;
   updated_at?: Maybe<Scalars['timestamptz']>;
   userId?: Maybe<Scalars['String']>;
 };
 
 export type UserShopping_Max_Order_By = {
-  created_at?: Maybe<Order_By>;
   id?: Maybe<Order_By>;
+  lastItem?: Maybe<Order_By>;
+  storeId?: Maybe<Order_By>;
   updated_at?: Maybe<Order_By>;
   userId?: Maybe<Order_By>;
 };
 
 export type UserShopping_Min_Fields = {
   __typename?: 'UserShopping_min_fields';
-  created_at?: Maybe<Scalars['timestamptz']>;
   id?: Maybe<Scalars['uuid']>;
+  lastItem?: Maybe<Scalars['String']>;
+  storeId?: Maybe<Scalars['uuid']>;
   updated_at?: Maybe<Scalars['timestamptz']>;
   userId?: Maybe<Scalars['String']>;
 };
 
 export type UserShopping_Min_Order_By = {
-  created_at?: Maybe<Order_By>;
   id?: Maybe<Order_By>;
+  lastItem?: Maybe<Order_By>;
+  storeId?: Maybe<Order_By>;
   updated_at?: Maybe<Order_By>;
   userId?: Maybe<Order_By>;
 };
@@ -2852,8 +2865,11 @@ export type UserShopping_On_Conflict = {
 };
 
 export type UserShopping_Order_By = {
-  created_at?: Maybe<Order_By>;
+  Store?: Maybe<Store_Order_By>;
+  User?: Maybe<User_Order_By>;
   id?: Maybe<Order_By>;
+  lastItem?: Maybe<Order_By>;
+  storeId?: Maybe<Order_By>;
   updated_at?: Maybe<Order_By>;
   userId?: Maybe<Order_By>;
 };
@@ -2863,22 +2879,25 @@ export type UserShopping_Pk_Columns_Input = {
 };
 
 export enum UserShopping_Select_Column {
-  created_at = 'created_at',
   id = 'id',
+  lastItem = 'lastItem',
+  storeId = 'storeId',
   updated_at = 'updated_at',
   userId = 'userId'
 }
 
 export type UserShopping_Set_Input = {
-  created_at?: Maybe<Scalars['timestamptz']>;
   id?: Maybe<Scalars['uuid']>;
+  lastItem?: Maybe<Scalars['String']>;
+  storeId?: Maybe<Scalars['uuid']>;
   updated_at?: Maybe<Scalars['timestamptz']>;
   userId?: Maybe<Scalars['String']>;
 };
 
 export enum UserShopping_Update_Column {
-  created_at = 'created_at',
   id = 'id',
+  lastItem = 'lastItem',
+  storeId = 'storeId',
   updated_at = 'updated_at',
   userId = 'userId'
 }
@@ -3061,14 +3080,15 @@ export type CreateUserOrderMutation = (
 
 export type CreateUserShoppingMutationVariables = Exact<{
   userId: Scalars['String'];
+  storeId: Scalars['uuid'];
 }>;
 
 
 export type CreateUserShoppingMutation = (
   { __typename?: 'mutation_root' }
-  & { insert_UserShopping?: Maybe<(
-    { __typename?: 'UserShopping_mutation_response' }
-    & Pick<UserShopping_Mutation_Response, 'affected_rows'>
+  & { insert_UserShopping_one?: Maybe<(
+    { __typename?: 'UserShopping' }
+    & Pick<UserShopping, 'updated_at'>
   )> }
 );
 
@@ -3132,6 +3152,19 @@ export type RemoveUserFavoriteItemMutation = (
   )> }
 );
 
+export type RemoveUserShoppingMutationVariables = Exact<{
+  userId: Scalars['String'];
+}>;
+
+
+export type RemoveUserShoppingMutation = (
+  { __typename?: 'mutation_root' }
+  & { delete_UserShopping?: Maybe<(
+    { __typename?: 'UserShopping_mutation_response' }
+    & Pick<UserShopping_Mutation_Response, 'affected_rows'>
+  )> }
+);
+
 export type UpdateStoreItemPurchaseMutationVariables = Exact<{
   barcodeId: Scalars['String'];
   purchased: Scalars['Boolean'];
@@ -3164,6 +3197,7 @@ export type UpdateUserNameMutation = (
 export type UpdateUserShoppingMutationVariables = Exact<{
   currentTime: Scalars['timestamptz'];
   userId: Scalars['String'];
+  lastItem: Scalars['String'];
 }>;
 
 
@@ -3317,7 +3351,7 @@ export type GetUserShoppingQuery = (
   { __typename?: 'query_root' }
   & { UserShopping: Array<(
     { __typename?: 'UserShopping' }
-    & Pick<UserShopping, 'updated_at'>
+    & Pick<UserShopping, 'storeId' | 'updated_at'>
   )> }
 );
 
@@ -3586,9 +3620,9 @@ export type CreateUserOrderMutationHookResult = ReturnType<typeof useCreateUserO
 export type CreateUserOrderMutationResult = Apollo.MutationResult<CreateUserOrderMutation>;
 export type CreateUserOrderMutationOptions = Apollo.BaseMutationOptions<CreateUserOrderMutation, CreateUserOrderMutationVariables>;
 export const CreateUserShoppingDocument = gql`
-    mutation CreateUserShopping($userId: String!) {
-  insert_UserShopping(objects: {userId: $userId}) {
-    affected_rows
+    mutation CreateUserShopping($userId: String!, $storeId: uuid!) {
+  insert_UserShopping_one(object: {userId: $userId, storeId: $storeId}) {
+    updated_at
   }
 }
     `;
@@ -3608,6 +3642,7 @@ export type CreateUserShoppingMutationFn = Apollo.MutationFunction<CreateUserSho
  * const [createUserShoppingMutation, { data, loading, error }] = useCreateUserShoppingMutation({
  *   variables: {
  *      userId: // value for 'userId'
+ *      storeId: // value for 'storeId'
  *   },
  * });
  */
@@ -3762,6 +3797,38 @@ export function useRemoveUserFavoriteItemMutation(baseOptions?: Apollo.MutationH
 export type RemoveUserFavoriteItemMutationHookResult = ReturnType<typeof useRemoveUserFavoriteItemMutation>;
 export type RemoveUserFavoriteItemMutationResult = Apollo.MutationResult<RemoveUserFavoriteItemMutation>;
 export type RemoveUserFavoriteItemMutationOptions = Apollo.BaseMutationOptions<RemoveUserFavoriteItemMutation, RemoveUserFavoriteItemMutationVariables>;
+export const RemoveUserShoppingDocument = gql`
+    mutation RemoveUserShopping($userId: String!) {
+  delete_UserShopping(where: {userId: {_eq: $userId}}) {
+    affected_rows
+  }
+}
+    `;
+export type RemoveUserShoppingMutationFn = Apollo.MutationFunction<RemoveUserShoppingMutation, RemoveUserShoppingMutationVariables>;
+
+/**
+ * __useRemoveUserShoppingMutation__
+ *
+ * To run a mutation, you first call `useRemoveUserShoppingMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useRemoveUserShoppingMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [removeUserShoppingMutation, { data, loading, error }] = useRemoveUserShoppingMutation({
+ *   variables: {
+ *      userId: // value for 'userId'
+ *   },
+ * });
+ */
+export function useRemoveUserShoppingMutation(baseOptions?: Apollo.MutationHookOptions<RemoveUserShoppingMutation, RemoveUserShoppingMutationVariables>) {
+        return Apollo.useMutation<RemoveUserShoppingMutation, RemoveUserShoppingMutationVariables>(RemoveUserShoppingDocument, baseOptions);
+      }
+export type RemoveUserShoppingMutationHookResult = ReturnType<typeof useRemoveUserShoppingMutation>;
+export type RemoveUserShoppingMutationResult = Apollo.MutationResult<RemoveUserShoppingMutation>;
+export type RemoveUserShoppingMutationOptions = Apollo.BaseMutationOptions<RemoveUserShoppingMutation, RemoveUserShoppingMutationVariables>;
 export const UpdateStoreItemPurchaseDocument = gql`
     mutation UpdateStoreItemPurchase($barcodeId: String!, $purchased: Boolean!) {
   update_StoreItem_by_pk(
@@ -3836,9 +3903,9 @@ export type UpdateUserNameMutationHookResult = ReturnType<typeof useUpdateUserNa
 export type UpdateUserNameMutationResult = Apollo.MutationResult<UpdateUserNameMutation>;
 export type UpdateUserNameMutationOptions = Apollo.BaseMutationOptions<UpdateUserNameMutation, UpdateUserNameMutationVariables>;
 export const UpdateUserShoppingDocument = gql`
-    mutation UpdateUserShopping($currentTime: timestamptz!, $userId: String!) {
+    mutation UpdateUserShopping($currentTime: timestamptz!, $userId: String!, $lastItem: String!) {
   update_UserShopping(
-    _set: {updated_at: $currentTime}
+    _set: {updated_at: $currentTime, lastItem: $lastItem}
     where: {userId: {_eq: $userId}}
   ) {
     affected_rows
@@ -3862,6 +3929,7 @@ export type UpdateUserShoppingMutationFn = Apollo.MutationFunction<UpdateUserSho
  *   variables: {
  *      currentTime: // value for 'currentTime'
  *      userId: // value for 'userId'
+ *      lastItem: // value for 'lastItem'
  *   },
  * });
  */
@@ -4239,6 +4307,7 @@ export function refetchGetUserOrdersQuery(variables?: GetUserOrdersQueryVariable
 export const GetUserShoppingDocument = gql`
     query GetUserShopping {
   UserShopping {
+    storeId
     updated_at
   }
 }

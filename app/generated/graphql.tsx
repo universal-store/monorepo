@@ -107,6 +107,8 @@ export type Mutation_Root = {
   delete_UserFavoriteStore_by_pk?: Maybe<UserFavoriteStore>;
   delete_UserOrder?: Maybe<UserOrder_Mutation_Response>;
   delete_UserOrder_by_pk?: Maybe<UserOrder>;
+  delete_UserShopping?: Maybe<UserShopping_Mutation_Response>;
+  delete_UserShopping_by_pk?: Maybe<UserShopping>;
   delete_User_by_pk?: Maybe<User>;
   insert_Store?: Maybe<Store_Mutation_Response>;
   insert_StoreItem?: Maybe<StoreItem_Mutation_Response>;
@@ -125,6 +127,8 @@ export type Mutation_Root = {
   insert_UserFavoriteStore_one?: Maybe<UserFavoriteStore>;
   insert_UserOrder?: Maybe<UserOrder_Mutation_Response>;
   insert_UserOrder_one?: Maybe<UserOrder>;
+  insert_UserShopping?: Maybe<UserShopping_Mutation_Response>;
+  insert_UserShopping_one?: Maybe<UserShopping>;
   insert_User_one?: Maybe<User>;
   update_Store?: Maybe<Store_Mutation_Response>;
   update_StoreItem?: Maybe<StoreItem_Mutation_Response>;
@@ -143,6 +147,8 @@ export type Mutation_Root = {
   update_UserFavoriteStore_by_pk?: Maybe<UserFavoriteStore>;
   update_UserOrder?: Maybe<UserOrder_Mutation_Response>;
   update_UserOrder_by_pk?: Maybe<UserOrder>;
+  update_UserShopping?: Maybe<UserShopping_Mutation_Response>;
+  update_UserShopping_by_pk?: Maybe<UserShopping>;
   update_User_by_pk?: Maybe<User>;
 };
 
@@ -228,6 +234,16 @@ export type Mutation_RootDelete_UserOrderArgs = {
 
 
 export type Mutation_RootDelete_UserOrder_By_PkArgs = {
+  id: Scalars['uuid'];
+};
+
+
+export type Mutation_RootDelete_UserShoppingArgs = {
+  where: UserShopping_Bool_Exp;
+};
+
+
+export type Mutation_RootDelete_UserShopping_By_PkArgs = {
   id: Scalars['uuid'];
 };
 
@@ -336,6 +352,18 @@ export type Mutation_RootInsert_UserOrderArgs = {
 export type Mutation_RootInsert_UserOrder_OneArgs = {
   object: UserOrder_Insert_Input;
   on_conflict?: Maybe<UserOrder_On_Conflict>;
+};
+
+
+export type Mutation_RootInsert_UserShoppingArgs = {
+  objects: Array<UserShopping_Insert_Input>;
+  on_conflict?: Maybe<UserShopping_On_Conflict>;
+};
+
+
+export type Mutation_RootInsert_UserShopping_OneArgs = {
+  object: UserShopping_Insert_Input;
+  on_conflict?: Maybe<UserShopping_On_Conflict>;
 };
 
 
@@ -449,6 +477,18 @@ export type Mutation_RootUpdate_UserOrder_By_PkArgs = {
 };
 
 
+export type Mutation_RootUpdate_UserShoppingArgs = {
+  _set?: Maybe<UserShopping_Set_Input>;
+  where: UserShopping_Bool_Exp;
+};
+
+
+export type Mutation_RootUpdate_UserShopping_By_PkArgs = {
+  _set?: Maybe<UserShopping_Set_Input>;
+  pk_columns: UserShopping_Pk_Columns_Input;
+};
+
+
 export type Mutation_RootUpdate_User_By_PkArgs = {
   _set?: Maybe<User_Set_Input>;
   pk_columns: User_Pk_Columns_Input;
@@ -503,6 +543,9 @@ export type Query_Root = {
   UserOrder: Array<UserOrder>;
   UserOrder_aggregate: UserOrder_Aggregate;
   UserOrder_by_pk?: Maybe<UserOrder>;
+  UserShopping: Array<UserShopping>;
+  UserShopping_aggregate: UserShopping_Aggregate;
+  UserShopping_by_pk?: Maybe<UserShopping>;
   User_aggregate: User_Aggregate;
   User_by_pk?: Maybe<User>;
 };
@@ -697,6 +740,29 @@ export type Query_RootUserOrder_AggregateArgs = {
 
 
 export type Query_RootUserOrder_By_PkArgs = {
+  id: Scalars['uuid'];
+};
+
+
+export type Query_RootUserShoppingArgs = {
+  distinct_on?: Maybe<Array<UserShopping_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<UserShopping_Order_By>>;
+  where?: Maybe<UserShopping_Bool_Exp>;
+};
+
+
+export type Query_RootUserShopping_AggregateArgs = {
+  distinct_on?: Maybe<Array<UserShopping_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<UserShopping_Order_By>>;
+  where?: Maybe<UserShopping_Bool_Exp>;
+};
+
+
+export type Query_RootUserShopping_By_PkArgs = {
   id: Scalars['uuid'];
 };
 
@@ -951,6 +1017,7 @@ export type StoreItem = {
   UserCartItems_aggregate: UserCartItem_Aggregate;
   UserFavoriteItems: Array<UserFavoriteItem>;
   UserFavoriteItems_aggregate: UserFavoriteItem_Aggregate;
+  UserOrder?: Maybe<UserOrder>;
   barcodeId: Scalars['String'];
   description?: Maybe<Scalars['String']>;
   itemImageId?: Maybe<Scalars['uuid']>;
@@ -1059,6 +1126,7 @@ export type StoreItem_Bool_Exp = {
   StoreItemPic?: Maybe<StoreItemPic_Bool_Exp>;
   UserCartItems?: Maybe<UserCartItem_Bool_Exp>;
   UserFavoriteItems?: Maybe<UserFavoriteItem_Bool_Exp>;
+  UserOrder?: Maybe<UserOrder_Bool_Exp>;
   _and?: Maybe<Array<Maybe<StoreItem_Bool_Exp>>>;
   _not?: Maybe<StoreItem_Bool_Exp>;
   _or?: Maybe<Array<Maybe<StoreItem_Bool_Exp>>>;
@@ -1088,6 +1156,7 @@ export type StoreItem_Insert_Input = {
   StoreItemPic?: Maybe<StoreItemPic_Obj_Rel_Insert_Input>;
   UserCartItems?: Maybe<UserCartItem_Arr_Rel_Insert_Input>;
   UserFavoriteItems?: Maybe<UserFavoriteItem_Arr_Rel_Insert_Input>;
+  UserOrder?: Maybe<UserOrder_Obj_Rel_Insert_Input>;
   barcodeId?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   itemImageId?: Maybe<Scalars['uuid']>;
@@ -1172,6 +1241,7 @@ export type StoreItem_Order_By = {
   StoreItemPic?: Maybe<StoreItemPic_Order_By>;
   UserCartItems_aggregate?: Maybe<UserCartItem_Aggregate_Order_By>;
   UserFavoriteItems_aggregate?: Maybe<UserFavoriteItem_Aggregate_Order_By>;
+  UserOrder?: Maybe<UserOrder_Order_By>;
   barcodeId?: Maybe<Order_By>;
   description?: Maybe<Order_By>;
   itemImageId?: Maybe<Order_By>;
@@ -1642,6 +1712,9 @@ export type Subscription_Root = {
   UserOrder: Array<UserOrder>;
   UserOrder_aggregate: UserOrder_Aggregate;
   UserOrder_by_pk?: Maybe<UserOrder>;
+  UserShopping: Array<UserShopping>;
+  UserShopping_aggregate: UserShopping_Aggregate;
+  UserShopping_by_pk?: Maybe<UserShopping>;
   User_aggregate: User_Aggregate;
   User_by_pk?: Maybe<User>;
 };
@@ -1836,6 +1909,29 @@ export type Subscription_RootUserOrder_AggregateArgs = {
 
 
 export type Subscription_RootUserOrder_By_PkArgs = {
+  id: Scalars['uuid'];
+};
+
+
+export type Subscription_RootUserShoppingArgs = {
+  distinct_on?: Maybe<Array<UserShopping_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<UserShopping_Order_By>>;
+  where?: Maybe<UserShopping_Bool_Exp>;
+};
+
+
+export type Subscription_RootUserShopping_AggregateArgs = {
+  distinct_on?: Maybe<Array<UserShopping_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<UserShopping_Order_By>>;
+  where?: Maybe<UserShopping_Bool_Exp>;
+};
+
+
+export type Subscription_RootUserShopping_By_PkArgs = {
   id: Scalars['uuid'];
 };
 
@@ -2092,6 +2188,7 @@ export enum User_Update_Column {
 export type UserCartItem = {
   __typename?: 'UserCartItem';
   StoreItem: StoreItem;
+  User: User;
   id: Scalars['uuid'];
   itemBarcodeId: Scalars['String'];
   userId: Scalars['String'];
@@ -2129,6 +2226,7 @@ export type UserCartItem_Arr_Rel_Insert_Input = {
 
 export type UserCartItem_Bool_Exp = {
   StoreItem?: Maybe<StoreItem_Bool_Exp>;
+  User?: Maybe<User_Bool_Exp>;
   _and?: Maybe<Array<Maybe<UserCartItem_Bool_Exp>>>;
   _not?: Maybe<UserCartItem_Bool_Exp>;
   _or?: Maybe<Array<Maybe<UserCartItem_Bool_Exp>>>;
@@ -2143,6 +2241,7 @@ export enum UserCartItem_Constraint {
 
 export type UserCartItem_Insert_Input = {
   StoreItem?: Maybe<StoreItem_Obj_Rel_Insert_Input>;
+  User?: Maybe<User_Obj_Rel_Insert_Input>;
   id?: Maybe<Scalars['uuid']>;
   itemBarcodeId?: Maybe<Scalars['String']>;
   userId?: Maybe<Scalars['String']>;
@@ -2193,6 +2292,7 @@ export type UserCartItem_On_Conflict = {
 
 export type UserCartItem_Order_By = {
   StoreItem?: Maybe<StoreItem_Order_By>;
+  User?: Maybe<User_Order_By>;
   id?: Maybe<Order_By>;
   itemBarcodeId?: Maybe<Order_By>;
   userId?: Maybe<Order_By>;
@@ -2223,6 +2323,7 @@ export enum UserCartItem_Update_Column {
 export type UserFavoriteItem = {
   __typename?: 'UserFavoriteItem';
   StoreItem: StoreItem;
+  User: User;
   id: Scalars['uuid'];
   itemBarcodeId: Scalars['String'];
   userId: Scalars['String'];
@@ -2260,6 +2361,7 @@ export type UserFavoriteItem_Arr_Rel_Insert_Input = {
 
 export type UserFavoriteItem_Bool_Exp = {
   StoreItem?: Maybe<StoreItem_Bool_Exp>;
+  User?: Maybe<User_Bool_Exp>;
   _and?: Maybe<Array<Maybe<UserFavoriteItem_Bool_Exp>>>;
   _not?: Maybe<UserFavoriteItem_Bool_Exp>;
   _or?: Maybe<Array<Maybe<UserFavoriteItem_Bool_Exp>>>;
@@ -2274,6 +2376,7 @@ export enum UserFavoriteItem_Constraint {
 
 export type UserFavoriteItem_Insert_Input = {
   StoreItem?: Maybe<StoreItem_Obj_Rel_Insert_Input>;
+  User?: Maybe<User_Obj_Rel_Insert_Input>;
   id?: Maybe<Scalars['uuid']>;
   itemBarcodeId?: Maybe<Scalars['String']>;
   userId?: Maybe<Scalars['String']>;
@@ -2324,6 +2427,7 @@ export type UserFavoriteItem_On_Conflict = {
 
 export type UserFavoriteItem_Order_By = {
   StoreItem?: Maybe<StoreItem_Order_By>;
+  User?: Maybe<User_Order_By>;
   id?: Maybe<Order_By>;
   itemBarcodeId?: Maybe<Order_By>;
   userId?: Maybe<Order_By>;
@@ -2354,6 +2458,7 @@ export enum UserFavoriteItem_Update_Column {
 export type UserFavoriteStore = {
   __typename?: 'UserFavoriteStore';
   Store: Store;
+  User: User;
   id: Scalars['uuid'];
   storeId: Scalars['uuid'];
   userId: Scalars['String'];
@@ -2391,6 +2496,7 @@ export type UserFavoriteStore_Arr_Rel_Insert_Input = {
 
 export type UserFavoriteStore_Bool_Exp = {
   Store?: Maybe<Store_Bool_Exp>;
+  User?: Maybe<User_Bool_Exp>;
   _and?: Maybe<Array<Maybe<UserFavoriteStore_Bool_Exp>>>;
   _not?: Maybe<UserFavoriteStore_Bool_Exp>;
   _or?: Maybe<Array<Maybe<UserFavoriteStore_Bool_Exp>>>;
@@ -2405,6 +2511,7 @@ export enum UserFavoriteStore_Constraint {
 
 export type UserFavoriteStore_Insert_Input = {
   Store?: Maybe<Store_Obj_Rel_Insert_Input>;
+  User?: Maybe<User_Obj_Rel_Insert_Input>;
   id?: Maybe<Scalars['uuid']>;
   storeId?: Maybe<Scalars['uuid']>;
   userId?: Maybe<Scalars['String']>;
@@ -2455,6 +2562,7 @@ export type UserFavoriteStore_On_Conflict = {
 
 export type UserFavoriteStore_Order_By = {
   Store?: Maybe<Store_Order_By>;
+  User?: Maybe<User_Order_By>;
   id?: Maybe<Order_By>;
   storeId?: Maybe<Order_By>;
   userId?: Maybe<Order_By>;
@@ -2636,6 +2744,145 @@ export enum UserOrder_Update_Column {
   userId = 'userId'
 }
 
+export type UserShopping = {
+  __typename?: 'UserShopping';
+  created_at: Scalars['timestamptz'];
+  id: Scalars['uuid'];
+  updated_at: Scalars['timestamptz'];
+  userId: Scalars['String'];
+};
+
+export type UserShopping_Aggregate = {
+  __typename?: 'UserShopping_aggregate';
+  aggregate?: Maybe<UserShopping_Aggregate_Fields>;
+  nodes: Array<UserShopping>;
+};
+
+export type UserShopping_Aggregate_Fields = {
+  __typename?: 'UserShopping_aggregate_fields';
+  count?: Maybe<Scalars['Int']>;
+  max?: Maybe<UserShopping_Max_Fields>;
+  min?: Maybe<UserShopping_Min_Fields>;
+};
+
+
+export type UserShopping_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<UserShopping_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+export type UserShopping_Aggregate_Order_By = {
+  count?: Maybe<Order_By>;
+  max?: Maybe<UserShopping_Max_Order_By>;
+  min?: Maybe<UserShopping_Min_Order_By>;
+};
+
+export type UserShopping_Arr_Rel_Insert_Input = {
+  data: Array<UserShopping_Insert_Input>;
+  on_conflict?: Maybe<UserShopping_On_Conflict>;
+};
+
+export type UserShopping_Bool_Exp = {
+  _and?: Maybe<Array<Maybe<UserShopping_Bool_Exp>>>;
+  _not?: Maybe<UserShopping_Bool_Exp>;
+  _or?: Maybe<Array<Maybe<UserShopping_Bool_Exp>>>;
+  created_at?: Maybe<Timestamptz_Comparison_Exp>;
+  id?: Maybe<Uuid_Comparison_Exp>;
+  updated_at?: Maybe<Timestamptz_Comparison_Exp>;
+  userId?: Maybe<String_Comparison_Exp>;
+};
+
+export enum UserShopping_Constraint {
+  UserShopping_pkey = 'UserShopping_pkey',
+  UserShopping_userId_key = 'UserShopping_userId_key'
+}
+
+export type UserShopping_Insert_Input = {
+  created_at?: Maybe<Scalars['timestamptz']>;
+  id?: Maybe<Scalars['uuid']>;
+  updated_at?: Maybe<Scalars['timestamptz']>;
+  userId?: Maybe<Scalars['String']>;
+};
+
+export type UserShopping_Max_Fields = {
+  __typename?: 'UserShopping_max_fields';
+  created_at?: Maybe<Scalars['timestamptz']>;
+  id?: Maybe<Scalars['uuid']>;
+  updated_at?: Maybe<Scalars['timestamptz']>;
+  userId?: Maybe<Scalars['String']>;
+};
+
+export type UserShopping_Max_Order_By = {
+  created_at?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  updated_at?: Maybe<Order_By>;
+  userId?: Maybe<Order_By>;
+};
+
+export type UserShopping_Min_Fields = {
+  __typename?: 'UserShopping_min_fields';
+  created_at?: Maybe<Scalars['timestamptz']>;
+  id?: Maybe<Scalars['uuid']>;
+  updated_at?: Maybe<Scalars['timestamptz']>;
+  userId?: Maybe<Scalars['String']>;
+};
+
+export type UserShopping_Min_Order_By = {
+  created_at?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  updated_at?: Maybe<Order_By>;
+  userId?: Maybe<Order_By>;
+};
+
+export type UserShopping_Mutation_Response = {
+  __typename?: 'UserShopping_mutation_response';
+  affected_rows: Scalars['Int'];
+  returning: Array<UserShopping>;
+};
+
+export type UserShopping_Obj_Rel_Insert_Input = {
+  data: UserShopping_Insert_Input;
+  on_conflict?: Maybe<UserShopping_On_Conflict>;
+};
+
+export type UserShopping_On_Conflict = {
+  constraint: UserShopping_Constraint;
+  update_columns: Array<UserShopping_Update_Column>;
+  where?: Maybe<UserShopping_Bool_Exp>;
+};
+
+export type UserShopping_Order_By = {
+  created_at?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  updated_at?: Maybe<Order_By>;
+  userId?: Maybe<Order_By>;
+};
+
+export type UserShopping_Pk_Columns_Input = {
+  id: Scalars['uuid'];
+};
+
+export enum UserShopping_Select_Column {
+  created_at = 'created_at',
+  id = 'id',
+  updated_at = 'updated_at',
+  userId = 'userId'
+}
+
+export type UserShopping_Set_Input = {
+  created_at?: Maybe<Scalars['timestamptz']>;
+  id?: Maybe<Scalars['uuid']>;
+  updated_at?: Maybe<Scalars['timestamptz']>;
+  userId?: Maybe<Scalars['String']>;
+};
+
+export enum UserShopping_Update_Column {
+  created_at = 'created_at',
+  id = 'id',
+  updated_at = 'updated_at',
+  userId = 'userId'
+}
+
 
 export type Uuid_Comparison_Exp = {
   _eq?: Maybe<Scalars['uuid']>;
@@ -2812,6 +3059,19 @@ export type CreateUserOrderMutation = (
   )> }
 );
 
+export type CreateUserShoppingMutationVariables = Exact<{
+  userId: Scalars['String'];
+}>;
+
+
+export type CreateUserShoppingMutation = (
+  { __typename?: 'mutation_root' }
+  & { insert_UserShopping?: Maybe<(
+    { __typename?: 'UserShopping_mutation_response' }
+    & Pick<UserShopping_Mutation_Response, 'affected_rows'>
+  )> }
+);
+
 export type InsertStoreItemMutationVariables = Exact<{
   shortName?: Maybe<Scalars['String']>;
   quantity?: Maybe<Scalars['String']>;
@@ -2898,6 +3158,20 @@ export type UpdateUserNameMutation = (
   & { update_User?: Maybe<(
     { __typename?: 'User_mutation_response' }
     & Pick<User_Mutation_Response, 'affected_rows'>
+  )> }
+);
+
+export type UpdateUserShoppingMutationVariables = Exact<{
+  currentTime: Scalars['timestamptz'];
+  userId: Scalars['String'];
+}>;
+
+
+export type UpdateUserShoppingMutation = (
+  { __typename?: 'mutation_root' }
+  & { update_UserShopping?: Maybe<(
+    { __typename?: 'UserShopping_mutation_response' }
+    & Pick<UserShopping_Mutation_Response, 'affected_rows'>
   )> }
 );
 
@@ -3033,6 +3307,17 @@ export type GetUserOrdersQuery = (
   & { UserOrder: Array<(
     { __typename?: 'UserOrder' }
     & UserOrderInfoFragment
+  )> }
+);
+
+export type GetUserShoppingQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetUserShoppingQuery = (
+  { __typename?: 'query_root' }
+  & { UserShopping: Array<(
+    { __typename?: 'UserShopping' }
+    & Pick<UserShopping, 'updated_at'>
   )> }
 );
 
@@ -3300,6 +3585,38 @@ export function useCreateUserOrderMutation(baseOptions?: Apollo.MutationHookOpti
 export type CreateUserOrderMutationHookResult = ReturnType<typeof useCreateUserOrderMutation>;
 export type CreateUserOrderMutationResult = Apollo.MutationResult<CreateUserOrderMutation>;
 export type CreateUserOrderMutationOptions = Apollo.BaseMutationOptions<CreateUserOrderMutation, CreateUserOrderMutationVariables>;
+export const CreateUserShoppingDocument = gql`
+    mutation CreateUserShopping($userId: String!) {
+  insert_UserShopping(objects: {userId: $userId}) {
+    affected_rows
+  }
+}
+    `;
+export type CreateUserShoppingMutationFn = Apollo.MutationFunction<CreateUserShoppingMutation, CreateUserShoppingMutationVariables>;
+
+/**
+ * __useCreateUserShoppingMutation__
+ *
+ * To run a mutation, you first call `useCreateUserShoppingMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateUserShoppingMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createUserShoppingMutation, { data, loading, error }] = useCreateUserShoppingMutation({
+ *   variables: {
+ *      userId: // value for 'userId'
+ *   },
+ * });
+ */
+export function useCreateUserShoppingMutation(baseOptions?: Apollo.MutationHookOptions<CreateUserShoppingMutation, CreateUserShoppingMutationVariables>) {
+        return Apollo.useMutation<CreateUserShoppingMutation, CreateUserShoppingMutationVariables>(CreateUserShoppingDocument, baseOptions);
+      }
+export type CreateUserShoppingMutationHookResult = ReturnType<typeof useCreateUserShoppingMutation>;
+export type CreateUserShoppingMutationResult = Apollo.MutationResult<CreateUserShoppingMutation>;
+export type CreateUserShoppingMutationOptions = Apollo.BaseMutationOptions<CreateUserShoppingMutation, CreateUserShoppingMutationVariables>;
 export const InsertStoreItemDocument = gql`
     mutation InsertStoreItem($shortName: String, $quantity: String, $price: money!, $longName: String!, $description: String, $barcodeId: String!) {
   insert_StoreItem_one(
@@ -3518,6 +3835,42 @@ export function useUpdateUserNameMutation(baseOptions?: Apollo.MutationHookOptio
 export type UpdateUserNameMutationHookResult = ReturnType<typeof useUpdateUserNameMutation>;
 export type UpdateUserNameMutationResult = Apollo.MutationResult<UpdateUserNameMutation>;
 export type UpdateUserNameMutationOptions = Apollo.BaseMutationOptions<UpdateUserNameMutation, UpdateUserNameMutationVariables>;
+export const UpdateUserShoppingDocument = gql`
+    mutation UpdateUserShopping($currentTime: timestamptz!, $userId: String!) {
+  update_UserShopping(
+    _set: {updated_at: $currentTime}
+    where: {userId: {_eq: $userId}}
+  ) {
+    affected_rows
+  }
+}
+    `;
+export type UpdateUserShoppingMutationFn = Apollo.MutationFunction<UpdateUserShoppingMutation, UpdateUserShoppingMutationVariables>;
+
+/**
+ * __useUpdateUserShoppingMutation__
+ *
+ * To run a mutation, you first call `useUpdateUserShoppingMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateUserShoppingMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateUserShoppingMutation, { data, loading, error }] = useUpdateUserShoppingMutation({
+ *   variables: {
+ *      currentTime: // value for 'currentTime'
+ *      userId: // value for 'userId'
+ *   },
+ * });
+ */
+export function useUpdateUserShoppingMutation(baseOptions?: Apollo.MutationHookOptions<UpdateUserShoppingMutation, UpdateUserShoppingMutationVariables>) {
+        return Apollo.useMutation<UpdateUserShoppingMutation, UpdateUserShoppingMutationVariables>(UpdateUserShoppingDocument, baseOptions);
+      }
+export type UpdateUserShoppingMutationHookResult = ReturnType<typeof useUpdateUserShoppingMutation>;
+export type UpdateUserShoppingMutationResult = Apollo.MutationResult<UpdateUserShoppingMutation>;
+export type UpdateUserShoppingMutationOptions = Apollo.BaseMutationOptions<UpdateUserShoppingMutation, UpdateUserShoppingMutationVariables>;
 export const CheckItemInCartDocument = gql`
     query CheckItemInCart($barcodeId: String!) {
   StoreItem_by_pk(barcodeId: $barcodeId) {
@@ -3882,4 +4235,39 @@ export type GetUserOrdersLazyQueryHookResult = ReturnType<typeof useGetUserOrder
 export type GetUserOrdersQueryResult = Apollo.QueryResult<GetUserOrdersQuery, GetUserOrdersQueryVariables>;
 export function refetchGetUserOrdersQuery(variables?: GetUserOrdersQueryVariables) {
       return { query: GetUserOrdersDocument, variables: variables }
+    }
+export const GetUserShoppingDocument = gql`
+    query GetUserShopping {
+  UserShopping {
+    updated_at
+  }
+}
+    `;
+
+/**
+ * __useGetUserShoppingQuery__
+ *
+ * To run a query within a React component, call `useGetUserShoppingQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetUserShoppingQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetUserShoppingQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetUserShoppingQuery(baseOptions?: Apollo.QueryHookOptions<GetUserShoppingQuery, GetUserShoppingQueryVariables>) {
+        return Apollo.useQuery<GetUserShoppingQuery, GetUserShoppingQueryVariables>(GetUserShoppingDocument, baseOptions);
+      }
+export function useGetUserShoppingLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetUserShoppingQuery, GetUserShoppingQueryVariables>) {
+          return Apollo.useLazyQuery<GetUserShoppingQuery, GetUserShoppingQueryVariables>(GetUserShoppingDocument, baseOptions);
+        }
+export type GetUserShoppingQueryHookResult = ReturnType<typeof useGetUserShoppingQuery>;
+export type GetUserShoppingLazyQueryHookResult = ReturnType<typeof useGetUserShoppingLazyQuery>;
+export type GetUserShoppingQueryResult = Apollo.QueryResult<GetUserShoppingQuery, GetUserShoppingQueryVariables>;
+export function refetchGetUserShoppingQuery(variables?: GetUserShoppingQueryVariables) {
+      return { query: GetUserShoppingDocument, variables: variables }
     }

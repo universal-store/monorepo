@@ -3,7 +3,14 @@
 import React from 'react';
 
 // Iconography
-import { BarcodeBottomLeftIcon, BarcodeBottomRightIcon, BarcodeTopLeftIcon, BarcodeTopRightIcon } from '&icons';
+import {
+  BarcodeBottomLeftIcon,
+  BarcodeBottomRightIcon,
+  BarcodeTopLeftIcon,
+  BarcodeTopRightIcon,
+  FlashIconOff,
+  FlashIconOn,
+} from '&icons';
 
 // Styled Components
 import {
@@ -12,6 +19,7 @@ import {
   BottomRightBarcode,
   CenterLayer,
   Cutout,
+  FlashIconContainer,
   ScannedText,
   ScannerOverlayContainer,
   SideLayer,
@@ -21,10 +29,12 @@ import {
 } from './Styled';
 
 interface ScannerOverlayProps {
+  flash: boolean;
   scanned: boolean;
+  toggleFlash: () => void;
 }
 
-export const ScannerOverlay = ({ scanned }: ScannerOverlayProps) => {
+export const ScannerOverlay = ({ flash, scanned, toggleFlash }: ScannerOverlayProps) => {
   return (
     <ScannerOverlayContainer>
       <TopLayer />
@@ -46,7 +56,14 @@ export const ScannerOverlay = ({ scanned }: ScannerOverlayProps) => {
         </Cutout>
         <SideLayer />
       </CenterLayer>
-      <BottomLayer>{!scanned && <ScannedText>Scanning for Barcode...</ScannedText>}</BottomLayer>
+      <BottomLayer>
+        {!scanned && (
+          <>
+            <ScannedText>Scanning for Barcode...</ScannedText>
+            <FlashIconContainer onPress={toggleFlash}>{flash ? <FlashIconOn /> : <FlashIconOff />}</FlashIconContainer>
+          </>
+        )}
+      </BottomLayer>
     </ScannerOverlayContainer>
   );
 };

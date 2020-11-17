@@ -14,9 +14,12 @@ import DeviceInfo from 'react-native-device-info';
 
 // Components
 import {
+  BadgeContainer,
+  BadgeText,
   CameraSettingsButton,
   CameraSettingsText,
   CameraView,
+  CartIconContainer,
   FullscreenBlack,
   ItemPreview,
   NoCameraScreen,
@@ -31,12 +34,15 @@ import {
 } from '&components';
 
 // Iconography
-import { BackArrowIcon, FlashIconOff, FlashIconOn } from '&icons';
+import { BackArrowIcon, CartIconWhite } from '&icons';
 
 // Navigation
 import { AuthStackParams } from '&navigation';
 import { useIsFocused } from '@react-navigation/native';
 import { StackScreenProps } from '@react-navigation/stack';
+
+// GraphQL
+import { useGetUserCartItemsQuery } from '&graphql';
 
 // Utils
 import { hapticOptions } from '&utils';
@@ -56,6 +62,8 @@ export const ScanningScreen = ({ navigation }: ScanningScreenProps) => {
   const [hasPermission, setHasPermission] = useState<boolean | null>(null);
 
   const [barcodeId, setBarcodeId] = useState<string>('-1');
+
+  const { data: userCartItems } = useGetUserCartItemsQuery();
 
   useEffect(() => {
     void (async () => {
@@ -132,10 +140,17 @@ export const ScanningScreen = ({ navigation }: ScanningScreenProps) => {
             <ScannerHeaderButton
               onPress={() => {
                 ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
-                if (!scanned) setFlash(!flash);
+                navigation.navigate('TabNavigation', { screen: 'CartScreen' });
               }}
             >
-              {flash ? <FlashIconOn /> : <FlashIconOff />}
+              <CartIconContainer>
+                <CartIconWhite />
+                {userCartItems && userCartItems.UserCartItem.length > 0 && (
+                  <BadgeContainer>
+                    <BadgeText>{userCartItems.UserCartItem.length}</BadgeText>
+                  </BadgeContainer>
+                )}
+              </CartIconContainer>
             </ScannerHeaderButton>
           </ScannerHeaderRow>
 
@@ -152,7 +167,14 @@ export const ScanningScreen = ({ navigation }: ScanningScreenProps) => {
               ],
             }}
           >
-            <ScannerOverlay scanned={scanned} />
+            <ScannerOverlay
+              flash={flash}
+              scanned={scanned}
+              toggleFlash={() => {
+                ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
+                setFlash(!flash);
+              }}
+            />
           </CameraView>
         </>
       )}
@@ -168,12 +190,16 @@ export const ScanningScreen = ({ navigation }: ScanningScreenProps) => {
           ReactNativeHapticFeedback.trigger('selection', hapticOptions);
           navigation.navigate('ItemDetail', { barcodeId, scanned: true });
         }}
+        toggleScanned={() => {
+          resetScanner();
+          ReactNativeHapticFeedback.trigger('selection', hapticOptions);
+        }}
       />
 
       {isSim && !scanned && (
         <TestButtons>
-          <TestButton onPress={() => navigation.navigate('ItemDetail', { barcodeId, scanned: true })}>
-            <TestButtonText>Go To ItemDetail (Emulator Only)</TestButtonText>
+          <TestButton onPress={() => setScanned(true)}>
+            <TestButtonText>Mock Scan (Emulator Only)</TestButtonText>
           </TestButton>
         </TestButtons>
       )}

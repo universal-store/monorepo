@@ -61,7 +61,6 @@ import {
   GetUserCartItemsDocument,
   useGetUserCartItemsQuery,
 } from '&graphql';
-
 // Utils
 import { hapticOptions } from '&utils';
 

@@ -125,12 +125,22 @@ export const ScannedText = styled(TextMedium)`
   color: ${({ theme }) => theme.colors.white[1]};
 `;
 
+export const FlashIconContainer = styled.TouchableOpacity`
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  border-radius: 48px;
+  margin: 24px auto 0;
+  justify-content: center;
+  border: 1px solid ${({ theme }) => theme.colors.white[1]};
+`;
+
 // Item Preview ----------------------------------------------------------
 
 const ItemPreviewContainer = styled.TouchableOpacity`
   position: absolute;
   left: 24px;
-  right: 24px;
   height: 64px;
   display: flex;
   padding: 8px 16px;
@@ -140,7 +150,7 @@ const ItemPreviewContainer = styled.TouchableOpacity`
   shadow-opacity: 0.25;
   shadow-offset: 0px 4px;
   width: ${screenWidth - 48}px;
-  bottom: ${isiPhoneX ? 98 : 64}px;
+  bottom: ${isiPhoneX ? 58 : 24}px;
   shadow-color: ${({ theme }) => theme.colors.gray[1]};
   background-color: ${({ theme }) => theme.colors.white[1]};
 `;
@@ -168,4 +178,15 @@ export const ItemPreviewTextContainer = styled.View`
 export const ItemPreviewPriceText = styled(TextMedium2)`
   margin-top: auto;
   color: ${({ theme }) => theme.colors.gray[3]};
+`;
+
+export const AddToCartButton = styled.TouchableOpacity`
+  width: 48px;
+  height: 48px;
+  display: flex;
+  margin-left: 8px;
+  border-radius: 4px;
+  align-items: center;
+  justify-content: center;
+  background-color: ${({ theme }) => theme.colors.purple[1]};
 `;

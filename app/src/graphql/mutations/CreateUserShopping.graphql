@@ -1,0 +1,5 @@
+mutation CreateUserShopping($userId: String!) {
+    insert_UserShopping(objects: {userId: $userId}) {
+        affected_rows
+    }
+}

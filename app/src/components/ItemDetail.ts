@@ -11,9 +11,9 @@ export const ItemDetailHeaderRow = styled(RowView)`
   width: 100%;
   height: 40px;
   padding: 0 32px;
-  margin-top: 36px;
   align-items: center;
   justify-content: space-between;
+  margin-top: ${isiPhoneX ? 58 : 24}px;
 `;
 
 export const ItemDetailHeaderButton = styled.TouchableOpacity`
@@ -103,7 +103,6 @@ export const AddCartButton = styled.TouchableOpacity<AddCartButtonProps>`
   justify-content: center;
   width: ${screenWidth - 64}px;
   shadow-color: ${({ theme }) => theme.colors.gray[1]};
-
   border: 2px solid ${({ theme }) => theme.colors.purple[1]};
   background-color: ${({ theme, added }) => (added ? theme.colors.purple[1] : theme.colors.white[1])};
 `;

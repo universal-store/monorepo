@@ -186,6 +186,15 @@ type mutation_root {
   # delete single row from the table: "UserOrder"
   delete_UserOrder_by_pk(id: uuid!): UserOrder
 
+  # delete data from the table: "UserShopping"
+  delete_UserShopping(
+    # filter the rows which have to be deleted
+    where: UserShopping_bool_exp!
+  ): UserShopping_mutation_response
+
+  # delete single row from the table: "UserShopping"
+  delete_UserShopping_by_pk(id: uuid!): UserShopping
+
   # delete single row from the table: "User"
   delete_User_by_pk(id: String!): User
 
@@ -342,6 +351,24 @@ type mutation_root {
     on_conflict: UserOrder_on_conflict
   ): UserOrder
 
+  # insert data into the table: "UserShopping"
+  insert_UserShopping(
+    # the rows to be inserted
+    objects: [UserShopping_insert_input!]!
+
+    # on conflict condition
+    on_conflict: UserShopping_on_conflict
+  ): UserShopping_mutation_response
+
+  # insert a single row into the table: "UserShopping"
+  insert_UserShopping_one(
+    # the row to be inserted
+    object: UserShopping_insert_input!
+
+    # on conflict condition
+    on_conflict: UserShopping_on_conflict
+  ): UserShopping
+
   # insert a single row into the table: "User"
   insert_User_one(
     # the row to be inserted
@@ -493,6 +520,22 @@ type mutation_root {
     _set: UserOrder_set_input
     pk_columns: UserOrder_pk_columns_input!
   ): UserOrder
+
+  # update data of the table: "UserShopping"
+  update_UserShopping(
+    # sets the columns of the filtered rows to the given values
+    _set: UserShopping_set_input
+
+    # filter the rows which have to be updated
+    where: UserShopping_bool_exp!
+  ): UserShopping_mutation_response
+
+  # update single row of the table: "UserShopping"
+  update_UserShopping_by_pk(
+    # sets the columns of the filtered rows to the given values
+    _set: UserShopping_set_input
+    pk_columns: UserShopping_pk_columns_input!
+  ): UserShopping
 
   # update single row of the table: "User"
   update_User_by_pk(
@@ -869,6 +912,45 @@ type query_root {
 
   # fetch data from the table: "UserOrder" using primary key columns
   UserOrder_by_pk(id: uuid!): UserOrder
+
+  # fetch data from the table: "UserShopping"
+  UserShopping(
+    # distinct select on columns
+    distinct_on: [UserShopping_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserShopping_order_by!]
+
+    # filter the rows returned
+    where: UserShopping_bool_exp
+  ): [UserShopping!]!
+
+  # fetch aggregated fields from the table: "UserShopping"
+  UserShopping_aggregate(
+    # distinct select on columns
+    distinct_on: [UserShopping_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserShopping_order_by!]
+
+    # filter the rows returned
+    where: UserShopping_bool_exp
+  ): UserShopping_aggregate!
+
+  # fetch data from the table: "UserShopping" using primary key columns
+  UserShopping_by_pk(id: uuid!): UserShopping
 
   # fetch aggregated fields from the table: "User"
   User_aggregate(
@@ -1273,6 +1355,9 @@ type StoreItem {
     # filter the rows returned
     where: UserFavoriteItem_bool_exp
   ): UserFavoriteItem_aggregate!
+
+  # An object relationship
+  UserOrder: UserOrder
   barcodeId: String!
   description: String
   itemImageId: uuid
@@ -1343,6 +1428,7 @@ input StoreItem_bool_exp {
   StoreItemPic: StoreItemPic_bool_exp
   UserCartItems: UserCartItem_bool_exp
   UserFavoriteItems: UserFavoriteItem_bool_exp
+  UserOrder: UserOrder_bool_exp
   _and: [StoreItem_bool_exp]
   _not: StoreItem_bool_exp
   _or: [StoreItem_bool_exp]
@@ -1378,6 +1464,7 @@ input StoreItem_insert_input {
   StoreItemPic: StoreItemPic_obj_rel_insert_input
   UserCartItems: UserCartItem_arr_rel_insert_input
   UserFavoriteItems: UserFavoriteItem_arr_rel_insert_input
+  UserOrder: UserOrder_obj_rel_insert_input
   barcodeId: String
   description: String
   itemImageId: uuid
@@ -1470,6 +1557,7 @@ input StoreItem_order_by {
   StoreItemPic: StoreItemPic_order_by
   UserCartItems_aggregate: UserCartItem_aggregate_order_by
   UserFavoriteItems_aggregate: UserFavoriteItem_aggregate_order_by
+  UserOrder: UserOrder_order_by
   barcodeId: order_by
   description: order_by
   itemImageId: order_by
@@ -2365,6 +2453,45 @@ type subscription_root {
   # fetch data from the table: "UserOrder" using primary key columns
   UserOrder_by_pk(id: uuid!): UserOrder
 
+  # fetch data from the table: "UserShopping"
+  UserShopping(
+    # distinct select on columns
+    distinct_on: [UserShopping_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserShopping_order_by!]
+
+    # filter the rows returned
+    where: UserShopping_bool_exp
+  ): [UserShopping!]!
+
+  # fetch aggregated fields from the table: "UserShopping"
+  UserShopping_aggregate(
+    # distinct select on columns
+    distinct_on: [UserShopping_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserShopping_order_by!]
+
+    # filter the rows returned
+    where: UserShopping_bool_exp
+  ): UserShopping_aggregate!
+
+  # fetch data from the table: "UserShopping" using primary key columns
+  UserShopping_by_pk(id: uuid!): UserShopping
+
   # fetch aggregated fields from the table: "User"
   User_aggregate(
     # distinct select on columns
@@ -2720,6 +2847,9 @@ enum User_update_column {
 type UserCartItem {
   # An object relationship
   StoreItem: StoreItem!
+
+  # An object relationship
+  User: User!
   id: uuid!
   itemBarcodeId: String!
   userId: String!
@@ -2754,6 +2884,7 @@ input UserCartItem_arr_rel_insert_input {
 # Boolean expression to filter rows from the table "UserCartItem". All fields are combined with a logical 'AND'.
 input UserCartItem_bool_exp {
   StoreItem: StoreItem_bool_exp
+  User: User_bool_exp
   _and: [UserCartItem_bool_exp]
   _not: UserCartItem_bool_exp
   _or: [UserCartItem_bool_exp]
@@ -2771,6 +2902,7 @@ enum UserCartItem_constraint {
 # input type for inserting data into table "UserCartItem"
 input UserCartItem_insert_input {
   StoreItem: StoreItem_obj_rel_insert_input
+  User: User_obj_rel_insert_input
   id: uuid
   itemBarcodeId: String
   userId: String
@@ -2829,6 +2961,7 @@ input UserCartItem_on_conflict {
 # ordering options when selecting data from "UserCartItem"
 input UserCartItem_order_by {
   StoreItem: StoreItem_order_by
+  User: User_order_by
   id: order_by
   itemBarcodeId: order_by
   userId: order_by
@@ -2874,6 +3007,9 @@ enum UserCartItem_update_column {
 type UserFavoriteItem {
   # An object relationship
   StoreItem: StoreItem!
+
+  # An object relationship
+  User: User!
   id: uuid!
   itemBarcodeId: String!
   userId: String!
@@ -2908,6 +3044,7 @@ input UserFavoriteItem_arr_rel_insert_input {
 # Boolean expression to filter rows from the table "UserFavoriteItem". All fields are combined with a logical 'AND'.
 input UserFavoriteItem_bool_exp {
   StoreItem: StoreItem_bool_exp
+  User: User_bool_exp
   _and: [UserFavoriteItem_bool_exp]
   _not: UserFavoriteItem_bool_exp
   _or: [UserFavoriteItem_bool_exp]
@@ -2925,6 +3062,7 @@ enum UserFavoriteItem_constraint {
 # input type for inserting data into table "UserFavoriteItem"
 input UserFavoriteItem_insert_input {
   StoreItem: StoreItem_obj_rel_insert_input
+  User: User_obj_rel_insert_input
   id: uuid
   itemBarcodeId: String
   userId: String
@@ -2983,6 +3121,7 @@ input UserFavoriteItem_on_conflict {
 # ordering options when selecting data from "UserFavoriteItem"
 input UserFavoriteItem_order_by {
   StoreItem: StoreItem_order_by
+  User: User_order_by
   id: order_by
   itemBarcodeId: order_by
   userId: order_by
@@ -3028,6 +3167,9 @@ enum UserFavoriteItem_update_column {
 type UserFavoriteStore {
   # An object relationship
   Store: Store!
+
+  # An object relationship
+  User: User!
   id: uuid!
   storeId: uuid!
   userId: String!
@@ -3062,6 +3204,7 @@ input UserFavoriteStore_arr_rel_insert_input {
 # Boolean expression to filter rows from the table "UserFavoriteStore". All fields are combined with a logical 'AND'.
 input UserFavoriteStore_bool_exp {
   Store: Store_bool_exp
+  User: User_bool_exp
   _and: [UserFavoriteStore_bool_exp]
   _not: UserFavoriteStore_bool_exp
   _or: [UserFavoriteStore_bool_exp]
@@ -3079,6 +3222,7 @@ enum UserFavoriteStore_constraint {
 # input type for inserting data into table "UserFavoriteStore"
 input UserFavoriteStore_insert_input {
   Store: Store_obj_rel_insert_input
+  User: User_obj_rel_insert_input
   id: uuid
   storeId: uuid
   userId: String
@@ -3137,6 +3281,7 @@ input UserFavoriteStore_on_conflict {
 # ordering options when selecting data from "UserFavoriteStore"
 input UserFavoriteStore_order_by {
   Store: Store_order_by
+  User: User_order_by
   id: order_by
   storeId: order_by
   userId: order_by
@@ -3366,6 +3511,173 @@ enum UserOrder_update_column {
 
   # column name
   id
+
+  # column name
+  userId
+}
+
+# columns and relationships of "UserShopping"
+type UserShopping {
+  created_at: timestamptz!
+  id: uuid!
+  updated_at: timestamptz!
+  userId: String!
+}
+
+# aggregated selection of "UserShopping"
+type UserShopping_aggregate {
+  aggregate: UserShopping_aggregate_fields
+  nodes: [UserShopping!]!
+}
+
+# aggregate fields of "UserShopping"
+type UserShopping_aggregate_fields {
+  count(columns: [UserShopping_select_column!], distinct: Boolean): Int
+  max: UserShopping_max_fields
+  min: UserShopping_min_fields
+}
+
+# order by aggregate values of table "UserShopping"
+input UserShopping_aggregate_order_by {
+  count: order_by
+  max: UserShopping_max_order_by
+  min: UserShopping_min_order_by
+}
+
+# input type for inserting array relation for remote table "UserShopping"
+input UserShopping_arr_rel_insert_input {
+  data: [UserShopping_insert_input!]!
+  on_conflict: UserShopping_on_conflict
+}
+
+# Boolean expression to filter rows from the table "UserShopping". All fields are combined with a logical 'AND'.
+input UserShopping_bool_exp {
+  _and: [UserShopping_bool_exp]
+  _not: UserShopping_bool_exp
+  _or: [UserShopping_bool_exp]
+  created_at: timestamptz_comparison_exp
+  id: uuid_comparison_exp
+  updated_at: timestamptz_comparison_exp
+  userId: String_comparison_exp
+}
+
+# unique or primary key constraints on table "UserShopping"
+enum UserShopping_constraint {
+  # unique or primary key constraint
+  UserShopping_pkey
+
+  # unique or primary key constraint
+  UserShopping_userId_key
+}
+
+# input type for inserting data into table "UserShopping"
+input UserShopping_insert_input {
+  created_at: timestamptz
+  id: uuid
+  updated_at: timestamptz
+  userId: String
+}
+
+# aggregate max on columns
+type UserShopping_max_fields {
+  created_at: timestamptz
+  id: uuid
+  updated_at: timestamptz
+  userId: String
+}
+
+# order by max() on columns of table "UserShopping"
+input UserShopping_max_order_by {
+  created_at: order_by
+  id: order_by
+  updated_at: order_by
+  userId: order_by
+}
+
+# aggregate min on columns
+type UserShopping_min_fields {
+  created_at: timestamptz
+  id: uuid
+  updated_at: timestamptz
+  userId: String
+}
+
+# order by min() on columns of table "UserShopping"
+input UserShopping_min_order_by {
+  created_at: order_by
+  id: order_by
+  updated_at: order_by
+  userId: order_by
+}
+
+# response of any mutation on the table "UserShopping"
+type UserShopping_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [UserShopping!]!
+}
+
+# input type for inserting object relation for remote table "UserShopping"
+input UserShopping_obj_rel_insert_input {
+  data: UserShopping_insert_input!
+  on_conflict: UserShopping_on_conflict
+}
+
+# on conflict condition type for table "UserShopping"
+input UserShopping_on_conflict {
+  constraint: UserShopping_constraint!
+  update_columns: [UserShopping_update_column!]!
+  where: UserShopping_bool_exp
+}
+
+# ordering options when selecting data from "UserShopping"
+input UserShopping_order_by {
+  created_at: order_by
+  id: order_by
+  updated_at: order_by
+  userId: order_by
+}
+
+# primary key columns input for table: "UserShopping"
+input UserShopping_pk_columns_input {
+  id: uuid!
+}
+
+# select columns of table "UserShopping"
+enum UserShopping_select_column {
+  # column name
+  created_at
+
+  # column name
+  id
+
+  # column name
+  updated_at
+
+  # column name
+  userId
+}
+
+# input type for updating data in table "UserShopping"
+input UserShopping_set_input {
+  created_at: timestamptz
+  id: uuid
+  updated_at: timestamptz
+  userId: String
+}
+
+# update columns of table "UserShopping"
+enum UserShopping_update_column {
+  # column name
+  created_at
+
+  # column name
+  id
+
+  # column name
+  updated_at
 
   # column name
   userId

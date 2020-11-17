@@ -3195,7 +3195,6 @@ export type UpdateUserNameMutation = (
 );
 
 export type UpdateUserShoppingMutationVariables = Exact<{
-  currentTime: Scalars['timestamptz'];
   userId: Scalars['String'];
   lastItem: Scalars['String'];
 }>;
@@ -3903,9 +3902,9 @@ export type UpdateUserNameMutationHookResult = ReturnType<typeof useUpdateUserNa
 export type UpdateUserNameMutationResult = Apollo.MutationResult<UpdateUserNameMutation>;
 export type UpdateUserNameMutationOptions = Apollo.BaseMutationOptions<UpdateUserNameMutation, UpdateUserNameMutationVariables>;
 export const UpdateUserShoppingDocument = gql`
-    mutation UpdateUserShopping($currentTime: timestamptz!, $userId: String!, $lastItem: String!) {
+    mutation UpdateUserShopping($userId: String!, $lastItem: String!) {
   update_UserShopping(
-    _set: {updated_at: $currentTime, lastItem: $lastItem}
+    _set: {lastItem: $lastItem}
     where: {userId: {_eq: $userId}}
   ) {
     affected_rows
@@ -3927,7 +3926,6 @@ export type UpdateUserShoppingMutationFn = Apollo.MutationFunction<UpdateUserSho
  * @example
  * const [updateUserShoppingMutation, { data, loading, error }] = useUpdateUserShoppingMutation({
  *   variables: {
- *      currentTime: // value for 'currentTime'
  *      userId: // value for 'userId'
  *      lastItem: // value for 'lastItem'
  *   },

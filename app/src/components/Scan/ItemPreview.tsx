@@ -123,7 +123,6 @@ export const ItemPreview = ({ badScan, barcodeId, onPress, toggleScanned, shown 
       variables: {
         userId,
         lastItem: barcodeId,
-        currentTime: new Date(),
       },
     });
   };

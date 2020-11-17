@@ -148,7 +148,6 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
       variables: {
         userId,
         lastItem: barcodeId,
-        currentTime: new Date(),
       },
     });
 

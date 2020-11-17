@@ -60,6 +60,7 @@ import {
   GetUserFavoriteItemsDocument,
   GetUserCartItemsDocument,
   useGetUserCartItemsQuery,
+  useUpdateUserShoppingMutation,
 } from '&graphql';
 // Utils
 import { hapticOptions } from '&utils';
@@ -102,6 +103,8 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
   const [removeFromCartMutation] = useRemoveUserCartItemMutation();
   const [removeFromFavoritesMutation] = useRemoveUserFavoriteItemMutation();
 
+  const [updateShoppingMutation] = useUpdateUserShoppingMutation();
+
   const addOrRemoveFromFavorites = async () => {
     if (favorite) {
       await removeFromFavoritesMutation({
@@ -140,6 +143,14 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
         ],
       });
     }
+
+    await updateShoppingMutation({
+      variables: {
+        userId,
+        lastItem: barcodeId,
+        currentTime: new Date(),
+      },
+    });
 
     await navigation.goBack();
   };

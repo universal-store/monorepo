@@ -30,6 +30,7 @@ import {
   useGetStoreItemQuery,
   useGetUserQuery,
   useRemoveUserCartItemMutation,
+  useUpdateUserShoppingMutation,
 } from '&graphql';
 
 // Utils
@@ -62,6 +63,9 @@ export const ItemPreview = ({ badScan, barcodeId, onPress, toggleScanned, shown 
   // Cart Mutations
   const [addToCartMutation] = useAddUserCartItemMutation();
   const [removeFromCartMutation] = useRemoveUserCartItemMutation();
+
+  // Update Shopping Mutation
+  const [updateShoppingMutation] = useUpdateUserShoppingMutation();
 
   useEffect(() => {
     if (userCart) {
@@ -114,6 +118,14 @@ export const ItemPreview = ({ badScan, barcodeId, onPress, toggleScanned, shown 
         ],
       });
     }
+
+    await updateShoppingMutation({
+      variables: {
+        userId,
+        lastItem: barcodeId,
+        currentTime: new Date(),
+      },
+    });
   };
 
   return (

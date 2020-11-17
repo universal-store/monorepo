@@ -219,6 +219,7 @@ export const MapViewScreen = () => {
   const filterStoresByCategory = () => {
     if (!storesData) return;
 
+    // Add toggled categories
     let selectedCategories: string[] = [];
     if (categoryFilter[0]) selectedCategories.push('Supermarket');
     if (categoryFilter[1]) selectedCategories.push('Department');
@@ -226,10 +227,12 @@ export const MapViewScreen = () => {
     if (categoryFilter[3]) selectedCategories.push('Pharmacy');
     if (categoryFilter[4]) selectedCategories.push('Electronic');
 
+    // If none are toggled, set all as true
     if (categoryFilter.every(category => !category)) {
       selectedCategories = [...STORE_CATEGORIES];
     }
 
+    // Check if each store has one of the selected categories
     const tempFilteredStores = storesData.Store.filter(store => {
       if (store.category) {
         return selectedCategories.includes(store.category);

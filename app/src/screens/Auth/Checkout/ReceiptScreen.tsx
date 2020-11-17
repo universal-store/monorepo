@@ -92,7 +92,6 @@ export const ReceiptScreen = ({ route }: ReceiptScreenProps) => {
         <CheckoutHeaderText>Payment Details</CheckoutHeaderText>
         <CheckoutPaymentDetailsContainer>
           <CheckoutText>VISA Debit (1834)</CheckoutText>
-          <CheckoutTextPurple>Choose a Different Method</CheckoutTextPurple>
         </CheckoutPaymentDetailsContainer>
 
         <CheckoutHeaderText>Order Total</CheckoutHeaderText>

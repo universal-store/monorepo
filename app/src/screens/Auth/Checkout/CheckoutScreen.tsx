@@ -76,6 +76,9 @@ export const CheckoutScreen = () => {
   const [purchaseItemsMutation] = usePurchaseStoreItemsMutation();
   const [clearCartMutation] = useClearUserCartItemsMutation();
 
+  /**
+   * Creates order, sets items to purchased, and clears cart
+   */
   const checkoutItems = async () => {
     if (userId) {
       let orderId = '';

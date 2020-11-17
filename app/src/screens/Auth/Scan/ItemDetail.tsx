@@ -105,6 +105,9 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
 
   const [updateShoppingMutation] = useUpdateUserShoppingMutation();
 
+  /**
+   * Checks if item is in favorites and removes if it is, adds if not
+   */
   const addOrRemoveFromFavorites = async () => {
     if (favorite) {
       await removeFromFavoritesMutation({
@@ -125,6 +128,9 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
     }
   };
 
+  /**
+   * Checks if item is in cart and removes if it is, adds if not
+   */
   const addOrRemoveFromCart = async () => {
     if (inCart) {
       await removeFromCartMutation({
@@ -154,12 +160,14 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
     await navigation.goBack();
   };
 
+  // Renders header tab
   const renderHeader = () => (
     <ModalHeader>
       <ModalHeaderTab />
     </ModalHeader>
   );
 
+  // Renders inside of detail modal
   const renderContent = () => (
     <ModalContainer>
       <ModalFlexContainer>

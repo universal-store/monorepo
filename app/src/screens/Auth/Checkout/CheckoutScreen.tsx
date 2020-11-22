@@ -51,6 +51,7 @@ const SALES_TAX_PERCENT = 0.04;
 export const CheckoutScreen = () => {
   const navigation = useNavigation();
 
+  // Get Cart Data
   const { data, loading } = useGetUserCartItemsQuery();
   const cartData = data?.UserCartItem;
 
@@ -69,7 +70,9 @@ export const CheckoutScreen = () => {
 
   // Get User Query
   const { data: userData } = useGetUserQuery();
-  const userId = userData?.User[0].id!;
+  const currentUser = userData?.User[0];
+  const userId = currentUser?.id!;
+  const paymentMethod = currentUser?.UserPaymentMethod;
 
   // Mutations
   const [createOrderMutation] = useCreateUserOrderMutation();
@@ -125,10 +128,15 @@ export const CheckoutScreen = () => {
         ))}
 
         <CheckoutHeaderText>Payment Details</CheckoutHeaderText>
-        <CheckoutPaymentDetailsContainer>
-          <CheckoutText>VISA Debit (1834)</CheckoutText>
-          <CheckoutTextPurple>Choose a Different Method</CheckoutTextPurple>
-        </CheckoutPaymentDetailsContainer>
+        {paymentMethod ? (
+          <CheckoutPaymentDetailsContainer>
+            <CheckoutText>
+              VISA Debit ({paymentMethod.cardNumber.slice(paymentMethod.cardNumber.length - 4)})
+            </CheckoutText>
+          </CheckoutPaymentDetailsContainer>
+        ) : (
+          <CheckoutTextPurple>No Payment Method Yet</CheckoutTextPurple>
+        )}
 
         <CheckoutHeaderText>Order Total</CheckoutHeaderText>
         <CheckoutPaymentDetailsContainer>
@@ -145,14 +153,16 @@ export const CheckoutScreen = () => {
         </CheckoutPaymentDetailsContainer>
       </ScrollView>
 
-      <CheckoutButton
-        text="Pay Now"
-        isCheckoutScreen
-        onPress={() => {
-          ReactNativeHapticFeedback.trigger('selection', hapticOptions);
-          void checkoutItems();
-        }}
-      />
+      {paymentMethod && (
+        <CheckoutButton
+          text="Pay Now"
+          isCheckoutScreen
+          onPress={() => {
+            ReactNativeHapticFeedback.trigger('selection', hapticOptions);
+            void checkoutItems();
+          }}
+        />
+      )}
     </FullScreenWhite>
   );
 };

@@ -186,6 +186,15 @@ type mutation_root {
   # delete single row from the table: "UserOrder"
   delete_UserOrder_by_pk(id: uuid!): UserOrder
 
+  # delete data from the table: "UserPaymentMethod"
+  delete_UserPaymentMethod(
+    # filter the rows which have to be deleted
+    where: UserPaymentMethod_bool_exp!
+  ): UserPaymentMethod_mutation_response
+
+  # delete single row from the table: "UserPaymentMethod"
+  delete_UserPaymentMethod_by_pk(id: uuid!): UserPaymentMethod
+
   # delete data from the table: "UserShopping"
   delete_UserShopping(
     # filter the rows which have to be deleted
@@ -350,6 +359,24 @@ type mutation_root {
     # on conflict condition
     on_conflict: UserOrder_on_conflict
   ): UserOrder
+
+  # insert data into the table: "UserPaymentMethod"
+  insert_UserPaymentMethod(
+    # the rows to be inserted
+    objects: [UserPaymentMethod_insert_input!]!
+
+    # on conflict condition
+    on_conflict: UserPaymentMethod_on_conflict
+  ): UserPaymentMethod_mutation_response
+
+  # insert a single row into the table: "UserPaymentMethod"
+  insert_UserPaymentMethod_one(
+    # the row to be inserted
+    object: UserPaymentMethod_insert_input!
+
+    # on conflict condition
+    on_conflict: UserPaymentMethod_on_conflict
+  ): UserPaymentMethod
 
   # insert data into the table: "UserShopping"
   insert_UserShopping(
@@ -520,6 +547,22 @@ type mutation_root {
     _set: UserOrder_set_input
     pk_columns: UserOrder_pk_columns_input!
   ): UserOrder
+
+  # update data of the table: "UserPaymentMethod"
+  update_UserPaymentMethod(
+    # sets the columns of the filtered rows to the given values
+    _set: UserPaymentMethod_set_input
+
+    # filter the rows which have to be updated
+    where: UserPaymentMethod_bool_exp!
+  ): UserPaymentMethod_mutation_response
+
+  # update single row of the table: "UserPaymentMethod"
+  update_UserPaymentMethod_by_pk(
+    # sets the columns of the filtered rows to the given values
+    _set: UserPaymentMethod_set_input
+    pk_columns: UserPaymentMethod_pk_columns_input!
+  ): UserPaymentMethod
 
   # update data of the table: "UserShopping"
   update_UserShopping(
@@ -913,6 +956,45 @@ type query_root {
   # fetch data from the table: "UserOrder" using primary key columns
   UserOrder_by_pk(id: uuid!): UserOrder
 
+  # fetch data from the table: "UserPaymentMethod"
+  UserPaymentMethod(
+    # distinct select on columns
+    distinct_on: [UserPaymentMethod_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserPaymentMethod_order_by!]
+
+    # filter the rows returned
+    where: UserPaymentMethod_bool_exp
+  ): [UserPaymentMethod!]!
+
+  # fetch aggregated fields from the table: "UserPaymentMethod"
+  UserPaymentMethod_aggregate(
+    # distinct select on columns
+    distinct_on: [UserPaymentMethod_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserPaymentMethod_order_by!]
+
+    # filter the rows returned
+    where: UserPaymentMethod_bool_exp
+  ): UserPaymentMethod_aggregate!
+
+  # fetch data from the table: "UserPaymentMethod" using primary key columns
+  UserPaymentMethod_by_pk(id: uuid!): UserPaymentMethod
+
   # fetch data from the table: "UserShopping"
   UserShopping(
     # distinct select on columns
@@ -1061,6 +1143,42 @@ type Store {
     # filter the rows returned
     where: UserFavoriteStore_bool_exp
   ): UserFavoriteStore_aggregate!
+
+  # An array relationship
+  UserShoppings(
+    # distinct select on columns
+    distinct_on: [UserShopping_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserShopping_order_by!]
+
+    # filter the rows returned
+    where: UserShopping_bool_exp
+  ): [UserShopping!]!
+
+  # An aggregated array relationship
+  UserShoppings_aggregate(
+    # distinct select on columns
+    distinct_on: [UserShopping_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserShopping_order_by!]
+
+    # filter the rows returned
+    where: UserShopping_bool_exp
+  ): UserShopping_aggregate!
   address: String!
   category: String
   description: String
@@ -1101,6 +1219,7 @@ input Store_bool_exp {
   StoreItems: StoreItem_bool_exp
   StorePic: StorePic_bool_exp
   UserFavoriteStores: UserFavoriteStore_bool_exp
+  UserShoppings: UserShopping_bool_exp
   _and: [Store_bool_exp]
   _not: Store_bool_exp
   _or: [Store_bool_exp]
@@ -1127,6 +1246,7 @@ input Store_insert_input {
   StoreItems: StoreItem_arr_rel_insert_input
   StorePic: StorePic_obj_rel_insert_input
   UserFavoriteStores: UserFavoriteStore_arr_rel_insert_input
+  UserShoppings: UserShopping_arr_rel_insert_input
   address: String
   category: String
   description: String
@@ -1203,6 +1323,7 @@ input Store_order_by {
   StoreItems_aggregate: StoreItem_aggregate_order_by
   StorePic: StorePic_order_by
   UserFavoriteStores_aggregate: UserFavoriteStore_aggregate_order_by
+  UserShoppings_aggregate: UserShopping_aggregate_order_by
   address: order_by
   category: order_by
   description: order_by
@@ -1358,6 +1479,42 @@ type StoreItem {
 
   # An object relationship
   UserOrder: UserOrder
+
+  # An array relationship
+  UserShoppings(
+    # distinct select on columns
+    distinct_on: [UserShopping_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserShopping_order_by!]
+
+    # filter the rows returned
+    where: UserShopping_bool_exp
+  ): [UserShopping!]!
+
+  # An aggregated array relationship
+  UserShoppings_aggregate(
+    # distinct select on columns
+    distinct_on: [UserShopping_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserShopping_order_by!]
+
+    # filter the rows returned
+    where: UserShopping_bool_exp
+  ): UserShopping_aggregate!
   barcodeId: String!
   description: String
   itemImageId: uuid
@@ -1429,6 +1586,7 @@ input StoreItem_bool_exp {
   UserCartItems: UserCartItem_bool_exp
   UserFavoriteItems: UserFavoriteItem_bool_exp
   UserOrder: UserOrder_bool_exp
+  UserShoppings: UserShopping_bool_exp
   _and: [StoreItem_bool_exp]
   _not: StoreItem_bool_exp
   _or: [StoreItem_bool_exp]
@@ -1465,6 +1623,7 @@ input StoreItem_insert_input {
   UserCartItems: UserCartItem_arr_rel_insert_input
   UserFavoriteItems: UserFavoriteItem_arr_rel_insert_input
   UserOrder: UserOrder_obj_rel_insert_input
+  UserShoppings: UserShopping_arr_rel_insert_input
   barcodeId: String
   description: String
   itemImageId: uuid
@@ -1558,6 +1717,7 @@ input StoreItem_order_by {
   UserCartItems_aggregate: UserCartItem_aggregate_order_by
   UserFavoriteItems_aggregate: UserFavoriteItem_aggregate_order_by
   UserOrder: UserOrder_order_by
+  UserShoppings_aggregate: UserShopping_aggregate_order_by
   barcodeId: order_by
   description: order_by
   itemImageId: order_by
@@ -2453,6 +2613,45 @@ type subscription_root {
   # fetch data from the table: "UserOrder" using primary key columns
   UserOrder_by_pk(id: uuid!): UserOrder
 
+  # fetch data from the table: "UserPaymentMethod"
+  UserPaymentMethod(
+    # distinct select on columns
+    distinct_on: [UserPaymentMethod_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserPaymentMethod_order_by!]
+
+    # filter the rows returned
+    where: UserPaymentMethod_bool_exp
+  ): [UserPaymentMethod!]!
+
+  # fetch aggregated fields from the table: "UserPaymentMethod"
+  UserPaymentMethod_aggregate(
+    # distinct select on columns
+    distinct_on: [UserPaymentMethod_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [UserPaymentMethod_order_by!]
+
+    # filter the rows returned
+    where: UserPaymentMethod_bool_exp
+  ): UserPaymentMethod_aggregate!
+
+  # fetch data from the table: "UserPaymentMethod" using primary key columns
+  UserPaymentMethod_by_pk(id: uuid!): UserPaymentMethod
+
   # fetch data from the table: "UserShopping"
   UserShopping(
     # distinct select on columns
@@ -2674,6 +2873,12 @@ type User {
     # filter the rows returned
     where: UserOrder_bool_exp
   ): UserOrder_aggregate!
+
+  # An object relationship
+  UserPaymentMethod: UserPaymentMethod
+
+  # An object relationship
+  UserShopping: UserShopping
   email: String!
   firstName: name
   id: String!
@@ -2712,6 +2917,8 @@ input User_bool_exp {
   UserFavoriteItems: UserFavoriteItem_bool_exp
   UserFavoriteStores: UserFavoriteStore_bool_exp
   UserOrders: UserOrder_bool_exp
+  UserPaymentMethod: UserPaymentMethod_bool_exp
+  UserShopping: UserShopping_bool_exp
   _and: [User_bool_exp]
   _not: User_bool_exp
   _or: [User_bool_exp]
@@ -2736,6 +2943,8 @@ input User_insert_input {
   UserFavoriteItems: UserFavoriteItem_arr_rel_insert_input
   UserFavoriteStores: UserFavoriteStore_arr_rel_insert_input
   UserOrders: UserOrder_arr_rel_insert_input
+  UserPaymentMethod: UserPaymentMethod_obj_rel_insert_input
+  UserShopping: UserShopping_obj_rel_insert_input
   email: String
   firstName: name
   id: String
@@ -2794,6 +3003,8 @@ input User_order_by {
   UserFavoriteItems_aggregate: UserFavoriteItem_aggregate_order_by
   UserFavoriteStores_aggregate: UserFavoriteStore_aggregate_order_by
   UserOrders_aggregate: UserOrder_aggregate_order_by
+  UserPaymentMethod: UserPaymentMethod_order_by
+  UserShopping: UserShopping_order_by
   email: order_by
   firstName: order_by
   id: order_by
@@ -3516,10 +3727,215 @@ enum UserOrder_update_column {
   userId
 }
 
+# columns and relationships of "UserPaymentMethod"
+type UserPaymentMethod {
+  # An object relationship
+  User: User!
+  cardName: String!
+  cardNumber: String!
+  expiryMonth: String!
+  expiryYear: String!
+  id: uuid!
+  userId: String!
+}
+
+# aggregated selection of "UserPaymentMethod"
+type UserPaymentMethod_aggregate {
+  aggregate: UserPaymentMethod_aggregate_fields
+  nodes: [UserPaymentMethod!]!
+}
+
+# aggregate fields of "UserPaymentMethod"
+type UserPaymentMethod_aggregate_fields {
+  count(columns: [UserPaymentMethod_select_column!], distinct: Boolean): Int
+  max: UserPaymentMethod_max_fields
+  min: UserPaymentMethod_min_fields
+}
+
+# order by aggregate values of table "UserPaymentMethod"
+input UserPaymentMethod_aggregate_order_by {
+  count: order_by
+  max: UserPaymentMethod_max_order_by
+  min: UserPaymentMethod_min_order_by
+}
+
+# input type for inserting array relation for remote table "UserPaymentMethod"
+input UserPaymentMethod_arr_rel_insert_input {
+  data: [UserPaymentMethod_insert_input!]!
+  on_conflict: UserPaymentMethod_on_conflict
+}
+
+# Boolean expression to filter rows from the table "UserPaymentMethod". All fields are combined with a logical 'AND'.
+input UserPaymentMethod_bool_exp {
+  User: User_bool_exp
+  _and: [UserPaymentMethod_bool_exp]
+  _not: UserPaymentMethod_bool_exp
+  _or: [UserPaymentMethod_bool_exp]
+  cardName: String_comparison_exp
+  cardNumber: String_comparison_exp
+  expiryMonth: String_comparison_exp
+  expiryYear: String_comparison_exp
+  id: uuid_comparison_exp
+  userId: String_comparison_exp
+}
+
+# unique or primary key constraints on table "UserPaymentMethod"
+enum UserPaymentMethod_constraint {
+  # unique or primary key constraint
+  UserPaymentMethod_pkey
+
+  # unique or primary key constraint
+  UserPaymentMethod_userId_key
+}
+
+# input type for inserting data into table "UserPaymentMethod"
+input UserPaymentMethod_insert_input {
+  User: User_obj_rel_insert_input
+  cardName: String
+  cardNumber: String
+  expiryMonth: String
+  expiryYear: String
+  id: uuid
+  userId: String
+}
+
+# aggregate max on columns
+type UserPaymentMethod_max_fields {
+  cardName: String
+  cardNumber: String
+  expiryMonth: String
+  expiryYear: String
+  id: uuid
+  userId: String
+}
+
+# order by max() on columns of table "UserPaymentMethod"
+input UserPaymentMethod_max_order_by {
+  cardName: order_by
+  cardNumber: order_by
+  expiryMonth: order_by
+  expiryYear: order_by
+  id: order_by
+  userId: order_by
+}
+
+# aggregate min on columns
+type UserPaymentMethod_min_fields {
+  cardName: String
+  cardNumber: String
+  expiryMonth: String
+  expiryYear: String
+  id: uuid
+  userId: String
+}
+
+# order by min() on columns of table "UserPaymentMethod"
+input UserPaymentMethod_min_order_by {
+  cardName: order_by
+  cardNumber: order_by
+  expiryMonth: order_by
+  expiryYear: order_by
+  id: order_by
+  userId: order_by
+}
+
+# response of any mutation on the table "UserPaymentMethod"
+type UserPaymentMethod_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [UserPaymentMethod!]!
+}
+
+# input type for inserting object relation for remote table "UserPaymentMethod"
+input UserPaymentMethod_obj_rel_insert_input {
+  data: UserPaymentMethod_insert_input!
+  on_conflict: UserPaymentMethod_on_conflict
+}
+
+# on conflict condition type for table "UserPaymentMethod"
+input UserPaymentMethod_on_conflict {
+  constraint: UserPaymentMethod_constraint!
+  update_columns: [UserPaymentMethod_update_column!]!
+  where: UserPaymentMethod_bool_exp
+}
+
+# ordering options when selecting data from "UserPaymentMethod"
+input UserPaymentMethod_order_by {
+  User: User_order_by
+  cardName: order_by
+  cardNumber: order_by
+  expiryMonth: order_by
+  expiryYear: order_by
+  id: order_by
+  userId: order_by
+}
+
+# primary key columns input for table: "UserPaymentMethod"
+input UserPaymentMethod_pk_columns_input {
+  id: uuid!
+}
+
+# select columns of table "UserPaymentMethod"
+enum UserPaymentMethod_select_column {
+  # column name
+  cardName
+
+  # column name
+  cardNumber
+
+  # column name
+  expiryMonth
+
+  # column name
+  expiryYear
+
+  # column name
+  id
+
+  # column name
+  userId
+}
+
+# input type for updating data in table "UserPaymentMethod"
+input UserPaymentMethod_set_input {
+  cardName: String
+  cardNumber: String
+  expiryMonth: String
+  expiryYear: String
+  id: uuid
+  userId: String
+}
+
+# update columns of table "UserPaymentMethod"
+enum UserPaymentMethod_update_column {
+  # column name
+  cardName
+
+  # column name
+  cardNumber
+
+  # column name
+  expiryMonth
+
+  # column name
+  expiryYear
+
+  # column name
+  id
+
+  # column name
+  userId
+}
+
 # columns and relationships of "UserShopping"
 type UserShopping {
   # An object relationship
   Store: Store!
+
+  # An object relationship
+  StoreItem: StoreItem
 
   # An object relationship
   User: User!
@@ -3559,6 +3975,7 @@ input UserShopping_arr_rel_insert_input {
 # Boolean expression to filter rows from the table "UserShopping". All fields are combined with a logical 'AND'.
 input UserShopping_bool_exp {
   Store: Store_bool_exp
+  StoreItem: StoreItem_bool_exp
   User: User_bool_exp
   _and: [UserShopping_bool_exp]
   _not: UserShopping_bool_exp
@@ -3582,6 +3999,7 @@ enum UserShopping_constraint {
 # input type for inserting data into table "UserShopping"
 input UserShopping_insert_input {
   Store: Store_obj_rel_insert_input
+  StoreItem: StoreItem_obj_rel_insert_input
   User: User_obj_rel_insert_input
   id: uuid
   lastItem: String
@@ -3651,6 +4069,7 @@ input UserShopping_on_conflict {
 # ordering options when selecting data from "UserShopping"
 input UserShopping_order_by {
   Store: Store_order_by
+  StoreItem: StoreItem_order_by
   User: User_order_by
   id: order_by
   lastItem: order_by

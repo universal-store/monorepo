@@ -1,0 +1,9 @@
+# @format
+
+fragment PaymentInfo on UserPaymentMethod {
+    id
+    cardName
+    cardNumber
+    expiryYear
+    expiryMonth
+}

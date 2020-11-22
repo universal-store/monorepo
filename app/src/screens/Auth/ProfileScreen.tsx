@@ -91,24 +91,36 @@ export const ProfileScreen = ({ navigation }: ProfileScreenProps) => {
       <UserProfilePaymentContainer>
         <UserProfileSubHeaderText>Payment Method</UserProfileSubHeaderText>
 
-        <UserProfilePaymentInfoContainer onPress={() => console.log('Payment Method Selected')}>
-          <UserProfilePaymentInfoText>VISA Debit (1834)</UserProfilePaymentInfoText>
-          <UserPaymentInfoNameRow>
-            {userData && (
-              <UserProfilePaymentInfoText>
-                {renderName(userData.firstName, userData.lastName)}
-              </UserProfilePaymentInfoText>
-            )}
-            <UserProfileCheckMarkLogoContainer>
-              <CheckIcon />
-            </UserProfileCheckMarkLogoContainer>
-          </UserPaymentInfoNameRow>
-          <UserProfilePaymentInfoText>Exp: 07/24</UserProfilePaymentInfoText>
-        </UserProfilePaymentInfoContainer>
+        {userData && (
+          <>
+            {userData.UserPaymentMethod && (
+              <UserProfilePaymentInfoContainer>
+                <UserProfilePaymentInfoText>
+                  VISA Debit (
+                  {userData.UserPaymentMethod.cardNumber.slice(userData.UserPaymentMethod.cardNumber.length - 4)})
+                </UserProfilePaymentInfoText>
+                <UserPaymentInfoNameRow>
+                  <UserProfilePaymentInfoText>{userData.UserPaymentMethod.cardName}</UserProfilePaymentInfoText>
 
-        <UserProfilePaymentInfoAddContainer onPress={() => navigation.navigate('PaymentMethodScreen')}>
-          <UserProfilePaymentInfoAddText>Edit Payment Method</UserProfilePaymentInfoAddText>
-        </UserProfilePaymentInfoAddContainer>
+                  <UserProfileCheckMarkLogoContainer>
+                    <CheckIcon />
+                  </UserProfileCheckMarkLogoContainer>
+                </UserPaymentInfoNameRow>
+                <UserProfilePaymentInfoText>
+                  Exp: {userData.UserPaymentMethod.expiryMonth}/{userData.UserPaymentMethod.expiryYear}
+                </UserProfilePaymentInfoText>
+              </UserProfilePaymentInfoContainer>
+            )}
+
+            <UserProfilePaymentInfoAddContainer
+              onPress={() => navigation.navigate('PaymentMethodScreen', { paymentMethod: userData.UserPaymentMethod })}
+            >
+              <UserProfilePaymentInfoAddText>
+                {userData.UserPaymentMethod ? 'Edit' : 'Add'} Payment Method
+              </UserProfilePaymentInfoAddText>
+            </UserProfilePaymentInfoAddContainer>
+          </>
+        )}
       </UserProfilePaymentContainer>
 
       {orderData && orderData.length > 0 && (

@@ -29,7 +29,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import AnimatedTabBar, { TabsConfig, BubbleTabBarItemConfig } from '@gorhom/animated-tabbar';
 
 // GraphQL
-import { UserOrderInfoFragment } from '&graphql';
+import { PaymentInfoFragment, UserOrderInfoFragment } from '&graphql';
 
 // Utils
 import { hapticOptions } from '&utils';
@@ -149,7 +149,7 @@ export type AuthStackParams = {
   AddItemScreen: { barcodeId: string };
   ReceiptScreen: { orderData: UserOrderInfoFragment };
   ItemDetail: { barcodeId: string; scanned?: boolean };
-  PaymentMethodScreen: undefined;
+  PaymentMethodScreen: { paymentMethod?: PaymentInfoFragment };
 };
 
 export const AuthStack = createStackNavigator<AuthStackParams>();

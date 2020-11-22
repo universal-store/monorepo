@@ -59,7 +59,7 @@ export const UserProfileEmailContainer = styled.View`
   border-bottom-color: ${({ theme }) => theme.colors.gray[5]};
 `;
 
-export const UserProfilePaymentInfoContainer = styled.TouchableOpacity`
+export const UserProfilePaymentInfoContainer = styled.View`
   padding: 0 24px;
 `;
 

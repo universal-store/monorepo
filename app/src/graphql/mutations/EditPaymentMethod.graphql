@@ -1,0 +1,5 @@
+mutation EditPaymentMethod($cardNumber: String!, $cardName: String!, $expiryMonth: String!, $expiryYear: String!, $userId: String!) {
+    update_UserPaymentMethod(_set: { expiryYear: $expiryYear, expiryMonth: $expiryMonth, cardNumber: $cardNumber, cardName: $cardName}, where: { userId: { _eq: $userId } }) {
+        affected_rows
+    }
+}

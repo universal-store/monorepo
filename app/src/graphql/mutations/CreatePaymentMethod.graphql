@@ -1,0 +1,5 @@
+mutation CreatePaymentMethod($cardNumber: String!, $cardName: String!, $expiryMonth: String!, $expiryYear: String!, $userId: String!) {
+    insert_UserPaymentMethod_one(object: { cardNumber: $cardNumber, cardName: $cardName, expiryMonth: $expiryMonth, expiryYear: $expiryYear, userId: $userId }) {
+        id
+    }
+}

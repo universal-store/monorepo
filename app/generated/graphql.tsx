@@ -107,6 +107,8 @@ export type Mutation_Root = {
   delete_UserFavoriteStore_by_pk?: Maybe<UserFavoriteStore>;
   delete_UserOrder?: Maybe<UserOrder_Mutation_Response>;
   delete_UserOrder_by_pk?: Maybe<UserOrder>;
+  delete_UserPaymentMethod?: Maybe<UserPaymentMethod_Mutation_Response>;
+  delete_UserPaymentMethod_by_pk?: Maybe<UserPaymentMethod>;
   delete_UserShopping?: Maybe<UserShopping_Mutation_Response>;
   delete_UserShopping_by_pk?: Maybe<UserShopping>;
   delete_User_by_pk?: Maybe<User>;
@@ -127,6 +129,8 @@ export type Mutation_Root = {
   insert_UserFavoriteStore_one?: Maybe<UserFavoriteStore>;
   insert_UserOrder?: Maybe<UserOrder_Mutation_Response>;
   insert_UserOrder_one?: Maybe<UserOrder>;
+  insert_UserPaymentMethod?: Maybe<UserPaymentMethod_Mutation_Response>;
+  insert_UserPaymentMethod_one?: Maybe<UserPaymentMethod>;
   insert_UserShopping?: Maybe<UserShopping_Mutation_Response>;
   insert_UserShopping_one?: Maybe<UserShopping>;
   insert_User_one?: Maybe<User>;
@@ -147,6 +151,8 @@ export type Mutation_Root = {
   update_UserFavoriteStore_by_pk?: Maybe<UserFavoriteStore>;
   update_UserOrder?: Maybe<UserOrder_Mutation_Response>;
   update_UserOrder_by_pk?: Maybe<UserOrder>;
+  update_UserPaymentMethod?: Maybe<UserPaymentMethod_Mutation_Response>;
+  update_UserPaymentMethod_by_pk?: Maybe<UserPaymentMethod>;
   update_UserShopping?: Maybe<UserShopping_Mutation_Response>;
   update_UserShopping_by_pk?: Maybe<UserShopping>;
   update_User_by_pk?: Maybe<User>;
@@ -234,6 +240,16 @@ export type Mutation_RootDelete_UserOrderArgs = {
 
 
 export type Mutation_RootDelete_UserOrder_By_PkArgs = {
+  id: Scalars['uuid'];
+};
+
+
+export type Mutation_RootDelete_UserPaymentMethodArgs = {
+  where: UserPaymentMethod_Bool_Exp;
+};
+
+
+export type Mutation_RootDelete_UserPaymentMethod_By_PkArgs = {
   id: Scalars['uuid'];
 };
 
@@ -352,6 +368,18 @@ export type Mutation_RootInsert_UserOrderArgs = {
 export type Mutation_RootInsert_UserOrder_OneArgs = {
   object: UserOrder_Insert_Input;
   on_conflict?: Maybe<UserOrder_On_Conflict>;
+};
+
+
+export type Mutation_RootInsert_UserPaymentMethodArgs = {
+  objects: Array<UserPaymentMethod_Insert_Input>;
+  on_conflict?: Maybe<UserPaymentMethod_On_Conflict>;
+};
+
+
+export type Mutation_RootInsert_UserPaymentMethod_OneArgs = {
+  object: UserPaymentMethod_Insert_Input;
+  on_conflict?: Maybe<UserPaymentMethod_On_Conflict>;
 };
 
 
@@ -477,6 +505,18 @@ export type Mutation_RootUpdate_UserOrder_By_PkArgs = {
 };
 
 
+export type Mutation_RootUpdate_UserPaymentMethodArgs = {
+  _set?: Maybe<UserPaymentMethod_Set_Input>;
+  where: UserPaymentMethod_Bool_Exp;
+};
+
+
+export type Mutation_RootUpdate_UserPaymentMethod_By_PkArgs = {
+  _set?: Maybe<UserPaymentMethod_Set_Input>;
+  pk_columns: UserPaymentMethod_Pk_Columns_Input;
+};
+
+
 export type Mutation_RootUpdate_UserShoppingArgs = {
   _set?: Maybe<UserShopping_Set_Input>;
   where: UserShopping_Bool_Exp;
@@ -543,6 +583,9 @@ export type Query_Root = {
   UserOrder: Array<UserOrder>;
   UserOrder_aggregate: UserOrder_Aggregate;
   UserOrder_by_pk?: Maybe<UserOrder>;
+  UserPaymentMethod: Array<UserPaymentMethod>;
+  UserPaymentMethod_aggregate: UserPaymentMethod_Aggregate;
+  UserPaymentMethod_by_pk?: Maybe<UserPaymentMethod>;
   UserShopping: Array<UserShopping>;
   UserShopping_aggregate: UserShopping_Aggregate;
   UserShopping_by_pk?: Maybe<UserShopping>;
@@ -744,6 +787,29 @@ export type Query_RootUserOrder_By_PkArgs = {
 };
 
 
+export type Query_RootUserPaymentMethodArgs = {
+  distinct_on?: Maybe<Array<UserPaymentMethod_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<UserPaymentMethod_Order_By>>;
+  where?: Maybe<UserPaymentMethod_Bool_Exp>;
+};
+
+
+export type Query_RootUserPaymentMethod_AggregateArgs = {
+  distinct_on?: Maybe<Array<UserPaymentMethod_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<UserPaymentMethod_Order_By>>;
+  where?: Maybe<UserPaymentMethod_Bool_Exp>;
+};
+
+
+export type Query_RootUserPaymentMethod_By_PkArgs = {
+  id: Scalars['uuid'];
+};
+
+
 export type Query_RootUserShoppingArgs = {
   distinct_on?: Maybe<Array<UserShopping_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -798,6 +864,8 @@ export type Store = {
   StorePic?: Maybe<StorePic>;
   UserFavoriteStores: Array<UserFavoriteStore>;
   UserFavoriteStores_aggregate: UserFavoriteStore_Aggregate;
+  UserShoppings: Array<UserShopping>;
+  UserShoppings_aggregate: UserShopping_Aggregate;
   address: Scalars['String'];
   category?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
@@ -843,6 +911,24 @@ export type StoreUserFavoriteStores_AggregateArgs = {
   where?: Maybe<UserFavoriteStore_Bool_Exp>;
 };
 
+
+export type StoreUserShoppingsArgs = {
+  distinct_on?: Maybe<Array<UserShopping_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<UserShopping_Order_By>>;
+  where?: Maybe<UserShopping_Bool_Exp>;
+};
+
+
+export type StoreUserShoppings_AggregateArgs = {
+  distinct_on?: Maybe<Array<UserShopping_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<UserShopping_Order_By>>;
+  where?: Maybe<UserShopping_Bool_Exp>;
+};
+
 export type Store_Aggregate = {
   __typename?: 'Store_aggregate';
   aggregate?: Maybe<Store_Aggregate_Fields>;
@@ -877,6 +963,7 @@ export type Store_Bool_Exp = {
   StoreItems?: Maybe<StoreItem_Bool_Exp>;
   StorePic?: Maybe<StorePic_Bool_Exp>;
   UserFavoriteStores?: Maybe<UserFavoriteStore_Bool_Exp>;
+  UserShoppings?: Maybe<UserShopping_Bool_Exp>;
   _and?: Maybe<Array<Maybe<Store_Bool_Exp>>>;
   _not?: Maybe<Store_Bool_Exp>;
   _or?: Maybe<Array<Maybe<Store_Bool_Exp>>>;
@@ -898,6 +985,7 @@ export type Store_Insert_Input = {
   StoreItems?: Maybe<StoreItem_Arr_Rel_Insert_Input>;
   StorePic?: Maybe<StorePic_Obj_Rel_Insert_Input>;
   UserFavoriteStores?: Maybe<UserFavoriteStore_Arr_Rel_Insert_Input>;
+  UserShoppings?: Maybe<UserShopping_Arr_Rel_Insert_Input>;
   address?: Maybe<Scalars['String']>;
   category?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
@@ -966,6 +1054,7 @@ export type Store_Order_By = {
   StoreItems_aggregate?: Maybe<StoreItem_Aggregate_Order_By>;
   StorePic?: Maybe<StorePic_Order_By>;
   UserFavoriteStores_aggregate?: Maybe<UserFavoriteStore_Aggregate_Order_By>;
+  UserShoppings_aggregate?: Maybe<UserShopping_Aggregate_Order_By>;
   address?: Maybe<Order_By>;
   category?: Maybe<Order_By>;
   description?: Maybe<Order_By>;
@@ -1018,6 +1107,8 @@ export type StoreItem = {
   UserFavoriteItems: Array<UserFavoriteItem>;
   UserFavoriteItems_aggregate: UserFavoriteItem_Aggregate;
   UserOrder?: Maybe<UserOrder>;
+  UserShoppings: Array<UserShopping>;
+  UserShoppings_aggregate: UserShopping_Aggregate;
   barcodeId: Scalars['String'];
   description?: Maybe<Scalars['String']>;
   itemImageId?: Maybe<Scalars['uuid']>;
@@ -1064,6 +1155,24 @@ export type StoreItemUserFavoriteItems_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<UserFavoriteItem_Order_By>>;
   where?: Maybe<UserFavoriteItem_Bool_Exp>;
+};
+
+
+export type StoreItemUserShoppingsArgs = {
+  distinct_on?: Maybe<Array<UserShopping_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<UserShopping_Order_By>>;
+  where?: Maybe<UserShopping_Bool_Exp>;
+};
+
+
+export type StoreItemUserShoppings_AggregateArgs = {
+  distinct_on?: Maybe<Array<UserShopping_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<UserShopping_Order_By>>;
+  where?: Maybe<UserShopping_Bool_Exp>;
 };
 
 export type StoreItem_Aggregate = {
@@ -1127,6 +1236,7 @@ export type StoreItem_Bool_Exp = {
   UserCartItems?: Maybe<UserCartItem_Bool_Exp>;
   UserFavoriteItems?: Maybe<UserFavoriteItem_Bool_Exp>;
   UserOrder?: Maybe<UserOrder_Bool_Exp>;
+  UserShoppings?: Maybe<UserShopping_Bool_Exp>;
   _and?: Maybe<Array<Maybe<StoreItem_Bool_Exp>>>;
   _not?: Maybe<StoreItem_Bool_Exp>;
   _or?: Maybe<Array<Maybe<StoreItem_Bool_Exp>>>;
@@ -1157,6 +1267,7 @@ export type StoreItem_Insert_Input = {
   UserCartItems?: Maybe<UserCartItem_Arr_Rel_Insert_Input>;
   UserFavoriteItems?: Maybe<UserFavoriteItem_Arr_Rel_Insert_Input>;
   UserOrder?: Maybe<UserOrder_Obj_Rel_Insert_Input>;
+  UserShoppings?: Maybe<UserShopping_Arr_Rel_Insert_Input>;
   barcodeId?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   itemImageId?: Maybe<Scalars['uuid']>;
@@ -1242,6 +1353,7 @@ export type StoreItem_Order_By = {
   UserCartItems_aggregate?: Maybe<UserCartItem_Aggregate_Order_By>;
   UserFavoriteItems_aggregate?: Maybe<UserFavoriteItem_Aggregate_Order_By>;
   UserOrder?: Maybe<UserOrder_Order_By>;
+  UserShoppings_aggregate?: Maybe<UserShopping_Aggregate_Order_By>;
   barcodeId?: Maybe<Order_By>;
   description?: Maybe<Order_By>;
   itemImageId?: Maybe<Order_By>;
@@ -1712,6 +1824,9 @@ export type Subscription_Root = {
   UserOrder: Array<UserOrder>;
   UserOrder_aggregate: UserOrder_Aggregate;
   UserOrder_by_pk?: Maybe<UserOrder>;
+  UserPaymentMethod: Array<UserPaymentMethod>;
+  UserPaymentMethod_aggregate: UserPaymentMethod_Aggregate;
+  UserPaymentMethod_by_pk?: Maybe<UserPaymentMethod>;
   UserShopping: Array<UserShopping>;
   UserShopping_aggregate: UserShopping_Aggregate;
   UserShopping_by_pk?: Maybe<UserShopping>;
@@ -1913,6 +2028,29 @@ export type Subscription_RootUserOrder_By_PkArgs = {
 };
 
 
+export type Subscription_RootUserPaymentMethodArgs = {
+  distinct_on?: Maybe<Array<UserPaymentMethod_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<UserPaymentMethod_Order_By>>;
+  where?: Maybe<UserPaymentMethod_Bool_Exp>;
+};
+
+
+export type Subscription_RootUserPaymentMethod_AggregateArgs = {
+  distinct_on?: Maybe<Array<UserPaymentMethod_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<UserPaymentMethod_Order_By>>;
+  where?: Maybe<UserPaymentMethod_Bool_Exp>;
+};
+
+
+export type Subscription_RootUserPaymentMethod_By_PkArgs = {
+  id: Scalars['uuid'];
+};
+
+
 export type Subscription_RootUserShoppingArgs = {
   distinct_on?: Maybe<Array<UserShopping_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -1972,6 +2110,8 @@ export type User = {
   UserFavoriteStores_aggregate: UserFavoriteStore_Aggregate;
   UserOrders: Array<UserOrder>;
   UserOrders_aggregate: UserOrder_Aggregate;
+  UserPaymentMethod?: Maybe<UserPaymentMethod>;
+  UserShopping?: Maybe<UserShopping>;
   email: Scalars['String'];
   firstName?: Maybe<Scalars['name']>;
   id: Scalars['String'];
@@ -2085,6 +2225,8 @@ export type User_Bool_Exp = {
   UserFavoriteItems?: Maybe<UserFavoriteItem_Bool_Exp>;
   UserFavoriteStores?: Maybe<UserFavoriteStore_Bool_Exp>;
   UserOrders?: Maybe<UserOrder_Bool_Exp>;
+  UserPaymentMethod?: Maybe<UserPaymentMethod_Bool_Exp>;
+  UserShopping?: Maybe<UserShopping_Bool_Exp>;
   _and?: Maybe<Array<Maybe<User_Bool_Exp>>>;
   _not?: Maybe<User_Bool_Exp>;
   _or?: Maybe<Array<Maybe<User_Bool_Exp>>>;
@@ -2104,6 +2246,8 @@ export type User_Insert_Input = {
   UserFavoriteItems?: Maybe<UserFavoriteItem_Arr_Rel_Insert_Input>;
   UserFavoriteStores?: Maybe<UserFavoriteStore_Arr_Rel_Insert_Input>;
   UserOrders?: Maybe<UserOrder_Arr_Rel_Insert_Input>;
+  UserPaymentMethod?: Maybe<UserPaymentMethod_Obj_Rel_Insert_Input>;
+  UserShopping?: Maybe<UserShopping_Obj_Rel_Insert_Input>;
   email?: Maybe<Scalars['String']>;
   firstName?: Maybe<Scalars['name']>;
   id?: Maybe<Scalars['String']>;
@@ -2154,6 +2298,8 @@ export type User_Order_By = {
   UserFavoriteItems_aggregate?: Maybe<UserFavoriteItem_Aggregate_Order_By>;
   UserFavoriteStores_aggregate?: Maybe<UserFavoriteStore_Aggregate_Order_By>;
   UserOrders_aggregate?: Maybe<UserOrder_Aggregate_Order_By>;
+  UserPaymentMethod?: Maybe<UserPaymentMethod_Order_By>;
+  UserShopping?: Maybe<UserShopping_Order_By>;
   email?: Maybe<Order_By>;
   firstName?: Maybe<Order_By>;
   id?: Maybe<Order_By>;
@@ -2744,9 +2890,175 @@ export enum UserOrder_Update_Column {
   userId = 'userId'
 }
 
+export type UserPaymentMethod = {
+  __typename?: 'UserPaymentMethod';
+  User: User;
+  cardName: Scalars['String'];
+  cardNumber: Scalars['String'];
+  expiryMonth: Scalars['String'];
+  expiryYear: Scalars['String'];
+  id: Scalars['uuid'];
+  userId: Scalars['String'];
+};
+
+export type UserPaymentMethod_Aggregate = {
+  __typename?: 'UserPaymentMethod_aggregate';
+  aggregate?: Maybe<UserPaymentMethod_Aggregate_Fields>;
+  nodes: Array<UserPaymentMethod>;
+};
+
+export type UserPaymentMethod_Aggregate_Fields = {
+  __typename?: 'UserPaymentMethod_aggregate_fields';
+  count?: Maybe<Scalars['Int']>;
+  max?: Maybe<UserPaymentMethod_Max_Fields>;
+  min?: Maybe<UserPaymentMethod_Min_Fields>;
+};
+
+
+export type UserPaymentMethod_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<UserPaymentMethod_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+export type UserPaymentMethod_Aggregate_Order_By = {
+  count?: Maybe<Order_By>;
+  max?: Maybe<UserPaymentMethod_Max_Order_By>;
+  min?: Maybe<UserPaymentMethod_Min_Order_By>;
+};
+
+export type UserPaymentMethod_Arr_Rel_Insert_Input = {
+  data: Array<UserPaymentMethod_Insert_Input>;
+  on_conflict?: Maybe<UserPaymentMethod_On_Conflict>;
+};
+
+export type UserPaymentMethod_Bool_Exp = {
+  User?: Maybe<User_Bool_Exp>;
+  _and?: Maybe<Array<Maybe<UserPaymentMethod_Bool_Exp>>>;
+  _not?: Maybe<UserPaymentMethod_Bool_Exp>;
+  _or?: Maybe<Array<Maybe<UserPaymentMethod_Bool_Exp>>>;
+  cardName?: Maybe<String_Comparison_Exp>;
+  cardNumber?: Maybe<String_Comparison_Exp>;
+  expiryMonth?: Maybe<String_Comparison_Exp>;
+  expiryYear?: Maybe<String_Comparison_Exp>;
+  id?: Maybe<Uuid_Comparison_Exp>;
+  userId?: Maybe<String_Comparison_Exp>;
+};
+
+export enum UserPaymentMethod_Constraint {
+  UserPaymentMethod_pkey = 'UserPaymentMethod_pkey',
+  UserPaymentMethod_userId_key = 'UserPaymentMethod_userId_key'
+}
+
+export type UserPaymentMethod_Insert_Input = {
+  User?: Maybe<User_Obj_Rel_Insert_Input>;
+  cardName?: Maybe<Scalars['String']>;
+  cardNumber?: Maybe<Scalars['String']>;
+  expiryMonth?: Maybe<Scalars['String']>;
+  expiryYear?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['uuid']>;
+  userId?: Maybe<Scalars['String']>;
+};
+
+export type UserPaymentMethod_Max_Fields = {
+  __typename?: 'UserPaymentMethod_max_fields';
+  cardName?: Maybe<Scalars['String']>;
+  cardNumber?: Maybe<Scalars['String']>;
+  expiryMonth?: Maybe<Scalars['String']>;
+  expiryYear?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['uuid']>;
+  userId?: Maybe<Scalars['String']>;
+};
+
+export type UserPaymentMethod_Max_Order_By = {
+  cardName?: Maybe<Order_By>;
+  cardNumber?: Maybe<Order_By>;
+  expiryMonth?: Maybe<Order_By>;
+  expiryYear?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  userId?: Maybe<Order_By>;
+};
+
+export type UserPaymentMethod_Min_Fields = {
+  __typename?: 'UserPaymentMethod_min_fields';
+  cardName?: Maybe<Scalars['String']>;
+  cardNumber?: Maybe<Scalars['String']>;
+  expiryMonth?: Maybe<Scalars['String']>;
+  expiryYear?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['uuid']>;
+  userId?: Maybe<Scalars['String']>;
+};
+
+export type UserPaymentMethod_Min_Order_By = {
+  cardName?: Maybe<Order_By>;
+  cardNumber?: Maybe<Order_By>;
+  expiryMonth?: Maybe<Order_By>;
+  expiryYear?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  userId?: Maybe<Order_By>;
+};
+
+export type UserPaymentMethod_Mutation_Response = {
+  __typename?: 'UserPaymentMethod_mutation_response';
+  affected_rows: Scalars['Int'];
+  returning: Array<UserPaymentMethod>;
+};
+
+export type UserPaymentMethod_Obj_Rel_Insert_Input = {
+  data: UserPaymentMethod_Insert_Input;
+  on_conflict?: Maybe<UserPaymentMethod_On_Conflict>;
+};
+
+export type UserPaymentMethod_On_Conflict = {
+  constraint: UserPaymentMethod_Constraint;
+  update_columns: Array<UserPaymentMethod_Update_Column>;
+  where?: Maybe<UserPaymentMethod_Bool_Exp>;
+};
+
+export type UserPaymentMethod_Order_By = {
+  User?: Maybe<User_Order_By>;
+  cardName?: Maybe<Order_By>;
+  cardNumber?: Maybe<Order_By>;
+  expiryMonth?: Maybe<Order_By>;
+  expiryYear?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  userId?: Maybe<Order_By>;
+};
+
+export type UserPaymentMethod_Pk_Columns_Input = {
+  id: Scalars['uuid'];
+};
+
+export enum UserPaymentMethod_Select_Column {
+  cardName = 'cardName',
+  cardNumber = 'cardNumber',
+  expiryMonth = 'expiryMonth',
+  expiryYear = 'expiryYear',
+  id = 'id',
+  userId = 'userId'
+}
+
+export type UserPaymentMethod_Set_Input = {
+  cardName?: Maybe<Scalars['String']>;
+  cardNumber?: Maybe<Scalars['String']>;
+  expiryMonth?: Maybe<Scalars['String']>;
+  expiryYear?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['uuid']>;
+  userId?: Maybe<Scalars['String']>;
+};
+
+export enum UserPaymentMethod_Update_Column {
+  cardName = 'cardName',
+  cardNumber = 'cardNumber',
+  expiryMonth = 'expiryMonth',
+  expiryYear = 'expiryYear',
+  id = 'id',
+  userId = 'userId'
+}
+
 export type UserShopping = {
   __typename?: 'UserShopping';
   Store: Store;
+  StoreItem?: Maybe<StoreItem>;
   User: User;
   id: Scalars['uuid'];
   lastItem?: Maybe<Scalars['String']>;
@@ -2787,6 +3099,7 @@ export type UserShopping_Arr_Rel_Insert_Input = {
 
 export type UserShopping_Bool_Exp = {
   Store?: Maybe<Store_Bool_Exp>;
+  StoreItem?: Maybe<StoreItem_Bool_Exp>;
   User?: Maybe<User_Bool_Exp>;
   _and?: Maybe<Array<Maybe<UserShopping_Bool_Exp>>>;
   _not?: Maybe<UserShopping_Bool_Exp>;
@@ -2805,6 +3118,7 @@ export enum UserShopping_Constraint {
 
 export type UserShopping_Insert_Input = {
   Store?: Maybe<Store_Obj_Rel_Insert_Input>;
+  StoreItem?: Maybe<StoreItem_Obj_Rel_Insert_Input>;
   User?: Maybe<User_Obj_Rel_Insert_Input>;
   id?: Maybe<Scalars['uuid']>;
   lastItem?: Maybe<Scalars['String']>;
@@ -2866,6 +3180,7 @@ export type UserShopping_On_Conflict = {
 
 export type UserShopping_Order_By = {
   Store?: Maybe<Store_Order_By>;
+  StoreItem?: Maybe<StoreItem_Order_By>;
   User?: Maybe<User_Order_By>;
   id?: Maybe<Order_By>;
   lastItem?: Maybe<Order_By>;
@@ -2914,6 +3229,11 @@ export type Uuid_Comparison_Exp = {
   _neq?: Maybe<Scalars['uuid']>;
   _nin?: Maybe<Array<Scalars['uuid']>>;
 };
+
+export type PaymentInfoFragment = (
+  { __typename?: 'UserPaymentMethod' }
+  & Pick<UserPaymentMethod, 'id' | 'cardName' | 'cardNumber' | 'expiryYear' | 'expiryMonth'>
+);
 
 export type StorePreviewFragment = (
   { __typename?: 'Store' }
@@ -2970,7 +3290,11 @@ export type StoreItemInfoFragment = (
 
 export type UserInfoFragment = (
   { __typename?: 'User' }
-  & Pick<User, 'id' | 'email' | 'firstName' | 'lastName'>
+  & Pick<User, 'id' | 'email' | 'lastName' | 'firstName'>
+  & { UserPaymentMethod?: Maybe<(
+    { __typename?: 'UserPaymentMethod' }
+    & PaymentInfoFragment
+  )> }
 );
 
 export type UserCartItemInfoFragment = (
@@ -3047,6 +3371,23 @@ export type ClearUserCartItemsMutation = (
   )> }
 );
 
+export type CreatePaymentMethodMutationVariables = Exact<{
+  cardNumber: Scalars['String'];
+  cardName: Scalars['String'];
+  expiryMonth: Scalars['String'];
+  expiryYear: Scalars['String'];
+  userId: Scalars['String'];
+}>;
+
+
+export type CreatePaymentMethodMutation = (
+  { __typename?: 'mutation_root' }
+  & { insert_UserPaymentMethod_one?: Maybe<(
+    { __typename?: 'UserPaymentMethod' }
+    & Pick<UserPaymentMethod, 'id'>
+  )> }
+);
+
 export type CreateUserMutationVariables = Exact<{
   id: Scalars['String'];
   email: Scalars['String'];
@@ -3085,6 +3426,23 @@ export type CreateUserShoppingMutation = (
   & { insert_UserShopping_one?: Maybe<(
     { __typename?: 'UserShopping' }
     & Pick<UserShopping, 'updated_at'>
+  )> }
+);
+
+export type EditPaymentMethodMutationVariables = Exact<{
+  cardNumber: Scalars['String'];
+  cardName: Scalars['String'];
+  expiryMonth: Scalars['String'];
+  expiryYear: Scalars['String'];
+  userId: Scalars['String'];
+}>;
+
+
+export type EditPaymentMethodMutation = (
+  { __typename?: 'mutation_root' }
+  & { update_UserPaymentMethod?: Maybe<(
+    { __typename?: 'UserPaymentMethod_mutation_response' }
+    & Pick<UserPaymentMethod_Mutation_Response, 'affected_rows'>
   )> }
 );
 
@@ -3376,14 +3734,26 @@ export const StoreInfoFragmentDoc = gql`
   ...MarkerInfo
 }
     ${MarkerInfoFragmentDoc}`;
+export const PaymentInfoFragmentDoc = gql`
+    fragment PaymentInfo on UserPaymentMethod {
+  id
+  cardName
+  cardNumber
+  expiryYear
+  expiryMonth
+}
+    `;
 export const UserInfoFragmentDoc = gql`
     fragment UserInfo on User {
   id
   email
-  firstName
   lastName
+  firstName
+  UserPaymentMethod {
+    ...PaymentInfo
+  }
 }
-    `;
+    ${PaymentInfoFragmentDoc}`;
 export const PopularItemInfoFragmentDoc = gql`
     fragment PopularItemInfo on StoreItem {
   price
@@ -3547,6 +3917,44 @@ export function useClearUserCartItemsMutation(baseOptions?: Apollo.MutationHookO
 export type ClearUserCartItemsMutationHookResult = ReturnType<typeof useClearUserCartItemsMutation>;
 export type ClearUserCartItemsMutationResult = Apollo.MutationResult<ClearUserCartItemsMutation>;
 export type ClearUserCartItemsMutationOptions = Apollo.BaseMutationOptions<ClearUserCartItemsMutation, ClearUserCartItemsMutationVariables>;
+export const CreatePaymentMethodDocument = gql`
+    mutation CreatePaymentMethod($cardNumber: String!, $cardName: String!, $expiryMonth: String!, $expiryYear: String!, $userId: String!) {
+  insert_UserPaymentMethod_one(
+    object: {cardNumber: $cardNumber, cardName: $cardName, expiryMonth: $expiryMonth, expiryYear: $expiryYear, userId: $userId}
+  ) {
+    id
+  }
+}
+    `;
+export type CreatePaymentMethodMutationFn = Apollo.MutationFunction<CreatePaymentMethodMutation, CreatePaymentMethodMutationVariables>;
+
+/**
+ * __useCreatePaymentMethodMutation__
+ *
+ * To run a mutation, you first call `useCreatePaymentMethodMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreatePaymentMethodMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createPaymentMethodMutation, { data, loading, error }] = useCreatePaymentMethodMutation({
+ *   variables: {
+ *      cardNumber: // value for 'cardNumber'
+ *      cardName: // value for 'cardName'
+ *      expiryMonth: // value for 'expiryMonth'
+ *      expiryYear: // value for 'expiryYear'
+ *      userId: // value for 'userId'
+ *   },
+ * });
+ */
+export function useCreatePaymentMethodMutation(baseOptions?: Apollo.MutationHookOptions<CreatePaymentMethodMutation, CreatePaymentMethodMutationVariables>) {
+        return Apollo.useMutation<CreatePaymentMethodMutation, CreatePaymentMethodMutationVariables>(CreatePaymentMethodDocument, baseOptions);
+      }
+export type CreatePaymentMethodMutationHookResult = ReturnType<typeof useCreatePaymentMethodMutation>;
+export type CreatePaymentMethodMutationResult = Apollo.MutationResult<CreatePaymentMethodMutation>;
+export type CreatePaymentMethodMutationOptions = Apollo.BaseMutationOptions<CreatePaymentMethodMutation, CreatePaymentMethodMutationVariables>;
 export const CreateUserDocument = gql`
     mutation CreateUser($id: String!, $email: String!) {
   insert_User_one(object: {id: $id, email: $email}) {
@@ -3645,6 +4053,45 @@ export function useCreateUserShoppingMutation(baseOptions?: Apollo.MutationHookO
 export type CreateUserShoppingMutationHookResult = ReturnType<typeof useCreateUserShoppingMutation>;
 export type CreateUserShoppingMutationResult = Apollo.MutationResult<CreateUserShoppingMutation>;
 export type CreateUserShoppingMutationOptions = Apollo.BaseMutationOptions<CreateUserShoppingMutation, CreateUserShoppingMutationVariables>;
+export const EditPaymentMethodDocument = gql`
+    mutation EditPaymentMethod($cardNumber: String!, $cardName: String!, $expiryMonth: String!, $expiryYear: String!, $userId: String!) {
+  update_UserPaymentMethod(
+    _set: {expiryYear: $expiryYear, expiryMonth: $expiryMonth, cardNumber: $cardNumber, cardName: $cardName}
+    where: {userId: {_eq: $userId}}
+  ) {
+    affected_rows
+  }
+}
+    `;
+export type EditPaymentMethodMutationFn = Apollo.MutationFunction<EditPaymentMethodMutation, EditPaymentMethodMutationVariables>;
+
+/**
+ * __useEditPaymentMethodMutation__
+ *
+ * To run a mutation, you first call `useEditPaymentMethodMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useEditPaymentMethodMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [editPaymentMethodMutation, { data, loading, error }] = useEditPaymentMethodMutation({
+ *   variables: {
+ *      cardNumber: // value for 'cardNumber'
+ *      cardName: // value for 'cardName'
+ *      expiryMonth: // value for 'expiryMonth'
+ *      expiryYear: // value for 'expiryYear'
+ *      userId: // value for 'userId'
+ *   },
+ * });
+ */
+export function useEditPaymentMethodMutation(baseOptions?: Apollo.MutationHookOptions<EditPaymentMethodMutation, EditPaymentMethodMutationVariables>) {
+        return Apollo.useMutation<EditPaymentMethodMutation, EditPaymentMethodMutationVariables>(EditPaymentMethodDocument, baseOptions);
+      }
+export type EditPaymentMethodMutationHookResult = ReturnType<typeof useEditPaymentMethodMutation>;
+export type EditPaymentMethodMutationResult = Apollo.MutationResult<EditPaymentMethodMutation>;
+export type EditPaymentMethodMutationOptions = Apollo.BaseMutationOptions<EditPaymentMethodMutation, EditPaymentMethodMutationVariables>;
 export const InsertStoreItemDocument = gql`
     mutation InsertStoreItem($shortName: String, $quantity: String, $price: money!, $longName: String!, $description: String, $barcodeId: String!) {
   insert_StoreItem_one(

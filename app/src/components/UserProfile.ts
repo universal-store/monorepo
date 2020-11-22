@@ -42,6 +42,7 @@ export const UserProfileEmailText = styled(TextSmall)`
 `;
 
 export const UserProfilePaymentContainer = styled.View`
+  margin-bottom: 16px;
   border-bottom-width: 1px;
   border-bottom-color: ${({ theme }) => theme.colors.gray[5]};
 `;
@@ -60,7 +61,6 @@ export const UserProfileEmailContainer = styled.View`
 
 export const UserProfilePaymentInfoContainer = styled.TouchableOpacity`
   padding: 0 24px;
-  margin-bottom: 16px;
 `;
 
 export const UserProfilePaymentInfoAddContainer = styled.TouchableOpacity`

@@ -107,7 +107,7 @@ export const ProfileScreen = ({ navigation }: ProfileScreenProps) => {
         </UserProfilePaymentInfoContainer>
 
         <UserProfilePaymentInfoAddContainer onPress={() => navigation.navigate('PaymentMethodScreen')}>
-          <UserProfilePaymentInfoAddText>Add a Payment Method</UserProfilePaymentInfoAddText>
+          <UserProfilePaymentInfoAddText>Edit Payment Method</UserProfilePaymentInfoAddText>
         </UserProfilePaymentInfoAddContainer>
       </UserProfilePaymentContainer>
 

@@ -39,7 +39,7 @@ export const PaymentMethodScreen = () => {
         </PaymentMethodBackContainer>
 
         <UserProfileHeaderText>
-          <UserProfileHeaderNameText>Add a Payment Method</UserProfileHeaderNameText>
+          <UserProfileHeaderNameText>Add Payment Method</UserProfileHeaderNameText>
         </UserProfileHeaderText>
       </UserProfileHeaderRow>
 

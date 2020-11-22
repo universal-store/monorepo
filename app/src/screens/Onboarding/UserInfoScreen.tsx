@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useState } from 'react';
-import { DevSettings, Keyboard, KeyboardAvoidingView, View as OnboardingFormContainer } from 'react-native';
+import { Keyboard, KeyboardAvoidingView, View as OnboardingFormContainer } from 'react-native';
 
 // Libraries
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
@@ -81,8 +81,6 @@ export const UserInfoScreen = ({ route }: UserInfoScreenProps) => {
 
       await updateUserMutation({ variables: { id, firstName: userFirstName, lastName: userLastName } });
       await AsyncStorage.setItem('userToken', token);
-
-      DevSettings.reload();
 
       setLoading(false);
     }

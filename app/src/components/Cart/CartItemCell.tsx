@@ -25,9 +25,7 @@ import { useNavigation } from '@react-navigation/native';
 // GraphQL
 import {
   StoreItemInfoFragment,
-  GetUserCartItemsDocument,
   CheckItemInFavoritesDocument,
-  GetUserFavoriteItemsDocument,
   useGetUserQuery,
   useCheckItemInFavoritesQuery,
   useRemoveUserCartItemMutation,
@@ -72,18 +70,12 @@ export const CartItemCell = ({ cartItem, inCheckout }: CartItemCellProps) => {
         if (favorite) {
           void removeFromFavoritesMutation({
             variables: { userId, itemBarcodeId: barcodeId },
-            refetchQueries: [
-              { query: GetUserFavoriteItemsDocument },
-              { query: CheckItemInFavoritesDocument, variables: { barcodeId } },
-            ],
+            refetchQueries: [{ query: CheckItemInFavoritesDocument, variables: { barcodeId } }],
           });
         } else {
           void addToFavoritesMutation({
             variables: { userId, itemBarcodeId: barcodeId },
-            refetchQueries: [
-              { query: GetUserFavoriteItemsDocument },
-              { query: CheckItemInFavoritesDocument, variables: { barcodeId } },
-            ],
+            refetchQueries: [{ query: CheckItemInFavoritesDocument, variables: { barcodeId } }],
           });
         }
 
@@ -99,7 +91,6 @@ export const CartItemCell = ({ cartItem, inCheckout }: CartItemCellProps) => {
       onPress={() => {
         void removeFromCartMutation({
           variables: { userId, itemBarcodeId: barcodeId },
-          refetchQueries: [{ query: GetUserCartItemsDocument }],
         });
 
         ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);

@@ -45,12 +45,11 @@ import { useFocusEffect } from '@react-navigation/native';
 
 // GraphQL
 import {
-  GetUserCartItemsDocument,
   MarkerInfoFragment,
-  useClearUserCartItemsMutation,
-  useGetStoresQuery,
   useGetUserQuery,
+  useGetStoresQuery,
   useGetUserShoppingQuery,
+  useClearUserCartItemsMutation,
   useRemoveUserShoppingMutation,
 } from '&graphql';
 
@@ -111,7 +110,6 @@ export const MapViewScreen = () => {
         } else {
           void clearCartMutation({
             variables: { userId },
-            refetchQueries: [{ query: GetUserCartItemsDocument }],
           }).then(
             () =>
               void removeShoppingMutation({

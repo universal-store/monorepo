@@ -52,16 +52,15 @@ import {
   useGetUserQuery,
   useGetStoreItemQuery,
   useCheckItemInCartQuery,
+  useGetUserCartItemsQuery,
   useCheckItemInFavoritesQuery,
   useAddUserCartItemMutation,
   useRemoveUserCartItemMutation,
+  useUpdateUserShoppingMutation,
   useAddUserFavoriteItemMutation,
   useRemoveUserFavoriteItemMutation,
-  GetUserFavoriteItemsDocument,
-  GetUserCartItemsDocument,
-  useGetUserCartItemsQuery,
-  useUpdateUserShoppingMutation,
 } from '&graphql';
+
 // Utils
 import { hapticOptions } from '&utils';
 
@@ -112,18 +111,12 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
     if (favorite) {
       await removeFromFavoritesMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [
-          { query: GetUserFavoriteItemsDocument },
-          { query: CheckItemInFavoritesDocument, variables: { barcodeId } },
-        ],
+        refetchQueries: [{ query: CheckItemInFavoritesDocument, variables: { barcodeId } }],
       });
     } else {
       await addToFavoritesMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [
-          { query: GetUserFavoriteItemsDocument },
-          { query: CheckItemInFavoritesDocument, variables: { barcodeId } },
-        ],
+        refetchQueries: [{ query: CheckItemInFavoritesDocument, variables: { barcodeId } }],
       });
     }
   };
@@ -135,18 +128,12 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
     if (inCart) {
       await removeFromCartMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [
-          { query: GetUserCartItemsDocument },
-          { query: CheckItemInCartDocument, variables: { barcodeId } },
-        ],
+        refetchQueries: [{ query: CheckItemInCartDocument, variables: { barcodeId } }],
       });
     } else {
       await addToCartMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [
-          { query: GetUserCartItemsDocument },
-          { query: CheckItemInCartDocument, variables: { barcodeId } },
-        ],
+        refetchQueries: [{ query: CheckItemInCartDocument, variables: { barcodeId } }],
       });
     }
 

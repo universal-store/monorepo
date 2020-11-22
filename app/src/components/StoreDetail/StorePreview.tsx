@@ -40,7 +40,6 @@ import { useNavigation } from '@react-navigation/native';
 // GraphQL
 import {
   MarkerInfoFragment,
-  GetUserCartItemsDocument,
   useGetUserQuery,
   useGetStoreInfoQuery,
   useGetPopularItemsQuery,
@@ -193,7 +192,6 @@ export const StorePreview = ({ store, shopping, suggestion, onClose, onSelect }:
                         await setLoading(true);
                         await clearCartMutation({
                           variables: { userId },
-                          refetchQueries: [{ query: GetUserCartItemsDocument }],
                         });
                         await removeShoppingMutation({
                           variables: { userId },

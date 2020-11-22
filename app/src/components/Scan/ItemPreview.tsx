@@ -27,7 +27,6 @@ import { useNavigation } from '@react-navigation/native';
 // Queries
 import {
   CheckItemInCartDocument,
-  GetUserCartItemsDocument,
   useGetUserQuery,
   useGetStoreItemQuery,
   useCheckItemInCartQuery,
@@ -113,18 +112,12 @@ export const ItemPreview = ({ badScan, barcodeId, onPress, toggleScanned, shown 
     if (inCart) {
       await removeFromCartMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [
-          { query: GetUserCartItemsDocument },
-          { query: CheckItemInCartDocument, variables: { barcodeId } },
-        ],
+        refetchQueries: [{ query: CheckItemInCartDocument, variables: { barcodeId } }],
       });
     } else {
       await addToCartMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [
-          { query: GetUserCartItemsDocument },
-          { query: CheckItemInCartDocument, variables: { barcodeId } },
-        ],
+        refetchQueries: [{ query: CheckItemInCartDocument, variables: { barcodeId } }],
       });
     }
 

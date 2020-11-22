@@ -33,14 +33,13 @@ import { useNavigation } from '@react-navigation/native';
 
 // GraphQL
 import {
+  UserOrderInfoFragment,
   GetUserOrdersDocument,
-  GetUserCartItemsDocument,
   useGetUserQuery,
   useGetUserCartItemsQuery,
   useCreateUserOrderMutation,
   useClearUserCartItemsMutation,
   usePurchaseStoreItemsMutation,
-  UserOrderInfoFragment,
 } from '&graphql';
 
 // Utils
@@ -93,7 +92,7 @@ export const CheckoutScreen = () => {
 
             if (orderData) {
               await purchaseItemsMutation({ variables: { itemBarcodes, orderId: orderData.id } });
-              await clearCartMutation({ variables: { userId }, refetchQueries: [{ query: GetUserCartItemsDocument }] });
+              await clearCartMutation({ variables: { userId } });
               await navigation.navigate('ReceiptScreen', { orderData });
             }
           }

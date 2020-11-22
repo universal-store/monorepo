@@ -1,7 +1,6 @@
 /** @format */
 
 import React, { useState } from 'react';
-import { DevSettings } from 'react-native';
 
 // Libraries
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
@@ -144,8 +143,6 @@ export const ProfileScreen = ({ navigation }: ProfileScreenProps) => {
               .then(async () => {
                 await client.clearStore();
               });
-
-            await DevSettings.reload();
 
             setSignOutLoad(false);
           }}

@@ -21,6 +21,9 @@ import { HeaderSmallText } from '../Text';
 // Iconography
 import { AddCartIcon, RemoveCartIcon } from '&icons';
 
+// Navigation
+import { useNavigation } from '@react-navigation/native';
+
 // Queries
 import {
   CheckItemInCartDocument,
@@ -45,6 +48,7 @@ interface ItemPreviewProps {
 }
 
 export const ItemPreview = ({ badScan, barcodeId, onPress, toggleScanned, shown }: ItemPreviewProps) => {
+  const navigation = useNavigation();
   const animatedValue = useState(new Animated.Value(0))[0];
 
   const [inCart, setInCart] = useState<boolean>(false);
@@ -90,13 +94,13 @@ export const ItemPreview = ({ badScan, barcodeId, onPress, toggleScanned, shown 
       Alert.alert('Incorrect Scan!', `That item does not belong to this Store`, [
         { text: 'Okay', onPress: badScan },
         // TODO: Use for adding items during development
-        // {
-        //   text: 'Add Item To Database',
-        //   onPress: () => {
-        //     badScan();
-        //     navigation.navigate('AddItemScreen', { barcodeId });
-        //   },
-        // },
+        {
+          text: 'Add Item To Database',
+          onPress: () => {
+            badScan();
+            navigation.navigate('AddItemScreen', { barcodeId });
+          },
+        },
       ]);
     }
   }, [shown, loading, itemData]);

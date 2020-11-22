@@ -5,6 +5,7 @@ import React from 'react';
 // Libraries
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
 // Components
 import {
@@ -18,11 +19,14 @@ import {
   OrderCellTitleText,
 } from './Styled';
 
+// Navigation
+import { useNavigation } from '@react-navigation/native';
+
 // GraphQL
 import { StorePreviewFragment, UserOrderInfoFragment } from '&graphql';
-import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
+
+// Utils
 import { hapticOptions } from '&utils';
-import { useNavigation } from '@react-navigation/native';
 
 // Constants
 const SALES_TAX_PERCENT = 0.04;

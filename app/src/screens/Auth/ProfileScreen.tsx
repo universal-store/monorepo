@@ -20,11 +20,14 @@ import {
   UserProfileSubHeaderText,
   UserProfileEmailContainer,
   UserProfileEmailText,
+  UserProfilePaymentContainer,
   UserProfilePaymentInfoContainer,
   UserProfilePaymentInfoText,
   UserPaymentInfoNameRow,
   UserProfileCheckMarkLogoContainer,
   UserProfileHeaderNameText,
+  UserProfilePaymentInfoAddText,
+  UserProfilePaymentInfoAddContainer,
 } from '&components';
 
 // Iconography
@@ -37,13 +40,19 @@ import AsyncStorage from '@react-native-community/async-storage';
 // Firebase Authentication
 import { Firebase } from '&lib';
 
+// Navigation
+import { AuthStackParams } from '&navigation';
+import { StackScreenProps } from '@react-navigation/stack';
+
 // Queries
 import { useGetUserOrdersQuery, useGetUserQuery } from '&graphql';
 
 // Utils
 import { hapticOptions, renderName } from '&utils';
 
-export const ProfileScreen = () => {
+type ProfileScreenProps = StackScreenProps<AuthStackParams, 'TabNavigation'>;
+
+export const ProfileScreen = ({ navigation }: ProfileScreenProps) => {
   const client = useApolloClient();
 
   const [signOutLoad, setSignOutLoad] = useState<boolean>(false);
@@ -79,19 +88,28 @@ export const ProfileScreen = () => {
         {userData && <UserProfileEmailText>{userData.email}</UserProfileEmailText>}
       </UserProfileEmailContainer>
 
-      <UserProfileSubHeaderText>Payment Method</UserProfileSubHeaderText>
-      <UserProfilePaymentInfoContainer onPress={() => console.log('Payment Method Selected')}>
-        <UserProfilePaymentInfoText>VISA Debit (1834)</UserProfilePaymentInfoText>
-        <UserPaymentInfoNameRow>
-          {userData && (
-            <UserProfilePaymentInfoText>{renderName(userData.firstName, userData.lastName)}</UserProfilePaymentInfoText>
-          )}
-          <UserProfileCheckMarkLogoContainer>
-            <CheckIcon />
-          </UserProfileCheckMarkLogoContainer>
-        </UserPaymentInfoNameRow>
-        <UserProfilePaymentInfoText>Exp: 07/24</UserProfilePaymentInfoText>
-      </UserProfilePaymentInfoContainer>
+      <UserProfilePaymentContainer>
+        <UserProfileSubHeaderText>Payment Method</UserProfileSubHeaderText>
+
+        <UserProfilePaymentInfoContainer onPress={() => console.log('Payment Method Selected')}>
+          <UserProfilePaymentInfoText>VISA Debit (1834)</UserProfilePaymentInfoText>
+          <UserPaymentInfoNameRow>
+            {userData && (
+              <UserProfilePaymentInfoText>
+                {renderName(userData.firstName, userData.lastName)}
+              </UserProfilePaymentInfoText>
+            )}
+            <UserProfileCheckMarkLogoContainer>
+              <CheckIcon />
+            </UserProfileCheckMarkLogoContainer>
+          </UserPaymentInfoNameRow>
+          <UserProfilePaymentInfoText>Exp: 07/24</UserProfilePaymentInfoText>
+        </UserProfilePaymentInfoContainer>
+
+        <UserProfilePaymentInfoAddContainer onPress={() => navigation.navigate('PaymentMethodScreen')}>
+          <UserProfilePaymentInfoAddText>Add a Payment Method</UserProfilePaymentInfoAddText>
+        </UserProfilePaymentInfoAddContainer>
+      </UserProfilePaymentContainer>
 
       {orderData && orderData.length > 0 && (
         <>

@@ -14,6 +14,7 @@ import {
   FavoriteScreen,
   ItemDetail,
   MapViewScreen,
+  PaymentMethodScreen,
   ProfileScreen,
   ReceiptScreen,
   ScanningScreen,
@@ -148,6 +149,7 @@ export type AuthStackParams = {
   AddItemScreen: { barcodeId: string };
   ReceiptScreen: { orderData: UserOrderInfoFragment };
   ItemDetail: { barcodeId: string; scanned?: boolean };
+  PaymentMethodScreen: undefined;
 };
 
 export const AuthStack = createStackNavigator<AuthStackParams>();
@@ -160,5 +162,6 @@ export const AuthNavigator = () => (
     <AuthStack.Screen name="CheckoutScreen" component={CheckoutScreen} />
     <AuthStack.Screen name="ReceiptScreen" component={ReceiptScreen} />
     <AuthStack.Screen name="AddItemScreen" component={AddItemScreen} options={{ gestureEnabled: true }} />
+    <AuthStack.Screen name="PaymentMethodScreen" component={PaymentMethodScreen} options={{ gestureEnabled: true }} />
   </AuthStack.Navigator>
 );

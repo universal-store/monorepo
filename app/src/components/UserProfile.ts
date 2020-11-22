@@ -41,6 +41,11 @@ export const UserProfileEmailText = styled(TextSmall)`
   color: ${({ theme }) => theme.colors.gray[1]};
 `;
 
+export const UserProfilePaymentContainer = styled.View`
+  border-bottom-width: 1px;
+  border-bottom-color: ${({ theme }) => theme.colors.gray[5]};
+`;
+
 export const UserProfilePaymentInfoText = styled(TextSmall2)`
   margin-bottom: 6px;
   color: ${({ theme }) => theme.colors.gray[1]};
@@ -56,8 +61,15 @@ export const UserProfileEmailContainer = styled.View`
 export const UserProfilePaymentInfoContainer = styled.TouchableOpacity`
   padding: 0 24px;
   margin-bottom: 16px;
-  border-bottom-width: 1px;
-  border-bottom-color: ${({ theme }) => theme.colors.gray[5]};
+`;
+
+export const UserProfilePaymentInfoAddContainer = styled.TouchableOpacity`
+  margin: 8px 0;
+  padding-left: 24px;
+`;
+
+export const UserProfilePaymentInfoAddText = styled(TextSmall)`
+  color: ${({ theme }) => theme.colors.purple[1]};
 `;
 
 export const UserProfileCheckMarkLogoContainer = styled.View`

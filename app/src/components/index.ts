@@ -22,3 +22,4 @@ export * from './Favorites';
 export * from './ItemDetail';
 export * from './StoreDetail';
 export * from './UserProfile';
+export * from './PaymentMethod';

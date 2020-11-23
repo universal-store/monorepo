@@ -318,7 +318,7 @@ export const MapViewScreen = () => {
 
                     const distance = getDistance(storeLocation, curLocation);
 
-                    await setSuggestion(distance > 350);
+                    await setSuggestion(distance > 500);
                     await setStorePreview(store);
                   }
                 }}

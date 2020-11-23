@@ -29,10 +29,11 @@ import {
   StoreDetailStoreDescriptionText,
   StoreDetailPopularItemHeaderText,
   StoreDetailLoading,
+  StoreDetailCloseIconContainer,
 } from './Styled';
 
 // Iconography
-import { CameraIcon } from '&icons';
+import { CameraIcon, CloseIcon } from '&icons';
 
 // Navigation
 import { useNavigation } from '@react-navigation/native';
@@ -47,6 +48,7 @@ import {
   useClearUserCartItemsMutation,
   useRemoveUserShoppingMutation,
   useCreateUserShoppingMutation,
+  GetUserCartItemsDocument,
 } from '&graphql';
 
 // Utils
@@ -114,6 +116,16 @@ export const StorePreview = ({ store, shopping, suggestion, onClose, onSelect }:
               )}
 
               <StoreDetailStoreNameText numberOfLines={1}>{storeData.name}</StoreDetailStoreNameText>
+
+              <StoreDetailCloseIconContainer
+                hitSlop={{ left: 8, right: 8 }}
+                onPress={() => {
+                  ReactNativeHapticFeedback.trigger('selection', hapticOptions);
+                  onClose();
+                }}
+              >
+                <CloseIcon />
+              </StoreDetailCloseIconContainer>
             </StoreDetailHeaderRow>
 
             <StoreDetailStoreCategoryText>{storeData.category}</StoreDetailStoreCategoryText>
@@ -178,7 +190,7 @@ export const StorePreview = ({ store, shopping, suggestion, onClose, onSelect }:
           <SelectStoreButton
             selected={storeSelected}
             onPress={async () => {
-              ReactNativeHapticFeedback.trigger('impactMedium', hapticOptions);
+              ReactNativeHapticFeedback.trigger('selection', hapticOptions);
 
               if (storeSelected && cartData && cartData.UserCartItem.length > 0) {
                 Alert.alert(
@@ -192,6 +204,7 @@ export const StorePreview = ({ store, shopping, suggestion, onClose, onSelect }:
                         await setLoading(true);
                         await clearCartMutation({
                           variables: { userId },
+                          refetchQueries: [{ query: GetUserCartItemsDocument }],
                         });
                         await removeShoppingMutation({
                           variables: { userId },

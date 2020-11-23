@@ -44,6 +44,10 @@ export const StoreDetailStoreNameText = styled(TextLarge)`
   flex: 1;
 `;
 
+export const StoreDetailCloseIconContainer = styled.TouchableOpacity`
+  margin-left: auto;
+`;
+
 export const StoreDetailStoreCategoryText = styled(TextMedium2)`
   margin-bottom: 4px;
   color: ${({ theme }) => theme.colors.gray[3]};

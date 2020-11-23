@@ -22,7 +22,6 @@ import { PopularItemInfoFragment } from '&graphql';
 
 // Utils
 import { hapticOptions } from '&utils';
-import { ItemPreviewImage } from '&components';
 
 interface PopularItemCellProps {
   itemData: PopularItemInfoFragment;

@@ -103,8 +103,6 @@ export type Mutation_Root = {
   delete_UserCartItem_by_pk?: Maybe<UserCartItem>;
   delete_UserFavoriteItem?: Maybe<UserFavoriteItem_Mutation_Response>;
   delete_UserFavoriteItem_by_pk?: Maybe<UserFavoriteItem>;
-  delete_UserFavoriteStore?: Maybe<UserFavoriteStore_Mutation_Response>;
-  delete_UserFavoriteStore_by_pk?: Maybe<UserFavoriteStore>;
   delete_UserOrder?: Maybe<UserOrder_Mutation_Response>;
   delete_UserOrder_by_pk?: Maybe<UserOrder>;
   delete_UserPaymentMethod?: Maybe<UserPaymentMethod_Mutation_Response>;
@@ -125,8 +123,6 @@ export type Mutation_Root = {
   insert_UserCartItem_one?: Maybe<UserCartItem>;
   insert_UserFavoriteItem?: Maybe<UserFavoriteItem_Mutation_Response>;
   insert_UserFavoriteItem_one?: Maybe<UserFavoriteItem>;
-  insert_UserFavoriteStore?: Maybe<UserFavoriteStore_Mutation_Response>;
-  insert_UserFavoriteStore_one?: Maybe<UserFavoriteStore>;
   insert_UserOrder?: Maybe<UserOrder_Mutation_Response>;
   insert_UserOrder_one?: Maybe<UserOrder>;
   insert_UserPaymentMethod?: Maybe<UserPaymentMethod_Mutation_Response>;
@@ -147,8 +143,6 @@ export type Mutation_Root = {
   update_UserCartItem_by_pk?: Maybe<UserCartItem>;
   update_UserFavoriteItem?: Maybe<UserFavoriteItem_Mutation_Response>;
   update_UserFavoriteItem_by_pk?: Maybe<UserFavoriteItem>;
-  update_UserFavoriteStore?: Maybe<UserFavoriteStore_Mutation_Response>;
-  update_UserFavoriteStore_by_pk?: Maybe<UserFavoriteStore>;
   update_UserOrder?: Maybe<UserOrder_Mutation_Response>;
   update_UserOrder_by_pk?: Maybe<UserOrder>;
   update_UserPaymentMethod?: Maybe<UserPaymentMethod_Mutation_Response>;
@@ -180,7 +174,7 @@ export type Mutation_RootDelete_StoreItemPic_By_PkArgs = {
 
 
 export type Mutation_RootDelete_StoreItem_By_PkArgs = {
-  barcodeId: Scalars['String'];
+  id: Scalars['String'];
 };
 
 
@@ -220,16 +214,6 @@ export type Mutation_RootDelete_UserFavoriteItemArgs = {
 
 
 export type Mutation_RootDelete_UserFavoriteItem_By_PkArgs = {
-  id: Scalars['uuid'];
-};
-
-
-export type Mutation_RootDelete_UserFavoriteStoreArgs = {
-  where: UserFavoriteStore_Bool_Exp;
-};
-
-
-export type Mutation_RootDelete_UserFavoriteStore_By_PkArgs = {
   id: Scalars['uuid'];
 };
 
@@ -344,18 +328,6 @@ export type Mutation_RootInsert_UserFavoriteItemArgs = {
 export type Mutation_RootInsert_UserFavoriteItem_OneArgs = {
   object: UserFavoriteItem_Insert_Input;
   on_conflict?: Maybe<UserFavoriteItem_On_Conflict>;
-};
-
-
-export type Mutation_RootInsert_UserFavoriteStoreArgs = {
-  objects: Array<UserFavoriteStore_Insert_Input>;
-  on_conflict?: Maybe<UserFavoriteStore_On_Conflict>;
-};
-
-
-export type Mutation_RootInsert_UserFavoriteStore_OneArgs = {
-  object: UserFavoriteStore_Insert_Input;
-  on_conflict?: Maybe<UserFavoriteStore_On_Conflict>;
 };
 
 
@@ -481,18 +453,6 @@ export type Mutation_RootUpdate_UserFavoriteItem_By_PkArgs = {
 };
 
 
-export type Mutation_RootUpdate_UserFavoriteStoreArgs = {
-  _set?: Maybe<UserFavoriteStore_Set_Input>;
-  where: UserFavoriteStore_Bool_Exp;
-};
-
-
-export type Mutation_RootUpdate_UserFavoriteStore_By_PkArgs = {
-  _set?: Maybe<UserFavoriteStore_Set_Input>;
-  pk_columns: UserFavoriteStore_Pk_Columns_Input;
-};
-
-
 export type Mutation_RootUpdate_UserOrderArgs = {
   _set?: Maybe<UserOrder_Set_Input>;
   where: UserOrder_Bool_Exp;
@@ -577,9 +537,6 @@ export type Query_Root = {
   UserFavoriteItem: Array<UserFavoriteItem>;
   UserFavoriteItem_aggregate: UserFavoriteItem_Aggregate;
   UserFavoriteItem_by_pk?: Maybe<UserFavoriteItem>;
-  UserFavoriteStore: Array<UserFavoriteStore>;
-  UserFavoriteStore_aggregate: UserFavoriteStore_Aggregate;
-  UserFavoriteStore_by_pk?: Maybe<UserFavoriteStore>;
   UserOrder: Array<UserOrder>;
   UserOrder_aggregate: UserOrder_Aggregate;
   UserOrder_by_pk?: Maybe<UserOrder>;
@@ -645,7 +602,7 @@ export type Query_RootStoreItem_AggregateArgs = {
 
 
 export type Query_RootStoreItem_By_PkArgs = {
-  barcodeId: Scalars['String'];
+  id: Scalars['String'];
 };
 
 
@@ -737,29 +694,6 @@ export type Query_RootUserFavoriteItem_AggregateArgs = {
 
 
 export type Query_RootUserFavoriteItem_By_PkArgs = {
-  id: Scalars['uuid'];
-};
-
-
-export type Query_RootUserFavoriteStoreArgs = {
-  distinct_on?: Maybe<Array<UserFavoriteStore_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<UserFavoriteStore_Order_By>>;
-  where?: Maybe<UserFavoriteStore_Bool_Exp>;
-};
-
-
-export type Query_RootUserFavoriteStore_AggregateArgs = {
-  distinct_on?: Maybe<Array<UserFavoriteStore_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<UserFavoriteStore_Order_By>>;
-  where?: Maybe<UserFavoriteStore_Bool_Exp>;
-};
-
-
-export type Query_RootUserFavoriteStore_By_PkArgs = {
   id: Scalars['uuid'];
 };
 
@@ -862,8 +796,6 @@ export type Store = {
   StoreItems: Array<StoreItem>;
   StoreItems_aggregate: StoreItem_Aggregate;
   StorePic?: Maybe<StorePic>;
-  UserFavoriteStores: Array<UserFavoriteStore>;
-  UserFavoriteStores_aggregate: UserFavoriteStore_Aggregate;
   UserShoppings: Array<UserShopping>;
   UserShoppings_aggregate: UserShopping_Aggregate;
   address: Scalars['String'];
@@ -891,24 +823,6 @@ export type StoreStoreItems_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<StoreItem_Order_By>>;
   where?: Maybe<StoreItem_Bool_Exp>;
-};
-
-
-export type StoreUserFavoriteStoresArgs = {
-  distinct_on?: Maybe<Array<UserFavoriteStore_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<UserFavoriteStore_Order_By>>;
-  where?: Maybe<UserFavoriteStore_Bool_Exp>;
-};
-
-
-export type StoreUserFavoriteStores_AggregateArgs = {
-  distinct_on?: Maybe<Array<UserFavoriteStore_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<UserFavoriteStore_Order_By>>;
-  where?: Maybe<UserFavoriteStore_Bool_Exp>;
 };
 
 
@@ -962,7 +876,6 @@ export type Store_Arr_Rel_Insert_Input = {
 export type Store_Bool_Exp = {
   StoreItems?: Maybe<StoreItem_Bool_Exp>;
   StorePic?: Maybe<StorePic_Bool_Exp>;
-  UserFavoriteStores?: Maybe<UserFavoriteStore_Bool_Exp>;
   UserShoppings?: Maybe<UserShopping_Bool_Exp>;
   _and?: Maybe<Array<Maybe<Store_Bool_Exp>>>;
   _not?: Maybe<Store_Bool_Exp>;
@@ -984,7 +897,6 @@ export enum Store_Constraint {
 export type Store_Insert_Input = {
   StoreItems?: Maybe<StoreItem_Arr_Rel_Insert_Input>;
   StorePic?: Maybe<StorePic_Obj_Rel_Insert_Input>;
-  UserFavoriteStores?: Maybe<UserFavoriteStore_Arr_Rel_Insert_Input>;
   UserShoppings?: Maybe<UserShopping_Arr_Rel_Insert_Input>;
   address?: Maybe<Scalars['String']>;
   category?: Maybe<Scalars['String']>;
@@ -1053,7 +965,6 @@ export type Store_On_Conflict = {
 export type Store_Order_By = {
   StoreItems_aggregate?: Maybe<StoreItem_Aggregate_Order_By>;
   StorePic?: Maybe<StorePic_Order_By>;
-  UserFavoriteStores_aggregate?: Maybe<UserFavoriteStore_Aggregate_Order_By>;
   UserShoppings_aggregate?: Maybe<UserShopping_Aggregate_Order_By>;
   address?: Maybe<Order_By>;
   category?: Maybe<Order_By>;
@@ -1102,15 +1013,14 @@ export type StoreItem = {
   __typename?: 'StoreItem';
   Store: Store;
   StoreItemPic?: Maybe<StoreItemPic>;
-  UserCartItems: Array<UserCartItem>;
-  UserCartItems_aggregate: UserCartItem_Aggregate;
-  UserFavoriteItems: Array<UserFavoriteItem>;
-  UserFavoriteItems_aggregate: UserFavoriteItem_Aggregate;
+  UserCartItem?: Maybe<UserCartItem>;
+  UserFavoriteItem?: Maybe<UserFavoriteItem>;
   UserOrder?: Maybe<UserOrder>;
   UserShoppings: Array<UserShopping>;
   UserShoppings_aggregate: UserShopping_Aggregate;
   barcodeId: Scalars['String'];
   description?: Maybe<Scalars['String']>;
+  id: Scalars['String'];
   itemImageId?: Maybe<Scalars['uuid']>;
   longName: Scalars['String'];
   orderId?: Maybe<Scalars['uuid']>;
@@ -1119,42 +1029,6 @@ export type StoreItem = {
   quantity: Scalars['String'];
   shortName?: Maybe<Scalars['String']>;
   storeId: Scalars['uuid'];
-};
-
-
-export type StoreItemUserCartItemsArgs = {
-  distinct_on?: Maybe<Array<UserCartItem_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<UserCartItem_Order_By>>;
-  where?: Maybe<UserCartItem_Bool_Exp>;
-};
-
-
-export type StoreItemUserCartItems_AggregateArgs = {
-  distinct_on?: Maybe<Array<UserCartItem_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<UserCartItem_Order_By>>;
-  where?: Maybe<UserCartItem_Bool_Exp>;
-};
-
-
-export type StoreItemUserFavoriteItemsArgs = {
-  distinct_on?: Maybe<Array<UserFavoriteItem_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<UserFavoriteItem_Order_By>>;
-  where?: Maybe<UserFavoriteItem_Bool_Exp>;
-};
-
-
-export type StoreItemUserFavoriteItems_AggregateArgs = {
-  distinct_on?: Maybe<Array<UserFavoriteItem_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<UserFavoriteItem_Order_By>>;
-  where?: Maybe<UserFavoriteItem_Bool_Exp>;
 };
 
 
@@ -1233,8 +1107,8 @@ export type StoreItem_Avg_Order_By = {
 export type StoreItem_Bool_Exp = {
   Store?: Maybe<Store_Bool_Exp>;
   StoreItemPic?: Maybe<StoreItemPic_Bool_Exp>;
-  UserCartItems?: Maybe<UserCartItem_Bool_Exp>;
-  UserFavoriteItems?: Maybe<UserFavoriteItem_Bool_Exp>;
+  UserCartItem?: Maybe<UserCartItem_Bool_Exp>;
+  UserFavoriteItem?: Maybe<UserFavoriteItem_Bool_Exp>;
   UserOrder?: Maybe<UserOrder_Bool_Exp>;
   UserShoppings?: Maybe<UserShopping_Bool_Exp>;
   _and?: Maybe<Array<Maybe<StoreItem_Bool_Exp>>>;
@@ -1242,6 +1116,7 @@ export type StoreItem_Bool_Exp = {
   _or?: Maybe<Array<Maybe<StoreItem_Bool_Exp>>>;
   barcodeId?: Maybe<String_Comparison_Exp>;
   description?: Maybe<String_Comparison_Exp>;
+  id?: Maybe<String_Comparison_Exp>;
   itemImageId?: Maybe<Uuid_Comparison_Exp>;
   longName?: Maybe<String_Comparison_Exp>;
   orderId?: Maybe<Uuid_Comparison_Exp>;
@@ -1254,6 +1129,7 @@ export type StoreItem_Bool_Exp = {
 
 export enum StoreItem_Constraint {
   StoreItem_barcodeId_key = 'StoreItem_barcodeId_key',
+  StoreItem_id_key = 'StoreItem_id_key',
   StoreItem_pkey = 'StoreItem_pkey'
 }
 
@@ -1264,12 +1140,13 @@ export type StoreItem_Inc_Input = {
 export type StoreItem_Insert_Input = {
   Store?: Maybe<Store_Obj_Rel_Insert_Input>;
   StoreItemPic?: Maybe<StoreItemPic_Obj_Rel_Insert_Input>;
-  UserCartItems?: Maybe<UserCartItem_Arr_Rel_Insert_Input>;
-  UserFavoriteItems?: Maybe<UserFavoriteItem_Arr_Rel_Insert_Input>;
+  UserCartItem?: Maybe<UserCartItem_Obj_Rel_Insert_Input>;
+  UserFavoriteItem?: Maybe<UserFavoriteItem_Obj_Rel_Insert_Input>;
   UserOrder?: Maybe<UserOrder_Obj_Rel_Insert_Input>;
   UserShoppings?: Maybe<UserShopping_Arr_Rel_Insert_Input>;
   barcodeId?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
   itemImageId?: Maybe<Scalars['uuid']>;
   longName?: Maybe<Scalars['String']>;
   orderId?: Maybe<Scalars['uuid']>;
@@ -1284,6 +1161,7 @@ export type StoreItem_Max_Fields = {
   __typename?: 'StoreItem_max_fields';
   barcodeId?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
   itemImageId?: Maybe<Scalars['uuid']>;
   longName?: Maybe<Scalars['String']>;
   orderId?: Maybe<Scalars['uuid']>;
@@ -1296,6 +1174,7 @@ export type StoreItem_Max_Fields = {
 export type StoreItem_Max_Order_By = {
   barcodeId?: Maybe<Order_By>;
   description?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
   itemImageId?: Maybe<Order_By>;
   longName?: Maybe<Order_By>;
   orderId?: Maybe<Order_By>;
@@ -1309,6 +1188,7 @@ export type StoreItem_Min_Fields = {
   __typename?: 'StoreItem_min_fields';
   barcodeId?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
   itemImageId?: Maybe<Scalars['uuid']>;
   longName?: Maybe<Scalars['String']>;
   orderId?: Maybe<Scalars['uuid']>;
@@ -1321,6 +1201,7 @@ export type StoreItem_Min_Fields = {
 export type StoreItem_Min_Order_By = {
   barcodeId?: Maybe<Order_By>;
   description?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
   itemImageId?: Maybe<Order_By>;
   longName?: Maybe<Order_By>;
   orderId?: Maybe<Order_By>;
@@ -1350,12 +1231,13 @@ export type StoreItem_On_Conflict = {
 export type StoreItem_Order_By = {
   Store?: Maybe<Store_Order_By>;
   StoreItemPic?: Maybe<StoreItemPic_Order_By>;
-  UserCartItems_aggregate?: Maybe<UserCartItem_Aggregate_Order_By>;
-  UserFavoriteItems_aggregate?: Maybe<UserFavoriteItem_Aggregate_Order_By>;
+  UserCartItem?: Maybe<UserCartItem_Order_By>;
+  UserFavoriteItem?: Maybe<UserFavoriteItem_Order_By>;
   UserOrder?: Maybe<UserOrder_Order_By>;
   UserShoppings_aggregate?: Maybe<UserShopping_Aggregate_Order_By>;
   barcodeId?: Maybe<Order_By>;
   description?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
   itemImageId?: Maybe<Order_By>;
   longName?: Maybe<Order_By>;
   orderId?: Maybe<Order_By>;
@@ -1367,12 +1249,13 @@ export type StoreItem_Order_By = {
 };
 
 export type StoreItem_Pk_Columns_Input = {
-  barcodeId: Scalars['String'];
+  id: Scalars['String'];
 };
 
 export enum StoreItem_Select_Column {
   barcodeId = 'barcodeId',
   description = 'description',
+  id = 'id',
   itemImageId = 'itemImageId',
   longName = 'longName',
   orderId = 'orderId',
@@ -1386,6 +1269,7 @@ export enum StoreItem_Select_Column {
 export type StoreItem_Set_Input = {
   barcodeId?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
   itemImageId?: Maybe<Scalars['uuid']>;
   longName?: Maybe<Scalars['String']>;
   orderId?: Maybe<Scalars['uuid']>;
@@ -1435,6 +1319,7 @@ export type StoreItem_Sum_Order_By = {
 export enum StoreItem_Update_Column {
   barcodeId = 'barcodeId',
   description = 'description',
+  id = 'id',
   itemImageId = 'itemImageId',
   longName = 'longName',
   orderId = 'orderId',
@@ -1818,9 +1703,6 @@ export type Subscription_Root = {
   UserFavoriteItem: Array<UserFavoriteItem>;
   UserFavoriteItem_aggregate: UserFavoriteItem_Aggregate;
   UserFavoriteItem_by_pk?: Maybe<UserFavoriteItem>;
-  UserFavoriteStore: Array<UserFavoriteStore>;
-  UserFavoriteStore_aggregate: UserFavoriteStore_Aggregate;
-  UserFavoriteStore_by_pk?: Maybe<UserFavoriteStore>;
   UserOrder: Array<UserOrder>;
   UserOrder_aggregate: UserOrder_Aggregate;
   UserOrder_by_pk?: Maybe<UserOrder>;
@@ -1886,7 +1768,7 @@ export type Subscription_RootStoreItem_AggregateArgs = {
 
 
 export type Subscription_RootStoreItem_By_PkArgs = {
-  barcodeId: Scalars['String'];
+  id: Scalars['String'];
 };
 
 
@@ -1978,29 +1860,6 @@ export type Subscription_RootUserFavoriteItem_AggregateArgs = {
 
 
 export type Subscription_RootUserFavoriteItem_By_PkArgs = {
-  id: Scalars['uuid'];
-};
-
-
-export type Subscription_RootUserFavoriteStoreArgs = {
-  distinct_on?: Maybe<Array<UserFavoriteStore_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<UserFavoriteStore_Order_By>>;
-  where?: Maybe<UserFavoriteStore_Bool_Exp>;
-};
-
-
-export type Subscription_RootUserFavoriteStore_AggregateArgs = {
-  distinct_on?: Maybe<Array<UserFavoriteStore_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<UserFavoriteStore_Order_By>>;
-  where?: Maybe<UserFavoriteStore_Bool_Exp>;
-};
-
-
-export type Subscription_RootUserFavoriteStore_By_PkArgs = {
   id: Scalars['uuid'];
 };
 
@@ -2106,8 +1965,6 @@ export type User = {
   UserCartItems_aggregate: UserCartItem_Aggregate;
   UserFavoriteItems: Array<UserFavoriteItem>;
   UserFavoriteItems_aggregate: UserFavoriteItem_Aggregate;
-  UserFavoriteStores: Array<UserFavoriteStore>;
-  UserFavoriteStores_aggregate: UserFavoriteStore_Aggregate;
   UserOrders: Array<UserOrder>;
   UserOrders_aggregate: UserOrder_Aggregate;
   UserPaymentMethod?: Maybe<UserPaymentMethod>;
@@ -2152,24 +2009,6 @@ export type UserUserFavoriteItems_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<UserFavoriteItem_Order_By>>;
   where?: Maybe<UserFavoriteItem_Bool_Exp>;
-};
-
-
-export type UserUserFavoriteStoresArgs = {
-  distinct_on?: Maybe<Array<UserFavoriteStore_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<UserFavoriteStore_Order_By>>;
-  where?: Maybe<UserFavoriteStore_Bool_Exp>;
-};
-
-
-export type UserUserFavoriteStores_AggregateArgs = {
-  distinct_on?: Maybe<Array<UserFavoriteStore_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<UserFavoriteStore_Order_By>>;
-  where?: Maybe<UserFavoriteStore_Bool_Exp>;
 };
 
 
@@ -2223,7 +2062,6 @@ export type User_Arr_Rel_Insert_Input = {
 export type User_Bool_Exp = {
   UserCartItems?: Maybe<UserCartItem_Bool_Exp>;
   UserFavoriteItems?: Maybe<UserFavoriteItem_Bool_Exp>;
-  UserFavoriteStores?: Maybe<UserFavoriteStore_Bool_Exp>;
   UserOrders?: Maybe<UserOrder_Bool_Exp>;
   UserPaymentMethod?: Maybe<UserPaymentMethod_Bool_Exp>;
   UserShopping?: Maybe<UserShopping_Bool_Exp>;
@@ -2244,7 +2082,6 @@ export enum User_Constraint {
 export type User_Insert_Input = {
   UserCartItems?: Maybe<UserCartItem_Arr_Rel_Insert_Input>;
   UserFavoriteItems?: Maybe<UserFavoriteItem_Arr_Rel_Insert_Input>;
-  UserFavoriteStores?: Maybe<UserFavoriteStore_Arr_Rel_Insert_Input>;
   UserOrders?: Maybe<UserOrder_Arr_Rel_Insert_Input>;
   UserPaymentMethod?: Maybe<UserPaymentMethod_Obj_Rel_Insert_Input>;
   UserShopping?: Maybe<UserShopping_Obj_Rel_Insert_Input>;
@@ -2296,7 +2133,6 @@ export type User_On_Conflict = {
 export type User_Order_By = {
   UserCartItems_aggregate?: Maybe<UserCartItem_Aggregate_Order_By>;
   UserFavoriteItems_aggregate?: Maybe<UserFavoriteItem_Aggregate_Order_By>;
-  UserFavoriteStores_aggregate?: Maybe<UserFavoriteStore_Aggregate_Order_By>;
   UserOrders_aggregate?: Maybe<UserOrder_Aggregate_Order_By>;
   UserPaymentMethod?: Maybe<UserPaymentMethod_Order_By>;
   UserShopping?: Maybe<UserShopping_Order_By>;
@@ -2336,7 +2172,7 @@ export type UserCartItem = {
   StoreItem: StoreItem;
   User: User;
   id: Scalars['uuid'];
-  itemBarcodeId: Scalars['String'];
+  itemId: Scalars['String'];
   userId: Scalars['String'];
 };
 
@@ -2377,11 +2213,12 @@ export type UserCartItem_Bool_Exp = {
   _not?: Maybe<UserCartItem_Bool_Exp>;
   _or?: Maybe<Array<Maybe<UserCartItem_Bool_Exp>>>;
   id?: Maybe<Uuid_Comparison_Exp>;
-  itemBarcodeId?: Maybe<String_Comparison_Exp>;
+  itemId?: Maybe<String_Comparison_Exp>;
   userId?: Maybe<String_Comparison_Exp>;
 };
 
 export enum UserCartItem_Constraint {
+  UserCartItem_itemBarcodeId_key = 'UserCartItem_itemBarcodeId_key',
   UserCartItem_pkey = 'UserCartItem_pkey'
 }
 
@@ -2389,33 +2226,33 @@ export type UserCartItem_Insert_Input = {
   StoreItem?: Maybe<StoreItem_Obj_Rel_Insert_Input>;
   User?: Maybe<User_Obj_Rel_Insert_Input>;
   id?: Maybe<Scalars['uuid']>;
-  itemBarcodeId?: Maybe<Scalars['String']>;
+  itemId?: Maybe<Scalars['String']>;
   userId?: Maybe<Scalars['String']>;
 };
 
 export type UserCartItem_Max_Fields = {
   __typename?: 'UserCartItem_max_fields';
   id?: Maybe<Scalars['uuid']>;
-  itemBarcodeId?: Maybe<Scalars['String']>;
+  itemId?: Maybe<Scalars['String']>;
   userId?: Maybe<Scalars['String']>;
 };
 
 export type UserCartItem_Max_Order_By = {
   id?: Maybe<Order_By>;
-  itemBarcodeId?: Maybe<Order_By>;
+  itemId?: Maybe<Order_By>;
   userId?: Maybe<Order_By>;
 };
 
 export type UserCartItem_Min_Fields = {
   __typename?: 'UserCartItem_min_fields';
   id?: Maybe<Scalars['uuid']>;
-  itemBarcodeId?: Maybe<Scalars['String']>;
+  itemId?: Maybe<Scalars['String']>;
   userId?: Maybe<Scalars['String']>;
 };
 
 export type UserCartItem_Min_Order_By = {
   id?: Maybe<Order_By>;
-  itemBarcodeId?: Maybe<Order_By>;
+  itemId?: Maybe<Order_By>;
   userId?: Maybe<Order_By>;
 };
 
@@ -2440,7 +2277,7 @@ export type UserCartItem_Order_By = {
   StoreItem?: Maybe<StoreItem_Order_By>;
   User?: Maybe<User_Order_By>;
   id?: Maybe<Order_By>;
-  itemBarcodeId?: Maybe<Order_By>;
+  itemId?: Maybe<Order_By>;
   userId?: Maybe<Order_By>;
 };
 
@@ -2450,19 +2287,19 @@ export type UserCartItem_Pk_Columns_Input = {
 
 export enum UserCartItem_Select_Column {
   id = 'id',
-  itemBarcodeId = 'itemBarcodeId',
+  itemId = 'itemId',
   userId = 'userId'
 }
 
 export type UserCartItem_Set_Input = {
   id?: Maybe<Scalars['uuid']>;
-  itemBarcodeId?: Maybe<Scalars['String']>;
+  itemId?: Maybe<Scalars['String']>;
   userId?: Maybe<Scalars['String']>;
 };
 
 export enum UserCartItem_Update_Column {
   id = 'id',
-  itemBarcodeId = 'itemBarcodeId',
+  itemId = 'itemId',
   userId = 'userId'
 }
 
@@ -2471,7 +2308,7 @@ export type UserFavoriteItem = {
   StoreItem: StoreItem;
   User: User;
   id: Scalars['uuid'];
-  itemBarcodeId: Scalars['String'];
+  itemId: Scalars['String'];
   userId: Scalars['String'];
 };
 
@@ -2512,11 +2349,12 @@ export type UserFavoriteItem_Bool_Exp = {
   _not?: Maybe<UserFavoriteItem_Bool_Exp>;
   _or?: Maybe<Array<Maybe<UserFavoriteItem_Bool_Exp>>>;
   id?: Maybe<Uuid_Comparison_Exp>;
-  itemBarcodeId?: Maybe<String_Comparison_Exp>;
+  itemId?: Maybe<String_Comparison_Exp>;
   userId?: Maybe<String_Comparison_Exp>;
 };
 
 export enum UserFavoriteItem_Constraint {
+  UserFavoriteItem_itemId_key = 'UserFavoriteItem_itemId_key',
   UserFavoriteItem_pkey = 'UserFavoriteItem_pkey'
 }
 
@@ -2524,33 +2362,33 @@ export type UserFavoriteItem_Insert_Input = {
   StoreItem?: Maybe<StoreItem_Obj_Rel_Insert_Input>;
   User?: Maybe<User_Obj_Rel_Insert_Input>;
   id?: Maybe<Scalars['uuid']>;
-  itemBarcodeId?: Maybe<Scalars['String']>;
+  itemId?: Maybe<Scalars['String']>;
   userId?: Maybe<Scalars['String']>;
 };
 
 export type UserFavoriteItem_Max_Fields = {
   __typename?: 'UserFavoriteItem_max_fields';
   id?: Maybe<Scalars['uuid']>;
-  itemBarcodeId?: Maybe<Scalars['String']>;
+  itemId?: Maybe<Scalars['String']>;
   userId?: Maybe<Scalars['String']>;
 };
 
 export type UserFavoriteItem_Max_Order_By = {
   id?: Maybe<Order_By>;
-  itemBarcodeId?: Maybe<Order_By>;
+  itemId?: Maybe<Order_By>;
   userId?: Maybe<Order_By>;
 };
 
 export type UserFavoriteItem_Min_Fields = {
   __typename?: 'UserFavoriteItem_min_fields';
   id?: Maybe<Scalars['uuid']>;
-  itemBarcodeId?: Maybe<Scalars['String']>;
+  itemId?: Maybe<Scalars['String']>;
   userId?: Maybe<Scalars['String']>;
 };
 
 export type UserFavoriteItem_Min_Order_By = {
   id?: Maybe<Order_By>;
-  itemBarcodeId?: Maybe<Order_By>;
+  itemId?: Maybe<Order_By>;
   userId?: Maybe<Order_By>;
 };
 
@@ -2575,7 +2413,7 @@ export type UserFavoriteItem_Order_By = {
   StoreItem?: Maybe<StoreItem_Order_By>;
   User?: Maybe<User_Order_By>;
   id?: Maybe<Order_By>;
-  itemBarcodeId?: Maybe<Order_By>;
+  itemId?: Maybe<Order_By>;
   userId?: Maybe<Order_By>;
 };
 
@@ -2585,154 +2423,19 @@ export type UserFavoriteItem_Pk_Columns_Input = {
 
 export enum UserFavoriteItem_Select_Column {
   id = 'id',
-  itemBarcodeId = 'itemBarcodeId',
+  itemId = 'itemId',
   userId = 'userId'
 }
 
 export type UserFavoriteItem_Set_Input = {
   id?: Maybe<Scalars['uuid']>;
-  itemBarcodeId?: Maybe<Scalars['String']>;
+  itemId?: Maybe<Scalars['String']>;
   userId?: Maybe<Scalars['String']>;
 };
 
 export enum UserFavoriteItem_Update_Column {
   id = 'id',
-  itemBarcodeId = 'itemBarcodeId',
-  userId = 'userId'
-}
-
-export type UserFavoriteStore = {
-  __typename?: 'UserFavoriteStore';
-  Store: Store;
-  User: User;
-  id: Scalars['uuid'];
-  storeId: Scalars['uuid'];
-  userId: Scalars['String'];
-};
-
-export type UserFavoriteStore_Aggregate = {
-  __typename?: 'UserFavoriteStore_aggregate';
-  aggregate?: Maybe<UserFavoriteStore_Aggregate_Fields>;
-  nodes: Array<UserFavoriteStore>;
-};
-
-export type UserFavoriteStore_Aggregate_Fields = {
-  __typename?: 'UserFavoriteStore_aggregate_fields';
-  count?: Maybe<Scalars['Int']>;
-  max?: Maybe<UserFavoriteStore_Max_Fields>;
-  min?: Maybe<UserFavoriteStore_Min_Fields>;
-};
-
-
-export type UserFavoriteStore_Aggregate_FieldsCountArgs = {
-  columns?: Maybe<Array<UserFavoriteStore_Select_Column>>;
-  distinct?: Maybe<Scalars['Boolean']>;
-};
-
-export type UserFavoriteStore_Aggregate_Order_By = {
-  count?: Maybe<Order_By>;
-  max?: Maybe<UserFavoriteStore_Max_Order_By>;
-  min?: Maybe<UserFavoriteStore_Min_Order_By>;
-};
-
-export type UserFavoriteStore_Arr_Rel_Insert_Input = {
-  data: Array<UserFavoriteStore_Insert_Input>;
-  on_conflict?: Maybe<UserFavoriteStore_On_Conflict>;
-};
-
-export type UserFavoriteStore_Bool_Exp = {
-  Store?: Maybe<Store_Bool_Exp>;
-  User?: Maybe<User_Bool_Exp>;
-  _and?: Maybe<Array<Maybe<UserFavoriteStore_Bool_Exp>>>;
-  _not?: Maybe<UserFavoriteStore_Bool_Exp>;
-  _or?: Maybe<Array<Maybe<UserFavoriteStore_Bool_Exp>>>;
-  id?: Maybe<Uuid_Comparison_Exp>;
-  storeId?: Maybe<Uuid_Comparison_Exp>;
-  userId?: Maybe<String_Comparison_Exp>;
-};
-
-export enum UserFavoriteStore_Constraint {
-  UserFavoriteStore_pkey = 'UserFavoriteStore_pkey'
-}
-
-export type UserFavoriteStore_Insert_Input = {
-  Store?: Maybe<Store_Obj_Rel_Insert_Input>;
-  User?: Maybe<User_Obj_Rel_Insert_Input>;
-  id?: Maybe<Scalars['uuid']>;
-  storeId?: Maybe<Scalars['uuid']>;
-  userId?: Maybe<Scalars['String']>;
-};
-
-export type UserFavoriteStore_Max_Fields = {
-  __typename?: 'UserFavoriteStore_max_fields';
-  id?: Maybe<Scalars['uuid']>;
-  storeId?: Maybe<Scalars['uuid']>;
-  userId?: Maybe<Scalars['String']>;
-};
-
-export type UserFavoriteStore_Max_Order_By = {
-  id?: Maybe<Order_By>;
-  storeId?: Maybe<Order_By>;
-  userId?: Maybe<Order_By>;
-};
-
-export type UserFavoriteStore_Min_Fields = {
-  __typename?: 'UserFavoriteStore_min_fields';
-  id?: Maybe<Scalars['uuid']>;
-  storeId?: Maybe<Scalars['uuid']>;
-  userId?: Maybe<Scalars['String']>;
-};
-
-export type UserFavoriteStore_Min_Order_By = {
-  id?: Maybe<Order_By>;
-  storeId?: Maybe<Order_By>;
-  userId?: Maybe<Order_By>;
-};
-
-export type UserFavoriteStore_Mutation_Response = {
-  __typename?: 'UserFavoriteStore_mutation_response';
-  affected_rows: Scalars['Int'];
-  returning: Array<UserFavoriteStore>;
-};
-
-export type UserFavoriteStore_Obj_Rel_Insert_Input = {
-  data: UserFavoriteStore_Insert_Input;
-  on_conflict?: Maybe<UserFavoriteStore_On_Conflict>;
-};
-
-export type UserFavoriteStore_On_Conflict = {
-  constraint: UserFavoriteStore_Constraint;
-  update_columns: Array<UserFavoriteStore_Update_Column>;
-  where?: Maybe<UserFavoriteStore_Bool_Exp>;
-};
-
-export type UserFavoriteStore_Order_By = {
-  Store?: Maybe<Store_Order_By>;
-  User?: Maybe<User_Order_By>;
-  id?: Maybe<Order_By>;
-  storeId?: Maybe<Order_By>;
-  userId?: Maybe<Order_By>;
-};
-
-export type UserFavoriteStore_Pk_Columns_Input = {
-  id: Scalars['uuid'];
-};
-
-export enum UserFavoriteStore_Select_Column {
-  id = 'id',
-  storeId = 'storeId',
-  userId = 'userId'
-}
-
-export type UserFavoriteStore_Set_Input = {
-  id?: Maybe<Scalars['uuid']>;
-  storeId?: Maybe<Scalars['uuid']>;
-  userId?: Maybe<Scalars['String']>;
-};
-
-export enum UserFavoriteStore_Update_Column {
-  id = 'id',
-  storeId = 'storeId',
+  itemId = 'itemId',
   userId = 'userId'
 }
 
@@ -3262,7 +2965,7 @@ export type StoreInfoFragment = (
 
 export type PopularItemInfoFragment = (
   { __typename?: 'StoreItem' }
-  & Pick<StoreItem, 'price' | 'longName' | 'barcodeId' | 'shortName'>
+  & Pick<StoreItem, 'id' | 'price' | 'longName' | 'barcodeId' | 'shortName'>
   & { StoreItemPic?: Maybe<(
     { __typename?: 'StoreItemPic' }
     & Pick<StoreItemPic, 'size64'>
@@ -3278,13 +2981,7 @@ export type StoreItemInfoFragment = (
   & { StoreItemPic?: Maybe<(
     { __typename?: 'StoreItemPic' }
     & Pick<StoreItemPic, 'size256'>
-  )>, Store: (
-    { __typename?: 'Store' }
-    & { StorePic?: Maybe<(
-      { __typename?: 'StorePic' }
-      & Pick<StorePic, 'size128'>
-    )> }
-  ) }
+  )> }
   & PopularItemInfoFragment
 );
 
@@ -3325,7 +3022,7 @@ export type UserOrderInfoFragment = (
 );
 
 export type AddUserCartItemMutationVariables = Exact<{
-  itemBarcodeId: Scalars['String'];
+  itemId: Scalars['String'];
   userId: Scalars['String'];
 }>;
 
@@ -3342,7 +3039,7 @@ export type AddUserCartItemMutation = (
 );
 
 export type AddUserFavoriteItemMutationVariables = Exact<{
-  itemBarcodeId: Scalars['String'];
+  itemId: Scalars['String'];
   userId: Scalars['String'];
 }>;
 
@@ -3479,7 +3176,7 @@ export type PurchaseStoreItemsMutation = (
 );
 
 export type RemoveUserCartItemMutationVariables = Exact<{
-  itemBarcodeId: Scalars['String'];
+  itemId: Scalars['String'];
   userId: Scalars['String'];
 }>;
 
@@ -3493,7 +3190,7 @@ export type RemoveUserCartItemMutation = (
 );
 
 export type RemoveUserFavoriteItemMutationVariables = Exact<{
-  itemBarcodeId: Scalars['String'];
+  itemId: Scalars['String'];
   userId: Scalars['String'];
 }>;
 
@@ -3516,20 +3213,6 @@ export type RemoveUserShoppingMutation = (
   & { delete_UserShopping?: Maybe<(
     { __typename?: 'UserShopping_mutation_response' }
     & Pick<UserShopping_Mutation_Response, 'affected_rows'>
-  )> }
-);
-
-export type UpdateStoreItemPurchaseMutationVariables = Exact<{
-  barcodeId: Scalars['String'];
-  purchased: Scalars['Boolean'];
-}>;
-
-
-export type UpdateStoreItemPurchaseMutation = (
-  { __typename?: 'mutation_root' }
-  & { update_StoreItem_by_pk?: Maybe<(
-    { __typename?: 'StoreItem' }
-    & StoreItemInfoFragment
   )> }
 );
 
@@ -3563,40 +3246,36 @@ export type UpdateUserShoppingMutation = (
 );
 
 export type CheckItemInCartQueryVariables = Exact<{
-  barcodeId: Scalars['String'];
+  itemId: Scalars['String'];
 }>;
 
 
 export type CheckItemInCartQuery = (
   { __typename?: 'query_root' }
-  & { StoreItem_by_pk?: Maybe<(
-    { __typename?: 'StoreItem' }
-    & { UserCartItems: Array<(
-      { __typename?: 'UserCartItem' }
-      & { StoreItem: (
-        { __typename?: 'StoreItem' }
-        & StoreItemInfoFragment
-      ) }
-    )> }
+  & { UserCartItem: Array<(
+    { __typename?: 'UserCartItem' }
+    & Pick<UserCartItem, 'id'>
+    & { StoreItem: (
+      { __typename?: 'StoreItem' }
+      & StoreItemInfoFragment
+    ) }
   )> }
 );
 
 export type CheckItemInFavoritesQueryVariables = Exact<{
-  barcodeId: Scalars['String'];
+  itemId: Scalars['String'];
 }>;
 
 
 export type CheckItemInFavoritesQuery = (
   { __typename?: 'query_root' }
-  & { StoreItem_by_pk?: Maybe<(
-    { __typename?: 'StoreItem' }
-    & { UserFavoriteItems: Array<(
-      { __typename?: 'UserFavoriteItem' }
-      & { StoreItem: (
-        { __typename?: 'StoreItem' }
-        & StoreItemInfoFragment
-      ) }
-    )> }
+  & { UserFavoriteItem: Array<(
+    { __typename?: 'UserFavoriteItem' }
+    & Pick<UserFavoriteItem, 'id'>
+    & { StoreItem: (
+      { __typename?: 'StoreItem' }
+      & StoreItemInfoFragment
+    ) }
   )> }
 );
 
@@ -3636,7 +3315,7 @@ export type GetStoreItemQueryVariables = Exact<{
 
 export type GetStoreItemQuery = (
   { __typename?: 'query_root' }
-  & { StoreItem_by_pk?: Maybe<(
+  & { StoreItem: Array<(
     { __typename?: 'StoreItem' }
     & StoreItemInfoFragment
   )> }
@@ -3756,6 +3435,7 @@ export const UserInfoFragmentDoc = gql`
     ${PaymentInfoFragmentDoc}`;
 export const PopularItemInfoFragmentDoc = gql`
     fragment PopularItemInfo on StoreItem {
+  id
   price
   longName
   barcodeId
@@ -3774,11 +3454,6 @@ export const StoreItemInfoFragmentDoc = gql`
   description
   StoreItemPic {
     size256
-  }
-  Store {
-    StorePic {
-      size128
-    }
   }
   ...PopularItemInfo
 }
@@ -3809,10 +3484,8 @@ export const UserOrderInfoFragmentDoc = gql`
 }
     ${PopularItemInfoFragmentDoc}`;
 export const AddUserCartItemDocument = gql`
-    mutation AddUserCartItem($itemBarcodeId: String!, $userId: String!) {
-  insert_UserCartItem_one(
-    object: {itemBarcodeId: $itemBarcodeId, userId: $userId}
-  ) {
+    mutation AddUserCartItem($itemId: String!, $userId: String!) {
+  insert_UserCartItem_one(object: {itemId: $itemId, userId: $userId}) {
     StoreItem {
       ...StoreItemInfo
     }
@@ -3834,7 +3507,7 @@ export type AddUserCartItemMutationFn = Apollo.MutationFunction<AddUserCartItemM
  * @example
  * const [addUserCartItemMutation, { data, loading, error }] = useAddUserCartItemMutation({
  *   variables: {
- *      itemBarcodeId: // value for 'itemBarcodeId'
+ *      itemId: // value for 'itemId'
  *      userId: // value for 'userId'
  *   },
  * });
@@ -3846,10 +3519,8 @@ export type AddUserCartItemMutationHookResult = ReturnType<typeof useAddUserCart
 export type AddUserCartItemMutationResult = Apollo.MutationResult<AddUserCartItemMutation>;
 export type AddUserCartItemMutationOptions = Apollo.BaseMutationOptions<AddUserCartItemMutation, AddUserCartItemMutationVariables>;
 export const AddUserFavoriteItemDocument = gql`
-    mutation AddUserFavoriteItem($itemBarcodeId: String!, $userId: String!) {
-  insert_UserFavoriteItem_one(
-    object: {itemBarcodeId: $itemBarcodeId, userId: $userId}
-  ) {
+    mutation AddUserFavoriteItem($itemId: String!, $userId: String!) {
+  insert_UserFavoriteItem_one(object: {itemId: $itemId, userId: $userId}) {
     StoreItem {
       ...StoreItemInfo
     }
@@ -3871,7 +3542,7 @@ export type AddUserFavoriteItemMutationFn = Apollo.MutationFunction<AddUserFavor
  * @example
  * const [addUserFavoriteItemMutation, { data, loading, error }] = useAddUserFavoriteItemMutation({
  *   variables: {
- *      itemBarcodeId: // value for 'itemBarcodeId'
+ *      itemId: // value for 'itemId'
  *      userId: // value for 'userId'
  *   },
  * });
@@ -4165,10 +3836,8 @@ export type PurchaseStoreItemsMutationHookResult = ReturnType<typeof usePurchase
 export type PurchaseStoreItemsMutationResult = Apollo.MutationResult<PurchaseStoreItemsMutation>;
 export type PurchaseStoreItemsMutationOptions = Apollo.BaseMutationOptions<PurchaseStoreItemsMutation, PurchaseStoreItemsMutationVariables>;
 export const RemoveUserCartItemDocument = gql`
-    mutation RemoveUserCartItem($itemBarcodeId: String!, $userId: String!) {
-  delete_UserCartItem(
-    where: {itemBarcodeId: {_eq: $itemBarcodeId}, userId: {_eq: $userId}}
-  ) {
+    mutation RemoveUserCartItem($itemId: String!, $userId: String!) {
+  delete_UserCartItem(where: {itemId: {_eq: $itemId}, userId: {_eq: $userId}}) {
     affected_rows
   }
 }
@@ -4188,7 +3857,7 @@ export type RemoveUserCartItemMutationFn = Apollo.MutationFunction<RemoveUserCar
  * @example
  * const [removeUserCartItemMutation, { data, loading, error }] = useRemoveUserCartItemMutation({
  *   variables: {
- *      itemBarcodeId: // value for 'itemBarcodeId'
+ *      itemId: // value for 'itemId'
  *      userId: // value for 'userId'
  *   },
  * });
@@ -4200,10 +3869,8 @@ export type RemoveUserCartItemMutationHookResult = ReturnType<typeof useRemoveUs
 export type RemoveUserCartItemMutationResult = Apollo.MutationResult<RemoveUserCartItemMutation>;
 export type RemoveUserCartItemMutationOptions = Apollo.BaseMutationOptions<RemoveUserCartItemMutation, RemoveUserCartItemMutationVariables>;
 export const RemoveUserFavoriteItemDocument = gql`
-    mutation RemoveUserFavoriteItem($itemBarcodeId: String!, $userId: String!) {
-  delete_UserFavoriteItem(
-    where: {itemBarcodeId: {_eq: $itemBarcodeId}, userId: {_eq: $userId}}
-  ) {
+    mutation RemoveUserFavoriteItem($itemId: String!, $userId: String!) {
+  delete_UserFavoriteItem(where: {itemId: {_eq: $itemId}, userId: {_eq: $userId}}) {
     affected_rows
   }
 }
@@ -4223,7 +3890,7 @@ export type RemoveUserFavoriteItemMutationFn = Apollo.MutationFunction<RemoveUse
  * @example
  * const [removeUserFavoriteItemMutation, { data, loading, error }] = useRemoveUserFavoriteItemMutation({
  *   variables: {
- *      itemBarcodeId: // value for 'itemBarcodeId'
+ *      itemId: // value for 'itemId'
  *      userId: // value for 'userId'
  *   },
  * });
@@ -4266,42 +3933,6 @@ export function useRemoveUserShoppingMutation(baseOptions?: Apollo.MutationHookO
 export type RemoveUserShoppingMutationHookResult = ReturnType<typeof useRemoveUserShoppingMutation>;
 export type RemoveUserShoppingMutationResult = Apollo.MutationResult<RemoveUserShoppingMutation>;
 export type RemoveUserShoppingMutationOptions = Apollo.BaseMutationOptions<RemoveUserShoppingMutation, RemoveUserShoppingMutationVariables>;
-export const UpdateStoreItemPurchaseDocument = gql`
-    mutation UpdateStoreItemPurchase($barcodeId: String!, $purchased: Boolean!) {
-  update_StoreItem_by_pk(
-    pk_columns: {barcodeId: $barcodeId}
-    _set: {purchased: $purchased}
-  ) {
-    ...StoreItemInfo
-  }
-}
-    ${StoreItemInfoFragmentDoc}`;
-export type UpdateStoreItemPurchaseMutationFn = Apollo.MutationFunction<UpdateStoreItemPurchaseMutation, UpdateStoreItemPurchaseMutationVariables>;
-
-/**
- * __useUpdateStoreItemPurchaseMutation__
- *
- * To run a mutation, you first call `useUpdateStoreItemPurchaseMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useUpdateStoreItemPurchaseMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [updateStoreItemPurchaseMutation, { data, loading, error }] = useUpdateStoreItemPurchaseMutation({
- *   variables: {
- *      barcodeId: // value for 'barcodeId'
- *      purchased: // value for 'purchased'
- *   },
- * });
- */
-export function useUpdateStoreItemPurchaseMutation(baseOptions?: Apollo.MutationHookOptions<UpdateStoreItemPurchaseMutation, UpdateStoreItemPurchaseMutationVariables>) {
-        return Apollo.useMutation<UpdateStoreItemPurchaseMutation, UpdateStoreItemPurchaseMutationVariables>(UpdateStoreItemPurchaseDocument, baseOptions);
-      }
-export type UpdateStoreItemPurchaseMutationHookResult = ReturnType<typeof useUpdateStoreItemPurchaseMutation>;
-export type UpdateStoreItemPurchaseMutationResult = Apollo.MutationResult<UpdateStoreItemPurchaseMutation>;
-export type UpdateStoreItemPurchaseMutationOptions = Apollo.BaseMutationOptions<UpdateStoreItemPurchaseMutation, UpdateStoreItemPurchaseMutationVariables>;
 export const UpdateUserNameDocument = gql`
     mutation UpdateUserName($id: String!, $firstName: name, $lastName: name) {
   update_User(
@@ -4376,12 +4007,11 @@ export type UpdateUserShoppingMutationHookResult = ReturnType<typeof useUpdateUs
 export type UpdateUserShoppingMutationResult = Apollo.MutationResult<UpdateUserShoppingMutation>;
 export type UpdateUserShoppingMutationOptions = Apollo.BaseMutationOptions<UpdateUserShoppingMutation, UpdateUserShoppingMutationVariables>;
 export const CheckItemInCartDocument = gql`
-    query CheckItemInCart($barcodeId: String!) {
-  StoreItem_by_pk(barcodeId: $barcodeId) {
-    UserCartItems(where: {StoreItem: {barcodeId: {_eq: $barcodeId}}}) {
-      StoreItem {
-        ...StoreItemInfo
-      }
+    query CheckItemInCart($itemId: String!) {
+  UserCartItem(where: {itemId: {_eq: $itemId}}) {
+    id
+    StoreItem {
+      ...StoreItemInfo
     }
   }
 }
@@ -4399,7 +4029,7 @@ export const CheckItemInCartDocument = gql`
  * @example
  * const { data, loading, error } = useCheckItemInCartQuery({
  *   variables: {
- *      barcodeId: // value for 'barcodeId'
+ *      itemId: // value for 'itemId'
  *   },
  * });
  */
@@ -4416,12 +4046,11 @@ export function refetchCheckItemInCartQuery(variables?: CheckItemInCartQueryVari
       return { query: CheckItemInCartDocument, variables: variables }
     }
 export const CheckItemInFavoritesDocument = gql`
-    query CheckItemInFavorites($barcodeId: String!) {
-  StoreItem_by_pk(barcodeId: $barcodeId) {
-    UserFavoriteItems(where: {StoreItem: {barcodeId: {_eq: $barcodeId}}}) {
-      StoreItem {
-        ...StoreItemInfo
-      }
+    query CheckItemInFavorites($itemId: String!) {
+  UserFavoriteItem(where: {itemId: {_eq: $itemId}}) {
+    id
+    StoreItem {
+      ...StoreItemInfo
     }
   }
 }
@@ -4439,7 +4068,7 @@ export const CheckItemInFavoritesDocument = gql`
  * @example
  * const { data, loading, error } = useCheckItemInFavoritesQuery({
  *   variables: {
- *      barcodeId: // value for 'barcodeId'
+ *      itemId: // value for 'itemId'
  *   },
  * });
  */
@@ -4531,7 +4160,7 @@ export function refetchGetStoreInfoQuery(variables?: GetStoreInfoQueryVariables)
     }
 export const GetStoreItemDocument = gql`
     query GetStoreItem($barcodeId: String!) {
-  StoreItem_by_pk(barcodeId: $barcodeId) {
+  StoreItem(where: {barcodeId: {_eq: $barcodeId}}, order_by: {purchased: desc}) {
     ...StoreItemInfo
   }
 }

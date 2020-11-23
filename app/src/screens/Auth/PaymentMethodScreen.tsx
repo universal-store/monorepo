@@ -34,10 +34,9 @@ import { StackScreenProps } from '@react-navigation/stack';
 // GraphQL
 import {
   GetUserDocument,
-  PaymentInfoFragment,
-  useCreatePaymentMethodMutation,
-  useEditPaymentMethodMutation,
   useGetUserQuery,
+  useEditPaymentMethodMutation,
+  useCreatePaymentMethodMutation,
 } from '&graphql';
 
 // Utils

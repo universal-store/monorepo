@@ -1,6 +1,7 @@
 # @format
 
 fragment PopularItemInfo on StoreItem {
+    id
     price
     longName
     barcodeId
@@ -19,11 +20,6 @@ fragment StoreItemInfo on StoreItem {
     description
     StoreItemPic {
         size256
-    }
-    Store {
-        StorePic {
-            size128
-        }
     }
     ...PopularItemInfo
 }

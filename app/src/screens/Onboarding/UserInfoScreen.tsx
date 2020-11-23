@@ -32,8 +32,8 @@ import {
 import { AppIcon, PersonIcon } from '&icons';
 
 // Navigation
-import { StackScreenProps } from '@react-navigation/stack';
 import { OnboardingStackParams } from '&navigation';
+import { StackScreenProps } from '@react-navigation/stack';
 
 // Context
 import { Firebase } from '&lib';

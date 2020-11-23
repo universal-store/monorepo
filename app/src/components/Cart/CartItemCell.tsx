@@ -46,7 +46,7 @@ interface CartItemCellProps {
 }
 
 export const CartItemCell = ({ cartItem, inCheckout }: CartItemCellProps) => {
-  const { StoreItemPic, shortName, longName, price, barcodeId } = cartItem;
+  const { StoreItemPic, shortName, longName, price, barcodeId, id: itemId } = cartItem;
 
   // Navigation
   const navigation = useNavigation();
@@ -63,7 +63,7 @@ export const CartItemCell = ({ cartItem, inCheckout }: CartItemCellProps) => {
 
   // Check if in favorites
   const [favorite, setFavorite] = useState<boolean>(true);
-  const { data: userFavorites } = useCheckItemInFavoritesQuery({ variables: { barcodeId } });
+  const { data: userFavorites } = useCheckItemInFavoritesQuery({ variables: { itemId } });
 
   // Swipeable Actions
   const renderLeftActions = () => (
@@ -71,18 +71,18 @@ export const CartItemCell = ({ cartItem, inCheckout }: CartItemCellProps) => {
       onPress={() => {
         if (favorite) {
           void removeFromFavoritesMutation({
-            variables: { userId, itemBarcodeId: barcodeId },
+            variables: { userId, itemId },
             refetchQueries: [
               { query: GetUserFavoriteItemsDocument },
-              { query: CheckItemInFavoritesDocument, variables: { barcodeId } },
+              { query: CheckItemInFavoritesDocument, variables: { itemId } },
             ],
           });
         } else {
           void addToFavoritesMutation({
-            variables: { userId, itemBarcodeId: barcodeId },
+            variables: { userId, itemId },
             refetchQueries: [
               { query: GetUserFavoriteItemsDocument },
-              { query: CheckItemInFavoritesDocument, variables: { barcodeId } },
+              { query: CheckItemInFavoritesDocument, variables: { itemId } },
             ],
           });
         }
@@ -98,7 +98,7 @@ export const CartItemCell = ({ cartItem, inCheckout }: CartItemCellProps) => {
     <AnimatedSwipeRemoveContainer
       onPress={() => {
         void removeFromCartMutation({
-          variables: { userId, itemBarcodeId: barcodeId },
+          variables: { userId, itemId },
           refetchQueries: [{ query: GetUserCartItemsDocument }],
         });
 
@@ -111,7 +111,7 @@ export const CartItemCell = ({ cartItem, inCheckout }: CartItemCellProps) => {
 
   useEffect(() => {
     if (userFavorites) {
-      setFavorite(userFavorites.StoreItem_by_pk?.UserFavoriteItems.length !== 0);
+      setFavorite(userFavorites.UserFavoriteItem.length !== 0);
     }
   }, [favorite, userFavorites]);
 

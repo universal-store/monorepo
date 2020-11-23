@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useEffect, useState } from 'react';
-import { Alert, Animated, Text } from 'react-native';
+import { Alert, Animated } from 'react-native';
 
 // Libraries
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
@@ -58,11 +58,12 @@ export const ItemPreview = ({ badScan, barcodeId, onPress, toggleScanned, shown 
   const userId = userData?.User[0].id!;
 
   // Get Item Query
-  const { data, loading } = useGetStoreItemQuery({ variables: { barcodeId }, fetchPolicy: 'no-cache' });
-  const itemData = data?.StoreItem_by_pk;
+  const { data, loading } = useGetStoreItemQuery({ variables: { barcodeId } });
+  const itemData = data?.StoreItem[0];
+  const itemId = itemData && itemData.id ? itemData.id : '';
 
   // Check Item In Cart Query
-  const { data: userCart } = useCheckItemInCartQuery({ variables: { barcodeId } });
+  const { data: userCart } = useCheckItemInCartQuery({ variables: { itemId } });
 
   // Cart Mutations
   const [addToCartMutation] = useAddUserCartItemMutation();
@@ -73,7 +74,7 @@ export const ItemPreview = ({ badScan, barcodeId, onPress, toggleScanned, shown 
 
   useEffect(() => {
     if (userCart) {
-      setInCart(userCart.StoreItem_by_pk?.UserCartItems.length !== 0);
+      setInCart(userCart.UserCartItem.length !== 0);
     }
   }, [inCart, userCart]);
 
@@ -112,18 +113,18 @@ export const ItemPreview = ({ badScan, barcodeId, onPress, toggleScanned, shown 
   const addOrRemoveFromCart = async () => {
     if (inCart) {
       await removeFromCartMutation({
-        variables: { userId, itemBarcodeId: barcodeId },
+        variables: { userId, itemId },
         refetchQueries: [
           { query: GetUserCartItemsDocument },
-          { query: CheckItemInCartDocument, variables: { barcodeId } },
+          { query: CheckItemInCartDocument, variables: { itemId } },
         ],
       });
     } else {
       await addToCartMutation({
-        variables: { userId, itemBarcodeId: barcodeId },
+        variables: { userId, itemId },
         refetchQueries: [
           { query: GetUserCartItemsDocument },
-          { query: CheckItemInCartDocument, variables: { barcodeId } },
+          { query: CheckItemInCartDocument, variables: { itemId } },
         ],
       });
     }
@@ -169,6 +170,8 @@ export const ItemPreview = ({ badScan, barcodeId, onPress, toggleScanned, shown 
       <AddToCartButton
         hitSlop={{ left: 8, right: 8 }}
         onPress={async () => {
+          ReactNativeHapticFeedback.trigger('selection', hapticOptions);
+
           await addOrRemoveFromCart();
           await toggleScanned();
         }}

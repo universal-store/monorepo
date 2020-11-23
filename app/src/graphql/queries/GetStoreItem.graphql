@@ -1,7 +1,7 @@
 # @format
 
 query GetStoreItem($barcodeId: String!) {
-    StoreItem_by_pk(barcodeId: $barcodeId) {
+    StoreItem(where: { barcodeId: { _eq: $barcodeId } }, order_by: { purchased: desc }) {
         ...StoreItemInfo
     }
 }

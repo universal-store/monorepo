@@ -1,5 +1,0 @@
-mutation UpdateStoreItemPurchase($barcodeId: String!, $purchased: Boolean!) {
-    update_StoreItem_by_pk(pk_columns: { barcodeId: $barcodeId }, _set: { purchased: $purchased }) {
-        ...StoreItemInfo
-    }
-}

@@ -23,7 +23,6 @@ import {
   CheckoutTextPurple,
   FullScreenWhite,
   OrderStoreDetailContainer,
-  StoreDetailHeaderRow,
   StoreDetailImage,
   StoreDetailImageContainer,
   StoreNameText,

@@ -39,7 +39,7 @@ interface FavoriteItemCellProps {
   favItem: StoreItemInfoFragment;
 }
 export const FavoriteItemCell = ({ favItem }: FavoriteItemCellProps) => {
-  const { StoreItemPic, longName, price, barcodeId, shortName } = favItem;
+  const { StoreItemPic, longName, price, barcodeId, shortName, id: itemId } = favItem;
 
   // Navigation
   const navigation = useNavigation();
@@ -55,7 +55,7 @@ export const FavoriteItemCell = ({ favItem }: FavoriteItemCellProps) => {
     <AnimatedSwipeRemoveContainer
       onPress={() => {
         void removeFromFavoritesMutation({
-          variables: { userId, itemBarcodeId: barcodeId },
+          variables: { userId, itemId },
           refetchQueries: [{ query: GetUserFavoriteItemsDocument }],
         });
 

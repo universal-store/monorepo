@@ -1,7 +1,7 @@
 /** @format */
 
 import React from 'react';
-import { FlatList, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
 
 // Libraries
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';

@@ -61,7 +61,7 @@ Universal Store is a mobile application that eliminates wait times and long line
     -   After gradle sync has completed, open command line 
         -   Terminal for Mac / Command Prompt for Windows
     -   Navigate to the monorepo-develop/app folder using cd
-    -   Type *run yarn android*
+    -   Type run *yarn android*
         -   This command will build the app on the Android device connected to the computer
 -   iOS
     -   After running the two yarn commands in command line, open XCode application (if not downloaded, install from App Store)

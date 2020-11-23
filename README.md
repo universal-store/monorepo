@@ -11,7 +11,11 @@ Universal Store is a mobile app that eliminates wait times and long lines when s
 -   Prettier and Eslint
 -   Firebase
 
-## Installation Guide:
+## Release Notes and Installation Guide:
+
+https://docs.google.com/document/d/1iwzAwDeSG40rd6eSSjFfsuVyyHgv0uo9m4W41JW6tfk/edit?usp=sharing
+
+## Installation Guide (for Team 0110 developers):
 
 > [Download Node (GET THE LTS 12.18.3, NOT CURRENT)](https://nodejs.org/en/download/)
 

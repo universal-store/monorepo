@@ -58,7 +58,7 @@ The purpose of Customer Delivery Documentation is to communicate the delivery in
    https://nodejs.org/en/download/
    
   ## 3.3 Download Instructions
-     - Visit the Universal Store GitHub Repository
+     - Visit the Universal Store GitHub Repository (current site)
      
    https://github.com/universal-store/monorepo
    

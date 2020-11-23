@@ -103,7 +103,7 @@ export const ReceiptScreen = ({ route }: ReceiptScreenProps) => {
         <CheckoutHeaderText>Order Total</CheckoutHeaderText>
         <CheckoutPaymentDetailsContainer>
           <CheckoutText>Sub-total:</CheckoutText>
-          <CheckoutText2>${subtotal}</CheckoutText2>
+          <CheckoutText2>${subtotal.toFixed(2)}</CheckoutText2>
         </CheckoutPaymentDetailsContainer>
         <CheckoutPaymentDetailsContainer>
           <CheckoutText>Sales Tax:</CheckoutText>

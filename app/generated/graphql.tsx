@@ -3162,7 +3162,7 @@ export type InsertStoreItemMutation = (
 );
 
 export type PurchaseStoreItemsMutationVariables = Exact<{
-  itemBarcodes: Array<Scalars['String']>;
+  items: Array<Scalars['String']>;
   orderId: Scalars['uuid'];
 }>;
 
@@ -3800,9 +3800,9 @@ export type InsertStoreItemMutationHookResult = ReturnType<typeof useInsertStore
 export type InsertStoreItemMutationResult = Apollo.MutationResult<InsertStoreItemMutation>;
 export type InsertStoreItemMutationOptions = Apollo.BaseMutationOptions<InsertStoreItemMutation, InsertStoreItemMutationVariables>;
 export const PurchaseStoreItemsDocument = gql`
-    mutation PurchaseStoreItems($itemBarcodes: [String!]!, $orderId: uuid!) {
+    mutation PurchaseStoreItems($items: [String!]!, $orderId: uuid!) {
   update_StoreItem(
-    where: {barcodeId: {_in: $itemBarcodes}}
+    where: {id: {_in: $items}}
     _set: {purchased: true, orderId: $orderId}
   ) {
     affected_rows
@@ -3824,7 +3824,7 @@ export type PurchaseStoreItemsMutationFn = Apollo.MutationFunction<PurchaseStore
  * @example
  * const [purchaseStoreItemsMutation, { data, loading, error }] = usePurchaseStoreItemsMutation({
  *   variables: {
- *      itemBarcodes: // value for 'itemBarcodes'
+ *      items: // value for 'items'
  *      orderId: // value for 'orderId'
  *   },
  * });

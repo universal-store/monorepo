@@ -84,7 +84,7 @@ export const CheckoutScreen = () => {
    */
   const checkoutItems = async () => {
     if (userId) {
-      const itemBarcodes = cartData.map(cartItem => cartItem.StoreItem.barcodeId);
+      const items = cartData.map(cartItem => cartItem.StoreItem.id);
 
       let orderData: UserOrderInfoFragment | undefined;
 
@@ -94,7 +94,7 @@ export const CheckoutScreen = () => {
             orderData = res.data.insert_UserOrder_one;
 
             if (orderData) {
-              await purchaseItemsMutation({ variables: { itemBarcodes, orderId: orderData.id } });
+              await purchaseItemsMutation({ variables: { items, orderId: orderData.id } });
               await clearCartMutation({ variables: { userId } });
               await navigation.navigate('ReceiptScreen', { orderData });
             }
@@ -141,7 +141,7 @@ export const CheckoutScreen = () => {
         <CheckoutHeaderText>Order Total</CheckoutHeaderText>
         <CheckoutPaymentDetailsContainer>
           <CheckoutText>Sub-total:</CheckoutText>
-          <CheckoutText2>${subtotal}</CheckoutText2>
+          <CheckoutText2>${subtotal.toFixed(2)}</CheckoutText2>
         </CheckoutPaymentDetailsContainer>
         <CheckoutPaymentDetailsContainer>
           <CheckoutText>Sales Tax:</CheckoutText>

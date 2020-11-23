@@ -38,6 +38,7 @@ The purpose of Customer Delivery Documentation is to communicate the delivery in
     No currently known bugs or defects.
 
 ## 3. Install Guide
+https://developer.android.com/studio/install
 
   ## 3.1 Pre-requisites
     Android (Mac/Windows) 

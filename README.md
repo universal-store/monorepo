@@ -41,7 +41,8 @@ The purpose of Customer Delivery Documentation is to communicate the delivery in
 
   ## 3.1 Pre-requisites
     Android (Mac/Windows) 
-       - Android Studio - https://developer.android.com/studio/install
+       - Android Studio
+          - https://developer.android.com/studio/install
        - Android device (to run the app on a physical Android device)
     iOS App (Mac only)
       - XCode : Install XCode using the App Store

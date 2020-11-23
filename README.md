@@ -27,8 +27,7 @@ The purpose of Customer Delivery Documentation is to communicate the delivery in
     - Map screen that you can navigate to look and search for stores.
     - Stores can be selected to start shopping in.
     - Barcode scanning feature.
-    - Item details page that shows information about scanned items and  allows them to    be. 
-    - added to cart or favorites.
+    - Item details page that shows information about scanned items and allows them to be added to cart or favorites.
     - Cart page to see all items in your cart.
     - Favorites page to see all favorited items.
     - Checkout screen, but no actual payment functionality yet.
@@ -42,21 +41,27 @@ The purpose of Customer Delivery Documentation is to communicate the delivery in
   ## 3.1 Pre-requisites
     Android (Mac/Windows) 
        - Android Studio
-       https://developer.android.com/studio/install
+   https://developer.android.com/studio/install
        - Android device (to run the app on a physical Android device)
     iOS App (Mac only)
       - XCode : Install XCode using the App Store
       - iOS device (to run the app on a physical iPhone device)
   ## 3.2 Dependent Libraries
      - Download and Install Yarn
-       https://classic.yarnpkg.com/en/docs/getting-started
-     - Download and Install Node
-       https://nodejs.org/en/download/
+     
+   https://classic.yarnpkg.com/en/docs/getting-started
+   
+    - Download and Install Node
+    
+   https://nodejs.org/en/download/
+   
   ## 3.3 Download Instructions
      - Visit the Universal Store GitHub Repository
-       https://github.com/universal-store/monorepo
+     
+   https://github.com/universal-store/monorepo
+   
      - Click on the “Code” button and download the ZIP file
-     - Unzip the ZIP file and save it in a folder you can access later through        command line
+     - Unzip the ZIP file and save it in a folder you can access later through the command line
   ## 3.4 Build Instructions
       * Mini crash course on commands *
           - cd: used to change current folder/directory
@@ -75,11 +80,11 @@ The purpose of Customer Delivery Documentation is to communicate the delivery in
       - Navigate to monorepo-develop/app folder using cd 
       - Run command below: 
       
-      yarn ios:pods
+  yarn ios:pods
       
       - Then run this command:
       
-      yarn ios:build
+  yarn ios:build
       
       - These two commands create a bundle of all JavaScript code that will run from the app natively.
   ## 3.5 Installation of Actual Application
@@ -89,7 +94,7 @@ The purpose of Customer Delivery Documentation is to communicate the delivery in
       - Navigate to the monorepo-develop/app folder using cd
         - After navigating to the monorepo-develop/app folder, run the command below:
         
-        yarn android
+  yarn android
         
           - This command will build the app on the Android device connected to the computer
     iOS

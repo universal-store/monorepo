@@ -38,24 +38,23 @@ The purpose of Customer Delivery Documentation is to communicate the delivery in
     No currently known bugs or defects.
 
 ## 3. Install Guide
-https://developer.android.com/studio/install
 
   ## 3.1 Pre-requisites
     Android (Mac/Windows) 
        - Android Studio
-          - https://developer.android.com/studio/install
+       https://developer.android.com/studio/install
        - Android device (to run the app on a physical Android device)
     iOS App (Mac only)
       - XCode : Install XCode using the App Store
       - iOS device (to run the app on a physical iPhone device)
   ## 3.2 Dependent Libraries
      - Download and Install Yarn
-        - https://classic.yarnpkg.com/en/docs/getting-started
+       https://classic.yarnpkg.com/en/docs/getting-started
      - Download and Install Node
-        - https://nodejs.org/en/download/
+       https://nodejs.org/en/download/
   ## 3.3 Download Instructions
      - Visit the Universal Store GitHub Repository
-        - https://github.com/universal-store/monorepo
+       https://github.com/universal-store/monorepo
      - Click on the “Code” button and download the ZIP file
      - Unzip the ZIP file and save it in a folder you can access later through        command line
   ## 3.4 Build Instructions
@@ -74,15 +73,24 @@ https://developer.android.com/studio/install
       - Open command line
         - Terminal for Mac / Command Prompt for Windows
       - Navigate to monorepo-develop/app folder using cd 
-      - Run yarn ios:pods
-      - Run yarn ios:build
-        - These two commands create a bundle of all JavaScript code that will run from the app natively.
+      - Run command below: 
+      
+      yarn ios:pods
+      
+      - Then run this command:
+      
+      yarn ios:build
+      
+      - These two commands create a bundle of all JavaScript code that will run from the app natively.
   ## 3.5 Installation of Actual Application
     Android
       - After Gradle sync has completed, open command line 
         - Terminal for Mac / Command Prompt for Windows
       - Navigate to the monorepo-develop/app folder using cd
-        - After navigating to the monorepo-develop/app folder, type run yarn android
+        - After navigating to the monorepo-develop/app folder, run the command below:
+        
+        yarn android
+        
           - This command will build the app on the Android device connected to the computer
     iOS
       - After running the two yarn commands in command line, open XCode application (if not downloaded, install from App Store)

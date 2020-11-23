@@ -96,7 +96,7 @@ export const CheckoutScreen = () => {
             if (orderData) {
               await purchaseItemsMutation({ variables: { items, orderId: orderData.id } });
               await clearCartMutation({ variables: { userId } });
-              await navigation.navigate('ReceiptScreen', { orderData });
+              await navigation.navigate('ReceiptScreen', { orderId: orderData.id });
             }
           }
         }

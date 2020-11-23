@@ -1,0 +1,5 @@
+query GetUserOrder($id: uuid!) {
+    UserOrder_by_pk(id: $id) {
+        ...UserOrderInfo
+    }
+}

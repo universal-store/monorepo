@@ -3365,6 +3365,19 @@ export type GetUserFavoriteItemsQuery = (
   )> }
 );
 
+export type GetUserOrderQueryVariables = Exact<{
+  id: Scalars['uuid'];
+}>;
+
+
+export type GetUserOrderQuery = (
+  { __typename?: 'query_root' }
+  & { UserOrder_by_pk?: Maybe<(
+    { __typename?: 'UserOrder' }
+    & UserOrderInfoFragment
+  )> }
+);
+
 export type GetUserOrdersQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4333,6 +4346,42 @@ export type GetUserFavoriteItemsLazyQueryHookResult = ReturnType<typeof useGetUs
 export type GetUserFavoriteItemsQueryResult = Apollo.QueryResult<GetUserFavoriteItemsQuery, GetUserFavoriteItemsQueryVariables>;
 export function refetchGetUserFavoriteItemsQuery(variables?: GetUserFavoriteItemsQueryVariables) {
       return { query: GetUserFavoriteItemsDocument, variables: variables }
+    }
+export const GetUserOrderDocument = gql`
+    query GetUserOrder($id: uuid!) {
+  UserOrder_by_pk(id: $id) {
+    ...UserOrderInfo
+  }
+}
+    ${UserOrderInfoFragmentDoc}`;
+
+/**
+ * __useGetUserOrderQuery__
+ *
+ * To run a query within a React component, call `useGetUserOrderQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetUserOrderQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetUserOrderQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useGetUserOrderQuery(baseOptions?: Apollo.QueryHookOptions<GetUserOrderQuery, GetUserOrderQueryVariables>) {
+        return Apollo.useQuery<GetUserOrderQuery, GetUserOrderQueryVariables>(GetUserOrderDocument, baseOptions);
+      }
+export function useGetUserOrderLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetUserOrderQuery, GetUserOrderQueryVariables>) {
+          return Apollo.useLazyQuery<GetUserOrderQuery, GetUserOrderQueryVariables>(GetUserOrderDocument, baseOptions);
+        }
+export type GetUserOrderQueryHookResult = ReturnType<typeof useGetUserOrderQuery>;
+export type GetUserOrderLazyQueryHookResult = ReturnType<typeof useGetUserOrderLazyQuery>;
+export type GetUserOrderQueryResult = Apollo.QueryResult<GetUserOrderQuery, GetUserOrderQueryVariables>;
+export function refetchGetUserOrderQuery(variables?: GetUserOrderQueryVariables) {
+      return { query: GetUserOrderDocument, variables: variables }
     }
 export const GetUserOrdersDocument = gql`
     query GetUserOrders {

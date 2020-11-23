@@ -33,11 +33,10 @@ import { CloseIcon } from '&icons';
 
 // Navigation
 import { AuthStackParams } from '&navigation';
-import { useNavigation } from '@react-navigation/native';
 import { StackScreenProps } from '@react-navigation/stack';
 
 // GraphQL
-import { StorePreviewFragment } from '&graphql';
+import { StorePreviewFragment, useGetUserOrderQuery } from '&graphql';
 
 // Utils
 import { hapticOptions } from '&utils';
@@ -47,14 +46,17 @@ const SALES_TAX_PERCENT = 0.04;
 
 type ReceiptScreenProps = StackScreenProps<AuthStackParams, 'ReceiptScreen'>;
 
-export const ReceiptScreen = ({ route }: ReceiptScreenProps) => {
-  const { orderData } = route.params;
+export const ReceiptScreen = ({ route, navigation }: ReceiptScreenProps) => {
+  const { orderId } = route.params;
+
+  const { data } = useGetUserOrderQuery({ variables: { id: orderId } });
+  const orderData = data?.UserOrder_by_pk;
 
   let storeData: StorePreviewFragment | undefined;
 
-  if (orderData.StoreItems.length > 0) storeData = orderData.StoreItems[0].Store;
+  if (!orderData) return <FullScreenWhite />;
 
-  const navigation = useNavigation();
+  if (orderData.StoreItems.length > 0) storeData = orderData.StoreItems[0].Store;
 
   // Price Constants
   const subtotal = orderData.StoreItems.reduce((a, orderItem) => a + parseFloat(orderItem.price.substring(1)), 0);
@@ -67,7 +69,7 @@ export const ReceiptScreen = ({ route }: ReceiptScreenProps) => {
         <CheckoutHeaderBackButton
           onPress={() => {
             ReactNativeHapticFeedback.trigger('selection', hapticOptions);
-            navigation.goBack();
+            navigation.navigate('TabNavigation', { screen: 'ProfileScreen' });
           }}
         >
           <CloseIcon />

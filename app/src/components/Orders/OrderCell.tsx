@@ -58,7 +58,7 @@ export const OrderCell = ({ orderData }: OrderCellProps) => {
     <OrderCellContainer
       onPress={() => {
         ReactNativeHapticFeedback.trigger('selection', hapticOptions);
-        navigation.navigate('ReceiptScreen', { orderData });
+        navigation.navigate('ReceiptScreen', { orderId: orderData.id });
       }}
     >
       {store && store.StorePic && <OrderCellImage resizeMode="contain" source={{ uri: store.StorePic.size64 }} />}

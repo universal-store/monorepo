@@ -147,7 +147,7 @@ export type AuthStackParams = {
   CheckoutScreen: undefined;
   TabNavigation: { screen: string };
   AddItemScreen: { barcodeId: string };
-  ReceiptScreen: { orderData: UserOrderInfoFragment };
+  ReceiptScreen: { orderId: string };
   ItemDetail: { barcodeId: string; scanned?: boolean };
   PaymentMethodScreen: { paymentMethod?: PaymentInfoFragment };
 };

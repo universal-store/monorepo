@@ -33,6 +33,7 @@ import {
   useAddUserCartItemMutation,
   useRemoveUserCartItemMutation,
   useUpdateUserShoppingMutation,
+  GetUserCartItemsDocument,
 } from '&graphql';
 
 // Utils
@@ -112,12 +113,18 @@ export const ItemPreview = ({ badScan, barcodeId, onPress, toggleScanned, shown 
     if (inCart) {
       await removeFromCartMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [{ query: CheckItemInCartDocument, variables: { barcodeId } }],
+        refetchQueries: [
+          { query: GetUserCartItemsDocument },
+          { query: CheckItemInCartDocument, variables: { barcodeId } },
+        ],
       });
     } else {
       await addToCartMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [{ query: CheckItemInCartDocument, variables: { barcodeId } }],
+        refetchQueries: [
+          { query: GetUserCartItemsDocument },
+          { query: CheckItemInCartDocument, variables: { barcodeId } },
+        ],
       });
     }
 

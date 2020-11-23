@@ -59,6 +59,8 @@ import {
   useUpdateUserShoppingMutation,
   useAddUserFavoriteItemMutation,
   useRemoveUserFavoriteItemMutation,
+  GetUserFavoriteItemsDocument,
+  GetUserCartItemsDocument,
 } from '&graphql';
 
 // Utils
@@ -111,12 +113,18 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
     if (favorite) {
       await removeFromFavoritesMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [{ query: CheckItemInFavoritesDocument, variables: { barcodeId } }],
+        refetchQueries: [
+          { query: GetUserFavoriteItemsDocument },
+          { query: CheckItemInFavoritesDocument, variables: { barcodeId } },
+        ],
       });
     } else {
       await addToFavoritesMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [{ query: CheckItemInFavoritesDocument, variables: { barcodeId } }],
+        refetchQueries: [
+          { query: GetUserFavoriteItemsDocument },
+          { query: CheckItemInFavoritesDocument, variables: { barcodeId } },
+        ],
       });
     }
   };
@@ -128,12 +136,18 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
     if (inCart) {
       await removeFromCartMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [{ query: CheckItemInCartDocument, variables: { barcodeId } }],
+        refetchQueries: [
+          { query: GetUserCartItemsDocument },
+          { query: CheckItemInCartDocument, variables: { barcodeId } },
+        ],
       });
     } else {
       await addToCartMutation({
         variables: { userId, itemBarcodeId: barcodeId },
-        refetchQueries: [{ query: CheckItemInCartDocument, variables: { barcodeId } }],
+        refetchQueries: [
+          { query: GetUserCartItemsDocument },
+          { query: CheckItemInCartDocument, variables: { barcodeId } },
+        ],
       });
     }
 

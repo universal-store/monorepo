@@ -72,7 +72,7 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
   const { data: userData } = useGetUserQuery();
   const userId = userData?.User[0].id!;
 
-  const { data, loading } = useGetStoreItemQuery({ variables: { barcodeId } });
+  const { data, loading } = useGetStoreItemQuery({ variables: { barcodeId }, fetchPolicy: 'no-cache' });
   const itemData = data?.StoreItem_by_pk;
 
   const { data: userCartItems } = useGetUserCartItemsQuery();
@@ -184,7 +184,6 @@ export const ItemDetail = ({ route, navigation }: ItemDetailProps) => {
               showsVerticalScrollIndicator={false}
               contentContainerStyle={{ paddingBottom: isiPhoneX ? 104 : 70 }}
             >
-              <ProductDetailsText>{itemData.description}</ProductDetailsText>
               <ProductDetailsText>{itemData.description}</ProductDetailsText>
             </ProductDetailsScroll>
           </>

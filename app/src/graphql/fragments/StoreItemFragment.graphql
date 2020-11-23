@@ -16,11 +16,8 @@ fragment PopularItemInfo on StoreItem {
 
 fragment StoreItemInfo on StoreItem {
     quantity
-    longName
-    purchased
     description
     StoreItemPic {
-        size128
         size256
     }
     Store {

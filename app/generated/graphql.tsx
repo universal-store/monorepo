@@ -3274,10 +3274,10 @@ export type PopularItemInfoFragment = (
 
 export type StoreItemInfoFragment = (
   { __typename?: 'StoreItem' }
-  & Pick<StoreItem, 'quantity' | 'longName' | 'purchased' | 'description'>
+  & Pick<StoreItem, 'quantity' | 'description'>
   & { StoreItemPic?: Maybe<(
     { __typename?: 'StoreItemPic' }
-    & Pick<StoreItemPic, 'size128' | 'size256'>
+    & Pick<StoreItemPic, 'size256'>
   )>, Store: (
     { __typename?: 'Store' }
     & { StorePic?: Maybe<(
@@ -3771,11 +3771,8 @@ export const PopularItemInfoFragmentDoc = gql`
 export const StoreItemInfoFragmentDoc = gql`
     fragment StoreItemInfo on StoreItem {
   quantity
-  longName
-  purchased
   description
   StoreItemPic {
-    size128
     size256
   }
   Store {

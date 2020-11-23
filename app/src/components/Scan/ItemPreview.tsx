@@ -26,6 +26,7 @@ import { useNavigation } from '@react-navigation/native';
 
 // Queries
 import {
+  GetUserCartItemsDocument,
   CheckItemInCartDocument,
   useGetUserQuery,
   useGetStoreItemQuery,
@@ -33,7 +34,6 @@ import {
   useAddUserCartItemMutation,
   useRemoveUserCartItemMutation,
   useUpdateUserShoppingMutation,
-  GetUserCartItemsDocument,
 } from '&graphql';
 
 // Utils
@@ -95,13 +95,13 @@ export const ItemPreview = ({ badScan, barcodeId, onPress, toggleScanned, shown 
       Alert.alert('Incorrect Scan!', `That item does not belong to this Store`, [
         { text: 'Okay', onPress: badScan },
         // TODO: Use for adding items during development
-        {
-          text: 'Add Item To Database',
-          onPress: () => {
-            badScan();
-            navigation.navigate('AddItemScreen', { barcodeId });
-          },
-        },
+        // {
+        //   text: 'Add Item To Database',
+        //   onPress: () => {
+        //     badScan();
+        //     navigation.navigate('AddItemScreen', { barcodeId });
+        //   },
+        // },
       ]);
     }
   }, [shown, loading, itemData]);

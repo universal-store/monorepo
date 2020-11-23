@@ -1,6 +1,6 @@
 /** @format */
 
-import React from 'react';
+import React, { useCallback } from 'react';
 
 // Libraries
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
@@ -24,8 +24,8 @@ import {
 } from '&components';
 
 // Navigation
-import {}
 import { AuthStackParams } from '&navigation';
+import { useFocusEffect } from '@react-navigation/native';
 import { StackScreenProps } from '@react-navigation/stack';
 
 // GraphQL
@@ -37,13 +37,19 @@ import { hapticOptions } from '&utils';
 type CartScreenProps = StackScreenProps<AuthStackParams, 'TabNavigation'>;
 
 export const CartScreen = ({ navigation }: CartScreenProps) => {
-  const { data, loading } = useGetUserCartItemsQuery();
+  const { data, loading, refetch } = useGetUserCartItemsQuery();
   const cartData = data?.UserCartItem;
 
   let cartTotal = 0;
   if (cartData) {
     cartTotal = cartData.reduce((a, cartItem) => a + parseFloat(cartItem.StoreItem.price.substring(1)), 0);
   }
+
+  useFocusEffect(
+    useCallback(() => {
+      void refetch();
+    }, [refetch])
+  );
 
   return (
     <FullScreenWhite>

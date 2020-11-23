@@ -17,8 +17,6 @@ Developed by: Team 0110
 
 Universal Store Customer Delivery Documentation
 
-## Overview
-
 The purpose of Customer Delivery Documentation is to communicate the delivery information to the customer, the status of the software at the time of hand-off, and the steps to acquire, install, and run the Universal Store mobile application. 
 
 ## 2. Release Notes Version 1.0
@@ -35,17 +33,17 @@ The purpose of Customer Delivery Documentation is to communicate the delivery in
     - Favorites page to see all favorited items.
     - Checkout screen, but no actual payment functionality yet.
   ## 2.2 Bug Fixes Since Last Release
-    - Not applicable, this is the first release.
+    Not applicable, this is the first release.
   ## 2.3 Known Bugs and Defects
-    - No currently known bugs or defects.
+    No currently known bugs or defects.
 
 ## 3. Install Guide
 
   ## 3.1 Pre-requisites
-    ## Android (Mac/Windows) 
+    Android (Mac/Windows) 
        - Android Studio - https://developer.android.com/studio/install
        - Android device (to run the app on a physical Android device)
-    ## iOS App (Mac only)
+    iOS App (Mac only)
       - XCode : Install XCode using the App Store
       - iOS device (to run the app on a physical iPhone device)
   ## 3.2 Dependent Libraries
@@ -66,11 +64,11 @@ The purpose of Customer Delivery Documentation is to communicate the delivery in
           - ls: lists all visible directories/folders contained in current directory
              - i.e. Typing ls into command line when the current directory is monorepo-develop 
                - This will show all folders contained in monorepo-develop when the current directory is set to monorepo-develop
-    ## Android
+    Android
       - Open app/android folder in Android Studio to allow gradle to sync.
         - Located in the monorepo-develop folder (unzipped file)
       - Once gradle sync has completed, connect an android device to your computer.
-    ## iOS 
+    iOS 
       - Open command line
         - Terminal for Mac / Command Prompt for Windows
       - Navigate to monorepo-develop/app folder using cd 
@@ -78,13 +76,13 @@ The purpose of Customer Delivery Documentation is to communicate the delivery in
       - Run yarn ios:build
         - These two commands create a bundle of all JavaScript code that will run from the app natively.
   ## 3.5 Installation of Actual Application
-    ## Android
+    Android
       - After Gradle sync has completed, open command line 
         - Terminal for Mac / Command Prompt for Windows
       - Navigate to the monorepo-develop/app folder using cd
         - After navigating to the monorepo-develop/app folder, type run yarn android
           - This command will build the app on the Android device connected to the computer
-    ## iOS
+    iOS
       - After running the two yarn commands in command line, open XCode application (if not downloaded, install from App Store)
       - Open UniversalStore.xcworkspace file in XCode
         - This will open the entire project.
@@ -103,9 +101,9 @@ The purpose of Customer Delivery Documentation is to communicate the delivery in
       - Click Play button at the top bar 
         - This installs the app to your iPhone device.
   ## 3.6 Run Instructions
-    - To run the app on your iPhone/Android, simply tap on the Universal Store app icon on your device!
+    To run the app on your iPhone/Android, simply tap on the Universal Store app icon on your device!
   ## 3.7 Troubleshooting
-    ## iOS
+    iOS
       - If during app installation it says it failed due to lack of verification in your physical device
         - Visit the settings app on your iPhone and navigate to General.
         - Then visit the Device Management tab

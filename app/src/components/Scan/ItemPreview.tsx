@@ -57,7 +57,7 @@ export const ItemPreview = ({ badScan, barcodeId, onPress, toggleScanned, shown 
   const userId = userData?.User[0].id!;
 
   // Get Item Query
-  const { data, loading } = useGetStoreItemQuery({ variables: { barcodeId } });
+  const { data, loading } = useGetStoreItemQuery({ variables: { barcodeId }, fetchPolicy: 'no-cache' });
   const itemData = data?.StoreItem_by_pk;
 
   // Check Item In Cart Query

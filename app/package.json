@@ -31,7 +31,7 @@
     "graphql": "^15.3.0",
     "metro-react-native-babel-preset": "^0.63.0",
     "react": "^17.0.1",
-    "react-native": "^0.63.2",
+    "react-native": "^0.64.1",
     "react-native-animated-nav-tab-bar": "^3.0.5",
     "react-native-device-info": "^7.0.2",
     "react-native-gesture-handler": "^1.5.6",
